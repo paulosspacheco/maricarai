@@ -210,7 +210,7 @@
   <CompilerOptions>
     <Version Value="11"/>
     <Target>
-      <Filename Value="bin/$(TargetCPU)-$(TargetOS)/mi.ui.lcl.form.test.rtl"/>
+      <Filename Value="bin/$(TargetCPU)-$(TargetOS)/mi.ui.lcl.form.test.rtl.exe"/>
     </Target>
     <SearchPaths>
       <IncludeFiles Value="$(ProjOutDir)"/>
