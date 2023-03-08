@@ -1,0 +1,140 @@
+ [2022-05-24 09:13:15.915 Warning] Current Field = .
+ [2022-05-24 09:13:15.915 Error] 
+Aplicação.......: mi.ui.lcl.form.test.rtl
+Error...........:  
+
+USUÁRIO LOGADO
+  Filial........: 0
+  Matrícula.....: 1
+  Login.........: 
+  Nome Completo.: 
+ 
+PASTA DO LOG....: Z:\home\paulosspacheco\fpcupdeluxe\projects\maricarai\mi.ui.lcl.form\mi.ui.lcl.form.tests\bin\x86_64-win64
+ARQUIVO DE LOG..: mi.ui.lcl.form.test.rtl.log
+
+ [2022-05-24 09:13:15.915 Warning] Current Field = .
+ [2022-05-24 09:13:15.915 Error] 
+Aplicação.......: mi.ui.lcl.form.test.rtl
+Error...........: ~Estado: ~
+
+USUÁRIO LOGADO
+  Filial........: 0
+  Matrícula.....: 1
+  Login.........: 
+  Nome Completo.: 
+ 
+PASTA DO LOG....: Z:\home\paulosspacheco\fpcupdeluxe\projects\maricarai\mi.ui.lcl.form\mi.ui.lcl.form.tests\bin\x86_64-win64
+ARQUIVO DE LOG..: mi.ui.lcl.form.test.rtl.log
+
+ [2022-05-24 09:13:15.915 Warning] Current Field = .
+ [2022-05-24 09:13:15.915 Warning] Current Field = estado.
+ [2022-05-24 09:13:15.915 Warning] Current Field = .
+ [2022-05-24 09:13:15.915 Error] 
+Aplicação.......: mi.ui.lcl.form.test.rtl
+Error...........: ~Cidade: ~
+
+USUÁRIO LOGADO
+  Filial........: 0
+  Matrícula.....: 1
+  Login.........: 
+  Nome Completo.: 
+ 
+PASTA DO LOG....: Z:\home\paulosspacheco\fpcupdeluxe\projects\maricarai\mi.ui.lcl.form\mi.ui.lcl.form.tests\bin\x86_64-win64
+ARQUIVO DE LOG..: mi.ui.lcl.form.test.rtl.log
+
+ [2022-05-24 09:13:15.915 Warning] Current Field = .
+ [2022-05-24 09:13:15.915 Warning] Current Field = cidade.
+ [2022-05-24 09:13:15.915 Warning] Current Field = .
+ [2022-05-24 09:13:15.915 Error] 
+Aplicação.......: mi.ui.lcl.form.test.rtl
+Error...........: ~   Cep: ~
+
+USUÁRIO LOGADO
+  Filial........: 0
+  Matrícula.....: 1
+  Login.........: 
+  Nome Completo.: 
+ 
+PASTA DO LOG....: Z:\home\paulosspacheco\fpcupdeluxe\projects\maricarai\mi.ui.lcl.form\mi.ui.lcl.form.tests\bin\x86_64-win64
+ARQUIVO DE LOG..: mi.ui.lcl.form.test.rtl.log
+
+ [2022-05-24 09:13:15.915 Warning] Current Field = .
+ [2022-05-24 09:13:15.915 Warning] Current Field = cep.
+ [2022-05-24 09:13:15.915 Warning] Current Field = .
+ [2022-05-24 09:13:15.915 Error] 
+Aplicação.......: mi.ui.lcl.form.test.rtl
+Error...........: ~Valor.: ~
+
+USUÁRIO LOGADO
+  Filial........: 0
+  Matrícula.....: 1
+  Login.........: 
+  Nome Completo.: 
+ 
+PASTA DO LOG....: Z:\home\paulosspacheco\fpcupdeluxe\projects\maricarai\mi.ui.lcl.form\mi.ui.lcl.form.tests\bin\x86_64-win64
+ARQUIVO DE LOG..: mi.ui.lcl.form.test.rtl.log
+
+ [2022-05-24 09:13:15.916 Warning] Current Field = .
+ [2022-05-24 09:13:15.916 Warning] Current Field = valor.
+ [2022-05-24 09:13:15.916 Warning] Current Field = .
+ [2022-05-24 09:13:15.916 Error] 
+Aplicação.......: mi.ui.lcl.form.test.rtl
+Error...........: ~Driver: ~
+
+USUÁRIO LOGADO
+  Filial........: 0
+  Matrícula.....: 1
+  Login.........: 
+  Nome Completo.: 
+ 
+PASTA DO LOG....: Z:\home\paulosspacheco\fpcupdeluxe\projects\maricarai\mi.ui.lcl.form\mi.ui.lcl.form.tests\bin\x86_64-win64
+ARQUIVO DE LOG..: mi.ui.lcl.form.test.rtl.log
+
+ [2022-05-24 09:13:15.916 Warning] Current Field = driver.
+ [2022-05-24 09:13:15.916 Warning] Current Field = .
+ [2022-05-24 09:13:15.916 Error] 
+Aplicação.......: mi.ui.lcl.form.test.rtl
+Error...........: ~   Disks.~
+
+USUÁRIO LOGADO
+  Filial........: 0
+  Matrícula.....: 1
+  Login.........: 
+  Nome Completo.: 
+ 
+PASTA DO LOG....: Z:\home\paulosspacheco\fpcupdeluxe\projects\maricarai\mi.ui.lcl.form\mi.ui.lcl.form.tests\bin\x86_64-win64
+ARQUIVO DE LOG..: mi.ui.lcl.form.test.rtl.log
+
+ [2022-05-24 09:13:15.916 Warning] Current Field = .
+ [2022-05-24 09:13:15.916 Error] 
+Aplicação.......: mi.ui.lcl.form.test.rtl
+Error...........:  
+
+USUÁRIO LOGADO
+  Filial........: 0
+  Matrícula.....: 1
+  Login.........: 
+  Nome Completo.: 
+ 
+PASTA DO LOG....: Z:\home\paulosspacheco\fpcupdeluxe\projects\maricarai\mi.ui.lcl.form\mi.ui.lcl.form.tests\bin\x86_64-win64
+ARQUIVO DE LOG..: mi.ui.lcl.form.test.rtl.log
+
+ [2022-05-24 09:16:35.757 Error] 
+Aplicação.......: mi.ui.lcl.form.test.rtl
+Error...........: Erro_Excecao_inesperada
+ 
+INFORMAÇÕES TÉCNICA
+  Unit.....: mi_rtl_ui_Dmxscroller
+  ObjectName...: TUiDmxScroller
+  Método...: StrNum
+
+
+USUÁRIO LOGADO
+  Filial........: 0
+  Matrícula.....: 1
+  Login.........: 
+  Nome Completo.: 
+ 
+PASTA DO LOG....: Z:\home\paulosspacheco\fpcupdeluxe\projects\maricarai\mi.ui.lcl.form\mi.ui.lcl.form.tests\bin\x86_64-win64
+ARQUIVO DE LOG..: mi.ui.lcl.form.test.rtl.log
+
