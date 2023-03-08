@@ -1,0 +1,8 @@
+object Mi_db_tests: TMi_db_tests
+  Left = 1164
+  Height = 240
+  Top = 375
+  Width = 320
+  Caption = 'Mi_db_tests'
+  LCLVersion = '2.2.0.4'
+end

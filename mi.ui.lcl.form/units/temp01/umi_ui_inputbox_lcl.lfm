@@ -1,0 +1,61 @@
+object MI_UI_InputBox: TMI_UI_InputBox
+  Left = 357
+  Height = 150
+  Top = 250
+  Width = 341
+  HorzScrollBar.Page = 341
+  VertScrollBar.Page = 150
+  AutoScroll = True
+  AutoSize = True
+  Caption = 'Form - Message Box Dmx'
+  ClientHeight = 150
+  ClientWidth = 341
+  OnCreate = FormCreate
+  Position = poOwnerFormCenter
+  ShowHint = True
+  object Mi_ScrollBox_LCL1: TMi_ScrollBox_LCL
+    Left = 0
+    Height = 102
+    Top = 0
+    Width = 341
+    Align = alTop
+    Anchors = [akTop, akLeft, akRight, akBottom]
+    AutoScroll = False
+    Font.Height = 17
+    Font.Name = 'Courier New'
+    ParentFont = False
+    TabOrder = 0
+    TabStop = True
+  end
+  object ButtonPanel1: TButtonPanel
+    Left = 6
+    Height = 38
+    Top = 106
+    Width = 329
+    OKButton.Name = 'OKButton'
+    OKButton.DefaultCaption = True
+    HelpButton.Name = 'HelpButton'
+    HelpButton.DefaultCaption = True
+    CloseButton.Name = 'CloseButton'
+    CloseButton.Caption = '&Print'
+    CloseButton.OnClick = CloseButtonClick
+    CancelButton.Name = 'CancelButton'
+    CancelButton.DefaultCaption = True
+    TabOrder = 1
+  end
+  object DmxScroller_Form1: TDmxScroller_Form
+    ParentLCL = Mi_ScrollBox_LCL1
+    OnAddTemplate = DmxScroller_Form1AddTemplate
+    OnNewRecord = DmxScroller_Form1NewRecord
+    onCloseQuery = DmxScroller_Form1CloseQuery
+    onEnter = DmxScroller_Form1Enter
+    onExit = DmxScroller_Form1Exit
+    onEnterField = DmxScroller_Form1EnterField
+    onExitField = DmxScroller_Form1ExitField
+    onGetTemplate = DmxScroller_Form1GetTemplate
+    Active = False
+    AlignmentLabels = taLeftJustify
+    Left = 208
+    Top = 40
+  end
+end

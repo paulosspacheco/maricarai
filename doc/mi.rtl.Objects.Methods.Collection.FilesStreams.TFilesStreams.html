@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<title>mi.rtl.Objects.Methods.Collection.FilesStreams: Classe TFilesStreams</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="generator" content="PasDoc 0.16.0">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<link rel="stylesheet" type="text/css" href="tipuesearch/tipuesearch.css">
+
+<link rel="StyleSheet" type="text/css" href="pasdoc.css">
+</head>
+<body>
+<div class="container"><div class="navigation">
+<ul><li><a href="AllUnits.html">Units</a></li><li><a href="ClassHierarchy.html">Hierarquia de Classes</a></li><li><a href="AllClasses.html">Classes, Interfaces, Objetos e Registros</a></li><li><a href="AllTypes.html">Tipos</a></li><li><a href="AllVariables.html">Variáveis</a></li><li><a href="AllConstants.html">Constantes</a></li><li><a href="AllFunctions.html">Funções e Procedimentos</a></li><li><a href="AllIdentifiers.html">Identificadores</a></li><li><form class="search-form" action="tipue_results.html"><div class="search-input"><input type="text" name="q" id="tipue_search_input" pattern=".{1,}" title="At least 1 characters" required><div class="search-button"><input type="button" id="tipue_search_button" onclick="this.form.submit();"></div></div></form>
+<div style="clear: both"></div>
+</li></ul></div><div class="content">
+<span id="TFilesStreams"></span><h1 class="cio">Classe TFilesStreams</h1>
+<div class="sections">
+<div class="one_section"><a class="section" href="#PasDoc-Description">Descrição</a></div><div class="one_section"><a class="section" href="#PasDoc-Hierarchy">Hierarquia</a></div><div class="one_section">Campos</div><div class="one_section"><a class="section" href="#PasDoc-Methods">Métodos</a></div><div class="one_section"><a class="section" href="#PasDoc-Properties">Propriedades</a></div></div>
+<span id="PasDoc-Description"></span><h2 class="unit">Unit</h2>
+<p class="unitlink">
+<a href="mi.rtl.Objects.Methods.Collection.FilesStreams.html">mi.rtl.Objects.Methods.Collection.FilesStreams</a></p>
+<h2 class="declaration">Declaração</h2>
+<p class="declaration">
+<code>type TFilesStreams = class(<a class="normal" href="mi.rtl.Objects.Methods.Collection.TCollection.html">TCollection</a>)</code></p>
+<h2 class="description">Descrição</h2>
+<p>
+</p>
+
+<ul class="paragraph_spacing">
+  <li><p>A classe <strong><code>TFilesStreams</code></strong> é usada para armazenar todos os arquivos abertos pelo sistema para poder fecha-los caso o programa aborte inesperadamente.
+
+<p></p>
+
+<ul class="paragraph_spacing">
+  <li><p>EXEMPLO DE USO
+
+<p></p>
+
+<pre class="longcode">
+
+<span class="pascal_keyword">procedure</span> TMi_Rtl_Tests.TabSheet_TFilesStreamsEnter(Sender: TObject);
+  <span class="pascal_keyword">var</span>
+   i,L : integer;
+   s:AnsiString;
+
+<span class="pascal_keyword">begin</span>
+  filesStreams.DeleteAll;
+  StringGrid1.Clear;
+
+  filesStreams.Mask := edit2.Text;
+  StringGrid1.RowCount := filesStreams.Count+<span class="pascal_numeric">1</span>;
+
+  LabelCount2.Caption := Format(<span class="pascal_string">'FilesStreams.Count %d'</span>,[filesStreams.Count]);
+  LabelCount2.Show;
+  L := <span class="pascal_numeric">0</span>;
+  StringGrid1.Cells[<span class="pascal_numeric">0</span>,l] := <span class="pascal_string">'Seq'</span>;
+  StringGrid1.Cells[<span class="pascal_numeric">1</span>,l] := <span class="pascal_string">'FileName'</span>;
+  StringGrid1.Cells[<span class="pascal_numeric">2</span>,l] := <span class="pascal_string">'FileSize'</span>;
+  inc(l);
+  <span class="pascal_keyword">if</span> filesStreams.Count &gt; <span class="pascal_numeric">0</span>
+  <span class="pascal_keyword">then</span> <span class="pascal_keyword">begin</span>
+          <span class="pascal_keyword">for</span> i := <span class="pascal_numeric">0</span> <span class="pascal_keyword">to</span> filesStreams.Count-<span class="pascal_numeric">1</span> <span class="pascal_keyword">do</span>
+          <span class="pascal_keyword">with</span> filesStreams.FileByNum(i) <span class="pascal_keyword">do</span>
+          <span class="pascal_keyword">begin</span>
+            StringGrid1.Cells[<span class="pascal_numeric">0</span>,l] := Format(<span class="pascal_string">'%d'</span>,[l]);
+            StringGrid1.Cells[<span class="pascal_numeric">1</span>,l] := FileName;
+            s := Format(<span class="pascal_string">'%d'</span>,[FileSize(FileName)]);
+            StringGrid1.Cells[<span class="pascal_numeric">2</span>,l] := s ;
+            inc(L);
+          <span class="pascal_keyword">end</span>;
+       <span class="pascal_keyword">end</span>;
+
+<span class="pascal_keyword">end</span>;
+
+<span class="pascal_keyword">procedure</span> TMi_Rtl_Tests.Edit2Change(Sender: TObject);
+<span class="pascal_keyword">begin</span>
+  TabSheet_TFilesStreamsEnter(Self);
+<span class="pascal_keyword">end</span>;</pre>
+
+<p></p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p>
+<span id="PasDoc-Hierarchy"></span><h2 class="hierarchy">Hierarquia</h2>
+<ul class="hierarchy"><li class="ancestor">TObjectsTypes</li>
+<li class="ancestor"><a class="normal" href="mi.rtl.Objects.Consts.TObjectsConsts.html">TObjectsConsts</a></li>
+<li class="ancestor"><a class="normal" href="mi.rtl.Objects.Methods.TObjectsMethods.html">TObjectsMethods</a></li>
+<li class="ancestor"><a class="normal" href="mi.rtl.Objects.Methods.Collection.TCollection.html">TCollection</a></li>
+<li class="thisitem">TFilesStreams</li></ul><h2 class="overview">Visão Geral</h2>
+<span id="PasDoc-Methods"></span><h3 class="summary">Métodos</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>Procedure <strong><a href="mi.rtl.Objects.Methods.Collection.FilesStreams.TFilesStreams.html#SetMask">SetMask</a></strong>(a_Mask : AnsiString);</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>CONSTRUCTOR <strong><a href="mi.rtl.Objects.Methods.Collection.FilesStreams.TFilesStreams.html#Create">Create</a></strong>;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>Function <strong><a href="mi.rtl.Objects.Methods.Collection.FilesStreams.TFilesStreams.html#FileByNum">FileByNum</a></strong>(const Index:Longint):<a href="mi.rtl.Objects.Methods.StreamBase.Stream.FileStream.TFileStream.html">TFileStream</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>Function <strong><a href="mi.rtl.Objects.Methods.Collection.FilesStreams.TFilesStreams.html#FileByName">FileByName</a></strong>(const aFileName:AnsiString):<a href="mi.rtl.Objects.Methods.StreamBase.Stream.FileStream.TFileStream.html">TFileStream</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>Function <strong><a href="mi.rtl.Objects.Methods.Collection.FilesStreams.TFilesStreams.html#CopyFiles">CopyFiles</a></strong>(aPathDest:PathStr):Integer;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>Function <strong><a href="mi.rtl.Objects.Methods.Collection.FilesStreams.TFilesStreams.html#DeleteFiles">DeleteFiles</a></strong>():Integer;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>PROCEDURE <strong><a href="mi.rtl.Objects.Methods.Collection.FilesStreams.TFilesStreams.html#Error">Error</a></strong>(Code, Info: Integer); Override;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>Procedure <strong><a href="mi.rtl.Objects.Methods.Collection.FilesStreams.TFilesStreams.html#Create_Progress1Passo">Create_Progress1Passo</a></strong>(ATitle : <a href="mi_rtl_ui_Dmxscroller.html#tString">tString</a>;Obs:<a href="mi_rtl_ui_Dmxscroller.html#tString">tString</a> ; ATotal : Longint); Override;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>Procedure <strong><a href="mi.rtl.Objects.Methods.Collection.FilesStreams.TFilesStreams.html#Set_Progress1Passo">Set_Progress1Passo</a></strong>(aNumero_Segundos_que_deve_esperar : Longint); Override;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>Procedure <strong><a href="mi.rtl.Objects.Methods.Collection.FilesStreams.TFilesStreams.html#Destroy_Progress1Passo">Destroy_Progress1Passo</a></strong>; Override;</code></td>
+</tr>
+</table>
+<span id="PasDoc-Properties"></span><h3 class="summary">Propriedades</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><code>property <strong><a href="mi.rtl.Objects.Methods.Collection.FilesStreams.TFilesStreams.html#Mask">Mask</a></strong>  : AnsiString Read _mask write <a href="mi.rtl.Objects.Methods.Collection.FilesStreams.TFilesStreams.html#SetMask">SetMask</a>;</code></td>
+</tr>
+</table>
+<h2 class="description">Descrição</h2>
+<h3 class="detail">Métodos</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="SetMask"></span><code>Procedure <strong>SetMask</strong>(a_Mask : AnsiString);</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+</p>
+
+<ul class="paragraph_spacing">
+  <li><p>O método <strong><code>SetMask</code></strong> é usado para filtrar os arquivo da pasta corrente do banco de dados.
+
+<p></p>
+
+<ul class="paragraph_spacing">
+  <li><p><strong>Nota</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Para compreender essa função é bom ler o exemplo: <a class="normal" href="mi.Rtl.Files.TFiles.html#FindFiles">TFiles.FindFiles</a></p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Create"></span><code>CONSTRUCTOR <strong>Create</strong>;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="FileByNum"></span><code>Function <strong>FileByNum</strong>(const Index:Longint):<a href="mi.rtl.Objects.Methods.StreamBase.Stream.FileStream.TFileStream.html">TFileStream</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="FileByName"></span><code>Function <strong>FileByName</strong>(const aFileName:AnsiString):<a href="mi.rtl.Objects.Methods.StreamBase.Stream.FileStream.TFileStream.html">TFileStream</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="CopyFiles"></span><code>Function <strong>CopyFiles</strong>(aPathDest:PathStr):Integer;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="DeleteFiles"></span><code>Function <strong>DeleteFiles</strong>():Integer;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Error"></span><code>PROCEDURE <strong>Error</strong>(Code, Info: Integer); Override;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Create_Progress1Passo"></span><code>Procedure <strong>Create_Progress1Passo</strong>(ATitle : <a href="mi_rtl_ui_Dmxscroller.html#tString">tString</a>;Obs:<a href="mi_rtl_ui_Dmxscroller.html#tString">tString</a> ; ATotal : Longint); Override;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Set_Progress1Passo"></span><code>Procedure <strong>Set_Progress1Passo</strong>(aNumero_Segundos_que_deve_esperar : Longint); Override;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Destroy_Progress1Passo"></span><code>Procedure <strong>Destroy_Progress1Passo</strong>; Override;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<h3 class="detail">Propriedades</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><span id="Mask"></span><code>property <strong>Mask</strong>  : AnsiString Read _mask write <a href="mi.rtl.Objects.Methods.Collection.FilesStreams.TFilesStreams.html#SetMask">SetMask</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+</p>
+
+<ul class="paragraph_spacing">
+  <li><p>A propriedade <strong><code>Mask</code></strong> é usada como filtro na função SysUtils.FindFirst</p></li>
+</ul>
+
+<p></p>
+</td></tr>
+</table>
+<hr><span class="appinfo"><em>Gerado por <a href="https://pasdoc.github.io/">PasDoc 0.16.0</a>. </em>
+</span>
+</div></div></body></html>

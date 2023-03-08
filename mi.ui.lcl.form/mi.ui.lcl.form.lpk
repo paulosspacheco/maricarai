@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CONFIG>
+  <Package Version="5">
+    <Name Value="mi.ui.lcl.form"/>
+    <Type Value="RunAndDesignTime"/>
+    <Author Value="Paulo Sérgio da Silva Pacheco"/>
+    <CompilerOptions>
+      <Version Value="11"/>
+      <SearchPaths>
+        <IncludeFiles Value="units"/>
+        <Libraries Value="/lib/x86_64-linux-gnu/"/>
+        <OtherUnitFiles Value="units"/>
+        <UnitOutputDirectory Value="lib/$(TargetCPU)-$(TargetOS)"/>
+      </SearchPaths>
+    </CompilerOptions>
+    <Description Value="O pacote Mi.ui.lcl.form implementa a versão LCL do projeto /\/ar/\caraí.
+"/>
+    <Version Minor="5" Build="687"/>
+    <Files>
+      <Item>
+        <Filename Value="mi.ui.lcl.form.pas"/>
+        <UnitName Value="mi.ui.lcl.form"/>
+      </Item>
+      <Item>
+        <Filename Value="units/mi_rtl_ui_dmxscroller_consts_inc.pas"/>
+        <Type Value="Include"/>
+      </Item>
+      <Item>
+        <Filename Value="units/umi_ui_dmxscroller_form_lcl_ds.pas"/>
+        <HasRegisterProc Value="True"/>
+        <UnitName Value="umi_ui_dmxscroller_form_lcl_ds"/>
+      </Item>
+      <Item>
+        <Filename Value="units/umi_ui_scrollbox_lcl.pas"/>
+        <HasRegisterProc Value="True"/>
+        <UnitName Value="uMi_ui_scrollbox_lcl"/>
+      </Item>
+      <Item>
+        <Filename Value="units/umi_ui_inputbox_lcl.pas"/>
+        <UnitName Value="umi_ui_InputBox_lcl"/>
+      </Item>
+      <Item>
+        <Filename Value="units/umi_ui_dmxscroller_form_lcl.pas"/>
+        <HasRegisterProc Value="True"/>
+        <UnitName Value="uMi_ui_Dmxscroller_form_lcl"/>
+      </Item>
+      <Item>
+        <Filename Value="readme.md"/>
+        <Type Value="Text"/>
+      </Item>
+      <Item>
+        <Filename Value="readme.html"/>
+        <Type Value="Text"/>
+      </Item>
+      <Item>
+        <Filename Value="pasdoc.sh"/>
+        <Type Value="Text"/>
+      </Item>
+      <Item>
+        <Filename Value="pasdoc.pds"/>
+        <Type Value="Text"/>
+      </Item>
+      <Item>
+        <Filename Value="pasdoc.md"/>
+        <Type Value="Text"/>
+      </Item>
+    </Files>
+    <RequiredPkgs>
+      <Item>
+        <PackageName Value="mi.ui.lcl"/>
+      </Item>
+      <Item>
+        <PackageName Value="mi.rtl.ui"/>
+      </Item>
+      <Item>
+        <PackageName Value="mi.rtl"/>
+      </Item>
+      <Item>
+        <PackageName Value="FCL"/>
+      </Item>
+    </RequiredPkgs>
+    <UsageOptions>
+      <UnitPath Value="$(PkgOutDir)"/>
+    </UsageOptions>
+    <PublishOptions>
+      <Version Value="2"/>
+      <UseFileFilters Value="True"/>
+    </PublishOptions>
+  </Package>
+</CONFIG>

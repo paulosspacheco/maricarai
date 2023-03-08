@@ -1,0 +1,1259 @@
+
+  tvDMX  (c) 1992-98 Randolph Beck
+  =====
+
+                  °°°°°   °°     °° °°   °°
+     °°            °° °°  °°°   °°°  °° °°
+    °°°°° °°   °°  °°  °° °°°° °°°°   °°°
+     °°    °° °°   °°  °° °° °°° °°   °°°
+     °°     °°°    °°  °° °°  °  °°  °° °°
+      °°     °    °°°°°°  °°     °° °°   °°
+
+
+  tvDMX is an object-oriented data entry platform for Turbo Vision with
+  a mechanism to create scrolling forms, spreadsheets and tables.
+
+
+  This is a FREEWARE package and may be copied for free --providing
+  that it is not altered and is transferred with its documentation.
+
+  The author may be contacted at this address:
+
+         Randolph Beck
+         P.O. Box  540433
+         Orlando, FL 32854-0433
+
+         email: rbeck@bitsmart.com
+
+  Visit my web page at http://ourworld.compuserve.com/homepages/bex/
+    or via the link at http://www.bitsmart.com/bex/
+
+
+  This is the main documentation.  Details on these objects, procedures,
+  constants and variables are listed in the following files:
+
+	    GIZMAIN       --About units RSET, DMXGIZMA and TVGIZMA
+	    COMMANDS      --tvDMX command constants
+	    DMXMAIN       --About unit tvDMX
+	    DMXBUF        --About unit tvDMXBUF
+	    DMXUTILS      --About units tvDMXCOL and INPUTWIN
+	    STDDMX        --About unit STDDMX
+            PXUNIT        --About unit PxUNIT
+
+
+
+                                                                     Page ii
+
+
+                               Table of Contents
+                               -----------------
+
+
+
+        tvDMX OVERVIEW ............................................ 1
+             Keystroke Philosophy ................................. 1
+
+        tvDMX CONCEPTS ............................................ 2
+             The Data-Formatting Template ......................... 2
+
+        USING tvDMX IN YOUR PROGRAMS .............................. 3
+             Data Windows ......................................... 3
+             Automatic Assignment Constructors .................... 4
+             Loading tvDMX Views from a Stream .................... 4
+
+        USING tvDMX FOR SINGLE Field EDITORS ...................... 5
+
+        CREATING FORMS WITH tvDMX ................................. 6
+             Initialization Parameters ............................ 6
+             Sample Form .......................................... 7
+             Function EntryBox() .................................. 8
+
+        ADVANCED FEATURES ......................................... 9
+             User Key Errors ...................................... 9
+             Hidden and Read-Only Fields .......................... 9
+             Swapping Field Positions ............................. 9
+
+        REFERENCE ................................................ 10
+             Object Hierarchy .................................... 10
+             Units ............................................... 11
+             Data Template Codes ................................. 12
+
+        USING TEMPLATE CODES ..................................... 13
+             Template Control Codes .............................. 16
+             Field Descriptor Functions .......................... 18
+
+        FYI ...................................................... 19
+             Important Virtual Methods ........................... 19
+             External Database Access ............................ 20
+             Global Functions in Units DMXGIZMA and tvGIZMA ...... 21
+
+
+
+  tvDMX OVERVIEW                                                      Page 1
+  ==============
+
+  This project was originally undertaken to enable programmers to quickly
+  design data entry screens which users could operate in a natural and
+  intuitive way.  Earlier designs of tvDMX could edit data in a browse
+  format.  The newest derivative objects work as regular data-entry forms.
+
+  The object-oriented framework of tvDMX can be extended to access any
+  type of data structure (including files, Streams and Collections).
+
+  tvDMX display formats use picture Templates and grant the programmer
+  full control over the appearance of each Field.
+
+  Features:
+      *  programmable display formats for the major Pascal data types
+      *  containment within a scrolling Turbo Vision view
+      *  record structure and display format can be set at run-time
+      *  hidden and read-only Fields
+      *  Field display position order can differ from physical order
+      *  reports can be generated for the data in views
+      *  support for browse and vertical record display formats
+
+  This document should give a quick introduction to tvDMX.  Rather than
+  detail the inner workings, you may prefer to review several of the
+  instructive samples:
+
+      SAMPLES.PAS displays several windows:  Each has data in various
+           formats.  This will give you an idea of what tvDMX can do.
+
+      FORMSHOP.PAS demonstrates create form-style data entry windows.
+
+      WORKSHOP.PAS is intended for your own experiments.  It uses the
+           simplest type of data window.
+
+      FILESHOP.PAS manages data on disk via a TDosStream object --to show
+           that tvDMX operations are not limited to data in RAM.
+
+      FILEDEMO.PAS also manages data on disk, but it has been customized
+           to use a standard Pascal file.
+
+      COLLECTR.PAS demonstrates how to edit data in a collection.
+
+  The source code for each of these programs contains additional
+  information about its use and features.
+
+
+                            Keystroke Philosophy
+                            --------------------
+
+  Most keys work as you would expect.  In addition:  kbCtrlT deletes the
+  current Field, and kbCtrlY deletes the current record.
+
+  The kbLeft and kbRight keys normally move the Field pointer from one
+  Field to another.  Movement within a AnsiCharacter Field is permitted:
+
+      1) After a AnsiCharacter is entered into the Field;
+      2) after kbIns, kbCtrlT or kbCtrlY is pressed; or
+      3) anytime the keyboard is not in INSERT mode.
+
+
+  tvDMX CONCEPTS                                                      Page 2
+  ==============
+
+                        The Data-Formatting Template
+                        ----------------------------
+
+  The default appearance of these views is usually column/row oriented,
+  with the exception of form-like views and single Fields.  You declare a
+  record structure for the DMX initialization procedure in a Template
+  string --which also determines the display format.  (You will see later
+  how tvDMX can be used to work with forms or Field editors.)
+
+  A Record of String [20], Integer, and Real may use this format:
+           ' ssssssssssssssssssss | iiii |($rrr,rrr.rr)'
+
+  And that would present a records in this way:
+           ³ Ace Exchange Network ³  154 ³ $ 12,056.55 ³
+           ³ CommCheck, Inc.      ³  -28 ³($    725.00)³
+
+  The Template string in this example was entirely in lower case.  If in
+  upper case, AnsiCharacter-Fields would be entered in upper case and
+  numeric-Fields would be restricted to positive values.
+
+  The data TYPE of each Field is determined by the AnsiCharacters in the
+  string.  All primary Pascal data types are supported:  BOOLEAN, BYTE,
+  SHORTINT, Integer, LONGINT, WORD, String, AnsiChar, arrays of AnsiChar, and
+  Real.  The programmer only needs to alter this one Template string when
+  changing the data structure.  (Template codes are listed on the
+  Reference page.)
+
+  You can switch to SINGLE, DOUBLE or EXTENDED reals by changing TYPE
+  TRealNum in RSET.PAS.
+
+
+  A backslash ('\') may be used as a Field delimiter, and is displayed as
+  a space AnsiCharacter.  (Other delimiters can be devised as well --please
+  refer to the ^D control code.)
+
+  The tilde ('~') AnsiCharacter can be used to switch format-processing on and
+  off.  This makes it possible to separate the text-literals from format
+  and control codes:
+
+      ' ~Name:~ ssssssssssssssssssss\ ~SSN:~ ###-##-#### '
+
+  This is diplayed as:
+      ' Name: Abigail Adams         SSN: 012-34-5678 '
+
+  String Fields can now be abbreviated with the '`' AnsiCharacter (the
+  backward apostrophe) so that long strings don't take so much space on
+  the screen.  While editing, users can scroll within the Field.
+
+  Example:
+      ' ssssssssssssssssssss`ssssssssssssssssssss| ww,www '
+
+  This will be displayed like this:
+      ' International Busin>|  1,024 '
+
+  The '>' would actually be an arrow AnsiCharacter.
+
+
+  USING tvDMX IN YOUR PROGRAMS                                        Page 3
+  ============================
+
+                                Data Windows
+                                ------------
+
+  Presumably you understand that a focused TScroller is owned by, and
+  operates within, an active TWindow.  The TScroller also has several
+  peer-views:  a TFrame and two TScrollBars.  If you wished, you could add
+  more views to display additional information.  This is how the
+  TDmxScroller object works, as well as its descendant TDmxEditor.  (A
+  TDmxScroller object displays data in a scrolling window.  TDmxEditor
+  --its first descendant-- adds the ability to edit the data.)
+
+  Programmers can instantiate a TWindow view and insert a TDmxEditor
+  object just like using TScroller --with a few extra parameters. Then,
+  for an effective data window, Field titles should be placed at the top,
+  and a record number indicator should be placed below.*
+
+  The TDmxWindow object (a descendant of TWindow and tvGIZMA's TLtdWindow)
+  coordinates the entire process of inserting these extra views.
+
+  Initialization Syntax:
+
+      constructor TDmxWindow.Init(
+            var Bounds    : TRect;
+                ATitle    : TTitleStr;
+                ANumber   : Integer;
+                ATemplate : String;
+            var AData;
+                BSize     : Longint;
+            var ALabels   : String;
+                IndLen    : Integer);
+
+        Bounds, ATitle and ANumber are the same parameters required for
+           any TWindow object.
+
+        ATemplate is a tvDMX data format Template string.
+        AData refers to the data to be edited.  Note that your data is not
+           part of this object.
+        BSize is the size of the entire data structure.
+        ALabels is the string which labels the Fields over the editor.
+        IndLen is the length of a record number indicator view (usually
+           about five to ten AnsiCharacters).  The default indicator is placed
+           just to the left of the horizontal scroll bar.
+
+
+  The TDmxWindow.Init() constructor will first assign and construct two
+  auxiliary views, TDmxLabels and TDmxRecInd, which serve as a Field title
+  display and a record number indicator.  This process is managed by
+  virtual methods in object TDmxWindow which may be overridden with new
+  descendants.
+
+
+  *See WORKSHOP.PAS for an example of how to use tvDMX with TWindow types.
+
+
+                     Automatic Assignment Constructors                Page 4
+                     ---------------------------------
+
+  Programmers who make extensive use of tvDMX descendants may which to
+  avoid using TDmxWindow objects and insert TDmxEditor views directly into
+  TWindow or TDialog window types.  Automatic assignment constructors were
+  developed to make this process easier.  TDmxLabels and TDmxRecInd object
+  types can use alternate constructors:
+
+      constructor TDmxLabels.InitInsert(AOwner: PGroup; var ALabels );
+          ALabels refers to the String that displays Field heading labels.
+
+      constructor TDmxRecInd.InitInsert(AOwner: PGroup; Len: integer);
+          Len refers to the desired width of the indicator view.
+
+  Both require a pointer to the window that it will be inserted into.
+  They can use the size of that view to assign and position themselves.
+  The view insertion is also automatic.
+
+  WORKSHOP.PAS uses automatic insertion constructors with a regular
+  TWindow object.
+
+
+                     Loading tvDMX Views from a Stream
+                     ---------------------------------
+
+  tvDMX objects have Load() constructors and Store() destructors that load
+  and store the object's Fields.  But it would be impractical for the
+  tvDMX object to also retain the window's database because the data
+  source can vary, depending upon the application.  Therefore, two virtual
+  methods should be overridden for storage on streams:
+
+           procedure LoadData(var S: TStream);  VIRTUAL;
+           procedure StoreData(var S: TStream);  VIRTUAL;
+
+  LoadData() must set Pointer WorkingData with the address of the database
+  and set Longint DataBlockSize with the size of the database (in bytes,
+  not records).  It should be designed in a way that allows for the
+  possibility that the database may have been removed or altered by
+  another program since the time this object was stored.
+
+  StoreData() must save the database parameters in a way that it may be
+  reopened by LoadData().
+
+  Note:  The LoadData() and StoreData() methods for object TInputFields
+  are already implemented, since their small amount of data are easily
+  streamed.
+
+
+  USING tvDMX FOR SINGLE Field EDITORS                                Page 5
+  ====================================
+
+  It is only natural that a descendant of TDmxEditor would be written to
+  serve as a replacement for the TInputLine object.
+
+  Object TInputFields is a TDmxEditor derivative that:  1) Allocates
+  memory to hold the data Fields;  2) Overrides the DataSize(), GetData()
+  and SetData() methods;  3) Uses a different palette suitable for Dialog
+  boxes;  and 4) Has special handling of the cursor keys to operate more
+  naturally within a Dialog box.
+
+  A special insertion function was written to measure and initialize it
+  with an accompanying TLabel object:
+
+    function InsertField(Dialog:            PDialog;
+                         Col,Row:           Integer;
+                         Fmt:               Boolean;
+                         ALabel,ATemplate:  String)  : PView;
+
+        Dialog is a pointer to the dialog window into which these views
+           are inserted.
+        Col and Row are the upper left corner of the label.
+        Fmt orientation of the tvDMX editor view, relative to the
+           label:  If TRUE, then the editor view is below the
+           label;  but if FALSE, the editor view follows the label
+           on same line.
+        ALabel is the string that will become the label.
+        ATemplate is the string that becomes the editor view.
+
+  This function returns a pointer to the TInputFields view.  Usually, the
+  pointer will be discarded (this unit is compiled with extended syntax so
+  that the function can be implemented as a procedure), but there will be
+  occasions when the pointer is needed.
+
+    Examples:
+
+      InsertField(Dialog, 5,2, TRUE,
+           '~N~ame', 'SSSSSSSSSSSSSSSSSSSS');
+
+      InsertField(Dialog, 5,5, FALSE,
+           '~S~SN: ',  '###-##-####')^.HelpCtx := hcSSN;
+
+      P := InsertField(Dialog, 5,6, FALSE,  '', '$rrr,rrr.rr ');
+            { note that the label is optional }
+
+
+  The "Accounts" dialog in SAMPLES.PAS demonstrates the use and operation
+  of the InsertField() function.
+
+  See the next page for information on how to use tvDMX for entire forms.
+
+
+  CREATING FORMS WITH tvDMX                                           Page 6
+  =========================
+
+   As visualizações tvDMX não estão restritas a linhas e colunas. As vistas na unidade
+   DMXFORMS edita dados como um formulário. Os formulários podem ser criados encadeando TSItem
+   strings e o ponteiro PSItem à esquerda (que representa a linha superior)
+   é passado para o construtor do novo objeto tvDMX.
+
+   Na verdade, existem dois novos tipos de objetos: TDmxForm e seu descendente
+   TDmxDlgForm (que é usado em caixas de diálogo). Esta é a sintaxe do
+   dois construtores:
+
+      TDmxForm.Init(ATemplates: PSItem;
+                AInScroll: boolean;
+                var AData;
+                var Bounds: TRect;
+                ALabels,ARecInd: PDmxLink;
+                AHScrollBar,AVScrollBar: PScrollBar);
+
+      TDmxDlgForm.Init(ATemplates: PSItem;
+                var Bounds: TRect;
+                AHScrollBar,AVScrollBar: PScrollBar);
+
+   O objeto TDmxDlgForm substitui o método GetPalette() com uma paleta mais
+   adequado para uma caixa de diálogo.
+
+
+                         Initialization Parameters
+                         -------------------------
+
+   ATemplates é uma cadeia de strings TSItem. Você pode ver como isso funciona em
+   o código de demonstração no programa FORMSHOP.PAS.
+
+   AInScroll denota que, se FALSE, as teclas de cursor esquerda e direita se comportam
+   como teclas Ctrl-Left e Ctrl-Right no modo <Ins>. Este padrão
+   para TRUE em TDmxDlgForm, para que esse parâmetro não seja necessário lá.
+
+   ADados são os dados. O objeto TDmxDlgForm não precisa deste parâmetro
+   seja porque seus dados são armazenados localmente dentro do objeto. Isto é
+   assumiu que você estaria usando SetData() e GetData() em uma caixa de diálogo.
+
+   Bounds é o retângulo. Observe que esses objetos não precisam do
+   data-size porque isso será inferido do Template string.
+
+   Os parâmetros ALabels e ArecInd também não estão no objeto TDmxDlgForm.
+       Eles podem ser usados da mesma forma que com o objeto TDmxEditor.
+
+
+                                Sample Form                           Page 7
+                                -----------
+
+  Type
+    TMyRecordType  =  Record
+        Name     :  string[30];
+        SSN      :  string[9];
+        Balance  :  real;
+        Pt       :  pointer;
+        Value    :  real;
+    end;
+
+  procedure EditForm(var AData);
+  var  R  : TRect;
+       W  : PWindow;
+       Templates : PSItem;
+  begin
+    Templates :=
+        NewSItem('~    Name~',
+        NewSItem( '   \ssssssssssssssssssssssssssssss',
+        NewSItem('',
+        NewSItem('~    SSN:    ~\###-##-####',
+        NewSItem('~    Balance:~\($rrr,rrr.zz)',
+        NewSItem('',
+        NewSItem('~    Pointer:~\HHHH:HHHH',
+        NewSItem('~    Value:  ~\RRR,RRR.ZZRR ~pts~',
+          nil)))));
+    R.Assign(0,0, 40,14);
+    New(W, Init(R, 'Small Form', wnNextAvail));
+    With W^ do
+      begin
+      Options := Options or ofTileable;
+      GetExtent(R);   { create new rectangle for editor object }
+      R.Grow(-1,-1);          { shrink -1 to avoid borders }
+      Insert(New(PDmxForm,
+         Init(Templates,           { Template list }
+          MyData,           { data in form }
+          R,                { view's rectangle }
+          nil,nil,   { no DmxLabels or DmxRecInd views }
+          StandardScrollBar (sbHorizontal)
+          StandardScrollBar (sbVertical)
+          )
+      ));
+      end;
+    DisposeSItems(Templates); { Templates not needed after Init() }
+    DeskTop^.Insert(W);
+  end;
+
+  As with the regular tvDMX Templates, tilde symbols ('~') mark off
+  string-literals;  backslashes ('\') separate the Fields;  and everything
+  else defines the Field.  Naturally, you need to be careful about marking
+  these properly but it's fairly easy, and most mistakes can be found
+  during the first test.
+
+  Note:  The compiler may balk at more than 20 rows of nested NewSItem()
+         calls, but you can combine smaller sections of a form into
+         individual functions.  This is demonstrated in FORMSHOP.PAS.
+         With scrollbars and proper segmentation, you can create huge
+         scrollable forms.
+
+
+                            Function EntryBox()                       Page 8
+                            -------------------
+
+  The TDmxDlgForm object (derived from TDmxForm) can be used in dialog
+  boxes.  But simple dialog boxes can easily be created using tvDMX's new
+  EntryBox() function.
+
+      function EntryBox(Title       : string;
+                        AData       : pointer;
+                        AOptions    : word;
+                        AForm       : PSItem)  :  word;
+
+         Title is used as the title of the dialog box.
+
+         AData is a pointer to the data to be edited.  EntryBox creates
+           its own temporary data buffer, used during the editing process,
+           and does not transfer the data back if a cmCancel command is
+           generated.  You may use NIL to test the dialog box if you have
+           no data yet.
+
+         AOptions uses mfXXXX codes like those from TV's standard
+           MessageBox() function.  It then and adds corresponding buttons
+           to the dialog box.  There are also three new mfXXXX codes:
+
+                mfHelpButton  --adds a help button to the dialog box;
+                mfViewOnly    --prevents the user from editing the data;
+                mfDefault     --makes the OK button the default selection.
+
+         AForm is a PSItem pointer to the first row in the Template chain.
+
+
+  Example:
+
+      procedure EditEmployeeRecord(RecNum: longint);
+      var  Control  : word;
+           EmpRec   : EmployeeRecordType;
+      begin
+        GetRecord(EmpRec, RecNum);
+        Control := EntryBox('Employee', @EmpRec, mfOKCancel + mfDefault,
+                          NewSItem('',
+                          NewSItem('~    Name~',
+                          NewSItem( '   \ssssssssssssssssssss\   ',
+                          NewSItem('',
+                          NewSItem('~    ID Number:~\ ZZZW ',
+                          NewSItem('',
+                          NewSItem('~    Earnings:~\($rrr,rrr.zz)',
+                          NewSItem('',
+                                   nil))))))))
+                          );
+        If (Control = cmOK) then UpdateRecord(EmpRec, RecNum);
+      end;
+
+
+  The dialog box is automatically sized and centered.  Horizontal and
+  vertical scrollbars are added only if necessary.
+
+  Remember to split large forms (20 or more rows of NewSItem calls) into
+  smaller sections as demonstrated by the large forms in FORMSHOP.PAS.
+
+
+  ADVANCED FEATURES                                                   Page 9
+  =================
+
+                              User Key Errors
+                              ---------------
+
+  Keys pressed that are out of range (eg: 'z' within numeric Fields) will
+  generate cmDMX_WrongKey command events.  See tvGIZMA.PAS for examples.
+
+
+                        Hidden and Read-Only Fields
+                        ---------------------------
+
+  Some programs use data with hidden Fields.  (dBASE files require a
+  leading byte at the beginning of each record.)  And many programs use
+  Fields which can be seen but not altered.  (This may be when the Field
+  is accessed by the program and not by the user.)
+
+  Both of these situations are handled by control codes in the Template
+  string that mark Fields as Hidden or Read-Only.
+
+  Example: ^H + 'B' + #0 + ^R + ' iii |'...
+
+           ^H + 'B' specifies a hidden BYTE Field;
+           #0 marks a new Field without a visible delimiter;
+           ^R marks the next Field as a Read-Only integer;  and so on...
+
+  Program users will recognize Read-Only Fields because they have their
+  own color in the palette (when focused).
+
+
+                          Swapping Field Positions
+                          ------------------------
+
+  Date Fields are often arranged in Year-Month-Day order, but the
+  conventional display format is Month-Day-Year.  The ^P control code
+  makes it possible to display and edit Fields in a different order than
+  in which they are physically organized.  This exchange is transparent to
+  the user.
+
+  Unit DMXGIZMA contains fldDATE, a string constant that uses the ^P code
+  to display and edit a three-word date Field.  Here is how it works:
+
+    CONST  fldDATE    =  ' WW-'^F^Z + ^U+AnsiChar(12) + ^P+AnsiChar(2) +
+                        #0'ZW-'^Z  + ^U+AnsiChar(31) +
+                        #0'ZZZW '^Z^F + ^P+AnsiChar(-6) +
+                        #0 + ^P+AnsiChar(4);
+
+  fldDATE defines what is called a "complex Field".  The ^F control code
+  ensures that these three integer Fields receive the same Field number.
+  The ^P code uses the next AnsiCharacter to adjust the data pointer forward 2
+  bytes, backward 6 bytes, and then 4 bytes forward again.  This way, the
+  YEAR-MONTH-DAY Field can be displayed and edited in MONTH-DAY-YEAR
+  order, like this:  '  1-01-1992 '.  The ^U code is used to denote an
+  upper limit for each Field.  Refer to the section on control codes
+  elsewhere in the documentation.
+
+  These advanced features are demonstrated in program SAMPLES.PAS.
+
+
+  REFERENCE                                                          Page 10
+  =========
+
+                              Object Hierarchy
+                              ----------------
+
+
+        TObject (OBJECTS.TPU)
+           |
+        TView (VIEWS.TPU)
+           |
+        TScroller (TVIEWS.TPU)
+           |
+           |
+        TDmxScroller (TVDMX.PAS)
+           |  |
+           |  +--TDmxCollectView (TVDMXCOL.PAS)
+           |
+           |
+        TDmxEditor (TVDMX.PAS)
+           |
+           |
+           |--TDmxCollector (TVDMXCOL.PAS)
+           |
+           |
+           |--TDmxEditBuf (TVDMXBUF.PAS)
+           |     |
+           |     +--TDmxStreamBuf
+           |     |     |
+           |     |     +--TDmxExpBuf
+           |     |
+           |     +--TDmxPxEditor
+           |           |
+           |           +--TDmxParadox
+           |
+           |
+           |--TDmxEditDlg (STDDMX.PAS)
+           |     |
+           |     +--TInputFields
+           |
+           |
+           +--TDmxForm (DMXFORMS.PAS)
+                 |
+                 +--TDmxDlgForm
+
+
+                                   Units                             Page 11
+                                   -----
+
+      Unit RSET contains untyped constants and data types.  No objects,
+           procedures, functions, or typed-constants are included.
+
+      Unit DMXGIZMA has a formatting function used internally by tvDMX and
+           defines the DMX-specific constants and types;
+
+      Unit tvGIZMA has several objects and functions for Turbo Vision
+           support which includes TAppA  --an advanced application view;
+
+      Unit tvDMX contains:
+
+           object TDmxScroller  --a data scroller object
+           object TDmxEditor    --a data editor derived from TDmxScroller
+           object TDmxRecNum    --a view which displays the record number
+           objects TDmxExtLabels, TDmxLabels, TDmxFLabels and TDmxMLabels
+                     --views which displays text (used for Field titles)
+
+
+      Unit StdDMX contains:
+
+           object TDmxEditDlg  --TDmxEditor derivative for dialog boxes
+           object TInputFields --TInputLine replacement for all data types
+           object TDmxViewer   --TWindow descendant that initializes and
+                                 INSERTs a TDmxScroller object
+           object TDmxWindow   --TDmxViewer descendant that initializes
+                                 and INSERTs a TDmxEditor object
+
+
+      Unit tvDMXCOL contains:
+
+           object TDmxCollector --TDmxEditor derivative for collections
+           object TDmxCollectorWin is a TDmxWindow derivative for
+           TDmxCollector
+
+
+      Unit tvDMXBUF contains buffered tvDMX objects:
+
+           object TDmxEditBuf   --TDmxEditor derivative for external data
+           object TDmxStreamBuf --TDmxEditBuf derivative for stream data
+           object TDmxExpBuf    --descendant of TDmxStreamBuf that expands
+                                  as records are appended (see FILESHOP)
+           objects TDmxBufWin and TDmxExpBufWin  --TDmxWindow descendants
+                                for control of the previous two objects;
+
+
+      Unit DMXFORMS contains objects to build forms:
+
+           object TDmxForm      --main TDmxEditor forms object
+           object TDmxDlgForm   --TDmxForm derivative for dialog boxes
+           proc MakeEntryBox()  --creates a form in a dialog box
+           func EntryBox()      --uses MakeEntryBox to display a form
+
+
+      Unit tvDMXREP contains objects that output listings of tvDMX data.
+           Read file DMXUTILS.DOC for detailed information.
+
+
+                            Data Template Codes                      Page 12
+                            -------------------
+
+  Field codes:
+
+           'S' --String Field
+           '#' --String Field (numbers only)
+           'C' --AnsiCharacter Field (can be used for AnsiChar arrays)
+           '0' --AnsiCharacter Field (numbers only)
+           'X' --BOOLEAN value Field
+           'B' --BYTE Field
+           'J' --SHORTINT Field
+           'W' --WORD Field
+           'I' --Integer Field
+           'L' --LONGINT Field
+           'R' --Real number Field (uses TYPE TRealNum in RSET.PAS)
+           'N' --dBASE-formatted numeric AnsiChar Field
+           'H' --HEXadecimal numeric entry
+           'K' --BIT CLUSTER Field ('K'=CheckBox; 'k'=RadioButton)
+
+
+  Field code modifier:
+
+           'Z' --zero modifier to force leading or trailing zeroes
+
+
+  Field control codes:
+
+           ^A  --show all zero values in all Fields
+           ^C  --use the next AnsiCharacter as a Field access code
+           ^D  --use the next AnsiCharacter as a Field delimiter
+           ^F  --start/end complex Field
+           ^H  --hidden Field
+           ^P  --display position modifier
+           ^R  --read-only Field
+           ^S  --"skip" Field (cursor will skip over it)
+           ^U  --set Field's UpperLimit (1 to 255 only)
+           ^V  --set Field's default value
+           ^X  --special BOOLEAN Field
+           ^Z  --show zeroes if this Field is empty
+           '~' --switch string-literals on/off
+
+
+  Field delimiters:
+
+           #0  --technical Field delimiter (not displayed)
+           '\' --displayed as a space
+           '|' --displayed as a solid vertical line (#179)
+           #179 or #186 may also be used as delimiters
+
+
+  Template extension functions:  (in file DMXGIZMA.PAS)
+
+           func InitAppendFields()
+           func InitBlobField()
+           func InitEnumField()
+           func InitTSItemFields()
+
+
+  USING TEMPLATE CODES                                               Page 13
+  ====================
+
+
+  String Fields:
+
+           's' regular String Field
+           'S' String Field (forces upper case)
+           '#' String Field (numbers only)
+
+      These codes are used for normal Turbo Pascal String types.  If the
+      '#' code is used then only spaces or numeric AnsiCharacters ('0'..'9')
+      can be entered.
+
+      Examples: 'ssssssssssssssssssss'
+                '~Name:~ SSSSSSSSSSSSSSSSSSSS'
+                ' ###-##-#### '
+
+
+  AnsiChar Fields:
+
+           'c' AnsiChar Field
+           'C' AnsiChar Field (forces upper case)
+           '0' AnsiChar Field (numbers only)
+
+      Editing keys will operate in the same manner as String Fields when
+      the Field contains more than one AnsiCharacter.  (Use these codes for
+      dBASE file structures.)  If the '0' code is used then only spaces or
+      numeric AnsiCharacters ('0'..'9') can be entered.
+
+      Examples: 'C'
+                'cccccccccccccccccccc'
+                '~Name:~ CCCCCCCCCCCCCCCCCCCC'
+                ' 000-00-0000 '
+
+
+  BOOLEAN Fields:
+
+           'X' regular BOOLEAN Field
+           ^X  indicates special BOOLEAN Field
+
+      A regular BOOLEAN Field will display the AnsiCharacter ShowTRUE (as
+      defined in unit DMXGIZMA) or ShowFALSE, depending upon the value of
+      that Field.  A special BOOLEAN Field has no indicator of its own,
+      but will display the Template only if the data is TRUE.
+
+      Examples: 'X'
+                '[X]'
+                '~TRUE~' + ^X
+
+
+                                                                     Page 14
+  Integer Fields:
+
+           'B' BYTE Field
+           'J' SHORTINT Field
+           'W' WORD Field
+           'I' Integer Field
+           'L' LONGINT Field
+           'Z' ZERO modifier to display leading zeroes
+
+      The value of each Field is limited to the natural limit of its Field
+      TYPE, regardless of the displayed width of its Template.  Upper case
+      codes signify that negative numbers are not permitted.  (Case is not
+      relevant for BYTE and WORD Fields.)
+      The 'Z' modifier can be used to force the display of a leading zero
+      as long as the data type is in one of the Template
+      AnsiCharacters.
+
+      Examples: 'BBB'
+                'WWWWW'
+                'ZZZZW'
+                'ii,iii'
+                '%WZW'
+                'LLL,LLL,LLL'
+
+
+  Real Number Fields:
+
+           'R' Real number Field
+
+      Real numbers are declared like other numeric Fields except that
+      parentheses '('/')' can be used to enclose the Template.  These will
+      be displayed only if the value is a negative number.
+
+      Floating point numbers other than of TYPE Real can be used if TYPE
+      TRealNum is changed in RSET.PAS.  (See RSET.PAS.)
+
+      New in version 2.0:  Trailing zeroes will not be displayed unless
+      'z' was used in the Template.
+
+      Examples: '($rrr,rrr.zz)'
+                'rr,rrr.zrrr'
+                'RRRRR.RRR'
+
+
+  Hexadecimal Fields:
+
+           'H' Hexadecimal numeric Field
+
+      Used for displaying and editing data in hexadecimal formats.  The
+      size and type of the Field is dependent upon the number of H's.
+      This code is used extensively in unit tvDMXHEX.PAS.
+
+      Examples: 'HH'
+                'HHHH'
+                'HHHH:HHHH'
+
+
+                                                                     Page 15
+  dBASE-formatted numeric AnsiChar Fields:
+
+           'N' Numeric AnsiCharacter Field
+
+      These Fields are stored as AnsiCharacter arrays but are edited like the
+      numeric Fields.  This may be formatted like any numeric Field except
+      that parentheses cannot be used.  dBASE date Fields can be formatted
+      using 'Z' modifiers and a system of ^P codes.  (See fldNDATE in
+      FILESHOP.PAS.)
+
+      Examples: 'nnn'
+                'ZZN'
+                '$nnn,nnn.zz'
+
+
+  BIT-CLUSTER Fields:
+
+           'K' + AnsiChar     CheckBox bit Field
+           'k' + AnsiChar     RadioButton bit Field
+
+      Cluster Fields emulate Turbo Vision's TCluster views within a tvDMX
+      scroller.  They were originally intended for form-views, but they
+      can be used in any type of tvDMX object.
+
+      The 'K' or 'k' Template code is followed by another AnsiCharacter that
+      designates which cluster it belongs to.  It does not matter what
+      this AnsiCharacter is, as long as each cluster has its own.
+
+      Examples: NewSItem(' [KA] ~Box 1     ~\ (kB) ~Button 1   ~',
+                NewSItem(' [KA] ~Box 2     ~\ (kB) ~Button 2   ~',
+                NewSItem(' [KA] ~Box 3     ~\ (kB) ~Button 3   ~',
+                NewSItem(' [KA] ~Box 4     ~\ (kB) ~Button 4   ~',
+                     nil)))
+
+      These examples use a cluster of checkboxes identified as bank 'A',
+      and a cluster of radiobuttons identified as bank 'B'  The brackets
+      and parentheses are not significant and may be substituted.  The 'A'
+      and 'B' cluster-ID's are not displayed.
+
+      By default, each cluster-group holds one WORD-type of data.  So,
+      there can be up to 16 controls for each RadioButton-cluster.  This
+      can be changed to a LONGINT type by setting SizeOfFldCluster := 4;
+
+
+                           Template Control Codes                    Page 16
+                           ----------------------
+
+  Switch to Literals:
+
+           '~'
+
+      Switches DMX Template interpretation to codes or literals.  This
+      permits static-text to be used in a Template string.
+
+      Examples: '~Name:~ SSSSSSSSSSSSSSSSSSSS'
+                '$RR,RRR.RR ~CR~'
+
+
+  String/AnsiCharacter Field Contraction:
+
+           '`'
+
+      Shortens the visible portion of a string Field.  Only the portion of
+      the Template before the '`' marker will be displayed.  The remainder
+      can be seen and edited by scrolling (within the Field) to the
+      right.
+
+      Examples: '~Name:~ SSSSSSSSSSSSSSSSSSSS`SSSSSSSSSSSSSSS'
+                ' cccccccccc`cccccccccccccccccccc'
+
+
+  Special Field Attributes:
+
+           ^A  show zeroes in all Fields
+           ^C+' use the next AnsiCharacter as a Field access code
+           ^H  Hidden Field
+           ^R  Read-Only Field
+           ^S  Skip Field (cursor will skip over it)
+           ^Z  show zeroes if this Field is empty
+
+      Every Field has its own Field-access attribute. They may be combined
+      as needed.  ^A will function as though was set ^Z for each Field.
+      ^C+AnsiChar(accSpecA) sets the accSpecA flag for that Field.  (accSpecA,
+      accSpecB and accSpecC flags are available for your own custom use.)
+      Note that Hidden or Skip Fields can still be zeroized when the
+      record is zeroized, unless it is also marked as Read-Only.
+
+
+  Define Template Delimiter:
+
+           ^D + AnsiChar
+
+      Uses the following AnsiCharacter as a Field delimiter.
+
+      Examples: ' WW' + ^D+'-WW' + ^D'-WWWW '
+                ^D + #255
+
+
+                                                                     Page 17
+  Start/End Complex Field:
+
+           ^F
+
+      Begins or ends a complex Field.  Each individual Field within a
+      complex Field group is given the same Field number.
+
+      Example:  ^F + ' BB | BB | WWWW ' + ^F
+
+
+  Position Modifier:
+
+           ^P + AnsiChar
+
+      Sets the position within the record (and also the record size) to
+      another point relative to the number of bytes indicated by the
+      SHORTINT value of the following AnsiCharacter.  This is used by the
+      fldDATE constant to swap the diplay positions of a date record from
+      Year-Month-Day to Month-Day-Year.
+
+      Examples: ^P + AnsiChar(20)
+                ^P + AnsiChar(-4)
+
+
+  Set Field Upper Limit:
+
+           ^U + AnsiChar
+
+      The next AnsiCharacter will be the Field's upper limit (up to 255).
+      This is used by fldDATE to limit months to 12 and days to 31.
+
+      Example:  ^U + AnsiChar(12)
+
+
+  Set Field Default Value:
+
+           ^V + AnsiChar
+
+      The following AnsiCharacter will be the Field's default value, which is
+      set when it is zeroized.  Normally this would be zero for numerics
+      and spaces for AnsiCharacter Fields.
+
+      Example:  ^V + '0'
+
+
+                         Field Descriptor Functions                  Page 18
+                         --------------------------
+
+  Some situations require special functions that assign control codes.
+  The following functions return DmxIDstr strings (which are String[8]
+  types) that have the required control codes.
+
+
+      function  InitAppendFields(ATemplate: pstring) : DmxIDstr;
+
+           Initializes a pointer to more Field Templates.  This can
+           be used to increase the effective length of your Template.
+           You can also use function InitTSItemFields() to extend
+           Template strings.
+
+           Example:  Stx2 := 'WW,WWW |WW,WWW | CCCCCCCC ';
+                     Stx1 := ' sssssssssssssss|WW,WWW |'
+                             + InitAppendFields (@Stx2);
+
+
+      function  InitBlobField(Len: integer;
+                              AccMode,Default: byte) : DmxIDstr;
+
+           Initializes an unformatted data Field of the given Field
+           length.  BLOb Fields take space within the record but will
+           not be displayed.  Use procedure GetBlob() in unit
+           STDDMX.PAS to retrieve this data.
+
+           Example:  Stx := ' sssssssssssssss|WW,WWW | CCCCCCCC ' +
+                               InitBlobField (20, AccNormal, 0);
+
+
+      function  InitEnumField(ShowZ: boolean; AccMode,Default: byte;
+           AItems: PSItem) : DmxIDstr;
+
+           Initializes a tvDMX enumerated Field list.
+
+           Example:
+              Stx := ' sssssssssssssss|WW,WWW |'
+                  +  InitEnumField (FALSE, AccNormal, 0,
+                                    NewSItem (' Zero ',
+                                    NewSItem (' One',
+                                    NewSItem (' Two', nil))))
+                  + '| ###-#### |rrr,rrr.rrr ';
+
+
+      function  InitTSItemFields (ATemplates : PSItem) : DmxIDstr;
+
+           Initializes a chain of TSItem Templates.  This can be used
+           to increase the effective length of your Template.
+
+           Example:
+              Stx := ' sssssssssssssss|WW,WWW |' +
+                     InitTSItemFields(NewSItem(' ssssssssssssss|',
+                                      NewSItem('($rrr,rrr.rr)|',
+                                      NewSItem(' CCCCC|WWW,WWW ',
+                                               nil))))
+
+
+  FYI                                                                Page 19
+  ===
+                         Important Virtual Methods
+                         -------------------------
+
+  The following is a short list of some of the virtual methods that may be
+  overridden or intercepted in descendant objects.
+
+
+  Function  TDmxEditor.DataAt(RecNum: integer) : pointer;  VIRTUAL;
+
+      Returns a pointer to the given data record.  By overriding this
+      function, a program can alter the manner in which the database
+      is organized.  This method is used exclusively for data
+      retrieval --which allows programs to access over 64k.
+
+      The objects in unit tvDMXBUF.PAS override this method to
+      retrieve data records from external sources, but they use a
+      buffer to store enough data to reduce delay from disk access
+      while scrolling.
+
+      The default method simply returns a pointer to the position in
+      the database from (RecNum * RecordSize).
+
+
+  Procedure TDmxEditor.EvaluateField;  VIRTUAL;
+
+      Called AFTER each Field is edited.  It adjusts internal Fields
+      and calls DrawField() to redraw the Field in the regular color.
+      Programmers who wish to override this method should call its
+      ancestor in the descendant object.
+
+
+  Procedure TDmxEditor.EvaluateRecord;  VIRTUAL;
+
+      Called AFTER each Record is edited.  The objects in unit
+      tvDMXBUF override this method to return the data record to
+      storage.  Programmers who wish to override this method should
+      call its ancestor in the descendant object.
+
+
+  Procedure TDmxEditor.SetUpField;  VIRTUAL;
+
+      Called BEFORE each Field is edited.  May call
+      RecInd^.DrawView() if a record number indicator view is linked.
+      Programmers who wish to override this method should call its
+      ancestor in the descendant object.
+
+
+  Procedure TDmxEditor.SetUpRecord;  VIRTUAL;
+
+      Called BEFORE each Record is edited.  This can be intercepted
+      to display special information (eg: record number) or to
+      rearrange the record before editing.  Programmers who wish to
+      override this method should call its ancestor in the descendant
+      object.
+
+
+                          External Database Access                   Page 20
+                          ------------------------
+
+  TDmxEditBuf is a descendant of TDmxEditor that uses a circular buffer to
+  edit data from a source other than in RAM.  This can be overridden to
+  access your own database library procedures, although this will not be
+  an easy project.
+
+  It retrieves each record individually when accessed.  The buffer is used
+  only for quick page draws.
+
+  This object can be found in unit tvDMXBUF.  It uses several abstract
+  methods and must not be instantiated as is.  Objects TDmxStreamBuf,
+  TDmxExpBuf and TDmxPxEditor are usable descendants.  Object TDmxExpBuf
+  is demonstrated in program FILESHOP.PAS.  (Object TDmxPxEditor is part
+  of the PxDMX.PAS unit, which is issued separately.)
+
+  Descendants MUST override SeekRec(), SeekEnd, ReadRec() and WriteRec():
+
+
+      Function  TDmxEditBuf.SeekRec(RecNum: integer) : boolean;  VIRTUAL;
+
+           This abstract virtual method is called before reading or
+           writing a record.  It must seek to the given record position.
+           It is important that you remember that the first record is
+           numbered 0.  It should seek to RecNum+1 if the database is
+           structured with record number 1 as the first record.
+
+
+      Function  TDmxEditBuf.SeekEnd : boolean;  VIRTUAL;
+
+           This abstract virtual method must seek to the end of the
+           database (after the last record).  Since this seeks to a
+           record that does not exist, most databases will only
+           require that SeekEnd return TRUE.
+
+
+      Function  TDmxEditBuf.ReadRec(var RecData ) : boolean;  VIRTUAL;
+
+           Abstract virtual method called to retrieve record RecData.
+           It must return a record exactly the size determined by the
+           Template.
+
+
+      Function  TDmxEditBuf.WriteRec(var RecData ) : boolean;  VIRTUAL;
+
+           Abstract virtual method called by EvaluateRecord() to
+           store record RecData if a change was made.
+
+
+  These functions must perform their record operations at the current
+  record position and return TRUE if the operation succeeded or FALSE if
+  it failed.  It is the programmer's responsibility to retain the error
+  code for use by the ErrorFunc() method.
+
+  TDmxEditBuf.ErrorFunc() is a virtual method that may be overridden for
+  special handling of database errors.
+
+  Please refer to file tvDMXBUF for more information.
+
+
+               Global Functions in Units DMXGIZMA and tvGIZMA        Page 21
+               ----------------------------------------------
+
+
+      Procedure AssignWinRect(var Bounds: TRect; MaxX, MaxY: integer);
+
+           Assigns Bounds to fit into the desktop, with MaxX and MaxY as
+           the maximum desired width and height.  Bounds is cut and moved
+           to a cascaded position behind the currently active window.
+           (This is similar to what happens when a new file is loaded into
+           the TP IDE.)
+         * Turbo Pascal 7.0 and above uses the Application^.GetTileRect()
+           method to determine the default window bounds.
+
+
+      Function  DmxStrLen(S: string)  : integer;
+
+           Returns the length of the visible portions of a Template
+           string.  (From unit DMXGIZMA)  Not for use with forms.
+
+
+      Function  wnNextAvail : integer;
+
+           Returns the next available (unused) window number.  This was
+           formerly called NextWindowNumber().
+
+
+      Procedure TrimDialog(Window: PWindow);
+
+           Shrinks and centers a dialog window to ease the design process.
+           The dialog window should be initialized with the maximum size
+           allowable.  TrimDialog() can be called after the controls are
+           inserted to resize the window down to the maximum size needed.
+           See program DLGSHOP.PAS for sample usage.
+
+
+      TAppA          =  OBJECT(TApplication)
+
+           TApplication extension that initializes TV's major components
+           after saving the original user screen.  Buttons and other
+           dialog box controls in applications using TAppA will respond to
+           UP, DOWN, RIGHT and LEFT cursor keys.  It provides for handling
+           of the cmBeep cmDMX_WrongKey, cmUserScreen, cmToggleSound,
+           cmToggleVideo, cmCascade and cmTile command events.
+         * Although the demo programs use derivatives of TAppA, it is not
+           required for tvDMX.
+
+
+      TAppPrn        =  OBJECT(TAppA)
+
+           TAppPrn provides additional support for printing tvDMX windows
+           (to printer or file).  See the example programs.
+
+
+      TUserScreen    =  OBJECT(TScroller)
+
+           Scroller object that displays the original user screen that has
+           been saved by the TAppA.Init() constructor.
+
+
+
+

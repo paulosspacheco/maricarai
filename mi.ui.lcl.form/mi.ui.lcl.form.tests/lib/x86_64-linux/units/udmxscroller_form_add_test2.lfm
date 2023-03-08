@@ -1,0 +1,50 @@
+object dmxscroller_form_add_test2: Tdmxscroller_form_add_test2
+  Left = 494
+  Height = 240
+  Top = 250
+  Width = 320
+  BorderStyle = bsSingle
+  Caption = 'dmxscroller_form_add_test2'
+  ClientHeight = 240
+  ClientWidth = 320
+  OnCreate = FormCreate
+  object Mi_ScrollBox_LCL1: TMi_ScrollBox_LCL
+    Left = 0
+    Height = 190
+    Top = 0
+    Width = 320
+    Align = alClient
+    AutoScroll = False
+    Font.Height = -13
+    Font.Name = 'Verdana'
+    ParentFont = False
+    TabOrder = 0
+    TabStop = True
+  end
+  object ButtonPanel1: TButtonPanel
+    Left = 6
+    Height = 38
+    Top = 196
+    Width = 308
+    OKButton.Name = 'OKButton'
+    OKButton.DefaultCaption = True
+    HelpButton.Name = 'HelpButton'
+    HelpButton.DefaultCaption = True
+    CloseButton.Name = 'CloseButton'
+    CloseButton.DefaultCaption = True
+    CancelButton.Name = 'CancelButton'
+    CancelButton.DefaultCaption = True
+    ButtonOrder = boCloseOKCancel
+    TabOrder = 1
+    ShowButtons = [pbOK, pbCancel]
+    ShowGlyphs = [pbCancel]
+  end
+  object DmxScroller_Form1: TDmxScroller_Form
+    Alias = 'Test2'
+    onGetTemplate = DmxScroller_Form1GetTemplate
+    Active = False
+    AlignmentLabels = taLeftJustify
+    Left = 184
+    Top = 56
+  end
+end

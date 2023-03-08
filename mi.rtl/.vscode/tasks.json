@@ -1,0 +1,16 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "fpc:build:main",
+			"file": "rtl.lpr",
+			"type": "fpc",
+			"buildOption": {
+				"unitOutputDir": "./out",
+				"customOptions": [
+					"-dDEBUG"
+				]
+			}
+		}
+	]
+}

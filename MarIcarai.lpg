@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CONFIG>
+  <ProjectGroup FileVersion="2">
+    <Targets>
+      <Target FileName="mi.rtl/mi.rtl.lpk"/>
+      <Target FileName="mi.rtl.ui/mi.rtl.ui.lpk"/>
+      <Target FileName="mi.ui.lcl/mi.ui.lcl.lpk"/>
+      <Target FileName="mi.ui.lcl.form/mi.ui.lcl.form.lpk"/>
+      <Target FileName="../xephyr-launcher-master/GUI_environment_launcher.lpi">
+        <BuildModes>
+          <Mode Name="Default"/>
+        </BuildModes>
+      </Target>
+      <Target FileName="../exemplos/BufDataSet/TestBufDataSet.lpi">
+        <BuildModes>
+          <Mode Name="Default"/>
+        </BuildModes>
+      </Target>
+      <Target FileName="../exemplos/postgresql/TestPostGresSql.lpi">
+        <BuildModes>
+          <Mode Name="Default"/>
+        </BuildModes>
+      </Target>
+      <Target FileName="../exemplos/sqldbtutorial3/sqldbtutorial3.lpi">
+        <BuildModes>
+          <Mode Name="Default" Compile="True"/>
+          <Mode Name="i386-win32"/>
+          <Mode Name="x86_64-win64"/>
+        </BuildModes>
+      </Target>
+      <Target FileName="../test/project1.lpi">
+        <BuildModes>
+          <Mode Name="Default" Compile="True"/>
+          <Mode Name="i386-win32"/>
+          <Mode Name="x86_64-win64"/>
+        </BuildModes>
+      </Target>
+      <Target FileName="../pasdoc/source/packages/lazarus/pasdoc_package.lpk"/>
+      <Target FileName="../exemplos/webBrrowser/project1.lpi">
+        <BuildModes>
+          <Mode Name="Default"/>
+        </BuildModes>
+      </Target>
+      <Target FileName="mi.rtl/mi.rtl.tests/test.mi.rtl.lpi">
+        <BuildModes>
+          <Mode Name="Default" Compile="True"/>
+          <Mode Name="i386-win32"/>
+          <Mode Name="x86_64-win64"/>
+        </BuildModes>
+      </Target>
+      <Target FileName="../exemplos/scroller/TestScroller.lpi">
+        <BuildModes>
+          <Mode Name="Default" Compile="True"/>
+          <Mode Name="i386-win32"/>
+          <Mode Name="x86_64-win64"/>
+        </BuildModes>
+      </Target>
+      <Target FileName="mi.ui.lcl.form/mi.ui.lcl.form.tests/mi.ui.lcl.form.test.lpi">
+        <BuildModes>
+          <Mode Name="Default" Compile="True"/>
+          <Mode Name="i386-win32"/>
+          <Mode Name="x86_64-win64"/>
+        </BuildModes>
+      </Target>
+      <Target FileName="../../../FPC_3.2.2/ccr/pas2js-rtl/demo/apiclient/apiclient.lpi">
+        <BuildModes>
+          <Mode Name="Default"/>
+        </BuildModes>
+      </Target>
+      <Target FileName="../../../FPC_3.2.2/ccr/pas2js-rtl/demo/fcldb/demodb.lpi"/>
+      <Target FileName="../../../FPC_3.2.2/ccr/pas2js-rtl/tools/html2form/htmltoform.lpi">
+        <BuildModes>
+          <Mode Name="Default"/>
+        </BuildModes>
+      </Target>
+      <Target FileName="../simpleserver/simpleserver.lpi">
+        <BuildModes>
+          <Mode Name="Default"/>
+        </BuildModes>
+      </Target>
+    </Targets>
+  </ProjectGroup>
+</CONFIG>

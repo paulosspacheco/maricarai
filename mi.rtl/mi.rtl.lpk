@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CONFIG>
+  <Package Version="5">
+    <Name Value="mi.rtl"/>
+    <Author Value="Paulo Sérgio da Silva Pacheco"/>
+    <CompilerOptions>
+      <Version Value="11"/>
+      <SearchPaths>
+        <IncludeFiles Value="$(ProjOutDir);units/include/linux;units/include/windows;units"/>
+        <Libraries Value="lib/$(TargetCPU)-$(TargetOS)/lib"/>
+        <OtherUnitFiles Value="units"/>
+        <UnitOutputDirectory Value="lib/$(TargetCPU)-$(TargetOS)/units"/>
+      </SearchPaths>
+      <Parsing>
+        <SyntaxOptions>
+          <SyntaxMode Value="Delphi"/>
+          <IncludeAssertionCode Value="True"/>
+        </SyntaxOptions>
+      </Parsing>
+      <CodeGeneration>
+        <Checks>
+          <IOChecks Value="True"/>
+          <RangeChecks Value="True"/>
+          <OverflowChecks Value="True"/>
+          <StackChecks Value="True"/>
+        </Checks>
+        <VerifyObjMethodCallValidity Value="True"/>
+      </CodeGeneration>
+      <Linking>
+        <Debugging>
+          <DebugInfoType Value="dsDwarf3"/>
+        </Debugging>
+      </Linking>
+    </CompilerOptions>
+    <Description Value="O  pacote mi.rtl encapsula as units do FreePascal e Lazarus.
+Implementa a classe TObjectss que por sua vez encapsula as classes bases do turbo vision versão Lazarus.
+"/>
+    <Version Minor="5" Build="687"/>
+    <Files>
+      <Item>
+        <Filename Value="mi.rtl.pas"/>
+        <UnitName Value="mi.rtl"/>
+      </Item>
+      <Item>
+        <Filename Value="units/mi.rtl.class_of_char.pas"/>
+        <UnitName Value="mi.rtl.Class_Of_Char"/>
+      </Item>
+      <Item>
+        <Filename Value="units/mi.rtl.applicationabstract.pas"/>
+        <UnitName Value="mi.rtl.ApplicationAbstract"/>
+      </Item>
+      <Item>
+        <Filename Value="units/mi.rtl.types.pas"/>
+        <UnitName Value="mi.rtl.Types"/>
+      </Item>
+      <Item>
+        <Filename Value="units/mi.rtl.consts.pas"/>
+        <UnitName Value="mi.rtl.Consts"/>
+      </Item>
+      <Item>
+        <Filename Value="units/mi.rtl.consts.strerror.pas"/>
+        <UnitName Value="mi.rtl.Consts.StrError"/>
+      </Item>
+      <Item>
+        <Filename Value="units/mi.rtl.consts.stringlistbase.pas"/>
+        <UnitName Value="mi.rtl.Consts.StringListBase"/>
+      </Item>
+      <Item>
+        <Filename Value="units/mi.rtl.consts.stringlist.pas"/>
+        <UnitName Value="mi.rtl.Consts.StringList"/>
+      </Item>
+      <Item>
+        <Filename Value="units/mi.rtl.files.pas"/>
+        <UnitName Value="mi.Rtl.Files"/>
+      </Item>
+      <Item>
+        <Filename Value="units/mi.rtl.objects.types.pas"/>
+        <UnitName Value="mi.rtl.Objects.Types"/>
+      </Item>
+      <Item>
+        <Filename Value="units/mi.rtl.objects.consts.pas"/>
+        <UnitName Value="mi.rtl.Objects.Consts"/>
+      </Item>
+      <Item>
+        <Filename Value="units/mi.rtl.objects.consts.logs.pas"/>
+        <UnitName Value="mi.rtl.Objects.Consts.Logs"/>
+      </Item>
+      <Item>
+        <Filename Value="units/mi.rtl.objects.consts.mi_msgbox.pas"/>
+        <HasRegisterProc Value="True"/>
+        <UnitName Value="mi.rtl.Objects.Consts.Mi_MsgBox"/>
+      </Item>
+      <Item>
+        <Filename Value="units/mi.rtl.objects.consts.progressdlg_if.pas"/>
+        <HasRegisterProc Value="True"/>
+        <UnitName Value="mi.rtl.Objects.Consts.ProgressDlg_If"/>
+      </Item>
+      <Item>
+        <Filename Value="units/mi.rtl.objects.methods.pas"/>
+        <UnitName Value="mi.rtl.Objects.Methods"/>
+      </Item>
+      <Item>
+        <Filename Value="units/mi.rtl.objects.methods.dates.pas"/>
+        <UnitName Value="mi.rtl.objects.Methods.dates"/>
+      </Item>
+      <Item>
+        <Filename Value="units/mi.rtl.objects.methods.exception.pas"/>
+        <UnitName Value="mi.rtl.Objects.Methods.Exception"/>
+      </Item>
+      <Item>
+        <Filename Value="units/mi.rtl.objects.methods.paramexecucao.pas"/>
+        <UnitName Value="mi.rtl.Objects.Methods.Paramexecucao"/>
+      </Item>
+      <Item>
+        <Filename Value="units/mi.rtl.objects.methods.paramexecucao.application.pas"/>
+        <UnitName Value="mi.rtl.Objects.Methods.Paramexecucao.Application"/>
+      </Item>
+      <Item>
+        <Filename Value="units/mi.rtl.objects.methods.streambase.pas"/>
+        <UnitName Value="mi.rtl.Objects.Methods.StreamBase"/>
+      </Item>
+      <Item>
+        <Filename Value="units/mi.rtl.objects.methods.streambase.stream.pas"/>
+        <UnitName Value="mi.rtl.Objects.Methods.StreamBase.Stream"/>
+      </Item>
+      <Item>
+        <Filename Value="units/mi.rtl.objects.methods.streambase.stream.filestream.pas"/>
+        <UnitName Value="mi.rtl.Objects.Methods.StreamBase.Stream.FileStream"/>
+      </Item>
+      <Item>
+        <Filename Value="units/mi.rtl.objects.methods.streambase.stream.memorystream.pas"/>
+        <UnitName Value="mi.rtl.Objects.Methods.StreamBase.Stream.MemoryStream"/>
+      </Item>
+      <Item>
+        <Filename Value="units/mi.rtl.objects.methods.streambase.stream.memorystream.buffermemory.pas"/>
+        <UnitName Value="mi.rtl.objects.methods.StreamBase.Stream.MemoryStream.BufferMemory"/>
+      </Item>
+      <Item>
+        <Filename Value="units/mi.rtl.objects.methods.collection.pas"/>
+        <UnitName Value="mi.rtl.Objects.Methods.Collection"/>
+      </Item>
+      <Item>
+        <Filename Value="units/mi.rtl.objects.methods.collection.filesstreams.pas"/>
+        <UnitName Value="mi.rtl.Objects.Methods.Collection.FilesStreams"/>
+      </Item>
+      <Item>
+        <Filename Value="units/mi.rtl.objects.methods.system.pas"/>
+        <UnitName Value="mi.rtl.Objects.Methods.System"/>
+      </Item>
+      <Item>
+        <Filename Value="units/mi.rtl.objects.methods.collection.sortedcollection.pas"/>
+        <UnitName Value="mi.rtl.Objects.Methods.Collection.SortedCollection"/>
+      </Item>
+      <Item>
+        <Filename Value="units/mi.rtl.objects.methods.collection.sortedcollection.stringcollection.pas"/>
+        <UnitName Value="mi.rtl.Objects.Methods.Collection.SortedCollection.StringCollection"/>
+      </Item>
+      <Item>
+        <Filename Value="units/mi.rtl.objects.methods.collection.sortedcollection.stringcollection.collectionstring.pas"/>
+        <UnitName Value="mi.rtl.Objects.Methods.Collection.Sortedcollection.Stringcollection.Collectionstring"/>
+      </Item>
+      <Item>
+        <Filename Value="units/mi.rtl.objects.methods.collection.sortedcollection.strcollection.pas"/>
+        <UnitName Value="mi.rtl.Objects.Methods.Collection.SortedCollection.StrCollection"/>
+      </Item>
+      <Item>
+        <Filename Value="units/mi.rtl.objects.methods.db.tb_access.pas"/>
+        <UnitName Value="mi.rtl.Objects.Methods.Db.Tb_Access"/>
+      </Item>
+      <Item>
+        <Filename Value="units/mi.rtl.objects.methods.db.tb__access.pas"/>
+        <UnitName Value="mi.rtl.Objects.Methods.Db.Tb__Access"/>
+      </Item>
+      <Item>
+        <Filename Value="units/mi.rtl.objects.methods.db.tb___access.pas"/>
+        <UnitName Value="mi.rtl.Objects.Methods.Db.Tb___Access"/>
+      </Item>
+      <Item>
+        <Filename Value="units/mi.rtl.objectss.pas"/>
+        <UnitName Value="mi.rtl.Objectss"/>
+      </Item>
+    </Files>
+    <RequiredPkgs>
+      <Item>
+        <PackageName Value="LCL"/>
+      </Item>
+      <Item>
+        <PackageName Value="LCLBase"/>
+      </Item>
+      <Item>
+        <PackageName Value="FCL"/>
+      </Item>
+      <Item>
+        <PackageName Value="LazUtils"/>
+      </Item>
+    </RequiredPkgs>
+    <UsageOptions>
+      <UnitPath Value="$(PkgOutDir)"/>
+    </UsageOptions>
+    <PublishOptions>
+      <Version Value="2"/>
+      <UseFileFilters Value="True"/>
+    </PublishOptions>
+  </Package>
+</CONFIG>

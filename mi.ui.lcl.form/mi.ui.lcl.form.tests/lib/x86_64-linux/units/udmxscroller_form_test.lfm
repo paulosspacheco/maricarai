@@ -1,0 +1,181 @@
+object Dmxscroller_form_test: TDmxscroller_form_test
+  Left = 0
+  Height = 249
+  Hint = 'Hint form'
+  Top = 0
+  Width = 790
+  HorzScrollBar.Visible = False
+  Caption = 'Dmxscroller_form_test'
+  ClientHeight = 249
+  ClientWidth = 790
+  Font.Height = -13
+  Font.Name = 'Arial'
+  Font.Style = [fsItalic]
+  OnClose = FormClose
+  OnCreate = FormCreate
+  Position = poDesktopCenter
+  object Panel1: TPanel
+    Left = 0
+    Height = 32
+    Top = 0
+    Width = 790
+    Align = alTop
+    Caption = 'Panel1'
+    ClientHeight = 32
+    ClientWidth = 790
+    TabOrder = 0
+    object form_ds_Test: TButton
+      Left = 0
+      Height = 32
+      Top = -1
+      Width = 96
+      Caption = '&form_ds_Test'
+      Font.Height = -13
+      Font.Name = 'DejaVu Sans Mono'
+      OnClick = form_ds_TestClick
+      ParentFont = False
+      TabOrder = 0
+    end
+    object InputBox: TButton
+      Left = 96
+      Height = 30
+      Top = 2
+      Width = 88
+      Caption = 'InputBox'
+      OnClick = InputBoxClick
+      TabOrder = 1
+    end
+    object Button_ModifyFontsAll_LCL: TButton
+      Left = 184
+      Height = 33
+      Top = -1
+      Width = 136
+      Caption = 'ModifyFontsAll_LCL'
+      OnClick = Button_ModifyFontsAll_LCLClick
+      TabOrder = 2
+    end
+    object AddTemplate: TButton
+      Left = 320
+      Height = 28
+      Top = 3
+      Width = 104
+      Caption = 'AddTemplate'
+      OnClick = AddTemplateClick
+      TabOrder = 3
+    end
+    object GetTemplate: TButton
+      Left = 424
+      Height = 29
+      Top = 2
+      Width = 105
+      Caption = 'GetTemplate'
+      OnClick = GetTemplateClick
+      TabOrder = 4
+    end
+    object Button1: TButton
+      Left = 528
+      Height = 32
+      Top = -1
+      Width = 104
+      Action = Form_ds_test2
+      Font.Height = -13
+      Font.Name = 'Arial'
+      Font.Style = [fsItalic]
+      ParentFont = False
+      TabOrder = 5
+    end
+    object StaticText1: TStaticText
+      Left = 656
+      Height = 25
+      Top = 3
+      Width = 105
+      Caption = 'StaticText1'
+      Font.CharSet = 4
+      Font.Height = -13
+      Font.Name = 'Ubuntu Condensed'
+      Font.Style = [fsUnderline]
+      ParentFont = False
+      TabOrder = 6
+    end
+  end
+  object GroupBox1: TGroupBox
+    Left = 0
+    Height = 217
+    Top = 32
+    Width = 790
+    Align = alClient
+    Caption = 'GroupBox1'
+    ClientHeight = 201
+    ClientWidth = 788
+    TabOrder = 1
+    object Mi_ScrollBox_LCL1: TMi_ScrollBox_LCL
+      Left = 0
+      Height = 201
+      Top = 0
+      Width = 788
+      HorzScrollBar.Smooth = True
+      VertScrollBar.Smooth = True
+      Align = alClient
+      AutoScroll = False
+      BorderStyle = bsNone
+      Font.Name = 'Courier New'
+      ParentFont = False
+      ParentShowHint = False
+      TabOrder = 0
+      TabStop = True
+    end
+  end
+  object DmxScroller_Form1: TDmxScroller_Form
+    Alias = 'Formulário Exemplo'
+    OnNewRecord = DmxScroller_Form1NewRecord
+    onEnter = DmxScroller_Form1Enter
+    onExit = DmxScroller_Form1Exit
+    onEnterField = DmxScroller_Form1EnterField
+    onExitField = DmxScroller_Form1ExitField
+    onGetTemplate = DmxScroller_Form1GetTemplate
+    Active = False
+    AlignmentLabels = taLeftJustify
+    ActionList = ActionList1
+    Left = 488
+    Top = 72
+  end
+  object ActionList1: TActionList
+    Left = 664
+    Top = 72
+    object Pesquisa: TAction
+      Category = 'Cadastros'
+      Caption = '🔍'
+      OnExecute = PesquisaExecute
+    end
+    object Pesquisar: TAction
+      Category = 'Cadastros'
+      Caption = '&Pesquisar'
+      OnExecute = PesquisarExecute
+    end
+    object Novo: TAction
+      Category = 'Cadastros'
+      Caption = '&Novo'
+      OnExecute = NovoExecute
+    end
+    object Excluir: TAction
+      Category = 'Cadastros'
+      Caption = '&Excluir'
+      OnExecute = ExcluirExecute
+    end
+    object Gravar: TAction
+      Category = 'Cadastros'
+      Caption = '&Gravar'
+      OnExecute = GravarExecute
+    end
+    object Action_Form_ds_test: TAction
+      Category = 'Test_form_Ds'
+      Caption = 'Action_Form_ds_test'
+      OnExecute = Action_Form_ds_testExecute
+    end
+    object Form_ds_test2: TAction
+      Category = '&Test_form_Ds'
+      Caption = 'Form_ds_test2'
+      OnExecute = Form_ds_test2Execute
+    end
+  end
+end

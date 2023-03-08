@@ -1,0 +1,256 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CONFIG>
+  <ProjectOptions>
+    <Version Value="12"/>
+    <PathDelim Value="\"/>
+    <General>
+      <Flags>
+        <AlwaysBuild Value="True"/>
+        <UseDesignTimePackages Value="True"/>
+      </Flags>
+      <SessionStorage Value="InIDEConfig"/>
+      <Title Value="mi.ui.lcl.form.test"/>
+      <Scaled Value="True"/>
+      <ResourceType Value="res"/>
+      <UseXPManifest Value="True"/>
+      <XPManifest>
+        <DpiAware Value="True"/>
+        <TextName Value="itms.maricarai.mi.rtl"/>
+        <TextDesc Value="Teste do gerador de formulário LCL  baseado em template estilo TvDmx. O formulário criado faz todas críticas necessária em uma entrada de dados."/>
+      </XPManifest>
+      <Icon Value="0"/>
+    </General>
+    <VersionInfo>
+      <UseVersionInfo Value="True"/>
+      <AutoIncrementBuild Value="True"/>
+      <MinorVersionNr Value="5"/>
+      <BuildNr Value="693"/>
+      <Language Value="0416"/>
+      <Attributes pvaDebug="True" pvaPreRelease="True"/>
+      <StringTable Comments="Programa exemplo do projeto maricarai." CompanyName="Itm Sistemas e Consultoria Ltda." FileDescription="Programa usado para testar as classes TDmxScroller_Form e TDmxScroller_Form_Ds" ProductName="mi.ui.lcl.form.test"/>
+    </VersionInfo>
+    <BuildModes>
+      <Item Name="Default" Default="True"/>
+      <Item Name="i386-win32">
+        <CompilerOptions>
+          <Version Value="11"/>
+          <Target>
+            <Filename Value="bin/$(TargetCPU)-$(TargetOS)/mi.ui.lcl.form.test.rtl"/>
+          </Target>
+          <SearchPaths>
+            <IncludeFiles Value="$(ProjOutDir);units/include/linux;units/include/windows"/>
+            <Libraries Value="bin/lib/$(TargetCPU)-$(TargetOS)"/>
+            <OtherUnitFiles Value="exemplos/project1;units/include/windows;units"/>
+            <UnitOutputDirectory Value="bin/$(TargetCPU)-$(TargetOS)/units"/>
+          </SearchPaths>
+          <Parsing>
+            <SyntaxOptions>
+              <SyntaxMode Value="Delphi"/>
+            </SyntaxOptions>
+          </Parsing>
+          <CodeGeneration>
+            <TargetCPU Value="i386"/>
+            <TargetOS Value="win32"/>
+          </CodeGeneration>
+          <Linking>
+            <Debugging>
+              <DebugInfoType Value="dsDwarf3"/>
+            </Debugging>
+            <Options>
+              <Win32>
+                <GraphicApplication Value="True"/>
+              </Win32>
+            </Options>
+          </Linking>
+        </CompilerOptions>
+      </Item>
+      <Item Name="x86_64-win64">
+        <CompilerOptions>
+          <Version Value="11"/>
+          <Target>
+            <Filename Value="bin/$(TargetCPU)-$(TargetOS)/mi.ui.lcl.form.test.rtl"/>
+          </Target>
+          <SearchPaths>
+            <IncludeFiles Value="$(ProjOutDir);units/include/linux;units/include/windows"/>
+            <Libraries Value="bin/$(TargetCPU)-$(TargetOS)"/>
+            <OtherUnitFiles Value="exemplos/project1;units/include/windows;units"/>
+            <UnitOutputDirectory Value="bin/$(TargetCPU)-$(TargetOS)/units"/>
+          </SearchPaths>
+          <CodeGeneration>
+            <TargetOS Value="win64"/>
+          </CodeGeneration>
+          <Linking>
+            <Debugging>
+              <DebugInfoType Value="dsDwarf3"/>
+            </Debugging>
+            <Options>
+              <Win32>
+                <GraphicApplication Value="True"/>
+              </Win32>
+            </Options>
+          </Linking>
+          <Other>
+            <CustomOptions Value="-dApp_Tv"/>
+          </Other>
+        </CompilerOptions>
+      </Item>
+      <SharedMatrixOptions Count="1">
+        <Item1 ID="815162688606" Value="-dDisableUTF8RTL"/>
+      </SharedMatrixOptions>
+    </BuildModes>
+    <PublishOptions>
+      <Version Value="2"/>
+      <UseFileFilters Value="True"/>
+    </PublishOptions>
+    <RunParams>
+      <FormatVersion Value="2"/>
+    </RunParams>
+    <RequiredPackages>
+      <Item>
+        <PackageName Value="TAChartLazarusPkg"/>
+      </Item>
+      <Item>
+        <PackageName Value="SynEdit"/>
+      </Item>
+      <Item>
+        <PackageName Value="mi.ui.lcl.form"/>
+      </Item>
+      <Item>
+        <PackageName Value="mi.ui.lcl"/>
+      </Item>
+      <Item>
+        <PackageName Value="mi.rtl.ui"/>
+      </Item>
+      <Item>
+        <PackageName Value="DBFLaz"/>
+      </Item>
+      <Item>
+        <PackageName Value="MemDSLaz"/>
+      </Item>
+      <Item>
+        <PackageName Value="FCL"/>
+      </Item>
+      <Item>
+        <PackageName Value="mi.rtl"/>
+      </Item>
+      <Item>
+        <PackageName Value="LazControls"/>
+      </Item>
+      <Item>
+        <PackageName Value="SDFLaz"/>
+      </Item>
+      <Item>
+        <PackageName Value="LCL"/>
+      </Item>
+    </RequiredPackages>
+    <Units>
+      <Unit>
+        <Filename Value="mi.ui.lcl.form.test.pas"/>
+        <IsPartOfProject Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="units\umi_ui_mi_msgbox_dm.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="Mi_ui_mi_msgBox"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="DataModule"/>
+        <UnitName Value="uMi_ui_mi_msgbox_dm"/>
+      </Unit>
+      <Unit>
+        <Filename Value="units\umi_ui_inputbox_lcl_test.pas"/>
+        <IsPartOfProject Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="units\umi_ui_dmxscroller_form_lcl_ds_test.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="Mi_ui_DmxScroller_Form_Lcl_ds_test"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="uMi_ui_DmxScroller_Form_Lcl_ds_test"/>
+      </Unit>
+      <Unit>
+        <Filename Value="units\umi_ui_dmxscroller_form_lcl_ds_test2_dm.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="Mi_ui_DmxScroller_Form_Lcl_ds_test2_dm"/>
+        <ResourceBaseClass Value="DataModule"/>
+        <UnitName Value="uMi_ui_DmxScroller_Form_Lcl_ds_test2_dm"/>
+      </Unit>
+      <Unit>
+        <Filename Value="units\umi_ui_dmxscroller_form_lcl_ds_test2.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="Mi_ui_DmxScroller_Form_Lcl_ds_test2"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="uMi_ui_DmxScroller_Form_Lcl_ds_test2"/>
+      </Unit>
+      <Unit>
+        <Filename Value="units\udmxscroller_form_lcl_add_test.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="DmxScroller_Form_Lcl_add_test"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="uDmxScroller_Form_Lcl_add_test"/>
+      </Unit>
+      <Unit>
+        <Filename Value="units\udmxscroller_form_lcl_add_test2.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="DmxScroller_Form_Lcl_add_test2"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="uDmxScroller_Form_Lcl_add_test2"/>
+      </Unit>
+      <Unit>
+        <Filename Value="units\unit1.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="DmxScroller_Form_Lcl_add_test1"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="Unit1"/>
+      </Unit>
+    </Units>
+  </ProjectOptions>
+  <CompilerOptions>
+    <Version Value="11"/>
+    <Target>
+      <Filename Value="bin/$(TargetCPU)-$(TargetOS)/mi.ui.lcl.form.test.rtl"/>
+    </Target>
+    <SearchPaths>
+      <IncludeFiles Value="$(ProjOutDir)"/>
+      <Libraries Value="/lib/x86_64-linux-gnu/"/>
+      <OtherUnitFiles Value="units"/>
+      <UnitOutputDirectory Value="lib/$(TargetCPU)-$(TargetOS)/units"/>
+    </SearchPaths>
+    <Parsing>
+      <SyntaxOptions>
+        <SyntaxMode Value="Delphi"/>
+        <IncludeAssertionCode Value="True"/>
+      </SyntaxOptions>
+    </Parsing>
+    <CodeGeneration>
+      <Checks>
+        <IOChecks Value="True"/>
+        <RangeChecks Value="True"/>
+        <OverflowChecks Value="True"/>
+        <StackChecks Value="True"/>
+      </Checks>
+      <VerifyObjMethodCallValidity Value="True"/>
+      <Optimizations>
+        <OptimizationLevel Value="0"/>
+      </Optimizations>
+    </CodeGeneration>
+    <Linking>
+      <Debugging>
+        <DebugInfoType Value="dsDwarf3"/>
+      </Debugging>
+      <Options>
+        <Win32>
+          <GraphicApplication Value="True"/>
+        </Win32>
+      </Options>
+    </Linking>
+    <Other>
+      <CompilerMessages>
+        <IgnoredMessages idx11031="True" idx11030="True" idx11017="True" idx11007="True" idx8028="True" idx7039="True" idx6048="True" idx5094="True" idx5092="True" idx5091="True" idx5062="True" idx5060="True" idx5058="True" idx5057="True" idx5039="True" idx5028="True" idx5026="True" idx5024="True" idx5023="True" idx5003="True" idx4081="True" idx4080="True" idx4079="True" idx4055="True" idx4049="True" idx4047="True" idx4035="True" idx4015="True" idx3280="True" idx3274="True" idx3270="True" idx3189="True" idx3187="True" idx3126="True" idx3124="True" idx3123="True" idx2026="True"/>
+      </CompilerMessages>
+      <CustomOptions Value="-dUseCThreads"/>
+    </Other>
+  </CompilerOptions>
+</CONFIG>

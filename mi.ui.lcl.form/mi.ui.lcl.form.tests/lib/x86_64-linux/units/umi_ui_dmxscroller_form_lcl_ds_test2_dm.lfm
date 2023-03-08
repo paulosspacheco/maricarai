@@ -1,0 +1,66 @@
+object Mi_ui_DmxScroller_Form_Lcl_ds_test2_dm: TMi_ui_DmxScroller_Form_Lcl_ds_test2_dm
+  OnCreate = DataModuleCreate
+  OldCreateOrder = False
+  Height = 204
+  HorizontalOffset = 378
+  VerticalOffset = 250
+  Width = 261
+  object DmxScroller_Form_Lcl_DS1: TDmxScroller_Form_Lcl_DS
+    Alias = 'Exemplo Form_ds'
+    OnAddTemplate = DmxScroller_Form_Lcl_DS1AddTemplate
+    Active = False
+    AlignmentLabels = taLeftJustify
+    ActionList = ActionList1
+    DataSource = DataSource1
+    Left = 64
+    Top = 8
+  end
+  object DataSource1: TDataSource
+    Left = 64
+    Top = 88
+  end
+  object ActionList1: TActionList
+    Left = 184
+    Top = 16
+    object Novo: TAction
+      Category = 'Cadastros'
+      Caption = '&Novo'
+      OnExecute = NovoExecute
+    end
+    object Pesquisar: TAction
+      Category = 'Cadastros'
+      Caption = '&Pesquisar'
+      OnExecute = PesquisarExecute
+    end
+    object Gravar: TAction
+      Category = 'Cadastros'
+      Caption = '&Gravar'
+      OnExecute = GravarExecute
+    end
+    object Excluir: TAction
+      Category = 'Cadastros'
+      Caption = '&Excluir'
+      OnExecute = ExcluirExecute
+    end
+    object GoBof: TAction
+      Category = 'Cadastros'
+      Caption = 'Primeiro'
+      OnExecute = GoBofExecute
+    end
+    object GoEof: TAction
+      Category = 'Cadastros'
+      Caption = 'Último'
+      OnExecute = GoEofExecute
+    end
+    object Next: TAction
+      Category = 'Cadastros'
+      Caption = 'Próximo'
+      OnExecute = NextExecute
+    end
+    object Prev: TAction
+      Category = 'Cadastros'
+      Caption = 'Anterior'
+      OnExecute = PrevExecute
+    end
+  end
+end

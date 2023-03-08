@@ -1,0 +1,7 @@
+{ This is an automatically generated lazarus resource file }
+
+LazarusResources.Add('TMI_UI_InputBox','FORMDATA',[
+  'TPF0'#15'TMI_UI_InputBox'#14'MI_UI_InputBox'#4'Left'#3'e'#1#6'Height'#3#250#0
+  +#3'Top'#3#250#0#5'Width'#3'X'#2#7'Caption'#6#15'Form - InputBox'#8'Position'
+  +#7#17'poOwnerFormCenter'#8'ShowHint'#9#10'LCLVersion'#6#7'2.2.2.0'#0#0
+]);

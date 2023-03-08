@@ -1,0 +1,7 @@
+object MI_UI_InputBoxxxx: TMI_UI_InputBoxxxx
+  Left = 378
+  Height = 240
+  Top = 250
+  Width = 320
+  Caption = 'MI_UI_InputBoxxxx'
+end

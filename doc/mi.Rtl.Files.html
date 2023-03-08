@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<title>mi.Rtl.Files</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="generator" content="PasDoc 0.16.0">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<link rel="stylesheet" type="text/css" href="tipuesearch/tipuesearch.css">
+
+<link rel="StyleSheet" type="text/css" href="pasdoc.css">
+</head>
+<body>
+<div class="container"><div class="navigation">
+<ul><li><a href="AllUnits.html">Units</a></li><li><a href="ClassHierarchy.html">Hierarquia de Classes</a></li><li><a href="AllClasses.html">Classes, Interfaces, Objetos e Registros</a></li><li><a href="AllTypes.html">Tipos</a></li><li><a href="AllVariables.html">Variáveis</a></li><li><a href="AllConstants.html">Constantes</a></li><li><a href="AllFunctions.html">Funções e Procedimentos</a></li><li><a href="AllIdentifiers.html">Identificadores</a></li><li><form class="search-form" action="tipue_results.html"><div class="search-input"><input type="text" name="q" id="tipue_search_input" pattern=".{1,}" title="At least 1 characters" required><div class="search-button"><input type="button" id="tipue_search_button" onclick="this.form.submit();"></div></div></form>
+<div style="clear: both"></div>
+</li></ul></div><div class="content">
+<h1 class="unit">Unit mi.Rtl.Files</h1>
+<div class="sections">
+<div class="one_section"><a class="section" href="#PasDoc-Description">Descrição</a></div><div class="one_section"><a class="section" href="#PasDoc-Uses">Uses</a></div><div class="one_section"><a class="section" href="#PasDoc-Classes">Classes, Interfaces, Objetos e Registros</a></div><div class="one_section">Funções e Procedimentos</div><div class="one_section">Tipos</div><div class="one_section">Constantes</div><div class="one_section">Variáveis</div></div>
+<span id="PasDoc-Description"></span><h2 class="description">Descrição</h2>
+<p>
+</p>
+
+<ul class="paragraph_spacing">
+  <li><p>A Unit <strong><code>mi.Rtl.Files</code></strong> contém as funções <a href="https://techlib.wiki/definition/wrapper.html">Wrapper</a> para os sistemas operacionais <strong>Win32</strong> <strong>Win64</strong> e <strong>Linux x86_64</strong> reconhecidos pelo free pascal.
+
+<p></p>
+
+<ul class="paragraph_spacing">
+  <li><p><strong>OBJETIVO</strong>: </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Evitar de alterar todos os códigos escritos para a plataforma windows e por isso mantenho o mesmo comportamento do windows.</p></li>
+</ul>
+
+<p></p></li>
+  <li><p><strong>VERSÃO</strong>: </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Alpha - 0.5.0.693</p></li>
+</ul>
+
+<p></p></li>
+  <li><p><strong>NOTA</strong>: </p>
+
+<ul class="paragraph_spacing">
+  <li><p><a href="https://wiki.freepascal.org/Writing_portable_code_regarding_the_processor_architecture">Veja o link de como escrever código portátil em relação à arquitetura do processador?</a>;</p></li>
+  <li><p>Só devo usar units <a href="https://man7.org/linux/man-pages/man2/syscalls.2.html">syscalls</a> do Linux ou <a href="https://docs.microsoft.com/pt-br/windows/win32/apiindex/windows-api-list">Windows</a> caso não encontre a mesma pronta nos projetos lazarus ou Free Pascal.</p></li>
+</ul>
+
+<p></p></li>
+  <li><p><strong>REFERÊNCIA</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p><a href="https://wiki.freepascal.org/Multiplatform_Programming_Guide">Guia de programação multiplataforma</a>;</p></li>
+  <li><p>[Reference for unit 'System': procedures and functions](<a href="https://www.freepascal.org/docs-html/rtl/system/index-5.html">https://www.freepascal.org/docs-html/rtl/system/index-5.html</a>)</p></li>
+</ul>
+
+<p></p></li>
+  <li><p><strong>CÓDIGO FONTE</strong>: </p>
+
+<ul class="paragraph_spacing">
+  <li><p><a href="../units/mi.rtl.files.pas">mi.rtl.files.pas</a></p></li>
+</ul>
+
+<p></p></li>
+  <li><p><strong>HISTÓRICO</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Criado por: Paulo Sérgio da Silva Pacheco e-mail: paulosspacheco@yahoo.com.br </p>
+
+<ul class="paragraph_spacing">
+  <li><p>2021-10-21 08:00 - Data em que essa unit <strong><code>mi.Rtl.Files</code></strong> foi criada.</p></li>
+  <li><p>2021-11-02 15:42 - Escolha do projeto <strong>pasdoc</strong> para criar documento do pacote <strong><a class="normal" href="mi.rtl.html">mi.rtl</a></strong>.</p></li>
+  <li><p>2021-11-04 08:37 - Implementação da função <strong>SysFileOpen()</strong></p></li>
+  <li><p>2021-11-04 14:00 - Implementação da função <strong>SysSetResult()</strong></p></li>
+  <li><p>2021-11-04 14:30 - Implementação da função <strong>SetFileMode()</strong></p></li>
+  <li><p>2021-11-04 15:30 - Documentar a unit <strong><code>mi.Rtl.Files</code></strong> e organizar sessão de constantes, variáveis e funções.</p></li>
+  <li><p>2021-11-04 21:00 - Criar exemplo de uso das funções <strong>SysFileOpen</strong> e <strong>SysFileClose</strong>.</p></li>
+  <li><p>2021-11-05 21:30 - Revisar documentação desta nas funções: <strong>SysSetResult</strong>, ...</p></li>
+  <li><p>2021-11-12 08:56 - Procurar bug da função <strong>SysFileOpen</strong> na máquina windows. </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Eureca. Resolvi o problema da função <strong>SysFileOpen</strong>.</p></li>
+  <li><p>O problema da função <strong>SysFileOpen</strong> estava na forma como no windows a função SysUtils.fileOpen trabalha. </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Caso ocorra um erro a função <strong>SysUtils.fileOpen</strong> retorna high(THandle).</p></li>
+  <li><p>Para corrigir precisei modificar a função <strong>SysSetResult</strong>.</p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p></li>
+  <li><p>2021-11-12 16:56 - Documentar a unit <strong><code>mi.Rtl.Files</code></strong> e criar a função <strong>CopyFile()</strong>.</p></li>
+  <li><p>2021-11-12 18:05 - Criar a função SysFileSetSize para truncar o arquivo e documenta-la.</p></li>
+  <li><p>2021-11-13 </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Criado a class <strong><a class="normal" href="mi.Rtl.Files.TFiles.html">TFiles</a></strong> herdade de <a class="normal" href="mi.rtl.Consts.TConsts.html">TConsts</a> com propósito em encapsular as funções de acesso ao sistema operacional.</p></li>
+  <li><p>Criar método <strong>TFiles.ErrorMessage()</strong>;</p></li>
+  <li><p>Criar método <strong><a class="normal" href="mi.Rtl.Files.TFiles.html#SetLastError">TFiles.SetLastError</a>()</strong>;</p></li>
+  <li><p>Criar método <strong><a class="normal" href="mi.Rtl.Files.TFiles.html#SetResult">TFiles.SetResult</a>()</strong></p></li>
+  <li><p>Criar método <strong><a class="normal" href="mi.Rtl.Files.TFiles.html#CopyFile">TFiles.CopyFile</a>()</strong></p></li>
+  <li><p>Criar método <strong><a class="normal" href="mi.Rtl.Files.TFiles.html#SetFileMode">TFiles.SetFileMode</a>()</strong></p></li>
+  <li><p>Criar método <strong><a class="normal" href="mi.Rtl.Files.TFiles.html#FileOpen">TFiles.FileOpen</a>(5 parametro)</strong></p></li>
+  <li><p>Criar método <strong><a class="normal" href="mi.Rtl.Files.TFiles.html#FileOpen">TFiles.FileOpen</a>(3 parâmetro)</strong></p></li>
+  <li><p>Criar método <strong><a class="normal" href="mi.Rtl.Files.TFiles.html#FileClose">TFiles.FileClose</a>()</strong></p></li>
+  <li><p>Criar método <strong><a class="normal" href="mi.Rtl.Files.TFiles.html#FileTruncate">TFiles.FileTruncate</a>()</strong></p></li>
+  <li><p>Criar método <strong><a class="normal" href="mi.Rtl.Files.TFiles.html#FileCreate">TFiles.FileCreate</a>()</strong></p></li>
+</ul>
+
+<p></p></li>
+  <li><p>2021-11-15
+
+<p></p>
+
+<ul class="paragraph_spacing">
+  <li><p>O método <strong><a class="normal" href="mi.Rtl.Files.TFiles.html#FileCreate">TFiles.FileCreate</a>()</strong> não está obedecendo o mapa de bits FileMode() checar o porque: </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Solução: </p>
+
+<ul class="paragraph_spacing">
+  <li><p>A função SysUtils.FileCreate precisa do fmCreate na criação do arquivo.</p></li>
+  <li><p>Após criar o arquivo o mesmo deve ser fechado e aberto novamente com o mapa de bits <strong>mode</strong> e <strong>shareMode</strong> passado no parâmetro.</p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p></li>
+  <li><p>Criar método <strong><a class="normal" href="mi.Rtl.Files.TFiles.html#FileSeek">TFiles.FileSeek</a>()</strong></p></li>
+  <li><p>Criar método <strong><a class="normal" href="mi.Rtl.Files.TFiles.html#FileRead">TFiles.FileRead</a>()</strong></p></li>
+</ul>
+
+<p></p></li>
+  <li><p>2021-11-16 </p>
+
+<ul class="paragraph_spacing">
+  <li><p>O método SysFileSeek não gerar erro se o ponteiro do arquivo for inválido. </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Para contornar devo fazer a crítica se o ponteiro é maior que zero e menor que fileSize.</p></li>
+  <li><p>Essa solução não atende porque não fileSeek não tem o nome do arquivo.</p></li>
+  <li><p>Entendendo porque SysUtils.FileSeek não dar erro quando se tenta posicionar além do fim do arquivo: </p>
+
+<ul class="paragraph_spacing">
+  <li><p><a href="https://man7.org/linux/man-pages/man2/lseek.2.html">https://man7.org/linux/man-pages/man2/lseek.2.html</a></p></li>
+  <li><p>No linux <strong>lseek()</strong> permite que o deslocamento do arquivo seja definido além do final do arquivo (mas isso não altera o tamanho do arquivo). Se os dados forem posteriormente escrito neste ponto, leituras subsequentes dos dados no gap (um &quot;buraco&quot;) retorna bytes nulos ('\ 0') até que os dados sejam realmente escrito na lacuna.</p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p></li>
+  <li><p>Criar método <strong><a class="normal" href="mi.Rtl.Files.TFiles.html#FileSize">TFiles.FileSize</a>()</strong></p></li>
+  <li><p>Criar exemplo de uso do método <strong><a class="normal" href="mi.Rtl.Files.TFiles.html#FileSize">TFiles.FileSize</a>()</strong></p></li>
+  <li><p>Criar exemplo de uso do método <strong><a class="normal" href="mi.Rtl.Files.TFiles.html#FileSeek">TFiles.FileSeek</a>()</strong></p></li>
+</ul>
+
+<p></p></li>
+  <li><p>2021-11-17 </p>
+
+<ul class="paragraph_spacing">
+  <li><p>08:30 a 10:38 - Criar exemplo de uso do método <strong><a class="normal" href="mi.Rtl.Files.TFiles.html#FileRead">TFiles.FileRead</a>()</strong></p></li>
+  <li><p>11:36 a 11:48 - Criar método <strong><a class="normal" href="mi.Rtl.Files.TFiles.html#FileWrite">TFiles.FileWrite</a>()</strong></p></li>
+  <li><p>11:50 a 12:21 - Criar exemplo de uso do método <strong><a class="normal" href="mi.Rtl.Files.TFiles.html#FileWrite">TFiles.FileWrite</a>()</strong> - Falta testar.</p></li>
+  <li><p>14:15 a 15:23 - Testar o exemplo de uso da função <a class="normal" href="mi.Rtl.Files.TFiles.html#FileWrite">TFiles.FileWrite</a>. ok.</p></li>
+</ul>
+
+<p></p></li>
+  <li><p>2021-11-21 </p>
+
+<ul class="paragraph_spacing">
+  <li><p>10:30 a 11:10 </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Criar classe método - <strong><a class="normal" href="mi.Rtl.Files.TFiles.html#FileExists">TFiles.FileExists</a>()</strong></p></li>
+  <li><p>Criar classe método - <strong><a class="normal" href="mi.Rtl.Files.TFiles.html#DirectoryExists">TFiles.DirectoryExists</a>()</strong></p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p></li>
+  <li><p>2021-11-22 </p>
+
+<ul class="paragraph_spacing">
+  <li><p>10:00 a 10:06 - Criar classe método : <strong><a class="normal" href="mi.Rtl.Files.TFiles.html#CreateDir">TFiles.CreateDir</a>()</strong></p></li>
+  <li><p>10:29 a 11:10 - Criar classe método : <strong>TFiles.SysGetDriveType(aPath : AnsiString): TDriveType;</strong></p></li>
+  <li><p>11:11 a 12:02 - Criar classe método : **DuplicateHandle(hSourceHandle: LongInt;Var lpTargeTHandle: Longint) : Longint);</p></li>
+  <li><p>14:10 a 15:16 - Criar classe método : <strong>FileFlushBuffers(Handle: THandle): Longint;</strong></p></li>
+  <li><p>15:44 a 17:32 - Criar classe método : <strong>LockFile(_Handle:THandle; _LockStart, _LockLength: Int64): LongInt;</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Não encontrei no linux o equivalente ao Windows.LockFile</p></li>
+</ul>
+
+<p></p></li>
+  <li><p>15:44 a 17:32 - Criar classe método : <strong>UnLockFile(_Handle:THandle; _LockStart, _LockLength: Int64): LongInt;</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Não encontrei no linux o equivalente ao Windows.unLockFile</p></li>
+</ul>
+
+<p></p></li>
+  <li><p>2021-12-01 </p>
+
+<ul class="paragraph_spacing">
+  <li><p>11:42 a ??:?? : Implementar a função Is_TFileOpen</p></li>
+</ul>
+
+<p></p></li>
+  <li><p>2021-12-02 </p>
+
+<ul class="paragraph_spacing">
+  <li><p>20:00 a 22:15 : Implementei a classe <a class="normal" href="mi.rtl.Consts.StrError.TStrError.html">TStrError</a></p></li>
+</ul>
+
+<p></p></li>
+  <li><p>20211230 </p>
+
+<ul class="paragraph_spacing">
+  <li><p>15:30 a 16:10 : Criar método GetTempFileName</p></li>
+</ul>
+
+<p></p></li>
+  <li><p>20220111 </p>
+
+<ul class="paragraph_spacing">
+  <li><p>17:10 - Criar método shellExecute</p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p>
+<span id="PasDoc-Uses"></span><h2 class="uses">Uses</h2>
+<ul class="useslist"><li>Classes</li><li>dos</li><li>SysUtils</li><li>forms</li><li>crt</li><li>Dialogs</li><li>FileUtil</li><li><a href="mi.rtl.Types.html">mi.rtl.types</a></li><li><a href="mi.rtl.Consts.html">mi.rtl.Consts</a></li><li><a href="mi.rtl.Consts.StrError.html">mi.rtl.Consts.StrError</a></li></ul><h2 class="overview">Visão Geral</h2>
+<span id="PasDoc-Classes"></span><h3 class="cio">Classes, Interfaces, Objetos e Registros</h3>
+<table class="classestable wide_list">
+<tr class="listheader">
+<th class="itemname">Nome</th>
+<th class="itemdesc">Descrição</th>
+</tr>
+<tr class="list">
+<td class="itemname">Classe&nbsp;<a class="bold" href="mi.Rtl.Files.TFiles.html"><code>TFiles</code></a></td>
+<td class="itemdesc">&nbsp;</td>
+</tr>
+</table>
+<hr><span class="appinfo"><em>Gerado por <a href="https://pasdoc.github.io/">PasDoc 0.16.0</a>. </em>
+</span>
+</div></div></body></html>

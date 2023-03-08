@@ -1,0 +1,1992 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<title>mi.Rtl.Files: Classe TFiles</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="generator" content="PasDoc 0.16.0">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<link rel="stylesheet" type="text/css" href="tipuesearch/tipuesearch.css">
+
+<link rel="StyleSheet" type="text/css" href="pasdoc.css">
+</head>
+<body>
+<div class="container"><div class="navigation">
+<ul><li><a href="AllUnits.html">Units</a></li><li><a href="ClassHierarchy.html">Hierarquia de Classes</a></li><li><a href="AllClasses.html">Classes, Interfaces, Objetos e Registros</a></li><li><a href="AllTypes.html">Tipos</a></li><li><a href="AllVariables.html">Variáveis</a></li><li><a href="AllConstants.html">Constantes</a></li><li><a href="AllFunctions.html">Funções e Procedimentos</a></li><li><a href="AllIdentifiers.html">Identificadores</a></li><li><form class="search-form" action="tipue_results.html"><div class="search-input"><input type="text" name="q" id="tipue_search_input" pattern=".{1,}" title="At least 1 characters" required><div class="search-button"><input type="button" id="tipue_search_button" onclick="this.form.submit();"></div></div></form>
+<div style="clear: both"></div>
+</li></ul></div><div class="content">
+<span id="TFiles"></span><h1 class="cio">Classe TFiles</h1>
+<div class="sections">
+<div class="one_section"><a class="section" href="#PasDoc-Description">Descrição</a></div><div class="one_section"><a class="section" href="#PasDoc-Hierarchy">Hierarquia</a></div><div class="one_section"><a class="section" href="#PasDoc-NestedTypes">Tipos Aninhados</a></div><div class="one_section">Campos</div><div class="one_section"><a class="section" href="#PasDoc-Methods">Métodos</a></div><div class="one_section">Propriedades</div></div>
+<span id="PasDoc-Description"></span><h2 class="unit">Unit</h2>
+<p class="unitlink">
+<a href="mi.Rtl.Files.html">mi.Rtl.Files</a></p>
+<h2 class="declaration">Declaração</h2>
+<p class="declaration">
+<code>type TFiles = class(<a class="normal" href="mi.rtl.Consts.TConsts.html">TConsts</a>)</code></p>
+<h2 class="description">Descrição</h2>
+<p>
+</p>
+
+<ul class="paragraph_spacing">
+  <li><p>A classe <strong><code>TFiles</code></strong> contém as classes métodos para acessar o sistema operacional usada no acesso a arquivos.
+
+<p></p>
+
+<ul class="paragraph_spacing">
+  <li><p>REFERẼNCIAS </p>
+
+<ul class="paragraph_spacing">
+  <li><p>[Como criar aplicativo multi-plataforma](<a href="https://wiki.freepascal.org/Multiplatform_Programming_Guide">https://wiki.freepascal.org/Multiplatform_Programming_Guide</a>)</p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p>
+<span id="PasDoc-Hierarchy"></span><h2 class="hierarchy">Hierarquia</h2>
+<ul class="hierarchy"><li class="ancestor">TObject</li>
+<li class="ancestor">TPersistent</li>
+<li class="ancestor">TComponent</li>
+<li class="ancestor"><a class="normal" href="mi.rtl.Types.TTypes.html">TTypes</a></li>
+<li class="ancestor"><a class="normal" href="mi.rtl.Consts.TConsts.html">TConsts</a></li>
+<li class="thisitem">TFiles</li></ul><h2 class="overview">Visão Geral</h2>
+<span id="PasDoc-NestedTypes"></span><h3 class="summary">Tipos Aninhados</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code><strong><a href="mi.Rtl.Files.TFiles.html#TStrError">TStrError</a></strong> = mi.rtl.Consts.StrError.TStrError;</code></td>
+</tr>
+</table>
+<span id="PasDoc-Methods"></span><h3 class="summary">Métodos</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>class Function <strong><a href="mi.Rtl.Files.TFiles.html#IoResult">IoResult</a></strong>: <a href="mi.rtl.Types.TTypes.html#Integer">Integer</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>class procedure <strong><a href="mi.Rtl.Files.TFiles.html#CtrlSleep">CtrlSleep</a></strong>(Const Delay: Cardinal);</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>class Function <strong><a href="mi.Rtl.Files.TFiles.html#Set_CTRL_SLEEP_ENABLE">Set_CTRL_SLEEP_ENABLE</a></strong>(Const aEnable: Boolean):Boolean;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>class function <strong><a href="mi.Rtl.Files.TFiles.html#ReadKey">ReadKey</a></strong>: AnsiChar;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>class procedure <strong><a href="mi.Rtl.Files.TFiles.html#SetLastError">SetLastError</a></strong>(aCodeError: <a href="mi.rtl.Types.TTypes.html#Integer">integer</a>);</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>class function <strong><a href="mi.Rtl.Files.TFiles.html#SetResult">SetResult</a></strong>(aHandle: <a href="mi.rtl.Types.TTypes.html#THandle">THandle</a> ; aSuccess: Boolean): <a href="mi.rtl.Types.TTypes.html#LongInt">Longint</a>; overload;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>class function <strong><a href="mi.Rtl.Files.TFiles.html#CopyFile">CopyFile</a></strong>(lpExistingFileName, lpNewFileName: AnsiString; aExceptionOnError: boolean): <a href="mi.rtl.Types.TTypes.html#Integer">Integer</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>Class function <strong><a href="mi.Rtl.Files.TFiles.html#SetFileMode">SetFileMode</a></strong>(aFileMode:<a href="mi.rtl.Types.TTypes.html#Word">word</a>):<a href="mi.rtl.Types.TTypes.html#Word">word</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>class Function <strong><a href="mi.Rtl.Files.TFiles.html#SetStateFileMode">SetStateFileMode</a></strong>(Const AState: <a href="mi.rtl.Types.TTypes.html#LongInt">Longint</a>; Const Enable: boolean):Boolean;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>class function <strong><a href="mi.Rtl.Files.TFiles.html#GetStateFileMode">GetStateFileMode</a></strong>(Const AState: <a href="mi.rtl.Types.TTypes.html#LongInt">Longint</a>): Boolean;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>class function <strong><a href="mi.Rtl.Files.TFiles.html#FileOpen">FileOpen</a></strong>(const FileName: AnsiString; const Mode: <a href="mi.rtl.Types.TTypes.html#LongInt">Longint</a>; const ShareMode : Cardinal; out Handle: <a href="mi.rtl.Types.TTypes.html#THandle">THandle</a>): <a href="mi.rtl.Types.TTypes.html#LongInt">Longint</a>; Overload;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>Class function <strong><a href="mi.Rtl.Files.TFiles.html#FileOpen">FileOpen</a></strong>(const FileName: AnsiString; out Handle: <a href="mi.rtl.Types.TTypes.html#THandle">THandle</a>): <a href="mi.rtl.Types.TTypes.html#LongInt">Longint</a>; Overload;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>Class function <strong><a href="mi.Rtl.Files.TFiles.html#FileClose">FileClose</a></strong>(Handle: <a href="mi.rtl.Types.TTypes.html#THandle">THandle</a>): <a href="mi.rtl.Types.TTypes.html#LongInt">Longint</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>class function <strong><a href="mi.Rtl.Files.TFiles.html#FileTruncate">FileTruncate</a></strong>(Handle:<a href="mi.rtl.Types.TTypes.html#THandle">THandle</a>;NewSize:<a href="mi.rtl.Types.TTypes.html#int64">Int64</a> ): <a href="mi.rtl.Types.TTypes.html#LongInt">Longint</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>class function <strong><a href="mi.Rtl.Files.TFiles.html#FileCreate">FileCreate</a></strong>(FileName: AnsiString; Mode: <a href="mi.rtl.Types.TTypes.html#LongInt">Longint</a>; ShareMode : Cardinal; out Handle: <a href="mi.rtl.Types.TTypes.html#THandle">THandle</a>): <a href="mi.rtl.Types.TTypes.html#LongInt">Longint</a>; overload;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>class function <strong><a href="mi.Rtl.Files.TFiles.html#DeleteFile">DeleteFile</a></strong>(const FileName : AnsiString): SmallInt ;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>class function <strong><a href="mi.Rtl.Files.TFiles.html#FileSize">FileSize</a></strong>( FileName: string; out Count : <a href="mi.rtl.Types.TTypes.html#int64">int64</a>):<a href="mi.rtl.Types.TTypes.html#LongInt">longint</a>; overload;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>class function <strong><a href="mi.Rtl.Files.TFiles.html#FileSize">FileSize</a></strong>( FileName: string):<a href="mi.rtl.Types.TTypes.html#int64">int64</a>; overload;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>class function <strong><a href="mi.Rtl.Files.TFiles.html#FileSizes">FileSizes</a></strong>(Mask: AnsiString;out aFileSize:<a href="mi.rtl.Types.TTypes.html#int64">Int64</a>): <a href="mi.rtl.Types.TTypes.html#LongInt">Longint</a>; overload;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>class function <strong><a href="mi.Rtl.Files.TFiles.html#FileSeek">FileSeek</a></strong>(const Handle:<a href="mi.rtl.Types.TTypes.html#THandle">THandle</a>; Const FOffset : <a href="mi.rtl.Types.TTypes.html#int64">Int64</a>; Origin: <a href="mi.rtl.Types.TTypes.html#LongInt">LongInt</a>; out NewPos: <a href="mi.rtl.Types.TTypes.html#int64">Int64</a>): <a href="mi.rtl.Types.TTypes.html#LongInt">LongInt</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>class function <strong><a href="mi.Rtl.Files.TFiles.html#FileRead">FileRead</a></strong>(const Handle: <a href="mi.rtl.Types.TTypes.html#THandle">THandle</a>; out Buffer; const Count: <a href="mi.rtl.Types.TTypes.html#int64">Int64</a>; out BytesRead: <a href="mi.rtl.Types.TTypes.html#int64">int64</a>): <a href="mi.rtl.Types.TTypes.html#LongInt">LongInt</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>class function <strong><a href="mi.Rtl.Files.TFiles.html#FileWrite">FileWrite</a></strong>(const Handle: <a href="mi.rtl.Types.TTypes.html#THandle">THandle</a>; const Buffer; const Count: <a href="mi.rtl.Types.TTypes.html#int64">Int64</a>; out BytesWrites: <a href="mi.rtl.Types.TTypes.html#int64">int64</a>): <a href="mi.rtl.Types.TTypes.html#LongInt">LongInt</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>class Function <strong><a href="mi.Rtl.Files.TFiles.html#FileExists">FileExists</a></strong>(Const FileName : AnsiString) : Boolean;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>class Function <strong><a href="mi.Rtl.Files.TFiles.html#DirectoryExists">DirectoryExists</a></strong>(Const Directory : AnsiString) : Boolean;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>class Function <strong><a href="mi.Rtl.Files.TFiles.html#CreateDir">CreateDir</a></strong>(Const NewDir : AnsiString) : Boolean;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>class function <strong><a href="mi.Rtl.Files.TFiles.html#GetTempFileName">GetTempFileName</a></strong>(const Dir : string): string ;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>class function <strong><a href="mi.Rtl.Files.TFiles.html#GetTempDir">GetTempDir</a></strong>(): string; overload;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>class function <strong><a href="mi.Rtl.Files.TFiles.html#GetTempDir">GetTempDir</a></strong>(Const env:String;out path:<a href="mi.rtl.Types.TTypes.html#PathStr">PathStr</a>):SmallInt; overload;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>class function <strong><a href="mi.Rtl.Files.TFiles.html#GetDriveType">GetDriveType</a></strong>(aPath : AnsiString): <a href="mi.rtl.Types.TTypes.html#TDriveType">TDriveType</a>; Overload;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>Class function <strong><a href="mi.Rtl.Files.TFiles.html#DuplicateHandle">DuplicateHandle</a></strong>(hSourceHandle: <a href="mi.rtl.Types.TTypes.html#THandle">THandle</a>;Var lpTargeTHandle: <a href="mi.rtl.Types.TTypes.html#THandle">THandle</a>) : <a href="mi.rtl.Types.TTypes.html#LongInt">Longint</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>Class function <strong><a href="mi.Rtl.Files.TFiles.html#FileFlushBuffers">FileFlushBuffers</a></strong>(aHandle: <a href="mi.rtl.Types.TTypes.html#THandle">THandle</a>): <a href="mi.rtl.Types.TTypes.html#LongInt">longint</a>; overload;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>class function <strong><a href="mi.Rtl.Files.TFiles.html#LockFile">LockFile</a></strong>(_Handle:<a href="mi.rtl.Types.TTypes.html#THandle">THandle</a>; _LockStart, _LockLength: <a href="mi.rtl.Types.TTypes.html#int64">Int64</a>): <a href="mi.rtl.Types.TTypes.html#LongInt">LongInt</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>class function <strong><a href="mi.Rtl.Files.TFiles.html#UnLockFile">UnLockFile</a></strong>(_Handle:<a href="mi.rtl.Types.TTypes.html#THandle">THandle</a>; _LockStart, _LockLength: <a href="mi.rtl.Types.TTypes.html#int64">Int64</a>): <a href="mi.rtl.Types.TTypes.html#LongInt">LongInt</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>class procedure <strong><a href="mi.Rtl.Files.TFiles.html#FindFiles">FindFiles</a></strong>(Mask : AnsiString; FileAttrs : Cardinal; var List : TStringList);</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>class function <strong><a href="mi.Rtl.Files.TFiles.html#GetCurrentDir">GetCurrentDir</a></strong>: AnsiString;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>class function <strong><a href="mi.Rtl.Files.TFiles.html#SetCurrentDir">SetCurrentDir</a></strong>( const NewDir : AnsiString):Boolean;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>class function <strong><a href="mi.Rtl.Files.TFiles.html#IsDirectory">IsDirectory</a></strong>( const Directory : AnsiString):Boolean;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>class Function <strong><a href="mi.Rtl.Files.TFiles.html#FPrimeiroHandleLivre">FPrimeiroHandleLivre</a></strong>: SmallInt;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>class function <strong><a href="mi.Rtl.Files.TFiles.html#FlockFile">FlockFile</a></strong>(Handle : <a href="mi.rtl.Types.TTypes.html#THandle">Thandle</a>; modo : <a href="mi.rtl.Types.TTypes.html#LongInt">LongInt</a>): <a href="mi.rtl.Types.TTypes.html#LongInt">LongInt</a> ; overload;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>class function <strong><a href="mi.Rtl.Files.TFiles.html#DiskFree">DiskFree</a></strong>(Partition:byte; out VrDiskFree :<a href="mi.rtl.Types.TTypes.html#int64">Int64</a>):<a href="mi.rtl.Types.TTypes.html#Integer">integer</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>class Function <strong><a href="mi.Rtl.Files.TFiles.html#ByteDrive">ByteDrive</a></strong>(Const NomeArquivo:AnsiString) : Byte;</code></td>
+</tr>
+</table>
+<h2 class="description">Descrição</h2>
+<h3 class="detail">Tipos Aninhados</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="TStrError"></span><code><strong>TStrError</strong> = mi.rtl.Consts.StrError.TStrError;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<h3 class="detail">Métodos</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="IoResult"></span><code>class Function <strong>IoResult</strong>: <a href="mi.rtl.Types.TTypes.html#Integer">Integer</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+A função <strong><code>IoResult</code></strong> captura o estados de system.ioResult e atualiza <a class="normal" href="mi.rtl.Consts.TConsts.html#TaStatus">TaStatus</a></p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="CtrlSleep"></span><code>class procedure <strong>CtrlSleep</strong>(Const Delay: Cardinal);</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+</p>
+
+<ul class="paragraph_spacing">
+  <li><p>A função <strong><code>CtrlSleep</code></strong> dar opção para que a aplicação execute outras tarefas caso ela se encontre em estado de espera.
+
+<p></p>
+
+<ul class="paragraph_spacing">
+  <li><p><strong>PARÂMETRO</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p><strong>Delay</strong> - Tempo em milissegundo que deve aguardar**.</p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Set_CTRL_SLEEP_ENABLE"></span><code>class Function <strong>Set_CTRL_SLEEP_ENABLE</strong>(Const aEnable: Boolean):Boolean;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+</p>
+
+<ul class="paragraph_spacing">
+  <li><p>A função <strong><code>Set_CTRL_SLEEP_ENABLE</code></strong> habilita ou não a função <strong><a class="normal" href="mi.Rtl.Files.TFiles.html#CtrlSleep">CtrlSleep</a></strong>.
+
+<p></p>
+
+<ul class="paragraph_spacing">
+  <li><p><strong>PARÂMETRO</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p><strong>aEnable</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Se <strong>True</strong> habilita <a class="normal" href="mi.Rtl.Files.TFiles.html#CtrlSleep">CtrlSleep</a>;</p></li>
+  <li><p>Se <strong>false</strong> desabilita o método <a class="normal" href="mi.Rtl.Files.TFiles.html#CtrlSleep">CtrlSleep</a>;</p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p></li>
+  <li><p><strong>RETORNA</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>o valor anterior da variável <a class="normal" href="mi.rtl.Consts.TConsts.html#CTRL_SLEEP_ENABLE">CTRL_SLEEP_ENABLE</a>;</p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="ReadKey"></span><code>class function <strong>ReadKey</strong>: AnsiChar;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="SetLastError"></span><code>class procedure <strong>SetLastError</strong>(aCodeError: <a href="mi.rtl.Types.TTypes.html#Integer">integer</a>);</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+</p>
+
+<ul class="paragraph_spacing">
+  <li><p>A procedure <strong><code>SetLastError</code></strong> atualiza as variáveis globais <strong><a class="normal" href="mi.rtl.Consts.TConsts.html#LastError">LastError</a></strong> e <strong><a class="normal" href="mi.rtl.Consts.TConsts.html#OK">OK</a></strong>
+
+<p></p>
+
+<ul class="paragraph_spacing">
+  <li><p><strong>PARÂMETROS</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>aCodeError:<a class="normal" href="mi.rtl.Types.TTypes.html#Integer">integer</a> - Código do erro.</p></li>
+</ul>
+
+<p></p></li>
+  <li><p><strong>EXEMPLO</strong>
+
+<p></p>
+
+<pre class="longcode">
+
+<span class="pascal_keyword">procedure</span> tes_SetLastError();
+<span class="pascal_keyword">Begin</span>
+  <span class="pascal_comment">//Executa a procedure SetLastError</span>
+
+  SetLastError(<span class="pascal_numeric">2</span>);
+  showMessage(ErrorMessage(LastError));
+
+<span class="pascal_keyword">end</span>;</pre>
+
+<p></p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="SetResult"></span><code>class function <strong>SetResult</strong>(aHandle: <a href="mi.rtl.Types.TTypes.html#THandle">THandle</a> ; aSuccess: Boolean): <a href="mi.rtl.Types.TTypes.html#LongInt">Longint</a>; overload;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+</p>
+
+<ul class="paragraph_spacing">
+  <li><p>A função <strong><code>SetResult</code></strong> captura o último erro se o parâmetro <strong>aSucesso=false</strong> ou o <strong>aHandle for inválido</strong> e retorna <strong>0 (zero)</strong> se <strong>aSucesso=true</strong> e o <em>aHandle for válido</em>.
+
+<p></p>
+
+<ul class="paragraph_spacing">
+  <li><p>A função <strong><code>SetResult</code></strong> atualiza a variável global <strong><a class="normal" href="mi.rtl.Consts.TConsts.html#LastError">LastError</a></strong> e a variável global <strong><a class="normal" href="mi.rtl.Consts.TConsts.html#OK">ok</a></strong>:</p></li>
+  <li><p><strong>Plataformas testadas</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>win32</p></li>
+  <li><p>win64</p></li>
+  <li><p>linux</p></li>
+</ul>
+
+<p></p></li>
+  <li><p><strong>PARÂMETROS</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p><strong>aHandle</strong> - O handle do arquivo retornado pela ultima chamada ao sistema operacional.</p></li>
+  <li><p><strong>aSucesso</strong> - Recebe <strong>true</strong> se sucesso ou <strong>false</strong> se fracasso na última chamada ao sistema operacional.</p></li>
+</ul>
+
+<p></p></li>
+  <li><p><strong>RETORNA</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>O conteúdo da variável global <strong><a class="normal" href="mi.rtl.Consts.TConsts.html#LastError">LastError</a></strong>.</p></li>
+</ul>
+
+<p></p></li>
+  <li><p><strong>NOTA</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>No windows, quando ocorre um erro o handle é igual = high(<a class="normal" href="mi.rtl.Types.TTypes.html#THandle">THandle</a>) por isso é necessário passar o handle do arquivo na chamada a <code>SetResult</code>().</p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="CopyFile"></span><code>class function <strong>CopyFile</strong>(lpExistingFileName, lpNewFileName: AnsiString; aExceptionOnError: boolean): <a href="mi.rtl.Types.TTypes.html#Integer">Integer</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+</p>
+
+<ul class="paragraph_spacing">
+  <li><p>A função <strong><code>CopyFile</code></strong> copia o arquivo passado por <strong>alpExistingFileName</strong> para o arquivo passo por <strong>lpNewFileName</strong>.
+
+<p></p>
+
+<ul class="paragraph_spacing">
+  <li><p><strong>PARÂMETROS</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p><strong>alpExistingFileName</strong>:AnsiString - Nome do arquivo a ser copiado;</p></li>
+  <li><p><strong>lpNewFileName</strong>:AnsiString - Nome do arquivo destino da cópia;</p></li>
+  <li><p><strong>aExceptionOnError</strong>:boolean - <strong>True</strong> se o sistema deve gera exceção ou <strong>false</strong> se o sistema não deve gera exceção.</p></li>
+</ul>
+
+<p></p></li>
+  <li><p><strong>RETORNO</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p><strong><a class="normal" href="mi.rtl.Types.TTypes.html#Integer">Integer</a></strong> - Código do erro ou 0 (zero) se a cópia for feita com sucesso.</p></li>
+  <li><p>Caso o parâmetro <strong>aExceptionOnError</strong> = true então a exceção deve ser tratada pela rotina que o chamou.</p></li>
+</ul>
+
+<p></p></li>
+  <li><p><strong>EXEMPLO</strong>
+
+<p></p>
+
+<pre class="longcode">
+
+<span class="pascal_keyword">procedure</span> TFormTests.Button_tes_CopyFileClick(Sender: TObject);
+
+  <span class="pascal_comment">// Este procedimento faz duas cópia do arquivo index.html</span>
+
+  <span class="pascal_keyword">Var</span>
+    err : TFiles.integer;
+<span class="pascal_keyword">Begin</span>
+  <span class="pascal_keyword">with</span> TFiles <span class="pascal_keyword">do</span>
+    err := CopyFile(<span class="pascal_string">'index.html'</span>,<span class="pascal_string">'index.bak1'</span>,false);
+
+  <span class="pascal_keyword">with</span> TFiles <span class="pascal_keyword">do</span>
+  <span class="pascal_keyword">if</span> err = <span class="pascal_numeric">0</span>
+  <span class="pascal_keyword">Then</span> showMessage(<span class="pascal_string">'Copia 1 feita com sucesso.'</span>)
+  <span class="pascal_keyword">else</span> showMessage(ErrorMessage(err));
+
+  <span class="pascal_keyword">with</span> TFiles <span class="pascal_keyword">do</span>
+  <span class="pascal_keyword">try</span>
+    CopyFile(<span class="pascal_string">'index.html'</span>,<span class="pascal_string">'index.bak2'</span>,true);
+    showMessage(<span class="pascal_string">'Copia 2 feita com sucesso.'</span>) ;
+  <span class="pascal_keyword">Except</span>
+    <span class="pascal_keyword">on</span> E:Exception <span class="pascal_keyword">do</span>
+     ShowMessage(e.<span class="pascal_keyword">Message</span>);
+  <span class="pascal_keyword">end</span>;
+<span class="pascal_keyword">end</span>;</pre>
+
+<p></p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="SetFileMode"></span><code>Class function <strong>SetFileMode</strong>(aFileMode:<a href="mi.rtl.Types.TTypes.html#Word">word</a>):<a href="mi.rtl.Types.TTypes.html#Word">word</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+</p>
+
+<ul class="paragraph_spacing">
+  <li><p>A função <strong><code>SetFileMode</code></strong> modifica o valor de <a class="normal" href="mi.rtl.Consts.TConsts.html#FileMode">FileMode</a> e retorna o valor do <strong><a class="normal" href="mi.rtl.Consts.TConsts.html#FileMode">FileMode</a></strong> anterior; </p>
+
+<ul class="paragraph_spacing">
+  <li><p><strong>PARÂMETROS</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p><strong>aFileMode</strong> é o modo de abertura do arquivo.</p></li>
+</ul>
+
+<p></p></li>
+  <li><p><strong>RETORNA</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>O <a class="normal" href="mi.rtl.Consts.TConsts.html#FileModeAnt">FileModeAnt</a>;</p></li>
+</ul>
+
+<p></p></li>
+  <li><p><strong>NOTA</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>A variável pública <a class="normal" href="mi.rtl.Consts.TConsts.html#FileModeAnt">FileModeAnt</a> é igual ao resultado desta função.</p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="SetStateFileMode"></span><code>class Function <strong>SetStateFileMode</strong>(Const AState: <a href="mi.rtl.Types.TTypes.html#LongInt">Longint</a>; Const Enable: boolean):Boolean;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+</p>
+
+<ul class="paragraph_spacing">
+  <li><p>Seta <a class="normal" href="mi.rtl.Consts.TConsts.html#FileMode">FileMode</a> e retorna o estado anterior do Mapa de bits passado por aState</p></li>
+</ul>
+
+<p></p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="GetStateFileMode"></span><code>class function <strong>GetStateFileMode</strong>(Const AState: <a href="mi.rtl.Types.TTypes.html#LongInt">Longint</a>): Boolean;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+</p>
+
+<ul class="paragraph_spacing">
+  <li><p>Ler o estado do File Mode</p></li>
+</ul>
+
+<p></p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="FileOpen"></span><code>class function <strong>FileOpen</strong>(const FileName: AnsiString; const Mode: <a href="mi.rtl.Types.TTypes.html#LongInt">Longint</a>; const ShareMode : Cardinal; out Handle: <a href="mi.rtl.Types.TTypes.html#THandle">THandle</a>): <a href="mi.rtl.Types.TTypes.html#LongInt">Longint</a>; Overload;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+</p>
+
+<ul class="paragraph_spacing">
+  <li><p><strong>Abre o arquivo passado pelo parâmetro FileName</strong>
+
+<p></p>
+
+<ul class="paragraph_spacing">
+  <li><p><strong>PARÂMETROS</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p><strong>FileName</strong> - Nome do arquivo a ser aberto;</p></li>
+  <li><p><strong>mode</strong> - Modo de abertura. Valor possível veja <a class="normal" href="mi.rtl.Types.TTypes.html#TFileMode">TFileMode</a>;</p></li>
+  <li><p><strong>attribute</strong> - Atributo de abertura do arquivo;</p></li>
+  <li><p><strong>Flags</strong> - flag de abertura do arquivo;</p></li>
+  <li><p><strong>Handle</strong> - Se tiver sucesso retorna nesta variável o número do arquivo aberto;</p></li>
+</ul>
+
+<p></p></li>
+  <li><p><strong>RETORNA</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p><a class="normal" href="mi.rtl.Types.TTypes.html#LongInt">LongInt</a> Zero se sucesso ou o código do erro se fracasso.</p></li>
+</ul>
+
+<p></p></li>
+  <li><p><strong>NOTA</strong>: </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Possiveis erros pode ser visto na função ErrorMessage();</p></li>
+</ul>
+
+<p></p></li>
+  <li><p><strong>EXEMPLOS DE USO</strong>
+
+<p></p>
+
+<pre class="longcode">
+
+<span class="pascal_keyword">procedure</span> TFormTests.Button_Test_OpenFile_exclusive_modeClick(Sender: TObject);
+
+  <span class="pascal_keyword">procedure</span> Test_OpenFile_exclusive(aFileName:AnsiString);
+  <span class="pascal_keyword">Var</span>
+    Err : TFiles.integer;
+    h,
+    h1 : TFiles.THandle;
+  <span class="pascal_keyword">Begin</span>
+    <span class="pascal_keyword">with</span> TFiles <span class="pascal_keyword">do</span>
+      Err := FileOpen (aFileName, FmReadWrite <span class="pascal_keyword">or</span> FmDenyALL  <span class="pascal_keyword">or</span> fmShareCompat  ,h);
+
+    <span class="pascal_keyword">with</span> TFiles <span class="pascal_keyword">do</span>
+    <span class="pascal_keyword">if</span> Err = <span class="pascal_numeric">0</span>
+    <span class="pascal_keyword">Then</span> <span class="pascal_keyword">Begin</span>
+           ShowMessage(<span class="pascal_string">'Teste da função SysFileOpen retornou true'</span>);
+
+           Err := FileOpen (aFileName,FmReadWrite <span class="pascal_keyword">or</span> FmDenyALL  <span class="pascal_keyword">or</span> fmShareCompat  ,h1);
+           <span class="pascal_keyword">if</span> Err = <span class="pascal_numeric">0</span>
+           <span class="pascal_keyword">Then</span> <span class="pascal_keyword">Begin</span>
+                  FileClose(h1);
+                  ShowMessage(<span class="pascal_string">'Teste da função SysFileOpen retornou true'</span>)
+                <span class="pascal_keyword">end</span>
+           <span class="pascal_keyword">else</span> ShowMessage(<span class="pascal_string">'Error: '</span>+ErrorMessage(Err));
+
+           FileClose(h);
+    <span class="pascal_keyword">end</span>
+    <span class="pascal_keyword">else</span> ShowMessage(<span class="pascal_string">'Error: '</span>+ErrorMessage(Err));
+
+  <span class="pascal_keyword">End</span>;
+
+<span class="pascal_keyword">begin</span>
+  Test_OpenFile_exclusive(<span class="pascal_string">'index.html'</span>);
+<span class="pascal_keyword">end</span>;</pre>
+
+<p></p></li>
+  <li><p><strong>REFERÊNCIAS</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p><a href="https://www.freepascal.org/docs-html/rtl/sysutils/fileopen.html">FileOpen</a>;</p></li>
+  <li><p><a class="normal" href="mi.rtl.Consts.TConsts.html#fmOpenRead">fmOpenRead</a>;</p></li>
+  <li><p><a class="normal" href="mi.Rtl.Files.TFiles.html#FileClose">FileClose</a>;</p></li>
+  <li><p><a class="normal" href="mi.rtl.Types.TTypes.html#THandle">THandle</a>.</p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="FileOpen"></span><code>Class function <strong>FileOpen</strong>(const FileName: AnsiString; out Handle: <a href="mi.rtl.Types.TTypes.html#THandle">THandle</a>): <a href="mi.rtl.Types.TTypes.html#LongInt">Longint</a>; Overload;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+</p>
+
+<ul class="paragraph_spacing">
+  <li><p><strong>Abre o arquivo passado pelo parâmetro FileName</strong>
+
+<p></p>
+
+<ul class="paragraph_spacing">
+  <li><p><strong>PARÂMETROS</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>FileName <strong>Nome do arquivo a ser aberto;</strong></p></li>
+  <li><p><strong>mode</strong> - Modo de abertura;</p></li>
+  <li><p><strong>Handle</strong> - Se result = 0 o Handle contém o número do arquivo aberto, caso contrário, retorna <a class="normal" href="mi.rtl.Consts.TConsts.html#HANDLE_INVALID">HANDLE_INVALID</a>**;</p></li>
+</ul>
+
+<p></p></li>
+  <li><p><strong>RETORNA</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>0 (zero) se sucesso ou o código do erro se fracasso;</p></li>
+</ul>
+
+<p></p></li>
+  <li><p><strong>NOTA</strong>: </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Possiveis erros pode ser visto na função ErrorMessage();</p></li>
+</ul>
+
+<p></p></li>
+  <li><p><strong>EXEMPLO DE USO</strong>
+
+<p></p>
+
+<pre class="longcode">
+
+<span class="pascal_keyword">procedure</span> TFormTests.TestSysOpenFileClick(Sender: TObject);
+<span class="pascal_keyword">Var</span>
+  Err : TFiles.Longint;
+  h : TFiles.THandle;
+<span class="pascal_keyword">Begin</span>
+  <span class="pascal_keyword">with</span> TFiles <span class="pascal_keyword">do</span>
+    Err := FileOpen (<span class="pascal_string">'index.html'</span>,fmOpenRead,h);
+
+  <span class="pascal_keyword">with</span> TFiles <span class="pascal_keyword">do</span>
+  <span class="pascal_keyword">if</span> Err = <span class="pascal_numeric">0</span> <span class="pascal_keyword">Then</span>
+  <span class="pascal_keyword">Begin</span>
+    FileClose(h);
+    ShowMessage(<span class="pascal_string">'Teste da função FileOpen retornou true'</span>)
+  <span class="pascal_keyword">end</span>
+  <span class="pascal_keyword">else</span> ShowMessage(<span class="pascal_string">'Error: '</span>+ErrorMessage(Err));
+<span class="pascal_keyword">End</span>;</pre>
+
+<p></p></li>
+  <li><p><strong>REFERÊNCIAS</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p><a href="https://www.freepascal.org/docs-html/rtl/sysutils/fileopen.html">FileOpen</a>;</p></li>
+  <li><p><a class="normal" href="mi.rtl.Consts.TConsts.html#fmOpenRead">fmOpenRead</a>;</p></li>
+  <li><p><a class="normal" href="mi.Rtl.Files.TFiles.html#FileClose">FileClose</a>;</p></li>
+  <li><p><a class="normal" href="mi.rtl.Types.TTypes.html#THandle">THandle</a>.</p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="FileClose"></span><code>Class function <strong>FileClose</strong>(Handle: <a href="mi.rtl.Types.TTypes.html#THandle">THandle</a>): <a href="mi.rtl.Types.TTypes.html#LongInt">Longint</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+</p>
+
+<ul class="paragraph_spacing">
+  <li><p>A função <strong><code>FileClose</code></strong> fecha o arquivo passando por Handle. </p>
+
+<ul class="paragraph_spacing">
+  <li><p><strong>PARÂMETRO</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p><strong>Handle</strong> - Número do arquivo aberto por <a class="normal" href="mi.Rtl.Files.TFiles.html#FileOpen">FileOpen</a>.</p></li>
+</ul>
+
+<p></p></li>
+  <li><p><strong>RETORNA</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Zero de tiver sucesso ou o código do erro se não conseguir fechar o arquivo.</p></li>
+</ul>
+
+<p></p></li>
+  <li><p><strong>REFERÊNCIAS</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p><a href="https://www.freepascal.org/docs-html/rtl/sysutils/FileClose.html">FileClose</a>;</p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="FileTruncate"></span><code>class function <strong>FileTruncate</strong>(Handle:<a href="mi.rtl.Types.TTypes.html#THandle">THandle</a>;NewSize:<a href="mi.rtl.Types.TTypes.html#int64">Int64</a> ): <a href="mi.rtl.Types.TTypes.html#LongInt">Longint</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+</p>
+
+<ul class="paragraph_spacing">
+  <li><p>A função <strong><code>FileTruncate</code></strong> reduz o tamanho do arquivo para o tamanho passado pelo parâmetro <strong>NewSize</strong>.
+
+<p></p>
+
+<ul class="paragraph_spacing">
+  <li><p><strong>PARÂMETROS</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Handle:<a class="normal" href="mi.rtl.Types.TTypes.html#THandle">THandle</a> - Handle do arquivo a ser truncado.</p></li>
+  <li><p>NewSize:<a class="normal" href="mi.rtl.Types.TTypes.html#int64">Int64</a> - Tamanho do arquivo a se truncado.</p></li>
+</ul>
+
+<p></p></li>
+  <li><p><strong>RETORNO</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p><strong><a class="normal" href="mi.rtl.Types.TTypes.html#LongInt">Longint</a></strong> - 0(zero) se sucesso ou o código do erro se fracasso.</p></li>
+</ul>
+
+<p></p></li>
+  <li><p><strong>REFERÊNCIA</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>[Truncate file](<a href="https://www.freepascal.org/docs-html/rtl/sysutils/filetruncate.html">https://www.freepascal.org/docs-html/rtl/sysutils/filetruncate.html</a>)</p></li>
+</ul>
+
+<p></p></li>
+  <li><p><strong>EXEMPLO</strong>
+
+<p></p>
+
+<pre class="longcode">
+
+<span class="pascal_keyword">procedure</span> TFormTests.Button_tes_FileTruncateClick(Sender: TObject);
+  <span class="pascal_comment">// Este procedimento Trunca o arquivos 'index.html' para 100 bytes</span>
+  <span class="pascal_keyword">Var</span>
+    aHandle: TFiles.THandle;
+    NewSize: TFiles.word;
+    err    : TFiles.integer;
+<span class="pascal_keyword">Begin</span>
+  NewSize := <span class="pascal_numeric">100</span>;
+
+  <span class="pascal_keyword">with</span> TFiles <span class="pascal_keyword">do</span>
+    err := FileOpen(<span class="pascal_string">'index.html'</span>,fileMode,aHandle);
+
+  <span class="pascal_keyword">with</span> TFiles <span class="pascal_keyword">do</span>
+  <span class="pascal_keyword">if</span>  err = <span class="pascal_numeric">0</span>
+  <span class="pascal_keyword">then</span> <span class="pascal_keyword">begin</span>
+         <span class="pascal_comment">//Executa a função SysFileTruncate</span>
+         err := FileTruncate(aHandle,NewSize);
+
+         <span class="pascal_keyword">if</span> err = <span class="pascal_numeric">0</span>
+         <span class="pascal_keyword">then</span> showMessage(<span class="pascal_string">'O arquivo foi truncado para 100 bytes'</span>)
+         <span class="pascal_keyword">else</span> ShowMessage(<span class="pascal_string">'Error: '</span>+ErrorMessage(err));
+       <span class="pascal_keyword">end</span>
+  <span class="pascal_keyword">else</span> ShowMessage(<span class="pascal_string">'Error: '</span>+ErrorMessage(err));
+<span class="pascal_keyword">end</span>;</pre>
+
+<p></p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="FileCreate"></span><code>class function <strong>FileCreate</strong>(FileName: AnsiString; Mode: <a href="mi.rtl.Types.TTypes.html#LongInt">Longint</a>; ShareMode : Cardinal; out Handle: <a href="mi.rtl.Types.TTypes.html#THandle">THandle</a>): <a href="mi.rtl.Types.TTypes.html#LongInt">Longint</a>; overload;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+</p>
+
+<ul class="paragraph_spacing">
+  <li><p>A função <strong><code>FileCreate</code></strong> cria um novo arquivo e retorna um identificador para ele ou código do erro houver fracasso.
+
+<p></p>
+
+<ul class="paragraph_spacing">
+  <li><p><strong>PARÂMETROS</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p><strong>FileName</strong>: AnsiString - Nome do arquivo a ser criado;</p></li>
+  <li><p><strong>Mode</strong>: <a class="normal" href="mi.rtl.Types.TTypes.html#LongInt">Longint</a> - Modo de criação do arquivo. Veja <a class="normal" href="mi.rtl.Consts.TConsts.html#FileMode">FileMode</a> para mais informações;</p></li>
+</ul>
+
+<p></p></li>
+  <li><p><strong>RETORNO</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p><strong><a class="normal" href="mi.rtl.Types.TTypes.html#THandle">THandle</a></strong> - Handle do arquivo criado;</p></li>
+  <li><p><strong><a class="normal" href="mi.rtl.Types.TTypes.html#LongInt">LongInt</a></strong> - 0 (zero se sucesso ou o código do erro se fracasso.</p></li>
+</ul>
+
+<p></p></li>
+  <li><p><strong>EXEMPLO</strong>
+
+<p></p>
+
+<pre class="longcode">
+
+<span class="pascal_keyword">procedure</span> TFormTests.Button_test_FileCreateClick(Sender: TObject);
+
+  <span class="pascal_keyword">function</span> tes_FileCreate(FileName:AnsiString;<span class="pascal_keyword">out</span> aHandle:THandle): LongInt;
+  <span class="pascal_keyword">Begin</span>
+    <span class="pascal_keyword">with</span> TFiles <span class="pascal_keyword">do</span>
+      result := FileCreate(FileName,fmOpenReadWrite <span class="pascal_keyword">or</span> fmShareExclusive,aHandle);
+  <span class="pascal_keyword">end</span>;
+
+<span class="pascal_keyword">var</span>
+  aHandle :  TFiles.THandle;
+<span class="pascal_keyword">begin</span>
+
+  <span class="pascal_keyword">with</span> TFiles <span class="pascal_keyword">do</span>
+  <span class="pascal_keyword">if</span> tes_FileCreate(<span class="pascal_string">'text.txt'</span>,aHandle) = <span class="pascal_numeric">0</span>
+  <span class="pascal_keyword">then</span> <span class="pascal_keyword">begin</span>
+         showMessage(<span class="pascal_string">'Arquivo text.txt criado na pasta corrente.'</span>);
+         FileClose(aHandle);
+       <span class="pascal_keyword">end</span>;
+<span class="pascal_keyword">end</span>;</pre>
+
+<p></p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="DeleteFile"></span><code>class function <strong>DeleteFile</strong>(const FileName : AnsiString): SmallInt ;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="FileSize"></span><code>class function <strong>FileSize</strong>( FileName: string; out Count : <a href="mi.rtl.Types.TTypes.html#int64">int64</a>):<a href="mi.rtl.Types.TTypes.html#LongInt">longint</a>; overload;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+</p>
+
+<ul class="paragraph_spacing">
+  <li><p>A função <strong><code>FileSize</code></strong> retorna o tamanho do arquivo em bytes.
+
+<p></p>
+
+<ul class="paragraph_spacing">
+  <li><p><strong>PARÂMETROS</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>FileName: AnsiString - Nome do arquivo;</p></li>
+  <li><p>Count: <a class="normal" href="mi.rtl.Types.TTypes.html#int64">Int64</a> - Número de bytes do arquivo passo do <strong>FileName</strong>.</p></li>
+</ul>
+
+<p></p></li>
+  <li><p><strong>RETORNO</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p><strong><a class="normal" href="mi.rtl.Types.TTypes.html#LongInt">longint</a></strong> - 0 (zero) se sucesso ou o código do erro se houver fracasso;</p></li>
+  <li><p><strong>Count</strong> - Número de bytes do arquivo.</p></li>
+</ul>
+
+<p></p></li>
+  <li><p><strong>EXEMPLO</strong>
+
+<p></p>
+
+<pre class="longcode">
+
+ <span class="pascal_keyword">procedure</span> TMi_Rtl_Tests.Action_Test_FileSizeExecute(Sender: TObject);
+     <span class="pascal_comment">// Este procedimento obtem o tamanho do arquivo em bytes do arquivo index.html;</span>
+   <span class="pascal_keyword">var</span>
+     FileName:AnsiString;
+     Count:Int64;
+     err:Longint;
+ <span class="pascal_keyword">Begin</span>
+   <span class="pascal_keyword">with</span> TFiles <span class="pascal_keyword">do</span>
+   <span class="pascal_keyword">begin</span>
+     FileName := <span class="pascal_string">'index.html'</span>;
+     err := FileSize(FileName,Count);
+     <span class="pascal_keyword">if</span> err &lt;&gt; <span class="pascal_numeric">0</span>
+     <span class="pascal_keyword">Then</span> showMessage(ErrorMessage(err))
+     <span class="pascal_keyword">else</span> showMessage(<span class="pascal_string">'Tamanho do arquivo é: '</span>+intToStr(Count));
+   <span class="pascal_keyword">end</span>;
+<span class="pascal_keyword">end</span>;</pre>
+
+<p></p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="FileSize"></span><code>class function <strong>FileSize</strong>( FileName: string):<a href="mi.rtl.Types.TTypes.html#int64">int64</a>; overload;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="FileSizes"></span><code>class function <strong>FileSizes</strong>(Mask: AnsiString;out aFileSize:<a href="mi.rtl.Types.TTypes.html#int64">Int64</a>): <a href="mi.rtl.Types.TTypes.html#LongInt">Longint</a>; overload;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+O função <strong><code>FileSizes</code></strong> retorna em aFileSize a soma de todos os arquivos que satisfaça a mascara em path;
+
+<p></p>
+
+<ul class="paragraph_spacing">
+  <li><p><strong>NOTA</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Se houver error retorna o código do error em <a class="normal" href="mi.Rtl.Files.TFiles.html#FileSize">FileSize</a></p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="FileSeek"></span><code>class function <strong>FileSeek</strong>(const Handle:<a href="mi.rtl.Types.TTypes.html#THandle">THandle</a>; Const FOffset : <a href="mi.rtl.Types.TTypes.html#int64">Int64</a>; Origin: <a href="mi.rtl.Types.TTypes.html#LongInt">LongInt</a>; out NewPos: <a href="mi.rtl.Types.TTypes.html#int64">Int64</a>): <a href="mi.rtl.Types.TTypes.html#LongInt">LongInt</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+</p>
+
+<ul class="paragraph_spacing">
+  <li><p>A função <strong><code>FileSeek</code></strong> posiciona o ponteiro do arquivo na posição FOffSet começando da origem.
+
+<p></p>
+
+<ul class="paragraph_spacing">
+  <li><p><strong>PARÂMETROS</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p><strong>Handle: <a class="normal" href="mi.rtl.Types.TTypes.html#THandle">THandle</a></strong> - Handle do arquivo;</p></li>
+  <li><p><strong>FOffset: <a class="normal" href="mi.rtl.Types.TTypes.html#int64">Int64</a></strong> - Ponteiro do arquivo a ser posicionado;</p></li>
+  <li><p><strong>Origin: <a class="normal" href="mi.rtl.Types.TTypes.html#LongInt">LongInt</a></strong> - Origem do calculo da posição do arquivos pode ser: </p>
+
+<ul class="paragraph_spacing">
+  <li><p><strong><a class="normal" href="mi.rtl.Consts.TConsts.html#fsFromBeginning">TConsts.fsFromBeginning</a></strong>;</p></li>
+  <li><p><strong><a class="normal" href="mi.rtl.Consts.TConsts.html#fsFromCurrent">TConsts.fsFromCurrent</a></strong>;</p></li>
+  <li><p><strong><a class="normal" href="mi.rtl.Consts.TConsts.html#fsFromEnd">TConsts.fsFromEnd</a></strong> ;</p></li>
+</ul>
+
+<p></p></li>
+  <li><p><strong>NewPos: <a class="normal" href="mi.rtl.Types.TTypes.html#int64">Int64</a></strong> - Se tiver sucesso a função retorna neste parametro a nova posição do arquivo.</p></li>
+</ul>
+
+<p></p></li>
+  <li><p><strong>RETORNO</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p><strong><a class="normal" href="mi.rtl.Types.TTypes.html#LongInt">LongInt</a></strong> - 0 (zero se sucesso ou código do erro se fracasso. </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Em <strong>NewPos</strong> retorna o número da posição atual do arquivo.</p></li>
+</ul>
+
+<p></p></li>
+  <li><p><strong>EXEMPLO</strong>
+
+<p></p>
+
+<pre class="longcode">
+
+<span class="pascal_keyword">procedure</span> TMi_Rtl_Tests.Action_Test_FileSeekExecute(Sender: TObject);
+  <span class="pascal_comment">// Este procedimento posiciona o cursor no final do arquivo.</span>
+  <span class="pascal_keyword">Var</span>
+    err : TFiles.integer;
+    h   : TFiles.THandle;
+    NRec,Count : TFiles.Int64;
+<span class="pascal_keyword">Begin</span>
+  <span class="pascal_keyword">with</span> TFiles <span class="pascal_keyword">do</span>
+  <span class="pascal_keyword">begin</span>
+    err := FileOpen(<span class="pascal_string">'index.html'</span>,h);
+    <span class="pascal_keyword">if</span> (err = <span class="pascal_numeric">0</span>) <span class="pascal_keyword">and</span> (fileSize(<span class="pascal_string">'index.html'</span>,Count) = <span class="pascal_numeric">0</span>)
+    <span class="pascal_keyword">Then</span> <span class="pascal_keyword">Begin</span>
+           <span class="pascal_comment">//Posiciona no final do arquivo</span>
+           err := FileSeek(h,Count,fsFromBeginning,NRec);
+           <span class="pascal_keyword">if</span> err &lt;&gt; <span class="pascal_numeric">0</span>
+           <span class="pascal_keyword">Then</span> ShowMessage(ErrorMessage(err));
+           FileClose(h);
+         <span class="pascal_keyword">end</span>
+    <span class="pascal_keyword">else</span> ShowMessage(ErrorMessage(err));
+  <span class="pascal_keyword">end</span>;
+<span class="pascal_keyword">end</span>;</pre>
+
+<p></p></li>
+</ul>
+
+<p></p></li>
+  <li><p><strong>REFERÊNCIA</strong>: </p>
+
+<ul class="paragraph_spacing">
+  <li><p>[<code>FileSeek</code>](<a href="https://www.freepascal.org/docs-html/rtl/sysutils/fileseek.html">https://www.freepascal.org/docs-html/rtl/sysutils/fileseek.html</a>)</p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="FileRead"></span><code>class function <strong>FileRead</strong>(const Handle: <a href="mi.rtl.Types.TTypes.html#THandle">THandle</a>; out Buffer; const Count: <a href="mi.rtl.Types.TTypes.html#int64">Int64</a>; out BytesRead: <a href="mi.rtl.Types.TTypes.html#int64">int64</a>): <a href="mi.rtl.Types.TTypes.html#LongInt">LongInt</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+</p>
+
+<ul class="paragraph_spacing">
+  <li><p>O método <strong><code>FileRead</code></strong> ler <strong>Count</strong> bytes do arquivo passado pelo <strong>Handle</strong> e retorna o número de bytes lidos em <strong>BytesRead</strong>
+
+<p></p>
+
+<ul class="paragraph_spacing">
+  <li><p><strong>PARÂMETROS</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p><strong>Handle: <a class="normal" href="mi.rtl.Types.TTypes.html#THandle">THandle</a></strong> - Handle do arquivo</p></li>
+  <li><p><strong>Out Buffer</strong> - Buffer para onde os dados devem ser salvos;</p></li>
+  <li><p><strong>Count: <a class="normal" href="mi.rtl.Types.TTypes.html#int64">Int64</a></strong> - Número de bytes a ser lido para o buffer;</p></li>
+  <li><p><strong>Out BytesRead</strong>: <a class="normal" href="mi.rtl.Types.TTypes.html#int64">Int64</a> - Número de Bytes lidos efetivamente.</p></li>
+</ul>
+
+<p></p></li>
+  <li><p><strong>RETORNO</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p><strong><a class="normal" href="mi.rtl.Types.TTypes.html#LongInt">Longint</a></strong> - 0 (zero se sucesso ou o código do erro se fracasso;</p></li>
+  <li><p>Em <strong>Buffer</strong> os dados lidos do arquivo;</p></li>
+  <li><p>Em <strong>BytesRead</strong> Retorna o número de bytes lidos efetivamente.</p></li>
+  <li><p><strong>EXEMPLO</strong>
+
+<p></p>
+
+<pre class="longcode">
+
+<span class="pascal_keyword">procedure</span> TMi_Rtl_Tests.Action_Test_FileReadExecute(Sender: TObject);
+  <span class="pascal_comment">// Este procedimento ler os últimos 10 bytes do arquivo index.html</span>
+  <span class="pascal_keyword">Const</span> Size = <span class="pascal_numeric">10</span>;
+  <span class="pascal_keyword">Var</span>
+    err  : TFiles.integer;
+    h    : TFiles.THandle;
+    NRec,
+    Count : TFiles.Int64;
+    s     : <span class="pascal_keyword">String</span>[<span class="pascal_numeric">255</span>];
+    BytesLidos: Int64;
+<span class="pascal_keyword">Begin</span>
+  <span class="pascal_keyword">with</span> TFiles <span class="pascal_keyword">do</span>
+  <span class="pascal_keyword">begin</span>
+
+    err := FileOpen(<span class="pascal_string">'index.html'</span>,h);
+    <span class="pascal_keyword">if</span> (err = <span class="pascal_numeric">0</span>)
+    <span class="pascal_keyword">Then</span> <span class="pascal_keyword">Begin</span>
+           err := fileSize(<span class="pascal_string">'index.html'</span>,Count);
+           <span class="pascal_keyword">if</span> ( err = <span class="pascal_numeric">0</span>)
+           <span class="pascal_keyword">Then</span> <span class="pascal_keyword">begin</span>
+                 <span class="pascal_comment">//Posiciona no final do arquivo</span>
+                 err := FileSeek(h,Count-Size-length(LF),fsFromBeginning,NRec);
+                 <span class="pascal_keyword">if</span> err &lt;&gt; <span class="pascal_numeric">0</span>
+                 <span class="pascal_keyword">Then</span> ShowMessage(ErrorMessage(err))
+                 <span class="pascal_keyword">Else</span> <span class="pascal_keyword">Begin</span>
+                        err := FileRead(h,s[<span class="pascal_numeric">1</span>],Size+length(LF),BytesLidos);
+                        <span class="pascal_keyword">if</span> (err = <span class="pascal_numeric">0</span>) <span class="pascal_keyword">and</span> (BytesLidos = Size+length(LF))
+                        <span class="pascal_keyword">Then</span> <span class="pascal_keyword">Begin</span>
+                               s[<span class="pascal_numeric">0</span>] := chr(Size);
+                               ShowMessage(<span class="pascal_string">'Bytes Lidos: '</span>+s);
+                             <span class="pascal_keyword">end</span>
+                        <span class="pascal_keyword">else</span> ShowMessage(<span class="pascal_string">'Ponteiro do arquivo é: '</span>+IntToStr(NRec));
+                      <span class="pascal_keyword">end</span>;
+
+           <span class="pascal_keyword">end</span>
+           <span class="pascal_keyword">else</span> ShowMessage(ErrorMessage(err));
+           FileClose(h);
+         <span class="pascal_keyword">end</span>
+    <span class="pascal_keyword">else</span> ShowMessage(ErrorMessage(err));
+  <span class="pascal_keyword">end</span>;
+<span class="pascal_keyword">end</span>;</pre>
+
+<p></p></li>
+</ul>
+
+<p></p></li>
+  <li><p><strong>REFERÊNCIA</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>[<code>FileRead</code>](<a href="https://www.freepascal.org/docs-html/rtl/sysutils/fileread.html">https://www.freepascal.org/docs-html/rtl/sysutils/fileread.html</a>)</p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="FileWrite"></span><code>class function <strong>FileWrite</strong>(const Handle: <a href="mi.rtl.Types.TTypes.html#THandle">THandle</a>; const Buffer; const Count: <a href="mi.rtl.Types.TTypes.html#int64">Int64</a>; out BytesWrites: <a href="mi.rtl.Types.TTypes.html#int64">int64</a>): <a href="mi.rtl.Types.TTypes.html#LongInt">LongInt</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+</p>
+
+<ul class="paragraph_spacing">
+  <li><p>O método <strong><code>FileWrite</code></strong> grava <strong>Count</strong> bytes do arquivo passado pelo <strong>Handle</strong> e retorna o número de bytes escritos em <strong>BytesWrite</strong>
+
+<p></p>
+
+<ul class="paragraph_spacing">
+  <li><p><strong>PARÂMETROS</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p><strong>Handle: <a class="normal" href="mi.rtl.Types.TTypes.html#THandle">THandle</a></strong> - Handle do arquivo</p></li>
+  <li><p><strong>Out Buffer</strong> - Buffer de onde os dados devem ser escritos para o arquivo;</p></li>
+  <li><p><strong>Count: <a class="normal" href="mi.rtl.Types.TTypes.html#int64">Int64</a></strong> - Número de bytes a ser escritos do Buffer para o arquivo;</p></li>
+  <li><p><strong>Out BytesRead</strong>: <a class="normal" href="mi.rtl.Types.TTypes.html#int64">Int64</a> - Número de Bytes efetivamente escritos.</p></li>
+</ul>
+
+<p></p></li>
+  <li><p><strong>RETORNO</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p><strong><a class="normal" href="mi.rtl.Types.TTypes.html#LongInt">Longint</a></strong> - 0 (zero se sucesso ou o código do erro se fracasso;</p></li>
+  <li><p>Em <strong>Buffer</strong> os dados as ser escrito no arquivo;</p></li>
+  <li><p>Em <strong>BytesRead</strong> Retorna o número de bytes escritos efetivamente.</p></li>
+  <li><p><strong>EXEMPLO</strong>
+
+<p></p>
+
+<pre class="longcode">
+
+
+<span class="pascal_keyword">procedure</span> TMi_Rtl_Tests.Action_Test_FileWriteExecute(Sender: TObject);
+
+  <span class="pascal_comment">// Este procedimento adiciona a sequência '-0123456789-0123456789'+LF no fim do arquivo index.html</span>
+
+  <span class="pascal_keyword">Var</span>
+    Size : byte = <span class="pascal_numeric">255</span>;
+    err  : TFiles.integer;
+    h    : TFiles.THandle;
+
+    NRec, Count : TFiles.Int64;
+
+    s     : <span class="pascal_keyword">String</span>[<span class="pascal_numeric">255</span>];
+
+    BytesLidos,BytesWrites: Int64;
+<span class="pascal_keyword">Begin</span>
+  <span class="pascal_keyword">with</span> TFiles <span class="pascal_keyword">do</span>
+  <span class="pascal_keyword">begin</span>
+    s :=  <span class="pascal_string">'-0123456789-0123456789'</span>+LF;
+    Size := length(s);
+
+    <span class="pascal_keyword">if</span> <span class="pascal_keyword">not</span> FileExists(<span class="pascal_string">'index.html'</span>)
+    <span class="pascal_keyword">Then</span> Err := FileCreate(<span class="pascal_string">'index.html'</span>,fmOpenReadWrite, fmShareCompat <span class="pascal_keyword">or</span> fmShareDenyNone ,h)
+    <span class="pascal_keyword">else</span> Err := FileOpen(<span class="pascal_string">'index.html'</span>,h);
+
+    <span class="pascal_keyword">if</span> (err = <span class="pascal_numeric">0</span>)
+    <span class="pascal_keyword">Then</span> <span class="pascal_keyword">Begin</span>
+           err := fileSize(<span class="pascal_string">'index.html'</span>,Count);
+           <span class="pascal_keyword">if</span> ( err = <span class="pascal_numeric">0</span>)
+           <span class="pascal_keyword">Then</span> <span class="pascal_keyword">begin</span>
+                  <span class="pascal_comment">//Posiciona no final do arquivo - length(LF)</span>
+                  <span class="pascal_keyword">if</span> Count &gt;= size
+                  <span class="pascal_keyword">then</span> err := FileSeek(h,Count-length(LF),fsFromBeginning,NRec)
+                  <span class="pascal_keyword">else</span> err := FileSeek(h,<span class="pascal_numeric">0</span>,fsFromBeginning,NRec);
+
+                  <span class="pascal_keyword">if</span> err = <span class="pascal_numeric">0</span>
+                  <span class="pascal_keyword">Then</span> <span class="pascal_keyword">Begin</span>
+                         <span class="pascal_comment">//Acressenta string '-0123456789-0123456789'+LF no arquivo 'index.html'</span>
+                         err:= FileWrite(h,s[<span class="pascal_numeric">1</span>],length(s),BytesWrites);
+                         <span class="pascal_keyword">if</span> (err = <span class="pascal_numeric">0</span>) <span class="pascal_keyword">and</span> (BytesWrites = (length(s)))
+                         <span class="pascal_keyword">then</span> <span class="pascal_keyword">Begin</span>
+                                ShowMessage(<span class="pascal_string">'A sequência '</span>+S+<span class="pascal_string">' foi adicionada no fim do arquivo.'</span>)
+                              <span class="pascal_keyword">end</span>
+                         <span class="pascal_keyword">else</span> <span class="pascal_keyword">begin</span>
+                                <span class="pascal_keyword">if</span> (err &lt;&gt; <span class="pascal_numeric">0</span>)
+                                <span class="pascal_keyword">Then</span> ShowMessage(ErrorMessage(err))
+                                <span class="pascal_keyword">else</span> ShowMessage(<span class="pascal_string">'Número de bytes escritos diferente de: '</span>+IntToStr(length(s)));
+                              <span class="pascal_keyword">end</span>;
+                       <span class="pascal_keyword">end</span>
+                  <span class="pascal_keyword">else</span> <span class="pascal_keyword">Begin</span>
+                         ShowMessage(ErrorMessage(err))   ;
+                       <span class="pascal_keyword">end</span>;
+           <span class="pascal_keyword">end</span>
+           <span class="pascal_keyword">else</span> ShowMessage(ErrorMessage(err));
+           FileClose(h);
+         <span class="pascal_keyword">end</span>
+    <span class="pascal_keyword">else</span> ShowMessage(ErrorMessage(err));
+  <span class="pascal_keyword">end</span>;
+<span class="pascal_keyword">end</span>;</pre>
+
+<p></p></li>
+</ul>
+
+<p></p></li>
+  <li><p><strong>REFERÊNCIA</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>[FileWrites](<a href="https://www.freepascal.org/docs-html/rtl/sysutils/filewrite.html">https://www.freepascal.org/docs-html/rtl/sysutils/filewrite.html</a>)</p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="FileExists"></span><code>class Function <strong>FileExists</strong>(Const FileName : AnsiString) : Boolean;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+</p>
+
+<ul class="paragraph_spacing">
+  <li><p>A classe método <code>FileExists</code> checa se o arquivo passado no parâmetro existe.</p></li>
+</ul>
+
+<p></p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="DirectoryExists"></span><code>class Function <strong>DirectoryExists</strong>(Const Directory : AnsiString) : Boolean;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+</p>
+
+<ul class="paragraph_spacing">
+  <li><p>A classe método <code>DirectoryExists</code> checa se o diretório passado no parâmetro existe</p></li>
+</ul>
+
+<p></p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="CreateDir"></span><code>class Function <strong>CreateDir</strong>(Const NewDir : AnsiString) : Boolean;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+</p>
+
+<ul class="paragraph_spacing">
+  <li><p>A classe método <code>CreateDir</code> cria diretório passado no parâmetro</p></li>
+</ul>
+
+<p></p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="GetTempFileName"></span><code>class function <strong>GetTempFileName</strong>(const Dir : string): string ;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+A classe método <strong><code>GetTempFileName</code></strong> retorna o nome de um arquivo temporário no diretório Dir.
+
+<p></p>
+
+<ul class="paragraph_spacing">
+  <li><p><strong>NOTA</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Se Dir estiver vazio, o valor retornado por <a class="normal" href="mi.Rtl.Files.TFiles.html#GetTempDir">GetTempDir</a> será usado.</p></li>
+  <li><p>O Prefix será 'TMP'.</p></li>
+  <li><p>Em caso de erro, uma string vazia é retornada.</p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="GetTempDir"></span><code>class function <strong>GetTempDir</strong>(): string; overload;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+A classe function <strong><code>GetTempDir</code></strong> retorna o diretório temporário do sistema.
+
+<p></p>
+
+<ul class="paragraph_spacing">
+  <li><p><strong>NOTA</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>O nome retornado terminará com um caractere delimitador de diretório.</p></li>
+  <li><p>Não há garantia de que esse diretório exista ou seja gravável pelo usuário.</p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="GetTempDir"></span><code>class function <strong>GetTempDir</strong>(Const env:String;out path:<a href="mi.rtl.Types.TTypes.html#PathStr">PathStr</a>):SmallInt; overload;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+A classe function <strong><code>GetTempDir</code></strong> retorna o diretório temporário do sistema.
+
+<p></p>
+
+<ul class="paragraph_spacing">
+  <li><p><strong>PARÂMETROS</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p><strong>Const env</strong> : Variável de ambiente que tenha que contenha a pasta de arquivos temporários.</p></li>
+  <li><p>**out path:<a class="normal" href="mi.rtl.Types.TTypes.html#PathStr">PathStr</a> : Retorna a pasta dos arquivos temporários.</p></li>
+</ul>
+
+<p></p></li>
+  <li><p><strong>RETORNA</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>SmallInt : Código do erro se houver ou zero (0) se conseguiu gerar o nome da pasta.</p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="GetDriveType"></span><code>class function <strong>GetDriveType</strong>(aPath : AnsiString): <a href="mi.rtl.Types.TTypes.html#TDriveType">TDriveType</a>; Overload;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+</p>
+
+<ul class="paragraph_spacing">
+  <li><p>A função <strong><code>GetDriveType</code></strong> é usada para saber o tipo de dispositivo associado a pasta.
+
+<p></p>
+
+<ul class="paragraph_spacing">
+  <li><p><strong>PARÂMETRO</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p><strong>aPath</strong> - A pasta dona do arquivo.</p></li>
+</ul>
+
+<p></p></li>
+  <li><p><strong>RETORNA</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>O tipo de dispositivo do tipo <a class="normal" href="mi.rtl.Types.TTypes.html#TDriveType">TDriveType</a>.</p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="DuplicateHandle"></span><code>Class function <strong>DuplicateHandle</strong>(hSourceHandle: <a href="mi.rtl.Types.TTypes.html#THandle">THandle</a>;Var lpTargeTHandle: <a href="mi.rtl.Types.TTypes.html#THandle">THandle</a>) : <a href="mi.rtl.Types.TTypes.html#LongInt">Longint</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+</p>
+
+<ul class="paragraph_spacing">
+  <li><p>A classe método <code>DuplicateHandle</code> duplica o handle do arquivo no windows e no linux essa função não funciona.</p></li>
+</ul>
+
+<p></p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="FileFlushBuffers"></span><code>Class function <strong>FileFlushBuffers</strong>(aHandle: <a href="mi.rtl.Types.TTypes.html#THandle">THandle</a>): <a href="mi.rtl.Types.TTypes.html#LongInt">longint</a>; overload;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+A classe function <strong><code>FileFlushBuffers</code></strong> descarrega o buffer do arquivo passado por aHandle
+
+<p></p>
+
+<ul class="paragraph_spacing">
+  <li><p><strong>REFERÊNCIAS</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>[Linux](<a href="https://www.freepascal.org/docs-html/rtl/unix/fpfsync.html">https://www.freepascal.org/docs-html/rtl/unix/fpfsync.html</a>)</p></li>
+  <li><p>[windows](<a href="https://docs.microsoft.com/en-us/windows/win32/api/fileapi/nf-fileapi-flushfilebuffers">https://docs.microsoft.com/en-us/windows/win32/api/fileapi/nf-fileapi-flushfilebuffers</a>)</p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="LockFile"></span><code>class function <strong>LockFile</strong>(_Handle:<a href="mi.rtl.Types.TTypes.html#THandle">THandle</a>; _LockStart, _LockLength: <a href="mi.rtl.Types.TTypes.html#int64">Int64</a>): <a href="mi.rtl.Types.TTypes.html#LongInt">LongInt</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+</p>
+
+<ul class="paragraph_spacing">
+  <li><p>A função <code>LockFile</code> trava uma região do arquivo. -<strong>NOTA</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>O <code>lockfile</code> do linux não bloqueia região do arquivo e sim o arquivo todo.</p></li>
+</ul>
+
+<p></p>
+
+<ul class="paragraph_spacing">
+  <li><p><strong>REFERÊNCIAS</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>[Linux](<a href="https://www.freepascal.org/docs-html/rtl/unix/fpflock.html">https://www.freepascal.org/docs-html/rtl/unix/fpflock.html</a>)</p></li>
+  <li><p>[windows](<a href="https://docs.microsoft.com/en-us/windows/win32/api/fileapi/nf-fileapi-lockfile">https://docs.microsoft.com/en-us/windows/win32/api/fileapi/nf-fileapi-lockfile</a>)</p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="UnLockFile"></span><code>class function <strong>UnLockFile</strong>(_Handle:<a href="mi.rtl.Types.TTypes.html#THandle">THandle</a>; _LockStart, _LockLength: <a href="mi.rtl.Types.TTypes.html#int64">Int64</a>): <a href="mi.rtl.Types.TTypes.html#LongInt">LongInt</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+</p>
+
+<ul class="paragraph_spacing">
+  <li><p>A classe método <code>UnLockFile</code> destrava a região travada por <strong><a class="normal" href="mi.Rtl.Files.TFiles.html#LockFile">LockFile</a></strong>.
+
+<p></p>
+
+<ul class="paragraph_spacing">
+  <li><p><strong>NOTA</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Funciona no linux mais não funciona do linux.</p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="FindFiles"></span><code>class procedure <strong>FindFiles</strong>(Mask : AnsiString; FileAttrs : Cardinal; var List : TStringList);</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+</p>
+
+<ul class="paragraph_spacing">
+  <li><p>A classe método <strong><code>FindFiles</code></strong> retorna uma lista de nomes de arquivos e diretórios que satisfazem os parâmetros: <strong>Mask</strong> e <strong>FileAttrs</strong>
+
+<p></p>
+
+<ul class="paragraph_spacing">
+  <li><p><strong>EXEMPLO DE USO</strong>
+
+<p></p>
+
+<pre class="longcode">
+
+<span class="pascal_keyword">procedure</span> TMi_Rtl_Tests.FormCreate(Sender: TObject);
+<span class="pascal_keyword">begin</span>
+  ListFiles := TMiStringList.Create;
+  Action_test_FindFirstExecute(Self);
+<span class="pascal_keyword">end</span>;
+
+<span class="pascal_keyword">procedure</span> TMi_Rtl_Tests.Action_test_FindFirstExecute(Sender: TObject);
+  <span class="pascal_comment">//Este procedimento ler os atributos da pasta: '.'</span>
+
+  <span class="pascal_keyword">function</span> GetInfoFile(FileName:<span class="pascal_keyword">string</span>;attribute : Cardinal; <span class="pascal_keyword">out</span> info : TSearchRec): Integer;
+
+  <span class="pascal_keyword">begin</span>
+     Result := FindFirst(ExpandFileName(FileName),attribute,Info);
+     <span class="pascal_keyword">if</span> Result = <span class="pascal_numeric">0</span>
+     <span class="pascal_keyword">then</span> <span class="pascal_keyword">Begin</span>
+            ShowMessage(<span class="pascal_string">'O arquivo '</span>+fileName+<span class="pascal_string">' contém o atributo: '</span>+intToStr(attribute));
+          <span class="pascal_keyword">end</span>
+     <span class="pascal_keyword">else</span> <span class="pascal_keyword">begin</span>
+            ShowMessage(<span class="pascal_string">'O arquivo '</span>+fileName+<span class="pascal_string">' não contém o atributo: '</span>+intToStr(attribute));
+          <span class="pascal_keyword">end</span>;
+  <span class="pascal_keyword">end</span>;
+
+  <span class="pascal_keyword">var</span>
+   Info: TSearchRec;
+   err,i : integer;
+
+   <span class="pascal_keyword">const</span> FileAttrs : Cardinal = faHidden <span class="pascal_keyword">or</span>
+                                faReadOnly <span class="pascal_keyword">or</span>
+                                faSysFile <span class="pascal_keyword">or</span>
+                                faArchive <span class="pascal_keyword">or</span>
+                                faAnyFile <span class="pascal_keyword">or</span>
+                                faSymLink <span class="pascal_keyword">or</span>
+                                faDirectory ;
+
+
+<span class="pascal_keyword">begin</span>
+  ListFiles.Clear;
+  ListBox1.Clear;
+
+  FileAttrs := <span class="pascal_numeric">0</span>;
+
+  <span class="pascal_keyword">if</span> CheckBox_faHidden.Checked
+  <span class="pascal_keyword">then</span> FileAttrs := faHidden;
+
+  <span class="pascal_keyword">if</span> CheckBox_faReadOnly.checked
+  <span class="pascal_keyword">then</span> FileAttrs := FileAttrs <span class="pascal_keyword">or</span> faReadOnly;
+
+  <span class="pascal_keyword">if</span> CheckBox_faSysFile.checked
+  <span class="pascal_keyword">then</span> FileAttrs := FileAttrs <span class="pascal_keyword">or</span> faSysFile;
+
+  <span class="pascal_keyword">if</span> CheckBox_faArchive.checked
+  <span class="pascal_keyword">then</span> FileAttrs := FileAttrs <span class="pascal_keyword">or</span> faArchive;
+
+  <span class="pascal_keyword">if</span> CheckBox_faAnyFile.checked
+  <span class="pascal_keyword">then</span> FileAttrs := FileAttrs <span class="pascal_keyword">or</span> faAnyFile;
+
+  <span class="pascal_keyword">if</span> CheckBox_faSymLink.checked
+  <span class="pascal_keyword">then</span> FileAttrs := FileAttrs <span class="pascal_keyword">or</span> faSymLink;
+
+  <span class="pascal_keyword">if</span> CheckBox_faDirectory.checked
+  <span class="pascal_keyword">then</span> FileAttrs := FileAttrs <span class="pascal_keyword">or</span> faDirectory;
+
+  <span class="pascal_keyword">with</span> TMI_ui_types <span class="pascal_keyword">do</span>
+    FindFiles(Edit1.Text,FileAttrs ,ListFiles );
+
+  LabelCount.Caption := Format(<span class="pascal_string">'ListFiles.Count %d'</span>,[ListFiles.Count]);
+  LabelCount.Show;
+  <span class="pascal_keyword">if</span> ListFiles.Count &gt; <span class="pascal_numeric">0</span>
+  <span class="pascal_keyword">then</span> <span class="pascal_keyword">begin</span>
+          <span class="pascal_keyword">for</span> i := <span class="pascal_numeric">0</span> <span class="pascal_keyword">to</span> ListFiles.Count-<span class="pascal_numeric">1</span> <span class="pascal_keyword">do</span>
+          <span class="pascal_keyword">begin</span>
+            ListBox1.Items.Add(ListFiles[i]);
+          <span class="pascal_keyword">end</span>;
+       <span class="pascal_keyword">end</span>;
+<span class="pascal_keyword">end</span>;
+
+
+<span class="pascal_keyword">procedure</span> TMi_Rtl_Tests.Edit1Change(Sender: TObject);
+<span class="pascal_keyword">begin</span>
+  Action_test_FindFirstExecute(Self);
+<span class="pascal_keyword">end</span>;
+
+<span class="pascal_keyword">procedure</span> TMi_Rtl_Tests.CheckBox_faAnyFileChange(Sender: TObject);
+<span class="pascal_keyword">begin</span>
+  Action_test_FindFirstExecute(Self);
+<span class="pascal_keyword">end</span>;
+
+<span class="pascal_keyword">procedure</span> TMi_Rtl_Tests.CheckBox_faArchiveChange(Sender: TObject);
+<span class="pascal_keyword">begin</span>
+  Action_test_FindFirstExecute(Self);
+<span class="pascal_keyword">end</span>;
+
+<span class="pascal_keyword">procedure</span> TMi_Rtl_Tests.CheckBox_faDirectoryChange(Sender: TObject);
+<span class="pascal_keyword">begin</span>
+  Action_test_FindFirstExecute(Self);
+<span class="pascal_keyword">end</span>;
+
+<span class="pascal_keyword">procedure</span> TMi_Rtl_Tests.CheckBox_faHiddenChange(Sender: TObject);
+<span class="pascal_keyword">begin</span>
+  Action_test_FindFirstExecute(Self);
+<span class="pascal_keyword">end</span>;
+
+<span class="pascal_keyword">procedure</span> TMi_Rtl_Tests.CheckBox_faReadOnlyChange(Sender: TObject);
+<span class="pascal_keyword">begin</span>
+  Action_test_FindFirstExecute(Self);
+<span class="pascal_keyword">end</span>;
+
+<span class="pascal_keyword">procedure</span> TMi_Rtl_Tests.CheckBox_faSymLinkChange(Sender: TObject);
+<span class="pascal_keyword">begin</span>
+  Action_test_FindFirstExecute(Self);
+<span class="pascal_keyword">end</span>;
+
+<span class="pascal_keyword">procedure</span> TMi_Rtl_Tests.CheckBox_faSysFileChange(Sender: TObject);
+<span class="pascal_keyword">begin</span>
+  Action_test_FindFirstExecute(Self);
+<span class="pascal_keyword">end</span>;</pre>
+
+<p></p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="GetCurrentDir"></span><code>class function <strong>GetCurrentDir</strong>: AnsiString;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+A classe método <strong><code>GetCurrentDir</code></strong> retorna o corrente pasta.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="SetCurrentDir"></span><code>class function <strong>SetCurrentDir</strong>( const NewDir : AnsiString):Boolean;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+A classe método <strong><code>SetCurrentDir</code></strong> define a pasta passado por <strong>NewDir</strong> como pasta corrente.
+
+<p><strong>PARÂMETRO</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p><strong>NewDir</strong> - Nome da pasta a ser definida.</p></li>
+</ul>
+
+<p> <strong>RETORNA</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p><strong>TRUE</strong> - Se sucesso</p></li>
+  <li><p><strong>FALSE</strong> - Se fracasso;</p></li>
+</ul>
+
+<p></p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="IsDirectory"></span><code>class function <strong>IsDirectory</strong>( const Directory : AnsiString):Boolean;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+A classe método <strong><code>IsDirectory</code></strong> checa se a pasta passado por <strong>Directory</strong> é uma pasta válida.
+
+<p><strong>PARÂMETRO</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p><strong>Directory</strong> - Nome da pasta</p></li>
+</ul>
+
+<p> <strong>RETORNA</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p><strong>TRUE</strong> - Se a pasta existe</p></li>
+  <li><p><strong>FALSE</strong> - Se a pasta não existe;</p></li>
+</ul>
+
+<p></p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="FPrimeiroHandleLivre"></span><code>class Function <strong>FPrimeiroHandleLivre</strong>: SmallInt;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+Retorna o numero de arquivos abertos no sistema operacional
+
+<p></p>
+
+<ul class="paragraph_spacing">
+  <li><p><strong>NOTA</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>TaStaus : Retorna o número do error se ouver</p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="FlockFile"></span><code>class function <strong>FlockFile</strong>(Handle : <a href="mi.rtl.Types.TTypes.html#THandle">Thandle</a>; modo : <a href="mi.rtl.Types.TTypes.html#LongInt">LongInt</a>): <a href="mi.rtl.Types.TTypes.html#LongInt">LongInt</a> ; overload;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+A class function <strong><code>FlockFile</code></strong> define ou remove um bloqueio no arquivo passado por Handle.
+
+<p></p>
+
+<ul class="paragraph_spacing">
+  <li><p><strong>PARÂMETROS</strong>
+
+<p></p>
+
+<ul class="paragraph_spacing">
+  <li><p><strong>MODE</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>O modo pode ser uma das seguintes constantes: </p>
+
+<ul class="paragraph_spacing">
+  <li><p>LOCK_SH : define um bloqueio compartilhado.</p></li>
+  <li><p>LOCK_EX : define um bloqueio exclusivo.</p></li>
+  <li><p>LOCK_UN : desbloqueia o arquivo.</p></li>
+  <li><p>LOCK_NB : Isso pode ser OR junto com o outro. Se isso for feito, o aplicativo não bloqueia ao bloquear.</p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p></li>
+  <li><p><strong>RETORNO</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p><a class="normal" href="mi.rtl.Types.TTypes.html#LongInt">LONGINT</a> : A função retorna zero se for bem-sucedida, um valor de retorno diferente de zero indica um erro.</p></li>
+</ul>
+
+<p></p></li>
+  <li><p><strong>REFERÊNCIA</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p><a href="https://www.freepascal.org/docs-html/rtl/unix/fpflock.html">https://www.freepascal.org/docs-html/rtl/unix/fpflock.html</a></p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="DiskFree"></span><code>class function <strong>DiskFree</strong>(Partition:byte; out VrDiskFree :<a href="mi.rtl.Types.TTypes.html#int64">Int64</a>):<a href="mi.rtl.Types.TTypes.html#Integer">integer</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+A class function <strong><code>DiskFree</code></strong> retorna o espaço livre (EM BYTES) da partição passada por Partition
+
+<p></p>
+
+<ul class="paragraph_spacing">
+  <li><p>PARÂMETRO: </p>
+
+<ul class="paragraph_spacing">
+  <li><p>0 para a partição atual.</p></li>
+  <li><p>1 para a primeira unidade de disquete.</p></li>
+  <li><p>2 Para a segunda unidade de disquete.</p></li>
+  <li><p>3 Para a primeira partição do disco rígido.</p></li>
+  <li><p>4-26 Para todas as outras unidades e partições.</p></li>
+</ul>
+
+<p></p></li>
+  <li><p>REFERÊNCIA: </p>
+
+<ul class="paragraph_spacing">
+  <li><p><a href="https://www.freepascal.org/docs-html/rtl/sysutils/diskfree.html">https://www.freepascal.org/docs-html/rtl/sysutils/diskfree.html</a></p></li>
+</ul>
+
+<p></p></li>
+  <li><p>OBSERVAÇÃO: </p>
+
+<ul class="paragraph_spacing">
+  <li><p>No Linux, e no Unix em geral, o conceito de disco é diferente do dos um, uma vez que o sistema de arquivos é visto como uma grande árvore de diretórios. Por esta razão, os <code>DiskFree</code> e DiskSize funções devem ser mimetizado utilizando nomes de arquivos que residem nas partições. Para obter mais informações, consulte AddDisk.</p></li>
+</ul>
+
+<p></p></li>
+  <li><p>EXEMPLO:
+
+<p></p>
+
+<pre class="longcode">
+
+<span class="pascal_keyword">procedure</span> testDiskFree;
+   <span class="pascal_keyword">var</span>
+     VrDiskFree : int64;
+<span class="pascal_keyword">begin</span>
+  WriteLn(<span class="pascal_string">'TestDiskFree;'</span>);
+
+  VrDiskFree := Diskfree(<span class="pascal_numeric">0</span>);
+  Writeln (<span class="pascal_string">'Free space of current disk: '</span>,VrDiskFree, <span class="pascal_string">' Bytes'</span>);
+
+  VrDiskFree := (VrDiskFree <span class="pascal_keyword">div</span> <span class="pascal_numeric">1024</span>);
+  Writeln (<span class="pascal_string">'Free space of current disk: '</span>,VrDiskFree,<span class="pascal_string">' KB)'</span>);
+
+  VrDiskFree := (VrDiskFree <span class="pascal_keyword">div</span> <span class="pascal_numeric">1024</span>);
+  Writeln (<span class="pascal_string">'Free space of current disk: '</span>,VrDiskFree,<span class="pascal_string">' MB)'</span>);
+
+  VrDiskFree := (VrDiskFree <span class="pascal_keyword">div</span> <span class="pascal_numeric">1024</span>);
+  Writeln (<span class="pascal_string">'Free space of current disk: '</span>,VrDiskFree,<span class="pascal_string">' GB)'</span>);
+
+  VrDiskFree := (VrDiskFree <span class="pascal_keyword">div</span> <span class="pascal_numeric">1024</span>);
+  Writeln (<span class="pascal_string">'Free space of current disk: '</span>,VrDiskFree,<span class="pascal_string">' TB)'</span>);
+<span class="pascal_keyword">end</span>;</pre>
+
+<p></p></li>
+</ul>
+
+<p></p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="ByteDrive"></span><code>class Function <strong>ByteDrive</strong>(Const NomeArquivo:AnsiString) : Byte;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<hr><span class="appinfo"><em>Gerado por <a href="https://pasdoc.github.io/">PasDoc 0.16.0</a>. </em>
+</span>
+</div></div></body></html>

@@ -1,0 +1,19 @@
+object Mi_ui_Dmxscroller_form_Lcl_ds_test_dm: TMi_ui_Dmxscroller_form_Lcl_ds_test_dm
+  OldCreateOrder = False
+  Height = 150
+  HorizontalOffset = 378
+  VerticalOffset = 250
+  Width = 150
+  object DmxScroller_Form_DS1: TDmxScroller_Form_DS
+    onGetTemplate = DmxScroller_Form_DS1GetTemplate
+    Active = False
+    AlignmentLabels = taLeftJustify
+    DataSource = DataSource1
+    Left = 64
+    Top = 8
+  end
+  object DataSource1: TDataSource
+    Left = 64
+    Top = 88
+  end
+end
