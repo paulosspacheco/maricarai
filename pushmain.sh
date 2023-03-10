@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Texto com a mudanças que estão sendo executado.
+# Texto com aw mudanças que estão sendo realizada.
 TextoCommit="$1"
 
 if [$TextoCommit -eq ""]; then
