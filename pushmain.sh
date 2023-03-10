@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Texto com aw mudanças que estão sendo realizada.
+# Texto com as mudanças que estão sendo realizada neste push.
 TextoCommit="$1"
 
 if [$TextoCommit -eq ""]; then
