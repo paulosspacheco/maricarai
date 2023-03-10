@@ -1,6 +1,13 @@
 #!/bin/bash
 
+# Texto com a mudanças que estão sendo executado.
 TextoCommit="$1"
+
+if [$TextoCommit -eq ""]; then
+   echo "Parâmetro deve ser texto diferente de nulo"
+   exit
+fi
+
 
 # Associa o repositório remoto ao repositório local.          
     git remote add origin git@github.com:paulosspacheco/maricarai.git
@@ -9,6 +16,10 @@ TextoCommit="$1"
 # O comando branch -M não precisa ser feito a todo momento, porque o git sempre envia para
 # o ultimo ramo selecionando.
     git branch -M main  
+
+# Atualiza o repositório local com os dados do repositório remoto
+git pull
+
 
 # Este comando pode ser executado várias vezes antes de um commit.  
     git add .
