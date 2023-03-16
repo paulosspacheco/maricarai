@@ -10,7 +10,7 @@ unit uMi_ui_Dmxscroller_form_lcl;
       - @html(<a href="../units/umi_ui_dmxscroller_form.pas">uMi_rtl_ui_Dmxscroller_form.pas</a>)
 
     - **HISTÓRICO**:
-      - @html(<a href="../units/umi_ui_dmxscroller_form_historico.md">umi_ui_dmxscroller_form_historico.md</a>)
+      - @html(<a href="../units/umi_ui_dmxscroller_form_historico.html">umi_ui_dmxscroller_form_historico.html</a>)
 
     - **PENDÊNCIAS**
       - T12 Documentar a unit.

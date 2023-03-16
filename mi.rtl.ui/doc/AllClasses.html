@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<title>Todas as Classes, Interfaces, Objetos e Registros</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="generator" content="PasDoc 0.16.0">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<link rel="stylesheet" type="text/css" href="tipuesearch/tipuesearch.css">
+
+<link rel="StyleSheet" type="text/css" href="pasdoc.css">
+</head>
+<body>
+<div class="container"><div class="navigation">
+<ul><li><a href="AllUnits.html">Units</a></li><li><a href="ClassHierarchy.html">Hierarquia de Classes</a></li><li><a href="AllClasses.html">Classes, Interfaces, Objetos e Registros</a></li><li><a href="AllTypes.html">Tipos</a></li><li><a href="AllVariables.html">Variáveis</a></li><li><a href="AllConstants.html">Constantes</a></li><li><a href="AllFunctions.html">Funções e Procedimentos</a></li><li><a href="AllIdentifiers.html">Identificadores</a></li><li><form class="search-form" action="tipue_results.html"><div class="search-input"><input type="text" name="q" id="tipue_search_input" pattern=".{1,}" title="At least 1 characters" required><div class="search-button"><input type="button" id="tipue_search_button" onclick="this.form.submit();"></div></div></form>
+<div style="clear: both"></div>
+</li></ul></div><div class="content">
+<h1 class="allitems">Todas as Classes, Interfaces, Objetos e Registros</h1>
+<table class="itemstable wide_list">
+<tr class="listheader">
+<th class="itemname">Nome</th>
+<th class="itemunit">Unit</th>
+<th class="itemdesc">Descrição</th>
+</tr>
+<tr class="list">
+<td class="itemname"><a class="bold" href="mi_rtl_ui_Dmxscroller.TDmxFieldRec.html">TDmxFieldRec</a></td>
+<td class="itemunit"><a class="bold" href="mi_rtl_ui_Dmxscroller.html">mi_rtl_ui_Dmxscroller</a></td>
+<td class="itemdesc"><p>O registro <strong><code>TDmxFieldRec</code></strong> é usado para guardar as informações passadas pelos Templates das strings.
+
+<p></p>
+
+<ul class="paragraph_spacing">
+  <li><p><strong>REFERÊNCIA</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>[Estrutura record e object]<a href="https://wiki.freepascal.org/Record">https://wiki.freepascal.org/Record</a></p></li>
+</ul>
+
+<p></p></li>
+  <li><p>A aparência padrão dessas visualizações geralmente é orientada por coluna/linha, com exceção de exibições do tipo formulário e campos únicos.</p></li>
+  <li><p>Você declara uma estrutura de registro para o procedimento de inicialização do <strong>tvDMX</strong> em um modelo string – que também determina o formato de exibição. (Você verá mais tarde como o <strong>tvDMX</strong> pode ser usado para trabalhar com formulários ou editores de campo.)</p></li>
+  <li><p><strong>EXEMPLO</strong>
+
+<p></p>
+
+<ul class="paragraph_spacing">
+  <li><p>O <a class="normal" href="mi_rtl_ui_Dmxscroller.TDmxFieldRec.html#Template">Template</a> '\ sssssssss`sssssssssss \ iiii \ rrr.rr' representa o registro: </p>
+
+<ul class="paragraph_spacing">
+  <li><p><strong>CÓDIGO PASCAL</strong>
+
+<p></p>
+
+<pre class="longcode">
+
+<span class="pascal_keyword">type</span>
+
+  TRecord = <span class="pascal_keyword">Record</span>
+              nome : <span class="pascal_keyword">String</span> [<span class="pascal_numeric">20</span>];
+              Ano  : Integer;
+              Valor : Real;
+            <span class="pascal_keyword">end</span>;</pre>
+
+<p></p></li>
+  <li><p><strong>NOTA:</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>A letra ( <strong>s</strong> ) minúsculo aceita qualquer número e letras maiúsculas e minúsculas;</p></li>
+  <li><p>A letra ( <strong>i</strong> ) representa um número inteiro com 2 bytes com edição em 4 posições (0 a 9999);</p></li>
+  <li><p>A letra ( <strong>r</strong> ) representa um número real com 8 bytes com edição em 5 posições (0 a 999.99)</p></li>
+  <li><p>O símbolo ( <strong>`</strong> ) crase é usado para informar que a parte do texto depois deste sinal deve ser omitida da visão.</p></li>
+  <li><p>A símbolo ( <strong>' \ '</strong> ) barra invertida deve ser usada como delimitador de campo e é exibida como um espaço em branco.</p></li>
+  <li><p>O símbolo ( <strong>&tilde;</strong> ) til deve ser usado para separar rótulos dos campos de dados.</p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p></li>
+  <li><p><strong>ATENÇÃO</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>O registro <strong><code>TDmxFieldRec</code></strong> não pode ser <strong>class</strong> e nem conter <strong>métodos virtuais</strong>, porque este registro e alocado com as funções <strong>new</strong> e <strong>dispose</strong>.</p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p></td>
+</tr>
+<tr class="list2">
+<td class="itemname"><a class="bold" href="mi_rtl_ui_dmxscroller_form.TDmxScroller_Form.html">TDmxScroller_Form</a></td>
+<td class="itemunit"><a class="bold" href="mi_rtl_ui_dmxscroller_form.html">mi_rtl_ui_dmxscroller_form</a></td>
+<td class="itemdesc"><p>A classe <strong><code>TDmxScroller_Form</code></strong> implementa a construção de formulários usando uma lista de Templates do tipo TDmxScroller</p></td>
+</tr>
+<tr class="list">
+<td class="itemname"><a class="bold" href="mi_rtl_ui_dmxscroller_form.TDmxScroller_Form_Atributos.html">TDmxScroller_Form_Atributos</a></td>
+<td class="itemunit"><a class="bold" href="mi_rtl_ui_dmxscroller_form.html">mi_rtl_ui_dmxscroller_form</a></td>
+<td class="itemdesc"><p>&nbsp;</p></td>
+</tr>
+<tr class="list2">
+<td class="itemname"><a class="bold" href="mi_rtl_ui_Dmxscroller_sql.TDmxScroller_sql_Atributos.html">TDmxScroller_sql_Atributos</a></td>
+<td class="itemunit"><a class="bold" href="mi_rtl_ui_Dmxscroller_sql.html">mi_rtl_ui_Dmxscroller_sql</a></td>
+<td class="itemdesc"><p>A class <strong><code>TDmxScroller_sql_Atributos</code></strong> contém os atributos da class TDmxScroller_sql</p></td>
+</tr>
+<tr class="list">
+<td class="itemname"><a class="bold" href="mi_rtl_ui_Dmxscroller.TFldEnum_Lookup.html">TFldEnum_Lookup</a></td>
+<td class="itemunit"><a class="bold" href="mi_rtl_ui_Dmxscroller.html">mi_rtl_ui_Dmxscroller</a></td>
+<td class="itemdesc"><p>A classe <strong><code>TFldEnum_Lookup</code></strong> é usada para implementar campo ComboBox quando TDmxScroller estiver TDataSource &lt;&gt; nil porque o Lazarus espera em campos ComboBox um string e não o índice da lista de strings.</p></td>
+</tr>
+<tr class="list2">
+<td class="itemname"><a class="bold" href="mi_rtl_ui_custom_application.TMI_ui_Custom_Application.html">TMI_ui_Custom_Application</a></td>
+<td class="itemunit"><a class="bold" href="mi_rtl_ui_custom_application.html">mi_rtl_ui_custom_application</a></td>
+<td class="itemdesc"><p>A classe <strong><code>TMI_ui_Custom_Application</code></strong> concentra as propriedades e formulários gerais necessários em qualquer aplicação.
+
+<p></p>
+
+<ul class="paragraph_spacing">
+  <li><p>Recursos globais: </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Propriedade <strong><a class="normal" href="mi_rtl_ui_custom_application.TMI_ui_Custom_Application.html#Get_Parameters">Get_Parameters</a></strong> cria um formulário de entrada de dados de configuração de acesso ao banco de dados e outros parâmetros;</p></li>
+  <li><p>Propriedade <strong><a class="normal" href="mi_rtl_ui_custom_application.TMI_ui_Custom_Application.html#SQLConnector">SQLConnector</a></strong> e <strong><a class="normal" href="mi_rtl_ui_custom_application.TMI_ui_Custom_Application.html#SQLTransaction">SQLTransaction</a></strong> e as propriedades relacionadas;</p></li>
+  <li><p>O evento <strong><a class="normal" href="mi_rtl_ui_custom_application.TMI_ui_Custom_Application.html#onValidUser">OnValidUser</a></strong> é usado para validar o nome do usuário e senha.</p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p></td>
+</tr>
+<tr class="list">
+<td class="itemname"><a class="bold" href="mi_rtl_ui_types.TOverflow.html">TOverflow</a></td>
+<td class="itemunit"><a class="bold" href="mi_rtl_ui_types.html">mi_rtl_ui_types</a></td>
+<td class="itemdesc"><p>Coordenada X do contato superior esquerdo.</p></td>
+</tr>
+<tr class="list2">
+<td class="itemname"><a class="bold" href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html">TUiDmxScroller</a></td>
+<td class="itemunit"><a class="bold" href="mi_rtl_ui_Dmxscroller.html">mi_rtl_ui_Dmxscroller</a></td>
+<td class="itemdesc"><p>A classe <strong><code>TUiDmxScroller</code></strong> tem como objetivo criar um formulário baseado em uma lista do tipo ShortString.
+
+<p></p>
+
+<ul class="paragraph_spacing">
+  <li><p><strong>NOTAS</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>O método <a class="normal" href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html#CreateStruct">createStruct</a> criar uma lista de campo tipo <a class="normal" href="mi_rtl_ui_Dmxscroller.TDmxFieldRec.html">TDmxFieldRec</a> com todas as informações necessárias para criar uma tabela ou um formulário.</p></li>
+  <li><p>O formulário é criado com apena uma linha.</p></li>
+</ul>
+
+<p></p></li>
+  <li><p><strong>EXEMPLO</strong>: </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Template := '&tilde;Nome&tilde;\SSSSSSSSSSSSSSSSSSSS &tilde;Idade:&tilde;\BB' </p>
+
+<ul class="paragraph_spacing">
+  <li><p>A classe cria a lista de campos: </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Label1: Nome</p></li>
+  <li><p>Field1: campo ShortString com 20 posições maiúsculas</p></li>
+  <li><p>Label2: Idade</p></li>
+  <li><p>Field2: Campo byte com duas posições</p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p></td>
+</tr>
+<tr class="list">
+<td class="itemname"><a class="bold" href="mi_rtl_ui_DmxScroller_Buttons.TUiDmxScroller_Buttons.html">TUiDmxScroller_Buttons</a></td>
+<td class="itemunit"><a class="bold" href="mi_rtl_ui_DmxScroller_Buttons.html">mi_rtl_ui_DmxScroller_Buttons</a></td>
+<td class="itemdesc"><p>A classe <strong><code>TUiDmxScroller_Buttons</code></strong> tem como objetivo registrar os dados necessários para criar os botões de navegação e edição de uma tabela quando TDataSource for &lt;&gt; nil.
+
+<p></p>
+
+<ul class="paragraph_spacing">
+  <li><p><strong>EXEMPLO USO</strong>
+
+<p></p>
+
+<pre class="longcode"></pre>
+
+<p></p></li>
+</ul>
+
+<p></p></td>
+</tr>
+<tr class="list2">
+<td class="itemname"><a class="bold" href="mi_rtl_ui_Dmxscroller_sql.TUiDmxScroller_sql.html">TUiDmxScroller_sql</a></td>
+<td class="itemunit"><a class="bold" href="mi_rtl_ui_Dmxscroller_sql.html">mi_rtl_ui_Dmxscroller_sql</a></td>
+<td class="itemdesc"><p>A classe <strong><code>TUiDmxScroller_sql</code></strong> implementa o acesso ao banco de dados usando o atributo <strong><a class="normal" href="mi_rtl_ui_Dmxscroller_sql.TDmxScroller_sql_Atributos.html#CustomBufDataset">CustomBufDataset</a></strong>
+
+<p></p>
+
+<ul class="paragraph_spacing">
+  <li><p><strong>NOTA</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>O atributo <strong><a class="normal" href="mi_rtl_ui_Dmxscroller_sql.TDmxScroller_sql_Atributos.html#CustomBufDataset">CustomBufDataset</a></strong> pode ser <strong>TBufDataset</strong> não conectado a banco de dados sql e <strong>TCustomSQLQuery</strong> conectado ao banco de dados SQL.</p></li>
+</ul>
+
+<p></p></li>
+  <li><p><strong>REFERÊNCIA</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>[Working_With_TSQLQuery](<a href="https://wiki.freepascal.org/Working_With_TSQLQuery">https://wiki.freepascal.org/Working_With_TSQLQuery</a>)</p></li>
+  <li><p>[Parameters_in_TSQLQuery](<a href="https://wiki.freepascal.org/Working_With_TSQLQuery#Parameters_in_TSQLQuery.SQL">https://wiki.freepascal.org/Working_With_TSQLQuery#Parameters_in_TSQLQuery.SQL</a>)</p></li>
+  <li><p>[sql-basico](<a href="https://www.devmedia.com.br/sql-basico/28877">https://www.devmedia.com.br/sql-basico/28877</a>)</p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p></td>
+</tr>
+<tr class="list">
+<td class="itemname"><a class="bold" href="mi_rtl_ui_methods.TUiMethods.html">TUiMethods</a></td>
+<td class="itemunit"><a class="bold" href="mi_rtl_ui_methods.html">mi_rtl_ui_methods</a></td>
+<td class="itemdesc"><p>&nbsp;</p></td>
+</tr>
+<tr class="list2">
+<td class="itemname"><a class="bold" href="mi_rtl_ui_types.TUiTypes.html">TUiTypes</a></td>
+<td class="itemunit"><a class="bold" href="mi_rtl_ui_types.html">mi_rtl_ui_types</a></td>
+<td class="itemdesc"><p>A class <strong><code>TUiTypes</code></strong> concentra todos os tipo do pacote mi.ui.</p></td>
+</tr>
+<tr class="list">
+<td class="itemname"><a class="bold" href="mi_rtl_ui_types.TUiTypes.TRCommand.html">TUiTypes.TRCommand</a></td>
+<td class="itemunit"><a class="bold" href="mi_rtl_ui_types.html">mi_rtl_ui_types</a></td>
+<td class="itemdesc"><p>&nbsp;</p></td>
+</tr>
+<tr class="list2">
+<td class="itemname"><a class="bold" href="mi_rtl_ui_types.TUiTypes.TStrSQL.html">TUiTypes.TStrSQL</a></td>
+<td class="itemunit"><a class="bold" href="mi_rtl_ui_types.html">mi_rtl_ui_types</a></td>
+<td class="itemdesc"><p>O record <strong><code>TStrSQL</code></strong> é usado para padronizar os comandos sql independente do banco de dados.
+
+<p></p>
+
+<ul class="paragraph_spacing">
+  <li><p>Os geradores de código não usa string diretamente e sim a variável que contém o comando, isso é necessário porque os bancos de dados não são padronizados.
+
+<p></p>
+
+<ul class="paragraph_spacing">
+  <li><p>Exemplo: </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Comando para criar um campo Integer com 4 bytes com chave primária e autoincremental: </p>
+
+<ul class="paragraph_spacing">
+  <li><p>SqLite = Integer PRIMARY KEY <a class="normal" href="mi_rtl_ui_types.TUiTypes.TStrSQL.html#AutoIncrement">AUTOINCREMENT</a></p></li>
+  <li><p>PostgreSQL = SERIAL PRIMARY KEY</p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p></li>
+  <li><p><strong>REFERẼNCIA</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>[Planilha com sintaxe dos banco de dados aceitos](<a href="https://docs.google.com/spreadsheets/d/16jchX4-1KfGUn7c0Qp_GD7YVEbZ0Yh49OjkKYXo0WCE/edit#gid=0">https://docs.google.com/spreadsheets/d/16jchX4-1KfGUn7c0Qp_GD7YVEbZ0Yh49OjkKYXo0WCE/edit#gid=0</a>)</p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p></td>
+</tr>
+<tr class="list">
+<td class="itemname"><a class="bold" href="mi_rtl_ui_types.TUiTypes.TValue.html">TUiTypes.TValue</a></td>
+<td class="itemunit"><a class="bold" href="mi_rtl_ui_types.html">mi_rtl_ui_types</a></td>
+<td class="itemdesc"><p>&nbsp;</p></td>
+</tr>
+<tr class="list2">
+<td class="itemname"><a class="bold" href="mi_rtl_ui_types.TUiTypes.TViRect.html">TUiTypes.TViRect</a></td>
+<td class="itemunit"><a class="bold" href="mi_rtl_ui_types.html">mi_rtl_ui_types</a></td>
+<td class="itemdesc"><p>O registro <strong><code>TViRect</code></strong> usado para calcular retângulo baseado em uma origem e seu visinho na direção de <a class="normal" href="mi_rtl_ui_types.TUiTypes.html#TDirection">TDirection</a>
+
+<p></p>
+
+<ul class="paragraph_spacing">
+  <li><p><strong>NOTA</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Exemplo de uso está na unit : mi.rtl.objects.methods.ui.Dmxscroller.test;</p></li>
+  <li><p>O Exemplo foi criado para executar modo console.</p></li>
+  <li><p>Para testar no modo console veja o projeto rtl/TestTviRect</p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p></td>
+</tr>
+</table>
+<hr><span class="appinfo"><em>Gerado por <a href="https://pasdoc.github.io/">PasDoc 0.16.0</a>. </em>
+</span>
+</div></div></body></html>

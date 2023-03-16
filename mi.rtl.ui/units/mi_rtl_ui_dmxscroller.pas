@@ -5,7 +5,7 @@ unit mi_rtl_ui_Dmxscroller;
       - Alpha - 0.5.0.693
 
     - **HISTÓRICO**
-      - @html(<a href="../units/mi_rtl_ui_dmxscroller_historico.md">./mi_rtl_ui_dmxscroller_historico.md </a>)   
+      - @html(<a href="../units/mi_rtl_ui_dmxscroller_historico.html">./mi_rtl_ui_dmxscroller_historico.html </a>)   
    
     - **CÓDIGO FONTE**:
       - @html(<a href="../units/mi_rtl_ui_dmxscroller.pas">mi_rtl_ui_DmxScroller.pas</a>)

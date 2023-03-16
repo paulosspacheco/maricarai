@@ -26,20 +26,21 @@
       <UseVersionInfo Value="True"/>
       <AutoIncrementBuild Value="True"/>
       <MinorVersionNr Value="5"/>
-      <BuildNr Value="609"/>
+      <BuildNr Value="612"/>
       <Language Value="0416"/>
       <CharSet Value="04B0"/>
       <Attributes pvaDebug="True" pvaPreRelease="True"/>
       <StringTable Comments="Este produto é parte do projeto MarIcarai" CompanyName="Itm Sistemas e Consultoria Ltda." FileDescription="Programa de teste do pacote mi.rtl." ProductName="test.mi.rtl"/>
     </VersionInfo>
-    <MacroValues Count="3">
-      <Macro1 Name="LCLWidgetType" Value="customdrawn"/>
-      <Macro2 Name="LCLWidgetType" Value="gtk2"/>
-      <Macro3 Name="LCLWidgetType" Value="customdrawn"/>
+    <MacroValues Count="1">
+      <Macro4 Name="LCLWidgetType" Value="gtk2"/>
     </MacroValues>
     <BuildModes>
       <Item Name="Default" Default="True"/>
       <Item Name="i386-win32">
+        <MacroValues Count="1">
+          <Macro5 Name="LCLWidgetType" Value="win32"/>
+        </MacroValues>
         <CompilerOptions>
           <Version Value="11"/>
           <Target>
@@ -68,6 +69,9 @@
         </CompilerOptions>
       </Item>
       <Item Name="x86_64-win64">
+        <MacroValues Count="1">
+          <Macro5 Name="LCLWidgetType" Value="win32"/>
+        </MacroValues>
         <CompilerOptions>
           <Version Value="11"/>
           <Target>
@@ -97,10 +101,13 @@
           </Other>
         </CompilerOptions>
       </Item>
-      <SharedMatrixOptions Count="3">
-        <Item1 ID="958453543998" Modes="Default" Type="IDEMacro" MacroName="LCLWidgetType" Value="customdrawn"/>
-        <Item2 ID="734250937850" Modes="Default" Type="IDEMacro" MacroName="LCLWidgetType" Value="gtk2"/>
-        <Item3 ID="167907820272" Modes="Default" Type="IDEMacro" MacroName="LCLWidgetType" Value="customdrawn"/>
+      <SharedMatrixOptions Count="6">
+        <Item1 ID="958453543998" Type="IDEMacro" MacroName="LCLWidgetType" Value="customdrawn"/>
+        <Item2 ID="734250937850" Type="IDEMacro" MacroName="LCLWidgetType" Value="gtk2"/>
+        <Item3 ID="167907820272" Type="IDEMacro" MacroName="LCLWidgetType" Value="customdrawn"/>
+        <Item4 ID="435544746374" Modes="Default" Type="IDEMacro" MacroName="LCLWidgetType" Value="gtk2"/>
+        <Item5 ID="584691529838" Modes="i386-win32,x86_64-win64" Type="IDEMacro" MacroName="LCLWidgetType" Value="win32"/>
+        <Item6 ID="410614266225" Type="IDEMacro" MacroName="LCLWidgetType" Value="gtk3"/>
       </SharedMatrixOptions>
     </BuildModes>
     <PublishOptions>
