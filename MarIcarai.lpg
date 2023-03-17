@@ -6,7 +6,21 @@
       <Target FileName="mi.rtl.ui/mi.rtl.ui.lpk"/>
       <Target FileName="mi.ui.lcl/mi.ui.lcl.lpk"/>
       <Target FileName="mi.ui.lcl.form/mi.ui.lcl.form.lpk"/>
-      <Target FileName="mi.rtl/mi.rtl.tests/test.mi.rtl.lpi">
+      <Target FileName="mi.rtl/examples/mi.rtl.tests/test.mi.rtl.lpi">
+        <BuildModes>
+          <Mode Name="Default" Compile="True"/>
+          <Mode Name="i386-win32"/>
+          <Mode Name="x86_64-win64"/>
+        </BuildModes>
+      </Target>
+      <Target FileName="mi.ui.lcl.form/examples/mi.ui.lcl.form.tests/mi.ui.lcl.form.test.lpi">
+        <BuildModes>
+          <Mode Name="Default" Compile="True"/>
+          <Mode Name="i386-win32"/>
+          <Mode Name="x86_64-win64"/>
+        </BuildModes>
+      </Target>
+      <Target FileName="mi.ui.lcl.form/examples/project1/testaddtemplates.lpi">
         <BuildModes>
           <Mode Name="Default" Compile="True"/>
           <Mode Name="i386-win32"/>

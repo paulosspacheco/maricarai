@@ -153,7 +153,7 @@ interface
                               NumberKey  : Longint; {:< Número de chaves no índice     }
                             End;
 
-      type TaKeyStr  =  tString;//string[MaxKeyLen];
+      type TaKeyStr  =  TString;//string[MaxKeyLen];
 
       type TaItem    =  record
                           DataRef,
@@ -3519,7 +3519,8 @@ END; { PrevKey }
 class procedure TTb_access. TaXKey(VAR K:TaKeyStr; Const KeyL : BYTE);
 BEGIN
   IF Length(TaKeyStr(K)) > KeyL THEN
-    TaKeyStr(K)[0] := AnsiChar(KeyL);
+    //TaKeyStr(K)[0] := AnsiChar(KeyL);
+    k := copy(k,KeyL);
 
 END; {8 TaXKey }
 
@@ -4250,7 +4251,7 @@ VAR
              R := ItemsOnPage;
              REPEAT
                 K := (L + R) div 2;
-                      C := TaCompKeys(TaKeyStr(ProcKey),
+                      C := TaCompKeys(ProcKey,
                                 ItemArray[K].Key,
                                 DataRecNum,
                                                   ItemArray[K].DataRef,

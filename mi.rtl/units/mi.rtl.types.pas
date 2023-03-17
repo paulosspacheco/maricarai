@@ -76,7 +76,7 @@ uses
 
      type Char               = System.AnsiChar;
      type pChar              = System.PAnsiChar;
-     type tstring            = Shortstring;
+     type tstring            = String[255];//Shortstring;
 
      type AnsiCharSet        = set of AnsiChar;
      type TRealNum           = Double;

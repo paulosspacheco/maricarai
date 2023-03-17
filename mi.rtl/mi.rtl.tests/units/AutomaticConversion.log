@@ -1,4 +1,0 @@
-MI_ComboBoxEx_VCL.pas Note: Changed encoding from ISO-8859-1 to UTF-8
-MI_ComboBoxEx_VCL.pas Note: Replaced unit "Windows" with "LCLIntf, LCLType, LMessages" in uses section.
-MI_ComboBoxEx_VCL.pas(33,24) Note: Added MODE Delphi syntax modifier after unit name.
- : Conversion Ready.

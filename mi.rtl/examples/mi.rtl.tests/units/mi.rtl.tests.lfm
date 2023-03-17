@@ -1,0 +1,618 @@
+object Mi_Rtl_Tests: TMi_Rtl_Tests
+  Left = 0
+  Height = 880
+  Hint = 'Formulário usado para concentrar os exemplos do projeto MarIcarai'
+  Top = 0
+  Width = 1441
+  HorzScrollBar.Page = 807
+  VertScrollBar.Page = 305
+  AutoScroll = True
+  Caption = 'Mi Rtl Tests'
+  ClientHeight = 880
+  ClientWidth = 1441
+  Font.Height = -13
+  Font.Name = 'FreeMono'
+  Menu = MainMenu1
+  OnCreate = FormCreate
+  OnDestroy = FormDestroy
+  Position = poScreenCenter
+  ShowHint = True
+  object Button1: TButton
+    Left = 0
+    Height = 25
+    Top = 280
+    Width = 152
+    Caption = 'Form_MessageDialog'
+    TabOrder = 0
+  end
+  object PageControl_test: TPageControl
+    Left = 0
+    Height = 880
+    Top = 0
+    Width = 1441
+    ActivePage = TabSheet_TfilesStreams
+    Align = alClient
+    TabIndex = 1
+    TabOrder = 1
+    object TabSheet_TestFindFirst: TTabSheet
+      AutoSize = True
+      Caption = 'FindFirst'
+      ClientHeight = 852
+      ClientWidth = 1431
+      object Edit1: TEdit
+        Left = 0
+        Height = 31
+        Top = 48
+        Width = 432
+        OnChange = Edit1Change
+        TabOrder = 1
+        Text = '/home/paulosspacheco/*'
+      end
+      object ListBox1: TListBox
+        Left = 0
+        Height = 845
+        Top = 80
+        Width = 1537
+        Anchors = [akTop, akLeft, akRight, akBottom]
+        Columns = 1
+        ItemHeight = 0
+        MultiSelect = True
+        Style = lbVirtual
+        TabOrder = 2
+        TopIndex = -1
+        Visible = False
+      end
+      object GroupBox_Atributo: TGroupBox
+        Left = 2
+        Height = 40
+        Top = 0
+        Width = 1435
+        Anchors = [akTop, akLeft, akRight]
+        Caption = 'Atributos'
+        ClientHeight = 25
+        ClientWidth = 1433
+        TabOrder = 0
+        object CheckBox_faReadOnly: TCheckBox
+          Left = 8
+          Height = 23
+          Top = 0
+          Width = 97
+          Caption = 'faReadOnly'
+          OnChange = CheckBox_faReadOnlyChange
+          TabOrder = 0
+        end
+        object CheckBox_faSysFile: TCheckBox
+          Left = 120
+          Height = 23
+          Top = 0
+          Width = 79
+          Caption = 'faSysFile'
+          OnChange = CheckBox_faSysFileChange
+          TabOrder = 1
+        end
+        object CheckBox_faArchive: TCheckBox
+          Left = 230
+          Height = 23
+          Top = 0
+          Width = 83
+          Caption = 'faArchive'
+          Checked = True
+          OnChange = CheckBox_faArchiveChange
+          State = cbChecked
+          TabOrder = 2
+        end
+        object CheckBox_faAnyFile: TCheckBox
+          Left = 336
+          Height = 23
+          Top = 0
+          Width = 82
+          Caption = 'faAnyFile'
+          OnChange = CheckBox_faAnyFileChange
+          TabOrder = 3
+        end
+        object CheckBox_faHidden: TCheckBox
+          Left = 440
+          Height = 23
+          Top = 0
+          Width = 81
+          Caption = 'faHidden'
+          OnChange = CheckBox_faHiddenChange
+          TabOrder = 4
+        end
+        object CheckBox_faSymLink: TCheckBox
+          Left = 536
+          Height = 23
+          Top = 0
+          Width = 88
+          Caption = 'faSymLink'
+          OnChange = CheckBox_faSymLinkChange
+          TabOrder = 5
+        end
+        object CheckBox_faDirectory: TCheckBox
+          Left = 640
+          Height = 23
+          Top = 0
+          Width = 94
+          Caption = 'faDirectory'
+          OnChange = CheckBox_faDirectoryChange
+          TabOrder = 6
+        end
+      end
+      object LabelCount: TLabel
+        Left = 1268
+        Height = 25
+        Top = 48
+        Width = 160
+        Anchors = [akTop, akRight]
+        AutoSize = False
+        Caption = '0'
+        ParentColor = False
+      end
+    end
+    object TabSheet_TfilesStreams: TTabSheet
+      Caption = 'TfilesStreams'
+      ClientHeight = 852
+      ClientWidth = 1431
+      OnEnter = TabSheet_TfilesStreamsEnter
+      object ScrollBox_TfilesStreams: TScrollBox
+        Left = 0
+        Height = 852
+        Top = 0
+        Width = 1431
+        HorzScrollBar.Page = 795
+        VertScrollBar.Page = 50
+        Align = alClient
+        ClientHeight = 850
+        ClientWidth = 1429
+        TabOrder = 0
+        object Edit2: TEdit
+          Left = 0
+          Height = 31
+          Top = 0
+          Width = 368
+          OnChange = Edit2Change
+          TabOrder = 0
+          Text = '/home/paulosspacheco/*.md'
+        end
+        object StringGrid1: TStringGrid
+          Left = 16
+          Height = 826
+          Top = 24
+          Width = 1414
+          Anchors = [akTop, akLeft, akRight, akBottom]
+          ColCount = 3
+          Columns = <          
+            item
+              Title.Caption = 'Nome do arquivo'
+              Width = 450
+            end          
+            item
+              Title.Caption = 'FileSize'
+              Width = 85
+            end>
+          TabOrder = 1
+        end
+        object Label1: TLabel
+          Left = 480
+          Height = 14
+          Top = 0
+          Width = 48
+          Caption = 'Count:'
+          ParentColor = False
+        end
+        object Label2: TLabel
+          Left = 618
+          Height = 14
+          Top = 0
+          Width = 48
+          Caption = 'Sizes:'
+          ParentColor = False
+        end
+        object NumeroDeArquivo: TEdit
+          Left = 528
+          Height = 31
+          Top = 0
+          Width = 87
+          TabOrder = 2
+          Text = '0000'
+        end
+        object Edit_FileSizes: TEdit
+          Left = 664
+          Height = 31
+          Top = 0
+          Width = 89
+          TabOrder = 3
+          Text = '000000'
+        end
+        object Label3: TLabel
+          Left = 755
+          Height = 14
+          Top = 0
+          Width = 40
+          Caption = 'Bytes'
+          ParentColor = False
+        end
+      end
+    end
+  end
+  object MainMenu1: TMainMenu
+    Left = 792
+    Top = 40
+    object MenuItem_Mi_rtl_TFiles: TMenuItem
+      Caption = 'Mi.rtl.TFiles'
+      object MenuItem1: TMenuItem
+        Action = Action_test_FileCreate
+        AutoCheck = True
+      end
+      object MenuItem2: TMenuItem
+        Action = Action_Test_OpenFile_exclusive_fmShareDenyNone
+        AutoCheck = True
+      end
+      object MenuItem3: TMenuItem
+        Action = Action_Test_OpenFile_exclusive_mode
+        AutoCheck = True
+      end
+      object MenuItem6: TMenuItem
+        Action = Action_Test_OpenFile_exclusive_fmShareExclusive
+        AutoCheck = True
+      end
+      object MenuItem4: TMenuItem
+        Action = Action_test_CopyFile
+        AutoCheck = True
+      end
+      object MenuItem5: TMenuItem
+        Action = Action_test_FileTruncate
+        AutoCheck = True
+      end
+      object MenuItem9: TMenuItem
+        Action = Action_Test_FileSize
+        AutoCheck = True
+      end
+      object MenuItem_Test_FileSeek: TMenuItem
+        Action = Action_Test_FileSeek
+        AutoCheck = True
+      end
+      object MenuItem_Test_FileRead: TMenuItem
+        Action = Action_Test_FileRead
+        AutoCheck = True
+      end
+      object Separator1: TMenuItem
+        Caption = '-'
+      end
+      object MenuItem10: TMenuItem
+        Action = Action_Test_FileWrite
+        AutoCheck = True
+      end
+    end
+    object MenuItemCollections: TMenuItem
+      Caption = 'Collections'
+      Checked = True
+      object MenuItem37: TMenuItem
+        Action = Action_Test_TFilesStreams
+      end
+    end
+    object MenuItem11: TMenuItem
+      Caption = 'TStream'
+      object MenuItem12: TMenuItem
+        Caption = 'TBufferMemory'
+        object MenuItem15: TMenuItem
+          Action = Action_test_TBufferMemory_Sem_Header
+        end
+        object MenuItem16: TMenuItem
+          Action = Action_test_TBufferMemory_Com_Header
+        end
+      end
+      object MenuItem14: TMenuItem
+        Caption = 'TFileStream'
+        object MenuItem13: TMenuItem
+          Action = Action_Test_FileStream_sem_header
+        end
+        object MenuItem17: TMenuItem
+          Action = Action_Test_FileStream_com_header
+        end
+      end
+    end
+    object MenuItem7: TMenuItem
+      Caption = 'FreePascal'
+      object MenuItem8: TMenuItem
+        Action = Action_Test_Reset
+        AutoCheck = True
+      end
+      object MenuItem18: TMenuItem
+        Action = Action_test_FindFirst
+        AutoCheck = True
+      end
+      object MenuItem25: TMenuItem
+        Action = Action_Test_systemlog
+      end
+    end
+    object MenuItem19: TMenuItem
+      Caption = 'mi.ui'
+      object MenuItem20: TMenuItem
+        Caption = 'Dialogs'
+        object MenuItem22: TMenuItem
+          Action = Action_Test_tobjects_dlgs_Confirm
+        end
+        object MenuItem21: TMenuItem
+          Action = Action_Test_Mi_MsgBox_Prompt
+          Caption = 'Test_Mi_MsgBox_Prompt'
+        end
+        object MenuItem23: TMenuItem
+          Action = Action_Test_tobjects_dlgs_password
+        end
+        object MenuItem30: TMenuItem
+          Action = Action_test_CreateMessageDialog
+        end
+      end
+      object MenuItem_Tobjectss_logs: TMenuItem
+        Caption = 'Tobjectss.Logs'
+        object MenuItem24: TMenuItem
+          Action = Action_test_Logs_Warning
+        end
+        object MenuItem28: TMenuItem
+          Action = Action_test_Logs_Error
+        end
+        object MenuItem29: TMenuItem
+          Action = Action_Test_Logs_Info
+        end
+        object MenuItem31: TMenuItem
+          Action = Action_test_LogError
+        end
+      end
+      object MenuItem32: TMenuItem
+        Caption = 'TException'
+        object MenuItem33: TMenuItem
+          Action = Action_test_TException
+        end
+      end
+      object MenuItem34: TMenuItem
+        Caption = 'TMi_Msgbox_LCL'
+        object MenuItem35: TMenuItem
+          Action = Action_Test_TMi_Msgbox_LCL
+        end
+      end
+      object MenuItem_CodePage: TMenuItem
+        Caption = 'CodePage'
+        object MenuItem38: TMenuItem
+          Action = Action_Test_String_Asc_GUI_to_Asc_Ingles
+        end
+        object MenuItem39: TMenuItem
+          Action = Action_Test_String_Asc_GUI_to_Asc_html
+        end
+        object MenuItem40: TMenuItem
+          Action = Action_test_removeAccents
+        end
+      end
+    end
+    object MenuItemI_DB: TMenuItem
+      Caption = 'Db'
+      object MenuItem_TTb__Access: TMenuItem
+        Caption = 'TTb__Access'
+        object MenuItem26: TMenuItem
+          Action = Action_test_TTb__Access_Cadastra
+          Caption = 'Cadastra'
+        end
+        object MenuItem27: TMenuItem
+          Action = Action_Test_TTb_access_Lista_ordem_crescente
+          Caption = 'Lista_ordem_crescente'
+        end
+        object MenuItem41: TMenuItem
+          Action = Action_Test_TTb_access_Lista_ordem_decrescente
+          Caption = 'Lista_ordem_decrescente'
+        end
+        object MenuItem42: TMenuItem
+          Action = Action_test_TTb_access_DeleteRec
+        end
+        object MenuItem43: TMenuItem
+          Action = Action_Test_TTb_access_SetTransaction
+        end
+      end
+    end
+  end
+  object ActionList1: TActionList
+    Left = 784
+    Top = 168
+    object Action_test_FileCreate: TAction
+      Category = 'TFiles'
+      AutoCheck = True
+      Caption = 'test FileCreate'
+      Hint = 'Testa a função FileCreate'
+      OnExecute = Action_test_FileCreateExecute
+    end
+    object Action_Test_OpenFile_exclusive_fmShareDenyNone: TAction
+      Category = 'TFiles'
+      AutoCheck = True
+      Caption = 'Test_OpenFile_exclusive_fmShareDenyNone'
+      OnExecute = Action_Test_OpenFile_exclusive_modeExecute
+      OnHint = Action_Test_OpenFile_exclusive_modeHint
+    end
+    object Action_Test_OpenFile_exclusive_mode: TAction
+      Category = 'TFiles'
+      AutoCheck = True
+      Caption = 'Action_Test_OpenFile_exclusive_mode'
+      OnExecute = Action_Test_OpenFile_exclusive_modeExecute
+      OnHint = Action_Test_OpenFile_exclusive_modeHint
+    end
+    object Action_test_FindFirst: TAction
+      Category = 'SysUtils'
+      AutoCheck = True
+      Caption = 'test_FindFirst'
+      Hint = 'Test da Função FindFirst da unit System.'
+      OnExecute = Action_test_FindFirstExecute
+    end
+    object Action_Test_Reset: TAction
+      Category = 'System'
+      AutoCheck = True
+      Caption = 'Test_Reset'
+      Hint = 'Test do Reset da Unit System.'
+      OnExecute = Action_Test_ResetExecute
+    end
+    object Action_Test_OpenFile_exclusive_fmShareExclusive: TAction
+      Category = 'TFiles'
+      Caption = 'Test OpenFile exclusive fmShareExclusive'
+      OnExecute = Action_Test_OpenFile_exclusive_fmShareExclusiveExecute
+    end
+    object Action_test_CopyFile: TAction
+      Category = 'TFiles'
+      AutoCheck = True
+      Caption = 'test_CopyFile'
+      Hint = 'Testa função copy file.'
+      OnExecute = Action_test_CopyFileExecute
+    end
+    object Action_test_FileTruncate: TAction
+      Category = 'TFiles'
+      AutoCheck = True
+      Caption = 'test FileTruncate'
+      OnExecute = Action_test_FileTruncateExecute
+    end
+    object Action_Test_FileSeek: TAction
+      Category = 'TFiles'
+      AutoCheck = True
+      Caption = 'Test FileSeek'
+      Hint = 'Teste de função FileSeek e checar os tipo de erros que pode aparecer.'
+      OnExecute = Action_Test_FileSeekExecute
+    end
+    object Action_Test_FileSize: TAction
+      Category = 'TFiles'
+      AutoCheck = True
+      Caption = 'Test FileSize'
+      OnExecute = Action_Test_FileSizeExecute
+    end
+    object Action_Test_FileRead: TAction
+      Category = 'TFiles'
+      AutoCheck = True
+      Caption = 'Test FileRead'
+      OnExecute = Action_Test_FileReadExecute
+    end
+    object Action_Test_FileWrite: TAction
+      Category = 'TFiles'
+      AutoCheck = True
+      Caption = 'Test FileWrite'
+      OnExecute = Action_Test_FileWriteExecute
+    end
+    object Action_test_TBufferMemory_Sem_Header: TAction
+      Category = 'Stream'
+      Caption = 'Teste TBufferMemória Sem Header'
+      OnExecute = Action_test_TBufferMemory_Sem_HeaderExecute
+    end
+    object Action_test_TBufferMemory_Com_Header: TAction
+      Category = 'Stream'
+      Caption = 'test TBufferMemory Com Header'
+      OnExecute = Action_test_TBufferMemory_Com_HeaderExecute
+    end
+    object Action_Test_FileStream_sem_header: TAction
+      Category = 'Stream'
+      Caption = 'Test FileStream_sem_header'
+      OnExecute = Action_Test_FileStream_sem_headerExecute
+    end
+    object Action_Test_FileStream_com_header: TAction
+      Category = 'Stream'
+      Caption = 'Test FileStream com header'
+      OnExecute = Action_Test_FileStream_com_headerExecute
+    end
+    object Action_Test_tobjects_dlgs_Confirm: TAction
+      Category = 'mi.ui'
+      Caption = 'Test dlgs.Confirm()'
+      OnExecute = Action_Test_tobjects_dlgs_ConfirmExecute
+    end
+    object Action_Test_Mi_MsgBox_Prompt: TAction
+      Category = 'mi.ui'
+      Caption = 'Test tobjects_dlgs_Prompt'
+      OnExecute = Action_Test_Mi_MsgBox_PromptExecute
+    end
+    object Action_Test_tobjects_dlgs_password: TAction
+      Category = 'mi.ui'
+      Caption = 'Test tobjects_dlgs_password'
+      OnExecute = Action_Test_tobjects_dlgs_passwordExecute
+    end
+    object Action_test_CreateMessageDialog: TAction
+      Category = 'mi.ui'
+      Caption = 'Test CreateMessageDialog'
+      OnExecute = Action_test_CreateMessageDialogExecute
+    end
+    object Action_Test_systemlog: TAction
+      Category = 'System'
+      Caption = 'Test systemlog'
+      OnExecute = Action_Test_systemlogExecute
+    end
+    object Action_test_Logs_Warning: TAction
+      Category = 'mi.ui'
+      Caption = 'test Logs_Warning'
+      OnExecute = Action_test_Logs_WarningExecute
+    end
+    object Action_test_Logs_Error: TAction
+      Category = 'mi.ui'
+      Caption = 'Test Logs_Error'
+      OnExecute = Action_test_Logs_ErrorExecute
+    end
+    object Action_Test_Logs_Info: TAction
+      Category = 'mi.ui'
+      Caption = 'Test Logs_Info'
+      OnExecute = Action_Test_Logs_InfoExecute
+    end
+    object Action_test_LogError: TAction
+      Category = 'mi.ui'
+      Caption = 'Test LogError'
+      OnExecute = Action_test_LogErrorExecute
+    end
+    object Action_test_TException: TAction
+      Category = 'mi.ui'
+      Caption = 'test TException'
+      OnExecute = Action_test_TExceptionExecute
+    end
+    object Action_Test_TMi_Msgbox_LCL: TAction
+      Category = 'TMi_Msgbox_LCL'
+      Caption = 'Action_Test_TMi_Msgbox_LCL'
+      OnExecute = Action_Test_TMi_Msgbox_LCLExecute
+    end
+    object Action_Test_TFilesStreams: TAction
+      Category = 'TCollections'
+      Caption = 'Test TFilesStreams'
+      OnExecute = Action_test_TfilesStreamsExecute
+    end
+    object Action_Test_String_Asc_GUI_to_Asc_Ingles: TAction
+      Category = 'mi.ui'
+      Caption = 'Test_String_Asc_GUI_to_Asc_Ingles'
+      OnExecute = Action_Test_String_Asc_GUI_to_Asc_InglesExecute
+    end
+    object Action_Test_String_Asc_GUI_to_Asc_html: TAction
+      Category = 'mi.ui'
+      Caption = 'Test_String_Asc_GUI_to_Asc_html'
+      OnExecute = Action_Test_String_Asc_GUI_to_Asc_htmlExecute
+    end
+    object Action_test_removeAccents: TAction
+      Category = 'mi.ui'
+      Caption = 'test_removeAccents'
+      OnExecute = Action_test_removeAccentsExecute
+    end
+    object Action_test: TAction
+      Caption = 'test'
+      OnExecute = Action_testExecute
+    end
+    object Action_test_TTb__Access_Cadastra: TAction
+      Category = 'TTb__Access'
+      Caption = 'TTb__Access_Cadastra'
+      OnExecute = Action_test_TTb__Access_CadastraExecute
+    end
+    object Action_Test_TTb_access_Lista_ordem_crescente: TAction
+      Category = 'TTb__Access'
+      Caption = 'Action_Test_TTb_access_Lista_ordem_crescente'
+      OnExecute = Action_Test_TTb_access_Lista_ordem_crescenteExecute
+    end
+    object Action_Test_TTb_access_Lista_ordem_decrescente: TAction
+      Category = 'TTb__Access'
+      Caption = 'Action_Test_TTb_access_Lista_ordem_decrescente'
+      OnExecute = Action_Test_TTb_access_Lista_ordem_decrescenteExecute
+    end
+    object Action_test_TTb_access_DeleteRec: TAction
+      Category = 'TTb__Access'
+      Caption = 'Test_DeleteRec'
+      OnExecute = Action_test_TTb_access_DeleteRecExecute
+    end
+    object Action_Test_TTb_access_SetTransaction: TAction
+      Category = 'TTb__Access'
+      Caption = 'SetTransaction'
+      OnExecute = Action_Test_TTb_access_SetTransactionExecute
+    end
+  end
+end

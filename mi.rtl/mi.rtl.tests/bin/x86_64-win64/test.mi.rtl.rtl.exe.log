@@ -1,8 +1,0 @@
- [2022-01-27 22:31:19.438 Error] 
-Aplicação.......: test.mi.rtl.rtl.exe
-Error...........: 005: EIO - Acesso ao arquivo negado ou erro de entrada/saída INFORMAÇÔES TÉCNICAS  Unit.....: Tb_Access.Pas  Classe...: TTb_access  Método...: _PutRec  FileName.....: Z:\home\paulosspacheco\fpcupdeluxe\projects\maricarai\rtl\mi.rt.test\bin\x86_64-win64\aluno.tb
-
- [2022-01-27 22:31:41.580 Error] 
-Aplicação.......: test.mi.rtl.rtl.exe
-Error...........: 005: EIO - Acesso ao arquivo negado ou erro de entrada/saída INFORMAÇÔES TÉCNICAS  Unit.....: Tb_Access.Pas  Classe...: TTb_access  Método...: MakeFile  FileName.....: Z:\home\paulosspacheco\fpcupdeluxe\projects\maricarai\rtl\mi.rt.test\bin\x86_64-win64\aluno.tb
-
