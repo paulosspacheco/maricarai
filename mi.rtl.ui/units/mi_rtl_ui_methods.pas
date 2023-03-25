@@ -5,7 +5,7 @@ unit mi_rtl_ui_methods;
 interface
 
 uses
-  Classes, SysUtils,db,Controls,DBCtrls,Variants,Graphics
+  Classes, SysUtils,db,Controls,DBCtrls,Variants,Graphics,LazHelpHtml,UTF8Process
   ,System.UITypes
   //,mi.rtl.Types
   //,mi.rtl.Objects.Methods.Paramexecucao.Application
@@ -71,7 +71,6 @@ uses
       }
       public class function CreateOptions(Default: LongInt;AItems: PSItem) : DmxIDstr;
 
-
       public class Function GetMaxTViRect : TViRect;
       public class Function AnsiString_to_TCollectionString(Msg: AnsiString): TCollectionString;
       public class Function MsgDlgButtons_To_MsgDlgBtn(Buttons: TMI_MsgBox.TMsgDlgButtons): TMI_MsgBox.TArray_MsgDlgBtn;
@@ -97,6 +96,25 @@ uses
            - Result is:  00010000  
       }
       function FMb_Bits(const aBit: Byte): Longint;
+
+      {: O método @name Executa o browser padrão do sistema operacional.
+
+         - Exemplo:
+
+           ```pascal
+
+             program Project1;
+              uses
+                Interfaces,
+                mi_rtl_ui_methods;
+             begin
+
+              TUiMethods.ShowHtml('https://wiki.freepascal.org/Webbrowser');
+
+             end.
+           ```
+      }
+      Public class Procedure ShowHtml(URL:string);override;
     end;
 
 
@@ -434,5 +452,39 @@ implementation
     Then Result := Mb_Bit01 Shl aBit
     else Result := Mb_Bit00;
   end;
+
+  class Procedure TUiMethods.ShowHtml(URL: string);
+
+    var
+      v: THTMLBrowserHelpViewer;
+      BrowserPath, BrowserParams: string;
+      p: LongInt;
+      BrowserProcess: TProcessUTF8;
+    begin
+      v:=THTMLBrowserHelpViewer.Create(nil);
+      try
+        v.FindDefaultBrowser(BrowserPath,BrowserParams);
+        //debugln(['Path=',BrowserPath,' Params=',BrowserParams]);
+
+        //URL:='http://www.lazarus.freepascal.org';
+        p:=System.Pos('%s', BrowserParams);
+        System.Delete(BrowserParams,p,2);
+        System.Insert(URL,BrowserParams,p);
+
+        // start browser
+        BrowserProcess:=TProcessUTF8.Create(nil);
+        try
+          BrowserProcess.CommandLine:=BrowserPath+' '+BrowserParams;
+          BrowserProcess.Execute;
+        finally
+          BrowserProcess.Free;
+        end;
+      finally
+        v.Free;
+      end;
+    end;
+
+
+
 end.
 

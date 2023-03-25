@@ -1,8 +1,0 @@
-object Mi_ui_tests: TMi_ui_tests
-  Left = 1164
-  Height = 240
-  Top = 375
-  Width = 320
-  Caption = 'Mi_ui_tests'
-  LCLVersion = '2.2.0.4'
-end

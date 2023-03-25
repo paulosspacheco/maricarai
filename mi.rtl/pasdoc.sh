@@ -2,8 +2,11 @@
 #pasdoc --marker=: --markdown --output=./doc `find ./units/ -iname '*.pas'`
 #pasdoc @pasdoc.cfg `find ./ -iname '*.pas'`
 #pasdoc --language=br.utf8 --auto-link --verbosity=6 --marker=: --staronly --markdown --output=./doc  `find ./ -iname '*.pas'`
-#pasdoc --use-tipue-search --verbosity=6 --auto-link --language=br.utf8 --marker=: --write-uses-list --staronly --markdown --output=./doc  `find ./ -iname '*.pas'`
 
+find ./ -iname '*.pp' > pasdoc.txt
+find ./ -iname '*.pas' >> pasdoc.txt
+find ./ -iname '*.lpr' >> pasdoc.txt
+pasdoc --use-tipue-search --verbosity=6 --auto-link --language=br.utf8 --marker=: --write-uses-list --staronly --markdown --output=./doc  -S./pasdoc.txt
 
 
 

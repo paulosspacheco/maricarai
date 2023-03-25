@@ -50,7 +50,6 @@ uses
   }
   type TConsts =
   class(TTypes)
-
     {: Pilha com tStrings de erros.}
     public  Const ListaDeMsgErro : TTypes.PSItem = nil;
 
@@ -1756,6 +1755,11 @@ uses
       public const DirectorySeparator :char = system.DirectorySeparator;   {'/' ou '\'}
 
       public var Lst : text ;static;
+
+      {: - O evento @name é executado em CtrlSleep e deve ser iniciado para que possa
+         processar as mensagens dos widgets que usão essa classe.
+      }
+      public const onProcessMessages : TOnProcedure = nil;
 
       {$Region Código do teclado}
       public const  kbNoKey = 0;

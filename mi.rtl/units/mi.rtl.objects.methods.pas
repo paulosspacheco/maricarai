@@ -32,6 +32,7 @@ uses
   ,Process
 //  ,Math
   ,dos
+
   ,sqlDB
   ,SQLite3Conn
   ,PQConnection
@@ -379,6 +380,25 @@ uses
 
     public class Function GetExecAsync():Byte;       //Retorna o valor de ExecAsync
 
+    {: O método @name executa o shell do sistema operacional e retorna o Buffer da Tela
+
+       ```Pascal
+
+           program Project1;
+             uses
+               mi.rtl.objectss;
+
+             var
+               s : string;
+           begin
+             s := TObjectss.ShellScript('ls *.res');
+             if s <>''
+             then WriteLn(s);
+           end.
+
+       ```
+    }
+    Public class function ShellScript(aCommand:String): String;
 
 
     public class function ShellExecute(Const lpOperation,
@@ -471,6 +491,9 @@ uses
                                       okCreateDB:Boolean //True cria; False : apaga
                                      ):string;
 
+    {: O método @name remove as mascaras do número e retorna somente números
+
+    }
     class function StrNumberValid(S: AnsiString): AnsiString;
 
     {: o classe método **@name** checa se s está entre aHigh e aLow retorna zero se houver erro
@@ -478,7 +501,12 @@ uses
     }
     Public class function CheckRanger(S : AnsiString; aHigh, aLow: Int64; out aErr:Integer): Int64;
 
+    {: O método @name retorna **TRUE** se o parâmetro S for número inteiro ou **FALSE** caso contrário.}
     Public class function IntValid(S : AnsiString; TypeCode:AnsiChar):Boolean;
+
+    {: O método @name Executa o browser padrão do sistema operacional.
+    }
+    Public class Procedure ShowHtml(URL:string);virtual;  //Deve ser redefinido onde a LCL for declarada.
 
 
   end;
@@ -2386,13 +2414,13 @@ implementation
 
     end;
 
-        class function TObjectsMethods.ShellExecute(const FileName, Params,
+   class function TObjectsMethods.ShellExecute(const FileName, Params,
       DefaultDir: AnsiString; ShowCmd: Integer): THandle;
   Begin
     Result := ShellExecute('open',FileName, Params, DefaultDir,ShowCmd);
   end;
 
-        class function TObjectsMethods.ShellExecute(const FileName,
+  class function TObjectsMethods.ShellExecute(const FileName,
       Params: AnsiString): THandle;
   Begin
     Result := ShellExecute(FileName, Params, ''{DefaultDir} , SW_SHOWNORMAL{ShowCmd}  );
@@ -2743,6 +2771,15 @@ implementation
          fldSmallInt : CheckRanger(s,High(SmallInt),Low(SmallInt),err);
       end;
      Result := err = 0;
+   end;
+
+   class Procedure TObjectsMethods.ShowHtml(URL: string);
+   begin
+   end;
+
+   class function TObjectsMethods.ShellScript(aCommand: String): String;
+   begin
+     RunCommand('/bin/bash',['-c',aCommand],result);
    end;
 
 

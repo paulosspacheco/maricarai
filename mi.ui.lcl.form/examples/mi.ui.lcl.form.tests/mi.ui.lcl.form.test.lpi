@@ -24,7 +24,7 @@
       <UseVersionInfo Value="True"/>
       <AutoIncrementBuild Value="True"/>
       <MinorVersionNr Value="5"/>
-      <BuildNr Value="695"/>
+      <BuildNr Value="702"/>
       <Language Value="0416"/>
       <Attributes pvaDebug="True" pvaPreRelease="True"/>
       <StringTable Comments="Programa exemplo do projeto maricarai." CompanyName="Itm Sistemas e Consultoria Ltda." FileDescription="Programa usado para testar as classes TDmxScroller_Form e TDmxScroller_Form_Ds" ProductName="mi.ui.lcl.form.test"/>
@@ -94,9 +94,6 @@
           </Other>
         </CompilerOptions>
       </Item>
-      <SharedMatrixOptions Count="1">
-        <Item1 ID="815162688606" Value="-dDisableUTF8RTL"/>
-      </SharedMatrixOptions>
     </BuildModes>
     <PublishOptions>
       <Version Value="2"/>
@@ -154,7 +151,6 @@
         <ComponentName Value="Mi_ui_mi_msgBox"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="DataModule"/>
-        <UnitName Value="uMi_ui_mi_msgbox_dm"/>
       </Unit>
       <Unit>
         <Filename Value="units\umi_ui_inputbox_lcl_test.pas"/>
@@ -204,6 +200,14 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="Unit1"/>
+      </Unit>
+      <Unit>
+        <Filename Value="units\udmxscroller_form_lcl_test.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="DmxScroller_Form_Lcl_test"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="uDmxScroller_Form_Lcl_test"/>
       </Unit>
     </Units>
   </ProjectOptions>

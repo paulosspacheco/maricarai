@@ -20,9 +20,9 @@ unit mi.ui.dialogs;
 
       - **2021-12-04**
         - 15:11 a 16:40
-           - Criar exemplo TMi_Rtl_Tests.Test_tobjects_dlgs_Confirm;
-           - Criar exemplo TMi_Rtl_Tests.Test_tobjects_dlgs_Prompt;
-           - Criar exemplo TMi_Rtl_Tests.Test_tobjects_dlgs_password;
+           - Criar exemplo TForm1.Test_tobjects_dlgs_Confirm;
+           - Criar exemplo TForm1.Test_tobjects_dlgs_Prompt;
+           - Criar exemplo TForm1.Test_tobjects_dlgs_password;
 
 }
 {$IFDEF FPC}
@@ -78,7 +78,7 @@ uses
 
            ```pascal
 
-             procedure TMi_Rtl_Tests.Test_tobjects_dlgs_Confirm;
+             procedure TForm1.Test_tobjects_dlgs_Confirm;
              begin
                with TObjectss.dlgs do
                  if Confirm('Test_tobjects_dlgs_Confirm','Continua o processamento?')
@@ -104,7 +104,7 @@ uses
 
            ```pascal
 
-             procedure TMi_Rtl_Tests.Test_tobjects_dlgs_Prompt;
+             procedure TForm1.Test_tobjects_dlgs_Prompt;
                var idade,fmt : string;
              begin
                idade := '';
@@ -149,7 +149,7 @@ uses
 
            ```pascal
 
-             procedure TMi_Rtl_Tests.Test_tobjects_dlgs_password;
+             procedure TForm1.Test_tobjects_dlgs_password;
                Var
                  s,u : string;
              begin

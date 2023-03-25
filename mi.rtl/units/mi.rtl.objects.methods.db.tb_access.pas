@@ -33,7 +33,7 @@ interface
        ,mi.rtl.types
        ,mi.rtl.objects.consts.MI_MsgBox
        , mi.rtl.Consts.StrError
-       ,mi.Rtl.Files
+       ,mi.rtl.files
        ,mi.rtl.objects.Methods.Exception
        ,mi.rtl.objects.methods.StreamBase.Stream
        ,mi.rtl.objects.methods.StreamBase.Stream.MemoryStream.BufferMemory

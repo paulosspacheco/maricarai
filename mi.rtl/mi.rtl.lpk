@@ -31,6 +31,9 @@
           <DebugInfoType Value="dsDwarf3"/>
         </Debugging>
       </Linking>
+      <Other>
+        <CreateMakefileOnBuild Value="True"/>
+      </Other>
     </CompilerOptions>
     <Description Value="O  pacote mi.rtl encapsula as units do FreePascal e Lazarus.
 Implementa a classe TObjectss que por sua vez encapsula as classes bases do turbo vision versão Lazarus.
@@ -58,6 +61,10 @@ Implementa a classe TObjectss que por sua vez encapsula as classes bases do turb
         <UnitName Value="mi.rtl.Consts"/>
       </Item>
       <Item>
+        <Filename Value="units/mi.rtl.files.pas"/>
+        <UnitName Value="mi.rtl.files"/>
+      </Item>
+      <Item>
         <Filename Value="units/mi.rtl.consts.strerror.pas"/>
         <UnitName Value="mi.rtl.Consts.StrError"/>
       </Item>
@@ -70,12 +77,8 @@ Implementa a classe TObjectss que por sua vez encapsula as classes bases do turb
         <UnitName Value="mi.rtl.Consts.StringList"/>
       </Item>
       <Item>
-        <Filename Value="units/mi.rtl.files.pas"/>
-        <UnitName Value="mi.Rtl.Files"/>
-      </Item>
-      <Item>
         <Filename Value="units/mi.rtl.objects.types.pas"/>
-        <UnitName Value="mi.rtl.Objects.Types"/>
+        <UnitName Value="mi.rtl.objects.types"/>
       </Item>
       <Item>
         <Filename Value="units/mi.rtl.objects.consts.pas"/>
@@ -181,15 +184,6 @@ Implementa a classe TObjectss que por sua vez encapsula as classes bases do turb
       </Item>
     </Files>
     <RequiredPkgs>
-      <Item>
-        <PackageName Value="LCL"/>
-      </Item>
-      <Item>
-        <PackageName Value="LCLBase"/>
-      </Item>
-      <Item>
-        <PackageName Value="FCL"/>
-      </Item>
       <Item>
         <PackageName Value="LazUtils"/>
       </Item>

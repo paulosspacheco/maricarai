@@ -1,4 +1,4 @@
-unit mi.Rtl.Files;
+unit mi.rtl.files;
   {:<- A Unit **@name**  contém as funções [Wrapper](https://techlib.wiki/definition/wrapper.html) para os sistemas operacionais **Win32** **Win64** e **Linux x86_64** reconhecidos pelo free pascal.
 
       - **OBJETIVO**:
@@ -135,9 +135,9 @@ uses
   Classes
   ,dos
   ,SysUtils
-  ,forms
+//  ,forms
   ,crt
-  ,Dialogs // Uso o showMessage porém o mesmo deve ser substituido pelo um showMessage que não trava se tiver dentro de uma transação.
+  //,Dialogs // Uso o showMessage porém o mesmo deve ser substituido pelo um showMessage que não trava se tiver dentro de uma transação.
   ,FileUtil // <https://wiki.lazarus.freepascal.org/fileutil
   ,mi.rtl.types
   ,mi.rtl.Consts
@@ -151,12 +151,16 @@ uses
        - REFERẼNCIAS
          - [Como criar aplicativo multi-plataforma](https://wiki.freepascal.org/Multiplatform_Programming_Guide)
     }
+
+    { TFiles }
+
     TFiles = class(TConsts)
       type TStrError = mi.rtl.Consts.StrError.TStrError;
 
       {: A função **@name** captura o estados de system.ioResult e atualiza TaStatus
       }
       public class Function IoResult : Integer;
+
 
       {:- A função **@name** dar opção para que a aplicação execute outras tarefas caso ela se encontre em estado de espera.
 
@@ -1073,18 +1077,19 @@ implementation
 
 {$REGION  'implementation' }
 
-  class Function TFiles.IoResult : Integer;
+  class function TFiles.IoResult: Integer;
   Begin
     result := System.IoResult;
     TaStatus := result;
   end;
 
+
   class procedure TFiles.CtrlSleep(const Delay: Cardinal);
   begin
     If CTRL_SLEEP_ENABLE Then
     begin
-      If FORMS_APPLICATION_PROCESS_MESSAGES and (Application <> nil)
-      Then Application.ProcessMessages;
+      If FORMS_APPLICATION_PROCESS_MESSAGES and Assigned(onProcessMessages)
+     Then onProcessMessages('TFiles.CtrlSleep');
 
       Sleep(Delay);
 
@@ -1395,7 +1400,8 @@ implementation
     else SetLastError(0);
   end;
 
-  class function TFiles.GetTempDir(Const env:String;out path:PathStr):SmallInt;
+    class function TFiles.GetTempDir(const env: String; out path: PathStr
+    ): SmallInt;
      var Dir: DirStr;
      var Name: NameStr;
      var Ext: ExtStr;
@@ -1590,7 +1596,7 @@ implementation
    result := SysUtils.DirectoryExists(Directory);
   end;
 
-  class Function TFiles.FPrimeiroHandleLivre : SmallInt;
+    class function TFiles.FPrimeiroHandleLivre: SmallInt;
     Var F   : File;
     {$I-}
   Begin
@@ -1634,7 +1640,7 @@ implementation
   end;
 
 
-  class Function TFiles.ByteDrive(Const NomeArquivo:AnsiString) : Byte;
+    class function TFiles.ByteDrive(const NomeArquivo: AnsiString): Byte;
     Var DriveStr : AnsiChar;
     Begin
       if pos(':',NomeArquivo) > 0 then

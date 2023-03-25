@@ -63,8 +63,7 @@ uses
   SysUtils,Messages, Classes, Controls, StdCtrls, Forms,Grids ,dialogs,LResources
 //  Classes, SysUtils, LResources, Forms, Controls, Graphics, Dialogs, MaskEdit;
   ,mi.rtl.Consts.StrError
-//  ,mi.rtl.objects.Methods.dates
-  ,mi_rtl_ui_DmxScroller   ;
+  ,mi_rtl_ui_DmxScroller;
 
 
 type

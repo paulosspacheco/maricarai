@@ -31,7 +31,7 @@ unit mi.rtl.Objectss;
     ,mi.rtl.Consts
     ,mi.rtl.Consts.StringListBase
     ,mi.rtl.Consts.StringList
-    ,mi.rtl.Files
+    ,mi.rtl.files
     ,mi.rtl.objects.types
     ,mi.rtl.objects.consts
     ,mi.rtl.objects.consts.MI_MsgBox
@@ -91,7 +91,7 @@ unit mi.rtl.Objectss;
          public type TConsts         = mi.rtl.Consts.TConsts;
          public type TStringListBase = mi.rtl.Consts.StringListBase.TStringListBase;
          public type TMiStringList     = mi.rtl.Consts.StringList.TMiStringList;
-         public type TFiles          = mi.rtl.Files.TFiles;
+         public type TFiles          = mi.rtl.files.TFiles;
          public type TObjectsTypes  = mi.rtl.objects.types.TObjectsTypes;
          public type TObjectsConsts = mi.rtl.objects.consts.TObjectsConsts;
          public type TObjectsMethods = mi.rtl.objects.Methods.TObjectsMethods;

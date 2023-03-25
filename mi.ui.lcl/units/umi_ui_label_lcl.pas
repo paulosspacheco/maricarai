@@ -49,18 +49,7 @@ type
 
   TMi_ui_Label_lcl = class(TLabel)
 
-    {$REGION ' # Propriedade UiDmxScroller '}
-      private var _UiDmxScroller : TUiDmxScroller;
-
-      {: O método **@name** Inicia _UiDmxScroller e executa o método SeTDmxFieldRec}
-      private Procedure SetUiDmxScroller (aUiDmxScroller : TUiDmxScroller);
-
-      protected procedure DoOnClick(Sender: TObject);
-
-      {: A propriedade **@name** contém o modelo e os cálculos do formulário}
-      published property UiDmxScroller : TUiDmxScroller Read _UiDmxScroller  write SetUiDmxScroller;
-    {$endREGION ' # Propriedade UiDmxScroller '}
-
+    protected procedure DoOnClick(Sender: TObject);
 
     {$REGION ' ---> Property pDmxFieldRec : pDmxFieldRec '}
       Private Var _pDmxFieldRec : pDmxFieldRec;
@@ -78,6 +67,17 @@ type
 
 
 
+    {$REGION ' # Propriedade UiDmxScroller '}
+      private var _UiDmxScroller : TUiDmxScroller;
+
+      {: O método **@name** Inicia _UiDmxScroller e executa o método SeTDmxFieldRec}
+      private Procedure SetUiDmxScroller (aUiDmxScroller : TUiDmxScroller);
+
+      {: A propriedade **@name** contém o modelo e os cálculos do formulário}
+      published property UiDmxScroller : TUiDmxScroller Read _UiDmxScroller  write SetUiDmxScroller;
+    {$endREGION ' # Propriedade UiDmxScroller '}
+
+
   end;
 
 procedure Register;
@@ -92,19 +92,13 @@ end;
 
 { TMi_ui_Label_lcl }
 
-procedure TMi_ui_Label_lcl.SetUiDmxScroller(aUiDmxScroller: TUiDmxScroller);
-begin
-  _UiDmxScroller := aUiDmxScroller;
-  IF (_UiDmxScroller<>nil) and (_UiDmxScroller.CurrentField<>nil)
-  then SeTDmxFieldRec(_UiDmxScroller.CurrentField);
-end;
-
 procedure TMi_ui_Label_lcl.DoOnClick(Sender: TObject);
 begin
   DmxFieldRec.DoOnEnter(Self);
   if DmxFieldRec^.LinkExecAction<>nil
   Then UiDmxScroller.CurrentField := DmxFieldRec^.LinkExecAction;
 end;
+
 
 procedure TMi_ui_Label_lcl.SeTDmxFieldRec(apDmxFieldRec: pDmxFieldRec);
 var
@@ -197,6 +191,14 @@ begin
                  end;
           end;
     end;
+end;
+
+
+procedure TMi_ui_Label_lcl.SetUiDmxScroller(aUiDmxScroller: TUiDmxScroller);
+begin
+  _UiDmxScroller := aUiDmxScroller;
+  IF (_UiDmxScroller<>nil) and (_UiDmxScroller.CurrentField<>nil)
+  then SeTDmxFieldRec(_UiDmxScroller.CurrentField);
 end;
 
 end.

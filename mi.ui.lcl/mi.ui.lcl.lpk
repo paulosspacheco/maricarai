@@ -11,6 +11,9 @@
         <OtherUnitFiles Value="units"/>
         <UnitOutputDirectory Value="lib/$(TargetCPU)-$(TargetOS)"/>
       </SearchPaths>
+      <Other>
+        <CreateMakefileOnBuild Value="True"/>
+      </Other>
     </CompilerOptions>
     <Description Value="O pacote Mi.ui.lcl implementa os controles LCL vinculados a classe TDmxScroller."/>
     <Version Minor="5" Build="687"/>

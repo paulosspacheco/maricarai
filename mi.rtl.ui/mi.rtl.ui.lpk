@@ -3,6 +3,7 @@
   <Package Version="5">
     <Name Value="mi.rtl.ui"/>
     <Author Value="Paulo Sérgio da Silva Pacheco"/>
+    <AutoUpdate Value="OnRebuildingAll"/>
     <CompilerOptions>
       <Version Value="11"/>
       <SearchPaths>
@@ -11,6 +12,11 @@
         <OtherUnitFiles Value="units"/>
         <UnitOutputDirectory Value="lib/$(TargetCPU)-$(TargetOS)"/>
       </SearchPaths>
+      <Parsing>
+        <SyntaxOptions>
+          <SyntaxMode Value="Delphi"/>
+        </SyntaxOptions>
+      </Parsing>
       <CodeGeneration>
         <Checks>
           <IOChecks Value="True"/>
@@ -19,6 +25,9 @@
         </Checks>
         <VerifyObjMethodCallValidity Value="True"/>
       </CodeGeneration>
+      <Other>
+        <CreateMakefileOnBuild Value="True"/>
+      </Other>
     </CompilerOptions>
     <Description Value="Pacote Mi.rtl.ui contém o interpretador de Templates de uma linha inspirado no projeto TvDmx de Randy Back."/>
     <Version Minor="5" Build="687"/>
@@ -78,7 +87,7 @@
     </Files>
     <RequiredPkgs>
       <Item>
-        <PackageName Value="FCL"/>
+        <PackageName Value="LCL"/>
       </Item>
       <Item>
         <PackageName Value="mi.rtl"/>

@@ -44,8 +44,6 @@ unit uMi_ui_Dmxscroller_form_lcl;
       - T12 TMI_ui_RadioButton_Lcl ✅
       - T12 TMI_ui_Button ✅
       - T12 TMi_ui_Label_Lcl ✅
-
-
   }
 
 
@@ -81,8 +79,6 @@ type
   TDmxFieldRec = mi_rtl_ui_DmxScroller_Form.TDmxFieldRec;
   pDmxFieldRec = mi_rtl_ui_DmxScroller_Form.pDmxFieldRec;
   SmallWord    = mi_rtl_ui_DmxScroller_Form.SmallWord;
-
-
 
   { TDmxScroller_Form_Lcl }
   {: A classe **@name** implementa a construção de formulários usando uma lista
@@ -387,7 +383,6 @@ procedure TDmxScroller_Form_Lcl.CreateFormLCL(aOwner: TScrollingWinControl);
       Procedure CreateBoolean;
       begin
         Control := TMi_CheckBox_lcl.Create(aOwner);
-
        (Control as TMi_CheckBox_lcl).UiDmxScroller := Self;
       end;
 

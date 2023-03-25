@@ -542,6 +542,8 @@ uses
      {: O tipo **@name** é usado quando se precisa de procedures anônimas sem parâmetros }
      type TipoProc   = Procedure;
 
+      {: O tipo **@name** é usado quando se precisa de eventos anônimas dentro de componentes}
+     Type TOnProcedure = Procedure(Const aNameMethod:String) of object unimplemented;
 
      type
        { A class **@name** é usada para criar lista de objetos onde os mesmo são destruidos

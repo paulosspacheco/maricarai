@@ -1,23 +1,17 @@
 { This file was automatically created by Lazarus. Do not edit!
   This source is only used to compile and install the package.
  }
-unit mi.rtl;
-{:< Esta unit **@name** é criada automaticamente pelo Lazarus para
-   declarar todas as units do pacote **@name**.
 
-   - O pacote **@name** implementa a classe TObjectss onde a mesma
-     encapsula todas units de acesso ao sistema operacional e as
-     classes originais do turbo pascal turbo vision adaptados para Lazarus.
-}
+unit mi.rtl;
 
 {$warn 5023 off : no warning about unused units}
 interface
 
 uses
   mi.rtl.Class_Of_Char, mi.rtl.ApplicationAbstract, mi.rtl.Types, 
-  mi.rtl.Consts, mi.rtl.Consts.StrError, mi.rtl.Consts.StringListBase, 
-  mi.rtl.Consts.StringList, mi.Rtl.Files, mi.rtl.Objects.Types, 
-  mi.rtl.Objects.Consts, mi.rtl.Objects.Consts.Logs, 
+  mi.rtl.Consts, mi.rtl.files, mi.rtl.Consts.StrError, 
+  mi.rtl.Consts.StringListBase, mi.rtl.Consts.StringList, 
+  mi.rtl.objects.types, mi.rtl.Objects.Consts, mi.rtl.Objects.Consts.Logs, 
   mi.rtl.Objects.Consts.Mi_MsgBox, mi.rtl.Objects.Consts.ProgressDlg_If, 
   mi.rtl.Objects.Methods, mi.rtl.objects.Methods.dates, 
   mi.rtl.Objects.Methods.Exception, mi.rtl.Objects.Methods.Paramexecucao, 

@@ -7,4 +7,3 @@ pasdoc --use-tipue-search --verbosity=6 --auto-link --language=br.utf8 --marker=
 
 
 
-

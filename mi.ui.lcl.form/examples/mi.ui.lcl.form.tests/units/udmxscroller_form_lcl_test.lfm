@@ -1,8 +1,8 @@
 object DmxScroller_Form_Lcl_test: TDmxScroller_Form_Lcl_test
-  Left = 169
+  Left = 563
   Height = 249
   Hint = 'Hint form'
-  Top = 125
+  Top = 271
   Width = 790
   HorzScrollBar.Visible = False
   Caption = 'DmxScroller_Form_Lcl_test'

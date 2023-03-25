@@ -1,4 +1,4 @@
-unit mi.rtl.Objects.Types;
+unit mi.rtl.objects.types;
 {:< - A Unit **@name** implementa a classe **TObjectsTypes** .
 
     - **NOTAS**
@@ -25,7 +25,8 @@ unit mi.rtl.Objects.Types;
 interface
 
 uses
-  Classes, SysUtils,mi.rtl.Files;
+  Classes, SysUtils,
+  mi.rtl.files;
 
   Type
   {: - A classe **@name** contém os tipos gerais usados na classe **TObjectss** e seus descendentes.

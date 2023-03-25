@@ -12,6 +12,9 @@
         <OtherUnitFiles Value="units"/>
         <UnitOutputDirectory Value="lib/$(TargetCPU)-$(TargetOS)"/>
       </SearchPaths>
+      <Other>
+        <CreateMakefileOnBuild Value="True"/>
+      </Other>
     </CompilerOptions>
     <Description Value="O pacote Mi.ui.lcl.form implementa a versão LCL do projeto /\/ar/\caraí.
 "/>
@@ -84,6 +87,8 @@
     </UsageOptions>
     <PublishOptions>
       <Version Value="2"/>
+      <DestinationDirectory Value="/home/paulosspacheco/v/paulosspacheco/LazarusProjects/maricarai/teste"/>
+      <OpenInFileMan Value="True"/>
       <UseFileFilters Value="True"/>
     </PublishOptions>
   </Package>

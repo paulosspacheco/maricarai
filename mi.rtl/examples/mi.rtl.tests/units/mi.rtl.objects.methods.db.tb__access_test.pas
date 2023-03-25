@@ -8,7 +8,7 @@ unit mi.rtl.objects.methods.db.tb__access_test;
 interface
 
 uses
-  Classes, SysUtils,Dialogs
+  Classes, SysUtils//,Dialogs
   ,mi.rtl.Consts
   ,mi.rtl.objectss
   ;
