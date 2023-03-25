@@ -1,0 +1,115 @@
+<div class="container">
+
+<div class="navigation">
+
+* [[AllUnits.wiki|Units]]
+* [[ClassHierarchy.wiki|Hierarquia de Classes]]
+* [[AllClasses.wiki|Classes, Interfaces, Objetos e Registros]]
+* [[AllTypes.wiki|Tipos]]
+* [[AllVariables.wiki|Variáveis]]
+* [[AllConstants.wiki|Constantes]]
+* [[AllFunctions.wiki|Funções e Procedimentos]]
+* [[AllIdentifiers.wiki|Identificadores]]
+
+
+</div>
+<div class="content">
+
+= Todas as funções e procedimentos =
+
+{|
+!width="33%"| Nome
+!width="33%"| Unit
+!width="33%"| Descrição
+|-
+| [[routes.wiki#ComponentPath|ComponentPath]]
+| [[routes.wiki|routes]]
+|  
+|-
+| [[routes.wiki#DefaultCallBack|DefaultCallBack]]
+| [[routes.wiki|routes]]
+|
+A procedure <code>DefaultCallBack</code> é executado pelo browser quando o link não tem parâmetro
+
+* DESCRIÇÃO:
+** A rota ''''*path'''' pegará todos os outros caminhos, ou seja: Se não informar uma rota o sistema não gera exceção.
+* EXEMPLO DE USO:
+** Registro da rota:
+*** HTTPRouter.RegisterRoute('*path',rmall,@<code>DefaultCallBack</code>,IsDefault=True);
+**** Nota:
+***** Como o parâmetro IsDefault = true essa chamada deve executada após todos os registros das rotas da unit.
+** Chamada do Browser
+*** http://localhost:8080/
+|-
+| [[routes.wiki#DumpRoutes|DumpRoutes]]
+| [[routes.wiki|routes]]
+| A procedure <code>DumpRoutes</code> adiciona na lista L os link das rotas registradas
+|-
+| [[routes.wiki#ParamPath|ParamPath]]
+| [[routes.wiki|routes]]
+|  
+|-
+| [[routes.wiki#ParamPathMiddle|ParamPathMiddle]]
+| [[routes.wiki|routes]]
+|  
+|-
+| [[routes.wiki#ParamPaths2|ParamPaths2]]
+| [[routes.wiki|routes]]
+|  
+|-
+| [[routes.wiki#RegisterRoutes|RegisterRoutes]]
+| [[routes.wiki|routes]]
+|  
+|-
+| [[routes.wiki#RequestToResponse|RequestToResponse]]
+| [[routes.wiki|routes]]
+|  
+|-
+| [[routes.wiki#RequestToResponse|RequestToResponse]]
+| [[routes.wiki|routes]]
+| A procedure <code>RequestToResponse</code> envia para o Browser um página HTML prenchida com os parametros passados por: '''RouteParams'''
+|-
+| [[routes.wiki#SimpleCallBack|SimpleCallBack]]
+| [[routes.wiki|routes]]
+|
+A procedure <code>SimpleCallBack</code> implementa a rota '''Simple callback''' :
+
+<ul>
+<li><p>DESCRIÇÃO:</p>
+<ul>
+<li><p>Executa a procedure [[routes.wiki#RequestToResponse|RequestToResponse]]('Simple callback',ARequest,AResponse);</p></li></ul>
+</li>
+<li><p>PARÂMETROS</p>
+<ul>
+<li><p>'''ARequest'''</p>
+<ul>
+<li><p>Contém informações vinda do Browser;</p></li></ul>
+</li>
+<li><p>'''aResponse'''</p>
+<ul>
+<li><p>Contém informações enviadas para o Browser;</p></li></ul>
+</li></ul>
+
+<ul>
+<li><p>EXEMPLO DE USO:</p>
+<ul>
+<li><p>Registro da rota /simple/:</p>
+<ul>
+<li><p>HTTPRouter.RegisterRoute('simple',rmall,@<code>SimpleCallBack</code>);</p></li></ul>
+</li>
+<li><p>Chamada do método [[routes.TMyHandler.wiki#HandleRequest|TMyHandler.HandleRequest]]()</p>
+<ul>
+<li><p>http://localhost:8080/simple/</p></li></ul>
+</li></ul>
+</li></ul>
+</li></ul>
+|}
+
+
+-----
+
+<span class="appinfo">''Gerado por [https://pasdoc.github.io/ PasDoc 0.16.0].'' </span>
+
+</div>
+
+</div>

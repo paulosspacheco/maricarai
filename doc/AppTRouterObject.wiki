@@ -1,0 +1,98 @@
+<div class="container">
+
+<div class="navigation">
+
+* [[AllUnits.wiki|Units]]
+* [[ClassHierarchy.wiki|Hierarquia de Classes]]
+* [[AllClasses.wiki|Classes, Interfaces, Objetos e Registros]]
+* [[AllTypes.wiki|Tipos]]
+* [[AllVariables.wiki|Variáveis]]
+* [[AllConstants.wiki|Constantes]]
+* [[AllFunctions.wiki|Funções e Procedimentos]]
+* [[AllIdentifiers.wiki|Identificadores]]
+
+
+</div>
+<div class="content">
+
+= Program AppTRouterObject =
+
+<div class="sections">
+
+<div class="one_section">
+
+[[#PasDoc-Description|Descrição]]
+
+</div>
+<div class="one_section">
+
+[[#PasDoc-Uses|Uses]]
+
+</div>
+<div class="one_section">
+
+Classes, Interfaces, Objetos e Registros
+
+</div>
+<div class="one_section">
+
+Funções e Procedimentos
+
+</div>
+<div class="one_section">
+
+Tipos
+
+</div>
+<div class="one_section">
+
+Constantes
+
+</div>
+<div class="one_section">
+
+Variáveis
+
+</div>
+
+</div>
+<span id="PasDoc-Description"></span>
+== Descrição ==
+
+* O projeto '''<code>AppTRouterObject</code>''' demonstra o uso das units '''fphttpapp''', '''fpcgi''' e '''inifiles''' .
+** '''DESCRIÇÃO'''
+*** Este programa demonstra o uso dos parâmetros de chamada em um link do browser nos quais podem ser:
+**** http://localhost:8080/simple;
+**** http://localhost:8080/component/1;
+**** http://localhost:8080/component/2;
+**** http://localhost:8080/onepath/:param;
+**** http://localhost:8080/twopaths/:param1/:param2;
+**** http://localhost:8080/onepath/*path/new;
+**** http://localhost:8080/routed/object;
+**** http://localhost:8080/*path.
+** NOTAS
+*** Este projeto pode ser usado como '''servidor http''' porta 8080 ou um aplicação '''CGI''' para ser registrada em um servidor web.
+** '''REFERÊNCIAS'''
+*** https://objectpascalprogramming.com/fpweb-hello
+** '''CÓDIGO FONTE''':
+*** [[../TRouteObject/apptrouterobject.lpr|AppTRouterObject.lpr]]
+** '''HISTÓRICO'''
+*** Documento criado por: paulosspacheco@yahoo.com.br
+**** '''23/03/2023''' : Inicio da documentação deste código
+
+<span id="PasDoc-Uses"></span>
+== Uses ==
+
+* sysutils
+* [[routes.wiki|routes]]
+* fphttpapp
+* inifiles
+
+
+-----
+
+<span class="appinfo">''Gerado por [https://pasdoc.github.io/ PasDoc 0.16.0].'' </span>
+
+</div>
+
+</div>

@@ -1,0 +1,75 @@
+<div class="container">
+
+<div class="navigation">
+
+* [[AllUnits.wiki|Units]]
+* [[ClassHierarchy.wiki|Hierarquia de Classes]]
+* [[AllClasses.wiki|Classes, Interfaces, Objetos e Registros]]
+* [[AllTypes.wiki|Tipos]]
+* [[AllVariables.wiki|Variáveis]]
+* [[AllConstants.wiki|Constantes]]
+* [[AllFunctions.wiki|Funções e Procedimentos]]
+* [[AllIdentifiers.wiki|Identificadores]]
+
+
+</div>
+<div class="content">
+
+= Todas as Units =
+
+{|
+!width="50%"| Nome
+!width="50%"| Descrição
+|-
+| [[AppIRouteInterface.wiki|AppIRouteInterface]]
+|  
+|-
+| [[AppTCustomHTTPModule.wiki|AppTCustomHTTPModule]]
+|  
+|-
+| [[AppTRouterObject.wiki|AppTRouterObject]]
+|
+* O projeto '''<code>AppTRouterObject</code>''' demonstra o uso das units '''fphttpapp''', '''fpcgi''' e '''inifiles''' .
+** '''DESCRIÇÃO'''
+*** Este programa demonstra o uso dos parâmetros de chamada em um link do browser nos quais podem ser:
+**** http://localhost:8080/simple;
+**** http://localhost:8080/component/1;
+**** http://localhost:8080/component/2;
+**** http://localhost:8080/onepath/:param;
+**** http://localhost:8080/twopaths/:param1/:param2;
+**** http://localhost:8080/onepath/*path/new;
+**** http://localhost:8080/routed/object;
+**** http://localhost:8080/*path.
+** NOTAS
+*** Este projeto pode ser usado como '''servidor http''' porta 8080 ou um aplicação '''CGI''' para ser registrada em um servidor web.
+** '''REFERÊNCIAS'''
+*** https://objectpascalprogramming.com/fpweb-hello
+** '''CÓDIGO FONTE''':
+*** [[../TRouteObject/apptrouterobject.lpr|AppTRouterObject.lpr]]
+** '''HISTÓRICO'''
+*** Documento criado por: paulosspacheco@yahoo.com.br
+**** '''23/03/2023''' : Inicio da documentação deste código
+|-
+| [[routes.wiki|routes]]
+|
+* A Unit '''<code>routes</code>''' implementa a classe [[routes.TMyHandler.wiki|TMyHandler]] filha de THTTPRoute.
+** DESCRIÇÃO
+*** A Unit '''<code>routes</code>''' implementa a classe [[routes.TMyHandler.wiki|TMyHandler]] filha de THTTPRoute para demonstrar o uso de objetos sendo executado pelo browser.
+*** A Unit '''<code>routes</code>''' demonstra como criar rotiamento usando o método '''HTTPRouter.RegisterRoute'''
+** '''REFERÊNCIAS'''
+*** [fcl-web](https://wiki.freepascal.org/fcl-web)
+** '''CÓDIGO FONTE''':
+*** [[../units/routes.pas|routes.pas]]
+** '''HISTÓRICO'''
+*** Documento criado por: paulosspacheco@yahoo.com.br
+**** '''23/03/2023''' : Inicio da documentação deste código
+|}
+
+
+-----
+
+<span class="appinfo">''Gerado por [https://pasdoc.github.io/ PasDoc 0.16.0].'' </span>
+
+</div>
+
+</div>
