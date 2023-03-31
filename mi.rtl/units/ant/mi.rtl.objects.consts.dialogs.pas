@@ -2,7 +2,7 @@ unit mi.rtl.objects.consts.dialogs;
   {:< -A unit **@name** implementa a classe TDialogs do pacote mi.rtl.
 
       - **VERSÃO**:
-        - Alpha - 0.5.0.693
+        - Alpha - 0.5.0.687
 
       - **CÓDIGO FONTE**:
         - @html(<a href="../units/mi.rtl.dialogs.pas">mi.rtl.Dialogs.pas</a>)

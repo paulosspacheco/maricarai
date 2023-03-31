@@ -3,7 +3,7 @@ unit uMI_RadioGroup_LCL;
    associar a classe TRadioButton ao registro TDMXCroller.CurrentField.fldRadioButton.
 
    - **VERSÃO**
-     - Alpha - 0.5.0.693
+     - Alpha - 0.5.0.687
 
    - **CÓDIGO FONTE**:
      - @html(<a href="../units/umi_radiogroup_lcl.pas">uMI_RadioGroup_LCL.pas</a>)

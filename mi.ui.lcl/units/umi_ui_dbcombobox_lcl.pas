@@ -3,7 +3,7 @@ unit uMi_Ui_DbComboBox_lcl;
    componente TDBComboBox do Lazarus.
 
    - **VERSÂO**
-     - Alpha - 0.5.0.693
+     - Alpha - 0.5.0.687
 
    - **CÓDIGO FONTE**:
      - @html(<a href="../units/umi_ui_dbComboBox_lcl.pas">uMi_Ui_DbComboBox_lcl.pas</a>)

@@ -85,12 +85,6 @@
     </Files>
     <RequiredPkgs>
       <Item>
-        <PackageName Value="FCL"/>
-      </Item>
-      <Item>
-        <PackageName Value="mi.rtl"/>
-      </Item>
-      <Item>
         <PackageName Value="mi.rtl.ui"/>
       </Item>
     </RequiredPkgs>

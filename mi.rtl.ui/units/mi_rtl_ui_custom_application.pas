@@ -2,7 +2,7 @@ Unit mi_rtl_ui_custom_application;
 {:< A unit **@name** implementa a classe TMI_ui_Custom_Application.
 
   - **VERSÃO**
-    - Alpha - 0.5.0.693
+    - Alpha - 0.5.0.687
 
   - **CÓDIGO FONTE**:
     - @html(<a href="../units/mi_ui_custom_application.pas">mi_ui_Custom_Application.pas</a>)

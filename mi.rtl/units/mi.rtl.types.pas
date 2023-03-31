@@ -6,7 +6,7 @@ unit mi.rtl.Types;
     - O Método **TTypes.TPointer.Get_Mem** ignora alocação de memória real porque não sei como fazer nas plataformas diferentes do Windows.
 
   - **VERSÃO**
-    - Alpha - 0.5.0.693
+    - Alpha - 0.5.0.687
 
   - **CÓDIGO FONTE**:
     - @html(<a href="../units/mi.rtl.types.pas">mi.rtl.types.pas</a>)          

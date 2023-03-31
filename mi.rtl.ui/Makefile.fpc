@@ -2,7 +2,7 @@
 #
 #   Makefile.fpc for mi.rtl.ui 0.5.0.687
 #
-#   This file was generated on 21/03/2023
+#   This file was generated on 31/03/2023
 
 [package]
 name=mi.rtl.ui
@@ -10,7 +10,7 @@ version=0.5.0.687
 
 [compiler]
 unittargetdir=lib/$(CPU_TARGET)-$(OS_TARGET)
-unitdir=units ../../../../FPC_TRUNK/lazarus/packager/units/$(CPU_TARGET)-$(OS_TARGET) ../../../../FPC_TRUNK/lazarus/components/lazutils/lib/$(CPU_TARGET)-$(OS_TARGET) ../../../../FPC_TRUNK/lazarus/components/freetype/lib/$(CPU_TARGET)-$(OS_TARGET) ../mi.rtl/lib/$(CPU_TARGET)-$(OS_TARGET)/units ../../../../FPC_TRUNK/lazarus/lcl/units/$(CPU_TARGET)-$(OS_TARGET) ../../../../FPC_TRUNK/lazarus/lcl/units/$(CPU_TARGET)-$(OS_TARGET)/$(LCL_PLATFORM) .
+unitdir=units ../../../../fpcupdeluxe/lazarus/packager/units/$(CPU_TARGET)-$(OS_TARGET) ../../../../fpcupdeluxe/lazarus/components/lazutils/lib/$(CPU_TARGET)-$(OS_TARGET) ../../../../fpcupdeluxe/lazarus/components/freetype/lib/$(CPU_TARGET)-$(OS_TARGET) ../mi.rtl/lib/$(CPU_TARGET)-$(OS_TARGET)/units ../../../../fpcupdeluxe/lazarus/lcl/units/$(CPU_TARGET)-$(OS_TARGET) ../../../../fpcupdeluxe/lazarus/lcl/units/$(CPU_TARGET)-$(OS_TARGET)/$(LCL_PLATFORM) .
 includedir=units
 options= -MDelphi -Scghi -CirtR -O1 -g -gl -l -vewnhibq -dLCL -dLCL$(LCL_PLATFORM) $(DBG_OPTIONS)
 

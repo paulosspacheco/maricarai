@@ -244,7 +244,7 @@ implementation
                until Not NextRec;
                SetTransaction(false,wok,Wok_Set_Transaction);
              finally
-               ShowMessageFmt('%s',[s]);
+           //    ShowMessageFmt('%s',[s]);
              end;
 
              CloseFile(ArqAluno);
@@ -350,7 +350,7 @@ implementation
                until Not PrevRec;
                SetTransaction(false,wOK,Wok_Set_Transaction);
              finally
-               ShowMessageFmt('%s',[s]);
+               //ShowMessageFmt('%s',[s]);
                CloseFile(ArqAluno);
              end;
 

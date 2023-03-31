@@ -7,7 +7,7 @@ unit mi.rtl.Objects.Methods.Collection.SortedCollection.StringCollection;
           uma coleção de PByteArray usada para trabalhar com AnsiString;
 
       - **VERSÃO**
-        - Alpha - 0.5.0.693
+        - Alpha - 0.5.0.687
 
       - **CÓDIGO FONTE**:
         - @html(<a href="../units/mi.rtl.objects.tcollection.tsortedcollection.tstringcollection.pas">mi.rtl.objects.tcollection.tsortedcollection.tstringcollection.pas</a>)

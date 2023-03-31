@@ -4,7 +4,7 @@ unit mi_rtl_ui_dmxscroller_form;
     - Primeiro autor: Paulo Sérgio da Silva Pacheco paulosspacheco@@yahoo.com.br)
 
     - **VERSÃO**
-      - Alpha - 0.5.0.693
+      - Alpha - 0.5.0.687
 
     - **CÓDIGO FONTE**:
       - @html(<a href="../units/umi_ui_dmxscroller_form.pas">uMi_rtl_ui_Dmxscroller_form.pas</a>)
@@ -105,7 +105,6 @@ type
   {: A classe **@name** implementa a construção de formulários usando uma lista
      de Templates do tipo TDmxScroller}
   TDmxScroller_Form = class(TDmxScroller_Form_Atributos)
-
     {: Constrói o componente}
     public constructor Create(aOwner:TComponent);Override;
 
@@ -113,7 +112,6 @@ type
 
     {: Destrói o componente}
     public destructor destroy;override;
-
 
     {: O método **@name** interpreta uma lista de strings do tipo **PSItem** e
        adiciona os layout de cada campo em pDmxFieldRec, em seguida adiciona
@@ -167,7 +165,6 @@ type
 
     protected   procedure UpdateBuffers_Controls;virtual;
     public procedure UpdateBuffers;override;
-
 
     {: A procedure **@name** seta a propriedade active e criar um formulário
        na plataforma alvo

@@ -2,7 +2,7 @@ unit mi.rtl.objects.Methods.dates;
  {:< -A Unit **@name** implementa a classe **TDates**.
 
     - **VERSÃO**
-      - Alpha - 0.5.0.693
+      - Alpha - 0.5.0.687
 
     - **CÓDIGO FONTE**:
       - @html(<a href="../units/mi.rtl.objects.Methods.dates.pas">mi.rtl.objects.Methods.dates.pas</a>)

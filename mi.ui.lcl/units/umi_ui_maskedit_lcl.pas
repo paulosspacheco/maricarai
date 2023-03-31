@@ -3,7 +3,7 @@ unit uMi_ui_maskedit_lcl;
    componente TMaskEdit do Lazarus.
 
    - **VERSÃO**
-     - Alpha - 0.5.0.693
+     - Alpha - 0.5.0.687
 
    - **CÓDIGO FONTE**:
      - @html(<a href="../units/mi_maskedit_lcl_u.pas">mi_maskedit_LCL_u.pas</a>)
@@ -63,7 +63,8 @@ uses
   SysUtils,Messages, Classes, Controls, StdCtrls, Forms,Grids ,dialogs,LResources
 //  Classes, SysUtils, LResources, Forms, Controls, Graphics, Dialogs, MaskEdit;
   ,mi.rtl.Consts.StrError
-  ,mi_rtl_ui_DmxScroller;
+  ,mi_rtl_ui_DmxScroller
+;
 
 
 type

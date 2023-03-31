@@ -5,7 +5,10 @@ unit mi_rtl_ui_methods;
 interface
 
 uses
-  Classes, SysUtils,db,Controls,DBCtrls,Variants,Graphics,LazHelpHtml,UTF8Process
+  Classes, SysUtils,db
+  ,Controls
+  ,DBCtrls
+  ,Variants,Graphics,LazHelpHtml,UTF8Process
   ,System.UITypes
   //,mi.rtl.Types
   //,mi.rtl.Objects.Methods.Paramexecucao.Application

@@ -4,7 +4,7 @@ unit uMI_ui_DbRadioGroup_Lcl;
    .
 
    - **VERSÃO**
-     - Alpha - 0.5.0.693
+     - Alpha - 0.5.0.687
 
    - **CÓDIGO FONTE**:
      - @html(<a href="../units/umi_ui_dbradiogroup_lcl.pas">uTMI_DbRadioButton_LCL.pas</a>)

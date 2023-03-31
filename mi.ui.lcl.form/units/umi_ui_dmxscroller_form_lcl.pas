@@ -4,7 +4,7 @@ unit uMi_ui_Dmxscroller_form_lcl;
     - Primeiro autor: Paulo Sérgio da Silva Pacheco paulosspacheco@@yahoo.com.br)
 
     - **VERSÃO**
-      - Alpha - 0.5.0.693
+      - Alpha - 0.5.0.687
 
     - **CÓDIGO FONTE**:
       - @html(<a href="../units/umi_ui_dmxscroller_form.pas">uMi_rtl_ui_Dmxscroller_form.pas</a>)
@@ -45,7 +45,6 @@ unit uMi_ui_Dmxscroller_form_lcl;
       - T12 TMI_ui_Button ✅
       - T12 TMi_ui_Label_Lcl ✅
   }
-
 
 {$mode Delphi}
 

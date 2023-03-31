@@ -6,7 +6,7 @@ unit mi.rtl.Objects.Methods.StreamBase.Stream;
     - Como o linux não tem opção de travar a região de uma arquivo eu removi as classes **_TRecLock** e **TCollRecsLocks**.
 
   - **VERSÃO**
-    - Alpha - 0.5.0.693
+    - Alpha - 0.5.0.687
 
   - **HISTÓRICO**
     - Criado por: Paulo Sérgio da Silva Pacheco e-mail: paulosspacheco@@yahoo.com.br

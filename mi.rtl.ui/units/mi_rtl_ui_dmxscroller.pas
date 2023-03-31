@@ -2,7 +2,7 @@ unit mi_rtl_ui_Dmxscroller;
   {:< A unit **@name** implementa a classe TUiDmxScroller e registro TDmxFieldRec.
 
     - **VERSÃO**
-      - Alpha - 0.5.0.693
+      - Alpha - 0.5.0.687
 
     - **HISTÓRICO**
       - @html(<a href="../units/mi_rtl_ui_dmxscroller_historico.html">./mi_rtl_ui_dmxscroller_historico.html </a>)   
@@ -129,7 +129,11 @@ unit mi_rtl_ui_Dmxscroller;
 interface
 
 uses
-  Classes, SysUtils, dialogs,controls,forms,db,BufDataset,SqlDb,ActnList
+  Classes, SysUtils, dialogs
+  ,controls
+  ,forms
+  ,ActnList
+  ,db,BufDataset,SqlDb
   ,mi.rtl.Objects.Consts.Mi_MsgBox
   ,mi.rtl.objects.Methods.dates
   ,mi_rtl_ui_Types
@@ -482,8 +486,7 @@ uses
              public property FieldAltered : Boolean read GetFieldAltered write _FieldAltered;
            {$ENDREGION 'Construção Propriedade FieldAltered'}
 
-
-             {: O campo **@name** contém a documentação resumida do registro.  }
+          {: O campo **@name** contém a documentação resumida do registro.  }
            public HelpCtx_Hint : AnsiString;
 
            public HelpCtx_Porque    : AnsiString; //:< Por que preciso deste campo?
@@ -500,7 +503,6 @@ uses
              Private procedure SetOkSpc(aOkSpc  : Boolean);
              public Property OkSpc : Boolean read _OkSpc write SetOkSpc;
            {$ENDREGION 'Construção Propriedade OkSpc'}
-
 
            {$REGION 'Construção Propriedade OkMask'}
              Private _OkMask  : Boolean;

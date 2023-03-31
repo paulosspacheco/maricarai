@@ -5,7 +5,7 @@ unit mi.rtl.Objectss;
       - Esta unit foi testada nas plataformas: win32, win64 e linux.
 
     - **VERSÃO**
-      - Alpha - 0.5.0.693
+      - Alpha - 0.5.0.687
 
     - **HISTÓRICO**
       - Criado por: Paulo Sérgio da Silva Pacheco e-mail: paulosspacheco@@yahoo.com.br
@@ -68,7 +68,7 @@ unit mi.rtl.Objectss;
      {: - A classe **@name** é a  base de todas as classes do pacote **mi.rtl**.
 
         - **VERSÃO**
-          - Alpha - 0.5.0.693
+          - Alpha - 0.5.0.687
 
         - **HISTÓRICO**
           - Criado por: Paulo Sérgio da Silva Pacheco e-mail: paulosspacheco@@yahoo.com.br
