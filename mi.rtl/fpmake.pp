@@ -31,6 +31,8 @@ begin
     P.Author:='Paulo Sérgio da Silva Pacheco';
     P.Description:='O  pacote mi.rtl encapsula as units do FreePascal e Lazarus.'#10'Implementa a classe TObjectss que por sua vez encapsula as classes bases do turbo vision versão Lazarus.';
 
+    P.Flags.Add('LazarusDsgnPkg');
+
     D := P.Dependencies.Add('lazutils');
     P.Options.Add('-MDelphi');
     P.Options.Add('-Scaghi');

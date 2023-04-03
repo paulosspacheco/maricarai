@@ -5,7 +5,7 @@ unit mi.rtl.objects.Methods.db.types.consts.Methods;
       -
 
     - **VERSÃO**
-      - Alpha - 0.5.0.687
+      - Alpha - 0.7.0.0
 
     - **HISTÓRICO**
       - Criado por: Paulo Sérgio da Silva Pacheco e-mail: paulosspacheco@@yahoo.com.br

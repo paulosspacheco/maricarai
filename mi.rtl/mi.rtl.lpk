@@ -2,6 +2,7 @@
 <CONFIG>
   <Package Version="5">
     <Name Value="mi.rtl"/>
+    <Type Value="RunAndDesignTime"/>
     <Author Value="Paulo Sérgio da Silva Pacheco"/>
     <CompilerOptions>
       <Version Value="11"/>
@@ -35,22 +36,22 @@
         <CreateMakefileOnBuild Value="True"/>
       </Other>
     </CompilerOptions>
-    <Description Value="O  pacote mi.rtl encapsula as units do FreePascal e Lazarus.
-Implementa a classe TObjectss que por sua vez encapsula as classes bases do turbo vision versão Lazarus.
+    <Description Value="O  pacote mi.rtl encapsula as units do FreePascal.
+Implementa a classe TObjectss que por sua vez encapsula as classes bases do turbo pascal.
 "/>
-    <Version Minor="5" Build="687"/>
+    <Version Minor="7" Build="687"/>
     <Files>
       <Item>
         <Filename Value="mi.rtl.pas"/>
         <UnitName Value="mi.rtl"/>
       </Item>
       <Item>
-        <Filename Value="units/mi.rtl.class_of_char.pas"/>
-        <UnitName Value="mi.rtl.Class_Of_Char"/>
-      </Item>
-      <Item>
         <Filename Value="units/mi.rtl.applicationabstract.pas"/>
         <UnitName Value="mi.rtl.ApplicationAbstract"/>
+      </Item>
+      <Item>
+        <Filename Value="units/mi.rtl.class_of_char.pas"/>
+        <UnitName Value="mi.rtl.Class_Of_Char"/>
       </Item>
       <Item>
         <Filename Value="units/mi.rtl.types.pas"/>
@@ -181,6 +182,63 @@ Implementa a classe TObjectss que por sua vez encapsula as classes bases do turb
       <Item>
         <Filename Value="units/mi.rtl.objectss.pas"/>
         <UnitName Value="mi.rtl.Objectss"/>
+      </Item>
+      <Item>
+        <Filename Value="units/mi_rtl_ui_types.pas"/>
+        <UnitName Value="mi_rtl_ui_types"/>
+      </Item>
+      <Item>
+        <Filename Value="units/mi_rtl_ui_consts.pas"/>
+        <UnitName Value="mi_rtl_ui_consts"/>
+      </Item>
+      <Item>
+        <Filename Value="units/mi_rtl_ui_methods.pas"/>
+        <UnitName Value="mi_rtl_ui_methods"/>
+      </Item>
+      <Item>
+        <Filename Value="units/mi_rtl_ui_dmxscroller_buttons.pas"/>
+        <UnitName Value="mi_rtl_ui_DmxScroller_Buttons"/>
+      </Item>
+      <Item>
+        <Filename Value="units/mi_rtl_ui_dmxscroller_consts_inc.pas"/>
+        <Type Value="Include"/>
+      </Item>
+      <Item>
+        <Filename Value="units/mi_rtl_ui_dmxscroller.pas"/>
+        <UnitName Value="mi_rtl_ui_Dmxscroller"/>
+      </Item>
+      <Item>
+        <Filename Value="units/mi_rtl_ui_dmxscroller_historico.md"/>
+        <Type Value="Text"/>
+      </Item>
+      <Item>
+        <Filename Value="units/mi_ui_dmxscroller.md"/>
+        <Type Value="Text"/>
+      </Item>
+      <Item>
+        <Filename Value="units/mi_rtl_ui_dmxscroller_historico.html"/>
+        <Type Value="Text"/>
+      </Item>
+      <Item>
+        <Filename Value="units/mi_rtl_ui_dmxscroller_buttons_historico.html"/>
+        <Type Value="Text"/>
+      </Item>
+      <Item>
+        <Filename Value="units/mi_rtl_ui_dmxscroller_buttons_historico.md"/>
+        <Type Value="Text"/>
+      </Item>
+      <Item>
+        <Filename Value="units/mi_rtl_ui_dmxscroller_form.pas"/>
+        <HasRegisterProc Value="True"/>
+        <UnitName Value="mi_rtl_ui_dmxscroller_form"/>
+      </Item>
+      <Item>
+        <Filename Value="units/mi_rtl_ui_dmxscroller_form_historico.md"/>
+        <Type Value="Text"/>
+      </Item>
+      <Item>
+        <Filename Value="units/mi_rtl_ui_custom_application.pas"/>
+        <UnitName Value="mi_rtl_ui_custom_application"/>
       </Item>
     </Files>
     <RequiredPkgs>

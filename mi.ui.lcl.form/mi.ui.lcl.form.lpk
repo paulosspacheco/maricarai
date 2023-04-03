@@ -25,29 +25,6 @@
         <UnitName Value="mi.ui.lcl.form"/>
       </Item>
       <Item>
-        <Filename Value="units/mi_rtl_ui_dmxscroller_consts_inc.pas"/>
-        <Type Value="Include"/>
-      </Item>
-      <Item>
-        <Filename Value="units/umi_ui_dmxscroller_form_lcl_ds.pas"/>
-        <HasRegisterProc Value="True"/>
-        <UnitName Value="umi_ui_dmxscroller_form_lcl_ds"/>
-      </Item>
-      <Item>
-        <Filename Value="units/umi_ui_scrollbox_lcl.pas"/>
-        <HasRegisterProc Value="True"/>
-        <UnitName Value="uMi_ui_scrollbox_lcl"/>
-      </Item>
-      <Item>
-        <Filename Value="units/umi_ui_inputbox_lcl.pas"/>
-        <UnitName Value="umi_ui_InputBox_lcl"/>
-      </Item>
-      <Item>
-        <Filename Value="units/umi_ui_dmxscroller_form_lcl.pas"/>
-        <HasRegisterProc Value="True"/>
-        <UnitName Value="uMi_ui_Dmxscroller_form_lcl"/>
-      </Item>
-      <Item>
         <Filename Value="readme.md"/>
         <Type Value="Text"/>
       </Item>
@@ -67,19 +44,165 @@
         <Filename Value="pasdoc.md"/>
         <Type Value="Text"/>
       </Item>
+      <Item>
+        <Filename Value="../mi.rtl/units/mi.rtl.consts.inc"/>
+        <Type Value="Include"/>
+      </Item>
+      <Item>
+        <Filename Value="units/umi_ui_scrollbox_lcl_icon.lrs"/>
+        <Type Value="LRS"/>
+      </Item>
+      <Item>
+        <Filename Value="units/umi_ui_scrollbox_lcl.pas"/>
+        <HasRegisterProc Value="True"/>
+        <UnitName Value="uMi_ui_scrollbox_lcl"/>
+      </Item>
+      <Item>
+        <Filename Value="units/umi_ui_dmxscroller_form_lcl_attributes.pas"/>
+        <UnitName Value="umi_ui_dmxscroller_form_lcl_attributes"/>
+      </Item>
+      <Item>
+        <Filename Value="units/umi_ui_bitbtn_lcl_icon.lrs"/>
+        <Type Value="LRS"/>
+      </Item>
+      <Item>
+        <Filename Value="units/umi_ui_bitbtn_lcl.pas"/>
+        <UnitName Value="umi_ui_bitbtn_lcl"/>
+      </Item>
+      <Item>
+        <Filename Value="units/umi_ui_button_lcl_icon.lrs"/>
+        <Type Value="LRS"/>
+      </Item>
+      <Item>
+        <Filename Value="units/umi_ui_button_lcl.pas"/>
+        <UnitName Value="umi_ui_button_lcl"/>
+      </Item>
+      <Item>
+        <Filename Value="units/umi_ui_checkbox_lcl.pas"/>
+        <UnitName Value="umi_ui_checkbox_lcl"/>
+      </Item>
+      <Item>
+        <Filename Value="units/umi_ui_checkbox_lcl_icon.lrs"/>
+        <Type Value="LRS"/>
+      </Item>
+      <Item>
+        <Filename Value="units/umi_ui_radiogroup_lcl.pas"/>
+        <HasRegisterProc Value="True"/>
+        <UnitName Value="umi_ui_radiogroup_lcl"/>
+      </Item>
+      <Item>
+        <Filename Value="units/umi_ui_radiogroup_lcl_icon.lrs"/>
+        <Type Value="LRS"/>
+      </Item>
+      <Item>
+        <Filename Value="units/umi_ui_combobox_lcl.pas"/>
+        <HasRegisterProc Value="True"/>
+        <UnitName Value="uMi_ui_ComboBox_lcl"/>
+      </Item>
+      <Item>
+        <Filename Value="units/umi_ui_combobox_lcl_icon.lrs"/>
+        <Type Value="LRS"/>
+      </Item>
+      <Item>
+        <Filename Value="units/umi_ui_dbcheckbox_lcl.pas"/>
+        <HasRegisterProc Value="True"/>
+        <UnitName Value="uMi_Ui_DBCheckBox_Lcl"/>
+      </Item>
+      <Item>
+        <Filename Value="units/umi_ui_dbcheckbox_lcl_icon.lrs"/>
+        <Type Value="LRS"/>
+      </Item>
+      <Item>
+        <Filename Value="units/umi_ui_dbcombobox_lcl.pas"/>
+        <HasRegisterProc Value="True"/>
+        <UnitName Value="uMi_Ui_DbComboBox_lcl"/>
+      </Item>
+      <Item>
+        <Filename Value="units/umi_ui_dbcombobox_lcl_icon.lrs"/>
+        <Type Value="LRS"/>
+      </Item>
+      <Item>
+        <Filename Value="units/umi_ui_dbedit_lcl.pas"/>
+        <HasRegisterProc Value="True"/>
+        <UnitName Value="uMI_ui_DbEdit_LCL"/>
+      </Item>
+      <Item>
+        <Filename Value="units/umi_ui_dbedit_lcl_icon.lrs"/>
+        <Type Value="LRS"/>
+      </Item>
+      <Item>
+        <Filename Value="units/umi_ui_dblookupcombobox_lcl.pas"/>
+        <HasRegisterProc Value="True"/>
+        <UnitName Value="umi_ui_dblookupComboBox_lcl"/>
+      </Item>
+      <Item>
+        <Filename Value="units/umi_ui_dblookupcombobox_lcl_icon.lrs"/>
+        <Type Value="LRS"/>
+      </Item>
+      <Item>
+        <Filename Value="units/umi_ui_dbradiogroup_lcl.pas"/>
+        <HasRegisterProc Value="True"/>
+        <UnitName Value="uMI_ui_DbRadioGroup_Lcl"/>
+      </Item>
+      <Item>
+        <Filename Value="units/umi_ui_dbradiogroup_lcl_icon.lrs"/>
+        <Type Value="LRS"/>
+      </Item>
+      <Item>
+        <Filename Value="units/umi_ui_dmxscroller_form_lcl.tar"/>
+        <Type Value="Binary"/>
+      </Item>
+      <Item>
+        <Filename Value="units/umi_ui_dmxscroller_form_lcl_historico.md"/>
+        <Type Value="Text"/>
+      </Item>
+      <Item>
+        <Filename Value="units/umi_ui_label_lcl.pas"/>
+        <HasRegisterProc Value="True"/>
+        <UnitName Value="uMi_ui_Label_lcl"/>
+      </Item>
+      <Item>
+        <Filename Value="units/umi_ui_label_lcl_icon.lrs"/>
+        <Type Value="LRS"/>
+      </Item>
+      <Item>
+        <Filename Value="units/umi_ui_maskedit_lcl.pas"/>
+        <HasRegisterProc Value="True"/>
+        <UnitName Value="uMi_ui_maskedit_lcl"/>
+      </Item>
+      <Item>
+        <Filename Value="units/umi_ui_maskedit_lcl.md"/>
+        <Type Value="Text"/>
+      </Item>
+      <Item>
+        <Filename Value="units/umi_ui_maskedit_lcl_icon.lrs"/>
+        <Type Value="LRS"/>
+      </Item>
+      <Item>
+        <Filename Value="units/umi_ui_dmxscroller_form_lcl.pas"/>
+        <HasRegisterProc Value="True"/>
+        <UnitName Value="uMi_ui_Dmxscroller_form_lcl"/>
+      </Item>
+      <Item>
+        <Filename Value="units/umi_ui_inputbox_lcl.pas"/>
+        <UnitName Value="umi_ui_InputBox_lcl"/>
+      </Item>
+      <Item>
+        <Filename Value="units/umi_ui_dmxscroller_form_lcl_ds.pas"/>
+        <HasRegisterProc Value="True"/>
+        <UnitName Value="umi_ui_dmxscroller_form_lcl_ds"/>
+      </Item>
+      <Item>
+        <Filename Value="units/umi_ui_inputbox_lcl.lfm"/>
+        <Type Value="LFM"/>
+      </Item>
     </Files>
     <RequiredPkgs>
       <Item>
-        <PackageName Value="mi.ui.lcl"/>
-      </Item>
-      <Item>
-        <PackageName Value="mi.rtl.ui"/>
+        <PackageName Value="LCL"/>
       </Item>
       <Item>
         <PackageName Value="mi.rtl"/>
-      </Item>
-      <Item>
-        <PackageName Value="FCL"/>
       </Item>
     </RequiredPkgs>
     <UsageOptions>

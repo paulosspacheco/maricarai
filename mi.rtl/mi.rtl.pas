@@ -8,7 +8,7 @@ unit mi.rtl;
 interface
 
 uses
-  mi.rtl.Class_Of_Char, mi.rtl.ApplicationAbstract, mi.rtl.Types, 
+  mi.rtl.ApplicationAbstract, mi.rtl.Class_Of_Char, mi.rtl.Types, 
   mi.rtl.Consts, mi.rtl.files, mi.rtl.Consts.StrError, 
   mi.rtl.Consts.StringListBase, mi.rtl.Consts.StringList, 
   mi.rtl.objects.types, mi.rtl.Objects.Consts, mi.rtl.Objects.Consts.Logs, 
@@ -29,8 +29,23 @@ uses
   Collectionstring, 
   mi.rtl.Objects.Methods.Collection.SortedCollection.StrCollection, 
   mi.rtl.Objects.Methods.Db.Tb_Access, mi.rtl.Objects.Methods.Db.Tb__Access, 
-  mi.rtl.Objects.Methods.Db.Tb___Access, mi.rtl.Objectss;
+  mi.rtl.Objects.Methods.Db.Tb___Access, mi.rtl.Objectss, mi_rtl_ui_types, 
+  mi_rtl_ui_consts, mi_rtl_ui_methods, mi_rtl_ui_DmxScroller_Buttons, 
+  mi_rtl_ui_Dmxscroller, mi_rtl_ui_dmxscroller_form, 
+  mi_rtl_ui_custom_application, LazarusPackageIntf;
 
 implementation
 
+procedure Register;
+begin
+  RegisterUnit('mi.rtl.Objects.Consts.Mi_MsgBox', 
+    @mi.rtl.Objects.Consts.Mi_MsgBox.Register);
+  RegisterUnit('mi.rtl.Objects.Consts.ProgressDlg_If', 
+    @mi.rtl.Objects.Consts.ProgressDlg_If.Register);
+  RegisterUnit('mi_rtl_ui_dmxscroller_form', 
+    @mi_rtl_ui_dmxscroller_form.Register);
+end;
+
+initialization
+  RegisterPackage('mi.rtl', @Register);
 end.

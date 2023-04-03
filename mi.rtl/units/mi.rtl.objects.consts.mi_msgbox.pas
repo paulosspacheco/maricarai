@@ -1,7 +1,7 @@
 unit mi.rtl.Objects.Consts.Mi_MsgBox;
 {:< - A Unit **@name** implementa a classe TMI_MsgBox.
     - **VERSÃO**
-      - Alpha - 0.5.0.687
+      - Alpha - 0.7.0.0
 
     - **CÓDIGO FONTE**:
       - @html(<a href="../units/mi.rtl.objects.msgbox.pas">mi.rtl.objects.msgbox.pas</a>)
@@ -397,7 +397,7 @@ implementation
 
 procedure Register;
 begin
-  RegisterComponents('Mi.Rrtl', [TMI_MsgBox]);
+  RegisterComponents('Mi.Rtl', [TMI_MsgBox]);
 end;
 
 

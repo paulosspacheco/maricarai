@@ -3,7 +3,7 @@ program mi.ui.lcl.form.test;
     código para: win32, win64 e linux.
 
   - **VERSÃO**:
-    - Alpha - 0.5.0.687
+    - Alpha - 0.7.0.0
 
     - **CÓDIGO FONTE**:
       - @html(<a href="../units/mi.ui.tests.pas">mi.ui.tests.pas.pas</a>)
@@ -29,13 +29,14 @@ uses
   mi.rtl.Objects.Methods, mi_rtl_ui_consts, umi_ui_inputbox_lcl_test,
   uMi_ui_DmxScroller_Form_Lcl_ds_test, uMi_ui_DmxScroller_Form_Lcl_ds_test2_dm,
   uMi_ui_DmxScroller_Form_Lcl_ds_test2, uDmxScroller_Form_Lcl_test,
-  uDmxScroller_Form_Lcl_add_test, uDmxScroller_Form_Lcl_add_test2, Unit1;
+  uDmxScroller_Form_Lcl_add_test, uDmxScroller_Form_Lcl_add_test2;
 
 {$R *.res}
 
 function CreateDb(okCria:Boolean):boolean;
   var
     s : String;
+
 begin
   result := true;
   with TObjectsMethods do
@@ -109,7 +110,6 @@ begin
 
   Application.CreateForm(TDmxScroller_Form_Lcl_add_test,DmxScroller_Form_Lcl_add_test);
   Application.CreateForm(TDmxScroller_Form_Lcl_add_test2,DmxScroller_Form_Lcl_add_test2);
-  Application.CreateForm(TDmxScroller_Form_Lcl_add_test1,DmxScroller_Form_Lcl_add_test1);
   Application.Run;
 end.
 

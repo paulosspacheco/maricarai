@@ -41,10 +41,17 @@ uses
   Classes, SysUtils, DB, BufDataset, memds, Forms, Controls, Graphics, Dialogs, typInfo,
   MaskEdit, StdCtrls, ExtCtrls, DBGrids, ButtonPanel, ActnList, DBCtrls, Spin,
   Buttons, DBExtCtrls, EditBtn, SpinEx, SynEdit, TAChartExtentLink, SQLite3Conn,
-  SqlDb, mi.rtl.Types, mi_rtl_ui_consts, mi_rtl_ui_Dmxscroller,
-  uMi_ui_scrollbox_lcl, uMi_Ui_DbComboBox_lcl, uMI_ui_DbEdit_LCL,
-  uMi_ui_maskedit_lcl, uMi_ui_ComboBox_LCL, uMi_BitBtn_LCL,
-  uMi_ui_DmxScroller_Form_Lcl, uMi_ui_mi_msgbox_dm,
+  SqlDb
+  //, mi.rtl.Types
+  //, mi_rtl_ui_consts
+  //, mi_rtl_ui_Dmxscroller,
+  ,uMi_ui_scrollbox_lcl
+
+  //, uMi_Ui_DbComboBox_lcl, uMI_ui_DbEdit_LCL,  uMi_ui_maskedit_lcl
+  //, uMi_ui_ComboBox_LCL, uMi_ui_BitBtn_LCL,
+
+  ,uMi_ui_DmxScroller_Form_Lcl
+  , uMi_ui_mi_msgbox_dm,
   uMi_ui_DmxScroller_Form_Lcl_DS_Test
   ,umi_ui_InputBox_lcl
   ,uDmxScroller_Form_Lcl_add_test

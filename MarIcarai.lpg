@@ -10,8 +10,6 @@
           <Mode Name="x86_64-win64"/>
         </BuildModes>
       </Target>
-      <Target FileName="mi.rtl.ui/mi.rtl.ui.lpk"/>
-      <Target FileName="mi.ui.lcl/mi.ui.lcl.lpk"/>
       <Target FileName="mi.ui.lcl.form/mi.ui.lcl.form.lpk"/>
       <Target FileName="mi.ui.lcl.form/examples/mi.ui.lcl.form.tests/mi.ui.lcl.form.test.lpi">
         <BuildModes>

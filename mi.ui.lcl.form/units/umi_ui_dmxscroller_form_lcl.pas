@@ -4,7 +4,7 @@ unit uMi_ui_Dmxscroller_form_lcl;
     - Primeiro autor: Paulo Sérgio da Silva Pacheco paulosspacheco@@yahoo.com.br)
 
     - **VERSÃO**
-      - Alpha - 0.5.0.687
+      - Alpha - 0.7.0.0
 
     - **CÓDIGO FONTE**:
       - @html(<a href="../units/umi_ui_dmxscroller_form.pas">uMi_rtl_ui_Dmxscroller_form.pas</a>)
@@ -51,24 +51,25 @@ unit uMi_ui_Dmxscroller_form_lcl;
 interface
 
 uses
-  Classes, SysUtils,controls,StdCtrls,forms,typInfo,types,Graphics,ActnList//,ExtCtrls
-  ,Dialogs
+  Classes, SysUtils,controls,StdCtrls,forms,typInfo,types,Graphics,
+  ActnList,db,dbctrls, variants, LazHelpHtml,UTF8Process,Dialogs
   ,mi.rtl.Consts
   ,mi_rtl_ui_DmxScroller_Form
+  ,umi_ui_dmxscroller_form_lcl_attributes
 
 //  ,mi_rtl_ui_Dmxscroller_sql
   ,uMi_ui_maskedit_lcl
   ,uMi_ui_ComboBox_lcl
 //  ,uMi_bitbtn_lcl
-  ,uMi_Button_lcl
-  ,uMi_CheckBox_lcl
-  ,uMi_RadioGroup_LCL
+  ,umi_ui_button_lcl
+  ,umi_ui_checkbox_lcl
+  ,umi_ui_radiogroup_lcl
   ,uMi_ui_Label_lcl
   ,uMi_ui_ScrollBox_lcl
    ;
 
 //Constantes publicas
-{$include ./mi_rtl_ui_Dmxscroller_consts_inc.pas}
+{$include ../mi.rtl/units/mi.rtl.consts.inc}
 
 type
   { Os tipos abaixo foi declarado fora da classe TDmxScroller_Form_Atributos para
@@ -82,7 +83,7 @@ type
   { TDmxScroller_Form_Lcl }
   {: A classe **@name** implementa a construção de formulários usando uma lista
      de Templates do tipo TDmxScroller}
-  TDmxScroller_Form_Lcl = class(TDmxScroller_Form)
+  TDmxScroller_Form_Lcl = class(TDmxScroller_Form_Lcl_attributes)
     public constructor Create(aOwner:TComponent);Override;
 
     protected procedure ShowControlState;override;
@@ -105,28 +106,50 @@ type
     {: O método **@name** refresh repinta os campo se foi auterado. }
     public procedure Refresh;override;
 
-    {$REGION '--> Property ParentLCL'}
-      private _ParentLCL : TScrollingWinControl;
-      private procedure SetParentLCL(aParentLCL : TScrollingWinControl);virtual;
-
-      {: A propriedade **@name** informa a janela que será desenhada o formulário}
-      published Property ParentLCL : TScrollingWinControl Read _ParentLCL write SetParentLCL;
-    {$ENDREGION '<-- Property ParentLCL'}
-
     {: A procedure **@name** seta a propriedade active  e criar um formulário
        LCL
     }
     protected procedure SetActiveTarget(aActive: Boolean);Override;
 
     {: O método **@name** altera a fonte e o tamanho do controle passado por **ctrl** e de seus filhos.}
-    public procedure ModifyFontsAll_LCL(ctrl: TWinControl;aFontName:String;aSize:integer);override;overload;
+    public procedure ModifyFontsAll_LCL(ctrl: TWinControl;aFontName:String;aSize:integer);overload;
 
     {: O método **@name** altera a fonte do controle passado por **ctrl** e de seus filhos.}
-    public procedure ModifyFontsAll_LCL(ctrl: TWinControl;aFontName:String);override;overload;
+    public procedure ModifyFontsAll_LCL(ctrl: TWinControl;aFontName:String);overload;
 
     {: Essa média só funciona bem para as fontes Courie new ou Dejavu Sans Mono tamanho 12 }
     public function GetWidthChar():integer;Overload;
 //    public function GetWidthChar(s:string):integer;Overload;
+
+    //Verifica se o componente fornecido possui uma relação db e se o conteúdo foi alterado
+    public class function isValueDbChanged(Sender: TComponent): Boolean;override;
+
+    public class function TextWidthChar(AFont: TFont): Integer;
+
+    {: O método @name Executa o browser padrão do sistema operacional.
+
+       - Exemplo:
+
+         ```pascal
+
+           program Project1;
+            uses
+              Interfaces,
+              mi_rtl_ui_methods;
+           begin
+
+            TUiMethods.ShowHtml('https://wiki.freepascal.org/Webbrowser');
+
+           end.
+         ```
+    }
+    Public class Procedure ShowHtml(URL:string);override;
+
+    {: O método **@name** inicia a documentação resumida do campo. aFldNum }
+    Public Function SetHelpCtx_Hint(aFldNum:Integer;a_HelpCtx_Hint:AnsiString):pDmxFieldRec;override;
+
+    {: O método **@name** inicia a documentação resumida do campo passado em :apDmxFieldRec}
+    Public Procedure SetHelpCtx_Hint(apDmxFieldRec:pDmxFieldRec;a_HelpCtx_Hint:AnsiString);override;overload;
 
     published property name;
     published property Alias;
@@ -286,7 +309,7 @@ procedure TDmxScroller_Form_Lcl.CreateFormLCL(aOwner: TScrollingWinControl);
       then FldRadioButtonsAdicionados.Add(IntToStr(aFristRadioGroupField.FieldNum));
 
       Result := TMi_RadioGroup_LCL.Create(aOwner);
-      Result.UiDmxScroller := Self;
+      Result.DmxScroller_Form_Lcl_attributes:= Self;
       if aFristRadioGroupField.Fieldnum <> 0
       Then Result.Caption := aFristRadioGroupField.FieldName;
 
@@ -339,7 +362,7 @@ procedure TDmxScroller_Form_Lcl.CreateFormLCL(aOwner: TScrollingWinControl);
           if DmxFieldRec^.Template^ <> ''
           then Begin
                  Control := TMi_ui_Label_lcl.Create(aOwner);
-                 (Control as TMi_ui_Label_lcl).UiDmxScroller := Self;
+                 (Control as TMi_ui_Label_lcl).DmxScroller_Form_Lcl_attributes:= Self;
                end
           else Control := nil;
         end;
@@ -374,7 +397,7 @@ procedure TDmxScroller_Form_Lcl.CreateFormLCL(aOwner: TScrollingWinControl);
         if DmxFieldRec^.Template^ <> ''
         Then begin
                 Control := TMi_Button_LCL.Create(aOwner);
-               (Control as TMi_Button_LCL).UiDmxScroller := Self;
+               (Control as TMi_Button_LCL).DmxScroller_Form_Lcl_attributes:= Self;
              end
         else Control := nil;
       end;
@@ -382,7 +405,7 @@ procedure TDmxScroller_Form_Lcl.CreateFormLCL(aOwner: TScrollingWinControl);
       Procedure CreateBoolean;
       begin
         Control := TMi_CheckBox_lcl.Create(aOwner);
-       (Control as TMi_CheckBox_lcl).UiDmxScroller := Self;
+       (Control as TMi_CheckBox_lcl).DmxScroller_Form_Lcl_attributes:= Self;
       end;
 
       procedure CreateRadioGroup;
@@ -418,17 +441,17 @@ procedure TDmxScroller_Form_Lcl.CreateFormLCL(aOwner: TScrollingWinControl);
                    if (DmxFieldRec^.ListComboBox=nil)
                    Then Begin
                           Control := TMI_MaskEdit_LCL.Create(AOwner);
-                         (Control as TMI_MaskEdit_LCL).UiDmxScroller := Self;
+                         (Control as TMI_MaskEdit_LCL).DmxScroller_Form_Lcl_attributes:= Self;
                         end
                    else Begin
                           Control := TMI_ComboBox_LCL.Create(aOwner);
-                          (Control as TMI_ComboBox_LCL).UiDmxScroller := Self;
+                          (Control as TMI_ComboBox_LCL).DmxScroller_Form_Lcl_attributes:= Self;
                         end;
                  end
             else if DmxFieldRec^.IsComboBox
                  then Begin
                         Control := TMI_ComboBox_LCL.Create(aOwner);
-                        (Control as TMI_ComboBox_LCL).UiDmxScroller := Self;
+                        (Control as TMI_ComboBox_LCL).DmxScroller_Form_Lcl_attributes:= Self;
                       end
                  else begin
                         if DmxFieldRec^.IsInputCheckbox
@@ -666,34 +689,6 @@ Begin
        end;
 End;
 
-procedure TDmxScroller_Form_Lcl.SetParentLCL(aParentLCL: TScrollingWinControl);
-begin
-  _ParentLCL := aParentLCL;
-  if Assigned(_ParentLCL) and ( _ParentLCL.Caption = '')
-  then _ParentLCL.Caption:= Alias;
-  if Assigned(_ParentLCL)
-  then begin
-         with _ParentLCL do
-         begin
-//           Font.name := 'Courier New';
-//           if Font.name <> 'Courier New'
-//           then Font.name := 'DejaVu Sans Mono';
-////           Font.name := 'FreeMono';
-//           Font.Style:= [];  //estilo normal
-//           Font.PixelsPerInch := 96;
-//           Font.Size := -13;
-//           font.Height := 17;
-
-           if _ParentLCL is TMi_ScrollBox_LCL
-           Then WidthChar  := (_ParentLCL as TMi_ScrollBox_LCL).WidthChar
-           else WidthChar  := (Canvas.TextWidth(CharAlfanumeric) div Length(CharAlfanumeric));
-
-           HeightChar := Canvas.TextHeight(CharAlfanumeric)+5;
-         end;
-       end;
-
-end;
-
 procedure TDmxScroller_Form_Lcl.SetActiveTarget(aActive: Boolean);
 begin
   if active
@@ -770,6 +765,86 @@ begin
   Result := ((Owner as TScrollingWinControl).Canvas.TextWidth(CharAlfanumeric)
              div Length(CharAlfanumeric));
 end;
+
+//Verifica se o componente fornecido possui uma relação db e se o conteúdo foi alterado
+class function TDmxScroller_Form_Lcl.isValueDbChanged(Sender: TComponent): Boolean;
+  var
+    tmp_Field: TField;
+    dlink: TObject;
+  begin
+    Result:= inherited isValueDbChanged(Sender);
+    if not result
+    Then begin
+          dlink := TObject(TControl(Sender).Perform(CM_GETDATALINK, 0, 0));
+          if dlink is TFieldDataLink then
+          begin //se houver um DataLink (consulte, por exemplo, TcxDBButtonEdit.CMGetDataLink)
+            tmp_Field := (dlink as TFieldDataLink).Field;
+            result :=  Assigned(tmp_Field)  and not(VarSameValue(tmp_Field.OldValue, tmp_Field.Value));
+          end
+          else result := false;
+    end;
+  end;
+
+class function TDmxScroller_Form_Lcl.TextWidthChar(AFont: TFont): Integer;
+var
+  bmp: TCustomBitmap;
+begin
+  Result := 0;
+  bmp := TCustomBitmap.Create;
+  try
+    bmp.Canvas.Font.Assign(AFont);
+    Result := bmp.Canvas.TextWidth('AbcXdFGHIJKLMNopqRstuVxZ32489738') div 32;
+//    WidthChar  := MyGetTextWidth('AbcXdFGHIJKLMNopqRstuVxZ32489738',(aOwner as TScrollingWinControl).Canvas.font)  div 32;
+
+  finally
+    bmp.Free;
+  end;
+end;
+
+class procedure TDmxScroller_Form_Lcl.ShowHtml(URL: string);
+  var
+    v: THTMLBrowserHelpViewer;
+    BrowserPath, BrowserParams: string;
+    p: LongInt;
+    BrowserProcess: TProcessUTF8;
+  begin
+    v:=THTMLBrowserHelpViewer.Create(nil);
+    try
+      v.FindDefaultBrowser(BrowserPath,BrowserParams);
+      //debugln(['Path=',BrowserPath,' Params=',BrowserParams]);
+
+      //URL:='http://www.lazarus.freepascal.org';
+      p:=System.Pos('%s', BrowserParams);
+      System.Delete(BrowserParams,p,2);
+      System.Insert(URL,BrowserParams,p);
+
+      // start browser
+      BrowserProcess:=TProcessUTF8.Create(nil);
+      try
+        BrowserProcess.CommandLine:=BrowserPath+' '+BrowserParams;
+        BrowserProcess.Execute;
+      finally
+        BrowserProcess.Free;
+      end;
+    finally
+      v.Free;
+    end;
+  end;
+
+function TDmxScroller_Form_Lcl.SetHelpCtx_Hint(aFldNum: Integer;a_HelpCtx_Hint: AnsiString): pDmxFieldRec;
+begin
+  result := inherited SetHelpCtx_Hint(aFldNum, a_HelpCtx_Hint);
+  if result.LinkEdit is TControl
+  Then (result.LinkEdit as TControl).Hint := a_HelpCtx_Hint ;
+end;
+
+procedure TDmxScroller_Form_Lcl.SetHelpCtx_Hint(apDmxFieldRec: pDmxFieldRec; a_HelpCtx_Hint: AnsiString);
+begin
+  inherited SetHelpCtx_Hint(apDmxFieldRec,a_HelpCtx_Hint);
+  if Assigned(apDmxFieldRec) and (apDmxFieldRec.LinkEdit is TControl)
+  Then (apDmxFieldRec.LinkEdit as TControl).Hint := a_HelpCtx_Hint ;
+end;
+
 
 end.
 

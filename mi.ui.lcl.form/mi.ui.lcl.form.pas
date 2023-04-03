@@ -8,18 +8,33 @@ unit mi.ui.lcl.form;
 interface
 
 uses
-  umi_ui_dmxscroller_form_lcl_ds, uMi_ui_scrollbox_lcl, umi_ui_InputBox_lcl, 
-  uMi_ui_Dmxscroller_form_lcl, LazarusPackageIntf;
+  uMi_ui_scrollbox_lcl, umi_ui_dmxscroller_form_lcl_attributes, 
+  umi_ui_bitbtn_lcl, umi_ui_button_lcl, umi_ui_checkbox_lcl, 
+  umi_ui_radiogroup_lcl, uMi_ui_ComboBox_lcl, uMi_Ui_DBCheckBox_Lcl, 
+  uMi_Ui_DbComboBox_lcl, uMI_ui_DbEdit_LCL, umi_ui_dblookupComboBox_lcl, 
+  uMI_ui_DbRadioGroup_Lcl, uMi_ui_Label_lcl, uMi_ui_maskedit_lcl, 
+  uMi_ui_Dmxscroller_form_lcl, umi_ui_InputBox_lcl, 
+  umi_ui_dmxscroller_form_lcl_ds, LazarusPackageIntf;
 
 implementation
 
 procedure Register;
 begin
-  RegisterUnit('umi_ui_dmxscroller_form_lcl_ds', 
-    @umi_ui_dmxscroller_form_lcl_ds.Register);
   RegisterUnit('uMi_ui_scrollbox_lcl', @uMi_ui_scrollbox_lcl.Register);
+  RegisterUnit('umi_ui_radiogroup_lcl', @umi_ui_radiogroup_lcl.Register);
+  RegisterUnit('uMi_ui_ComboBox_lcl', @uMi_ui_ComboBox_lcl.Register);
+  RegisterUnit('uMi_Ui_DBCheckBox_Lcl', @uMi_Ui_DBCheckBox_Lcl.Register);
+  RegisterUnit('uMi_Ui_DbComboBox_lcl', @uMi_Ui_DbComboBox_lcl.Register);
+  RegisterUnit('uMI_ui_DbEdit_LCL', @uMI_ui_DbEdit_LCL.Register);
+  RegisterUnit('umi_ui_dblookupComboBox_lcl', 
+    @umi_ui_dblookupComboBox_lcl.Register);
+  RegisterUnit('uMI_ui_DbRadioGroup_Lcl', @uMI_ui_DbRadioGroup_Lcl.Register);
+  RegisterUnit('uMi_ui_Label_lcl', @uMi_ui_Label_lcl.Register);
+  RegisterUnit('uMi_ui_maskedit_lcl', @uMi_ui_maskedit_lcl.Register);
   RegisterUnit('uMi_ui_Dmxscroller_form_lcl', 
     @uMi_ui_Dmxscroller_form_lcl.Register);
+  RegisterUnit('umi_ui_dmxscroller_form_lcl_ds', 
+    @umi_ui_dmxscroller_form_lcl_ds.Register);
 end;
 
 initialization

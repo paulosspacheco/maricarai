@@ -6,5 +6,5 @@ object MI_UI_InputBox: TMI_UI_InputBox
   Caption = 'Form - InputBox'
   Position = poOwnerFormCenter
   ShowHint = True
-  LCLVersion = '2.2.2.0'
+  LCLVersion = '2.2.6.0'
 end

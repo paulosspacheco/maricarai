@@ -2,7 +2,7 @@ unit mi.rtl.Objects.Consts.Logs;
 {:< - A Unit **@name** implementa a classe **TFilesLogs** baseado na classe  **TEventLog** da **FCL**
 
   - **VERSÃO**
-    - Alpha - 0.5.0.687
+    - Alpha - 0.7.0.0
 
   - **REFERÊNCIA**
     - [TEventLog](https://www.freepascal.org/docs-html/current/fcl/eventlog/teventlog.html)

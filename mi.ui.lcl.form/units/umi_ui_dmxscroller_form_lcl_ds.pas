@@ -1,8 +1,8 @@
 unit umi_ui_dmxscroller_form_lcl_ds;
-{:< A unit **@name** implementa a classe TUiDmxScroller_Form_ds.
+{:< A unit **@name** implementa a classe TDmxScroller_Form_Lcl_attributes_Form_ds.
 
   - **VERSÃO**
-    - Alpha - 0.5.0.687
+    - Alpha - 0.7.0.0
 
   - **CÓDIGO FONTE**:
     - @html(<a href="../units/mi_ui_dmxscroller_form_ds.pas">mi_ui_Dmxscroller_form_DS.pas</a>)
@@ -93,7 +93,7 @@ interface
     ,uMi_Ui_DbComboBox_lcl
     ,uMi_Ui_DBCheckBox_Lcl
     ,uMi_Ui_DbRadioGroup_Lcl
-    ,uMi_Button_LCL
+    ,umi_ui_button_lcl
     ,uMi_ui_Label_lcl
     ;
 
@@ -149,7 +149,7 @@ interface
         protected procedure CreateFormLCL(aOwner:TScrollingWinControl);override;
 
         {: O método **@name** ler o buffer dos campos dos arquivos associados a classe
-           **TUiDmxScroller_sql**  para o buffer dos campos da classe **TUiDmxScroller**}
+           **TDmxScroller_Form_Lcl_attributes_sql**  para o buffer dos campos da classe **TDmxScroller_Form_Lcl_attributes**}
 
 
         protected   procedure UpdateBuffers_Controls;override;
@@ -195,7 +195,7 @@ implementation
         then FldRadioButtonsAdicionados.Add(IntToStr(aFristRadioGroupField^.FieldNum));
 
         Result := TMi_Ui_DbRadioGroup_Lcl.Create(aOwner);
-        Result.UiDmxScroller := Self;
+        Result.DmxScroller_Form_Lcl_attributes := Self;
 
         if aFristRadioGroupField^.Fieldnum <> 0
         Then Result.Caption := aFristRadioGroupField^.FieldName;
@@ -261,7 +261,7 @@ implementation
           if DmxFieldRec^.Template^ <> ''
           then Begin
                  Control := TMi_ui_Label_lcl.Create(aOwner);
-                 (Control as TMi_ui_Label_lcl).UiDmxScroller := Self;
+                 (Control as TMi_ui_Label_lcl).DmxScroller_Form_Lcl_attributes := Self;
                end
           else Control := nil;
         end;
@@ -296,7 +296,7 @@ implementation
           if DmxFieldRec^.Template^ <> ''
           Then begin
                   Control := TMi_Button_LCL.Create(aOwner);
-                 (Control as TMi_Button_LCL).UiDmxScroller := Self;
+                 (Control as TMi_Button_LCL).DmxScroller_Form_Lcl_attributes := Self;
                end
           else Control := nil;
         end;
@@ -304,7 +304,7 @@ implementation
         Procedure CreateBoolean;
         begin
           Control := TMi_Ui_DBCheckBox_Lcl.Create(aOwner);
-          (Control as TMi_Ui_DBCheckBox_Lcl).UiDmxScroller := Self;
+          (Control as TMi_Ui_DBCheckBox_Lcl).DmxScroller_Form_Lcl_attributes := Self;
         end;
 
         procedure CreateRadioGroup;
@@ -340,17 +340,17 @@ implementation
                      if DmxFieldRec.ListComboBox = nil
                      then begin
                             Control := TMI_DbEdit_LCL.Create(AOwner);
-                            (Control as TMI_DbEdit_LCL).UiDmxScroller := Self;
+                            (Control as TMI_DbEdit_LCL).DmxScroller_Form_Lcl_attributes := Self;
                           end
                      else Begin
                             Control := TMI_DbComboBox_LCL.Create(aOwner);
-                            (Control as TMI_DbComboBox_LCL).UiDmxScroller := Self;
+                            (Control as TMI_DbComboBox_LCL).DmxScroller_Form_Lcl_attributes := Self;
                           end;
                    end
               else if DmxFieldRec^.IsComboBox
                    then Begin
                           Control := TMi_ui_DbLookupComboBox_LCL.Create(aOwner);
-                          (Control as TMi_ui_DbLookupComboBox_LCL).UiDmxScroller := Self;
+                          (Control as TMi_ui_DbLookupComboBox_LCL).DmxScroller_Form_Lcl_attributes := Self;
                         end
                    else if DmxFieldRec^.IsInputCheckbox
                         then Begin

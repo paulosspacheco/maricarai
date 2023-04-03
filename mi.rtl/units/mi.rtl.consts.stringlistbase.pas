@@ -2,7 +2,7 @@ unit mi.rtl.Consts.StringListBase;
 {:< -A unit **@name** implementa a classe TStringListBase do pacote mi.rtl.
 
     - **VERSÃO**:
-      - Alpha - 0.5.0.687
+      - Alpha - 0.7.0.0
 
     - **CÓDIGO FONTE**:
       - @html(<a href="../units/mi.rtl.Consts.stringlistbase.pas">mi.rtl.Consts.StringListBase.pas</a>)

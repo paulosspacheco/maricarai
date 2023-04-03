@@ -3,7 +3,7 @@ unit umi_ui_InputBox_lcl;
     formulários baseado em Template PSITem.
 
     - **VERSÃO**
-      - Alpha - 0.5.0.687
+      - Alpha - 0.7.0.0
 
     - **CÓDIGO FONTE**:
       - @html(<a href="../units/umi_ui_inputbox_lcl.pas">uMi_ui_InputBox_lcl.pas</a>)
@@ -129,7 +129,7 @@ uses
   , mi_rtl_ui_Dmxscroller,
   uMi_ui_scrollbox_lcl;
 
-{$include ./mi_rtl_ui_Dmxscroller_consts_inc.pas}
+{$include ../mi.rtl/units/mi.rtl.consts.inc}
 type
   TUiDmxScroller = mi_rtl_ui_Dmxscroller.TUiDmxScroller;
   pDmxFieldRec   = mi_rtl_ui_Dmxscroller.pDmxFieldRec;
