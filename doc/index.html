@@ -1961,7 +1961,7 @@
 
 <p></p></li>
   <li><p>T12 No método SetString em caso de erro de gera exceção informando valor máximo do campo e não o valor digitado.</p></li>
-  <li><p>T12 Implementar o evento OnChange em todos os controles, visto que o mesmo é mais <a class="normal" href="testForm.html#f">f</a>ácil criar lógica de negócios visto que o mesmo só é executado se o campo for modificado.</p></li>
+  <li><p>T12 Implementar o evento OnChange em todos os controles, visto que o mesmo é mais fácil criar lógica de negócios visto que o mesmo só é executado se o campo for modificado.</p></li>
   <li><p>T12 Implementar a possibilidade das fontes do label ser personalizada baseado em um estilo que pode ser uma variável global.
 
 <p></p>
@@ -3332,182 +3332,14 @@ CREATE TABLE <span class="pascal_keyword">IF</span> <span class="pascal_keyword"
 <td class="itemdesc"><p>&nbsp;</p></td>
 </tr>
 <tr class="list2">
-<td class="itemname"><a class="bold" href="testForm.html">testForm</a></td>
-<td class="itemdesc"><p>A unit <strong><code>testForm</code></strong> implementa o formulário <a class="normal" href="uMI_UI_InputBox.TMI_UI_InputBox.html">TMI_UI_InputBox</a> usado para criar formulário baseado em Template <a class="normal" href="mi_rtl_ui_Dmxscroller.html#PSItem">PSITem</a>.
-
-<p></p>
-
-<ul class="paragraph_spacing">
-  <li><p><strong>VERSÃO</strong> </p>
-
-<ul class="paragraph_spacing">
-  <li><p>Alpha - 0.5.0.693</p></li>
-</ul>
-
-<p></p></li>
-  <li><p><strong>CÓDIGO FONTE</strong>: </p>
-
-<ul class="paragraph_spacing">
-  <li><p><a href="../units/umi_ui_inputbox_lcl.pas">uMi_ui_InputBox_lcl.pas</a></p></li>
-</ul>
-
-<p></p></li>
-  <li><p><strong>PENDÊNCIAS</strong> </p>
-
-<ul class="paragraph_spacing">
-  <li><p>T12 A classe Mi_ScrollBox_LCL1 deve ser criada em tempo de execução para quenão tenha problema na instalação. ✅️</p></li>
-  <li><p>T12 A a classe DmxScroller_Form_Lcl1 deve ser criada em tempo de execução para que não tenha problema na instalação. ✅️</p></li>
-  <li><p>T12 A a classe ButtonPanel1 deve ser criada em tempo de execução para que não tenha problema na instalação.</p></li>
-  <li><p>T12 A propriedade autosize deve ser true após o form for criado.</p></li>
-</ul>
-
-<p></p></li>
-</ul>
-
-<p></p>
-
-<ul class="paragraph_spacing">
-  <li><p><strong>HISTÓRICO</strong> </p>
-
-<ul class="paragraph_spacing">
-  <li><p>Criado por: Paulo Sérgio da Silva Pacheco paulosspacheco@yahoo.com.br)</p></li>
-  <li><p><strong>2022-05-17</strong> </p>
-
-<ul class="paragraph_spacing">
-  <li><p>T12 Análise de como será a classe <a class="normal" href="uMI_UI_InputBox.TMI_UI_InputBox.html">TMI_UI_InputBox</a>. ✅️</p></li>
-  <li><p>T12 Criar a unit <strong><code>testForm</code></strong>. ✅️</p></li>
-  <li><p>T12 Criar formulário <a class="normal" href="uMI_UI_InputBox.TMI_UI_InputBox.html">TMI_UI_InputBox</a>; ✅️</p></li>
-  <li><p>T12 Adicionar o componente ButtonPanel1 e habilitar os botões ok e cancel; ✅️</p></li>
-  <li><p>T12 Adicionar o componente Mi_ScrollBox_LCL1 ; ✅️</p></li>
-  <li><p>T12 Criar evento: function DmxScroller_Form_Lcl1GetTemplate; ✅️</p></li>
-  <li><p>T12 Criar atributo protected _FormSItem : <a class="normal" href="mi_rtl_ui_Dmxscroller.html#PSItem">PSitem</a>; ✅️</p></li>
-  <li><p>T12 Criar propriedade Template:AnsiString; ✅️ </p>
-
-<ul class="paragraph_spacing">
-  <li><p>Criar método Set_Template(aTemplate:AnsiString); ✅️</p></li>
-</ul>
-
-<p></p></li>
-</ul>
-
-<p></p></li>
-  <li><p><strong>2022-05-18</strong> </p>
-
-<ul class="paragraph_spacing">
-  <li><p><strong>10:51</strong> </p>
-
-<ul class="paragraph_spacing">
-  <li><p>As alterações que fiz ontem no método <a class="normal" href="mi.rtl.Objects.Methods.TObjectsMethods.html#StringToSItem">TObjectsMethods.StringToSItem</a>() criou efeito colateral. </p>
-
-<ul class="paragraph_spacing">
-  <li><p>Corrigido. ✅️</p></li>
-</ul>
-
-<p></p></li>
-</ul>
-
-<p></p></li>
-  <li><p><strong>14:28</strong> </p>
-
-<ul class="paragraph_spacing">
-  <li><p>Criar função: </p>
-
-<ul class="paragraph_spacing">
-  <li><p>function <a class="normal" href="uMI_UI_InputBox.html#InputBox">InputBox</a>(): TModalResult;</p></li>
-</ul>
-
-<p></p></li>
-</ul>
-
-<p></p></li>
-</ul>
-
-<p></p></li>
-  <li><p><strong>2022-05-19</strong> </p>
-
-<ul class="paragraph_spacing">
-  <li><p><strong>11:13</strong> </p>
-
-<ul class="paragraph_spacing">
-  <li><p>Criar os eventos </p>
-
-<ul class="paragraph_spacing">
-  <li><p>OnEnterLocal ✅️</p></li>
-  <li><p>OnExistLocal ✅️</p></li>
-  <li><p>onEnterFieldLocal ✅️</p></li>
-  <li><p>OnExitFieldLocal ✅️</p></li>
-</ul>
-
-<p></p></li>
-  <li><p>Criar função: </p>
-
-<ul class="paragraph_spacing">
-  <li><p>function MI_MsgBox1MessageBox_04_PSItem(aPSItem: TMI_MsgBoxTypes.PSItem; DlgType: TMsgDlgType; Buttons: TMsgDlgButtons; ButtonDefault: TMsgDlgBtn ): TModalResult;</p></li>
-</ul>
-
-<p></p></li>
-</ul>
-
-<p></p></li>
-</ul>
-
-<p></p></li>
-  <li><p><strong>2022-06-27</strong> </p>
-
-<ul class="paragraph_spacing">
-  <li><p><strong>09:30</strong> </p>
-
-<ul class="paragraph_spacing">
-  <li><p>T12 A classe Mi_ScrollBox_LCL1 deve ser criada em tempo de execução para quenão tenha problema na instalação. ✅️.</p></li>
-</ul>
-
-<p></p></li>
-  <li><p><strong>10:25</strong> </p>
-
-<ul class="paragraph_spacing">
-  <li><p>T12 A a classe DmxScroller_Form_Lcl1 deve ser criada em tempo de execução para que não tenha problema na instalação. ✅️</p></li>
-</ul>
-
-<p></p></li>
-  <li><p><strong>10:41</strong> </p>
-
-<ul class="paragraph_spacing">
-  <li><p>T12 A a classe ButtonPanel1 deve ser criada em tempo de execução para que não tenha problema na instalação.</p></li>
-</ul>
-
-<p></p></li>
-</ul>
-
-<p></p></li>
-  <li><p><strong>2022-06-28</strong> </p>
-
-<ul class="paragraph_spacing">
-  <li><p><strong>15:52</strong> </p>
-
-<ul class="paragraph_spacing">
-  <li><p>Criar unit <strong><a class="normal" href="umi_ui_inputbox_lcl_test.html">umi_ui_inputbox_lcl_test</a></strong> para desmostrar o uso de <a class="normal" href="uMI_UI_InputBox.html#InputBox">InputBox</a>.</p></li>
-</ul>
-
-<p></p></li>
-</ul>
-
-<p></p></li>
-</ul>
-
-<p></p></li>
-</ul>
-
-<p></p></td>
-</tr>
-<tr class="list">
 <td class="itemname"><a class="bold" href="uDmxScroller_Form_Lcl_add_test.html">uDmxScroller_Form_Lcl_add_test</a></td>
 <td class="itemdesc"><p>A unit <strong><code>uDmxScroller_Form_Lcl_add_test</code></strong> implementa a classe TTForm1 do pacote mi.ui.</p></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="itemname"><a class="bold" href="uDmxScroller_Form_Lcl_add_test2.html">uDmxScroller_Form_Lcl_add_test2</a></td>
 <td class="itemdesc"><p>&nbsp;</p></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="itemname"><a class="bold" href="uDmxScroller_Form_Lcl_test.html">uDmxScroller_Form_Lcl_test</a></td>
 <td class="itemdesc"><p>A unit <strong><code>uDmxScroller_Form_Lcl_test</code></strong> implementa o teste dos componentes TUiConsts.MI_MsgBox, mi_scrollbox_LCL1 e TDmxScroller_Form_Lcl onde os mesmos são ligados no evento <strong><a class="normal" href="uDmxScroller_Form_Lcl_test.TDmxScroller_Form_Lcl_test.html#FormCreate">TDmxScroller_Form_Lcl_test.FormCreate</a></strong>
 
@@ -3546,43 +3378,43 @@ CREATE TABLE <span class="pascal_keyword">IF</span> <span class="pascal_keyword"
 
 <p></p></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="itemname"><a class="bold" href="umi_ui_bitbtn_lcl.html">umi_ui_bitbtn_lcl</a></td>
 <td class="itemdesc"><p>&nbsp;</p></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="itemname"><a class="bold" href="umi_ui_button_lcl.html">umi_ui_button_lcl</a></td>
 <td class="itemdesc"><p>&nbsp;</p></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="itemname"><a class="bold" href="umi_ui_checkbox_lcl.html">umi_ui_checkbox_lcl</a></td>
 <td class="itemdesc"><p>&nbsp;</p></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="itemname"><a class="bold" href="uMi_ui_ComboBox_lcl.html">uMi_ui_ComboBox_lcl</a></td>
 <td class="itemdesc"><p>&nbsp;</p></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="itemname"><a class="bold" href="uMi_Ui_DBCheckBox_Lcl.html">uMi_Ui_DBCheckBox_Lcl</a></td>
 <td class="itemdesc"><p>&nbsp;</p></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="itemname"><a class="bold" href="uMi_Ui_DbComboBox_lcl.html">uMi_Ui_DbComboBox_lcl</a></td>
 <td class="itemdesc"><p>&nbsp;</p></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="itemname"><a class="bold" href="uMI_ui_DbEdit_LCL.html">uMI_ui_DbEdit_LCL</a></td>
 <td class="itemdesc"><p>&nbsp;</p></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="itemname"><a class="bold" href="umi_ui_dblookupComboBox_lcl.html">umi_ui_dblookupComboBox_lcl</a></td>
 <td class="itemdesc"><p>&nbsp;</p></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="itemname"><a class="bold" href="uMI_ui_DbRadioGroup_Lcl.html">uMI_ui_DbRadioGroup_Lcl</a></td>
 <td class="itemdesc"><p>&nbsp;</p></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="itemname"><a class="bold" href="umi_ui_dmxscroller_form_lcl_attributes.html">umi_ui_dmxscroller_form_lcl_attributes</a></td>
 <td class="itemdesc"><p>A unit <strong><code>umi_ui_dmxscroller_form_lcl_attributes</code></strong> implementa a classe <a class="normal" href="mi_rtl_ui_dmxscroller_form.TDmxScroller_Form.html">TDmxScroller_Form</a>.
 
@@ -3623,10 +3455,6 @@ CREATE TABLE <span class="pascal_keyword">IF</span> <span class="pascal_keyword"
 </ul>
 
 <p></p></td>
-</tr>
-<tr class="list2">
-<td class="itemname"><a class="bold" href="umi_ui_dmxscroller_form_lcl_base.html">umi_ui_dmxscroller_form_lcl_base</a></td>
-<td class="itemdesc"><p>&nbsp;</p></td>
 </tr>
 <tr class="list">
 <td class="itemname"><a class="bold" href="umi_ui_dmxscroller_form_lcl_ds.html">umi_ui_dmxscroller_form_lcl_ds</a></td>
@@ -3786,129 +3614,6 @@ CREATE TABLE <span class="pascal_keyword">IF</span> <span class="pascal_keyword"
 <tr class="list2">
 <td class="itemname"><a class="bold" href="uMi_ui_DmxScroller_Form_Lcl_ds_test2_dm.html">uMi_ui_DmxScroller_Form_Lcl_ds_test2_dm</a></td>
 <td class="itemdesc"><p>&nbsp;</p></td>
-</tr>
-<tr class="list">
-<td class="itemname"><a class="bold" href="uMi_ui_DmxScroller_Form_Lcl_ds_test_dm.html">uMi_ui_DmxScroller_Form_Lcl_ds_test_dm</a></td>
-<td class="itemdesc"><p>&nbsp;</p></td>
-</tr>
-<tr class="list2">
-<td class="itemname"><a class="bold" href="uMI_UI_InputBox.html">uMI_UI_InputBox</a></td>
-<td class="itemdesc"><p>A unit <strong><code>uMI_UI_InputBox</code></strong> implementa o formulário <a class="normal" href="uMI_UI_InputBox.TMI_UI_InputBox.html">TMI_UI_InputBox</a> usado para criar formulário baseado em Template <a class="normal" href="mi_rtl_ui_Dmxscroller.html#PSItem">PSITem</a>.
-
-<p></p>
-
-<ul class="paragraph_spacing">
-  <li><p><strong>VERSÃO</strong> </p>
-
-<ul class="paragraph_spacing">
-  <li><p>Alpha - 0.5.0.693</p></li>
-</ul>
-
-<p></p></li>
-  <li><p><strong>CÓDIGO FONTE</strong>: </p>
-
-<ul class="paragraph_spacing">
-  <li><p><a href="../units/umi_ui_InputBox.pas">uMi_ui_InputBox.pas</a></p></li>
-</ul>
-
-<p></p></li>
-  <li><p><strong>PENDÊNCIAS</strong></p></li>
-</ul>
-
-<p></p>
-
-<ul class="paragraph_spacing">
-  <li><p><strong>HISTÓRICO</strong> </p>
-
-<ul class="paragraph_spacing">
-  <li><p>Criado por: Paulo Sérgio da Silva Pacheco paulosspacheco@yahoo.com.br)</p></li>
-  <li><p><strong>2022-05-17</strong> </p>
-
-<ul class="paragraph_spacing">
-  <li><p>T12 Análise de como será a classe <a class="normal" href="uMI_UI_InputBox.TMI_UI_InputBox.html">TMI_UI_InputBox</a>. ✔</p></li>
-  <li><p>T12 Criar a unit <strong><code>uMI_UI_InputBox</code></strong>. ✔</p></li>
-  <li><p>T12 Criar formulário <a class="normal" href="uMI_UI_InputBox.TMI_UI_InputBox.html">TMI_UI_InputBox</a>; ✔</p></li>
-  <li><p>T12 Adicionar o componente ButtonPanel1 e habilitar os botões ok e cancel; ✔</p></li>
-  <li><p>T12 Adicionar o componente Mi_ScrollBox_LCL1 ; ✔</p></li>
-  <li><p>T12 Criar evento: function DmxScroller_Form_Lcl1GetTemplate; ✔</p></li>
-  <li><p>T12 Criar atributo protected _FormSItem : <a class="normal" href="mi_rtl_ui_Dmxscroller.html#PSItem">PSitem</a>; ✔</p></li>
-  <li><p>T12 Criar propriedade Template:AnsiString; ✔ </p>
-
-<ul class="paragraph_spacing">
-  <li><p>Criar método Set_Template(aTemplate:AnsiString); ✔</p></li>
-</ul>
-
-<p></p></li>
-</ul>
-
-<p></p></li>
-  <li><p><strong>2022-05-18</strong> </p>
-
-<ul class="paragraph_spacing">
-  <li><p><strong>10:51</strong> </p>
-
-<ul class="paragraph_spacing">
-  <li><p>As alterações que fiz ontem no método <a class="normal" href="mi.rtl.Objects.Methods.TObjectsMethods.html#StringToSItem">TObjectsMethods.StringToSItem</a>() criou efeito colateral. </p>
-
-<ul class="paragraph_spacing">
-  <li><p>Corrigido. ✔</p></li>
-</ul>
-
-<p></p></li>
-</ul>
-
-<p></p></li>
-  <li><p><strong>14:28</strong> </p>
-
-<ul class="paragraph_spacing">
-  <li><p>Criar função: </p>
-
-<ul class="paragraph_spacing">
-  <li><p>function <a class="normal" href="uMI_UI_InputBox.html#InputBox">InputBox</a>(): TModalResult;</p></li>
-</ul>
-
-<p></p></li>
-</ul>
-
-<p></p></li>
-</ul>
-
-<p></p></li>
-  <li><p><strong>2022-05-19</strong> </p>
-
-<ul class="paragraph_spacing">
-  <li><p><strong>11:13</strong> </p>
-
-<ul class="paragraph_spacing">
-  <li><p>Criar os eventos </p>
-
-<ul class="paragraph_spacing">
-  <li><p>OnEnterLocal ✔</p></li>
-  <li><p>OnExistLocal ✔</p></li>
-  <li><p>onEnterFieldLocal ✔</p></li>
-  <li><p>OnExitDieldLocal ✔</p></li>
-</ul>
-
-<p></p></li>
-  <li><p>Criar função: </p>
-
-<ul class="paragraph_spacing">
-  <li><p>function MI_MsgBox1MessageBox_04_PSItem(aPSItem: TMI_MsgBoxTypes.PSItem; DlgType: TMsgDlgType; Buttons: TMsgDlgButtons; ButtonDefault: TMsgDlgBtn ): TModalResult;</p></li>
-</ul>
-
-<p></p></li>
-</ul>
-
-<p></p></li>
-</ul>
-
-<p></p></li>
-</ul>
-
-<p></p></li>
-</ul>
-
-<p></p></td>
 </tr>
 <tr class="list">
 <td class="itemname"><a class="bold" href="umi_ui_InputBox_lcl.html">umi_ui_InputBox_lcl</a></td>

@@ -47,83 +47,6 @@
 <td class="itemdesc"><p>&nbsp;</p></td>
 </tr>
 <tr class="list2">
-<td class="itemname"><a class="bold" href="uMI_UI_InputBox.html#InputBox">InputBox</a></td>
-<td class="itemunit"><a class="bold" href="uMI_UI_InputBox.html">uMI_UI_InputBox</a></td>
-<td class="itemdesc"><p>A função <strong><code>InputBox</code></strong> cria um formulário passado por Template e executa os eventos do formulário passado pelos parâmetros.
-
-<p></p>
-
-<ul class="paragraph_spacing">
-  <li><p><strong>PARÂMETROS</strong> </p>
-
-<ul class="paragraph_spacing">
-  <li><p>atitle; // Título do formulário;</p></li>
-  <li><p>aTemplate; // Modelo do formulário cuja a sintaxe segue abaixo:</p></li>
-  <li><p>aOnEnter; // Executado ao entrar no formulário criado baseado no Template;</p></li>
-  <li><p>aOnExit; // Executado ao sair do formulário criado baseado no Template;</p></li>
-  <li><p>aOnEnterField; // Executado ao entrar um campo focado;</p></li>
-  <li><p>aOnExitField; // Executado ao sair do campo focado;</p></li>
-  <li><p>aOnCloseQuery // Executado ao fechar o form se CanClose = true;</p></li>
-</ul>
-
-<p></p></li>
-  <li><p><strong>SINTAXE DO MODELO</strong> </p>
-
-<ul class="paragraph_spacing">
-  <li><p>Exemplo </p>
-
-<pre class="longcode">
-
-<span class="pascal_keyword">const</span>
-  Template := <span class="pascal_string">'&tilde;Nome do Aluno:&tilde;\sssssssssssssssssssssssss'</span>+lf+
-              <span class="pascal_string">'&tilde;     Endereço:&tilde;\sssssssssssssssssssssssss`ssssssssssssssss'</span>+lf+
-              <span class="pascal_string">'&tilde;          Cep:&tilde;\##-###-###'</span>+lf+
-              <span class="pascal_string">'&tilde;       Bairro:&tilde;\sssssssssssssssssssssssss'</span>+lf+
-              <span class="pascal_string">'&tilde;       Cidade:&tilde;\sssssssssssssssssssssssss'</span>+lf+
-              <span class="pascal_string">'&tilde;       Estado:&tilde;\sssssssssssssssssssssssss'</span>+lf+
-              <span class="pascal_string">'&tilde;        Idade:&tilde;\BB'</span>+lf+
-              <span class="pascal_string">'&tilde;    Mensalidade:&tilde;\R,RRR.RR'</span>;</pre>
-
-<p></p></li>
-  <li><p>Tipos de dados do formulário: </p>
-
-<ul class="paragraph_spacing">
-  <li><p>s = Char alfanumérico</p></li>
-  <li><p># = Char numérico</p></li>
-  <li><p>R = Double</p></li>
-  <li><p>B = Byte</p></li>
-</ul>
-
-<p></p></li>
-</ul>
-
-<p></p></li>
-  <li><p>Exemplo de chamada da função:
-
-<p></p>
-
-<pre class="longcode">
-
-<span class="pascal_keyword">if</span> InputBox(<span class="pascal_string">'Dados do aluno'</span>,
-             <span class="pascal_string">'&tilde;Nome do Aluno:&tilde;\sssssssssssssssssssssssss'</span>+lf+
-             <span class="pascal_string">'&tilde;     Endereço:&tilde;\sssssssssssssssssssssssss`ssssssssssssssss'</span>+lf+
-             <span class="pascal_string">'&tilde;          Cep:&tilde;\##-###-###'</span>+lf+
-             <span class="pascal_string">'&tilde;       Bairro:&tilde;\sssssssssssssssssssssssss'</span>+lf+
-             <span class="pascal_string">'&tilde;       Cidade:&tilde;\sssssssssssssssssssssssss'</span>+lf+
-             <span class="pascal_string">'&tilde;       Estado:&tilde;\sssssssssssssssssssssssss'</span>+lf+
-             <span class="pascal_string">'&tilde;        Idade:&tilde;\BB'</span>+lf+
-             <span class="pascal_string">'&tilde;    Mensalidade:&tilde;\R,RRR.RR'</span>,
-             <span class="pascal_keyword">nil</span>,<span class="pascal_keyword">nil</span>,<span class="pascal_keyword">nil</span>,<span class="pascal_keyword">nil</span>,<span class="pascal_keyword">nil</span>
-        ) = MrOk
-<span class="pascal_keyword">then</span> <span class="pascal_keyword">begin</span>
-     <span class="pascal_keyword">end</span>;</pre>
-
-<p></p></li>
-</ul>
-
-<p></p></td>
-</tr>
-<tr class="list">
 <td class="itemname"><a class="bold" href="umi_ui_InputBox_lcl.html#InputBox">InputBox</a></td>
 <td class="itemunit"><a class="bold" href="umi_ui_InputBox_lcl.html">umi_ui_InputBox_lcl</a></td>
 <td class="itemdesc"><p>A função <strong><code>InputBox</code></strong> cria um formulário passado por Template e executa os eventos do formulário passado pelos parâmetros.
@@ -200,120 +123,115 @@
 
 <p></p></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="itemname"><a class="bold" href="Classes_C.html#IsValidPtr">IsValidPtr</a></td>
 <td class="itemunit"><a class="bold" href="Classes_C.html">Classes_C</a></td>
 <td class="itemdesc"><p>&nbsp;</p></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="itemname"><a class="bold" href="Classes_C.html#JSONObjectToStrJSon">JSONObjectToStrJSon</a></td>
 <td class="itemunit"><a class="bold" href="Classes_C.html">Classes_C</a></td>
 <td class="itemdesc"><p>&nbsp;</p></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="itemname"><a class="bold" href="Classes_C.html#Message">Message</a></td>
 <td class="itemunit"><a class="bold" href="Classes_C.html">Classes_C</a></td>
 <td class="itemdesc"><p>&nbsp;</p></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="itemname"><a class="bold" href="mi_rtl_ui_custom_application.html#Mi_ui_Custom_Application">Mi_ui_Custom_Application</a></td>
 <td class="itemunit"><a class="bold" href="mi_rtl_ui_custom_application.html">mi_rtl_ui_custom_application</a></td>
 <td class="itemdesc"><p>A função <strong><code>Mi_ui_Custom_Application</code></strong> retorna a ultima instância de <strong><a class="normal" href="mi_rtl_ui_custom_application.TMI_ui_Custom_Application.html">TMI_ui_Custom_Application</a></strong> criada no sistema</p></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="itemname"><a class="bold" href="mi.rtl.Objects.Consts.ProgressDlg_If.html#Register">Register</a></td>
 <td class="itemunit"><a class="bold" href="mi.rtl.Objects.Consts.ProgressDlg_If.html">mi.rtl.Objects.Consts.ProgressDlg_If</a></td>
 <td class="itemdesc"><p>&nbsp;</p></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="itemname"><a class="bold" href="mi_rtl_ui_dmxscroller_form.html#Register">Register</a></td>
 <td class="itemunit"><a class="bold" href="mi_rtl_ui_dmxscroller_form.html">mi_rtl_ui_dmxscroller_form</a></td>
 <td class="itemdesc"><p>&nbsp;</p></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="itemname"><a class="bold" href="umi_ui_bitbtn_lcl.html#Register">Register</a></td>
 <td class="itemunit"><a class="bold" href="umi_ui_bitbtn_lcl.html">umi_ui_bitbtn_lcl</a></td>
 <td class="itemdesc"><p>&nbsp;</p></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="itemname"><a class="bold" href="umi_ui_button_lcl.html#Register">Register</a></td>
 <td class="itemunit"><a class="bold" href="umi_ui_button_lcl.html">umi_ui_button_lcl</a></td>
 <td class="itemdesc"><p>&nbsp;</p></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="itemname"><a class="bold" href="umi_ui_checkbox_lcl.html#Register">Register</a></td>
 <td class="itemunit"><a class="bold" href="umi_ui_checkbox_lcl.html">umi_ui_checkbox_lcl</a></td>
 <td class="itemdesc"><p>&nbsp;</p></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="itemname"><a class="bold" href="uMi_ui_ComboBox_lcl.html#Register">Register</a></td>
 <td class="itemunit"><a class="bold" href="uMi_ui_ComboBox_lcl.html">uMi_ui_ComboBox_lcl</a></td>
 <td class="itemdesc"><p>&nbsp;</p></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="itemname"><a class="bold" href="uMi_Ui_DBCheckBox_Lcl.html#Register">Register</a></td>
 <td class="itemunit"><a class="bold" href="uMi_Ui_DBCheckBox_Lcl.html">uMi_Ui_DBCheckBox_Lcl</a></td>
 <td class="itemdesc"><p>&nbsp;</p></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="itemname"><a class="bold" href="uMi_Ui_DbComboBox_lcl.html#Register">Register</a></td>
 <td class="itemunit"><a class="bold" href="uMi_Ui_DbComboBox_lcl.html">uMi_Ui_DbComboBox_lcl</a></td>
 <td class="itemdesc"><p>&nbsp;</p></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="itemname"><a class="bold" href="uMI_ui_DbEdit_LCL.html#Register">Register</a></td>
 <td class="itemunit"><a class="bold" href="uMI_ui_DbEdit_LCL.html">uMI_ui_DbEdit_LCL</a></td>
 <td class="itemdesc"><p>&nbsp;</p></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="itemname"><a class="bold" href="umi_ui_dblookupComboBox_lcl.html#Register">Register</a></td>
 <td class="itemunit"><a class="bold" href="umi_ui_dblookupComboBox_lcl.html">umi_ui_dblookupComboBox_lcl</a></td>
 <td class="itemdesc"><p>&nbsp;</p></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="itemname"><a class="bold" href="uMI_ui_DbRadioGroup_Lcl.html#Register">Register</a></td>
 <td class="itemunit"><a class="bold" href="uMI_ui_DbRadioGroup_Lcl.html">uMI_ui_DbRadioGroup_Lcl</a></td>
 <td class="itemdesc"><p>&nbsp;</p></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="itemname"><a class="bold" href="umi_ui_dmxscroller_form_lcl_ds.html#Register">Register</a></td>
 <td class="itemunit"><a class="bold" href="umi_ui_dmxscroller_form_lcl_ds.html">umi_ui_dmxscroller_form_lcl_ds</a></td>
 <td class="itemdesc"><p>&nbsp;</p></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="itemname"><a class="bold" href="uMi_ui_Label_lcl.html#Register">Register</a></td>
 <td class="itemunit"><a class="bold" href="uMi_ui_Label_lcl.html">uMi_ui_Label_lcl</a></td>
 <td class="itemdesc"><p>&nbsp;</p></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="itemname"><a class="bold" href="uMi_ui_maskedit_lcl.html#Register">Register</a></td>
 <td class="itemunit"><a class="bold" href="uMi_ui_maskedit_lcl.html">uMi_ui_maskedit_lcl</a></td>
 <td class="itemdesc"><p>&nbsp;</p></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="itemname"><a class="bold" href="umi_ui_radiogroup_lcl.html#Register">Register</a></td>
 <td class="itemunit"><a class="bold" href="umi_ui_radiogroup_lcl.html">umi_ui_radiogroup_lcl</a></td>
 <td class="itemdesc"><p>&nbsp;</p></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="itemname"><a class="bold" href="uMi_ui_scrollbox_lcl.html#Register">Register</a></td>
 <td class="itemunit"><a class="bold" href="uMi_ui_scrollbox_lcl.html">uMi_ui_scrollbox_lcl</a></td>
 <td class="itemdesc"><p>&nbsp;</p></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="itemname"><a class="bold" href="mi.rtl.Objects.Methods.Paramexecucao.Application.html#Setapplication">Setapplication</a></td>
 <td class="itemunit"><a class="bold" href="mi.rtl.Objects.Methods.Paramexecucao.Application.html">mi.rtl.Objects.Methods.Paramexecucao.Application</a></td>
 <td class="itemdesc"><p>&nbsp;</p></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="itemname"><a class="bold" href="mi_rtl_ui_custom_application.html#Set_Mi_ui_Custom_Application">Set_Mi_ui_Custom_Application</a></td>
 <td class="itemunit"><a class="bold" href="mi_rtl_ui_custom_application.html">mi_rtl_ui_custom_application</a></td>
 <td class="itemdesc"><p>A função <strong><code>Set_Mi_ui_Custom_Application</code></strong> seta a ultima instância de <strong><a class="normal" href="mi_rtl_ui_custom_application.TMI_ui_Custom_Application.html">TMI_ui_Custom_Application</a></strong> criada no sistema e retorna aplicação selecionada anteriormente.</p></td>
-</tr>
-<tr class="list2">
-<td class="itemname"><a class="bold" href="testForm.html#ShowFormF">ShowFormF</a></td>
-<td class="itemunit"><a class="bold" href="testForm.html">testForm</a></td>
-<td class="itemdesc"><p>&nbsp;</p></td>
 </tr>
 <tr class="list">
 <td class="itemname"><a class="bold" href="Classes_C.html#StrJSonToArrays">StrJSonToArrays</a></td>
