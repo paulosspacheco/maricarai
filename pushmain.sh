@@ -18,7 +18,7 @@ fi
     git branch -M main  
 
 # Atualiza o repositório local com os dados do repositório remoto
-git pull
+# git pull esse comando não pode ser altomático pq a versão main da nuvem pode estar desatualizada.
 
 
 # Este comando pode ser executado várias vezes antes de um commit.  
