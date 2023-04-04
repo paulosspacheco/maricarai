@@ -1,4 +1,7 @@
-{Essa Include contém todas as constantes usadas e: mi_rtl_ui_Dmxscroller.pas}
+{Essa Include contém todas as constantes usadas e: mi_rtl_ui_Dmxscroller.pas
+- **VERSÃO**
+  - Alpha - 0.7.0.0
+}
 
 { As constantes abaixo são declaradas fora das classes para que os componentes não 
   derivados da classe possam reconhece-los sem declarar o nome da classe.}
