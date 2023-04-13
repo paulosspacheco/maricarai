@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<title>mi.rtl.Objects.Consts.ProgressDlg_If: Classe TProgressDlg_If</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="generator" content="PasDoc 0.16.0">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<link rel="stylesheet" type="text/css" href="tipuesearch/tipuesearch.css">
+
+<link rel="StyleSheet" type="text/css" href="pasdoc.css">
+</head>
+<body>
+<div class="container"><div class="navigation">
+<ul><li><a href="AllUnits.html">Units</a></li><li><a href="ClassHierarchy.html">Hierarquia de Classes</a></li><li><a href="AllClasses.html">Classes, Interfaces, Objetos e Registros</a></li><li><a href="AllTypes.html">Tipos</a></li><li><a href="AllVariables.html">Variáveis</a></li><li><a href="AllConstants.html">Constantes</a></li><li><a href="AllFunctions.html">Funções e Procedimentos</a></li><li><a href="AllIdentifiers.html">Identificadores</a></li><li><form class="search-form" action="tipue_results.html"><div class="search-input"><input type="text" name="q" id="tipue_search_input" pattern=".{1,}" title="At least 1 characters" required><div class="search-button"><input type="button" id="tipue_search_button" onclick="this.form.submit();"></div></div></form>
+<div style="clear: both"></div>
+</li></ul></div><div class="content">
+<span id="TProgressDlg_If"></span><h1 class="cio">Classe TProgressDlg_If</h1>
+<div class="sections">
+<div class="one_section"><a class="section" href="#PasDoc-Description">Descrição</a></div><div class="one_section"><a class="section" href="#PasDoc-Hierarchy">Hierarquia</a></div><div class="one_section"><a class="section" href="#PasDoc-NestedTypes">Tipos Aninhados</a></div><div class="one_section"><a class="section" href="#PasDoc-Fields">Campos</a></div><div class="one_section"><a class="section" href="#PasDoc-Methods">Métodos</a></div><div class="one_section"><a class="section" href="#PasDoc-Properties">Propriedades</a></div></div>
+<span id="PasDoc-Description"></span><h2 class="unit">Unit</h2>
+<p class="unitlink">
+<a href="mi.rtl.Objects.Consts.ProgressDlg_If.html">mi.rtl.Objects.Consts.ProgressDlg_If</a></p>
+<h2 class="declaration">Declaração</h2>
+<p class="declaration">
+<code>type TProgressDlg_If = class(<a class="normal" href="mi.rtl.Objects.Consts.TObjectsConsts.html">TObjectsConsts</a>)</code></p>
+<h2 class="description">Descrição</h2>
+<p>
+</p>
+
+<ul class="paragraph_spacing">
+  <li><p>A classe <strong><code>TProgressDlg_If</code></strong> é uma classe abstrata para comunicação com o usuário cujo a implementação deve ser feita nas plataformas: LCL, HTML e JavaScript.
+
+<p></p>
+
+<ul class="paragraph_spacing">
+  <li><p><strong>NOTA</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Só cria o dialogo se a posição chegar no <a class="normal" href="mi.rtl.Objects.Consts.ProgressDlg_If.TProgressDlg_If.html#Delta">delta</a>.</p></li>
+</ul>
+
+<p></p></li>
+  <li><p>Exemplo do uso de <code>TProgressDlg_If</code>
+
+<p></p>
+
+<pre class="longcode">
+
+<span class="pascal_keyword">Var</span>
+  ProgressDlg_If : TProgressDlg_If;
+<span class="pascal_keyword">Begin</span>
+  ProgressDlg_If := TProgressDlg_If.Create(<span class="pascal_string">'Pesquisando registro'</span>,Alias,<span class="pascal_numeric">20</span>);
+
+  <span class="pascal_keyword">Repeat</span>
+    ProgressDlg_If.IncPosition;
+  <span class="pascal_keyword">Until</span> <span class="pascal_keyword">Not</span> next;
+
+  ProgressDlg_If.Free;
+<span class="pascal_keyword">end</span>.</pre>
+
+<p></p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p>
+<span id="PasDoc-Hierarchy"></span><h2 class="hierarchy">Hierarquia</h2>
+<ul class="hierarchy"><li class="ancestor">TObjectsTypes</li>
+<li class="ancestor"><a class="normal" href="mi.rtl.Objects.Consts.TObjectsConsts.html">TObjectsConsts</a></li>
+<li class="thisitem">TProgressDlg_If</li></ul><h2 class="overview">Visão Geral</h2>
+<span id="PasDoc-NestedTypes"></span><h3 class="summary">Tipos Aninhados</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><code><strong><a href="mi.rtl.Objects.Consts.ProgressDlg_If.TProgressDlg_If.html#TCreate_ProgressDlg">TCreate_ProgressDlg</a></strong> = Function (Sender: <a href="mi.rtl.Objects.Consts.ProgressDlg_If.TProgressDlg_If.html">TProgressDlg_If</a>; Var aTitle : AnsiString; Var aobservation : AnsiString; Var aDelta : longint; Var aTotal : longint ):TComponent of object;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><code><strong><a href="mi.rtl.Objects.Consts.ProgressDlg_If.TProgressDlg_If.html#TIncPosition">TIncPosition</a></strong> = procedure of Object;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><code><strong><a href="mi.rtl.Objects.Consts.ProgressDlg_If.TProgressDlg_If.html#TIncPosition_01">TIncPosition_01</a></strong> = procedure (Const aDelta :longint) Of object;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><code><strong><a href="mi.rtl.Objects.Consts.ProgressDlg_If.TProgressDlg_If.html#TRedraw">TRedraw</a></strong> = procedure (a_Total : longint; a_LastPosition : longint; a_TimeCurrent : Longint; a_TimeBegin : Longint; a_TimeForeseen : Longint; a_Percent : SmallInt ) of object;</code></td>
+</tr>
+</table>
+<span id="PasDoc-Fields"></span><h3 class="summary">Campos</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>Var <strong><a href="mi.rtl.Objects.Consts.ProgressDlg_If.TProgressDlg_If.html#_TimeCurrent">_TimeCurrent</a></strong>: Longint;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>Var <strong><a href="mi.rtl.Objects.Consts.ProgressDlg_If.TProgressDlg_If.html#_TimeBegin">_TimeBegin</a></strong>: Longint;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>Var <strong><a href="mi.rtl.Objects.Consts.ProgressDlg_If.TProgressDlg_If.html#_TimeForeseen">_TimeForeseen</a></strong>: Longint;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>Var <strong><a href="mi.rtl.Objects.Consts.ProgressDlg_If.TProgressDlg_If.html#_Percent">_Percent</a></strong>: SmallInt;</code></td>
+</tr>
+</table>
+<span id="PasDoc-Methods"></span><h3 class="summary">Métodos</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>procedure <strong><a href="mi.rtl.Objects.Consts.ProgressDlg_If.TProgressDlg_If.html#Set_Total">Set_Total</a></strong>(aTotal: Longint); Virtual;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>procedure <strong><a href="mi.rtl.Objects.Consts.ProgressDlg_If.TProgressDlg_If.html#Set_Delta">Set_Delta</a></strong>(aDelta: Longint); Virtual;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>procedure <strong><a href="mi.rtl.Objects.Consts.ProgressDlg_If.TProgressDlg_If.html#Set_Limit">Set_Limit</a></strong>(aLimit: Longint); Virtual;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>procedure <strong><a href="mi.rtl.Objects.Consts.ProgressDlg_If.TProgressDlg_If.html#Set_Title">Set_Title</a></strong>(aTitle: AnsiString); Virtual;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>procedure <strong><a href="mi.rtl.Objects.Consts.ProgressDlg_If.TProgressDlg_If.html#Set_observation">Set_observation</a></strong>(aobservation: AnsiString); Virtual;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>Procedure <strong><a href="mi.rtl.Objects.Consts.ProgressDlg_If.TProgressDlg_If.html#Create_ProgressDlg">Create_ProgressDlg</a></strong>; overload; Virtual;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>Procedure <strong><a href="mi.rtl.Objects.Consts.ProgressDlg_If.TProgressDlg_If.html#RegisterOnEvents">RegisterOnEvents</a></strong>; Virtual;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>constructor <strong><a href="mi.rtl.Objects.Consts.ProgressDlg_If.TProgressDlg_If.html#Create">Create</a></strong>(AOwner: TComponent); Overload; override;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>constructor <strong><a href="mi.rtl.Objects.Consts.ProgressDlg_If.TProgressDlg_If.html#Create">Create</a></strong>(aTitle : AnsiString; aobservation : AnsiString; aDelta, aTotal : longint ); Overload; Virtual;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>Destructor <strong><a href="mi.rtl.Objects.Consts.ProgressDlg_If.TProgressDlg_If.html#Destroy">Destroy</a></strong>; Override;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>procedure <strong><a href="mi.rtl.Objects.Consts.ProgressDlg_If.TProgressDlg_If.html#IncPosition">IncPosition</a></strong>(Const aDelta :longint); Overload; Virtual;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>procedure <strong><a href="mi.rtl.Objects.Consts.ProgressDlg_If.TProgressDlg_If.html#IncPosition">IncPosition</a></strong>; Overload; Virtual;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>Procedure <strong><a href="mi.rtl.Objects.Consts.ProgressDlg_If.TProgressDlg_If.html#Redraw">Redraw</a></strong>; Virtual;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>procedure <strong><a href="mi.rtl.Objects.Consts.ProgressDlg_If.TProgressDlg_If.html#SetPerc">SetPerc</a></strong>(const aPosition : longint);</code></td>
+</tr>
+</table>
+<span id="PasDoc-Properties"></span><h3 class="summary">Propriedades</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><code>property <strong><a href="mi.rtl.Objects.Consts.ProgressDlg_If.TProgressDlg_If.html#Total">Total</a></strong>: Longint Read _Total   Write  <a href="mi.rtl.Objects.Consts.ProgressDlg_If.TProgressDlg_If.html#Set_Total">Set_Total</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><code>property <strong><a href="mi.rtl.Objects.Consts.ProgressDlg_If.TProgressDlg_If.html#Delta">Delta</a></strong>: Longint Read _Delta   Write  <a href="mi.rtl.Objects.Consts.ProgressDlg_If.TProgressDlg_If.html#Set_Delta">Set_Delta</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><code>property <strong><a href="mi.rtl.Objects.Consts.ProgressDlg_If.TProgressDlg_If.html#Limit">Limit</a></strong>: Longint Read _Limit   Write  <a href="mi.rtl.Objects.Consts.ProgressDlg_If.TProgressDlg_If.html#Set_Limit">Set_Limit</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><code>property <strong><a href="mi.rtl.Objects.Consts.ProgressDlg_If.TProgressDlg_If.html#Title">Title</a></strong>: AnsiString Read _Title   Write  <a href="mi.rtl.Objects.Consts.ProgressDlg_If.TProgressDlg_If.html#Set_Title">Set_Title</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><code>property <strong><a href="mi.rtl.Objects.Consts.ProgressDlg_If.TProgressDlg_If.html#observation">observation</a></strong>: AnsiString Read _observation   Write  <a href="mi.rtl.Objects.Consts.ProgressDlg_If.TProgressDlg_If.html#Set_observation">Set_observation</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><code>property <strong><a href="mi.rtl.Objects.Consts.ProgressDlg_If.TProgressDlg_If.html#onCreate_ProgressDlg">onCreate_ProgressDlg</a></strong>: <a href="mi.rtl.Objects.Consts.ProgressDlg_If.TProgressDlg_If.html#TCreate_ProgressDlg">TCreate_ProgressDlg</a> Read _onCreate_ProgressDlg   Write  _onCreate_ProgressDlg;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><code>property <strong><a href="mi.rtl.Objects.Consts.ProgressDlg_If.TProgressDlg_If.html#onIncPosition_01">onIncPosition_01</a></strong>: <a href="mi.rtl.Objects.Consts.ProgressDlg_If.TProgressDlg_If.html#TIncPosition_01">TIncPosition_01</a> Read _onIncPosition_01   Write  _onIncPosition_01;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><code>property <strong><a href="mi.rtl.Objects.Consts.ProgressDlg_If.TProgressDlg_If.html#onIncPosition">onIncPosition</a></strong>: <a href="mi.rtl.Objects.Consts.ProgressDlg_If.TProgressDlg_If.html#TIncPosition">TIncPosition</a> Read _onIncPosition   Write  _onIncPosition;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><code>property <strong><a href="mi.rtl.Objects.Consts.ProgressDlg_If.TProgressDlg_If.html#OnRedraw">OnRedraw</a></strong>: <a href="mi.rtl.Objects.Consts.ProgressDlg_If.TProgressDlg_If.html#TRedraw">TRedraw</a> Read _OnRedraw   Write  _OnRedraw;</code></td>
+</tr>
+</table>
+<h2 class="description">Descrição</h2>
+<h3 class="detail">Tipos Aninhados</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><span id="TCreate_ProgressDlg"></span><code><strong>TCreate_ProgressDlg</strong> = Function (Sender: <a href="mi.rtl.Objects.Consts.ProgressDlg_If.TProgressDlg_If.html">TProgressDlg_If</a>; Var aTitle : AnsiString; Var aobservation : AnsiString; Var aDelta : longint; Var aTotal : longint ):TComponent of object;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><span id="TIncPosition"></span><code><strong>TIncPosition</strong> = procedure of Object;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><span id="TIncPosition_01"></span><code><strong>TIncPosition_01</strong> = procedure (Const aDelta :longint) Of object;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><span id="TRedraw"></span><code><strong>TRedraw</strong> = procedure (a_Total : longint; a_LastPosition : longint; a_TimeCurrent : Longint; a_TimeBegin : Longint; a_TimeForeseen : Longint; a_Percent : SmallInt ) of object;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+O evento <strong><code>TRedraw</code></strong> é usado para atualiza a tela.</p>
+</td></tr>
+</table>
+<h3 class="detail">Campos</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="_TimeCurrent"></span><code>Var <strong>_TimeCurrent</strong>: Longint;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="_TimeBegin"></span><code>Var <strong>_TimeBegin</strong>: Longint;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="_TimeForeseen"></span><code>Var <strong>_TimeForeseen</strong>: Longint;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="_Percent"></span><code>Var <strong>_Percent</strong>: SmallInt;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<h3 class="detail">Métodos</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="Set_Total"></span><code>procedure <strong>Set_Total</strong>(aTotal: Longint); Virtual;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="Set_Delta"></span><code>procedure <strong>Set_Delta</strong>(aDelta: Longint); Virtual;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="Set_Limit"></span><code>procedure <strong>Set_Limit</strong>(aLimit: Longint); Virtual;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="Set_Title"></span><code>procedure <strong>Set_Title</strong>(aTitle: AnsiString); Virtual;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="Set_observation"></span><code>procedure <strong>Set_observation</strong>(aobservation: AnsiString); Virtual;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Create_ProgressDlg"></span><code>Procedure <strong>Create_ProgressDlg</strong>; overload; Virtual;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+A procedure <strong><code>Create_ProgressDlg</code></strong> deve ser anulada para implementar a criação do diálogo no pacote visual ou seja: Na interface do usuário que pode ser <strong>LCL</strong>, Javascript, tv32 etc..</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="RegisterOnEvents"></span><code>Procedure <strong>RegisterOnEvents</strong>; Virtual;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+A procedure <strong><code>RegisterOnEvents</code></strong> deve ser anulada para implementar os eventos desta classe caso a mesma não esteja registrada na IDE</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Create"></span><code>constructor <strong>Create</strong>(AOwner: TComponent); Overload; override;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+O constructor <strong><code>Create</code></strong> é necessário porque essa classe pode ser registrada da IDE</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Create"></span><code>constructor <strong>Create</strong>(aTitle : AnsiString; aobservation : AnsiString; aDelta, aTotal : longint ); Overload; Virtual;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+O constructor <strong><code>Create</code></strong> é usado para criar a classe sem a IDE</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Destroy"></span><code>Destructor <strong>Destroy</strong>; Override;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+O destructor <strong><code>Destroy</code></strong> é usado para destruir a classe.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="IncPosition"></span><code>procedure <strong>IncPosition</strong>(Const aDelta :longint); Overload; Virtual;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+A propriedade <strong><code>IncPosition</code></strong> deve ser anulada na classe visual para incrementar <strong>aDelta</strong> na posição atual do processamento.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="IncPosition"></span><code>procedure <strong>IncPosition</strong>; Overload; Virtual;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+A propriedade <strong><code>IncPosition</code></strong> deve ser anulada na classe visual para incrementar 1 na posição atual do processamento.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="Redraw"></span><code>Procedure <strong>Redraw</strong>; Virtual;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+A propriedade <strong><code>Redraw</code></strong> deve ser anulada para implementar na classe visual para atualizar a tela com a posição atual do processamento.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="SetPerc"></span><code>procedure <strong>SetPerc</strong>(const aPosition : longint);</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+A procedure <strong><code>SetPerc</code></strong> é usado para informar ao dialogo a posição atual da contagem.
+
+<p></p>
+
+<ul class="paragraph_spacing">
+  <li><p><strong>NOTA</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Calcula o percentual atual do processamento.</p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p>
+</td></tr>
+</table>
+<h3 class="detail">Propriedades</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><span id="Total"></span><code>property <strong>Total</strong>: Longint Read _Total   Write  <a href="mi.rtl.Objects.Consts.ProgressDlg_If.TProgressDlg_If.html#Set_Total">Set_Total</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+A propriedade <strong><code>Total</code></strong> é o <code>total</code> de elementos previstos na lista ao inicial o dialogo</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><span id="Delta"></span><code>property <strong>Delta</strong>: Longint Read _Delta   Write  <a href="mi.rtl.Objects.Consts.ProgressDlg_If.TProgressDlg_If.html#Set_Delta">Set_Delta</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+A propriedade <strong><code>Delta</code></strong> informado ao dialogo o intervalo no qual o dialogo precisa ser criado para que o usuário veja a previsão de termino.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><span id="Limit"></span><code>property <strong>Limit</strong>: Longint Read _Limit   Write  <a href="mi.rtl.Objects.Consts.ProgressDlg_If.TProgressDlg_If.html#Set_Limit">Set_Limit</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+A propriedade <strong><code>Limit</code></strong> é o numero de linhas do controle que está sendo visualizado.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><span id="Title"></span><code>property <strong>Title</strong>: AnsiString Read _Title   Write  <a href="mi.rtl.Objects.Consts.ProgressDlg_If.TProgressDlg_If.html#Set_Title">Set_Title</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+A propriedade <strong><code>Title</code></strong> é usado no título do dialogo indicando a tarefa que está sendo executada.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><span id="observation"></span><code>property <strong>observation</strong>: AnsiString Read _observation   Write  <a href="mi.rtl.Objects.Consts.ProgressDlg_If.TProgressDlg_If.html#Set_observation">Set_observation</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+A propriedade <strong><code>observation</code></strong> é usado na barra de status do dialogo indicando qual o atalho aborta a operação</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><span id="onCreate_ProgressDlg"></span><code>property <strong>onCreate_ProgressDlg</strong>: <a href="mi.rtl.Objects.Consts.ProgressDlg_If.TProgressDlg_If.html#TCreate_ProgressDlg">TCreate_ProgressDlg</a> Read _onCreate_ProgressDlg   Write  _onCreate_ProgressDlg;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+A propriedade <strong><code>onCreate_ProgressDlg</code></strong> deve ser implementado no pacote visual ou seja: Na interface do usuário que pode ser <strong>LCL</strong>, Javascript, tv32 etc..</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><span id="onIncPosition_01"></span><code>property <strong>onIncPosition_01</strong>: <a href="mi.rtl.Objects.Consts.ProgressDlg_If.TProgressDlg_If.html#TIncPosition_01">TIncPosition_01</a> Read _onIncPosition_01   Write  _onIncPosition_01;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+A propriedade <strong><code>onIncPosition_01</code></strong> deve ser implementada na classe visual para incrementar aDelta na posição atual do processamento.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><span id="onIncPosition"></span><code>property <strong>onIncPosition</strong>: <a href="mi.rtl.Objects.Consts.ProgressDlg_If.TProgressDlg_If.html#TIncPosition">TIncPosition</a> Read _onIncPosition   Write  _onIncPosition;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+A propriedade <strong><code>onIncPosition</code></strong> deve ser implementada na classe visual para incrementar 1 na posição atual do processamento.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><span id="OnRedraw"></span><code>property <strong>OnRedraw</strong>: <a href="mi.rtl.Objects.Consts.ProgressDlg_If.TProgressDlg_If.html#TRedraw">TRedraw</a> Read _OnRedraw   Write  _OnRedraw;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+A propriedade <strong><code>OnRedraw</code></strong> deve ser implementada na classe visual para atualizar a tela com a posição atual do processamento.</p>
+</td></tr>
+</table>
+<hr><span class="appinfo"><em>Gerado por <a href="https://pasdoc.github.io/">PasDoc 0.16.0</a>. </em>
+</span>
+</div></div></body></html>

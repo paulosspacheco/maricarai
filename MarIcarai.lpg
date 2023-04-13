@@ -25,6 +25,16 @@
           <Mode Name="x86_64-win64"/>
         </BuildModes>
       </Target>
+      <Target FileName="mi.rtl/units/horse/console/project1.lpi">
+        <BuildModes>
+          <Mode Name="Default"/>
+        </BuildModes>
+      </Target>
+      <Target FileName="../../../tmp/project1.lpi">
+        <BuildModes>
+          <Mode Name="Default"/>
+        </BuildModes>
+      </Target>
     </Targets>
   </ProjectGroup>
 </CONFIG>

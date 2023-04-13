@@ -7,9 +7,9 @@
     <CompilerOptions>
       <Version Value="11"/>
       <SearchPaths>
-        <IncludeFiles Value="$(ProjOutDir);units/include/linux;units/include/windows;units"/>
+        <IncludeFiles Value="$(ProjOutDir);units/include/linux;units/include/windows;units;units/horse/src"/>
         <Libraries Value="lib/$(TargetCPU)-$(TargetOS)/lib"/>
-        <OtherUnitFiles Value="units"/>
+        <OtherUnitFiles Value="units;units/horse/src"/>
         <UnitOutputDirectory Value="lib/$(TargetCPU)-$(TargetOS)/units"/>
       </SearchPaths>
       <Parsing>

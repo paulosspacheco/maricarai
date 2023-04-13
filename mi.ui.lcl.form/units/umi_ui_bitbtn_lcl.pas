@@ -35,8 +35,8 @@ uses
 
 type
   { TMi_BitBtn_LCL }
-  {: A classe **@name** é necessária para que se possa selecionar o controle associado
-     ao botão criado pelo método: pDmxFieldRec^.createExecAction.
+  {: A classe ** @name ** é necessária para que se possa selecionar o controle associado
+     ao botão criado pelo método: pDmxFieldRec^.createExecAction na construção da classe **TDmxScroller_Form_Lcl**.
   }
   TMi_BitBtn_LCL = class(TBitBtn)
 
@@ -56,7 +56,7 @@ type
       Private Procedure SeTDmxFieldRec (apDmxFieldRec : pDmxFieldRec );
 
 
-      {: A propriedade **@name** fornece os dados necessários para criar o componente TMI_BitBtn_LCL.
+      {: A propriedade **@name** fornece os dados necessários para criar o componente TMI_BitBtn_LCL .
 
          - **NOTA**
            - Esses dados devem ser criados pelo método DmxScroller_Form_Lcl_attributesr.CreateStruct(var ATemplate : TString)

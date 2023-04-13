@@ -94,10 +94,12 @@
 ./mi.rtl/units/mi.rtl.objects.methods.streambase.stream.pas
 ./mi.rtl/mi.rtl.pas
 ./mi.ui.web/mi.ui.web.test/units/unit1.pas
+./unit1.pas
 ./mi.ui.lcl.form/temp/test/project1.lpr
 ./mi.rtl/examples/mi.rtl.tests/mi.rtl.tests.lpr
 ./mi.rtl/examples/console/project1.lpr
 ./mi.ui.web/mi.ui.web.test/httpproject1.lpr
+./project1.lpr
 ./mi.rtl/units/include/linux/errormessage.inc
 ./mi.rtl/units/include/linux/errormessage_doc.inc
 ./mi.rtl/units/include/windows/erromessage_doc.inc

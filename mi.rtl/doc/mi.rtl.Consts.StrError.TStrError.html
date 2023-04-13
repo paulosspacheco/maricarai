@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<title>mi.rtl.Consts.StrError: Classe TStrError</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="generator" content="PasDoc 0.16.0">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<link rel="stylesheet" type="text/css" href="tipuesearch/tipuesearch.css">
+
+<link rel="StyleSheet" type="text/css" href="pasdoc.css">
+</head>
+<body>
+<div class="container"><div class="navigation">
+<ul><li><a href="AllUnits.html">Units</a></li><li><a href="ClassHierarchy.html">Hierarquia de Classes</a></li><li><a href="AllClasses.html">Classes, Interfaces, Objetos e Registros</a></li><li><a href="AllTypes.html">Tipos</a></li><li><a href="AllVariables.html">Variáveis</a></li><li><a href="AllConstants.html">Constantes</a></li><li><a href="AllFunctions.html">Funções e Procedimentos</a></li><li><a href="AllIdentifiers.html">Identificadores</a></li><li><form class="search-form" action="tipue_results.html"><div class="search-input"><input type="text" name="q" id="tipue_search_input" pattern=".{1,}" title="At least 1 characters" required><div class="search-button"><input type="button" id="tipue_search_button" onclick="this.form.submit();"></div></div></form>
+<div style="clear: both"></div>
+</li></ul></div><div class="content">
+<span id="TStrError"></span><h1 class="cio">Classe TStrError</h1>
+<div class="sections">
+<div class="one_section"><a class="section" href="#PasDoc-Description">Descrição</a></div><div class="one_section"><a class="section" href="#PasDoc-Hierarchy">Hierarquia</a></div><div class="one_section">Campos</div><div class="one_section"><a class="section" href="#PasDoc-Methods">Métodos</a></div><div class="one_section">Propriedades</div></div>
+<span id="PasDoc-Description"></span><h2 class="unit">Unit</h2>
+<p class="unitlink">
+<a href="mi.rtl.Consts.StrError.html">mi.rtl.Consts.StrError</a></p>
+<h2 class="declaration">Declaração</h2>
+<p class="declaration">
+<code>type TStrError = class(<a class="normal" href="mi.rtl.Consts.TConsts.html">TConsts</a>)</code></p>
+<h2 class="description">Descrição</h2>
+<p>
+A classe <strong><code>TStrError</code></strong> é usada para produzir texto informativo sobre o local onde o erro ocorreu.</p>
+<span id="PasDoc-Hierarchy"></span><h2 class="hierarchy">Hierarquia</h2>
+<ul class="hierarchy"><li class="ancestor">TObject</li>
+<li class="ancestor">TPersistent</li>
+<li class="ancestor">TComponent</li>
+<li class="ancestor"><a class="normal" href="mi.rtl.Types.TTypes.html">TTypes</a></li>
+<li class="ancestor"><a class="normal" href="mi.rtl.Consts.TConsts.html">TConsts</a></li>
+<li class="thisitem">TStrError</li></ul><h2 class="overview">Visão Geral</h2>
+<span id="PasDoc-Methods"></span><h3 class="summary">Métodos</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>class function <strong><a href="mi.rtl.Consts.StrError.TStrError.html#ErrorMessage">ErrorMessage</a></strong>(Const ErrorCode : <a href="mi.rtl.Types.TTypes.html#SmallWord">SmallWord</a>) : AnsiString; overload;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>class function <strong><a href="mi.rtl.Consts.StrError.TStrError.html#ErrorMessage">ErrorMessage</a></strong>(Const ErrorMsg : AnsiString) : AnsiString; overload;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>class function <strong><a href="mi.rtl.Consts.StrError.TStrError.html#ErrorMessage">ErrorMessage</a></strong>(const Sender: TObject; Const ErrorMsg : AnsiString) : AnsiString; overload;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>class function <strong><a href="mi.rtl.Consts.StrError.TStrError.html#ErrorMessage">ErrorMessage</a></strong>(const Sender: TObject;Const aMethodName, aFileName, AFieldName:AnsiString;aMsg:AnsiString):AnsiString; Overload;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>class function <strong><a href="mi.rtl.Consts.StrError.TStrError.html#ErrorMessage">ErrorMessage</a></strong>(const Sender: TObject;Const aMethodName, aFileName, AFieldName:AnsiString;aCodError:SmallInt):AnsiString; Overload;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>class function <strong><a href="mi.rtl.Consts.StrError.TStrError.html#ErrorMessage8">ErrorMessage8</a></strong>(Const aModule, aUnit, aObjectName, aMethodName, aFileName, AFieldName, aMessage, aProcedure_or_Function :AnsiString):AnsiString; Overload;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>class function <strong><a href="mi.rtl.Consts.StrError.TStrError.html#ErrorMessage7">ErrorMessage7</a></strong>(aModule, aUnit, aObjectName, aMethodName, aFileName, AFieldName:AnsiString; aCodError:SmallInt):AnsiString; Overload;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>class function <strong><a href="mi.rtl.Consts.StrError.TStrError.html#ErrorMessage7">ErrorMessage7</a></strong>(aModule, aUnit, aObjectName, aMethodName, aFileName, AFieldName:AnsiString; aMessage:AnsiString):AnsiString; Overload;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>class function <strong><a href="mi.rtl.Consts.StrError.TStrError.html#ErrorMessage6">ErrorMessage6</a></strong>(aModule, aObjectName, aMethodName, aFileName, AFieldName:AnsiString; aCodError:SmallInt):AnsiString; Overload;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>class function <strong><a href="mi.rtl.Consts.StrError.TStrError.html#ErrorMessage5">ErrorMessage5</a></strong>(aModule, aUnit, aObjectName, aMethodName :AnsiString; aCodError:SmallInt):AnsiString; Overload;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>class function <strong><a href="mi.rtl.Consts.StrError.TStrError.html#ErrorMessage5">ErrorMessage5</a></strong>(aModule, aUnit, aObjectName, aMethodName :AnsiString; aMsgError:AnsiString):AnsiString; Overload;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>class function <strong><a href="mi.rtl.Consts.StrError.TStrError.html#ErrorMessage4">ErrorMessage4</a></strong>(Const aModule, aUnit, Procedure_or_function:AnsiString; aCodError:SmallInt):AnsiString; Overload;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>class function <strong><a href="mi.rtl.Consts.StrError.TStrError.html#ErrorMessage4">ErrorMessage4</a></strong>(Const aModule, aUnit, Procedure_or_function:AnsiString; aMessage:AnsiString):AnsiString; Overload;</code></td>
+</tr>
+</table>
+<h2 class="description">Descrição</h2>
+<h3 class="detail">Métodos</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="ErrorMessage"></span><code>class function <strong>ErrorMessage</strong>(Const ErrorCode : <a href="mi.rtl.Types.TTypes.html#SmallWord">SmallWord</a>) : AnsiString; overload;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+A função <strong><code>ErrorMessage</code></strong> retorna um texto com o nome do erro passado por ErrorCode
+
+<p></p>
+
+<ul class="paragraph_spacing">
+  <li><p><strong>PARÂMETRO</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p><strong>ErrorCode</strong> - Número do erro</p></li>
+</ul>
+
+<p></p></li>
+  <li><p><strong>RETORNA</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Nome do erro</p></li>
+</ul>
+
+<p></p></li>
+  <li><p><strong>NOTA</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>A versão abaixo é usada quando o sistema é windows, a mesma tem o nome do erro no linux e o nome do erro no windows separada com a palavra <strong>ou</strong>.</p></li>
+  <li><p>Quando a plataforma é linux a mensagem que aparece é os erros no linux.</p></li>
+</ul>
+
+<p></p></li>
+  <li><p><strong>LISTA DOS ERROS POSSÍVEIS</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>[ErrorMessage.inc](./units/include/windows/ErrorMessage.inc)</p></li>
+  <li><p>[ErrorMessage.inc](./units/include/linux/ErrorMessage.inc)</p></li>
+</ul>
+
+<p> </p>
+
+<pre class="longcode">
+
+<span class="pascal_numeric">0</span>: Result := <span class="pascal_string">'000: Chamada inválida a função Result.'</span>;
+
+<span class="pascal_comment">{1..99 RESERVADO PARA ERROS DO DOS}</span>
+<span class="pascal_numeric">1</span>: Result := <span class="pascal_string">'EPERM 1: Operação não permitida'</span>;
+<span class="pascal_numeric">2</span>: Result := <span class="pascal_string">'ENOENT 2 FileName ou diretório inexistente'</span>;
+<span class="pascal_numeric">3</span>: Result := <span class="pascal_string">'ESRCH 3 Processo inexistente'</span>;
+<span class="pascal_numeric">4</span>: Result := <span class="pascal_string">'EINTR 4 Chamada de sistema interrompida'</span>;
+<span class="pascal_numeric">5</span>: Result := <span class="pascal_string">'EIO 5 Erro de entrada/saída'</span>;
+<span class="pascal_numeric">6</span>: Result := <span class="pascal_string">'ENXIO 6 Endereço ou dispositivo inexistente'</span>;
+<span class="pascal_numeric">7</span>: Result := <span class="pascal_string">'E2BIG 7 Lista de argumentos muito longa'</span>;
+<span class="pascal_numeric">8</span>: Result := <span class="pascal_string">'ENOEXEC 8 Erro no formato exec'</span>;
+<span class="pascal_numeric">9</span>: Result := <span class="pascal_string">'EBADF 9 Descritor de FileName inválido'</span>;
+<span class="pascal_numeric">10</span>: Result := <span class="pascal_string">'ECHILD 10 Não há processos filhos'</span>;
+<span class="pascal_numeric">11</span>: Result := <span class="pascal_string">'EAGAIN 11 Recurso temporariamente indisponível'</span>;
+<span class="pascal_numeric">12</span>: Result := <span class="pascal_string">'ENOMEM 12 Não foi possível alocar memória'</span>;
+<span class="pascal_numeric">13</span>: Result := <span class="pascal_string">'EACCES 13 Permissão negada'</span>;
+<span class="pascal_numeric">14</span>: Result := <span class="pascal_string">'EFAULT 14 Endereço inválido'</span>;
+<span class="pascal_numeric">15</span>: Result := <span class="pascal_string">'ENOTBLK 15 Dispositivo de bloco requerido'</span>;
+<span class="pascal_numeric">16</span>: Result := <span class="pascal_string">'EBUSY 16 Dispositivo ou recurso está ocupado'</span>;
+<span class="pascal_numeric">17</span>: Result := <span class="pascal_string">'EEXIST 17 FileName existe'</span>;
+<span class="pascal_numeric">18</span>: Result := <span class="pascal_string">'EXDEV 18 Link entre dispositivos inválido'</span>;
+<span class="pascal_numeric">19</span>: Result := <span class="pascal_string">'ENODEV 19 Dispositivo inexistente'</span>;
+<span class="pascal_numeric">20</span>: Result := <span class="pascal_string">'ENOTDIR 20 Não é um diretório'</span>;
+<span class="pascal_numeric">21</span>: Result := <span class="pascal_string">'EISDIR 21 É um diretório'</span>;
+<span class="pascal_numeric">22</span>: Result := <span class="pascal_string">'EINVAL 22 Argumento inválido'</span>;
+<span class="pascal_numeric">23</span>: Result := <span class="pascal_string">'ENFILE 23 Muitos FileNames abertos no sistema'</span>;
+<span class="pascal_numeric">24</span>: Result := <span class="pascal_string">'EMFILE 24 Muitos FileNames abertos'</span>;
+<span class="pascal_numeric">25</span>: Result := <span class="pascal_string">'ENOTTY 25 ioctl inapropriado para dispositivo'</span>;
+<span class="pascal_numeric">26</span>: Result := <span class="pascal_string">'ETXTBSY 26 Área de texto ocupada'</span>;
+<span class="pascal_numeric">27</span>: Result := <span class="pascal_string">'EFBIG 27 FileName muito grande'</span>;
+<span class="pascal_numeric">28</span>: Result := <span class="pascal_string">'ENOSPC 28 Não há espaço disponível no dispositivo'</span>;
+<span class="pascal_numeric">29</span>: Result := <span class="pascal_string">'ESPIPE 29 Procura ilegal'</span>;
+<span class="pascal_numeric">30</span>: Result := <span class="pascal_string">'EROFS 30 Sistema de FileNames somente para leitura'</span>;
+<span class="pascal_numeric">31</span>: Result := <span class="pascal_string">'EMLINK 31 Muitos links'</span>;
+<span class="pascal_numeric">32</span>: Result := <span class="pascal_string">'EPIPE 32 Pipe quebrado'</span>;
+<span class="pascal_numeric">33</span>: Result := <span class="pascal_string">'EDOM 33 Argumento numérico fora de domínio'</span>;
+<span class="pascal_numeric">34</span>: Result := <span class="pascal_string">'ERANGE 34 Resultado numérico fora de alcance'</span>;
+<span class="pascal_numeric">35</span>: Result := <span class="pascal_string">'EDEADLK 35 Evitado deadlock de recurso'</span>;
+<span class="pascal_numeric">36</span>: Result := <span class="pascal_string">'ENAMETOOLONG 36 Nome de FileName muito longo'</span>;
+<span class="pascal_numeric">37</span>: Result := <span class="pascal_string">'ENOLCK 37 Não há travas disponíveis'</span>;
+<span class="pascal_numeric">38</span>: Result := <span class="pascal_string">'ENOSYS 38 Função não implementada'</span>;
+<span class="pascal_numeric">39</span>: Result := <span class="pascal_string">'ENOTEMPTY 39 Diretório não vazio'</span>;
+<span class="pascal_numeric">40</span>: Result := <span class="pascal_string">'ELOOP 40 Muitos níveis de links simbólicos'</span>;
+<span class="pascal_numeric">41</span>: Result := <span class="pascal_string">'EWOULDBLOCK 41 Recurso temporariamente indisponível'</span>;
+<span class="pascal_numeric">42</span>: Result := <span class="pascal_string">'ENOMSG 42 Não há mensagens do tipo desejado'</span>;
+<span class="pascal_numeric">43</span>: Result := <span class="pascal_string">'EIDRM 43 Identificador removido'</span>;
+<span class="pascal_numeric">44</span>: Result := <span class="pascal_string">'ECHRNG 44 Número do canal fora do intervalo'</span>;
+<span class="pascal_numeric">45</span>: Result := <span class="pascal_string">'EL2NSYNC 45 Nível 2 não sincronizado'</span>;
+<span class="pascal_numeric">46</span>: Result := <span class="pascal_string">'EL3HLT 46 Nível 3 parado'</span>;
+<span class="pascal_numeric">47</span>: Result := <span class="pascal_string">'EL3RST 47 Nível 3 reiniciado'</span>;
+<span class="pascal_numeric">48</span>: Result := <span class="pascal_string">'ELNRNG 48 Número de link fora da faixa'</span>;
+<span class="pascal_numeric">49</span>: Result := <span class="pascal_string">'EUNATCH 49 Driver de protocolo não anexado'</span>;
+<span class="pascal_numeric">50</span>: Result := <span class="pascal_string">'ENOCSI 50 Não há estrutura CSI disponível'</span>;
+<span class="pascal_numeric">51</span>: Result := <span class="pascal_string">'EL2HLT 51 Parada de sistema nível 2'</span>;
+<span class="pascal_numeric">52</span>: Result := <span class="pascal_string">'EBADE 52 Troca inválida'</span>;
+<span class="pascal_numeric">53</span>: Result := <span class="pascal_string">'EBADR 53 Descritor de requisição inválido'</span>;
+<span class="pascal_numeric">54</span>: Result := <span class="pascal_string">'EXFULL 54 Troca completa'</span>;
+<span class="pascal_numeric">55</span>: Result := <span class="pascal_string">'ENOANO 55 Sem anode'</span>;
+<span class="pascal_numeric">56</span>: Result := <span class="pascal_string">'EBADRQC 56 Código de requisição inválido'</span>;
+<span class="pascal_numeric">57</span>: Result := <span class="pascal_string">'EBADSLT 57 Slot inválido'</span>;
+<span class="pascal_numeric">58</span>: Result := <span class="pascal_string">'EDEADLOCK 35 Evitado deadlock de recurso'</span>;
+<span class="pascal_numeric">59</span>: Result := <span class="pascal_string">'EBFONT 59 Formato do FileName fonte inválido'</span>;
+<span class="pascal_numeric">60</span>: Result := <span class="pascal_string">'ENOSTR 60 Dispositivo não é um stream'</span>;
+<span class="pascal_numeric">61</span>: Result := <span class="pascal_string">'ENODATA 61 Não há dados disponíveis'</span>;
+<span class="pascal_numeric">62</span>: Result := <span class="pascal_string">'ETIME 62 Tempo expirado'</span>;
+<span class="pascal_numeric">63</span>: Result := <span class="pascal_string">'ENOSR 63 Sem recursos de streams'</span>;
+<span class="pascal_numeric">64</span>: Result := <span class="pascal_string">'ENOSR 64 Sem recursos de streams'</span>;
+<span class="pascal_numeric">65</span>: Result := <span class="pascal_string">'ENOPKG 65 Pacote não instalado'</span>;
+<span class="pascal_numeric">66</span>: Result := <span class="pascal_string">'EREMOTE 66 ObjectName é remoto'</span>;
+<span class="pascal_numeric">67</span>: Result := <span class="pascal_string">'ENOLINK 67 Link foi cortado'</span>;
+<span class="pascal_numeric">68</span>: Result := <span class="pascal_string">'EADV 68 Erro de aviso'</span>;
+<span class="pascal_numeric">69</span>: Result := <span class="pascal_string">'ESRMNT 69 Erro de sr mount'</span>;
+<span class="pascal_numeric">70</span>: Result := <span class="pascal_string">'COMM 70 Erro de comunicação ao enviar'</span>;
+<span class="pascal_numeric">71</span>: Result := <span class="pascal_string">'EPROTO 71 Erro de protocolo'</span>;
+<span class="pascal_numeric">72</span>: Result := <span class="pascal_string">'EMULTIHOP 72 Tentativa de Multi hop'</span>;
+<span class="pascal_numeric">73</span>: Result := <span class="pascal_string">'EDOTDOT 73 Erro específico de RFS'</span>;
+<span class="pascal_numeric">74</span>: Result := <span class="pascal_string">'EBADMSG 74 Mensagem inválida'</span>;
+<span class="pascal_numeric">75</span>: Result := <span class="pascal_string">'EOVERFLOW 75 Valor muito grande para o tipo de dados definido'</span>;
+<span class="pascal_numeric">76</span>: Result := <span class="pascal_string">'ENOTUNIQ 76 O nome não é único na rede'</span>;
+<span class="pascal_numeric">77</span>: Result := <span class="pascal_string">'EBADFD 77 Descritor de FileName em mal estado'</span>;
+<span class="pascal_numeric">78</span>: Result := <span class="pascal_string">'EREMCHG 78 Endereço remoto alterado'</span>;
+<span class="pascal_numeric">79</span>: Result := <span class="pascal_string">'ELIBACC 79 Não foi possível acessar uma biblioteca compartilhada'</span>;
+<span class="pascal_numeric">80</span>: Result := <span class="pascal_string">'ELIBBAD 80 Acessando uma biblioteca compartilhado corrompida'</span>;
+<span class="pascal_numeric">81</span>: Result := <span class="pascal_string">'ELIBSCN 81 Seção .lib corrompida em a.out'</span>;
+<span class="pascal_numeric">82</span>: Result := <span class="pascal_string">'ELIBMAX 82 Tentando vincular em muitas bibliotecas compartilhadas'</span>;
+<span class="pascal_numeric">83</span>: Result := <span class="pascal_string">'ELIBEXEC 83 Não foi possível executar uma biblioteca compartilhado diretamente'</span>;
+<span class="pascal_numeric">84</span>: Result := <span class="pascal_string">'EILSEQ 84 Multi byte ou caractere largo inválido'</span>;
+<span class="pascal_numeric">85</span>: Result := <span class="pascal_string">'ERESTART 85 Chamada de sistema interrompida deve ser reiniciada'</span>;
+<span class="pascal_numeric">86</span>: Result := <span class="pascal_string">'ESTRPIPE 86 Erro de fluxos de pipe'</span>;
+<span class="pascal_numeric">87</span>: Result := <span class="pascal_string">'EUSERS 87 Muitos usuários'</span>;
+<span class="pascal_numeric">88</span>: Result := <span class="pascal_string">'ENOTSOCK 88 Operação socket em um FileName não-socket'</span>;
+<span class="pascal_numeric">89</span>: Result := <span class="pascal_string">'EDESTADDRREQ 89 Endereço de destino requerido'</span>;
+<span class="pascal_numeric">90</span>: Result := <span class="pascal_string">'EMSGSIZE 90 Mensagem muito longa'</span>;
+<span class="pascal_numeric">91</span>: Result := <span class="pascal_string">'EPROTOTYPE 91 Tipo errado de protocolo para socket'</span>;
+<span class="pascal_numeric">92</span>: Result := <span class="pascal_string">'ENOPROTOOPT 92 Protocolo não disponível'</span>;
+<span class="pascal_numeric">93</span>: Result := <span class="pascal_string">'EPROTONOSUPPORT 93 Protocolo sem suporte'</span>;
+<span class="pascal_numeric">94</span>: Result := <span class="pascal_string">'ESOCKTNOSUPPORT 94 Tipo socket sem suporte'</span>;
+<span class="pascal_numeric">95</span>: Result := <span class="pascal_string">'EOPNOTSUPP 95 Operação sem suporte'</span>;
+<span class="pascal_numeric">96</span>: Result := <span class="pascal_string">'EPFNOSUPPORT 96 Família de protocolo sem suporte'</span>;
+<span class="pascal_numeric">97</span>: Result := <span class="pascal_string">'EAFNOSUPPORT 97 Família de endereços sem suporte pelo protocolo'</span>;
+<span class="pascal_numeric">98</span>: Result := <span class="pascal_string">'EADDRINUSE 98 Endereço já em uso'</span>;
+<span class="pascal_numeric">99</span>: Result := <span class="pascal_string">'EADDRNOTAVAIL 99 Não foi possível acessar o endereço requisitado'</span>;
+
+<span class="pascal_comment">{100 A 149 ERROS DE ENTRADA E SAIDA (I/O)}</span>
+<span class="pascal_numeric">100</span>: Result := <span class="pascal_string">'100: Erro ao ler o disco'</span>;<span class="pascal_comment">//EndOfFile no delphi</span>
+<span class="pascal_numeric">101</span>: Result := <span class="pascal_string">'101: Erro ao gravar no disco'</span>;<span class="pascal_comment">//DiskFull no delphi</span>
+<span class="pascal_numeric">102</span>: Result := <span class="pascal_string">'102: FileName não assinalado (falta ASSIGN) '</span>;
+<span class="pascal_numeric">103</span>: Result := <span class="pascal_string">'103: FileName fechado'</span>;
+<span class="pascal_numeric">104</span>: Result := <span class="pascal_string">'104: O FileName fechado para entrada'</span>;
+<span class="pascal_numeric">105</span>: Result := <span class="pascal_string">'105: O FileName fechado para saída'</span>;
+<span class="pascal_numeric">106</span>: Result := <span class="pascal_string">'106: Formato numérico inválido ou incompatÍvel'</span>;
+<span class="pascal_numeric">107</span>: Result := <span class="pascal_string">'107: Disco cheio'</span>;
+<span class="pascal_numeric">108</span>..149:
+    Result := <span class="pascal_string">'108..149: Reservado para I/O '</span>;
+
+<span class="pascal_comment">{150..199 RESERVADO PARA ERROS CRITICOS}</span>
+<span class="pascal_numeric">150</span>: Result := <span class="pascal_string">'150: Disco protegido'</span>;
+<span class="pascal_numeric">151</span>: Result := <span class="pascal_string">'151: UNIT desconhecida'</span>;
+<span class="pascal_numeric">152</span>: Result := <span class="pascal_string">'152: Drive não esta pronto'</span>;
+<span class="pascal_numeric">153</span>: Result := <span class="pascal_string">'153: Comando desconhecido'</span>;
+<span class="pascal_numeric">154</span>: Result := <span class="pascal_string">'154: Erro na CRC de dados'</span>;
+<span class="pascal_numeric">155</span>: Result := <span class="pascal_string">'155: Erro no drive solicitado pelo tamanho'</span>;
+<span class="pascal_numeric">156</span>: Result := <span class="pascal_string">'156: Erro no posicionamento de disco'</span>;
+<span class="pascal_numeric">157</span>: Result := <span class="pascal_string">'157: Tipo de meio desconhecido'</span>;
+<span class="pascal_numeric">158</span>: Result := <span class="pascal_string">'158: Setor não encontrado'</span>;
+<span class="pascal_numeric">159</span>: Result := <span class="pascal_string">'159: Impressora sem papel'</span>;
+<span class="pascal_numeric">160</span>: Result := <span class="pascal_string">'160: Erro de escrita no dispositivo de saída ( Impressora )'</span>;
+<span class="pascal_numeric">161</span>: Result := <span class="pascal_string">'161: Falta dispositivo de entrada ( Leitura )'</span>;
+<span class="pascal_numeric">162</span>: Result := <span class="pascal_string">'162: Falta hardware ( equipamento )'</span>;
+<span class="pascal_numeric">163</span>..199:
+    Result := <span class="pascal_string">'163..199: RESERVADO PARA ERROS CRITICOS'</span>;
+
+<span class="pascal_comment">{200..255 RESERVADO PARA ERROS FATAL}</span>
+<span class="pascal_numeric">200</span>: Result := <span class="pascal_string">'200: Divisão por zero'</span>;
+<span class="pascal_numeric">201</span>: Result := <span class="pascal_string">'201: Error na checagem de faixa'</span>;
+<span class="pascal_numeric">202</span>: Result := <span class="pascal_string">'202: Estouro no stack de memória'</span>;
+<span class="pascal_numeric">203</span>: Result := <span class="pascal_string">'203: Estouro no heap de memória'</span>;
+<span class="pascal_numeric">204</span>: Result := <span class="pascal_string">'204: Operação de pointer inválida'</span>;
+<span class="pascal_numeric">205</span>: Result := <span class="pascal_string">'205: Estouro em operação com ponto flutuante'</span>;
+<span class="pascal_numeric">206</span>: Result := <span class="pascal_string">'206: Erro de underflow com ponto-flutuante (Somente com 8087) '</span>;
+<span class="pascal_numeric">207</span>: Result := <span class="pascal_string">'207: Operação inválida com ponto flutuante'</span>;
+<span class="pascal_numeric">208</span>: Result := <span class="pascal_string">'208: Gerenciador de Overlay não instalado'</span>;
+<span class="pascal_numeric">209</span>: Result := <span class="pascal_string">'209: Erro da leitura no FileName de overlay'</span>;
+<span class="pascal_numeric">210</span>: Result := <span class="pascal_string">'210: ObjectName não inicializado'</span>;
+<span class="pascal_numeric">211</span>: Result := <span class="pascal_string">'211: Chamada a um MethodName abstrato'</span>;
+<span class="pascal_numeric">212</span>: Result := <span class="pascal_string">'212: Stream registration error'</span>;
+
+<span class="pascal_numeric">213</span>: Result := <span class="pascal_string">'213: Collection index out of range'</span>;
+<span class="pascal_numeric">214</span>: Result := <span class="pascal_string">'214: Collection overflow error'</span>;
+<span class="pascal_numeric">215</span>: Result := <span class="pascal_string">'215: Arithmetic overflow error'</span>;
+<span class="pascal_numeric">216</span>: Result := <span class="pascal_string">'216: General Protection fault'</span>;
+
+<span class="pascal_comment">{MarIcarai 217..255}</span>
+<span class="pascal_numeric">217</span>: Result := <span class="pascal_string">'217: Tentativa de abrir um FileName aberto.'</span>;
+<span class="pascal_numeric">218</span>: Result := <span class="pascal_string">'218: Tentativa de excluir um registro excluido'</span>;
+<span class="pascal_numeric">219</span>: Result := <span class="pascal_string">'219: Tentativa de ler um registro excluído'</span>;
+<span class="pascal_numeric">220</span>: Result := <span class="pascal_string">'220: Outro usuário da rede alterou o registro'</span>;
+<span class="pascal_numeric">221</span>: Result := <span class="pascal_string">'221: Estrutura da tabela esta danificada'</span>;
+<span class="pascal_numeric">222</span>: Result := <span class="pascal_string">'222: Tentativa de gravar em um registro compartilhado sem que o mesmo esteja travado'</span>;
+
+<span class="pascal_comment">{ApCLiSvr.pas}</span>
+<span class="pascal_numeric">223</span>: Result := <span class="pascal_string">'223: Evento executado por outro processo'</span>;
+<span class="pascal_numeric">224</span>: Result := <span class="pascal_string">'224: Servidor de API não instalado'</span>;
+
+<span class="pascal_numeric">225</span>: Result := <span class="pascal_string">'225: TTransaction.Commit esperado.'</span>;<span class="pascal_comment">//TTransaction</span>
+<span class="pascal_numeric">226</span>: Result := <span class="pascal_string">'226: Não é uma expressão válida'</span>;
+<span class="pascal_numeric">227</span>: Result := <span class="pascal_string">'227: Muitos parentese na expressão'</span>;
+<span class="pascal_numeric">228</span>: Result := <span class="pascal_string">'228: Muitos operadores na expressão'</span>;
+<span class="pascal_numeric">229</span>: Result := <span class="pascal_string">'229: Operador aritmético esperado na expressão'</span>;
+<span class="pascal_numeric">230</span>: Result := <span class="pascal_string">'230: O Número não pode ser lido na expressão'</span>;
+
+REC_TOO_LARGE   :  Result  := <span class="pascal_string">'Tamanho do registro em memória maior que o permitido (MaxDataRecSize)'</span>;
+REC_TOO_SMALL   :  Result  := <span class="pascal_string">'Tamanho do Registro e muito longo'</span>;
+KeyTooLarge     :  Result  := <span class="pascal_string">'Tamanho da chave maior do que o maximo permitido (MaxKeyLen) '</span>;
+RecSizeMismatch :  Result  := <span class="pascal_string">'Registro de dados incompatÍvel com a estrutura corrente. '</span>;
+KeySizeMismatch :  Result  := <span class="pascal_string">'Tamanho da pagina ou chave incompatÍvel com a estrutura corrente'</span>;
+MemOverflow     :  Result  := <span class="pascal_string">'Não ha memória para os indice dos FileNames'</span>;
+ArqIndexInconsistente
+                :  Result  := <span class="pascal_string">'FileName de indice inconsistente.'</span>;
+<span class="pascal_numeric">238</span>             :  Result := <span class="pascal_string">'238: O gerente de transacoes esta inativo'</span>; <span class="pascal_comment">//TTransaction</span>
+<span class="pascal_numeric">239</span>             :  Result := <span class="pascal_string">'239: Excecao inesperada'</span>;
+<span class="pascal_numeric">240</span>: Result     := <span class="pascal_string">'240: Acesso negado ao FileName por falta de autorizacao de seu superior imediato'</span>;
+<span class="pascal_numeric">241</span>: Result     := <span class="pascal_string">'241: Registro não localizado'</span>; <span class="pascal_comment">// Erros retornados nas buscas de registros</span>
+<span class="pascal_numeric">242</span>: Result     := <span class="pascal_string">'242: O evento OnEnter Retornou falso'</span>;
+<span class="pascal_numeric">243</span>: Result     := <span class="pascal_string">'242: O evento OnExit Retornou falso'</span>;
+<span class="pascal_numeric">244</span>
+245             := <span class="pascal_string">'245 attempt_to_edit_a_record_not_selecting'</span>
+..
+<span class="pascal_numeric">254</span>: Result := <span class="pascal_string">'238..254: RESERVADO PARA ERROS FATAIS'</span>;
+<span class="pascal_numeric">255</span>: Result := <span class="pascal_string">'255: &circ;C. Sistema abortado.'</span>;
+
+<span class="pascal_keyword">ELSE</span> Result := <span class="pascal_string">'Erro indefinido Maior que 255'</span>;</pre>
+
+<p></p></li>
+  <li><p><strong>REFERÊNCIAS</strong>: </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Lista de erros do Lazarus: <a href="https://wiki.lazarus.freepascal.org/RunError">https://wiki.lazarus.freepascal.org/RunError</a></p></li>
+  <li><p>FreePascal - acesso a FileNames. : <a href="https://www.freepascal.org/docs-html/rtl/system/ioresult.html">https://www.freepascal.org/docs-html/rtl/system/ioresult.html</a></p></li>
+  <li><p>windows: <a href="https://docs.microsoft.com/pt-br/cpp/c-runtime-library/errno-constants?view=msvc-170">https://docs.microsoft.com/pt-br/cpp/c-runtime-library/errno-constants?view=msvc-170</a></p></li>
+  <li><p>DOS: <a href="https://docs.microsoft.com/pt-br/cpp/c-runtime-library/errno-doserrno-sys-errlist-and-sys-nerr?view=msvc-170">https://docs.microsoft.com/pt-br/cpp/c-runtime-library/errno-doserrno-sys-errlist-and-sys-nerr?view=msvc-170</a></p></li>
+  <li><p>Linux: <a href="https://man7.org/linux/man-pages/man3/errno.3.html">https://man7.org/linux/man-pages/man3/errno.3.html</a></p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="ErrorMessage"></span><code>class function <strong>ErrorMessage</strong>(Const ErrorMsg : AnsiString) : AnsiString; overload;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+O método <strong><code>ErrorMessage</code></strong> receber uma mensagem e retorna a mesagem formatada.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="ErrorMessage"></span><code>class function <strong>ErrorMessage</strong>(const Sender: TObject; Const ErrorMsg : AnsiString) : AnsiString; overload;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="ErrorMessage"></span><code>class function <strong>ErrorMessage</strong>(const Sender: TObject;Const aMethodName, aFileName, AFieldName:AnsiString;aMsg:AnsiString):AnsiString; Overload;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="ErrorMessage"></span><code>class function <strong>ErrorMessage</strong>(const Sender: TObject;Const aMethodName, aFileName, AFieldName:AnsiString;aCodError:SmallInt):AnsiString; Overload;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="ErrorMessage8"></span><code>class function <strong>ErrorMessage8</strong>(Const aModule, aUnit, aObjectName, aMethodName, aFileName, AFieldName, aMessage, aProcedure_or_Function :AnsiString):AnsiString; Overload;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="ErrorMessage7"></span><code>class function <strong>ErrorMessage7</strong>(aModule, aUnit, aObjectName, aMethodName, aFileName, AFieldName:AnsiString; aCodError:SmallInt):AnsiString; Overload;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="ErrorMessage7"></span><code>class function <strong>ErrorMessage7</strong>(aModule, aUnit, aObjectName, aMethodName, aFileName, AFieldName:AnsiString; aMessage:AnsiString):AnsiString; Overload;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="ErrorMessage6"></span><code>class function <strong>ErrorMessage6</strong>(aModule, aObjectName, aMethodName, aFileName, AFieldName:AnsiString; aCodError:SmallInt):AnsiString; Overload;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="ErrorMessage5"></span><code>class function <strong>ErrorMessage5</strong>(aModule, aUnit, aObjectName, aMethodName :AnsiString; aCodError:SmallInt):AnsiString; Overload;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="ErrorMessage5"></span><code>class function <strong>ErrorMessage5</strong>(aModule, aUnit, aObjectName, aMethodName :AnsiString; aMsgError:AnsiString):AnsiString; Overload;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="ErrorMessage4"></span><code>class function <strong>ErrorMessage4</strong>(Const aModule, aUnit, Procedure_or_function:AnsiString; aCodError:SmallInt):AnsiString; Overload;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+A class <strong><code>ErrorMessage4</code></strong> formata um texto com os parãmetros passado</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="ErrorMessage4"></span><code>class function <strong>ErrorMessage4</strong>(Const aModule, aUnit, Procedure_or_function:AnsiString; aMessage:AnsiString):AnsiString; Overload;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+A class <strong><code>ErrorMessage4</code></strong> formata um texto com os parãmetros passado</p>
+</td></tr>
+</table>
+<hr><span class="appinfo"><em>Gerado por <a href="https://pasdoc.github.io/">PasDoc 0.16.0</a>. </em>
+</span>
+</div></div></body></html>

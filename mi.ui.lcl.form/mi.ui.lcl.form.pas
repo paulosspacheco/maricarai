@@ -13,8 +13,8 @@ uses
   umi_ui_radiogroup_lcl, uMi_ui_ComboBox_lcl, uMi_Ui_DBCheckBox_Lcl, 
   uMi_Ui_DbComboBox_lcl, uMI_ui_DbEdit_LCL, umi_ui_dblookupComboBox_lcl, 
   uMI_ui_DbRadioGroup_Lcl, uMi_ui_Label_lcl, uMi_ui_maskedit_lcl, 
-  uMi_ui_Dmxscroller_form_lcl, umi_ui_InputBox_lcl, 
-  umi_ui_dmxscroller_form_lcl_ds, LazarusPackageIntf;
+  uMi_ui_Dmxscroller_form_lcl, umi_ui_dmxscroller_form_lcl_ds, 
+  umi_ui_InputBox_lcl, LazarusPackageIntf;
 
 implementation
 

@@ -1,3 +1,7 @@
+// Para manter a compatibilidade de fonts com o windows instalar pacote:
+// sudo apt-get install msttcorefonts
+// Site: https://linuxhint.com/ttf-mscorefonts-installer/
+
 program mi.ui.lcl.form.test;
 {:< O programa **@name** é usado para testar o pacote mi.db configurado para gerar
     código para: win32, win64 e linux.
@@ -10,6 +14,7 @@ program mi.ui.lcl.form.test;
 
   - Instalação do Lazarus
     - [Manual do Usuário criado pelo: gladiston](https://gladiston.net.br/programacao/lazarus-ide/)
+    - [Instalar as fontes da Microsot para compatibilidade com o windows](https://linuxhint.com/ttf-mscorefonts-installer/)
 }
 
 {$IFDEF FPC}

@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<title>mi.ui.dialogs: Classe TDialogs</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="generator" content="PasDoc 0.16.0">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<link rel="stylesheet" type="text/css" href="tipuesearch/tipuesearch.css">
+
+<link rel="StyleSheet" type="text/css" href="pasdoc.css">
+</head>
+<body>
+<div class="container"><div class="navigation">
+<ul><li><a href="AllUnits.html">Units</a></li><li><a href="ClassHierarchy.html">Hierarquia de Classes</a></li><li><a href="AllClasses.html">Classes, Interfaces, Objetos e Registros</a></li><li><a href="AllTypes.html">Tipos</a></li><li><a href="AllVariables.html">Variáveis</a></li><li><a href="AllConstants.html">Constantes</a></li><li><a href="AllFunctions.html">Funções e Procedimentos</a></li><li><a href="AllIdentifiers.html">Identificadores</a></li><li><form class="search-form" action="tipue_results.html"><div class="search-input"><input type="text" name="q" id="tipue_search_input" pattern=".{1,}" title="At least 1 characters" required><div class="search-button"><input type="button" id="tipue_search_button" onclick="this.form.submit();"></div></div></form>
+<div style="clear: both"></div>
+</li></ul></div><div class="content">
+<span id="TDialogs"></span><h1 class="cio">Classe TDialogs</h1>
+<div class="sections">
+<div class="one_section"><a class="section" href="#PasDoc-Description">Descrição</a></div><div class="one_section"><a class="section" href="#PasDoc-Hierarchy">Hierarquia</a></div><div class="one_section">Campos</div><div class="one_section"><a class="section" href="#PasDoc-Methods">Métodos</a></div><div class="one_section">Propriedades</div></div>
+<span id="PasDoc-Description"></span><h2 class="unit">Unit</h2>
+<p class="unitlink">
+<a href="mi.ui.dialogs.html">mi.ui.dialogs</a></p>
+<h2 class="declaration">Declaração</h2>
+<p class="declaration">
+<code>type TDialogs = class(mi.rtl.objects.consts.dialogs.TDialogs)</code></p>
+<h2 class="description">Descrição</h2>
+<span id="PasDoc-Hierarchy"></span><h2 class="hierarchy">Hierarquia</h2>
+<ul class="hierarchy"><li class="ancestor">mi.rtl.objects.consts.dialogs.TDialogs</li>
+<li class="thisitem">TDialogs</li></ul><h2 class="overview">Visão Geral</h2>
+<span id="PasDoc-Methods"></span><h3 class="summary">Métodos</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>constructor <strong><a href="mi.ui.dialogs.TDialogs.html#Create">Create</a></strong>(aOwner: <a href="mi.rtl.Objects.Consts.TObjectsConsts.html">TObjectsConsts</a>); overload; override;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="mi.ui.dialogs.TDialogs.html#CreateMessageDialog">CreateMessageDialog</a></strong>( aCaption, aMsg: string; DlgType: TMsgDlgType; Buttons: TMsgDlgButtons): integer; overload;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>Procedure <strong><a href="mi.ui.dialogs.TDialogs.html#Alert">Alert</a></strong>(aTitle: AnsiString;aMsg:AnsiString); override;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>Function <strong><a href="mi.ui.dialogs.TDialogs.html#Confirm">Confirm</a></strong>(aTitle: AnsiString;aPergunta:AnsiString):Boolean; override;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>Function <strong><a href="mi.ui.dialogs.TDialogs.html#Prompt">Prompt</a></strong>(aTitle: AnsiString;aPergunta:AnsiString;Var aResult: AnsiString):Boolean; override;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>Function <strong><a href="mi.ui.dialogs.TDialogs.html#GetPassword">GetPassword</a></strong>(aTitle: AnsiString; var apassword:AnsiString):Boolean; Overload; override;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>Function <strong><a href="mi.ui.dialogs.TDialogs.html#GetPassword">GetPassword</a></strong>(aTitle: AnsiString; var aUsername:AnsiString; var apassword:AnsiString):Boolean; Overload; override;</code></td>
+</tr>
+</table>
+<h2 class="description">Descrição</h2>
+<h3 class="detail">Métodos</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Create"></span><code>constructor <strong>Create</strong>(aOwner: <a href="mi.rtl.Objects.Consts.TObjectsConsts.html">TObjectsConsts</a>); overload; override;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="CreateMessageDialog"></span><code>function <strong>CreateMessageDialog</strong>( aCaption, aMsg: string; DlgType: TMsgDlgType; Buttons: TMsgDlgButtons): integer; overload;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+</p>
+
+<ul class="paragraph_spacing">
+  <li><p>O método <strong><code>CreateMessageDialog</code></strong> mostra uma mensagem formatada onde a função reconhece &circ;M para passagem de linha, &circ;J retorno do carro e &circ;C.
+
+<p></p>
+
+<ul class="paragraph_spacing">
+  <li><p><strong>NOTA</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>O texto entre &circ;C vai ficar alinhado no centro do topo do formulário.</p></li>
+</ul>
+
+<p></p></li>
+  <li><p><strong>EXEMPLO</strong>
+
+<p></p>
+
+<pre class="longcode"></pre>
+
+<p></p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Alert"></span><code>Procedure <strong>Alert</strong>(aTitle: AnsiString;aMsg:AnsiString); override;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+</p>
+
+<ul class="paragraph_spacing">
+  <li><p>A procedure <strong><code>Alert</code></strong> executa um dialogo com botão <strong>OK</strong></p></li>
+</ul>
+
+<p></p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Confirm"></span><code>Function <strong>Confirm</strong>(aTitle: AnsiString;aPergunta:AnsiString):Boolean; override;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+</p>
+
+<ul class="paragraph_spacing">
+  <li><p>A procedure <strong><code>Confirm</code></strong> executa um diálogo com dois botões: <strong>OK</strong> e <strong>Cancel</strong>
+
+<p></p>
+
+<ul class="paragraph_spacing">
+  <li><p><strong>RETORNA:</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p><strong>True</strong> : Se o botão <strong>OK</strong> foi pŕessionando;</p></li>
+  <li><p><strong>False</strong> : Se o botão <strong>Cancel</strong> foi pŕessionando.</p></li>
+</ul>
+
+<p></p></li>
+  <li><p><strong>EXEMPLO</strong>
+
+<p></p>
+
+<pre class="longcode">
+
+<span class="pascal_keyword">procedure</span> TForm1.Test_tobjects_dlgs_Confirm;
+<span class="pascal_keyword">begin</span>
+  <span class="pascal_keyword">with</span> TObjectss.dlgs <span class="pascal_keyword">do</span>
+    <span class="pascal_keyword">if</span> Confirm(<span class="pascal_string">'Test_tobjects_dlgs_Confirm'</span>,<span class="pascal_string">'Continua o processamento?'</span>)
+    <span class="pascal_keyword">then</span> Alert(<span class="pascal_string">'Test_tobjects_dlgs_Confirm'</span>,<span class="pascal_string">'Confirmado a ação!'</span>)
+    <span class="pascal_keyword">else</span> Alert(<span class="pascal_string">'Test_tobjects_dlgs_Confirm'</span>,<span class="pascal_string">'Não confirmado a ação!'</span>);
+<span class="pascal_keyword">end</span>;</pre>
+
+<p></p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Prompt"></span><code>Function <strong>Prompt</strong>(aTitle: AnsiString;aPergunta:AnsiString;Var aResult: AnsiString):Boolean; override;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+</p>
+
+<ul class="paragraph_spacing">
+  <li><p>A função <strong><code>Prompt</code></strong> mostra um dialogo com dois botões <strong>OK</strong> e <strong>Cancel</strong> e uma entrada de dados solicitando que o usuário digite um valor.
+
+<p></p>
+
+<ul class="paragraph_spacing">
+  <li><p><strong>RETORNA:</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p><strong>True</strong> : Se o botão <strong>ok</strong> foi pŕessionando;</p></li>
+  <li><p><strong>False</strong> : Se o botão <strong>cancel</strong> foi pŕessionando.</p></li>
+  <li><p><strong>aResult</strong> : Retorna a string digitada no formulário;</p></li>
+</ul>
+
+<p></p></li>
+  <li><p><strong>EXEMPLO</strong>
+
+<p></p>
+
+<pre class="longcode">
+
+<span class="pascal_keyword">procedure</span> TForm1.Test_tobjects_dlgs_Prompt;
+  <span class="pascal_keyword">var</span> idade,fmt : <span class="pascal_keyword">string</span>;
+<span class="pascal_keyword">begin</span>
+  idade := <span class="pascal_string">''</span>;
+  <span class="pascal_keyword">with</span> TObjectss.dlgs <span class="pascal_keyword">do</span>
+    <span class="pascal_keyword">if</span> Prompt(<span class="pascal_string">'Test de Dlgs.Prompt'</span>,<span class="pascal_string">'Qual a sua idade'</span>,idade)
+    <span class="pascal_keyword">then</span> <span class="pascal_keyword">begin</span>
+           fmt := format(<span class="pascal_string">'Idade digitada: %s   '</span>+&circ;M+
+                         <span class="pascal_string">'Idade de meu pai é %d '</span>,[idade,<span class="pascal_numeric">102</span>]);
+           Alert(<span class="pascal_string">'Test de Dlgs.Prompt'</span>,fmt) <span class="pascal_comment">//</span>
+         <span class="pascal_keyword">end</span>
+    <span class="pascal_keyword">else</span> Alert(<span class="pascal_string">'Test de Dlgs.Prompt'</span>,<span class="pascal_string">'Ok. Respeito sua privacidade.'</span>);
+<span class="pascal_keyword">end</span>;</pre>
+
+<p></p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="GetPassword"></span><code>Function <strong>GetPassword</strong>(aTitle: AnsiString; var apassword:AnsiString):Boolean; Overload; override;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+</p>
+
+<ul class="paragraph_spacing">
+  <li><p>A função <strong><code>GetPassword</code></strong> mostra um diálogo para receber um valor sem mostrar o que foi digitado. O formulário possui dois botões <strong>OK</strong> e <strong>Cancel</strong>
+
+<p></p>
+
+<ul class="paragraph_spacing">
+  <li><p><strong>RETORNA:</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p><strong>True</strong> : Se o botão <strong>ok</strong> foi pressionado;</p></li>
+  <li><p><strong>False</strong> : Se o botão <strong>cancel</strong> foi pressionado.</p></li>
+  <li><p><strong>apassword</strong> : Retorna a string com a senha do usuário.</p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="GetPassword"></span><code>Function <strong>GetPassword</strong>(aTitle: AnsiString; var aUsername:AnsiString; var apassword:AnsiString):Boolean; Overload; override;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+</p>
+
+<ul class="paragraph_spacing">
+  <li><p>A função <strong><code>GetPassword</code></strong> mostra um dialogo solicitando o login do usuário e a senha e dois botões <strong>OK</strong> e <strong>Cancel</strong>
+
+<p></p>
+
+<ul class="paragraph_spacing">
+  <li><p><strong>RETORNA:</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p><strong>True</strong> : Se o botão <strong>ok</strong> foi pŕessionando;</p></li>
+  <li><p><strong>False</strong> : Se o botão <strong>cancel</strong> foi pŕessionando.</p></li>
+  <li><p><strong>aUsername</strong> : Retorna a string com nome do usuário.</p></li>
+  <li><p><strong>apassword</strong> : Retorna a string com a senha do usuário.</p></li>
+</ul>
+
+<p></p></li>
+  <li><p><strong>EXEMPLO</strong>
+
+<p></p>
+
+<pre class="longcode">
+
+<span class="pascal_keyword">procedure</span> TForm1.Test_tobjects_dlgs_password;
+  <span class="pascal_keyword">Var</span>
+    s,u : <span class="pascal_keyword">string</span>;
+<span class="pascal_keyword">begin</span>
+  s := <span class="pascal_string">''</span>;
+  <span class="pascal_keyword">with</span> TObjectss.dlgs <span class="pascal_keyword">do</span>
+    <span class="pascal_keyword">if</span> GetPassword(<span class="pascal_string">'Password'</span>,u,s)
+    <span class="pascal_keyword">then</span> Alert(<span class="pascal_string">'Password'</span>,<span class="pascal_string">'A senha digitada é: '</span>+S)
+    <span class="pascal_keyword">else</span> Alert(<span class="pascal_string">'Password'</span>,<span class="pascal_string">'Senha não informada'</span>);
+
+<span class="pascal_keyword">end</span>;</pre>
+
+<p></p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p>
+</td></tr>
+</table>
+<hr><span class="appinfo"><em>Gerado por <a href="https://pasdoc.github.io/">PasDoc 0.16.0</a>. </em>
+</span>
+</div></div></body></html>

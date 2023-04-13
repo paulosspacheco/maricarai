@@ -184,10 +184,6 @@
         <UnitName Value="uMi_ui_Dmxscroller_form_lcl"/>
       </Item>
       <Item>
-        <Filename Value="units/umi_ui_inputbox_lcl.pas"/>
-        <UnitName Value="umi_ui_InputBox_lcl"/>
-      </Item>
-      <Item>
         <Filename Value="units/umi_ui_dmxscroller_form_lcl_ds.pas"/>
         <HasRegisterProc Value="True"/>
         <UnitName Value="umi_ui_dmxscroller_form_lcl_ds"/>
@@ -195,6 +191,10 @@
       <Item>
         <Filename Value="units/umi_ui_inputbox_lcl.lfm"/>
         <Type Value="LFM"/>
+      </Item>
+      <Item>
+        <Filename Value="units/umi_ui_inputbox_lcl.pas"/>
+        <UnitName Value="umi_ui_InputBox_lcl"/>
       </Item>
     </Files>
     <RequiredPkgs>

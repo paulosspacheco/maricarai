@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<title>Todas as Units</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="generator" content="PasDoc 0.16.0">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<link rel="stylesheet" type="text/css" href="tipuesearch/tipuesearch.css">
+
+<link rel="StyleSheet" type="text/css" href="pasdoc.css">
+</head>
+<body>
+<div class="container"><div class="navigation">
+<ul><li><a href="AllUnits.html">Units</a></li><li><a href="ClassHierarchy.html">Hierarquia de Classes</a></li><li><a href="AllClasses.html">Classes, Interfaces, Objetos e Registros</a></li><li><a href="AllTypes.html">Tipos</a></li><li><a href="AllVariables.html">Variáveis</a></li><li><a href="AllConstants.html">Constantes</a></li><li><a href="AllFunctions.html">Funções e Procedimentos</a></li><li><a href="AllIdentifiers.html">Identificadores</a></li><li><form class="search-form" action="tipue_results.html"><div class="search-input"><input type="text" name="q" id="tipue_search_input" pattern=".{1,}" title="At least 1 characters" required><div class="search-button"><input type="button" id="tipue_search_button" onclick="this.form.submit();"></div></div></form>
+<div style="clear: both"></div>
+</li></ul></div><div class="content">
+<h1 class="allitems">Todas as Units</h1>
+<table class="unitstable wide_list">
+<tr class="listheader">
+<th class="itemname">Nome</th>
+<th class="itemdesc">Descrição</th>
+</tr>
+<tr class="list">
+<td class="itemname"><a class="bold" href="uDmxScroller_Form_Lcl_add_test.html">uDmxScroller_Form_Lcl_add_test</a></td>
+<td class="itemdesc"><p>A unit <strong><code>uDmxScroller_Form_Lcl_add_test</code></strong> implementa a classe TTForm1 do pacote mi.ui.</p></td>
+</tr>
+<tr class="list2">
+<td class="itemname"><a class="bold" href="uDmxScroller_Form_Lcl_add_test2.html">uDmxScroller_Form_Lcl_add_test2</a></td>
+<td class="itemdesc"><p>&nbsp;</p></td>
+</tr>
+<tr class="list">
+<td class="itemname"><a class="bold" href="uDmxScroller_Form_Lcl_test.html">uDmxScroller_Form_Lcl_test</a></td>
+<td class="itemdesc"><p>A unit <strong><code>uDmxScroller_Form_Lcl_test</code></strong> implementa o teste dos componentes TUiConsts.MI_MsgBox, mi_scrollbox_LCL1 e TDmxScroller_Form_Lcl onde os mesmos são ligados no evento <strong><a class="normal" href="uDmxScroller_Form_Lcl_test.TDmxScroller_Form_Lcl_test.html#FormCreate">TDmxScroller_Form_Lcl_test.FormCreate</a></strong>
+
+<p></p>
+
+<ul class="paragraph_spacing">
+  <li><p><strong>NOTAS</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>A constante <strong>TUiConsts.MI_MsgBox</strong> precisa se iniciada com o atributo <strong><a class="normal" href="umi_ui_mi_msgbox_dm.TMi_ui_mi_msgBox.html#MI_MsgBox1">TMi_ui_mi_msgBox.MI_MsgBox1</a></strong> da unit <strong>mi_ui_mi_msgbox_dm</strong> para que os diálogos internos do componente <strong>DmxScroller_Form_Lcl1</strong> possa gerar mensagens sem depender diretamente da <strong>LCL</strong>, ou seja: Será possível implementar dialogs em outros frameworks visuais tais como <strong>html</strong>, <strong>angula 4</strong>, etc alterando o método SetActive(). </p>
+
+<ul class="paragraph_spacing">
+  <li><p>O método SetActive seleciona os método DmxScroller_Form_Lcl1.CreateFormLCL ou o método DmxScroller_Form_Lcl1.CreateFormHTML conforme o tipo de aplicação.</p></li>
+</ul>
+
+<p></p></li>
+  <li><p>O evento DmxScroller_Form_Lcl1.onGetTemplate precisa se iniciado em OnCreate do form porque a propriedade <strong>onGetTemplate</strong> ainda não foi lida do arquivo de recursos e precisamos da mesma para executar o método DmxScroller_Form_Lcl1.SetParentLcl.</p></li>
+</ul>
+
+<p></p></li>
+  <li><p><strong>CÓDIGO PASCAL</strong>
+
+<p></p>
+
+<pre class="longcode">
+
+<span class="pascal_keyword">procedure</span> TForm_Mi_Ui_Test.FormCreate(Sender: TObject);
+<span class="pascal_keyword">begin</span>
+   TUiConsts.MI_MsgBox := get_MI_MsgBox.MI_MsgBox1;
+   DmxScroller_Form_Lcl1.onGetTemplate:= DmxScroller_Form_Lcl1GetTemplate;
+   DmxScroller_Form_Lcl1.SetParentLcl(mi_scrollbox_LCL1);
+<span class="pascal_keyword">end</span>;</pre>
+
+<p></p></li>
+</ul>
+
+<p></p></td>
+</tr>
+<tr class="list2">
+<td class="itemname"><a class="bold" href="uMi_ui_DmxScroller_Form_Lcl_ds_test.html">uMi_ui_DmxScroller_Form_Lcl_ds_test</a></td>
+<td class="itemdesc"><p>&nbsp;</p></td>
+</tr>
+<tr class="list">
+<td class="itemname"><a class="bold" href="uMi_ui_DmxScroller_Form_Lcl_ds_test2.html">uMi_ui_DmxScroller_Form_Lcl_ds_test2</a></td>
+<td class="itemdesc"><p>&nbsp;</p></td>
+</tr>
+<tr class="list2">
+<td class="itemname"><a class="bold" href="uMi_ui_DmxScroller_Form_Lcl_ds_test2_dm.html">uMi_ui_DmxScroller_Form_Lcl_ds_test2_dm</a></td>
+<td class="itemdesc"><p>&nbsp;</p></td>
+</tr>
+<tr class="list">
+<td class="itemname"><a class="bold" href="umi_ui_inputbox_lcl_test.html">umi_ui_inputbox_lcl_test</a></td>
+<td class="itemdesc"><p>&nbsp;</p></td>
+</tr>
+<tr class="list2">
+<td class="itemname"><a class="bold" href="umi_ui_mi_msgbox_dm.html">umi_ui_mi_msgbox_dm</a></td>
+<td class="itemdesc"><p>&nbsp;</p></td>
+</tr>
+<tr class="list">
+<td class="itemname"><a class="bold" href="Unit1.html">Unit1</a></td>
+<td class="itemdesc"><p>&nbsp;</p></td>
+</tr>
+</table>
+<hr><span class="appinfo"><em>Gerado por <a href="https://pasdoc.github.io/">PasDoc 0.16.0</a>. </em>
+</span>
+</div></div></body></html>

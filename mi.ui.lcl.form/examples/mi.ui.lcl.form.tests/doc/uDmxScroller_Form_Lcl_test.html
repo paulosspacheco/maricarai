@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<title>uDmxScroller_Form_Lcl_test</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="generator" content="PasDoc 0.16.0">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<link rel="stylesheet" type="text/css" href="tipuesearch/tipuesearch.css">
+
+<link rel="StyleSheet" type="text/css" href="pasdoc.css">
+</head>
+<body>
+<div class="container"><div class="navigation">
+<ul><li><a href="AllUnits.html">Units</a></li><li><a href="ClassHierarchy.html">Hierarquia de Classes</a></li><li><a href="AllClasses.html">Classes, Interfaces, Objetos e Registros</a></li><li><a href="AllTypes.html">Tipos</a></li><li><a href="AllVariables.html">Variáveis</a></li><li><a href="AllConstants.html">Constantes</a></li><li><a href="AllFunctions.html">Funções e Procedimentos</a></li><li><a href="AllIdentifiers.html">Identificadores</a></li><li><form class="search-form" action="tipue_results.html"><div class="search-input"><input type="text" name="q" id="tipue_search_input" pattern=".{1,}" title="At least 1 characters" required><div class="search-button"><input type="button" id="tipue_search_button" onclick="this.form.submit();"></div></div></form>
+<div style="clear: both"></div>
+</li></ul></div><div class="content">
+<h1 class="unit">Unit uDmxScroller_Form_Lcl_test</h1>
+<div class="sections">
+<div class="one_section"><a class="section" href="#PasDoc-Description">Descrição</a></div><div class="one_section"><a class="section" href="#PasDoc-Uses">Uses</a></div><div class="one_section"><a class="section" href="#PasDoc-Classes">Classes, Interfaces, Objetos e Registros</a></div><div class="one_section">Funções e Procedimentos</div><div class="one_section">Tipos</div><div class="one_section"><a class="section" href="#PasDoc-Constants">Constantes</a></div><div class="one_section"><a class="section" href="#PasDoc-Variables">Variáveis</a></div></div>
+<span id="PasDoc-Description"></span><h2 class="description">Descrição</h2>
+<p>
+A unit <strong><code>uDmxScroller_Form_Lcl_test</code></strong> implementa o teste dos componentes TUiConsts.MI_MsgBox, mi_scrollbox_LCL1 e TDmxScroller_Form_Lcl onde os mesmos são ligados no evento <strong><a class="normal" href="uDmxScroller_Form_Lcl_test.TDmxScroller_Form_Lcl_test.html#FormCreate">TDmxScroller_Form_Lcl_test.FormCreate</a></strong>
+
+<p></p>
+
+<ul class="paragraph_spacing">
+  <li><p><strong>NOTAS</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>A constante <strong>TUiConsts.MI_MsgBox</strong> precisa se iniciada com o atributo <strong><a class="normal" href="umi_ui_mi_msgbox_dm.TMi_ui_mi_msgBox.html#MI_MsgBox1">TMi_ui_mi_msgBox.MI_MsgBox1</a></strong> da unit <strong>mi_ui_mi_msgbox_dm</strong> para que os diálogos internos do componente <strong>DmxScroller_Form_Lcl1</strong> possa gerar mensagens sem depender diretamente da <strong>LCL</strong>, ou seja: Será possível implementar dialogs em outros frameworks visuais tais como <strong>html</strong>, <strong>angula 4</strong>, etc alterando o método SetActive(). </p>
+
+<ul class="paragraph_spacing">
+  <li><p>O método SetActive seleciona os método DmxScroller_Form_Lcl1.CreateFormLCL ou o método DmxScroller_Form_Lcl1.CreateFormHTML conforme o tipo de aplicação.</p></li>
+</ul>
+
+<p></p></li>
+  <li><p>O evento DmxScroller_Form_Lcl1.onGetTemplate precisa se iniciado em OnCreate do form porque a propriedade <strong>onGetTemplate</strong> ainda não foi lida do arquivo de recursos e precisamos da mesma para executar o método DmxScroller_Form_Lcl1.SetParentLcl.</p></li>
+</ul>
+
+<p></p></li>
+  <li><p><strong>CÓDIGO PASCAL</strong>
+
+<p></p>
+
+<pre class="longcode">
+
+<span class="pascal_keyword">procedure</span> TForm_Mi_Ui_Test.FormCreate(Sender: TObject);
+<span class="pascal_keyword">begin</span>
+   TUiConsts.MI_MsgBox := get_MI_MsgBox.MI_MsgBox1;
+   DmxScroller_Form_Lcl1.onGetTemplate:= DmxScroller_Form_Lcl1GetTemplate;
+   DmxScroller_Form_Lcl1.SetParentLcl(mi_scrollbox_LCL1);
+<span class="pascal_keyword">end</span>;</pre>
+
+<p></p></li>
+</ul>
+
+<p></p>
+<span id="PasDoc-Uses"></span><h2 class="uses">Uses</h2>
+<ul class="useslist"><li>Classes</li><li>SysUtils</li><li>DB</li><li>BufDataset</li><li>memds</li><li>Forms</li><li>Controls</li><li>Graphics</li><li>Dialogs</li><li>typInfo</li><li>MaskEdit</li><li>StdCtrls</li><li>ExtCtrls</li><li>DBGrids</li><li>ButtonPanel</li><li>ActnList</li><li>DBCtrls</li><li>Spin</li><li>Buttons</li><li>DBExtCtrls</li><li>EditBtn</li><li>SpinEx</li><li>SynEdit</li><li>TAChartExtentLink</li><li>SQLite3Conn</li><li>SqlDb</li><li>uMi_ui_scrollbox_lcl</li><li>uMi_ui_DmxScroller_Form_Lcl</li><li><a href="umi_ui_mi_msgbox_dm.html">uMi_ui_mi_msgbox_dm</a></li><li><a href="uMi_ui_DmxScroller_Form_Lcl_ds_test.html">uMi_ui_DmxScroller_Form_Lcl_DS_Test</a></li><li>umi_ui_InputBox_lcl</li><li><a href="uDmxScroller_Form_Lcl_add_test.html">uDmxScroller_Form_Lcl_add_test</a></li><li><a href="uMi_ui_DmxScroller_Form_Lcl_ds_test2.html">uMi_ui_DmxScroller_Form_Lcl_ds_test2</a></li><li><a href="umi_ui_inputbox_lcl_test.html">umi_ui_inputbox_lcl_test</a></li><li><a href="uDmxScroller_Form_Lcl_add_test2.html">uDmxScroller_Form_Lcl_add_test2</a></li></ul><h2 class="overview">Visão Geral</h2>
+<span id="PasDoc-Classes"></span><h3 class="cio">Classes, Interfaces, Objetos e Registros</h3>
+<table class="classestable wide_list">
+<tr class="listheader">
+<th class="itemname">Nome</th>
+<th class="itemdesc">Descrição</th>
+</tr>
+<tr class="list">
+<td class="itemname">Classe&nbsp;<a class="bold" href="uDmxScroller_Form_Lcl_test.TDmxScroller_Form_Lcl_test.html"><code>TDmxScroller_Form_Lcl_test</code></a></td>
+<td class="itemdesc">&nbsp;</td>
+</tr>
+</table>
+<span id="PasDoc-Constants"></span><h3 class="summary">Constantes</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="itemcode"><code><strong><a href="uDmxScroller_Form_Lcl_test.html#tmp_Alunos_Idade">tmp_Alunos_Idade</a></strong> = '\BB'+ChFN+'idade'+CharUpperlimit+#64+
+                     CharHint+'A idade do aluno. Valores válidos 1 a 64'+
+                     CharHintPorque+'Este campo é necessário para que se agrupe o alunos baseado em sua faixa etária'+
+                     CharHintOnde+'Ele será usado pelo coordenador ao classificar a turma';</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><strong><a href="uDmxScroller_Form_Lcl_test.html#tmp_Alunos_Matricula">tmp_Alunos_Matricula</a></strong> = '\IIII'+ChFN+'matricula'+CharHint+'A matricula do aluno é um campo sequencial e calculado ao incluir o registro';</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><strong><a href="uDmxScroller_Form_Lcl_test.html#tmp_Alunos">tmp_Alunos</a></strong> = '&tilde;     Idade:&tilde; %s'+TDmxScroller_Form_Lcl.lf+
+               '&tilde; Matricula:&tilde; %s'+TDmxScroller_Form_Lcl.lf;</code></td>
+</tr>
+</table>
+<span id="PasDoc-Variables"></span><h3 class="summary">Variáveis</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="itemcode"><code><strong><a href="uDmxScroller_Form_Lcl_test.html#DmxScroller_Form_Lcl_test">DmxScroller_Form_Lcl_test</a></strong>: <a href="uDmxScroller_Form_Lcl_test.TDmxScroller_Form_Lcl_test.html">TDmxScroller_Form_Lcl_test</a>;</code></td>
+</tr>
+</table>
+<h2 class="description">Descrição</h2>
+<h3 class="detail">Constantes</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="tmp_Alunos_Idade"></span><code><strong>tmp_Alunos_Idade</strong> = '\BB'+ChFN+'idade'+CharUpperlimit+#64+
+                     CharHint+'A idade do aluno. Valores válidos 1 a 64'+
+                     CharHintPorque+'Este campo é necessário para que se agrupe o alunos baseado em sua faixa etária'+
+                     CharHintOnde+'Ele será usado pelo coordenador ao classificar a turma';</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="tmp_Alunos_Matricula"></span><code><strong>tmp_Alunos_Matricula</strong> = '\IIII'+ChFN+'matricula'+CharHint+'A matricula do aluno é um campo sequencial e calculado ao incluir o registro';</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="tmp_Alunos"></span><code><strong>tmp_Alunos</strong> = '&tilde;     Idade:&tilde; %s'+TDmxScroller_Form_Lcl.lf+
+               '&tilde; Matricula:&tilde; %s'+TDmxScroller_Form_Lcl.lf;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<h3 class="detail">Variáveis</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="DmxScroller_Form_Lcl_test"></span><code><strong>DmxScroller_Form_Lcl_test</strong>: <a href="uDmxScroller_Form_Lcl_test.TDmxScroller_Form_Lcl_test.html">TDmxScroller_Form_Lcl_test</a>;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<hr><span class="appinfo"><em>Gerado por <a href="https://pasdoc.github.io/">PasDoc 0.16.0</a>. </em>
+</span>
+</div></div></body></html>

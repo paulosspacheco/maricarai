@@ -36,12 +36,9 @@ uses
   ;
 
 type
-  { TDmxScroller_Form_Lcl }
-  {: A classe **@name** implementa a construção de formulários usando uma lista
-   de Templates do tipo TDmxScroller}
-
   { TDmxScroller_Form_Lcl_attributes }
-
+  {: A classe ** @name ** conscentra os atibutos comuns do pacote para construção da classe **TDmxScroller_Form_Lcl**
+  }
   TDmxScroller_Form_Lcl_attributes = class(TDmxScroller_Form)
   {$REGION ' ---> Property ActionList : TActionList '}
 
