@@ -7,7 +7,7 @@ unit mi.rtl.Objects.Methods.Collection.SortedCollection.StrCollection;
 
 
       - **VERSÃO**
-        - Alpha - 0.7.0.0
+        - Alpha - 0.7.1.621
 
       - **CÓDIGO FONTE**:
         - @html(<a href="../units/mi.rtl.objects.tcollection.tsortedcollection.tstrcollection.pas">mi.rtl.objects.tcollection.tsortedcollection.tstrcollection.pas</a> )

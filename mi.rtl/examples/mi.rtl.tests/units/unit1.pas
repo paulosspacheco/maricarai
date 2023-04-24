@@ -3,7 +3,7 @@ unit unit1;
                  Esta unit foi testada nas plataformas: win32, win64 e linux.
 
     - **VERSÃO**
-      - Alpha - 0.7.0.0
+      - Alpha - 0.7.1.621
 
     - **CÓDIGO FONTE**:
       - @html(<a href="../units/unit1.pas">unit1.pas</a>)
@@ -69,6 +69,12 @@ unit unit1;
         - **2021-12-30**
           - 08:57 a 11:35  : Criar exemplo Test_String_Asc_GUI_to_Asc_Ingles  de como converter caracteres acima de 127 para caractere equivalente abaixo de 127.
           - 08:57 a 11:35  : Criar exemplo Test_String_Asc_GUI_to_Asc_html  de como converter caracteres acima de 127 para caractere equivalente em html.
+
+        - **2023-04-24**
+          - 9:42   : Criar exemplo de uso do
+
+
+
   }
 
 
@@ -108,12 +114,13 @@ type
   { TForm1 }
 
   TForm1 = class(TForm)
+      Action_test_GetTempDir: TAction;
       Action_Test_TTb_access_SetTransaction: TAction;
       Action_test_TTb_access_DeleteRec: TAction;
       Action_Test_TTb_access_Lista_ordem_decrescente: TAction;
       Action_Test_TTb_access_Lista_ordem_crescente: TAction;
       Action_test_TTb__Access_Cadastra: TAction;
-      Action_test: TAction;
+      Action_Test_MessageError: TAction;
       Action_test_removeAccents: TAction;
       Action_Test_String_Asc_GUI_to_Asc_html: TAction;
       Action_Test_String_Asc_GUI_to_Asc_Ingles: TAction;
@@ -143,6 +150,9 @@ type
       Label3: TLabel;
       MenuItem26: TMenuItem;
       MenuItem27: TMenuItem;
+      MenuItem36: TMenuItem;
+      MenuItem45: TMenuItem;
+      TMi_Rtl_TObjectss: TMenuItem;
       MenuItem38: TMenuItem;
       MenuItem39: TMenuItem;
       MenuItem40: TMenuItem;
@@ -240,7 +250,32 @@ type
     ToggleBox1: TToggleBox;
 
 
-    procedure Action_testExecute(Sender: TObject);
+    procedure Action_test_GetTempDirExecute(Sender: TObject);
+
+    {: Exemplo de uso das mensagens de erros empilhadas.
+
+       - Este recurso permite produzir um relatório dentro de uma transação uma transação onde só será
+         vista após o sistema sair da transação .
+
+       - **EXEMPLO**
+
+         ```PASCAL
+             procedure TForm1.Action_Test_MessageErrorExecute(Sender: TObject);
+             begin
+               with TObjectss do
+               begin
+                 ErrorInfo := 2;
+                 Push_MsgErro(TStrError.ErrorMessage(ErrorInfo));
+
+                 ErrorInfo := 10;
+                 Push_MsgErro(TStrError.ErrorMessage(ErrorInfo));
+                 TObjectss.MessageError;
+               end;
+             end;
+         ```
+
+    }
+    procedure Action_Test_MessageErrorExecute(Sender: TObject);
 
 
     procedure Action_Test_TMi_Msgbox_LCLExecute(Sender: TObject);
@@ -1931,7 +1966,7 @@ procedure TForm1.Test_String_Asc_GUI_to_Asc_html;
   var
     s1: AnsiString ;
 begin
-  s1 := Tobjectss.String_Asc_Gui_to_Asc_HTML('Sérgio ação');
+  s1 := TObjectss.String_Asc_Gui_to_Asc_HTML('Sérgio ação');
   showmessageFMT('S1 = %s  |  Len(s1) = %d CodPage =  %d ',[s1,Length(s1),StringCodePage(s1)]);
 end;
 
@@ -1953,7 +1988,7 @@ procedure TForm1.Test_String_Asc_GUI_to_Asc_Ingles;
   var
     s1: AnsiString ;
 begin
-  s1 := Tobjectss.String_Asc_Gui_to_Asc_Ingles('Sérgio ação');
+  s1 := TObjectss.String_Asc_Gui_to_Asc_Ingles('Sérgio ação');
   showmessageFMT('S1 = %s  |  Len(s1) = %d CodPage =  %d ',[s1,Length(s1),StringCodePage(s1)]);
 end;
 
@@ -1975,35 +2010,6 @@ procedure TForm1.Action_test_removeAccentsExecute(Sender: TObject);
 begin
   test_removeAccents;
 end;
-
-procedure testGetTempDir;
-  var
-    path,FileName : TObjectss.PathStr;
-begin
-  with TObjectss do
-  begin
-    path := GetTempDir();
-    if TaStatus = 0
-    then showMessage(path)
-    else ShowMessage(TStrError.ErrorMessage(TaStatus));
-
-
-    if GetTempDir('HOME',path) = 0
-    then showMessage(path)
-    else ShowMessage(TStrError.ErrorMessage(TaStatus));
-
-    FileName := GetTempFileName (path);
-    if FileName <> ''
-    then ShowMessage(FileName)
-    else ShowMessage(TStrError.ErrorMessage(TaStatus));
-
-  end;
-end;
-procedure TForm1.Action_testExecute(Sender: TObject);
-begin
-  testGetTempDir;
-end;
-
 
 
 procedure TForm1.Action_Test_TMi_Msgbox_LCLExecute(Sender: TObject);
@@ -2036,6 +2042,50 @@ end;
 procedure TForm1.Action_Test_TTb_access_SetTransactionExecute(Sender: TObject);
 begin
   TAluno.Test_SetTransaction;
+end;
+
+
+
+procedure TForm1.Action_Test_MessageErrorExecute(Sender: TObject);
+begin
+  with TObjectss do
+  begin
+    ErrorInfo := 2;
+    Push_MsgErro(TStrError.ErrorMessage(ErrorInfo));
+
+    ErrorInfo := 10;
+    Push_MsgErro(TStrError.ErrorMessage(ErrorInfo));
+    TObjectss.MessageError;
+  end;
+end;
+
+procedure test_GetTempDir;
+  var
+    path,FileName : TObjectss.PathStr;
+begin
+  with TObjectss do
+  begin
+    path := GetTempDir();
+    if TaStatus = 0
+    then showMessage(path)
+    else ShowMessage(TStrError.ErrorMessage(TaStatus));
+
+
+    if GetTempDir('HOME',path) = 0
+    then showMessage(path)
+    else ShowMessage(TStrError.ErrorMessage(TaStatus));
+
+    FileName := GetTempFileName (path);
+    if FileName <> ''
+    then ShowMessage(FileName)
+    else ShowMessage(TStrError.ErrorMessage(TaStatus));
+
+  end;
+end;
+
+procedure TForm1.Action_test_GetTempDirExecute(Sender: TObject);
+begin
+  test_GetTempDir;
 end;
 
 

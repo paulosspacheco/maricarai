@@ -5,7 +5,7 @@ unit mi.rtl.Objects.Methods;
     - Esta unit foi testada nas plataformas: win32, win64 e linux.
 
   - **VERSÃO**
-    - Alpha - 0.7.0.0
+    - Alpha - 0.7.1.621
 
   - **HISTÓRICO**
     - Criado por: Paulo Sérgio da Silva Pacheco e-mail: paulosspacheco@@yahoo.com.br
@@ -308,6 +308,9 @@ uses
       Public class Function PSItem_ListaDeMsgErro:PSItem;virtual;
       Public class Procedure MessageError;virtual;
 
+      {: O Método @name retorna uma lista de erros da pilha de erros;
+
+      }
       Public class Function String_ListaDeMsgErro(Separador:String):AnsiString;Overload;
 
       {: A procedure **@name** esvazia a pilha de mensagens de error caso as mensagen não tenhão sido tratadas antes de encerrar TMI_Application.
@@ -1906,8 +1909,7 @@ implementation
     End;
 
 
-                class function TObjectsMethods.String_ListaDeMsgErro(Separador: String
-          ): AnsiString;
+    class function TObjectsMethods.String_ListaDeMsgErro(Separador: String): AnsiString;
       Var
         SItem:PSItem;
         L : Integer;
@@ -1934,7 +1936,7 @@ implementation
 
     {: A procedure **@name** esvazia a pilha de mensagens de error caso as mensagen não tenhão sido tratadas antes de encerrar TMI_Application.
     }
-                                class procedure TObjectsMethods.Dispose_ListaDeMsgErro;
+    class procedure TObjectsMethods.Dispose_ListaDeMsgErro;
       Var
         I : SmallInt;
         P : PSItem;

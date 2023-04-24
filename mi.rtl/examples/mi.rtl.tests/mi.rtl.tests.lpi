@@ -25,8 +25,9 @@
     <VersionInfo>
       <UseVersionInfo Value="True"/>
       <AutoIncrementBuild Value="True"/>
-      <MinorVersionNr Value="5"/>
-      <BuildNr Value="618"/>
+      <MinorVersionNr Value="7"/>
+      <RevisionNr Value="1"/>
+      <BuildNr Value="635"/>
       <Language Value="0416"/>
       <CharSet Value="04B0"/>
       <Attributes pvaDebug="True" pvaPreRelease="True"/>
@@ -44,7 +45,7 @@
         <CompilerOptions>
           <Version Value="11"/>
           <Target>
-            <Filename Value="bin/$(TargetCPU)-$(TargetOS)/mi.rtl.tests.rtl"/>
+            <Filename Value="bin/$(TargetCPU)-$(TargetOS)/mi.rtl.tests.rtl.exe"/>
           </Target>
           <SearchPaths>
             <IncludeFiles Value="$(ProjOutDir)"/>
@@ -75,7 +76,7 @@
         <CompilerOptions>
           <Version Value="11"/>
           <Target>
-            <Filename Value="bin/$(TargetCPU)-$(TargetOS)/mi.rtl.tests.rtl"/>
+            <Filename Value="bin/$(TargetCPU)-$(TargetOS)/mi.rtl.tests.rtl.exe"/>
           </Target>
           <SearchPaths>
             <IncludeFiles Value="$(ProjOutDir)"/>
@@ -169,7 +170,7 @@
   <CompilerOptions>
     <Version Value="11"/>
     <Target>
-      <Filename Value="bin/$(TargetCPU)-$(TargetOS)/mi.rtl.tests.rtl"/>
+      <Filename Value="bin/$(TargetCPU)-$(TargetOS)/mi.rtl.tests.rtl.exe"/>
     </Target>
     <SearchPaths>
       <IncludeFiles Value="$(ProjOutDir)"/>

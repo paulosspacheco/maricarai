@@ -1,15 +1,15 @@
 object Form1: TForm1
-  Left = 428
-  Height = 793
+  Left = 441
+  Height = 691
   Hint = 'Formulário usado para concentrar os exemplos do projeto MarIcarai'
-  Top = 6
-  Width = 1130
+  Top = 0
+  Width = 925
   HorzScrollBar.Page = 807
   VertScrollBar.Page = 305
   AutoScroll = True
   Caption = 'Mi Rtl Tests'
-  ClientHeight = 793
-  ClientWidth = 1130
+  ClientHeight = 667
+  ClientWidth = 925
   Font.Height = -13
   Font.Name = 'FreeMono'
   Menu = MainMenu1
@@ -17,7 +17,7 @@ object Form1: TForm1
   OnDestroy = FormDestroy
   Position = poScreenCenter
   ShowHint = True
-  LCLVersion = '2.3.0.0'
+  LCLVersion = '2.2.6.0'
   object Button1: TButton
     Left = 0
     Height = 25
@@ -28,9 +28,9 @@ object Form1: TForm1
   end
   object PageControl_test: TPageControl
     Left = 0
-    Height = 793
+    Height = 667
     Top = 0
-    Width = 1130
+    Width = 925
     ActivePage = TabSheet_TfilesStreams
     Align = alClient
     TabIndex = 1
@@ -38,8 +38,8 @@ object Form1: TForm1
     object TabSheet_TestFindFirst: TTabSheet
       AutoSize = True
       Caption = 'FindFirst'
-      ClientHeight = 765
-      ClientWidth = 1120
+      ClientHeight = 639
+      ClientWidth = 915
       object Edit1: TEdit
         Left = 0
         Height = 31
@@ -51,9 +51,9 @@ object Form1: TForm1
       end
       object ListBox1: TListBox
         Left = 0
-        Height = 758
+        Height = 632
         Top = 80
-        Width = 1226
+        Width = 1021
         Anchors = [akTop, akLeft, akRight, akBottom]
         Columns = 1
         ItemHeight = 0
@@ -67,11 +67,11 @@ object Form1: TForm1
         Left = 2
         Height = 40
         Top = 0
-        Width = 1124
+        Width = 919
         Anchors = [akTop, akLeft, akRight]
         Caption = 'Atributos'
         ClientHeight = 25
-        ClientWidth = 1122
+        ClientWidth = 917
         TabOrder = 0
         object CheckBox_faReadOnly: TCheckBox
           Left = 8
@@ -140,7 +140,7 @@ object Form1: TForm1
         end
       end
       object LabelCount: TLabel
-        Left = 957
+        Left = 752
         Height = 25
         Top = 48
         Width = 160
@@ -152,23 +152,23 @@ object Form1: TForm1
     end
     object TabSheet_TfilesStreams: TTabSheet
       Caption = 'TfilesStreams'
-      ClientHeight = 765
-      ClientWidth = 1120
+      ClientHeight = 639
+      ClientWidth = 915
       OnEnter = TabSheet_TfilesStreamsEnter
       object ScrollBox_TfilesStreams: TScrollBox
         Left = 0
-        Height = 765
+        Height = 639
         Top = 0
-        Width = 1120
+        Width = 915
         HorzScrollBar.Page = 795
         VertScrollBar.Page = 50
         Align = alClient
-        ClientHeight = 763
-        ClientWidth = 1118
+        ClientHeight = 637
+        ClientWidth = 913
         TabOrder = 0
         object Edit2: TEdit
           Left = 0
-          Height = 31
+          Height = 24
           Top = 0
           Width = 368
           OnChange = Edit2Change
@@ -177,9 +177,9 @@ object Form1: TForm1
         end
         object StringGrid1: TStringGrid
           Left = 16
-          Height = 739
+          Height = 613
           Top = 24
-          Width = 1103
+          Width = 898
           Anchors = [akTop, akLeft, akRight, akBottom]
           ColCount = 3
           Columns = <          
@@ -211,7 +211,7 @@ object Form1: TForm1
         end
         object NumeroDeArquivo: TEdit
           Left = 528
-          Height = 31
+          Height = 24
           Top = 0
           Width = 87
           TabOrder = 2
@@ -219,7 +219,7 @@ object Form1: TForm1
         end
         object Edit_FileSizes: TEdit
           Left = 664
-          Height = 31
+          Height = 24
           Top = 0
           Width = 89
           TabOrder = 3
@@ -237,8 +237,8 @@ object Form1: TForm1
     end
   end
   object MainMenu1: TMainMenu
-    Left = 792
-    Top = 40
+    Left = 808
+    Top = 48
     object MenuItem_Mi_rtl_TFiles: TMenuItem
       Caption = 'Mi.rtl.TFiles'
       object MenuItem1: TMenuItem
@@ -283,6 +283,15 @@ object Form1: TForm1
       object MenuItem10: TMenuItem
         Action = Action_Test_FileWrite
         AutoCheck = True
+      end
+    end
+    object TMi_Rtl_TObjectss: TMenuItem
+      Caption = 'Mi.Rtl.TObjectss'
+      object MenuItem36: TMenuItem
+        Action = Action_Test_MessageError
+      end
+      object MenuItem45: TMenuItem
+        Action = Action_test_GetTempDir
       end
     end
     object MenuItemCollections: TMenuItem
@@ -411,8 +420,8 @@ object Form1: TForm1
     end
   end
   object ActionList1: TActionList
-    Left = 784
-    Top = 168
+    Left = 672
+    Top = 88
     object Action_test_FileCreate: TAction
       Category = 'TFiles'
       AutoCheck = True
@@ -586,9 +595,10 @@ object Form1: TForm1
       Caption = 'test_removeAccents'
       OnExecute = Action_test_removeAccentsExecute
     end
-    object Action_test: TAction
-      Caption = 'test'
-      OnExecute = Action_testExecute
+    object Action_Test_MessageError: TAction
+      Category = 'TObjectss'
+      Caption = 'Test_ShowMsgTest'
+      OnExecute = Action_Test_MessageErrorExecute
     end
     object Action_test_TTb__Access_Cadastra: TAction
       Category = 'TTb__Access'
@@ -614,6 +624,11 @@ object Form1: TForm1
       Category = 'TTb__Access'
       Caption = 'SetTransaction'
       OnExecute = Action_Test_TTb_access_SetTransactionExecute
+    end
+    object Action_test_GetTempDir: TAction
+      Category = 'TObjectss'
+      Caption = 'Test_GetTempDir'
+      OnExecute = Action_test_GetTempDirExecute
     end
   end
 end

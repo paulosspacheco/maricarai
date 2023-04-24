@@ -22,6 +22,7 @@ uses
   ,Graphics
   ,StdCtrls
   ,System.UITypes
+  ,mi.rtl.Objects.Methods
   ,mi.rtl.objects.consts.mi_msgbox;
 
 type
@@ -64,9 +65,12 @@ type
                                      DlgType: TMsgDlgType;
                                      Buttons: TMsgDlgButtons;
                                      ButtonDefault: TMsgDlgBtn): TModalResult;
+
     function MI_MsgBox1MessageBox_04_PSItem(aPSItem: TMI_MsgBoxTypes.PSItem;
-      DlgType: TMsgDlgType; Buttons: TMsgDlgButtons; ButtonDefault: TMsgDlgBtn
-      ): TModalResult;
+                                            DlgType: TMsgDlgType;
+                                            Buttons: TMsgDlgButtons;
+                                            ButtonDefault: TMsgDlgBtn
+                                          ): TModalResult;
 
 
     function MI_MsgBox1MessageBox_05(ATitle: AnsiString;
@@ -207,8 +211,16 @@ end;
 function TMi_ui_mi_msgBox.MI_MsgBox1MessageBox_04_PSItem(aPSItem: TMI_MsgBoxTypes.PSItem;
                                                          DlgType: TMsgDlgType;
                                                          Buttons: TMsgDlgButtons; ButtonDefault: TMsgDlgBtn): TModalResult;
+  var
+    aMsg : AnsiString;
 begin
-
+  with MI_MsgBox1,TObjectsMethods do
+  if APSItem <> nil
+  Then begin
+         aMsg :=  SItemToString(APSItem);
+        result := dialogs.MessageDlg('',aMsg, DlgType,Buttons, 0);
+       end
+  else Result := MrCancel;
 end;
 
 function TMi_ui_mi_msgBox.MI_MsgBox1MessageBox_05(ATitle: AnsiString;

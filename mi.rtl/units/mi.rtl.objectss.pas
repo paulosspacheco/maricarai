@@ -5,7 +5,7 @@ unit mi.rtl.Objectss;
       - Esta unit foi testada nas plataformas: win32, win64 e linux.
 
     - **VERSÃO**
-      - Alpha - 0.7.0.0
+      - Alpha - 0.7.1.621
 
     - **HISTÓRICO**
       - Criado por: Paulo Sérgio da Silva Pacheco e-mail: paulosspacheco@@yahoo.com.br
@@ -68,7 +68,7 @@ unit mi.rtl.Objectss;
      {: - A classe **@name** é a  base de todas as classes do pacote **mi.rtl**.
 
         - **VERSÃO**
-          - Alpha - 0.7.0.0
+          - Alpha - 0.7.1.621
 
         - **HISTÓRICO**
           - Criado por: Paulo Sérgio da Silva Pacheco e-mail: paulosspacheco@@yahoo.com.br
@@ -80,7 +80,17 @@ unit mi.rtl.Objectss;
      type
 
      { TObjectss }
+     {: A classe @name contém todos os tipos nos quais tObjecss depende d alguns métodos
+       não implementados em suas dependências.
 
+       - **EXEMPLO DE USO**
+
+         ```pascal
+
+
+         ```
+
+     }
      TObjectss =
        class(TObjectsMethods)
          public type TApplication = mi.rtl.Objects.Methods.Paramexecucao.Application.TApplication;

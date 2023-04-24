@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<title>mi_rtl_ui_Dmxscroller_sql</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="generator" content="PasDoc 0.16.0">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<link rel="stylesheet" type="text/css" href="tipuesearch/tipuesearch.css">
+
+<link rel="StyleSheet" type="text/css" href="pasdoc.css">
+</head>
+<body>
+<div class="container"><div class="navigation">
+<ul><li><a href="AllUnits.html">Units</a></li><li><a href="ClassHierarchy.html">Hierarquia de Classes</a></li><li><a href="AllClasses.html">Classes, Interfaces, Objetos e Registros</a></li><li><a href="AllTypes.html">Tipos</a></li><li><a href="AllVariables.html">Variáveis</a></li><li><a href="AllConstants.html">Constantes</a></li><li><a href="AllFunctions.html">Funções e Procedimentos</a></li><li><a href="AllIdentifiers.html">Identificadores</a></li><li><form class="search-form" action="tipue_results.html"><div class="search-input"><input type="text" name="q" id="tipue_search_input" pattern=".{1,}" title="At least 1 characters" required><div class="search-button"><input type="button" id="tipue_search_button" onclick="this.form.submit();"></div></div></form>
+<div style="clear: both"></div>
+</li></ul></div><div class="content">
+<h1 class="unit">Unit mi_rtl_ui_Dmxscroller_sql</h1>
+<div class="sections">
+<div class="one_section"><a class="section" href="#PasDoc-Description">Descrição</a></div><div class="one_section"><a class="section" href="#PasDoc-Uses">Uses</a></div><div class="one_section"><a class="section" href="#PasDoc-Classes">Classes, Interfaces, Objetos e Registros</a></div><div class="one_section">Funções e Procedimentos</div><div class="one_section">Tipos</div><div class="one_section">Constantes</div><div class="one_section">Variáveis</div></div>
+<span id="PasDoc-Description"></span><h2 class="description">Descrição</h2>
+<p>
+A unit <strong><code>mi_rtl_ui_Dmxscroller_sql</code></strong> implementa a classe <a class="normal" href="mi_rtl_ui_Dmxscroller_sql.TUiDmxScroller_sql.html">TUiDmxScroller_sql</a>.
+
+<p></p>
+
+<ul class="paragraph_spacing">
+  <li><p><strong>VERSÃO</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Alpha - 0.7.1.621</p></li>
+</ul>
+
+<p></p></li>
+  <li><p><strong>CÓDIGO FONTE</strong>: </p>
+
+<ul class="paragraph_spacing">
+  <li><p><a href="../units/mi_ui_Dmxscroller_sql.pas">mi_ui_Dmxscroller_sql.pas</a></p></li>
+  <li><p><strong>PENDÊNCIAS</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>T12 Falta implementar chave estrangeira em createTable;</p></li>
+  <li><p>T12 Em <a class="normal" href="mi_rtl_ui_Dmxscroller_sql.TUiDmxScroller_sql.html#DoOnNewRecord">TUiDmxScroller_sql.DoOnNewRecord</a>; está executando o método (CustomBufDataset as TSQLQuery).Append; antes do componenente <a class="normal" href="mi_rtl_ui_Dmxscroller_sql.TUiDmxScroller_sql.html">TUiDmxScroller_sql</a> está visível e isto está gerando exceção.</p></li>
+  <li><p>T12 ANÁLISE </p>
+
+<ul class="paragraph_spacing">
+  <li><p>[Estudar os procedimentos armazenados](<a href="https://www.w3schools.com/sql/sql_stored_procedures.asp">https://www.w3schools.com/sql/sql_stored_procedures.asp</a>)</p></li>
+  <li><p>[Estudar as restrições SQL](<a href="https://www.w3schools.com/sql/sql_constraints.asp">https://www.w3schools.com/sql/sql_constraints.asp</a>)</p></li>
+  <li><p>Como saber se um campo é uma chave que liga outra tabela? </p>
+
+<ul class="paragraph_spacing">
+  <li><p><a href="https://www.w3schools.com/sql/sql_foreignkey.asp">SQL FOREIGN KEY Constraint</a>
+
+<p></p>
+
+<pre class="longcode">
+
+/*Não, podemos permitir que os registros das pessoas que possuim camisetas
+  lavando sejam apagados, para garantir a integridade da informação.
+  Para isso devemos utilizar o <span class="pascal_keyword">as</span> chaves estrangeiras que acusarão
+  um erro quando tentarmos deletar uma pessoa que possuir camisetas.
+  Veja em código:
+*/
+
+CREATE TABLE Pessoa(
+    IdPessoa INT <span class="pascal_keyword">NOT</span> NULL PRIMARY KEY IDENTITY(<span class="pascal_numeric">1</span>,1),
+    Nome VARCHAR(<span class="pascal_numeric">20</span>) <span class="pascal_keyword">NOT</span> NULL
+)
+
+CREATE TABLE Camiseta(
+    IdCamiseta INT <span class="pascal_keyword">NOT</span> NULL PRIMARY KEY IDENTITY(<span class="pascal_numeric">1</span>,1),
+    Descrição VARCHAR(<span class="pascal_numeric">20</span>) <span class="pascal_keyword">NOT</span> NULL,
+    IdPessoa INT <span class="pascal_keyword">NOT</span> NULL
+    CONSTRAINT FK_Camiseta_Pessoa FOREIGN  KEY(IdPessoa) REFERENCES Pessoa(IdPessoa)
+)
+
+INSERT INTO Pessoa VALUES (<span class="pascal_string">'HeyJoe'</span>)
+INSERT INTO Pessoa VALUES (<span class="pascal_string">'Caique'</span>)
+
+
+INSERT INTO Camiseta VALUES (<span class="pascal_string">'Azul'</span>, <span class="pascal_numeric">1</span>)
+INSERT INTO Camiseta VALUES (<span class="pascal_string">'Amarela'</span>, <span class="pascal_numeric">1</span>)
+INSERT INTO Camiseta VALUES (<span class="pascal_string">'Preta'</span>, <span class="pascal_numeric">2</span>)
+
+SELECT * FROM Pessoa, Camiseta WHERE Pessoa.IdPessoa = Camiseta.IdPessoa</pre>
+
+<p></p></li>
+</ul>
+
+<p></p></li>
+  <li><p>Como saber o tipo de relacionamento que os campos de outra tabela tem com a tabela atual?</p></li>
+</ul>
+
+<p></p></li>
+  <li><p>T12 A opção CreateTable está dando mensagem de erro quando a coluna já existe. </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Encontrar uma forma de não gerar exceção ou ignorar as exceções nesta rotina.</p></li>
+</ul>
+
+<p></p></li>
+  <li><p>T12 Em <a class="normal" href="mi_rtl_ui_Dmxscroller_sql.TUiDmxScroller_sql.html#AlterTable">TUiDmxScroller_sql.AlterTable</a> checar: </p>
+
+<ul class="paragraph_spacing">
+  <li><p>T12 Criar código para todos os tipos reconhecidos por marIcaraí.</p></li>
+  <li><p>T12 Debugar para saber se está tudo funcionando.</p></li>
+  <li><p>T12 Permitir adicionar uma nova coluna mesmo que a tabela já exista.</p></li>
+</ul>
+
+<p></p></li>
+  <li><p>T12 Em SetTableName(aTableName:String) criticar o nome aTableName é um nome válido para a tabela.</p></li>
+</ul>
+
+<p></p></li>
+  <li><p><strong>HISTÓRICO</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Criado por: Paulo Sérgio da Silva Pacheco paulosspacheco@yahoo.com.br) ✅</p></li>
+  <li><p><strong>2022-03-13</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p><strong>09:00</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>T12 Implementar a criação de código SQL baseado nos dados de <a class="normal" href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html">TUiDmxScroller</a>. </p>
+
+<ul class="paragraph_spacing">
+  <li><p><strong>ANÁLISE:</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Onde pegar o nome da tabela ou consulta? ✅ </p>
+
+<ul class="paragraph_spacing">
+  <li><p>TUiDmxScroller.CustomBufDataset.FileName;</p></li>
+</ul>
+
+<p></p></li>
+  <li><p>Onde pegar o nome dos campos da tabela CustomBufDataset.Filename? ✅ </p>
+
+<ul class="paragraph_spacing">
+  <li><p>A lista de campos encontra-se em : TUiDmxScroller_Atributos.Fields : TFPList;</p></li>
+</ul>
+
+<p></p></li>
+  <li><p>Como saber se <a class="normal" href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html">TUiDmxScroller</a> é uma tabela ou a uma consulta? </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Se todos os TUiDmxScroller_Atributos.Fields[].FieldName não contém '|' é porque é FileName é uma tabela. ✅</p></li>
+  <li><p>Se pelo menos um TUiDmxScroller_Atributos.Fields[].FieldName contém '|' é porque é FileName é uma consulta envolvendo mais de uma tabela. ✅</p></li>
+</ul>
+
+<p></p></li>
+  <li><p>Como saber se uma tabela ou consulta existe do banco de dados? </p>
+
+<ul class="paragraph_spacing">
+  <li><p>O SQL do <strong>postegres</strong> e do <strong>sqlite3</strong> tem a clausula <strong>IN NOT EXISTS</strong> no comando CREATE TABLE: </p>
+
+<ul class="paragraph_spacing">
+  <li><p>EXEMPLO:
+
+<p></p>
+
+<pre class="longcode">
+CREATE TABLE <span class="pascal_keyword">IF</span> <span class="pascal_keyword">NOT</span> EXISTS TEST01 ();  ✅</pre>
+
+<p></p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p></li>
+  <li><p><strong>REFERÊNCIAS</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p><a href="https://en.wikipedia.org/wiki/SQL:2016">SQL:2016</a> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>(PostgresSQL aceita 160 das 169 especificação 2016)(<a href="https://www.postgresql.org/docs/12/features.html">https://www.postgresql.org/docs/12/features.html</a>)</p></li>
+  <li><p>[Comparativo entre os bancos de dados x conformidade SQL](<a href="https://en.wikipedia.org/wiki/SQL_compliance">https://en.wikipedia.org/wiki/SQL_compliance</a>)</p></li>
+  <li><p>[Clientes de bancos de dados opensource](<a href="https://medevel.com/17-sql-client-open-source/">https://medevel.com/17-sql-client-open-source/</a>)</p></li>
+  <li><p><a href="https://dbeaver.io/">Instalei programa cliente SQL DBeaver</a> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Obs: Não deu certo. Ele é escrito em java e não funcionou o básico.</p></li>
+</ul>
+
+<p></p></li>
+  <li><p>[sqlite create database if not exists](<a href="https://www.codegrepper.com/code-examples/sql/sqlite">https://www.codegrepper.com/code-examples/sql/sqlite</a>+create+database+if+not+exists)</p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p></li>
+  <li><p><strong>2022-03-14</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p><strong>08:22</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>T12 Criar a unit mi_ui_Dmxscroller_sql.pas com a classe <strong><a class="normal" href="mi_rtl_ui_Dmxscroller_sql.TUiDmxScroller_sql.html">TUiDmxScroller_sql</a></strong> com objetivo de concentrar a integração do TDmxScroller com o componente <strong>TSQLQuery</strong> ✅</p></li>
+</ul>
+
+<p></p></li>
+  <li><p><strong>20:00</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>T12 Na Construção de TFields atualizar a propriedade <strong>TField.ProviderFlags</strong> com o tipo de acesso definido em <a class="normal" href="mi_rtl_ui_Dmxscroller.TDmxFieldRec.html#access">TDmxFieldRec.Access</a> ✅</p></li>
+</ul>
+
+<p></p></li>
+  <li><p><strong>21:12</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>T12 Criar propriedade <strong>TableName</strong> ✅</p></li>
+</ul>
+
+<p></p></li>
+  <li><p><strong>21:27</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>T12 Criar Function SetSqlCustomBufDataset:Boolean;Virtual; </p>
+
+<ul class="paragraph_spacing">
+  <li><p>CustomBufDataset.SQL := <strong>SELECT * FROM X </strong> onde X será definido pela propriedade <strong>TableName</strong> ✅</p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p></li>
+  <li><p><strong>2022-03-15</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p><strong>09:11</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Depurar o que fiz ontem para fazer funciona a atualização do banco de dados SQL. ✅</p></li>
+</ul>
+
+<p></p></li>
+  <li><p><strong>11:36</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Criar método <a class="normal" href="mi_rtl_ui_Dmxscroller_sql.TUiDmxScroller_sql.html#AlterTable">TUiDmxScroller_sql.AlterTable</a> : Boolean; ✅</p></li>
+</ul>
+
+<p></p></li>
+  <li><p><strong>14:38</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>T12 Atualizar TSQLQury.TFields.ProviderFlags com TUiDmxScroller.MiProviderFlags ✅</p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p></li>
+  <li><p><strong>2022-03-16</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p><strong>16:23</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>T12 Em <a class="normal" href="mi_rtl_ui_Dmxscroller_sql.TUiDmxScroller_sql.html#CreateCustomBufDataset_FieldDefs">TUiDmxScroller_sql.CreateCustomBufDataset_FieldDefs</a>, atualizar <strong>TField.ProviderFlags</strong> com os dados do campo <strong><a class="normal" href="mi_rtl_ui_Dmxscroller.TDmxFieldRec.html#ProviderFlags">TDmxFieldRec.ProviderFlags</a></strong>. ✅</p></li>
+</ul>
+
+<p></p></li>
+  <li><p><strong>16:54</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Em <a class="normal" href="mi_rtl_ui_Dmxscroller_sql.TUiDmxScroller_sql.html#AlterTable">TUiDmxScroller_sql.AlterTable</a> usar os flags <a class="normal" href="mi_rtl_ui_Dmxscroller.TDmxFieldRec.html#ProviderFlags">TDmxFieldRec.ProviderFlags</a> para criação da tabela. ✅</p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p></li>
+  <li><p><strong>2022-03-17</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p><strong>10:48</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>T12 Os flags indicando que se trata de chave primária não está sendo atualizado em createStructor, por isso não está criando a chave primária. ✅</p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p></li>
+  <li><p><strong>2022-03-18</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p><strong>10:40</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>T12 Ao criar uma tabela SQL em <strong>AlterTable</strong> adicionar colunas ao invés de criar a tabela toda. ✅ </p>
+
+<ul class="paragraph_spacing">
+  <li><p><strong>Motivo</strong>: </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Permitir que o banco de dados fique compatível com o Template.</p></li>
+  <li><p>Alterar um coluna de forma automática não é bom, porque o que está feito gera dependências que produzirão erros ao fazer essas alterações.</p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p></li>
+  <li><p><strong>2022-03-21</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p><strong>08:57</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>T12 Criar function SQL_AddkeysPrimaryKeyComposite(I : Integer):Boolean; ✅ </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Esta função adiciona chave primária composta na tabela.</p></li>
+  <li><p><strong>REFERÊNCIA</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>[Como adiconar chave primaria usando a expressão ALTER TABLE](<a href="https://www.techonthenet.com/postgresql/primary_keys.php#:~:text=In%20PostgreSQL%2C%20a%20primary%20key%20is%20created%20using%20either%20a,or%20drop%20a%20primary%20key">https://www.techonthenet.com/postgresql/primary_keys.php#:&tilde;:text=In%20PostgreSQL%2C%20a%20primary%20key%20is%20created%20using%20either%20a,or%20drop%20a%20primary%20key</a>.)</p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p></li>
+  <li><p><strong>15:40</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>T12 Em AlterTable criar a restrição de chave estrangeira no TDmxScroller_sql. ✅ </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Nome da função: function AddKeyForeigns(I : Integer):Boolean;</p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p></li>
+  <li><p><strong>2022-03-22</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p><strong>09:00</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>T12 Documentar as units <a class="normal" href="mi_rtl_ui_types.TUiTypes.html">TuiTypes</a> e TUIConsts. ✅</p></li>
+</ul>
+
+<p></p></li>
+  <li><p><strong>10:00</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>T12 Criar os relacionamentos entre tabelas (restrições entre tabelas) ✅</p></li>
+</ul>
+
+<p></p></li>
+  <li><p><strong>14:14</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>T12 Depurar os relacionamentos entre tabelas. ✅</p></li>
+</ul>
+
+<p></p></li>
+  <li><p><strong>18:47</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>O Componente CustomBufDataset não está entrando no modo edit. ✅ </p>
+
+<ul class="paragraph_spacing">
+  <li><p>O problema estava nos eventos TScrollBoxDMX.DoOnEnter e TScrollBoxDMX.DoOnExit;]</p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p></li>
+  <li><p><strong>2022-03-22</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p><strong>20:27</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>T12 Analisar como criar os comandos CmIncluir, cmAlterar, cmExcluir, cmConsulta para a tabela TDmxScroller </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Criar os comandos: ✅ </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Public Procedure DoOnNewRecord;overload;override; //Usado para inicializa os parametros de um novo registro</p></li>
+  <li><p>Public Procedure PutRec;Override;//Grava o buffer no arquivo memo</p></li>
+  <li><p>Public Procedure GetRec;Override;//O primeiro registro esta gravado em Value</p></li>
+  <li><p>Public Function DeleteRec:Boolean;Override;</p></li>
+  <li><p>Function UpdateRec: Boolean;Override;</p></li>
+  <li><p>Function UpdateRec_if_RecordAltered:Boolean;Override;</p></li>
+  <li><p>Function PrevRec : Boolean;overload;override;</p></li>
+  <li><p>Function NextRec : Boolean;overload;override;</p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p></li>
+  <li><p><strong>2022-03-23</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Criar método Public Function AddRec:Boolean;Override; ✅ </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Para que DoAddrec possa adicionar o registro é necessário que o registro esteja selecionando, ou seja no modo edit.</p></li>
+  <li><p>Obs: Está com problema.</p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p></li>
+  <li><p><strong>2022-03-25</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p><a href="https://wiki.freepascal.org/Firebird#Creating_objects_programmatically">Estudar página sobre o banco de dados firebird</a> ✅</p></li>
+</ul>
+
+<p></p></li>
+  <li><p><strong>2022-03-28</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Em <a class="normal" href="mi_rtl_ui_Dmxscroller_sql.TUiDmxScroller_sql.html#DoOnNewRecord">TUiDmxScroller_sql.DoOnNewRecord</a>; está executando o método (CustomBufDataset as TSQLQuery).Append; antes do componenente <a class="normal" href="mi_rtl_ui_Dmxscroller_sql.TUiDmxScroller_sql.html">TUiDmxScroller_sql</a> está visível e isto está gerando exceção. -</p></li>
+</ul>
+
+<p></p></li>
+  <li><p><strong>2022-03-30</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Implementar a conexão com o banco de dados usando o componente Mi_Application.</p></li>
+</ul>
+
+<p></p></li>
+  <li><p><strong>2022-04-14</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Debugar o método <strong><a class="normal" href="mi_rtl_ui_Dmxscroller_sql.TUiDmxScroller_sql.html#AlterTable">TUiDmxScroller_sql.AlterTable</a></strong>.</p></li>
+</ul>
+
+<p></p></li>
+  <li><p><strong>2022-04-15</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>O método <strong><a class="normal" href="mi_rtl_ui_Dmxscroller_sql.TUiDmxScroller_sql.html#AlterTable">TUiDmxScroller_sql.AlterTable</a></strong> precisa reconhecer a sintaxe do banco de dados selecionado. </p>
+
+<ul class="paragraph_spacing">
+  <li><p>O postgresSQL sintaxe: </p>
+
+<ul class="paragraph_spacing">
+  <li><p>CREATE TABLE [IF NOT EXISTS] table_name ( column1 datatype(length) column_contraint, column2 datatype(length) column_contraint, column3 datatype(length) column_contraint, table_constraints );</p></li>
+  <li><p><strong>REFERÊNCIA</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>[postgresql-create-table](<a href="https://www.postgresqltutorial.com/postgresql-tutorial/postgresql-create-table/">https://www.postgresqltutorial.com/postgresql-tutorial/postgresql-create-table/</a>)</p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p></li>
+  <li><p>O sqLite3 sintaxe: </p>
+
+<ul class="paragraph_spacing">
+  <li><p>CREATE TABLE [IF NOT EXISTS] [schema_name].table_name ( column_1 data_type PRIMARY KEY, column_2 data_type NOT NULL, column_3 data_type DEFAULT 0,table_constraints) [WITHOUT ROWID];</p></li>
+  <li><p><strong>REFERÊNCIA:</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>[sqlite-create-table](<a href="https://www.sqlitetutorial.net/sqlite-create-table/">https://www.sqlitetutorial.net/sqlite-create-table/</a>)</p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p>
+<span id="PasDoc-Uses"></span><h2 class="uses">Uses</h2>
+<ul class="useslist"><li>Classes</li><li>SysUtils</li><li>BufDataset</li><li>db</li><li>SqlDb</li><li><a href="mi.rtl.Types.html">mi.rtl.Types</a></li><li><a href="mi_rtl_ui_types.html">mi_rtl_ui_types</a></li><li>mi_rtl_ui_consts</li><li><a href="mi_rtl_ui_Dmxscroller.html">mi_rtl_ui_Dmxscroller</a></li><li>umi_rtl_ui_custom_application</li></ul><h2 class="overview">Visão Geral</h2>
+<span id="PasDoc-Classes"></span><h3 class="cio">Classes, Interfaces, Objetos e Registros</h3>
+<table class="classestable wide_list">
+<tr class="listheader">
+<th class="itemname">Nome</th>
+<th class="itemdesc">Descrição</th>
+</tr>
+<tr class="list">
+<td class="itemname">Classe&nbsp;<a class="bold" href="mi_rtl_ui_Dmxscroller_sql.TDmxScroller_sql_Atributos.html"><code>TDmxScroller_sql_Atributos</code></a></td>
+<td class="itemdesc">&nbsp;</td>
+</tr>
+<tr class="list2">
+<td class="itemname">Classe&nbsp;<a class="bold" href="mi_rtl_ui_Dmxscroller_sql.TUiDmxScroller_sql.html"><code>TUiDmxScroller_sql</code></a></td>
+<td class="itemdesc">&nbsp;</td>
+</tr>
+</table>
+<hr><span class="appinfo"><em>Gerado por <a href="https://pasdoc.github.io/">PasDoc 0.16.0</a>. </em>
+</span>
+</div></div></body></html>

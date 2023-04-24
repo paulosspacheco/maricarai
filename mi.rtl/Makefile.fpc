@@ -1,17 +1,17 @@
 #   File generated automatically by Lazarus Package Manager
 #
-#   Makefile.fpc for mi.rtl 0.7.0.687
+#   Makefile.fpc for mi.rtl 0.7.1.621
 #
-#   This file was generated on 11/04/2023
+#   This file was generated on 24/04/2023
 
 [package]
 name=mi.rtl
-version=0.7.0.687
+version=0.7.1.621
 
 [compiler]
 unittargetdir=lib/$(CPU_TARGET)-$(OS_TARGET)/units
-unitdir=units units/horse/src ../../../../fpcupdeluxe/lazarus/packager/units/$(CPU_TARGET)-$(OS_TARGET) ../../../../fpcupdeluxe/lazarus/components/lazutils/lib/$(CPU_TARGET)-$(OS_TARGET) .
-includedir=../mi.ui.lcl.form/examples/mi.ui.lcl.form.tests/lib/x86_64-linux/units units/include/linux units/include/windows units units/horse/src
+unitdir=units ../../../../fpcupdeluxe/lazarus/packager/units/$(CPU_TARGET)-$(OS_TARGET) ../../../../fpcupdeluxe/lazarus/components/lazutils/lib/$(CPU_TARGET)-$(OS_TARGET) .
+includedir=examples/mi.rtl.tests/lib/x86_64-win64/units units/include/linux units/include/windows units units/horse/src
 options= -MDelphi -Scaghi -CirotR -O1 -gw3 -gl -l -vewnhibq $(DBG_OPTIONS)
 
 [target]

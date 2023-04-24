@@ -370,7 +370,8 @@ implementation
       if result
       then begin
              NrDefalt := '0';
-             nr := InputBox('Deleta Record',Format('Qual o registro entre 0..%d',[FileSize(ArqAluno)]),NrDefalt);
+             nr := '0';
+            // nr := InputBox('Deleta Record',Format('Qual o registro entre 0..%d',[FileSize(ArqAluno)]),NrDefalt);
              if Nr <> NrDefalt
              then begin
                     NR_Current := StrToInt(nr);
@@ -383,10 +384,10 @@ implementation
                                                             '',
                                                             'Faixa de registro inválida para excluir o registro!');
 
-                     if DeleteRec(ArqAluno,Nr_Current)
-                     then ShowMessageFmt('Registro número %d deletado com sucesso!.',[Nr_current])
-                     else ShowMessageFmt('Registro número %d não pode ser deletado!.',[Nr_current]);
-
+                     //if DeleteRec(ArqAluno,Nr_Current)
+                     //then ShowMessageFmt('Registro número %d deletado com sucesso!.',[Nr_current])
+                     //else ShowMessageFmt('Registro número %d não pode ser deletado!.',[Nr_current]);
+                     //
              end;
 
              CloseFile(ArqAluno);

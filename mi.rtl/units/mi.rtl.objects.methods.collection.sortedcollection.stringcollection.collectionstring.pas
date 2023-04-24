@@ -7,7 +7,7 @@ unit mi.rtl.Objects.Methods.Collection.Sortedcollection.Stringcollection.Collect
         -  Essa classe foi criada para transformar Lista PSItem eem TCollection de strings;
 
       - **VERSÃO**
-        - Alpha - 0.7.0.0
+        - Alpha - 0.7.1.621
 
       - **CÓDIGO FONTE**:
         - @html(<a href="../units/mi.rtl.objects.tcollection.tsortedcollection.tstringcollection.pas">mi.rtl.objects.tcollection.tsortedcollection.tstringcollection.pas</a>)

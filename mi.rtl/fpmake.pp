@@ -1,7 +1,7 @@
 {
    File generated automatically by Lazarus Package Manager
 
-   fpmake.pp for mi.rtl 0.5.0.687
+   fpmake.pp for mi.rtl 0.7.1.621
 
    This file was generated on 31/03/2023
 }

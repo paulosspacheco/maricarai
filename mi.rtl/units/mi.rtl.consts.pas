@@ -4,7 +4,7 @@ unit mi.rtl.Consts;
 
 
   - **VERSÃO**
-    - Alpha - 0.7.0.0
+    - Alpha - 0.7.1.621
 
   - **CÓDIGO FONTE**:
     - @html(<a href="../units/mi.rtl.consts.pas">mi.rtl.consts.pas</a>)          
@@ -50,6 +50,10 @@ uses
   }
   type TConsts =
   class(TTypes)
+    Const C_DEF_VER_FORMAT4             = '{mjr}.{mnr}.{rev}.{bld}';
+    Const C_DEF_VER_FORMAT3             = '{mjr}.{mnr}.{rev}';
+    Const C_DEF_VER_FORMAT2             = '{mjr}.{mnr}';
+
     {: Pilha com tStrings de erros.}
     public  Const ListaDeMsgErro : TTypes.PSItem = nil;
 

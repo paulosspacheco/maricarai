@@ -6,7 +6,7 @@ unit mi.rtl.files;
         windows e por isso mantenho o mesmo comportamento do windows.
 
       - **VERSÃO**:
-        - Alpha - 0.7.0.0
+        - Alpha - 0.7.1.621
 
       - **NOTA**:
         - [Veja o link de como escrever código portátil em relação à arquitetura do processador?](https://wiki.freepascal.org/Writing_portable_code_regarding_the_processor_architecture);
@@ -101,26 +101,29 @@ unit mi.rtl.files;
           - 2021-11-22
             - 10:00 a 10:06 - Criar classe método : **TFiles.CreateDir()**
             - 10:29 a 11:10 - Criar classe método : **TFiles.SysGetDriveType(aPath : AnsiString): TDriveType;**
-            - 11:11 a 12:02 - Criar classe método : **DuplicateHandle(hSourceHandle: LongInt;Var lpTargeTHandle: Longint) :  Longint);
-            - 14:10 a 15:16 - Criar classe método : **FileFlushBuffers(Handle: THandle): Longint;**
+            - 11:11 a 12:02 - Criar classe método : **TFiles.DuplicateHandle(hSourceHandle: LongInt;Var lpTargeTHandle: Longint) :  Longint);
+            - 14:10 a 15:16 - Criar classe método : **TFiles.FileFlushBuffers(Handle: THandle): Longint;**
 
             - 15:44 a 17:32 - Criar classe método : **LockFile(_Handle:THandle; _LockStart, _LockLength: Int64): LongInt;**
                             - Não encontrei no linux o equivalente ao Windows.LockFile
 
-            - 15:44 a 17:32 - Criar classe método : **UnLockFile(_Handle:THandle; _LockStart, _LockLength: Int64): LongInt;**
+            - 15:44 a 17:32 - Criar classe método : **TFiles.UnLockFile(_Handle:THandle; _LockStart, _LockLength: Int64): LongInt;**
                             - Não encontrei no linux o equivalente ao Windows.unLockFile
 
             - 2021-12-01
-              - 11:42 a ??:?? : Implementar a função Is_TFileOpen
+              - 11:42 a ??:?? : Implementar a função TFiles.Is_TFileOpen
 
             - 2021-12-02
-              - 20:00 a 22:15 : Implementei a classe TStrError
+              - 20:00 a 22:15 : Implementei a classe TFiles.TStrError
 
-            - 20211230
-              - 15:30 a 16:10 : Criar método GetTempFileName
+            - 2021-12-30
+              - 15:30 a 16:10 : Criar método TFiles.GetTempFileName
 
-            - 20220111
-              - 17:10 - Criar método shellExecute
+            - 2022-01-11
+              - 17:10 - Criar método TFiles.ShellExecute
+
+            - 2022-04-22
+              - 15:46 - Criar método TFiles.AppVersionInfo
   }
 
   {$IFDEF FPC}
@@ -139,6 +142,7 @@ uses
   ,crt
   //,Dialogs // Uso o showMessage porém o mesmo deve ser substituido pelo um showMessage que não trava se tiver dentro de uma transação.
   ,FileUtil // <https://wiki.lazarus.freepascal.org/fileutil
+  ,mi.rtl.libBinRes
   ,mi.rtl.types
   ,mi.rtl.Consts
   ,mi.rtl.Consts.StrError
@@ -155,6 +159,39 @@ uses
     { TFiles }
 
     TFiles = class(TConsts)
+        {: O método @name contém o número da versão do projeto corrente.
+
+       - Esta contante retira essa informação do arquivo de recursos, caso o
+         projeto não esteja habilitado o número da versão o acesso ao mesmo ao
+         método @name vai gerar excessão.
+
+       - **EXEMPLO DE USO**
+
+         ```pascal
+
+           procedure TForm1.Button1Click(Sender: TObject);
+           // [0] = Major version, [1] = Minor ver, [2] = Revision, [3] = Build Number
+             Var
+               sProgName:string;
+           begin
+
+             With mi.rtl.files.Tfiles do
+             begin
+
+               sProgName :='PROJECT1';
+               edit1.text:=sProgName + ' , Version:     ' + AppVersionInfo.MajorAsStr + '.'+AppVersionInfo.MinorAsStr+'.'+AppVersionInfo.RevisionAsStr+ '.'+AppVersionInfo.BuildNoAsStr;
+               edit2.text:=sProgName + ' , VersionStr:  ' + AppVersionInfo.VersionStr;
+               edit3.text:=sProgName + ' , VersionStrEx:' + AppVersionInfo.VersionStrEx[C_DEF_VER_FORMAT3];
+             end;
+
+           end;
+
+         ```
+
+
+    }
+      public Class Function AppVersionInfo: TAppVersionInfo;
+
       type TStrError = mi.rtl.Consts.StrError.TStrError;
 
       {: A função **@name** captura o estados de system.ioResult e atualiza TaStatus
@@ -1076,6 +1113,16 @@ implementation
 
 
 {$REGION  'implementation' }
+
+  class function TFiles.AppVersionInfo: TAppVersionInfo;
+  begin
+    try
+      result := mi.rtl.libBinRes.AppVersionInfo;
+    Except
+      result := nil;
+    end;
+
+  end;
 
   class function TFiles.IoResult: Integer;
   Begin

@@ -1,6 +1,9 @@
 ./fpmake.pp
+./examples/projects/backup/unit1.pas
+./examples/projects/unit1.pas
 ./examples/mi.rtl.tests/units/mi.rtl.objects.methods.db.tb__access_test.pas
 ./examples/mi.rtl.tests/units/mi_ui_mi_msgbox_dm.pas
+./examples/mi.rtl.tests/units/backup/mi.rtl.objects.methods.db.tb__access_test.pas
 ./examples/mi.rtl.tests/units/Classes_C.pas
 ./examples/mi.rtl.tests/units/Db_Global.pas
 ./examples/mi.rtl.tests/units/mi.rtl.dialogs.pas
@@ -14,6 +17,8 @@
 ./units/mi_rtl_ui_consts.pas
 ./units/mi.rtl.objects.methods.db.tb___access.pas
 ./units/mi.rtl.objects.methods.streambase.stream.memorystream.pas
+./units/horse/console/backup/unit1.pas
+./units/horse/console/unit1.pas
 ./units/mi_rtl_ui_dmxscroller_sql.pas
 ./units/mi.rtl.objects.methods.collection.filesstreams.pas
 ./units/mi.rtl.objects.methods.streambase.stream.filestream.pas
@@ -44,6 +49,7 @@
 ./units/mi.rtl.objects.methods.paramexecucao.application.pas
 ./units/mi.rtl.types.pas
 ./units/mi.rtl.objects.types.pas
+./units/mi.rtl.libbinres.pas
 ./units/mi.rtl.objects.methods.collection.sortedcollection.pas
 ./units/mi.rtl.objects.consts.progressdlg_if.pas
 ./units/mi.rtl.consts.strerror.pas
@@ -55,8 +61,15 @@
 ./units/mi.rtl.objects.methods.dates.pas
 ./units/mi.rtl.objects.methods.streambase.stream.pas
 ./mi.rtl.pas
+./examples/projects/backup/project1.lpr
+./examples/projects/project1.lpr
+./examples/mi.rtl.tests/backup/mi.rtl.tests.lpr
 ./examples/mi.rtl.tests/mi.rtl.tests.lpr
 ./examples/console/project1.lpr
+./units/horse/console/backup/Console.lpr
+./units/horse/console/backup/project1.lpr
+./units/horse/console/Console.lpr
+./units/horse/console/project1.lpr
 ./units/include/linux/errormessage.inc
 ./units/include/linux/errormessage_doc.inc
 ./units/include/windows/erromessage_doc.inc

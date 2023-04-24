@@ -26,6 +26,7 @@ uses
   ,Graphics
   ,StdCtrls
   ,System.UITypes
+  ,mi.rtl.Objects.Methods
   ,mi.rtl.objects.consts.mi_msgbox;
 
 type
@@ -195,7 +196,16 @@ function TMi_ui_mi_msgBox.MI_MsgBox1MessageBox_ListBoxRec_PSItem(Atitulo: AnsiSt
                                                                  Buttons: TMsgDlgButtons;
                                                                  ButtonDefault: TMsgDlgBtn
                                                                  ): TModalResult;
+  Var
+    aMsg : AnsiString;
 begin
+  with MI_MsgBox1,TObjectsMethods do
+  if APSItem <> nil
+  Then begin
+         aMsg :=  SItemToString(APSItem);
+        result := dialogs.MessageDlg(Atitulo,aMsg, DlgType,Buttons, 0);
+       end
+  else Result := MrCancel;
 
 end;
 

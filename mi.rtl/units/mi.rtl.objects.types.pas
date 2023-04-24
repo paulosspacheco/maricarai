@@ -5,7 +5,7 @@ unit mi.rtl.objects.types;
       - Esta unit foi testada nas plataformas: win32, win64 e linux.
 
     - **VERSÃO**
-      - Alpha - 0.7.0.0
+      - Alpha - 0.7.1.621
 
     - **CÓDIGO FONTE**:
       - @html(<a href="../units/mi.rtl.objects.types.pas">mi.rtl.objects.types.pas</a>)

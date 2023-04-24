@@ -8,8 +8,8 @@ unit mi.rtl;
 interface
 
 uses
-  mi.rtl.ApplicationAbstract, mi.rtl.Class_Of_Char, mi.rtl.Types, 
-  mi.rtl.Consts, mi.rtl.files, mi.rtl.Consts.StrError, 
+  mi.rtl.libBinRes, mi.rtl.ApplicationAbstract, mi.rtl.Class_Of_Char, 
+  mi.rtl.Types, mi.rtl.Consts, mi.rtl.files, mi.rtl.Consts.StrError, 
   mi.rtl.Consts.StringListBase, mi.rtl.Consts.StringList, 
   mi.rtl.objects.types, mi.rtl.Objects.Consts, mi.rtl.Objects.Consts.Logs, 
   mi.rtl.Objects.Consts.Mi_MsgBox, mi.rtl.Objects.Consts.ProgressDlg_If, 

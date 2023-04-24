@@ -2,7 +2,7 @@ unit mi.rtl.Objects.Methods.Collection.FilesStreams;
 {:< - A unit **@name** implementa a classe TFilesStreams do pacote mi.rtl.
 
     - **VERSÃO**:
-      - Alpha - 0.7.0.0
+      - Alpha - 0.7.1.621
 
     - **CÓDIGO FONTE**:
       - @html(<a href="../units/mi.rtl.objects.methods.Collection.FilesStreams.pas">mi.rtl.objects.methods.Collection.FilesStreams.pas</a>)

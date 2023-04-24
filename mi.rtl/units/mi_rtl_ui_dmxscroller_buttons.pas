@@ -2,7 +2,7 @@ unit mi_rtl_ui_DmxScroller_Buttons;
 {:< A unit **@name** implementa a classe TUiDmxScroller_Buttons.
 
   - **VERSÃO**
-    - Alpha - 0.7.0.0
+    - Alpha - 0.7.1.621
 
   - **CÓDIGO FONTE**:
     - @html(<a href="../units/mi_rtl_ui_dmxscroller_buttons.pas">mi_rtl_ui_DmxScroller_Buttons.pas</a>)
