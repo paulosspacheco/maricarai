@@ -1,5 +1,14 @@
 unit mi_rtl_ui_Dmxscroller;
+{TODO -oOwnerName -cCategoryName: Todo_text}
+{DONE -oOwnerName -cCategoryName: Todo_text}
+//#todo -oOwnerName -cCategoryName: Todo_text
+{#done -oOwnerName -cCategoryName: Todo_text}
+
   {:< A unit **@name** implementa a classe TUiDmxScroller e registro TDmxFieldRec.
+
+    - **ORIGEM DESTA IDEIA**:
+      - Este projeto foi criado baseado na ideia do projeto:
+        - [TvDmx](https://www.pcorner.com/list/PASCAL/TVDMX.ZIP/INFO)
 
     - **VERSÃO**
       - Alpha - 0.7.1.621
@@ -10,89 +19,91 @@ unit mi_rtl_ui_Dmxscroller;
     - **CÓDIGO FONTE**:
       - @html(<a href="../units/mi_rtl_ui_dmxscroller.pas">mi_rtl_ui_DmxScroller.pas</a>)
 
-      - **PENDÊNCIAS**
-         - T12 Quando uma linha em um label tem muitos caracteres de 2 bytes os últimos não são interpretados.
 
-         - T12 Implementar o campo FldLink. (Esse campo executa um ação usando controle TStaticText.
+    - **PENDÊNCIAS**
 
-         - T12 O controle TComboBox da LCL alterar o tamanho da fonte courie New caso o tema do
-           sistema mude.
-           - Pesquisar sobre o assunto.
+       - T12 Quando uma linha em um label tem muitos caracteres de 2 bytes os últimos não são interpretados.
 
-         - T12 No método SetString em caso de erro de gera exceção informando valor máximo
-           do campo  e não o valor digitado.
+       - T12 Implementar o campo FldLink. (Esse campo executa um ação usando controle TStaticText.
 
-         - T12 Implementar o evento OnChange em todos os controles, visto que o mesmo
-           é mais fácil criar lógica de negócios visto que o mesmo só é executado
-           se o campo for modificado.
+       - T12 O controle TComboBox da LCL alterar o tamanho da fonte courie New caso o tema do
+         sistema mude.
+         - Pesquisar sobre o assunto.
 
-         - T12 Implementar a possibilidade das fontes do label ser personalizada
-               baseado em um estilo que pode ser uma variável global.
+       - T12 No método SetString em caso de erro de gera exceção informando valor máximo
+         do campo  e não o valor digitado.
 
-           -  Suponha que ^Z = <h1> Título e ^D = <B> de negrito então o sistema
-              informa a TDmxFieldRec.Style = nome do estilo onde nome do estilo = 'Font = FonteX; Size= XX; etc..  '
+       - T12 Implementar o evento OnChange em todos os controles, visto que o mesmo
+         é mais fácil criar lógica de negócios visto que o mesmo só é executado
+         se o campo for modificado.
 
-              - Exemplo:
+       - T12 Implementar a possibilidade das fontes do label ser personalizada
+             baseado em um estilo que pode ser uma variável global.
 
-               ~^ZCADASTRO DE ALUNOS~
+         -  Suponha que ^Z = <h1> Título e ^D = <B> de negrito então o sistema
+            informa a TDmxFieldRec.Style = nome do estilo onde nome do estilo = 'Font = FonteX; Size= XX; etc..  '
 
-               ~^DÑome do Aluno:~\ssssssssss
+            - Exemplo:
+
+             ~^ZCADASTRO DE ALUNOS~
+
+             ~^DÑome do Aluno:~\ssssssssss
 
 
-        - T12 Na construção do formulário LCL setar o campo PDmxFieldRec.LinkEdit;
+      - T12 Na construção do formulário LCL setar o campo PDmxFieldRec.LinkEdit;
 
-        - T12 Implementar o método: function FieldByNum(aFieldnum:Integer):PDmxFieldRec;
+      - T12 Implementar o método: function FieldByNum(aFieldnum:Integer):PDmxFieldRec;
 
-        - T12 Implementar a edição **FldBoolean**.
-          - Os campo Boolean deve ser editados como uma campo enumerado onde:
-            - 0 - False; não
-            - 1 = True;  sim
+      - T12 Implementar a edição **FldBoolean**.
+        - Os campo Boolean deve ser editados como uma campo enumerado onde:
+          - 0 - False; não
+          - 1 = True;  sim
 
-        - T12 O campo fld_LHora não inicializado antes de compactar a hora.
+      - T12 O campo fld_LHora não inicializado antes de compactar a hora.
 
-        - T12 Quando o usuário teclar tab para passar o campo e o campo seguinte não
-              estiver visível o sistema deve passar a página do  controle parent.
+      - T12 Quando o usuário teclar tab para passar o campo e o campo seguinte não
+            estiver visível o sistema deve passar a página do  controle parent.
 
-        - T12 Implementar a edição de campo **FldMemo**.
+      - T12 Implementar a edição de campo **FldMemo**.
 
-        - T!2 Implementar a campo **fldBLOb**;
+      - T!2 Implementar a campo **fldBLOb**;
 
-        - t12 Implementar a edição de **fldHexValue**.
-          - O campo Hexadecimal deve ser campo longint mais a edição é uma string comum . FldStr
-        
+      - t12 Implementar a edição de **fldHexValue**.
+        - O campo Hexadecimal deve ser campo longint mais a edição é uma string comum . FldStr
 
-        - T12 Implementar a propriedade  AlignmentLabels := taCenter;
-                                         AlignmentLabels := taLeftJustify;
-                                         AlignmentLabels := taRightJustify ;
 
-        - T12 Implementar  a execução do evento do tipo CharExecProc quando a tecla F7
-              é pressionada.
+      - T12 Implementar a propriedade  AlignmentLabels := taCenter;
+                                       AlignmentLabels := taLeftJustify;
+                                       AlignmentLabels := taRightJustify ;
 
-        - T12 Criar opção para gerar cliente HTML a partir de TDmxScroller
-          - Referência: [Componente que espoe dados para o browser](https://wiki.freepascal.org/SqlDbRestBridge#Purpose)
+      - T12 Implementar  a execução do evento do tipo CharExecProc quando a tecla F7
+            é pressionada.
 
-        - T12 O grupo TMi_RadioGroup_Lcl não é selecionado com a tecla na tecla **TAB**
-          - Quando os botões TRadioButton estão dentro do TRadioGroup  a propriedade 
-            TRadioGroup.TabStop não funciona.          
+      - T12 Criar opção para gerar cliente HTML a partir de TDmxScroller
+        - Referência: [Componente que espoe dados para o browser](https://wiki.freepascal.org/SqlDbRestBridge#Purpose)
 
-        - T12 Nosso código só é executado com o editor de
-              propriedade. Se não estamos no editor de propriedade
-              então não temos controle do código no modo design.
-              Qual o meu problema:
-                O formulário deve ser criado em tempo de execução,
-                porém eu queria ver como ele estava ficando sem precisar
-                compilar e executar o código, por isso coloquei o código
-                em um stringList e ao ativar o objeto, o formulário é
-                criado. Porém esses objetos criados no designer não podem
-                ficar no arquivo de recursos porque quando for executado
-                vai haver duplicidade.
-                - Quando eu desativo o objetos todos os objetos que ele
-                  criou são excluídos do arquivo de recursos.
-                - Isso eu já faço agora, mais quando distribuir o
-                  componente as pessoas vão deixar esses componente
-                  usado no teste e ao executar vai haver error.
-                - Por isso eu queria que caso a propriedade active tivesse
-                  em true eu queria que ela ficasse em false.
+      - T12 O grupo TMi_RadioGroup_Lcl não é selecionado com a tecla na tecla **TAB**
+        - Quando os botões TRadioButton estão dentro do TRadioGroup  a propriedade
+          TRadioGroup.TabStop não funciona.
+
+      - T12 Nosso código só é executado com o editor de
+            propriedade. Se não estamos no editor de propriedade
+            então não temos controle do código no modo design.
+            Qual o meu problema:
+              O formulário deve ser criado em tempo de execução,
+              porém eu queria ver como ele estava ficando sem precisar
+              compilar e executar o código, por isso coloquei o código
+              em um stringList e ao ativar o objeto, o formulário é
+              criado. Porém esses objetos criados no designer não podem
+              ficar no arquivo de recursos porque quando for executado
+              vai haver duplicidade.
+              - Quando eu desativo o objetos todos os objetos que ele
+                criou são excluídos do arquivo de recursos.
+              - Isso eu já faço agora, mais quando distribuir o
+                componente as pessoas vão deixar esses componente
+                usado no teste e ao executar vai haver error.
+              - Por isso eu queria que caso a propriedade active tivesse
+                em true eu queria que ela ficasse em false.
 
     - **CONCLUÍDO**
         - T12 O campo FldCheckBox não está funcionando o flag charHint  ✅️.

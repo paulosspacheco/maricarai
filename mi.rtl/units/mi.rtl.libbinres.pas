@@ -125,6 +125,7 @@ Const
 const HANDLE_INVALID = high(THandle);
 
 type
+  
   { TAppVersionInfo }
 
   TAppVersionInfo = class

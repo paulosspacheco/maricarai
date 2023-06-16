@@ -6,6 +6,7 @@
     3. T12 Documentar o método TDmxScroller_Form.CreateFormLCL ✅
 
 2. **2022-03-13 8:30**
+      <!--TODO:T12 Checar...DmxSrollBox-->
    1. T12 Checar porque quando não insiro uma linha em branco na ultima linha do Template
           o DmxSrollBox ficar menor do que é para ser.
       1. Solução:

@@ -27,7 +27,7 @@
       <AutoIncrementBuild Value="True"/>
       <MinorVersionNr Value="7"/>
       <RevisionNr Value="1"/>
-      <BuildNr Value="635"/>
+      <BuildNr Value="644"/>
       <Language Value="0416"/>
       <CharSet Value="04B0"/>
       <Attributes pvaDebug="True" pvaPreRelease="True"/>

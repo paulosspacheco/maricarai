@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<title>umi_ui_dmxscroller_form_lcl_ds: Classe TDmxScroller_Form_Lcl_DS</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="generator" content="PasDoc 0.16.0">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<link rel="stylesheet" type="text/css" href="tipuesearch/tipuesearch.css">
+
+<link rel="StyleSheet" type="text/css" href="pasdoc.css">
+</head>
+<body>
+<div class="container"><div class="navigation">
+<ul><li><a href="AllUnits.html">Units</a></li><li><a href="ClassHierarchy.html">Hierarquia de Classes</a></li><li><a href="AllClasses.html">Classes, Interfaces, Objetos e Registros</a></li><li><a href="AllTypes.html">Tipos</a></li><li><a href="AllVariables.html">Variáveis</a></li><li><a href="AllConstants.html">Constantes</a></li><li><a href="AllFunctions.html">Funções e Procedimentos</a></li><li><a href="AllIdentifiers.html">Identificadores</a></li><li><form class="search-form" action="tipue_results.html"><div class="search-input"><input type="text" name="q" id="tipue_search_input" pattern=".{1,}" title="At least 1 characters" required><div class="search-button"><input type="button" id="tipue_search_button" onclick="this.form.submit();"></div></div></form>
+<div style="clear: both"></div>
+</li></ul></div><div class="content">
+<span id="TDmxScroller_Form_Lcl_DS"></span><h1 class="cio">Classe TDmxScroller_Form_Lcl_DS</h1>
+<div class="sections">
+<div class="one_section"><a class="section" href="#PasDoc-Description">Descrição</a></div><div class="one_section"><a class="section" href="#PasDoc-Hierarchy">Hierarquia</a></div><div class="one_section">Campos</div><div class="one_section"><a class="section" href="#PasDoc-Methods">Métodos</a></div><div class="one_section"><a class="section" href="#PasDoc-Properties">Propriedades</a></div></div>
+<span id="PasDoc-Description"></span><h2 class="unit">Unit</h2>
+<p class="unitlink">
+<a href="umi_ui_dmxscroller_form_lcl_ds.html">umi_ui_dmxscroller_form_lcl_ds</a></p>
+<h2 class="declaration">Declaração</h2>
+<p class="declaration">
+<code>type TDmxScroller_Form_Lcl_DS = class(TDmxScroller_Form_Lcl)</code></p>
+<h2 class="description">Descrição</h2>
+<span id="PasDoc-Hierarchy"></span><h2 class="hierarchy">Hierarquia</h2>
+<ul class="hierarchy"><li class="ancestor">TDmxScroller_Form_Lcl</li>
+<li class="thisitem">TDmxScroller_Form_Lcl_DS</li></ul><h2 class="overview">Visão Geral</h2>
+<span id="PasDoc-Methods"></span><h3 class="summary">Métodos</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>procedure <strong><a href="umi_ui_dmxscroller_form_lcl_ds.TDmxScroller_Form_Lcl_DS.html#CreateFormLCL">CreateFormLCL</a></strong>(aOwner:TScrollingWinControl); override;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>procedure <strong><a href="umi_ui_dmxscroller_form_lcl_ds.TDmxScroller_Form_Lcl_DS.html#UpdateBuffers_Controls">UpdateBuffers_Controls</a></strong>; override;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>procedure <strong><a href="umi_ui_dmxscroller_form_lcl_ds.TDmxScroller_Form_Lcl_DS.html#SetActiveTarget">SetActiveTarget</a></strong>(aActive: Boolean); override;</code></td>
+</tr>
+</table>
+<span id="PasDoc-Properties"></span><h3 class="summary">Propriedades</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><code>property <strong><a href="umi_ui_dmxscroller_form_lcl_ds.TDmxScroller_Form_Lcl_DS.html#TableName">TableName</a></strong>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><code>property <strong><a href="umi_ui_dmxscroller_form_lcl_ds.TDmxScroller_Form_Lcl_DS.html#DataSource">DataSource</a></strong>;</code></td>
+</tr>
+</table>
+<h2 class="description">Descrição</h2>
+<h3 class="detail">Métodos</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="CreateFormLCL"></span><code>procedure <strong>CreateFormLCL</strong>(aOwner:TScrollingWinControl); override;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+O método <strong><code>CreateFormLCL</code></strong> desenha um formulário TScrollingWinControl usando várias linha. </p>
+
+<ul class="paragraph_spacing">
+  <li><p>O modelo cria um registro usando os tipos de dados primitivos.</p></li>
+  <li><p><strong>EXEMPLO</strong>:
+
+<p></p>
+
+<pre class="longcode">
+
+<span class="pascal_keyword">function</span> TDMAlunos.DmxScroller_Form_AlunoGetTemplate(aNext: PSItem): PSItem;
+<span class="pascal_keyword">begin</span>
+  <span class="pascal_keyword">with</span> DmxScroller_Form1_DS <span class="pascal_keyword">do</span>
+  <span class="pascal_keyword">begin</span>
+    <span class="pascal_comment">// AlignmentLabels:= taCenter;</span>
+    AlignmentLabels := taLeftJustify;
+    <span class="pascal_comment">// AlignmentLabels := taRightJustify ;</span>
+    Result :=
+      NewSItem(<span class="pascal_string">'&tilde;     Matrícula &tilde;\LLLLL'</span>+CharFieldName+<span class="pascal_string">'matricula'</span>+CharAccReadOnly+CharPfInKeyPrimary+CharPfInAutoIncrement,
+      NewSItem(<span class="pascal_string">'&tilde;Nome do aluno: &tilde;\ssssssssssssssssssss`sssssss'</span>+CharFieldName+<span class="pascal_string">'Nome'</span>+CharPfInKey,
+      NewSItem(<span class="pascal_string">''</span>,
+      NewSItem(<span class="pascal_string">'&tilde;     Endereço: &tilde;\ssssssssssssssssssss`sssssssssss'</span>+CharFieldName+<span class="pascal_string">'Endereco'</span>,
+      NewSItem(<span class="pascal_string">'&tilde;P. Referência: &tilde;\ssssssssssssssssssss`sssss'</span>+CharFieldName+<span class="pascal_string">'PontoDeReferencia'</span>,
+      NewSItem(<span class="pascal_string">'&tilde;          Cep: &tilde;\##.###-###'</span>+CharFieldName+<span class="pascal_string">'cep'</span>,
+      NewSItem(<span class="pascal_string">'&tilde;       Estado: &tilde;\SS'</span>+CharFieldName+<span class="pascal_string">'Estado'</span>+CharForeignKeyN_Um_false+<span class="pascal_string">'Estados,Estado'</span>,
+      NewSItem(<span class="pascal_string">'&tilde;       Cidade: &tilde;\ssssssssssssssssssss`sssss'</span>+CharFieldName+<span class="pascal_string">'cidade'</span>+CharForeignKeyN_Um_false+<span class="pascal_string">'Cidades,Estado;Cidade'</span>,
+
+      NewSItem(<span class="pascal_string">''</span>,
+      aNext)))))))));
+
+  <span class="pascal_keyword">end</span>;
+<span class="pascal_keyword">end</span>;</pre>
+
+<p></p></li>
+</ul>
+
+<p></p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="UpdateBuffers_Controls"></span><code>procedure <strong>UpdateBuffers_Controls</strong>; override;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+O método <strong><code>UpdateBuffers_Controls</code></strong> ler o buffer dos campos dos arquivos associados a classe <strong>TDmxScroller_Form_Lcl_attributes_sql</strong> para o buffer dos campos da classe <strong><a class="normal" href="umi_ui_dmxscroller_form_lcl_attributes.TDmxScroller_Form_Lcl_attributes.html">TDmxScroller_Form_Lcl_attributes</a></strong></p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="SetActiveTarget"></span><code>procedure <strong>SetActiveTarget</strong>(aActive: Boolean); override;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<h3 class="detail">Propriedades</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><span id="TableName"></span><code>property <strong>TableName</strong>;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><span id="DataSource"></span><code>property <strong>DataSource</strong>;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<hr><span class="appinfo"><em>Gerado por <a href="https://pasdoc.github.io/">PasDoc 0.16.0</a>. </em>
+</span>
+</div></div></body></html>

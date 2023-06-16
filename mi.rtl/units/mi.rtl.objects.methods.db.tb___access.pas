@@ -1,10 +1,13 @@
 unit mi.rtl.Objects.Methods.Db.Tb___Access;
-{:< Esta unit **@name** é usada para criar banco de dados local usando estrutura **Type Record  End**;
+{:< Esta unit **@name** é usada para criar banco de dados local usando estrutura 
+   **Type Record  End**;
 
   - **NOTA**
     - Comandos parecidos com clipper
     - Está obsoleto não recomendo seu uso.
 }
+
+// TODO: Remove essa unit do pacote porque está obsoleta.
 
 {$IFDEF FPC}
   {$MODE Delphi}

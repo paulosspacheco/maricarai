@@ -24,7 +24,7 @@
       <UseVersionInfo Value="True"/>
       <AutoIncrementBuild Value="True"/>
       <MinorVersionNr Value="4"/>
-      <BuildNr Value="322"/>
+      <BuildNr Value="331"/>
       <Language Value="0416"/>
       <Attributes pvaDebug="True" pvaPreRelease="True"/>
       <StringTable Comments="Este produto é parte do projeto MarIcarai" CompanyName="Itm Sistemas e Consultoria Ltda." ProductName="mi.rtl"/>
