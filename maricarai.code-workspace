@@ -4,17 +4,5 @@
 			"path": "."
 		}
 	],
-	"settings": {
-		"cSpell.language": "en,pt-BR,en-US",
-		"cSpell.words": [
-			"Ansi",
-			"consts",
-			"dmxscroller",
-			"Dmxscroller",
-			"Fieldnum",
-			"Scroller",
-			"TRealNum"
-		],
-		"todo-tree.tree.scanMode": "workspace"
-	}
+	"settings": {}
 }
