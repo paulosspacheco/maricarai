@@ -14,7 +14,6 @@ object DmxScroller_Form_Lcl_test: TDmxScroller_Form_Lcl_test
   OnClose = FormClose
   OnCreate = FormCreate
   Position = poDesktopCenter
-  LCLVersion = '2.2.6.0'
   object Panel1: TPanel
     Left = 0
     Height = 32

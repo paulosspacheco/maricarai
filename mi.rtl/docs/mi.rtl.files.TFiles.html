@@ -184,29 +184,33 @@ A classe <strong><code>TConsts</code></strong> declara todas as constantes globa
 </tr>
 <tr class="list2">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
-<td class="itemcode"><code>class function <strong><a href="mi.rtl.files.TFiles.html#GetCurrentDir">GetCurrentDir</a></strong>: AnsiString;</code></td>
+<td class="itemcode"><code>class procedure <strong><a href="mi.rtl.files.TFiles.html#FindFilesAll">FindFilesAll</a></strong>(Mask : AnsiString; FileAttrs : Cardinal; var List : TStringList);</code></td>
 </tr>
 <tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>class function <strong><a href="mi.rtl.files.TFiles.html#GetCurrentDir">GetCurrentDir</a></strong>: AnsiString;</code></td>
+</tr>
+<tr class="list2">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
 <td class="itemcode"><code>class function <strong><a href="mi.rtl.files.TFiles.html#SetCurrentDir">SetCurrentDir</a></strong>( const NewDir : AnsiString):Boolean;</code></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
 <td class="itemcode"><code>class function <strong><a href="mi.rtl.files.TFiles.html#IsDirectory">IsDirectory</a></strong>( const Directory : AnsiString):Boolean;</code></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
 <td class="itemcode"><code>class Function <strong><a href="mi.rtl.files.TFiles.html#FPrimeiroHandleLivre">FPrimeiroHandleLivre</a></strong>: SmallInt;</code></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
 <td class="itemcode"><code>class function <strong><a href="mi.rtl.files.TFiles.html#FlockFile">FlockFile</a></strong>(Handle : <a href="mi.rtl.Types.TTypes.html#THandle">Thandle</a>; modo : <a href="mi.rtl.Types.TTypes.html#LongInt">LongInt</a>): <a href="mi.rtl.Types.TTypes.html#LongInt">LongInt</a> ; overload;</code></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
 <td class="itemcode"><code>class function <strong><a href="mi.rtl.files.TFiles.html#DiskFree">DiskFree</a></strong>(Partition:byte; out VrDiskFree :<a href="mi.rtl.Types.TTypes.html#int64">Int64</a>):<a href="mi.rtl.Types.TTypes.html#Integer">integer</a>;</code></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
 <td class="itemcode"><code>class Function <strong><a href="mi.rtl.files.TFiles.html#ByteDrive">ByteDrive</a></strong>(Const NomeArquivo:AnsiString) : Byte;</code></td>
 </tr>
@@ -1788,6 +1792,129 @@ A classe function <strong><code>FileFlushBuffers</code></strong> descarrega o bu
 
 <p></p></li>
 </ul>
+
+<p></p></li>
+</ul>
+
+<p></p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="FindFilesAll"></span><code>class procedure <strong>FindFilesAll</strong>(Mask : AnsiString; FileAttrs : Cardinal; var List : TStringList);</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+A class método <strong><code>FindFilesAll</code></strong> retorna em <strong>List</strong> todos os arquivos, inclusives os arquivos dos subdiretórios que satisfazem os parâmetros: <strong>Mask</strong> e <strong>FileAttrs</strong>.
+
+<p></p>
+
+<ul class="paragraph_spacing">
+  <li><p>Notas </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Suponha a pasta <strong>views</strong> contendo as pastas <strong>pages</strong> e <strong>partial</strong> contendo os seguintes arquivos:
+
+<p></p>
+
+<pre class="longcode">
+
+views/
+├── pages
+│   ├── about.ejs
+│   ├── about.html
+│   ├── <span class="pascal_keyword">index</span>.ejs
+│   └── <span class="pascal_keyword">index</span>.html
+└── partials
+    ├── footer.ejs
+    ├── head.ejs
+    └── header.ejs</pre>
+
+<p></p></li>
+  <li><p>Efeito esperado da função <code>FindFilesAll</code> é equivalente ao comando linux abaixo:
+
+<p></p>
+
+<pre class="longcode">
+
+find ./ -iname *.ejs
+
+&gt; ./pages/<span class="pascal_keyword">index</span>.ejs
+&gt; ./pages/about.ejs
+&gt; ./partials/head.ejs
+&gt; ./partials/header.ejs
+&gt; ./partials/footer.ejs</pre>
+
+<p></p></li>
+</ul>
+
+<p></p></li>
+  <li><p>EXEMPLO
+
+<p></p>
+
+<pre class="longcode">
+
+<span class="pascal_keyword">procedure</span> TForm1.Action_test_FindFirstExecute(Sender: TObject);
+  <span class="pascal_comment">//Este procedimento ler os atributos da pasta: '.'</span>
+
+  <span class="pascal_keyword">var</span>
+   i : integer;
+   <span class="pascal_keyword">const</span> FileAttrs : Cardinal = faHidden <span class="pascal_keyword">or</span>
+                                faReadOnly <span class="pascal_keyword">or</span>
+                                faSysFile <span class="pascal_keyword">or</span>
+                                faArchive <span class="pascal_keyword">or</span>
+                                faAnyFile <span class="pascal_keyword">or</span>
+                                faSymLink <span class="pascal_keyword">or</span>
+                                faDirectory ;
+
+
+<span class="pascal_keyword">begin</span>
+  ListFiles.Clear;
+  ListBox1.Clear;
+  ListBox1.Hide;
+  FileAttrs := <span class="pascal_numeric">0</span>;
+
+  <span class="pascal_keyword">if</span> CheckBox_faHidden.Checked
+  <span class="pascal_keyword">then</span> FileAttrs := faHidden;
+
+  <span class="pascal_keyword">if</span> CheckBox_faReadOnly.checked
+  <span class="pascal_keyword">then</span> FileAttrs := FileAttrs <span class="pascal_keyword">or</span> faReadOnly;
+
+  <span class="pascal_keyword">if</span> CheckBox_faSysFile.checked
+  <span class="pascal_keyword">then</span> FileAttrs := FileAttrs <span class="pascal_keyword">or</span> faSysFile;
+
+  <span class="pascal_keyword">if</span> CheckBox_faArchive.checked
+  <span class="pascal_keyword">then</span> FileAttrs := FileAttrs <span class="pascal_keyword">or</span> faArchive;
+
+  <span class="pascal_keyword">if</span> CheckBox_faAnyFile.checked
+  <span class="pascal_keyword">then</span> FileAttrs := FileAttrs <span class="pascal_keyword">or</span> faAnyFile;
+
+  <span class="pascal_keyword">if</span> CheckBox_faSymLink.checked
+  <span class="pascal_keyword">then</span> FileAttrs := FileAttrs <span class="pascal_keyword">or</span> faSymLink;
+
+  <span class="pascal_keyword">if</span> CheckBox_faDirectory.checked
+  <span class="pascal_keyword">then</span> FileAttrs := FileAttrs <span class="pascal_keyword">or</span> faDirectory;
+
+  <span class="pascal_keyword">with</span> TObjectss <span class="pascal_keyword">do</span>
+<span class="pascal_comment">//    FindFiles(Edit1.Text,FileAttrs ,ListFiles );</span>
+    FindFilesAll(Edit1.Text,FileAttrs ,ListFiles );
+<span class="pascal_comment">//  FindFilesAll(GetCurrentDir,FileAttrs ,ListFiles );</span>
+
+  LabelCount.Caption := Format(<span class="pascal_string">'ListFiles.Count %d'</span>,[ListFiles.Count]);
+  LabelCount.Show;
+
+
+  <span class="pascal_keyword">if</span> ListFiles.Count &gt; <span class="pascal_numeric">0</span>
+  <span class="pascal_keyword">then</span> <span class="pascal_keyword">begin</span>
+          <span class="pascal_keyword">for</span> i := <span class="pascal_numeric">0</span> <span class="pascal_keyword">to</span> ListFiles.Count-<span class="pascal_numeric">1</span> <span class="pascal_keyword">do</span>
+          <span class="pascal_keyword">begin</span>
+            ListBox1.Items.Add(ListFiles[i]);
+          <span class="pascal_keyword">end</span>;
+       <span class="pascal_keyword">end</span>;
+  ListBox1.Show;
+<span class="pascal_keyword">end</span>;</pre>
 
 <p></p></li>
 </ul>

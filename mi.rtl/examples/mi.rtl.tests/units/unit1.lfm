@@ -1,15 +1,15 @@
 object Form1: TForm1
-  Left = 441
-  Height = 691
+  Left = 331
+  Height = 265
   Hint = 'Formulário usado para concentrar os exemplos do projeto MarIcarai'
-  Top = 0
-  Width = 925
-  HorzScrollBar.Page = 807
-  VertScrollBar.Page = 305
+  Top = 227
+  Width = 922
+  HorzScrollBar.Page = 766
+  VertScrollBar.Page = 241
   AutoScroll = True
   Caption = 'Mi Rtl Tests'
-  ClientHeight = 667
-  ClientWidth = 925
+  ClientHeight = 241
+  ClientWidth = 909
   Font.Height = -13
   Font.Name = 'FreeMono'
   Menu = MainMenu1
@@ -28,18 +28,18 @@ object Form1: TForm1
   end
   object PageControl_test: TPageControl
     Left = 0
-    Height = 667
+    Height = 305
     Top = 0
-    Width = 925
-    ActivePage = TabSheet_TfilesStreams
+    Width = 909
+    ActivePage = TabSheet_TestFindFirst
     Align = alClient
-    TabIndex = 1
+    TabIndex = 0
     TabOrder = 1
     object TabSheet_TestFindFirst: TTabSheet
       AutoSize = True
       Caption = 'FindFirst'
-      ClientHeight = 639
-      ClientWidth = 915
+      ClientHeight = 277
+      ClientWidth = 899
       object Edit1: TEdit
         Left = 0
         Height = 31
@@ -50,10 +50,10 @@ object Form1: TForm1
         Text = '/home/paulosspacheco/*'
       end
       object ListBox1: TListBox
-        Left = 0
-        Height = 632
+        Left = 5
+        Height = 270
         Top = 80
-        Width = 1021
+        Width = 1000
         Anchors = [akTop, akLeft, akRight, akBottom]
         Columns = 1
         ItemHeight = 0
@@ -64,20 +64,20 @@ object Form1: TForm1
         Visible = False
       end
       object GroupBox_Atributo: TGroupBox
-        Left = 2
+        Left = 7
         Height = 40
         Top = 0
-        Width = 919
+        Width = 898
         Anchors = [akTop, akLeft, akRight]
         Caption = 'Atributos'
         ClientHeight = 25
-        ClientWidth = 917
+        ClientWidth = 896
         TabOrder = 0
         object CheckBox_faReadOnly: TCheckBox
           Left = 8
           Height = 23
           Top = 0
-          Width = 97
+          Width = 106
           Caption = 'faReadOnly'
           OnChange = CheckBox_faReadOnlyChange
           TabOrder = 0
@@ -86,7 +86,7 @@ object Form1: TForm1
           Left = 120
           Height = 23
           Top = 0
-          Width = 79
+          Width = 98
           Caption = 'faSysFile'
           OnChange = CheckBox_faSysFileChange
           TabOrder = 1
@@ -95,7 +95,7 @@ object Form1: TForm1
           Left = 230
           Height = 23
           Top = 0
-          Width = 83
+          Width = 98
           Caption = 'faArchive'
           Checked = True
           OnChange = CheckBox_faArchiveChange
@@ -106,7 +106,7 @@ object Form1: TForm1
           Left = 336
           Height = 23
           Top = 0
-          Width = 82
+          Width = 98
           Caption = 'faAnyFile'
           OnChange = CheckBox_faAnyFileChange
           TabOrder = 3
@@ -115,7 +115,7 @@ object Form1: TForm1
           Left = 440
           Height = 23
           Top = 0
-          Width = 81
+          Width = 90
           Caption = 'faHidden'
           OnChange = CheckBox_faHiddenChange
           TabOrder = 4
@@ -124,7 +124,7 @@ object Form1: TForm1
           Left = 536
           Height = 23
           Top = 0
-          Width = 88
+          Width = 98
           Caption = 'faSymLink'
           OnChange = CheckBox_faSymLinkChange
           TabOrder = 5
@@ -133,14 +133,14 @@ object Form1: TForm1
           Left = 640
           Height = 23
           Top = 0
-          Width = 94
+          Width = 114
           Caption = 'faDirectory'
           OnChange = CheckBox_faDirectoryChange
           TabOrder = 6
         end
       end
       object LabelCount: TLabel
-        Left = 752
+        Left = 736
         Height = 25
         Top = 48
         Width = 160
@@ -149,22 +149,31 @@ object Form1: TForm1
         Caption = '0'
         ParentColor = False
       end
+      object Button2_FindFirst: TButton
+        Left = 445
+        Height = 25
+        Top = 52
+        Width = 91
+        Caption = 'FindFirst'
+        OnClick = Button2_FindFirstClick
+        TabOrder = 3
+      end
     end
     object TabSheet_TfilesStreams: TTabSheet
       Caption = 'TfilesStreams'
-      ClientHeight = 639
-      ClientWidth = 915
+      ClientHeight = 277
+      ClientWidth = 899
       OnEnter = TabSheet_TfilesStreamsEnter
       object ScrollBox_TfilesStreams: TScrollBox
         Left = 0
-        Height = 639
+        Height = 277
         Top = 0
-        Width = 915
+        Width = 899
         HorzScrollBar.Page = 795
         VertScrollBar.Page = 50
         Align = alClient
-        ClientHeight = 637
-        ClientWidth = 913
+        ClientHeight = 273
+        ClientWidth = 895
         TabOrder = 0
         object Edit2: TEdit
           Left = 0
@@ -177,9 +186,9 @@ object Form1: TForm1
         end
         object StringGrid1: TStringGrid
           Left = 16
-          Height = 613
+          Height = 249
           Top = 24
-          Width = 898
+          Width = 880
           Anchors = [akTop, akLeft, akRight, akBottom]
           ColCount = 3
           Columns = <          
@@ -237,8 +246,8 @@ object Form1: TForm1
     end
   end
   object MainMenu1: TMainMenu
-    Left = 808
-    Top = 48
+    Left = 664
+    Top = 160
     object MenuItem_Mi_rtl_TFiles: TMenuItem
       Caption = 'Mi.rtl.TFiles'
       object MenuItem1: TMenuItem

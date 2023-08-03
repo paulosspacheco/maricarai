@@ -6,7 +6,7 @@ unit mi.rtl.files;
         windows e por isso mantenho o mesmo comportamento do windows.
 
       - **VERSÃO**:
-        - Alpha - 0.7.1.621
+        - Alpha - 0.7.1
 
       - **NOTA**:
         - [Veja o link de como escrever código portátil em relação à arquitetura do processador?](https://wiki.freepascal.org/Writing_portable_code_regarding_the_processor_architecture);
@@ -124,6 +124,9 @@ unit mi.rtl.files;
 
             - 2022-04-22
               - 15:46 - Criar método TFiles.AppVersionInfo
+
+            - 2023=07-18
+              - 16:00 - Criar a classe método FindFilesAll
   }
 
   {$IFDEF FPC}
@@ -1003,6 +1006,112 @@ uses
       }
       class procedure FindFiles(Mask : AnsiString; FileAttrs : Cardinal; var List : TStringList);
 
+      {: A class método **@name** retorna em **List** todos os arquivos, inclusives os arquivos dos subdiretórios
+         que satisfazem os parâmetros: **Mask** e **FileAttrs**.
+
+         - Notas
+           - Suponha a pasta **views** contendo as pastas **pages** e **partial** contendo os seguintes arquivos:
+
+             ```pascal
+
+               views/
+               ├── pages
+               │   ├── about.ejs
+               │   ├── about.html
+               │   ├── index.ejs
+               │   └── index.html
+               └── partials
+                   ├── footer.ejs
+                   ├── head.ejs
+                   └── header.ejs
+
+             ```
+
+           - Efeito esperado da função @name é equivalente ao comando linux abaixo:
+
+             ```pascal
+
+                find ./ -iname *.ejs
+
+                > ./pages/index.ejs
+                > ./pages/about.ejs
+                > ./partials/head.ejs
+                > ./partials/header.ejs
+                > ./partials/footer.ejs
+
+             ```
+         - EXEMPLO
+
+             ```pascal
+
+               procedure TForm1.Action_test_FindFirstExecute(Sender: TObject);
+                 //Este procedimento ler os atributos da pasta: '.'
+
+                 var
+                  i : integer;
+                  const FileAttrs : Cardinal = faHidden or
+                                               faReadOnly or
+                                               faSysFile or
+                                               faArchive or
+                                               faAnyFile or
+                                               faSymLink or
+                                               faDirectory ;
+
+
+               begin
+                 ListFiles.Clear;
+                 ListBox1.Clear;
+                 ListBox1.Hide;
+                 FileAttrs := 0;
+
+                 if CheckBox_faHidden.Checked
+                 then FileAttrs := faHidden;
+
+                 if CheckBox_faReadOnly.checked
+                 then FileAttrs := FileAttrs or faReadOnly;
+
+                 if CheckBox_faSysFile.checked
+                 then FileAttrs := FileAttrs or faSysFile;
+
+                 if CheckBox_faArchive.checked
+                 then FileAttrs := FileAttrs or faArchive;
+
+                 if CheckBox_faAnyFile.checked
+                 then FileAttrs := FileAttrs or faAnyFile;
+
+                 if CheckBox_faSymLink.checked
+                 then FileAttrs := FileAttrs or faSymLink;
+
+                 if CheckBox_faDirectory.checked
+                 then FileAttrs := FileAttrs or faDirectory;
+
+                 with TObjectss do
+               //    FindFiles(Edit1.Text,FileAttrs ,ListFiles );
+                   FindFilesAll(Edit1.Text,FileAttrs ,ListFiles );
+               //  FindFilesAll(GetCurrentDir,FileAttrs ,ListFiles );
+
+                 LabelCount.Caption := Format('ListFiles.Count %d',[ListFiles.Count]);
+                 LabelCount.Show;
+
+
+                 if ListFiles.Count > 0
+                 then begin
+                         for i := 0 to ListFiles.Count-1 do
+                         begin
+                           ListBox1.Items.Add(ListFiles[i]);
+                         end;
+                      end;
+                 ListBox1.Show;
+               end;
+
+
+             ```
+
+
+
+      }
+      class procedure FindFilesAll(Mask : AnsiString; FileAttrs : Cardinal; var List : TStringList);
+
       {: A classe método **@name** retorna o corrente pasta.
       }
       class function GetCurrentDir : AnsiString;
@@ -1627,6 +1736,70 @@ implementation
     //                          TaStatus);
     //end;
   end;
+
+  class procedure TFiles.FindFilesAll(Mask: AnsiString; FileAttrs: Cardinal;var List: TStringList);
+
+    procedure ListarArquivosNaPasta( Pasta:string; const Padrao: string);
+    var
+      BuscaRecursiva: TSearchRec;
+      CaminhoCompleto: string;
+    begin
+      if pasta[Length(pasta)] = DirectorySeparator
+      then system.Delete(pasta,Length(pasta),1);
+
+      // Procurar por arquivos na pasta atual usando caracteres coringas
+      if FindFirst(Pasta + DirectorySeparator + Padrao, FileAttrs{faAnyFile}, BuscaRecursiva) = 0 then
+      begin
+        repeat
+          // Verificar se é um arquivo regular (não diretório)
+          if (BuscaRecursiva.Name <> '.') and (BuscaRecursiva.Name <> '..')
+          //  and ((BuscaRecursiva.Attr and faDirectory) = 0)
+          then
+          begin
+            if (BuscaRecursiva.Attr and FileAttrs <>0)
+            Then Begin
+                    CaminhoCompleto := Pasta + DirectorySeparator + BuscaRecursiva.Name;
+                    //WriteLn(CaminhoCompleto);
+                    List.Add(CaminhoCompleto);
+                 end;
+
+          end;
+        until FindNext(BuscaRecursiva) <> 0;
+        FindClose(BuscaRecursiva);
+      end;
+
+      // Procurar por subpastas
+      if FindFirst(Pasta + DirectorySeparator + '*', faDirectory, BuscaRecursiva) = 0 then
+      begin
+        repeat
+          // Verificar se é uma pasta válida
+          if (BuscaRecursiva.Name <> '.') and (BuscaRecursiva.Name <> '..') then
+          begin
+            CaminhoCompleto := Pasta + DirectorySeparator + BuscaRecursiva.Name;
+            // Chamar a função recursivamente para listar arquivos nas subpastas
+            ListarArquivosNaPasta(CaminhoCompleto, Padrao);
+          end;
+        until FindNext(BuscaRecursiva) <> 0;
+        FindClose(BuscaRecursiva);
+      end;
+    end;
+
+    var
+      PastaAtual, Padrao: string;
+      FileAtual : string;
+    begin
+      // Obter a pasta atual
+      //PastaAtual := GetCurrentDir;
+      PastaAtual := ExtractFilePath(mask);
+
+      // Definir o padrão (wildcard) dos arquivos que deseja listar
+      // Por exemplo, '*.txt' irá listar todos os arquivos com a extensão .txt
+      Padrao := mask;
+      system.Delete(Padrao,1,Length(PastaAtual));
+
+      // Chamar a função para listar arquivos com o padrão especificado
+      ListarArquivosNaPasta(PastaAtual, Padrao);
+    end;
 
   class function TFiles.GetCurrentDir: AnsiString;
   begin

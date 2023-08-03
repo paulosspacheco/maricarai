@@ -25,7 +25,12 @@
           <Mode Name="x86_64-win64"/>
         </BuildModes>
       </Target>
-      <Target FileName="mi.rtl/examples/projects/project1.lpi">
+      <Target FileName="mi.rtl/examples/test_num_version/test_num_version.lpi">
+        <BuildModes>
+          <Mode Name="Default"/>
+        </BuildModes>
+      </Target>
+      <Target FileName="mi.rtl/examples/stork/create_config_stork.lpi">
         <BuildModes>
           <Mode Name="Default"/>
         </BuildModes>

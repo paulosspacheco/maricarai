@@ -24,7 +24,7 @@
       <UseVersionInfo Value="True"/>
       <AutoIncrementBuild Value="True"/>
       <MinorVersionNr Value="7"/>
-      <BuildNr Value="727"/>
+      <BuildNr Value="732"/>
       <Language Value="0416"/>
       <Attributes pvaDebug="True" pvaPreRelease="True"/>
       <StringTable Comments="Programa exemplo do projeto maricarai." CompanyName="Itm Sistemas e Consultoria Ltda." FileDescription="Programa usado para testar as classes TDmxScroller_Form e TDmxScroller_Form_Ds" ProductName="mi.ui.lcl.form.test"/>

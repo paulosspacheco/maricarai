@@ -11,7 +11,7 @@ unit mi_rtl_ui_Dmxscroller;
         - [TvDmx](https://www.pcorner.com/list/PASCAL/TVDMX.ZIP/INFO)
 
     - **VERSÃO**
-      - Alpha - 0.7.1.621
+      - Alpha - 0.7.1
 
     - **HISTÓRICO**
       - @html(<a href="../units/mi_rtl_ui_dmxscroller_historico.html">./mi_rtl_ui_dmxscroller_historico.html </a>)   

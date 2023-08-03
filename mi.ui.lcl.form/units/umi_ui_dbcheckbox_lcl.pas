@@ -3,7 +3,7 @@ unit uMi_Ui_DBCheckBox_Lcl;
    os campo tipo TDmxFieldRec.fldBoolean com o componente TDBCheckBox do Lazarus.
 
    - **VERSÂO**
-     - Alpha - 0.7.0.0
+     - Alpha - 0.7.1
 
    - **CÓDIGO FONTE**:
      - @html(<a href="../units/umi_ui_dbcheckbox_lcl.pas">uMi_Ui_DBCheckBox_Lcl.pas</a>)

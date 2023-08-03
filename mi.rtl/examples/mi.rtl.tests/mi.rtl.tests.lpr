@@ -31,7 +31,7 @@ program mi.rtl.tests;
    - Unit **mi.rtl.files** contém as funções de acesso a arquivo usadas pelo projeto MarIcarai.
 
 - **VERSÃO**:
-  - lpha - 0.7.1.621
+  - Alpha - 0.7.1
 
   - **CÓDIGO FONTE**:
     - @html(<a href="../units/rtl.pas">rtl.pas</a>)
@@ -73,6 +73,8 @@ uses
 
 
 begin
+  //gerar relatório de vazamento de memória
+  //ReportMemoryLeaksOnShutdown := True;
 
   RequireDerivedFormResource:=True;
   Application.Title:='mi.rtl';

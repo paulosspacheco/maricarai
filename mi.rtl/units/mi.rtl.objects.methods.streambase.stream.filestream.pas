@@ -5,7 +5,7 @@ unit mi.rtl.Objects.Methods.StreamBase.Stream.FileStream;
       - Implementa banco um fluxo de dados em disco.
 
     - **VERSÃO**
-      - Alpha - 0.7.1.621
+      - Alpha - 0.7.1
 
     - **HISTÓRICO**
       - Criado por: Paulo Sérgio da Silva Pacheco e-mail: paulosspacheco@@yahoo.com.br

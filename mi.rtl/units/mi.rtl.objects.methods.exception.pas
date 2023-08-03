@@ -2,7 +2,7 @@ unit mi.rtl.Objects.Methods.Exception;
 {:< -A unit **@name** implementa a classe TException do pacote mi.rtl.
 
     - **VERSÃO**:
-      - Alpha - 0.7.1.621
+      - Alpha - 0.7.1
 
     - **CÓDIGO FONTE**:
       - @html(<a href="../units/mi.rtl.objects.texception.pas">mi.rtl.objects.texception.pas</a>)

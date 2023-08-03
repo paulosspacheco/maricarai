@@ -1,9 +1,11 @@
 ./fpmake.pp
-./examples/projects/backup/unit1.pas
-./examples/projects/unit1.pas
+./examples/test_num_version/backup/unit1.pas
+./examples/test_num_version/unit1.pas
 ./examples/mi.rtl.tests/units/mi.rtl.objects.methods.db.tb__access_test.pas
 ./examples/mi.rtl.tests/units/mi_ui_mi_msgbox_dm.pas
 ./examples/mi.rtl.tests/units/backup/mi.rtl.objects.methods.db.tb__access_test.pas
+./examples/mi.rtl.tests/units/backup/mi_ui_mi_msgbox_dm.pas
+./examples/mi.rtl.tests/units/backup/unit1.pas
 ./examples/mi.rtl.tests/units/Classes_C.pas
 ./examples/mi.rtl.tests/units/Db_Global.pas
 ./examples/mi.rtl.tests/units/mi.rtl.dialogs.pas
@@ -61,8 +63,11 @@
 ./units/mi.rtl.objects.methods.dates.pas
 ./units/mi.rtl.objects.methods.streambase.stream.pas
 ./mi.rtl.pas
-./examples/projects/backup/project1.lpr
-./examples/projects/project1.lpr
+./examples/stork/backup/create_config_stork.lpr
+./examples/stork/create_config_stork.lpr
+./examples/test_num_version/backup/project1.lpr
+./examples/test_num_version/project1.lpr
+./examples/test_num_version/test_num_version.lpr
 ./examples/mi.rtl.tests/backup/mi.rtl.tests.lpr
 ./examples/mi.rtl.tests/mi.rtl.tests.lpr
 ./examples/console/project1.lpr
