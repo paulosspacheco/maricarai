@@ -1,14 +1,16 @@
 ./fpmake.pp
+./tarefas_a_fazer.pas
 ./examples/test_num_version/backup/unit1.pas
 ./examples/test_num_version/unit1.pas
 ./examples/mi.rtl.tests/units/mi.rtl.objects.methods.db.tb__access_test.pas
 ./examples/mi.rtl.tests/units/mi_ui_mi_msgbox_dm.pas
-./examples/mi.rtl.tests/units/backup/mi.rtl.objects.methods.db.tb__access_test.pas
-./examples/mi.rtl.tests/units/backup/mi_ui_mi_msgbox_dm.pas
 ./examples/mi.rtl.tests/units/backup/unit1.pas
 ./examples/mi.rtl.tests/units/Classes_C.pas
 ./examples/mi.rtl.tests/units/Db_Global.pas
 ./examples/mi.rtl.tests/units/mi.rtl.dialogs.pas
+./examples/mi.rtl.tests/units/backup.ant/mi.rtl.objects.methods.db.tb__access_test.pas
+./examples/mi.rtl.tests/units/backup.ant/mi_ui_mi_msgbox_dm.pas
+./examples/mi.rtl.tests/units/backup.ant/unit1.pas
 ./examples/mi.rtl.tests/units/unit1.pas
 ./examples/mi.rtl.tests/units/MI_InputBox_VCL_u.pas
 ./units/mi.rtl.objectss.pas
@@ -63,6 +65,7 @@
 ./units/mi.rtl.objects.methods.dates.pas
 ./units/mi.rtl.objects.methods.streambase.stream.pas
 ./mi.rtl.pas
+./histórico.pas
 ./examples/stork/backup/create_config_stork.lpr
 ./examples/stork/create_config_stork.lpr
 ./examples/test_num_version/backup/project1.lpr

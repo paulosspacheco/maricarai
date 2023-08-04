@@ -3,7 +3,7 @@
 
    fpmake.pp for mi.ui.lcl.form 0.5.0.687
 
-   This file was generated on 17/03/2023
+   This file was generated on 03/08/2023
 }
 
 {$ifndef ALLPACKAGES} 
@@ -33,10 +33,8 @@ begin
 
     P.Flags.Add('LazarusDsgnPkg');
 
-    D := P.Dependencies.Add('mi.ui.lcl');
-    D := P.Dependencies.Add('mi.rtl.ui');
+    D := P.Dependencies.Add('lcl');
     D := P.Dependencies.Add('mi.rtl');
-    D := P.Dependencies.Add('fcl');
     P.Options.Add('-MObjFPC');
     P.Options.Add('-Scghi');
     P.Options.Add('-O1');
@@ -51,16 +49,42 @@ begin
     P.UnitPath.Add('.');
     T:=P.Targets.AddUnit('mi.ui.lcl.form.pas');
     t.Dependencies.AddUnit('mi.ui.lcl.form');
-    t.Dependencies.AddUnit('umi_ui_dmxscroller_form_lcl_ds');
     t.Dependencies.AddUnit('umi_ui_scrollbox_lcl');
-    t.Dependencies.AddUnit('umi_ui_inputbox_lcl');
+    t.Dependencies.AddUnit('umi_ui_dmxscroller_form_lcl_attributes');
+    t.Dependencies.AddUnit('umi_ui_bitbtn_lcl');
+    t.Dependencies.AddUnit('umi_ui_button_lcl');
+    t.Dependencies.AddUnit('umi_ui_checkbox_lcl');
+    t.Dependencies.AddUnit('umi_ui_radiogroup_lcl');
+    t.Dependencies.AddUnit('umi_ui_combobox_lcl');
+    t.Dependencies.AddUnit('umi_ui_dbcheckbox_lcl');
+    t.Dependencies.AddUnit('umi_ui_dbcombobox_lcl');
+    t.Dependencies.AddUnit('umi_ui_dbedit_lcl');
+    t.Dependencies.AddUnit('umi_ui_dblookupcombobox_lcl');
+    t.Dependencies.AddUnit('umi_ui_dbradiogroup_lcl');
+    t.Dependencies.AddUnit('umi_ui_label_lcl');
+    t.Dependencies.AddUnit('umi_ui_maskedit_lcl');
     t.Dependencies.AddUnit('umi_ui_dmxscroller_form_lcl');
+    t.Dependencies.AddUnit('umi_ui_dmxscroller_form_lcl_ds');
+    t.Dependencies.AddUnit('umi_ui_inputbox_lcl');
 
     T:=P.Targets.AddUnit('mi.ui.lcl.form.pas');
-    T:=P.Targets.AddUnit('units/umi_ui_dmxscroller_form_lcl_ds.pas');
     T:=P.Targets.AddUnit('units/umi_ui_scrollbox_lcl.pas');
-    T:=P.Targets.AddUnit('units/umi_ui_inputbox_lcl.pas');
+    T:=P.Targets.AddUnit('units/umi_ui_dmxscroller_form_lcl_attributes.pas');
+    T:=P.Targets.AddUnit('units/umi_ui_bitbtn_lcl.pas');
+    T:=P.Targets.AddUnit('units/umi_ui_button_lcl.pas');
+    T:=P.Targets.AddUnit('units/umi_ui_checkbox_lcl.pas');
+    T:=P.Targets.AddUnit('units/umi_ui_radiogroup_lcl.pas');
+    T:=P.Targets.AddUnit('units/umi_ui_combobox_lcl.pas');
+    T:=P.Targets.AddUnit('units/umi_ui_dbcheckbox_lcl.pas');
+    T:=P.Targets.AddUnit('units/umi_ui_dbcombobox_lcl.pas');
+    T:=P.Targets.AddUnit('units/umi_ui_dbedit_lcl.pas');
+    T:=P.Targets.AddUnit('units/umi_ui_dblookupcombobox_lcl.pas');
+    T:=P.Targets.AddUnit('units/umi_ui_dbradiogroup_lcl.pas');
+    T:=P.Targets.AddUnit('units/umi_ui_label_lcl.pas');
+    T:=P.Targets.AddUnit('units/umi_ui_maskedit_lcl.pas');
     T:=P.Targets.AddUnit('units/umi_ui_dmxscroller_form_lcl.pas');
+    T:=P.Targets.AddUnit('units/umi_ui_dmxscroller_form_lcl_ds.pas');
+    T:=P.Targets.AddUnit('units/umi_ui_inputbox_lcl.pas');
 
     // copy the compiled file, so the IDE knows how the package was compiled
     P.Sources.AddSrc('mi.ui.lcl.form.compiled');

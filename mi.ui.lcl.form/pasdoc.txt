@@ -1,6 +1,12 @@
 ./fpmake.pp
+./tarefas_a_fazer.pas
 ./examples/mi.ui.lcl.form.tests/mi.ui.lcl.form.test.pas
+./examples/mi.ui.lcl.form.tests/backup/mi.ui.lcl.form.test.pas
 ./examples/mi.ui.lcl.form.tests/umi_ui_dmxscroller_form_lcl_ds_test.pas
+./examples/mi.ui.lcl.form.tests/units/horse/backup/unit_horse.pas
+./examples/mi.ui.lcl.form.tests/units/horse/unit_horse.pas
+./examples/mi.ui.lcl.form.tests/units/backup/umi_ui_mi_msgbox_dm.pas
+./examples/mi.ui.lcl.form.tests/units/backup/udmxscroller_form_lcl_test.pas
 ./examples/mi.ui.lcl.form.tests/units/umi_ui_mi_msgbox_dm.pas
 ./examples/mi.ui.lcl.form.tests/units/umi_ui_dmxscroller_form_lcl_ds_test2.pas
 ./examples/mi.ui.lcl.form.tests/units/udmxscroller_form_lcl_test.pas
@@ -36,4 +42,5 @@
 ./units/umi_ui_maskedit_lcl.pas
 ./units/umi_ui_combobox_lcl.pas
 ./mi.ui.lcl.form.pas
+./histórico.pas
 ./temp/test/project1.lpr

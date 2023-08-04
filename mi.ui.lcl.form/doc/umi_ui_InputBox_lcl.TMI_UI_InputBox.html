@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<title>umi_ui_InputBox_lcl: Classe TMI_UI_InputBox</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="generator" content="PasDoc 0.16.0">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<link rel="stylesheet" type="text/css" href="tipuesearch/tipuesearch.css">
+
+<link rel="StyleSheet" type="text/css" href="pasdoc.css">
+</head>
+<body>
+<div class="container"><div class="navigation">
+<ul><li><a href="AllUnits.html">Units</a></li><li><a href="ClassHierarchy.html">Hierarquia de Classes</a></li><li><a href="AllClasses.html">Classes, Interfaces, Objetos e Registros</a></li><li><a href="AllTypes.html">Tipos</a></li><li><a href="AllVariables.html">Variáveis</a></li><li><a href="AllConstants.html">Constantes</a></li><li><a href="AllFunctions.html">Funções e Procedimentos</a></li><li><a href="AllIdentifiers.html">Identificadores</a></li><li><form class="search-form" action="tipue_results.html"><div class="search-input"><input type="text" name="q" id="tipue_search_input" pattern=".{1,}" title="At least 1 characters" required><div class="search-button"><input type="button" id="tipue_search_button" onclick="this.form.submit();"></div></div></form>
+<div style="clear: both"></div>
+</li></ul></div><div class="content">
+<span id="TMI_UI_InputBox"></span><h1 class="cio">Classe TMI_UI_InputBox</h1>
+<div class="sections">
+<div class="one_section"><a class="section" href="#PasDoc-Description">Descrição</a></div><div class="one_section"><a class="section" href="#PasDoc-Hierarchy">Hierarquia</a></div><div class="one_section"><a class="section" href="#PasDoc-Fields">Campos</a></div><div class="one_section"><a class="section" href="#PasDoc-Methods">Métodos</a></div><div class="one_section"><a class="section" href="#PasDoc-Properties">Propriedades</a></div></div>
+<span id="PasDoc-Description"></span><h2 class="unit">Unit</h2>
+<p class="unitlink">
+<a href="umi_ui_InputBox_lcl.html">umi_ui_InputBox_lcl</a></p>
+<h2 class="declaration">Declaração</h2>
+<p class="declaration">
+<code>type TMI_UI_InputBox = class(TForm)</code></p>
+<h2 class="description">Descrição</h2>
+<p>
+A class <strong><code>TMI_UI_InputBox</code></strong> edita uma formulário passado em forma de <a class="normal" href="umi_ui_InputBox_lcl.TMI_UI_InputBox.html#Template">Template</a> e devolve o formulário LCL caso o botão <strong>OK</strong> seja pressionando ou nil caso o botão <strong>Cancelar</strong> seja pressionando.
+
+<p></p>
+
+<ul class="paragraph_spacing">
+  <li><p><strong>EXEMPLO</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>O exemplo abaixo cria um formulário e permite interagir com com os eventos ao entrar e ao sair do formulário.</p></li>
+</ul>
+
+<p> </p>
+
+<pre class="longcode">
+
+<span class="pascal_keyword">procedure</span> InputBoxOnEnter(aDmxScroller: TUiDmxScroller);
+ <span class="pascal_comment">//Ao entrar no formulário este evento inicia os campos nome, endereço e cep</span>
+
+  <span class="pascal_keyword">procedure</span> SetValue(Field:<span class="pascal_keyword">String</span>;Value:<span class="pascal_keyword">String</span>);
+    <span class="pascal_keyword">var</span>
+      aField: pDmxFieldRec;
+  <span class="pascal_keyword">begin</span>
+    <span class="pascal_keyword">with</span> aDmxScroller <span class="pascal_keyword">do</span>
+    <span class="pascal_keyword">begin</span>
+      aField := FieldByName(Field);
+      <span class="pascal_keyword">if</span> aField&lt;&gt;<span class="pascal_keyword">nil</span>
+      <span class="pascal_keyword">Then</span> aField.AsString:= value;
+    <span class="pascal_keyword">end</span>;
+  <span class="pascal_keyword">end</span>;
+
+<span class="pascal_keyword">begin</span>
+  <span class="pascal_keyword">with</span> aDmxScroller <span class="pascal_keyword">do</span>
+  <span class="pascal_keyword">begin</span>
+    setValue(<span class="pascal_string">'nome'</span>,<span class="pascal_string">'Paulo Henrique'</span>);
+    setValue(<span class="pascal_string">'endereço'</span>,<span class="pascal_string">'Rua Francisco de Souza Oliveira, 15'</span>);
+    setValue(<span class="pascal_string">'cep'</span>,<span class="pascal_string">'60310770'</span>);
+  <span class="pascal_keyword">end</span>;
+<span class="pascal_keyword">end</span>;
+
+<span class="pascal_keyword">procedure</span> InputBoxOnEnterField(aField: pDmxFieldRec);
+    <span class="pascal_comment">// Ao entrar no campo 01 e o mesmo for vazio inicializa-o com o nome Paulo Sérgio</span>
+
+<span class="pascal_keyword">begin</span>
+  <span class="pascal_keyword">Case</span> aField.Fieldnum <span class="pascal_keyword">of</span>
+    <span class="pascal_numeric">1</span> : <span class="pascal_keyword">begin</span>
+          <span class="pascal_keyword">if</span> aField.AsString = <span class="pascal_string">''</span>
+          <span class="pascal_keyword">then</span> aField.AsString := <span class="pascal_string">'Paulo Sérgio'</span>;
+        <span class="pascal_keyword">end</span>;
+    <span class="pascal_numeric">2</span> : <span class="pascal_keyword">begin</span> <span class="pascal_keyword">end</span>;
+  <span class="pascal_keyword">end</span>;
+
+<span class="pascal_keyword">end</span>;
+
+
+<span class="pascal_keyword">Procedure</span> InputBoxOnCloseQuery (aDmxScroller:TUiDmxScroller; <span class="pascal_keyword">var</span> CanClose:boolean);
+  <span class="pascal_comment">//Esta função permite validar o formulário ao pressionar o botão ok.</span>
+
+  <span class="pascal_keyword">var</span>
+    idade : byte;
+    s : <span class="pascal_keyword">string</span>;
+<span class="pascal_keyword">begin</span>
+  s := aDmxScroller.FieldByName(<span class="pascal_string">'idade'</span>).AsString;
+  idade := StrToInt(s);
+  <span class="pascal_keyword">if</span>  idade &lt;&gt; <span class="pascal_numeric">64</span>
+  <span class="pascal_keyword">then</span> <span class="pascal_keyword">begin</span>
+         ShowMessage(<span class="pascal_string">'O campo idade &lt;&gt; de 64!.'</span>);
+         CanClose := false;
+       <span class="pascal_keyword">end</span>
+  <span class="pascal_keyword">else</span> CanClose := true;
+<span class="pascal_keyword">end</span>;
+
+
+<span class="pascal_keyword">Procedure</span> TestInputBox;
+    <span class="pascal_comment">//Criar o formulário</span>
+
+  <span class="pascal_keyword">Var</span>
+    MI_UI_InputBox : TMI_UI_InputBox = <span class="pascal_keyword">nil</span>;
+<span class="pascal_keyword">begin</span>
+  <span class="pascal_keyword">with</span> TDmxScroller_Form <span class="pascal_keyword">do</span>
+  <span class="pascal_keyword">if</span> InputBox(<span class="pascal_string">'Dados do aluno'</span>,
+                 <span class="pascal_string">'&tilde;Nome do Aluno:&tilde;\Sssssssssssssssssssssssss`ssssssssssssssss'</span>+ChFN+<span class="pascal_string">'Nome'</span>+lf+
+                 <span class="pascal_string">'&tilde;     Endereço:&tilde;\Sssssssssssssssssssssssss`ssssssssssssssss'</span>+ChFN+<span class="pascal_string">'endereco'</span>+lf+
+                 <span class="pascal_string">'&tilde;          Cep:&tilde;\##-###-###'</span>+ChFN+<span class="pascal_string">'cep'</span>+lf+
+                 <span class="pascal_string">'&tilde;       Bairro:&tilde;\sssssssssssssssssssssssss'</span>+ChFN+<span class="pascal_string">'bairro'</span>+lf+
+                 <span class="pascal_string">'&tilde;       Cidade:&tilde;\sssssssssssssssssssssssss'</span>+ChFN+<span class="pascal_string">'cidade'</span>+lf+
+                 <span class="pascal_string">'&tilde;       Estado:&tilde;\SS'</span>+ChFN+<span class="pascal_string">'estado'</span>+lf+
+                 <span class="pascal_string">'&tilde;        Idade:&tilde;\BB'</span>+ChFN+<span class="pascal_string">'idade'</span>+lf+
+                 <span class="pascal_string">'&tilde;    Matricula:&tilde;\III'</span>+ChFN+<span class="pascal_string">'matricula'</span>+lf+
+                 <span class="pascal_string">'&tilde;  Mensalidade:&tilde;\R,RRR.RR'</span>+ChFN+<span class="pascal_string">'mensalidade'</span>,
+                 InputBoxOnEnter,<span class="pascal_keyword">nil</span>,
+
+                 InputBoxOnEnterField,<span class="pascal_keyword">nil</span>,
+                 InputBoxOnCloseQuery,
+                 MI_UI_InputBox
+            ) = MrOk
+  <span class="pascal_keyword">then</span> <span class="pascal_keyword">with</span> MI_UI_InputBox.DmxScroller_Form1 <span class="pascal_keyword">do</span>
+       <span class="pascal_keyword">begin</span>
+         <span class="pascal_keyword">if</span> FieldByName(<span class="pascal_string">'nome'</span>).AsString = <span class="pascal_string">''</span>
+         <span class="pascal_keyword">then</span> <span class="pascal_keyword">begin</span>
+                ShowMessage(<span class="pascal_string">'Campo &quot;nome&quot; não pode ser vazio'</span>);
+              <span class="pascal_keyword">end</span>;
+         MI_UI_InputBox.free;
+       <span class="pascal_keyword">end</span>;
+<span class="pascal_keyword">end</span>;
+
+<span class="pascal_keyword">procedure</span> TDmxscroller_form_test.Button_InputBoxClick(Sender: TObject);
+<span class="pascal_keyword">begin</span>
+  TestInputBox;
+<span class="pascal_keyword">end</span>;</pre>
+
+<p></p></li>
+</ul>
+
+<p></p>
+<span id="PasDoc-Hierarchy"></span><h2 class="hierarchy">Hierarquia</h2>
+<ul class="hierarchy"><li class="ancestor">TForm</li>
+<li class="thisitem">TMI_UI_InputBox</li></ul><h2 class="overview">Visão Geral</h2>
+<span id="PasDoc-Fields"></span><h3 class="summary">Campos</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code><strong><a href="umi_ui_InputBox_lcl.TMI_UI_InputBox.html#ButtonPanel1">ButtonPanel1</a></strong>: TButtonPanel;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code><strong><a href="umi_ui_InputBox_lcl.TMI_UI_InputBox.html#DmxScroller_Form1">DmxScroller_Form1</a></strong>: TDmxScroller_Form;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code><strong><a href="umi_ui_InputBox_lcl.TMI_UI_InputBox.html#Mi_ScrollBox_LCL1">Mi_ScrollBox_LCL1</a></strong>: <a href="uMi_ui_scrollbox_lcl.TMi_ScrollBox_LCL.html">TMi_ScrollBox_LCL</a>;</code></td>
+</tr>
+</table>
+<span id="PasDoc-Methods"></span><h3 class="summary">Métodos</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>procedure <strong><a href="umi_ui_InputBox_lcl.TMI_UI_InputBox.html#CancelButtonClick">CancelButtonClick</a></strong>(Sender: TObject);</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>procedure <strong><a href="umi_ui_InputBox_lcl.TMI_UI_InputBox.html#CloseButtonClick">CloseButtonClick</a></strong>(Sender: TObject);</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>procedure <strong><a href="umi_ui_InputBox_lcl.TMI_UI_InputBox.html#DmxScroller_Form1AddTemplate">DmxScroller_Form1AddTemplate</a></strong>(const aUiDmxScroller: TUiDmxScroller );</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>procedure <strong><a href="umi_ui_InputBox_lcl.TMI_UI_InputBox.html#DmxScroller_Form1CloseQuery">DmxScroller_Form1CloseQuery</a></strong>(aDmxScroller: TUiDmxScroller;var CanClose: boolean);</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>procedure <strong><a href="umi_ui_InputBox_lcl.TMI_UI_InputBox.html#DmxScroller_Form1Enter">DmxScroller_Form1Enter</a></strong>(aDmxScroller: TUiDmxScroller);</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>procedure <strong><a href="umi_ui_InputBox_lcl.TMI_UI_InputBox.html#DmxScroller_Form1EnterField">DmxScroller_Form1EnterField</a></strong>(aField: <a href="uMi_ui_Dmxscroller_form_lcl.html#pDmxFieldRec">pDmxFieldRec</a>);</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>procedure <strong><a href="umi_ui_InputBox_lcl.TMI_UI_InputBox.html#DmxScroller_Form1Exit">DmxScroller_Form1Exit</a></strong>(aDmxScroller: TUiDmxScroller);</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>procedure <strong><a href="umi_ui_InputBox_lcl.TMI_UI_InputBox.html#DmxScroller_Form1ExitField">DmxScroller_Form1ExitField</a></strong>(aField: <a href="uMi_ui_Dmxscroller_form_lcl.html#pDmxFieldRec">pDmxFieldRec</a>);</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="umi_ui_InputBox_lcl.TMI_UI_InputBox.html#DmxScroller_Form1GetTemplate">DmxScroller_Form1GetTemplate</a></strong>(aNext: <a href="uMi_ui_scrollbox_lcl.html#PSItem">PSItem</a>): <a href="uMi_ui_scrollbox_lcl.html#PSItem">PSItem</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>procedure <strong><a href="umi_ui_InputBox_lcl.TMI_UI_InputBox.html#DmxScroller_Form1NewRecord">DmxScroller_Form1NewRecord</a></strong>(aDmxScroller: TUiDmxScroller);</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>procedure <strong><a href="umi_ui_InputBox_lcl.TMI_UI_InputBox.html#FormCloseQuery">FormCloseQuery</a></strong>(Sender: TObject; var CanClose: Boolean);</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>procedure <strong><a href="umi_ui_InputBox_lcl.TMI_UI_InputBox.html#FormCreate">FormCreate</a></strong>(Sender: TObject);</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>procedure <strong><a href="umi_ui_InputBox_lcl.TMI_UI_InputBox.html#OKButtonClick">OKButtonClick</a></strong>(Sender: TObject);</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>Procedure <strong><a href="umi_ui_InputBox_lcl.TMI_UI_InputBox.html#Set_Template">Set_Template</a></strong>(aTemplate:AnsiString);</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>Procedure <strong><a href="umi_ui_InputBox_lcl.TMI_UI_InputBox.html#SetAlias">SetAlias</a></strong>(aTitle:AnsiString);</code></td>
+</tr>
+</table>
+<span id="PasDoc-Properties"></span><h3 class="summary">Propriedades</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="umi_ui_InputBox_lcl.TMI_UI_InputBox.html#Template">Template</a></strong>: AnsiString read _Template write <a href="umi_ui_InputBox_lcl.TMI_UI_InputBox.html#Set_Template">Set_Template</a>;</code></td>
+</tr>
+</table>
+<h2 class="description">Descrição</h2>
+<h3 class="detail">Campos</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="ButtonPanel1"></span><code><strong>ButtonPanel1</strong>: TButtonPanel;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="DmxScroller_Form1"></span><code><strong>DmxScroller_Form1</strong>: TDmxScroller_Form;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Mi_ScrollBox_LCL1"></span><code><strong>Mi_ScrollBox_LCL1</strong>: <a href="uMi_ui_scrollbox_lcl.TMi_ScrollBox_LCL.html">TMi_ScrollBox_LCL</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<h3 class="detail">Métodos</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="CancelButtonClick"></span><code>procedure <strong>CancelButtonClick</strong>(Sender: TObject);</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="CloseButtonClick"></span><code>procedure <strong>CloseButtonClick</strong>(Sender: TObject);</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="DmxScroller_Form1AddTemplate"></span><code>procedure <strong>DmxScroller_Form1AddTemplate</strong>(const aUiDmxScroller: TUiDmxScroller );</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="DmxScroller_Form1CloseQuery"></span><code>procedure <strong>DmxScroller_Form1CloseQuery</strong>(aDmxScroller: TUiDmxScroller;var CanClose: boolean);</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="DmxScroller_Form1Enter"></span><code>procedure <strong>DmxScroller_Form1Enter</strong>(aDmxScroller: TUiDmxScroller);</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="DmxScroller_Form1EnterField"></span><code>procedure <strong>DmxScroller_Form1EnterField</strong>(aField: <a href="uMi_ui_Dmxscroller_form_lcl.html#pDmxFieldRec">pDmxFieldRec</a>);</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="DmxScroller_Form1Exit"></span><code>procedure <strong>DmxScroller_Form1Exit</strong>(aDmxScroller: TUiDmxScroller);</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="DmxScroller_Form1ExitField"></span><code>procedure <strong>DmxScroller_Form1ExitField</strong>(aField: <a href="uMi_ui_Dmxscroller_form_lcl.html#pDmxFieldRec">pDmxFieldRec</a>);</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="DmxScroller_Form1GetTemplate"></span><code>function <strong>DmxScroller_Form1GetTemplate</strong>(aNext: <a href="uMi_ui_scrollbox_lcl.html#PSItem">PSItem</a>): <a href="uMi_ui_scrollbox_lcl.html#PSItem">PSItem</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="DmxScroller_Form1NewRecord"></span><code>procedure <strong>DmxScroller_Form1NewRecord</strong>(aDmxScroller: TUiDmxScroller);</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="FormCloseQuery"></span><code>procedure <strong>FormCloseQuery</strong>(Sender: TObject; var CanClose: Boolean);</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="FormCreate"></span><code>procedure <strong>FormCreate</strong>(Sender: TObject);</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="OKButtonClick"></span><code>procedure <strong>OKButtonClick</strong>(Sender: TObject);</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="Set_Template"></span><code>Procedure <strong>Set_Template</strong>(aTemplate:AnsiString);</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+O Método <strong><code>Set_Template</code></strong> inicia o atributo _Template e criar a lista _FormSItem : <a class="normal" href="uMi_ui_scrollbox_lcl.html#PSItem">PSitem</a>
+
+<p></p>
+
+<ul class="paragraph_spacing">
+  <li><p><strong>NOTAS</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Criar em TObjectss.TStringList o método</p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="SetAlias"></span><code>Procedure <strong>SetAlias</strong>(aTitle:AnsiString);</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<h3 class="detail">Propriedades</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Template"></span><code>property <strong>Template</strong>: AnsiString read _Template write <a href="umi_ui_InputBox_lcl.TMI_UI_InputBox.html#Set_Template">Set_Template</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+A propriedade <strong><code>Template</code></strong> é usada para criar uma lista de <a class="normal" href="uMi_ui_scrollbox_lcl.html#PSItem">PSItem</a> para ser usada como modelo do formulário.
+
+<p></p>
+
+<ul class="paragraph_spacing">
+  <li><p><strong>NOTAS</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p><code>Template</code> é um string comum, onde cada linha é separada com &circ;J.</p></li>
+  <li><p><code>Template</code> tem uma lista de string com formato Dmx. </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Formato da propriedade <code>Template</code>:
+
+<p></p>
+
+<pre class="longcode">
+
+Template := <span class="pascal_string">'&tilde;Nome do Aluno:&tilde;\Sssssssssssssssssssssssss`ssssssssssssssss'</span>+ChFN+<span class="pascal_string">'Nome'</span>+lf+
+            <span class="pascal_string">'&tilde;     Endereço:&tilde;\Sssssssssssssssssssssssss`ssssssssssssssss'</span>+ChFN+<span class="pascal_string">'endereco'</span>+lf+
+            <span class="pascal_string">'&tilde;          Cep:&tilde;\##-###-###'</span>+ChFN+<span class="pascal_string">'cep'</span>+lf+
+            <span class="pascal_string">'&tilde;       Bairro:&tilde;\sssssssssssssssssssssssss'</span>+ChFN+<span class="pascal_string">'bairro'</span>+lf+
+            <span class="pascal_string">'&tilde;       Cidade:&tilde;\sssssssssssssssssssssssss'</span>+ChFN+<span class="pascal_string">'cidade'</span>+lf+
+            <span class="pascal_string">'&tilde;       Estado:&tilde;\SS'</span>+ChFN+<span class="pascal_string">'estado'</span>+lf+
+            <span class="pascal_string">'&tilde;        Idade:&tilde;\BB'</span>+ChFN+<span class="pascal_string">'idade'</span>+FldUpperLimit+<span class="pascal_string">#18</span>+lf+
+            <span class="pascal_string">'&tilde;    Matricula:&tilde;\III'</span>+ChFN+<span class="pascal_string">'matricula'</span>+lf+
+            <span class="pascal_string">'&tilde;     Valor da&tilde;'</span>+lf+
+            <span class="pascal_string">'&tilde;    Mensalidade:&tilde;\R,RRR.RR'</span>+ChFN+<span class="pascal_string">'mensalidade'</span>;</pre>
+
+<p></p></li>
+</ul>
+
+<p></p></li>
+  <li><p><strong>SINTAXE</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p><strong>&tilde;</strong> (til) : Limitador de rótulos do formulário;</p></li>
+  <li><p><strong>s</strong> (s minúsculo) : caracteres alfanumérico incluindo os maiúsculas, minusculas, números e símbolos;</p></li>
+  <li><p><strong>S</strong> (S maiúsculo) : caracteres alfanumérico incluindo os maiúsculas, números e símbolos;</p></li>
+  <li><p><strong>#</strong> (# cancela) : Aceita somente números de 0 a 99</p></li>
+  <li><p><strong>-</strong> (literal ) : Separador de números</p></li>
+  <li><p><strong>B</strong> (B maiúsculo): Campo do tipo byte</p></li>
+  <li><p><strong>FldUpperLimit</strong> : O caractere seguinte indica o limite superior da variável. No exemplo acima é 18 anos;</p></li>
+  <li><p><strong>R</strong> : Indica um caractere de um campo do tipo double;</p></li>
+  <li><p><strong>I</strong> : Indica um caractere de um campo do tipo interger. Faixa: -32000 a +32000;</p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p>
+</td></tr>
+</table>
+<hr><span class="appinfo"><em>Gerado por <a href="https://pasdoc.github.io/">PasDoc 0.16.0</a>. </em>
+</span>
+</div></div></body></html>

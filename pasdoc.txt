@@ -1,5 +1,6 @@
 ./mi.ui.lcl.form/fpmake.pp
 ./mi.rtl/fpmake.pp
+./mi.ui.lcl.form/tarefas_a_fazer.pas
 ./mi.ui.lcl.form/examples/mi.ui.lcl.form.tests/mi.ui.lcl.form.test.pas
 ./mi.ui.lcl.form/examples/mi.ui.lcl.form.tests/backup/mi.ui.lcl.form.test.pas
 ./mi.ui.lcl.form/examples/mi.ui.lcl.form.tests/umi_ui_dmxscroller_form_lcl_ds_test.pas
@@ -42,9 +43,10 @@
 ./mi.ui.lcl.form/units/umi_ui_maskedit_lcl.pas
 ./mi.ui.lcl.form/units/umi_ui_combobox_lcl.pas
 ./mi.ui.lcl.form/mi.ui.lcl.form.pas
+./mi.ui.lcl.form/histórico.pas
+./mi.rtl/tarefas_a_fazer.pas
 ./mi.rtl/examples/test_num_version/backup/unit1.pas
 ./mi.rtl/examples/test_num_version/unit1.pas
-./mi.rtl/examples/projects/unit1.pas
 ./mi.rtl/examples/mi.rtl.tests/units/mi.rtl.objects.methods.db.tb__access_test.pas
 ./mi.rtl/examples/mi.rtl.tests/units/mi_ui_mi_msgbox_dm.pas
 ./mi.rtl/examples/mi.rtl.tests/units/backup/unit1.pas
@@ -108,15 +110,19 @@
 ./mi.rtl/units/mi.rtl.objects.methods.dates.pas
 ./mi.rtl/units/mi.rtl.objects.methods.streambase.stream.pas
 ./mi.rtl/mi.rtl.pas
+./mi.rtl/histórico.pas
+./backup/unit1.pas
+./backup/histórico.pas
+./tarefas_a_fazer.pas
 ./mi.ui.web/mi.ui.web.test/units/unit1.pas
 ./unit1.pas
+./histórico.pas
 ./mi.ui.lcl.form/temp/test/project1.lpr
 ./mi.rtl/examples/stork/backup/create_config_stork.lpr
 ./mi.rtl/examples/stork/create_config_stork.lpr
 ./mi.rtl/examples/test_num_version/backup/project1.lpr
 ./mi.rtl/examples/test_num_version/project1.lpr
 ./mi.rtl/examples/test_num_version/test_num_version.lpr
-./mi.rtl/examples/projects/project1.lpr
 ./mi.rtl/examples/mi.rtl.tests/backup/mi.rtl.tests.lpr
 ./mi.rtl/examples/mi.rtl.tests/mi.rtl.tests.lpr
 ./mi.rtl/examples/console/project1.lpr
@@ -132,3 +138,4 @@
 ./mi.rtl/units/include/windows/erromessage_doc.inc
 ./mi.rtl/units/include/windows/errormessage.inc
 ./mi.rtl/units/mi.rtl.consts.inc
+./inc/linksCSS.inc

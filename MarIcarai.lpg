@@ -2,6 +2,8 @@
 <CONFIG>
   <ProjectGroup FileVersion="2">
     <Targets>
+      <Target FileName="tarefas_a_fazer.pas"/>
+      <Target FileName="histórico.pas"/>
       <Target FileName="mi.rtl/mi.rtl.lpk"/>
       <Target FileName="mi.rtl/examples/mi.rtl.tests/mi.rtl.tests.lpi">
         <BuildModes>

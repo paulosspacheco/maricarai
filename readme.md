@@ -1,10 +1,13 @@
 # Maricarai
 
-- Componente free pascal para criação de formulários LCL e pas2js baseado em templates simples, onde o template possui informações que permite o componente saber o tipo, tamanho, formatação, faixa de valor válido, dados para criação de combobox, checkbox, dispara eventos onEnter, OnExist, onEnterField e OnExitField etc... e críticas de tipo de dados de entrada.
+- Versão: Alpha - 0.7.1 em 03/08/2023
 
-  - **EXEMPLO**
+- Componente free pascal para criação de formulários LCL e pas2js baseado em templates simples, onde o template possui informações que permite o componente saber o tipo, tamanho, formatação, faixa de valores válido, dados para criação de combobox, checkbox, dispara eventos onEnter, OnExist, onEnterField e OnExitField etc...
+  e faz críticas de tipo de dados de entrada de forma automática.
 
-      ```pascal
+- **EXEMPLO DE TEMPLATE PARA CRIAR FORMULÁRIO**
+
+    ```pascal
 
       Procedure AddTemplate(const aUiDmxScroller:TUiDmxScroller);
       begin
@@ -38,6 +41,6 @@
           AddTemplate(aUiDmxScroller);
       end;
 
-      ```  
+    ```
 
-- Versão: Alpha - 0.7.1 em 21/07/2021
+

@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<title>mi_ui_Dmxscroller_sql: Classe TUiDmxScroller_sql</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="generator" content="PasDoc 0.16.0">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<link rel="stylesheet" type="text/css" href="tipuesearch/tipuesearch.css">
+
+<link rel="StyleSheet" type="text/css" href="pasdoc.css">
+</head>
+<body>
+<div class="container"><div class="navigation">
+<ul><li><a href="AllUnits.html">Units</a></li><li><a href="ClassHierarchy.html">Hierarquia de Classes</a></li><li><a href="AllClasses.html">Classes, Interfaces, Objetos e Registros</a></li><li><a href="AllTypes.html">Tipos</a></li><li><a href="AllVariables.html">Variáveis</a></li><li><a href="AllConstants.html">Constantes</a></li><li><a href="AllFunctions.html">Funções e Procedimentos</a></li><li><a href="AllIdentifiers.html">Identificadores</a></li><li><form class="search-form" action="tipue_results.html"><div class="search-input"><input type="text" name="q" id="tipue_search_input" pattern=".{1,}" title="At least 1 characters" required><div class="search-button"><input type="button" id="tipue_search_button" onclick="this.form.submit();"></div></div></form>
+<div style="clear: both"></div>
+</li></ul></div><div class="content">
+<span id="TUiDmxScroller_sql"></span><h1 class="cio">Classe TUiDmxScroller_sql</h1>
+<div class="sections">
+<div class="one_section"><a class="section" href="#PasDoc-Description">Descrição</a></div><div class="one_section"><a class="section" href="#PasDoc-Hierarchy">Hierarquia</a></div><div class="one_section"><a class="section" href="#PasDoc-Fields">Campos</a></div><div class="one_section"><a class="section" href="#PasDoc-Methods">Métodos</a></div><div class="one_section"><a class="section" href="#PasDoc-Properties">Propriedades</a></div></div>
+<span id="PasDoc-Description"></span><h2 class="unit">Unit</h2>
+<p class="unitlink">
+<a href="mi_ui_Dmxscroller_sql.html">mi_ui_Dmxscroller_sql</a></p>
+<h2 class="declaration">Declaração</h2>
+<p class="declaration">
+<code>type TUiDmxScroller_sql = class(<a class="normal" href="mi_ui_Dmxscroller_sql.TDmxScroller_sql_Atributos.html">TDmxScroller_sql_Atributos</a>)</code></p>
+<h2 class="description">Descrição</h2>
+<p>
+A classe <strong><code>TUiDmxScroller_sql</code></strong> implementa o acesso ao banco de dados usando o atributo <strong><a class="normal" href="mi_ui_Dmxscroller_sql.TDmxScroller_sql_Atributos.html#CustomBufDataset">CustomBufDataset</a></strong>
+
+<p></p>
+
+<ul class="paragraph_spacing">
+  <li><p><strong>NOTA</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>O atributo <strong><a class="normal" href="mi_ui_Dmxscroller_sql.TDmxScroller_sql_Atributos.html#CustomBufDataset">CustomBufDataset</a></strong> pode ser <strong>TBufDataset</strong> não conectado a banco de dados sql e <strong>TCustomSQLQuery</strong> conectado ao banco de dados SQL.</p></li>
+</ul>
+
+<p></p></li>
+  <li><p><strong>REFERÊNCIA</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>[Working_With_TSQLQuery](<a href="https://wiki.freepascal.org/Working_With_TSQLQuery">https://wiki.freepascal.org/Working_With_TSQLQuery</a>)</p></li>
+  <li><p>[Parameters_in_TSQLQuery](<a href="https://wiki.freepascal.org/Working_With_TSQLQuery#Parameters_in_TSQLQuery.SQL">https://wiki.freepascal.org/Working_With_TSQLQuery#Parameters_in_TSQLQuery.SQL</a>)</p></li>
+  <li><p>[sql-basico](<a href="https://www.devmedia.com.br/sql-basico/28877">https://www.devmedia.com.br/sql-basico/28877</a>)</p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p>
+<span id="PasDoc-Hierarchy"></span><h2 class="hierarchy">Hierarquia</h2>
+<ul class="hierarchy"><li class="ancestor">TUiDmxScroller</li>
+<li class="ancestor"><a class="normal" href="mi_ui_Dmxscroller_sql.TDmxScroller_sql_Atributos.html">TDmxScroller_sql_Atributos</a></li>
+<li class="thisitem">TUiDmxScroller_sql</li></ul><h2 class="overview">Visão Geral</h2>
+<span id="PasDoc-Fields"></span><h3 class="summary">Campos</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code><strong><a href="mi_ui_Dmxscroller_sql.TUiDmxScroller_sql.html#_DataSource">_DataSource</a></strong>: TDataSource;</code></td>
+</tr>
+</table>
+<span id="PasDoc-Methods"></span><h3 class="summary">Métodos</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>procedure <strong><a href="mi_ui_Dmxscroller_sql.TUiDmxScroller_sql.html#SetDataBase">SetDataBase</a></strong>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>constructor <strong><a href="mi_ui_Dmxscroller_sql.TUiDmxScroller_sql.html#Create">Create</a></strong>(aOwner:TComponent); Override;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="mi_ui_Dmxscroller_sql.TUiDmxScroller_sql.html#GetkeysPrimaryComposite">GetkeysPrimaryComposite</a></strong>(I : Integer):AnsiString;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="mi_ui_Dmxscroller_sql.TUiDmxScroller_sql.html#GetKeysPrimary">GetKeysPrimary</a></strong>:AnsiString;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>Function <strong><a href="mi_ui_Dmxscroller_sql.TUiDmxScroller_sql.html#CreateTable">CreateTable</a></strong>: Boolean;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>Function <strong><a href="mi_ui_Dmxscroller_sql.TUiDmxScroller_sql.html#AlterTable">AlterTable</a></strong>: Boolean; Virtual;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>Function <strong><a href="mi_ui_Dmxscroller_sql.TUiDmxScroller_sql.html#SetSqlCustomBufDataset">SetSqlCustomBufDataset</a></strong>:Boolean; Virtual;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>Procedure <strong><a href="mi_ui_Dmxscroller_sql.TUiDmxScroller_sql.html#CreateCustomBufDataset_FieldDefs">CreateCustomBufDataset_FieldDefs</a></strong>; override;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="mi_ui_Dmxscroller_sql.TUiDmxScroller_sql.html#GetTemplate">GetTemplate</a></strong>(aNext: <a href="uMi_ui_scrollbox_lcl.html#PSItem">PSItem</a>) : <a href="uMi_ui_scrollbox_lcl.html#PSItem">PSItem</a>; overload; override;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="mi_ui_Dmxscroller_sql.TUiDmxScroller_sql.html#GetBuffers">GetBuffers</a></strong>:Boolean; Override;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="mi_ui_Dmxscroller_sql.TUiDmxScroller_sql.html#PutBuffers">PutBuffers</a></strong>:Boolean; override;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>procedure <strong><a href="mi_ui_Dmxscroller_sql.TUiDmxScroller_sql.html#SetActiveLCL">SetActiveLCL</a></strong>(aActive: Boolean); override;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>Procedure <strong><a href="mi_ui_Dmxscroller_sql.TUiDmxScroller_sql.html#DoOnNewRecord">DoOnNewRecord</a></strong>; Override;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>Function <strong><a href="mi_ui_Dmxscroller_sql.TUiDmxScroller_sql.html#DoAddRec">DoAddRec</a></strong>:Boolean; override;</code></td>
+</tr>
+</table>
+<span id="PasDoc-Properties"></span><h3 class="summary">Propriedades</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><code>property <strong><a href="mi_ui_Dmxscroller_sql.TUiDmxScroller_sql.html#DataSource">DataSource</a></strong> : TDataSource Read <a href="mi_ui_Dmxscroller_sql.TUiDmxScroller_sql.html#_DataSource">_DataSource</a>   Write  <a href="mi_ui_Dmxscroller_sql.TUiDmxScroller_sql.html#_DataSource">_DataSource</a>;</code></td>
+</tr>
+</table>
+<h2 class="description">Descrição</h2>
+<h3 class="detail">Campos</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="_DataSource"></span><code><strong>_DataSource</strong>: TDataSource;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<h3 class="detail">Métodos</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="SetDataBase"></span><code>procedure <strong>SetDataBase</strong>;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Create"></span><code>constructor <strong>Create</strong>(aOwner:TComponent); Override;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+Constrói o componente</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="GetkeysPrimaryComposite"></span><code>function <strong>GetkeysPrimaryComposite</strong>(I : Integer):AnsiString;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+O método <strong><code>GetkeysPrimaryComposite</code></strong> retorna a lista de campos pertencentes a chave composta primária.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="GetKeysPrimary"></span><code>function <strong>GetKeysPrimary</strong>:AnsiString;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+A função <strong><code>GetKeysPrimary</code></strong> retorna a chave primária composta ou não na tabela.
+
+<p></p>
+
+<ul class="paragraph_spacing">
+  <li><p><strong>Como TSQLQuery trata os campos de chave primária</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Ao atualizar registros, TSQLQuery precisa saber quais campos compõem a chave primária que pode ser usada para atualizar o registro e quais campos devem ser atualizados: com base nessas informações, ele constrói um comando SQL UPDATE, INSERT ou DELETE.</p></li>
+  <li><p>A construção da instrução SQL é controlada pela propriedade UsePrimaryKeyAsKey e pelas propriedades ProviderFlags .</p></li>
+  <li><p>A propriedade Providerflags é um conjunto de 3 sinalizadores: </p>
+
+<ul class="paragraph_spacing">
+  <li><p>pfInkey : O campo faz parte da chave primária</p></li>
+  <li><p>pfInWhere : O campo deve ser utilizado na cláusula WHERE das instruções SQL.</p></li>
+  <li><p>pfInUpdate : Atualizações ou inserções devem incluir este campo. Por padrão, ProviderFlags consiste apenas em pfInUpdate .</p></li>
+  <li><p><strong>NOTA* </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Se sua tabela tiver uma chave primária (conforme descrito acima), você só precisará definir a propriedade **UsePrimaryKeyAsKey</p></li>
+</ul>
+
+<p></strong> como True e tudo será feito para você. Isso definirá o sinalizador pfInKey para os campos de chave primária.</p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p></li>
+  <li><p><strong>REFERÊNCIA</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>[Working With TSQLQuery e Primary_key_Fields](<a href="https://wiki.freepascal.org/Working_With_TSQLQuery#Primary_key_Fields">https://wiki.freepascal.org/Working_With_TSQLQuery#Primary_key_Fields</a>)</p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="CreateTable"></span><code>Function <strong>CreateTable</strong>: Boolean;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+A função <strong><code>CreateTable</code></strong> cria a tabela se a mesma não existir</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="AlterTable"></span><code>Function <strong>AlterTable</strong>: Boolean; Virtual;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+O método <strong><code>AlterTable</code></strong> cria a tabela ou consulta <strong>TableName</strong> no banco de dados caso a propriedade <strong>TableName</strong> não existe no banco de dados e <strong>TableName</strong> seja diferente de vazio.
+
+<p></p>
+
+<ul class="paragraph_spacing">
+  <li><p>O método <strong><code>TUiDmxScroller_sql.AlterTable</code></strong> precisa reconhecer a sintaxe do banco de dados selecionado. </p>
+
+<ul class="paragraph_spacing">
+  <li><p>O postgresSQL sintaxe: </p>
+
+<ul class="paragraph_spacing">
+  <li><p><a class="normal" href="mi_ui_Dmxscroller_sql.TUiDmxScroller_sql.html#Create">CREATE</a> TABLE [IF NOT EXISTS] table_name ( column1 datatype(length) column_contraint, column2 datatype(length) column_contraint, column3 datatype(length) column_contraint, table_constraints );</p></li>
+  <li><p><strong>REFERÊNCIA</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>[postgresql-<a class="normal" href="mi_ui_Dmxscroller_sql.TUiDmxScroller_sql.html#Create">create</a>-table](<a href="https://www.postgresqltutorial.com/postgresql-tutorial/postgresql-create-table/">https://www.postgresqltutorial.com/postgresql-tutorial/postgresql-create-table/</a>)</p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p></li>
+  <li><p>O sqLite3 sintaxe: </p>
+
+<ul class="paragraph_spacing">
+  <li><p><a class="normal" href="mi_ui_Dmxscroller_sql.TUiDmxScroller_sql.html#Create">CREATE</a> TABLE [IF NOT EXISTS] [schema_name].table_name ( column_1 data_type PRIMARY KEY, column_2 data_type NOT NULL, column_3 data_type DEFAULT 0,table_constraints) [WITHOUT ROWID];</p></li>
+  <li><p><strong>REFERÊNCIA:</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>[lang_createtable.html](<a href="https://www.sqlite.org/lang_createtable.html">https://www.sqlite.org/lang_createtable.html</a>)</p></li>
+  <li><p>[sqlite-<a class="normal" href="mi_ui_Dmxscroller_sql.TUiDmxScroller_sql.html#Create">create</a>-table](<a href="https://www.sqlitetutorial.net/sqlite-create-table/">https://www.sqlitetutorial.net/sqlite-create-table/</a>)</p></li>
+  <li><p>[lang_createtable.html](<a href="https://www.sqlite.org/lang_createtable.html">https://www.sqlite.org/lang_createtable.html</a>)</p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p></li>
+  <li><p><strong>NOTAS</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>As tabelas só são criadas automaticamente caso a constante AlterTableQL = true.</p></li>
+  <li><p>Ao adiciona uma coluna que já exista no banco de dados o sistema trata a exceção e tenta adicionar a próxima coluna. Motivo: Poder expandir a tabela dinâmicamente.</p></li>
+  <li><p>O comportamento do Banco de dados SqLite ao criar uma tabela é diferente do postgres. </p>
+
+<ul class="paragraph_spacing">
+  <li><p>O sqLite não permite criar tabela vazia.</p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="SetSqlCustomBufDataset"></span><code>Function <strong>SetSqlCustomBufDataset</strong>:Boolean; Virtual;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+O método <strong><code>SetSqlCustomBufDataset</code></strong> inicializa as propriedades SQLs de <a class="normal" href="mi_ui_Dmxscroller_sql.TDmxScroller_sql_Atributos.html#CustomBufDataset">CustomBufDataset</a>
+
+<p></p>
+
+<ul class="paragraph_spacing">
+  <li><p><strong>PROPRIEDADES OBRIGATÓRIAS SEREM INICIALIZADAS:</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>CustomBufDataset.SQL;</p></li>
+</ul>
+
+<p></p></li>
+  <li><p><strong>PROPRIEDADES OPCIONAIS SEREM INICIALIZADAS:</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>CustomBufDataset.InsertSQL;</p></li>
+  <li><p>CustomBufDataset.UpdataSQL;</p></li>
+  <li><p>CustomBufDataset.DeleteSQL;</p></li>
+  <li><p>CustomBufDataset.RefreshSQL;</p></li>
+</ul>
+
+<p></p></li>
+  <li><p><strong>GERAÇÃO AUTOMÁTICA DE INSTRUÇÃO SQL DE ATUALIZAÇÃO</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>O <strong>SqlDb</strong> (mais em particular, <strong>TSQLQuery</strong> ) pode gerar automaticamente instruções de atualização para os dados que busca. Para isso, ele irá varrer a instrução propriedade <strong>CustomBufDataset.SQL</strong> e determinar a tabela principal na consulta: esta é a <strong>primeira tabela</strong> encontrada na parte <strong>FROM</strong> da instrução <strong>SELECT</strong> . </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Exemplo:
+
+<p></p>
+
+<pre class="longcode">
+
+SELECT * FROM ALUNOS</pre>
+
+<p>
+
+<p></p>
+
+<ul class="paragraph_spacing">
+  <li><p>Alunos será a tabela selecionada para uso dos campos de <a href="https://www.freepascal.org/docs-html/fcl/db/tField.html">TField</a>.</p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p></li>
+  <li><p>Para operações <strong>INSERT</strong> e <strong>UPDATE</strong>, a propriedade instrução SQL gerada inserirá e atualizará todos os campos que possuim <strong>pfInUpdate</strong> em sua propriedade <strong>TField.ProviderFlags</strong>. </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Os campos somente leitura não serão adicionados à instrução SQL.</p></li>
+  <li><p>Os campos que são NULL não serão adicionados a uma consulta de inserção, o que significa que o servidor de banco de dados inserirá o que estiver na cláusula DEFAULT da definição de campo correspondente.</p></li>
+</ul>
+
+<p></p></li>
+  <li><p>O campos de chave primária </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Ao atualizar registros, <strong>TSQLQuery</strong> precisa saber quais campos compõem a chave primária que pode ser usada para atualizar o registro e quais campos devem ser atualizados: com base nessas informações, ele constrói os comandos <strong>SQL UPDATE, INSERT ou DELETE</strong>.</p></li>
+  <li><p>A construção da instrução <strong>SQL</strong> é controlada pela propriedade <strong>UsePrimaryKeyAsKey</strong> e pelas propriedades <strong>ProviderFlags</strong>.</p></li>
+  <li><p>A propriedade TField.ProviderFlag é um conjunto de 6 sinalizadores: </p>
+
+<ul class="paragraph_spacing">
+  <li><p><strong>pfInUpdate</strong> : As alterações no campo devem ser propagadas para o banco de dados..</p></li>
+  <li><p><strong>pfInWhere</strong> : O campo deve ser usado na cláusula WHERE de uma instrução de atualização no caso de upWhereChanged.</p></li>
+  <li><p><strong>pfInKey</strong> : Campo é um campo chave e usado na cláusula WHERE de uma instrução de atualização.</p></li>
+  <li><p><strong>pfHidden</strong> : O valor deste campo deve ser atualizado após a inserção.</p></li>
+  <li><p><strong>pfRefreshOnInsert</strong> : O valor deste campo deve ser atualizado após a inserção.</p></li>
+  <li><p><strong>pfRefreshOnUpdate</strong> : O valor deste campo deve ser atualizado após a atualização.</p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p></li>
+  <li><p><strong>REFERẼNCIAS</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>[TSQLQuery Introdução](<a href="https://wiki.freepascal.org/Working_With_TSQLQuery#General">https://wiki.freepascal.org/Working_With_TSQLQuery#General</a>)</p></li>
+  <li><p>[TSQLQuery exemplos](<a href="https://wiki.freepascal.org/TSQLQuery">https://wiki.freepascal.org/TSQLQuery</a>)</p></li>
+  <li><p><a href="https://www.freepascal.org/docs-html/fcl/sqldb/tsqlquery.html">https://www.freepascal.org/docs-html/fcl/sqldb/tsqlquery.html</a></p></li>
+  <li><p><a href="https://wiki.freepascal.org/Working_With_TSQLQuery">Trabalhando com TSQLQuery</a>;</p></li>
+  <li><p><a href="https://www.freepascal.org/docs-html/fcl/sqldb/updatesqls.html">updatesqls.html</a>;</p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="CreateCustomBufDataset_FieldDefs"></span><code>Procedure <strong>CreateCustomBufDataset_FieldDefs</strong>; override;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+O método <strong><code>CreateCustomBufDataset_FieldDefs</code></strong> é usado para criar os campos de <strong><a class="normal" href="mi_ui_Dmxscroller_sql.TDmxScroller_sql_Atributos.html#CustomBufDataset">CustomBufDataset</a></strong></p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="GetTemplate"></span><code>function <strong>GetTemplate</strong>(aNext: <a href="uMi_ui_scrollbox_lcl.html#PSItem">PSItem</a>) : <a href="uMi_ui_scrollbox_lcl.html#PSItem">PSItem</a>; overload; override;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+O método <strong><code>GetTemplate</code></strong> retorna uma lista de <strong><a class="normal" href="uMi_ui_scrollbox_lcl.html#PSItem">PSItem</a></strong> (Lista de strings) com o modelo usado para criar a tela.
+
+<p></p>
+
+<ul class="paragraph_spacing">
+  <li><p><strong>NOTA</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>O Evento onGetTemplate só é iniciado em tempo de execução, por isso o formulário não pode ser criado em tempo de desenho do aplicativo.</p></li>
+  <li><p>Caso o evento onGetTemplate seja nil, então não posso ativar a tela.</p></li>
+  <li><p>Esse método pode ser anulado, caso se queira ignorar o evento onGetTemplate e definir o Template em uma método pai herdado desta classe.</p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="GetBuffers"></span><code>function <strong>GetBuffers</strong>:Boolean; Override;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+O método <strong><code>GetBuffers</code></strong> ler o buffer dos campos dos arquivos associados a classe <strong><a class="normal" href="mi_ui_Dmxscroller_sql.TUiDmxScroller_sql.html">TUiDmxScroller_sql</a></strong> para o buffer dos campos da classe <strong>TUiDmxScroller</strong></p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="PutBuffers"></span><code>function <strong>PutBuffers</strong>:Boolean; override;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+O método <strong><code>PutBuffers</code></strong> grava o buffer dos campos da classe <strong><a class="normal" href="mi_ui_Dmxscroller_sql.TUiDmxScroller_sql.html">TUiDmxScroller_sql</a></strong> para o buffer dos campos dos arquivos associados a classe <strong><a class="normal" href="mi_ui_Dmxscroller_sql.TUiDmxScroller_sql.html">TUiDmxScroller_sql</a></strong></p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="SetActiveLCL"></span><code>procedure <strong>SetActiveLCL</strong>(aActive: Boolean); override;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="DoOnNewRecord"></span><code>Procedure <strong>DoOnNewRecord</strong>; Override;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+O método <strong><code>DoOnNewRecord</code></strong> seleciona o registro para adição de um novo registro </p>
+
+<ul class="paragraph_spacing">
+  <li><p>NOTA </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Está gerando exceção.?????</p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="DoAddRec"></span><code>Function <strong>DoAddRec</strong>:Boolean; override;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+O método <strong><code>DoAddRec</code></strong> adicione o registro editado no banco de dados. = <strong>OBSERVAÇÂO</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>O método <strong><code>DoAddRec</code></strong> só funciona se o registro atender as seguintes condições: </p>
+
+<ul class="paragraph_spacing">
+  <li><p>appending =true;</p></li>
+  <li><p>Mb_St_Insert habilidado</p></li>
+  <li><p><a class="normal" href="mi_ui_Dmxscroller_sql.TDmxScroller_sql_Atributos.html#CustomBufDataset">CustomBufDataset</a> &lt;&gt; nil</p></li>
+  <li><p>CustomBufDataset.Active = true;</p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p>
+
+<ul class="paragraph_spacing">
+  <li><p><strong>REFERÊNCIA</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>[tsqlquery.options](<a href="https://www.freepascal.org/docs-html/fcl/sqldb/tsqlquery.options.html">https://www.freepascal.org/docs-html/fcl/sqldb/tsqlquery.options.html</a>)</p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p>
+</td></tr>
+</table>
+<h3 class="detail">Propriedades</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><span id="DataSource"></span><code>property <strong>DataSource</strong> : TDataSource Read <a href="mi_ui_Dmxscroller_sql.TUiDmxScroller_sql.html#_DataSource">_DataSource</a>   Write  <a href="mi_ui_Dmxscroller_sql.TUiDmxScroller_sql.html#_DataSource">_DataSource</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+A propriedade <strong><code>DataSource</code></strong> permite que controles da <strong>LCL</strong> (Lazarus Componenents Library) possam usar os dados do componenente <strong>TDmxScroller</strong>.
+
+<p></p>
+
+<ul class="paragraph_spacing">
+  <li><p><strong>NOTA</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Essa integração permite que <strong>TDmxScroller</strong> utilize todos os componentes de banco de dados do Free Pascal.</p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p>
+</td></tr>
+</table>
+<hr><span class="appinfo"><em>Gerado por <a href="https://pasdoc.github.io/">PasDoc 0.16.0</a>. </em>
+</span>
+</div></div></body></html>

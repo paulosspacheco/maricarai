@@ -15,6 +15,10 @@
 			"Scroller",
 			"TRealNum"
 		],
-		"todo-tree.tree.scanMode": "workspace"
+		"todo-tree.tree.scanMode": "workspace",
+		"git.ignoreLimitWarning": true,
+		"markdown.styles": [
+			"/inc/linksCSS.inc"
+		]
 	}
 }

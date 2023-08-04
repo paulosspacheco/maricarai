@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+    <html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Maricarai</title>
+        <style>
+/* From extension vscode.github */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+.vscode-dark img[src$=\#gh-light-mode-only],
+.vscode-light img[src$=\#gh-dark-mode-only] {
+	display: none;
+}
+
+/* From extension bierner.markdown-checkbox */
+.contains-task-list {
+    padding-left: 0;
+}
+
+.contains-task-list li {
+    margin-left: 24px;
+}
+
+.contains-task-list .task-list-item {
+    list-style: none;
+    padding-left: 0;
+    margin-left: 0;
+}
+
+.contains-task-list .contains-task-list {
+    padding-left: 20px;
+} 
+/* From extension davidmwhynot.markdown-higlightjs */
+/*
+
+Atom One Dark by Daniel Gamage
+Original One Dark Syntax theme from https://github.com/atom/one-dark-syntax
+
+base:    #282c34
+mono-1:  #abb2bf
+mono-2:  #818896
+mono-3:  #5c6370
+hue-1:   #56b6c2
+hue-2:   #61aeee
+hue-3:   #c678dd
+hue-4:   #98c379
+hue-5:   #e06c75
+hue-5-2: #be5046
+hue-6:   #d19a66
+hue-6-2: #e6c07b
+
+*/
+
+.hljs {
+  display: block;
+  overflow-x: auto;
+  padding: 0.5em;
+  color: #abb2bf;
+  background: #282c34;
+}
+
+.hljs-comment,
+.hljs-quote {
+  color: #5c6370;
+  font-style: italic;
+}
+
+.hljs-doctag,
+.hljs-keyword,
+.hljs-formula {
+  color: #c678dd;
+}
+
+.hljs-section,
+.hljs-name,
+.hljs-selector-tag,
+.hljs-deletion,
+.hljs-subst {
+  color: #e06c75;
+}
+
+.hljs-literal {
+  color: #56b6c2;
+}
+
+.hljs-string,
+.hljs-regexp,
+.hljs-addition,
+.hljs-attribute,
+.hljs-meta-string {
+  color: #98c379;
+}
+
+.hljs-built_in,
+.hljs-class .hljs-title {
+  color: #e6c07b;
+}
+
+.hljs-attr,
+.hljs-variable,
+.hljs-template-variable,
+.hljs-type,
+.hljs-selector-class,
+.hljs-selector-attr,
+.hljs-selector-pseudo,
+.hljs-number {
+  color: #d19a66;
+}
+
+.hljs-symbol,
+.hljs-bullet,
+.hljs-link,
+.hljs-meta,
+.hljs-selector-id,
+.hljs-title {
+  color: #61aeee;
+}
+
+.hljs-emphasis {
+  font-style: italic;
+}
+
+.hljs-strong {
+  font-weight: bold;
+}
+
+.hljs-link {
+  text-decoration: underline;
+}
+
+</style>
+        
+        
+        <style>
+.task-list-item {
+    list-style-type: none;
+}
+
+.task-list-item-checkbox {
+    margin-left: -20px;
+    vertical-align: middle;
+    pointer-events: none;
+}
+</style>
+        <style>
+
+</style>
+    </head>
+    <body class="vscode-body vscode-dark">
+        <h1 id="maricarai">Maricarai</h1>
+<ul>
+<li>
+<p>Componente free pascal para criação de formulários LCL e pas2js baseado em templates simples, onde o template possui informações que permite o componente saber o tipo, tamanho, formatação, faixa de valores válido, dados para criação de combobox, checkbox, dispara eventos onEnter, OnExist, onEnterField e OnExitField etc... e faz críticas de tipo de dados de entrada de forma automática.</p>
+<ul>
+<li>
+<p><strong>EXEMPLO</strong></p>
+<pre><code class="hljs language-pascal">
+<span class="hljs-function"><span class="hljs-keyword">Procedure</span> <span class="hljs-title">AddTemplate</span><span class="hljs-params">(<span class="hljs-keyword">const</span> aUiDmxScroller:TUiDmxScroller)</span>;</span>
+<span class="hljs-keyword">begin</span>
+    <span class="hljs-keyword">with</span> aUiDmxScroller <span class="hljs-keyword">do</span>
+    <span class="hljs-keyword">begin</span>
+    add(<span class="hljs-string">'~EXEMPLO DE TEMPLATE~'</span>);
+    add(<span class="hljs-string">''</span>);
+    add(<span class="hljs-string">'~Alfanumérico maiúscula com 15 posições:~\SSSSSSSSSSSSSSS'</span>);
+    add(<span class="hljs-string">'~Alfanumérico maiúscula e minuscula com 30 posições:~'</span>);
+    add(<span class="hljs-string">'~~\ssssssssssssssssssssssssssssssssssssss'</span>);
+    add(<span class="hljs-string">'~Alfanumérico com a primeira letra maiúscula:~\Sssssssssssssss'</span>);
+    add(<span class="hljs-string">'~Valor double.......:~\RRR,RRR.RR'</span>);
+    add(<span class="hljs-string">'~Valor SmalInt......:~\II,III'</span>);
+    add(<span class="hljs-string">'~Valor Byte.........:~\BBB'</span>);
+    add(<span class="hljs-string">'~Valor Smallword....:~\WW,WWW'</span>);
+    add(<span class="hljs-string">'~Sexo...............:~'</span>+ CreateEnumField(TRUE, accNormal, <span class="hljs-number">0</span>,
+                                    NewSItem(<span class="hljs-string">' indefinido '</span>,
+                                    NewSItem(<span class="hljs-string">' Masculino'</span>,
+                                    NewSItem(<span class="hljs-string">' Feminino'</span>,
+                                            <span class="hljs-keyword">nil</span>)))));
+    add(<span class="hljs-string">'~Estado Civil              ~\KA Indefinido  '</span>+chFN+<span class="hljs-string">'Sexo'</span>);
+    add(<span class="hljs-string">'~~\X Casado?                \KA Masculino    '</span>);
+    add(<span class="hljs-string">'~~\X Pretende se divorciar? \KA Feminino     '</span>);
+    add(<span class="hljs-string">'~~\X Tens filhos?          '</span>);
+    add(<span class="hljs-string">''</span>);
+    <span class="hljs-keyword">end</span>;
+<span class="hljs-keyword">end</span>;
+
+<span class="hljs-function"><span class="hljs-keyword">procedure</span> <span class="hljs-title">TForm1</span>.<span class="hljs-title">DmxScroller_Form1AddTemplate</span><span class="hljs-params">(<span class="hljs-keyword">const</span> aUiDmxScroller: TUiDmxScroller)</span>;</span>
+<span class="hljs-keyword">begin</span>
+    AddTemplate(aUiDmxScroller);
+<span class="hljs-keyword">end</span>;
+
+</code></pre>
+</li>
+</ul>
+</li>
+<li>
+<p>Versão: Alpha - 0.7.1 em 21/07/2021</p>
+</li>
+</ul>
+
+        
+        
+    </body>
+    </html>

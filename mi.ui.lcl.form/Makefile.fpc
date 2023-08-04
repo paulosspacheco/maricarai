@@ -1,16 +1,16 @@
 #   File generated automatically by Lazarus Package Manager
 #
-#   Makefile.fpc for mi.ui.lcl.form 0.5.0.687
+#   Makefile.fpc for mi.ui.lcl.form 0.7.1.687
 #
 #   This file was generated on 03/08/2023
 
 [package]
 name=mi.ui.lcl.form
-version=0.5.0.687
+version=0.7.1.687
 
 [compiler]
 unittargetdir=lib/$(CPU_TARGET)-$(OS_TARGET)
-unitdir=units ../../../../Lazarus/lazarus-2.2.6/lazarus/packager/units/$(CPU_TARGET)-$(OS_TARGET) ../../../../Lazarus/lazarus-2.2.6/lazarus/components/lazutils/lib/$(CPU_TARGET)-$(OS_TARGET) ../../../../Lazarus/lazarus-2.2.6/lazarus/components/freetype/lib/$(CPU_TARGET)-$(OS_TARGET) ../../../LazarusProjects_publicados_no_github/maricarai/mi.rtl/lib/$(CPU_TARGET)-$(OS_TARGET)/units ../../../../Lazarus/lazarus-2.2.6/lazarus/lcl/units/$(CPU_TARGET)-$(OS_TARGET) ../../../../Lazarus/lazarus-2.2.6/lazarus/lcl/units/$(CPU_TARGET)-$(OS_TARGET)/$(LCL_PLATFORM) .
+unitdir=units ../../../../Lazarus/lazarus-2.2.6/lazarus/packager/units/$(CPU_TARGET)-$(OS_TARGET) ../../../../Lazarus/lazarus-2.2.6/lazarus/components/lazutils/lib/$(CPU_TARGET)-$(OS_TARGET) ../../../../Lazarus/lazarus-2.2.6/lazarus/components/freetype/lib/$(CPU_TARGET)-$(OS_TARGET) ../mi.rtl/lib/$(CPU_TARGET)-$(OS_TARGET)/units ../../../../Lazarus/lazarus-2.2.6/lazarus/lcl/units/$(CPU_TARGET)-$(OS_TARGET) ../../../../Lazarus/lazarus-2.2.6/lazarus/lcl/units/$(CPU_TARGET)-$(OS_TARGET)/$(LCL_PLATFORM) .
 includedir=units
 options= -MObjFPC -Scghi -O1 -g -gl -l -vewnhibq -dLCL -dLCL$(LCL_PLATFORM) $(DBG_OPTIONS)
 

@@ -54,5 +54,8 @@
         "latex",
         "plaintext"
     ],
-    "cSpell.language": "en,pt-BR"
+    "cSpell.language": "en,pt-BR",
+    "markdown.styles": [
+        "/inc/linksCSS.inc"
+    ]
 }

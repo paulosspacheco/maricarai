@@ -1,4 +1,4 @@
-# <span id="topo"><span>Projeto Básico em lazarus para os sistemas operacionais win32, win64 e linux <a href="modelo03.html" target="_blank" title="Pressione aqui para expandir este documento em nova aba." >↵</a><a href="modelo03.pdf" target="_blank" title="Pressione aqui para visualizar o PDF deste documento em nova aba.">℘</a>
+# <span id="topo"><span># Pacote mi.rtl <a href="modelo03.html" target="_blank" title="Pressione aqui para expandir este documento em nova aba." >↵</a><a href="modelo03.pdf" target="_blank" title="Pressione aqui para visualizar o PDF deste documento em nova aba.">℘</a>
 
 ## **1. INDEX**
 
@@ -33,15 +33,12 @@
 ---
 
    1. <span id="id_resumo"><span>**Resumo do conteúdo:**
-      1. Este projeto está na versão Alpha, por isso não recomendo seu uso, porque o mesmo pode ser mudado antes do lançamento da versão estável.
+      1. Este projeto está na versão Alpha, por isso não recomendo seu uso, porque o mesmo pode ser mudado antes do lançamento da versão estável. A publicação do mesmo tem como finalidade salva o projeto na nuvem github por segurança.
 
    2. **Introdução**
 
       1. <span id="id_objetivo"><span>**Objetivo:**
-         1. O pacote RTL contém tudo que preciso para:
-            1. Acesso ao sistema operacional das plataformas que o free pascal reconhece.
-            2. Acesso ao framework gráfico que o free pascal reconhece;
-            3. Acesso aos bancos de dados que o free pascal reconhece.
+         1. Encapsular as units do FreePascal convergindo tudo para _TObjectss_ com propósito de evitar declaração de units secundárias bem como manter uma compatibilidade com o passado;
 
          2. <text onclick="goBack()">[🔙]</text>
 

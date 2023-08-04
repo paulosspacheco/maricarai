@@ -3,7 +3,7 @@
   <Package Version="5">
     <Name Value="mi.rtl"/>
     <Type Value="RunAndDesignTime"/>
-    <Author Value="Paulo Sérgio da Silva Pacheco"/>
+    <Author Value="PauloSSPacheco@yahoo.com; "/>
     <CompilerOptions>
       <Version Value="11"/>
       <SearchPaths>
@@ -36,36 +36,39 @@
         <CreateMakefileOnBuild Value="True"/>
       </Other>
     </CompilerOptions>
-    <Description Value="O  pacote mi.rtl encapsula as units do FreePascal.
-Implementa a classe TObjectss que por sua vez encapsula as classes bases do turbo pascal.
+    <Description Value="# Pacote mi.rtl
+## Objetivo do pacote _mi.rtl_
+- Encapsular as units do FreePascal convergindo tudo para TObjectss com propósito de evitar declaração de units secundárias bem como manter uma compatibilidade com o passado.
 
-Dado um número de versão MAJOR.MINOR.PATCH, ele é incrementado:
+## Como funciona o número da versão do pacote
+- O número da versão é composta de 4 números sendo xx.yy.zz.ww
+  - xx : Versão PRINCIPAL do projeto e só deve mudar nas seguintes situações:
+    - Quando troca de estado de Alpha para Beta e Final e caso no furo se faça algo que torne o passado incompatível;
+  - yy : Muda a cada vez que é criado algo novo no projeto;
+  - zz : Muda a cada correção de bugs ou otimização.
+  - ww : Número de vezes que o pacote foi construido do zero.
+"/>
+    <License Value="Copyright (c) &lt;2023> &lt;PauloSSPacheco@gmail.com>
 
-A versão PRINCIPAL quando você faz uma alteração incompatível na API,
-A versão MINOR quando você adiciona funcionalidade compatível com versões anteriores e s versão PATCH quando você corrige bugs compatíveis com versões anteriores.
-Marcas para pré-lançamento e metadados de compilação estão disponíveis como extensões para o formato MAJOR.MINOR.PATCH.númeroDaCnstrução"/>
-    <License Value="
-  Copyright (c) &lt;2021> &lt;PauloSSPacheco@gmail.com>
+A permissão é concedida, gratuitamente, a qualquer pessoa que obtenha uma cópia  deste software e arquivos de documentação associados (o &quot;Software&quot;), para   negociar no Software sem restrições, incluindo, sem limitação, o   direitos de usar, copiar, modificar, mesclar, publicar, distribuir, sublicenciar e/ou vender cópias do Software e permitir que as pessoas a quem o Software é  munidos para o efeito, nas seguintes condições:
 
-  Permission is hereby granted, free of charge, to any person obtaining a copy
-  of this software and associated documentation files (the &quot;Software&quot;), to
-  deal in the Software without restriction, including without limitation the
-  rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
-  sell copies of the Software, and to permit persons to whom the Software is
-  furnished to do so, subject to the following conditions:
+   O aviso de direitos autorais acima e este aviso de permissão devem ser incluídos em todas as cópias ou partes substanciais do Software.
 
-  The above copyright notice and this permission notice shall be included in
-  all copies or substantial portions of the Software.
-
-  THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
-  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
-  IN THE SOFTWARE. "/>
+   O SOFTWARE É FORNECIDO &quot;COMO ESTÁ&quot;, SEM GARANTIA DE QUALQUER TIPO, EXPRESSA OU IMPLÍCITAS, INCLUINDO, SEM
+   LIMITAÇÃO,  AS GARANTIAS DE COMERCIALIZAÇÃO,  ADEQUAÇÃO PARA UM FIM ESPECÍFICO E NÃO VIOLAÇÃO. 
+   EM NENHUM CASO O  OS AUTORES OU DETENTORES DOS DIREITOS AUTORAIS SERÃO RESPONSÁVEIS POR QUALQUE
+   REIVINDICAÇÃO,  DANOS OU OUTROS  RESPONSABILIDADE, SEJA EM UMA AÇÃO DE CONTRATO, ILÍCITO OU DE OUTRA FORMA,
+   DECORRENTE  DE,  FORA DE OU EM CONEXÃO COM O SOFTWARE OU O USO OU OUTROS NEGÓCIOS  NO SOFTWARE.   "/>
     <Version Minor="7" Release="1" Build="621"/>
     <Files>
+      <Item>
+        <Filename Value="histórico.pas"/>
+        <Type Value="Include"/>
+      </Item>
+      <Item>
+        <Filename Value="tarefas_a_fazer.pas"/>
+        <Type Value="Include"/>
+      </Item>
       <Item>
         <Filename Value="mi.rtl.pas"/>
         <UnitName Value="mi.rtl"/>
