@@ -5,15 +5,12 @@ unit mi.rtl.Objectss;
       - Esta unit foi testada nas plataformas: win32, win64 e linux.
 
     - **VERSÃO**
-      - Alpha - Alpha - 0.8.0
+      - Alpha - 0.7.1
 
     - **HISTÓRICO**
       - Criado por: Paulo Sérgio da Silva Pacheco e-mail: paulosspacheco@@yahoo.com.br
-        - **20/11/2021**
-          - 9:10 a ??: Criar a unit **@name**
-        - **22/07/2023**
-          - Implementar a propriedade ObjectsTemplate : TObjectsTemplate
-
+        - **20/11/2021** 9:10 a ??: Criar a unit mi.rtl.objects.pas
+        -
     - **CÓDIGO FONTE**:
       - @html(<a href="../units/mi.rtl.objects.pas">mi.rtl.objects.pas</a>)
 
@@ -29,12 +26,11 @@ unit mi.rtl.Objectss;
   uses
     Classes
     ,SysUtils
-
     ,mi.rtl.Objects.Methods.Paramexecucao.Application
     ,mi.rtl.types
     ,mi.rtl.Consts
-    ,mi.rtl.MiStringListBase
-    ,mi.rtl.MiStringList
+    ,mi.rtl.Consts.StringListBase
+    ,mi.rtl.Consts.StringList
     ,mi.rtl.files
     ,mi.rtl.objects.types
     ,mi.rtl.objects.consts
@@ -58,7 +54,12 @@ unit mi.rtl.Objectss;
     ,mi.rtl.objects.methods.db.tb_access
     ,mi.rtl.objects.methods.db.tb__access
     ,mi.rtl.objects.methods.db.tb___access
-    //,mi.rtl.objects.methods.fptemplates
+//    ,mi.rtl.objects.methods.ui.Interfaces
+    //,mi.rtl.Objects.Methods.Ui.Types
+    //,mi.rtl.Objects.Methods.Ui.Consts
+    //,mi.rtl.Objects.Methods.Ui.Methods
+    //,mi.rtl.Objects.Methods.Ui.DmxScroller
+
 
 
     ;
@@ -67,7 +68,7 @@ unit mi.rtl.Objectss;
      {: - A classe **@name** é a  base de todas as classes do pacote **mi.rtl**.
 
         - **VERSÃO**
-          - Alpha - Alpha - 0.8.0
+          - Alpha - 0.7.1
 
         - **HISTÓRICO**
           - Criado por: Paulo Sérgio da Silva Pacheco e-mail: paulosspacheco@@yahoo.com.br
@@ -98,8 +99,8 @@ unit mi.rtl.Objectss;
 
          public type TTypes          = mi.rtl.types.TTypes;
          public type TConsts         = mi.rtl.Consts.TConsts;
-         public type TStringListBase = mi.rtl.MiStringListBase.TStringListBase;
-         public type TMiStringList   = mi.rtl.MiStringList.TMiStringList;
+         public type TStringListBase = mi.rtl.Consts.StringListBase.TStringListBase;
+         public type TMiStringList     = mi.rtl.Consts.StringList.TMiStringList;
          public type TFiles          = mi.rtl.files.TFiles;
          public type TObjectsTypes  = mi.rtl.objects.types.TObjectsTypes;
          public type TObjectsConsts = mi.rtl.objects.consts.TObjectsConsts;
@@ -157,52 +158,11 @@ unit mi.rtl.Objectss;
          public class procedure WriteSItems(var S: TCollectionString; Const Items: PSItem);
          Public class Function PSItem_ListaDeMsgErro:PSItem;override;
          Public class Procedure MessageError;override;
-
-
-         private
-           //_ObjectsTemplate: mi.rtl.objects.methods.fptemplates.TObjectsTemplate;
-           //procedure SetObjectsTemplate(AValue: mi.rtl.objects.methods.fptemplates.TObjectsTemplate);
-
-
-         {: A propriedade **@name** contém um função do tipo x para preencher o modelo
-
-            - EXEMPLO
-              - procedure func1callReplaceTag(Sender: TObject; const TagString:String; TagParams: TStringList; Out ReplaceText: String);
-
-              ```PASCAL
-
-                type
-                  TTestObjects = class(TObjectss)
-                    private
-                      // private declarations
-                      procedure DoReplaceTag(Sender: TObject; const TagString:String; TagParams: TStringList; Out ReplaceText: String);
-
-                    public
-                     // public declarations
-                     public constructor Create(aowner:TComponent);Overload;Override;
-                  end;
-
-                implementation
-
-                 constructor Create(aowner:TComponent);
-                 begin
-                   inheried Create(aowner);
-
-                   ModuleTemplate := DoReplaceTag ;
-
-                 end;
-
-                end.
-
-              ```
-         }
-         //published Property ObjectsTemplate : TObjectsTemplate Read _ObjectsTemplate Write SetObjectsTemplate;
        end;
 
 implementation
 
-
-class procedure TObjectss.Set_MI_MsgBox(aMI_MsgBox: TMI_MsgBox);
+  Class Procedure TObjectss.Set_MI_MsgBox(aMI_MsgBox: TMI_MsgBox);
   begin
     MI_MsgBox := aMI_MsgBox;
     application.MI_MsgBox := MI_MsgBox;
@@ -393,6 +353,7 @@ class procedure TObjectss.Set_MI_MsgBox(aMI_MsgBox: TMI_MsgBox);
     end;
 
   End;
+
 
 
 {: - Inicializa a unit}

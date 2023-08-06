@@ -5,7 +5,7 @@ unit mi.rtl.objects.Methods.db.types.consts.Methods;
       -
 
     - **VERSÃO**
-      - Alpha - Alpha - 0.8.0
+      - Alpha - 0.7.1
 
     - **HISTÓRICO**
       - Criado por: Paulo Sérgio da Silva Pacheco e-mail: paulosspacheco@@yahoo.com.br
@@ -993,7 +993,7 @@ Function TDb_Methods.UpperCase(str:AnsiString):AnsiString;
 var
   i : Integer;
 begin
-  Result := AnsiUpperCase(scg(Str));
+  Result := Sgc(AnsiUpperCase(scg(Str)));
 end;
 
 Function TDb_Methods.FMinuscula(str:AnsiString):AnsiString;
@@ -1004,7 +1004,7 @@ begin
   if str <> ''
   Then Begin
         {Mantém a primeira letra em Maiuscula}
-        S := AnsiUpperCase(scg(copy(Str,1,1)));
+        S := Sgc(AnsiUpperCase(scg(copy(Str,1,1))));
         if length(str)>1
         then Begin
               Result := Copy(str,2,length(str)-1);

@@ -24,10 +24,11 @@
       <UseVersionInfo Value="True"/>
       <AutoIncrementBuild Value="True"/>
       <MinorVersionNr Value="7"/>
-      <BuildNr Value="732"/>
+      <RevisionNr Value="1"/>
+      <BuildNr Value="733"/>
       <Language Value="0416"/>
       <Attributes pvaDebug="True" pvaPreRelease="True"/>
-      <StringTable Comments="Programa exemplo do projeto maricarai." CompanyName="Itm Sistemas e Consultoria Ltda." FileDescription="Programa usado para testar as classes TDmxScroller_Form e TDmxScroller_Form_Ds" ProductName="mi.ui.lcl.form.test"/>
+      <StringTable Comments="Programa exemplo do projeto maricarai." CompanyName="Itm Sistemas e Consultoria Ltda." FileDescription="Exemplo de uso do pacote mi.ui.lclrtl.form" ProductName="mi.ui.lcl.form.test"/>
     </VersionInfo>
     <BuildModes>
       <Item Name="Default" Default="True"/>

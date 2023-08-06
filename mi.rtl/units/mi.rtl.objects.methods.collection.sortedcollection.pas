@@ -2,7 +2,7 @@ unit mi.rtl.Objects.Methods.Collection.SortedCollection;
 {:< - A Unit **@name** implementa a classe **TSortedCollection** do  pacote **mi.rtl**.
 
   - **VERSÃO**
-    - Alpha - Alpha - 0.8.0
+    - Alpha - 0.7.1
 
   - **CÓDIGO FONTE**:
     - @html(<a href="../units/mi.rtl.objects.tcollection.tsortedcollection.pas">mi.rtl.objects.tcollection.tsortedcollection.pas</a>)

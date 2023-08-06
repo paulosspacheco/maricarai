@@ -1,8 +1,8 @@
 object Form1: TForm1
-  Left = 298
+  Left = 331
   Height = 265
   Hint = 'Formulário usado para concentrar os exemplos do projeto MarIcarai'
-  Top = 334
+  Top = 227
   Width = 922
   HorzScrollBar.Page = 766
   VertScrollBar.Page = 241
@@ -58,7 +58,6 @@ object Form1: TForm1
         Columns = 1
         ItemHeight = 0
         MultiSelect = True
-        OnClick = ListBox1Click
         Style = lbVirtual
         TabOrder = 2
         TopIndex = -1
@@ -141,10 +140,10 @@ object Form1: TForm1
         end
       end
       object LabelCount: TLabel
-        Left = 704
+        Left = 736
         Height = 25
         Top = 48
-        Width = 192
+        Width = 160
         Anchors = [akTop, akRight]
         AutoSize = False
         Caption = '0'
@@ -428,9 +427,6 @@ object Form1: TForm1
         end
       end
     end
-    object MenuItem44: TMenuItem
-      Action = Action_sobre
-    end
   end
   object ActionList1: TActionList
     Left = 672
@@ -642,10 +638,6 @@ object Form1: TForm1
       Category = 'TObjectss'
       Caption = 'Test_GetTempDir'
       OnExecute = Action_test_GetTempDirExecute
-    end
-    object Action_sobre: TAction
-      Caption = 'Sobre o projeto'
-      OnExecute = Action_sobreExecute
     end
   end
 end

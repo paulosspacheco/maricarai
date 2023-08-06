@@ -5,7 +5,7 @@ unit mi.rtl.Objects.Consts;
       - Esta unit foi testada nas plataformas: win32, win64 e linux.
 
     - **VERSÃO**
-      - Alpha - Alpha - 0.8.0
+      - Alpha - 0.7.1
 
     - **HISTÓRICO**
       - Criado por: Paulo Sérgio da Silva Pacheco e-mail: paulosspacheco@@yahoo.com.br
@@ -26,7 +26,7 @@ unit mi.rtl.Objects.Consts;
 interface
 
 uses
-  Classes, SysUtils, mi.rtl.objects.types,mi.rtl.MiStringListBase;
+  Classes, SysUtils, mi.rtl.objects.types,mi.rtl.consts.StringListBase;
 
 
 
