@@ -2,7 +2,7 @@ unit mi.rtl.objects.methods.StreamBase.Stream.MemoryStream.BufferMemory;
 {:< - A Unit **@name** implementa a classe TBufferMemory.
 
   - **VERSÃO**
-    - Alpha - 0.7.1
+    - Alpha - 0.8.0
 
   - **HISTÓRICO**
     - Criado por: Paulo Sérgio da Silva Pacheco e-mail: paulosspacheco@@yahoo.com.br

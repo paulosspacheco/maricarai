@@ -59,7 +59,7 @@ A permissão é concedida, gratuitamente, a qualquer pessoa que obtenha uma cóp
    EM NENHUM CASO O  OS AUTORES OU DETENTORES DOS DIREITOS AUTORAIS SERÃO RESPONSÁVEIS POR QUALQUE
    REIVINDICAÇÃO,  DANOS OU OUTROS  RESPONSABILIDADE, SEJA EM UMA AÇÃO DE CONTRATO, ILÍCITO OU DE OUTRA FORMA,
    DECORRENTE  DE,  FORA DE OU EM CONEXÃO COM O SOFTWARE OU O USO OU OUTROS NEGÓCIOS  NO SOFTWARE.   "/>
-    <Version Minor="7" Release="1" Build="621"/>
+    <Version Minor="8" Build="621"/>
     <Files>
       <Item>
         <Filename Value="histórico.pas"/>

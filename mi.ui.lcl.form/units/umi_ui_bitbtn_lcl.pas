@@ -3,7 +3,7 @@ unit umi_ui_bitbtn_lcl;
    associado ao botão quando o botão for pressionado.
 
    - **VERSÃO**
-     - Alpha - 0.7.1
+     - Alpha - 0.8.0
 
    - **CÓDIGO FONTE**:
      - @html(<a href="../units/umi_bitbtn_lcl.pas">uMi_BitBtn_LCL.pas</a>)

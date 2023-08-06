@@ -6,7 +6,7 @@ unit mi.rtl.files;
         windows e por isso mantenho o mesmo comportamento do windows.
 
       - **VERSÃO**:
-        - Alpha - 0.7.1
+        - Alpha - 0.8.0
 
       - **NOTA**:
         - [Veja o link de como escrever código portátil em relação à arquitetura do processador?](https://wiki.freepascal.org/Writing_portable_code_regarding_the_processor_architecture);

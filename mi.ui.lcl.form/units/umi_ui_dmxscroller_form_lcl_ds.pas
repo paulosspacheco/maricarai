@@ -2,7 +2,7 @@ unit umi_ui_dmxscroller_form_lcl_ds;
 {:< A unit **@name** implementa a classe TDmxScroller_Form_Lcl_attributes_Form_ds.
 
   - **VERSÃO**
-    - Alpha - 0.7.1
+    - Alpha - 0.8.0
 
   - **CÓDIGO FONTE**:
     - @html(<a href="../units/mi_ui_dmxscroller_form_ds.pas">mi_ui_Dmxscroller_form_DS.pas</a>)

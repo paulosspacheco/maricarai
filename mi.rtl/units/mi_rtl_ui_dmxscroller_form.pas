@@ -4,7 +4,7 @@ unit mi_rtl_ui_dmxscroller_form;
     - Primeiro autor: Paulo Sérgio da Silva Pacheco paulosspacheco@@yahoo.com.br)
 
     - **VERSÃO**
-      - Alpha - 0.7.1
+      - Alpha - 0.8.0
 
     - **CÓDIGO FONTE**:
       - @html(<a href="../units/umi_ui_dmxscroller_form.pas">uMi_rtl_ui_Dmxscroller_form.pas</a>)

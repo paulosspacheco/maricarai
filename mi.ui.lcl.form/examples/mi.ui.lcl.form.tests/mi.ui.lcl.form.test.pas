@@ -7,7 +7,7 @@ program mi.ui.lcl.form.test;
     código para: win32, win64 e linux.
 
   - **VERSÃO**:
-    - Alpha - 0.7.1
+    - Alpha - 0.8.0
 
     - **CÓDIGO FONTE**:
       - @html(<a href="../units/mi.ui.tests.pas">mi.ui.tests.pas.pas</a>)

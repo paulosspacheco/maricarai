@@ -3,7 +3,7 @@ unit testform;
     formulário baseado em Template PSITem.
 
     - **VERSÃO**
-      - Alpha - 0.7.1
+      - Alpha - 0.8.0
 
     - **CÓDIGO FONTE**:
       - @html(<a href="../units/umi_ui_inputbox_lcl.pas">uMi_ui_InputBox_lcl.pas</a>)

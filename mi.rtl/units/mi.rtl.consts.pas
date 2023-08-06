@@ -4,7 +4,7 @@ unit mi.rtl.Consts;
 
 
   - **VERSÃO**
-    - Alpha - 0.7.1
+    - Alpha - 0.8.0
 
   - **CÓDIGO FONTE**:
     - @html(<a href="../units/mi.rtl.consts.pas">mi.rtl.consts.pas</a>)          

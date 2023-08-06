@@ -5,7 +5,7 @@ unit mi.rtl.Objects.Methods;
     - Esta unit foi testada nas plataformas: win32, win64 e linux.
 
   - **VERSÃO**
-    - Alpha - 0.7.1
+    - Alpha - 0.8.0
 
   - **HISTÓRICO**
     - Criado por: Paulo Sérgio da Silva Pacheco e-mail: paulosspacheco@@yahoo.com.br

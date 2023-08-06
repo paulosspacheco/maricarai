@@ -2,7 +2,7 @@ Unit mi_ui_Dmxscroller_sql;
 {:< A unit **@name** implementa a classe TUiDmxScroller_sql.
 
   - **VERSÃO**
-    - Alpha - 0.7.1
+    - Alpha - 0.8.0
 
   - **CÓDIGO FONTE**:
     - @html(<a href="../units/mi_ui_Dmxscroller_sql.pas">mi_ui_Dmxscroller_sql.pas</a>)

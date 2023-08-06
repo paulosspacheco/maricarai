@@ -1,12 +1,12 @@
 #   File generated automatically by Lazarus Package Manager
 #
-#   Makefile.fpc for mi.ui.lcl.form 0.7.1.687
+#   Makefile.fpc for mi.ui.lcl.form 0.8.0.687
 #
 #   This file was generated on 06/08/2023
 
 [package]
 name=mi.ui.lcl.form
-version=0.7.1.687
+version=0.8.0.687
 
 [compiler]
 unittargetdir=lib/$(CPU_TARGET)-$(OS_TARGET)

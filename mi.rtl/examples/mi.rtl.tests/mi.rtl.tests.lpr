@@ -31,7 +31,7 @@ program mi.rtl.tests;
    - Unit **mi.rtl.files** contém as funções de acesso a arquivo usadas pelo projeto MarIcarai.
 
 - **VERSÃO**:
-  - Alpha - 0.7.1
+  - Alpha - 0.8.0
 
   - **CÓDIGO FONTE**:
     - @html(<a href="../units/rtl.pas">rtl.pas</a>)

@@ -5,7 +5,7 @@ unit mi.rtl.Objects.Methods.StreamBase.Stream.MemoryStream;
     - Implementa um fluxo de dados em memória.
 
   - **VERSÃO**
-    - Alpha - 0.7.1
+    - Alpha - 0.8.0
 
   - **HISTÓRICO**
     - Criado por: Paulo Sérgio da Silva Pacheco e-mail: paulosspacheco@@yahoo.com.br
