@@ -1,0 +1,222 @@
+<html>
+  <head>
+      <meta charset="UTF-8">
+      <title>Teste do componente fptemplate</title>
+
+      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+      <!--
+      <style>
+        table, td, th {
+          border: 1px solid #ddd;
+          text-align: left;
+          color:black;
+          background:WhiteSmoke; /*Ivory;*/
+          /*font-family: "Times New Roman", Times, serif;*/
+          /*font-family: Arial, Helvetica, sans-serif;*
+          /*font-family: "Lucida Console", "Courier New", monospace;*/
+          font-family: Tahoma, Verdana, sans-serif;
+        }
+
+
+        table {
+          border-collapse: collapse;
+          width: 100%;
+        }
+
+        th, td {
+          padding:3px;
+        }
+
+        p {
+          text-align: center;
+        }
+
+      </style>
+      -->
+
+      <style>
+        #miTable1 {
+          font-family: "Times New Roman", Times, serif;
+          border-collapse: collapse;
+          width: 100%;
+        }
+
+        #miTable1 td, #miTable1 th {
+          border: 1px solid #ddd;
+          padding:3px;
+        }
+
+        #miTable1 tr:nth-child(even){background-color: #f2f2f2;}
+
+        #miTable1 tr:hover {background-color: #ddd;}
+
+        #miTable1 th {
+          padding-top: 3px;
+          padding-bottom: 3px;
+          text-align: left;
+          background-color: Grey;
+          color: white;
+          text-align: right;
+        }
+
+        pre {
+          border-radius: 5px;
+          overflow: auto hidden;
+          border: 1px solid  #333;
+          color : #90BF03;
+          background-color:#282c34;
+          max-width: 100%;
+          max-height: 100%;
+          height : 200px;
+          overflow-x: auto;
+
+          overflow-y: auto;
+
+           }
+
+        .divLinks {
+          border-radius: 5px;
+          overflow: auto hidden;
+          border: 1px solid  #333;
+          color : #90BF03;
+          background-color:#94b0c4;
+          max-width: 100%;
+          max-height: 100%;
+          height : 200px;
+          overflow-x: auto;
+
+          overflow-y: auto;
+
+         }
+
+          thead {
+            display: block;
+            background-color: #bfc2c4;
+            border: 1px solid #333;
+            padding: 3px;
+            border-radius: 5px;
+
+          }
+
+
+          tbody {
+            display: block;
+            background-color: #eaedef;
+            border: 1px solid #333;
+            overflow-y: scroll;
+            overflow-x: hidden;
+            height: 100px;
+            padding: 3px;
+            /*color:blue;*/
+            border-radius: 5px;
+
+          }
+
+
+          tfoot {
+            display: block;
+            background-color: #bfc2c4;
+            border: 1px solid #333;
+            padding: 3px;
+            border-radius: 5px;
+
+          }
+
+
+          table {
+            border-collapse: collapse;
+            /*width: 0%;*/
+            /*margin-bottom : .5em;*/
+            /*table-layout: fixed;*/
+            text-align: center;
+
+          }
+
+          th, td {
+            border: solid 1px;
+            padding: 0
+          }
+
+          td:first-child {width: 100px }
+          td:first-child+td {width: 150px }
+          td:first-child+td+td {width: 300px    }
+          td:first-child+td+td+td {width: 150px    }
+          td:first-child+td+td+td+td {width: 150px    }
+          td:first-child+td+td+td+td+td {width: 150px    }
+          td:first-child+td+td+td+td+td+td {width: 150px    }
+          td:first-child+td+td+td+td+td+td+td+td {width: 150px    }
+          td:first-child+td+td+td+td+td+td+td+td+td {width: 150px    }
+
+        </style>
+
+  </head>
+
+<body>
+   <h1> Teste do componente fptemplate </h1>
+
+
+   <h3> Meu Blog </h3>
+   <pre>
+     <!--# tgCustom [- ListFilesText=
+Arquivo:
+  -"~FileName" -]#-->
+
+     <!--
+     - O template abaixo dentro de TPageProduce.FileName, informa para o evento *@name*
+       que os parâmetros BlogPsspAppBr e PsspAppBr deve ser preenchido com um link e
+       a função *FindFilesAll* deve retornar um código html com uma lista de links de
+       todos os nomes de arquivos dentro da pasta corrente e subpastas.
+     -->
+
+   </pre>
+
+
+
+   <h3> Meu Blog </h3>
+   <p> A tag abaixo deve ser preenchida com o endereço: http://www.pssp.app.br
+        onde o destino da visualização é uma nova aba do browser<p>
+   <!--# tgLink [- BlogPsspAppBr=[a href="~url" target="_blank" title="~title"] ~text [/a]  -] #-->
+
+   <p> A tag abaixo deve ser preenchida com o endereço: http://www.pssp.app.br
+        onde o destino da visualização é uma variável definida no ato da produção
+        da página</p>
+   <!--# tgLink [-  PsspAppBr=[a href="~url" target="~target" title="~title"] ~text [/a]  -] #-->
+
+   <h3> Lista de arquivos .html </h3>
+<div class="divLinks">
+    <!--# tgLink [- FindFilesAll=[a href="~url" target="_blank" title="~title"] ~text [/a]  -] #-->
+</div>
+
+  DateTime in format "MM/DD hh:mm:ss": <b><!--#DATETIME [-FORMAT=MM/DD hh:mm:ss-]#--></b>
+ <br>
+
+  <!--
+    Preenche os dados da tabela
+  -->
+<div class="divLinks">
+  <!--# tgTable [- REPORTRESULT=[ title="List of records:";
+                                   Header="Column1:      ",":Column2:     ",":Column3      ",":Column4    ";
+                                  OneRow=["1 Paulo Sérgio","Marcos Pacheco","George Bruno  ","George Bruno",/,
+                                          "2 José Carlos" ,"Antônio       ","Paulo Henrique","George Bruno",/,
+                                          "3 Paulo Sérgio","Marcos Pacheco","George Bruno  ","George Bruno",/,
+                                          "4 José Carlos" ,"Antônio       ","Paulo Henrique","George Bruno",/,
+                                          "5 Paulo Sérgio","Marcos Pacheco","George Bruno  ","George Bruno",/,
+                                          "6 José Carlos" ,"Antônio       ","Paulo Henrique","George Bruno",/,
+                                          "7 Paulo Sérgio","Marcos Pacheco","George Bruno  ","George Bruno",/,
+                                          "8 José Carlos" ,"Antônio       ","Paulo Henrique","George Bruno",/,
+                                          "9 Paulo Sérgio","Marcos Pacheco","George Bruno  ","George Bruno",/,
+                                          "10José Carlos" ,"Antônio       ","Paulo Henrique","George Bruno",/,
+                                          "11Paulo Sérgio","Marcos Pacheco","George Bruno  ","George Bruno"
+
+                                         ];
+                                  Footer="soma Columm1","soma Columm2","soma Columm3","soma Columm4";
+                                  NOTFOUND="Mensagem em caso de erro"
+                                ]
+                -]
+  #-->
+
+ </div>
+ </body>
+
+</html>

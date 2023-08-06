@@ -6,7 +6,7 @@ unit mi.rtl.files;
         windows e por isso mantenho o mesmo comportamento do windows.
 
       - **VERSÃO**:
-        - Alpha - 0.7.1
+        - Alpha - Alpha - 0.8.0
 
       - **NOTA**:
         - [Veja o link de como escrever código portátil em relação à arquitetura do processador?](https://wiki.freepascal.org/Writing_portable_code_regarding_the_processor_architecture);
@@ -127,6 +127,9 @@ unit mi.rtl.files;
 
             - 2023=07-18
               - 16:00 - Criar a classe método FindFilesAll
+            - 2023=07-27
+              - 08:25 - Em mi.rtl.files.findFileAll adicionar o parâmetro apath.
+
   }
 
   {$IFDEF FPC}
@@ -1086,9 +1089,9 @@ uses
                  then FileAttrs := FileAttrs or faDirectory;
 
                  with TObjectss do
-               //    FindFiles(Edit1.Text,FileAttrs ,ListFiles );
-                   FindFilesAll(Edit1.Text,FileAttrs ,ListFiles );
-               //  FindFilesAll(GetCurrentDir,FileAttrs ,ListFiles );
+                  FindFilesAll(GetCurrentDir,*.html,FileAttrs ,ListFiles );
+                  // Quando o path não informado, FindFileAll seleciona todos os arquivos apartir da pasta atual.
+                  FindFilesAll('',*.html,FileAttrs ,ListFiles );
 
                  LabelCount.Caption := Format('ListFiles.Count %d',[ListFiles.Count]);
                  LabelCount.Show;
@@ -1106,11 +1109,9 @@ uses
 
 
              ```
-
-
-
       }
-      class procedure FindFilesAll(Mask : AnsiString; FileAttrs : Cardinal; var List : TStringList);
+      class procedure FindFilesAll(aPath,Mask : AnsiString; FileAttrs : Cardinal; var List : TStringList);
+      //      class procedure FindFilesAll(Mask: AnsiString; FileAttrs: Cardinal;var List: TStringList);
 
       {: A classe método **@name** retorna o corrente pasta.
       }
@@ -1737,69 +1738,82 @@ implementation
     //end;
   end;
 
-  class procedure TFiles.FindFilesAll(Mask: AnsiString; FileAttrs: Cardinal;var List: TStringList);
+//  class procedure TFiles.FindFilesAll(Mask: AnsiString; FileAttrs: Cardinal;var List: TStringList);
+  class procedure TFiles.FindFilesAll(aPath,Mask: AnsiString; FileAttrs: Cardinal;var List: TStringList);
 
-    procedure ListarArquivosNaPasta( Pasta:string; const Padrao: string);
-    var
-      BuscaRecursiva: TSearchRec;
-      CaminhoCompleto: string;
-    begin
-      if pasta[Length(pasta)] = DirectorySeparator
-      then system.Delete(pasta,Length(pasta),1);
-
-      // Procurar por arquivos na pasta atual usando caracteres coringas
-      if FindFirst(Pasta + DirectorySeparator + Padrao, FileAttrs{faAnyFile}, BuscaRecursiva) = 0 then
+      procedure ListarArquivosNaPasta( Pasta:string; const Padrao: string);
+      var
+        BuscaRecursiva: TSearchRec;
+        CaminhoCompleto: string;
       begin
-        repeat
-          // Verificar se é um arquivo regular (não diretório)
-          if (BuscaRecursiva.Name <> '.') and (BuscaRecursiva.Name <> '..')
-          //  and ((BuscaRecursiva.Attr and faDirectory) = 0)
-          then
-          begin
-            if (BuscaRecursiva.Attr and FileAttrs <>0)
-            Then Begin
-                    CaminhoCompleto := Pasta + DirectorySeparator + BuscaRecursiva.Name;
-                    //WriteLn(CaminhoCompleto);
-                    List.Add(CaminhoCompleto);
-                 end;
+        if pasta[Length(pasta)] = DirectorySeparator
+        then system.Delete(pasta,Length(pasta),1);
 
-          end;
-        until FindNext(BuscaRecursiva) <> 0;
-        FindClose(BuscaRecursiva);
+        // Procurar por arquivos na pasta atual usando caracteres coringas
+        if FindFirst(Pasta + DirectorySeparator + Padrao, FileAttrs{faAnyFile}, BuscaRecursiva) = 0 then
+        begin
+          repeat
+            // Verificar se é um arquivo regular (não diretório)
+            if (BuscaRecursiva.Name <> '.') and (BuscaRecursiva.Name <> '..')
+            //  and ((BuscaRecursiva.Attr and faDirectory) = 0)
+            then
+            begin
+              if (BuscaRecursiva.Attr and FileAttrs <>0)
+              Then Begin
+                      CaminhoCompleto := Pasta + DirectorySeparator + BuscaRecursiva.Name;
+                      //WriteLn(CaminhoCompleto);
+                      List.Add(CaminhoCompleto);
+                   end;
+
+            end;
+          until FindNext(BuscaRecursiva) <> 0;
+          FindClose(BuscaRecursiva);
+        end;
+
+        // Procurar por subpastas
+        if FindFirst(Pasta + DirectorySeparator + '*', faDirectory, BuscaRecursiva) = 0 then
+        begin
+          repeat
+            // Verificar se é uma pasta válida
+            if (BuscaRecursiva.Name <> '.') and (BuscaRecursiva.Name <> '..') then
+            begin
+              CaminhoCompleto := Pasta + DirectorySeparator + BuscaRecursiva.Name;
+              // Chamar a função recursivamente para listar arquivos nas subpastas
+              ListarArquivosNaPasta(CaminhoCompleto, Padrao);
+            end;
+          until FindNext(BuscaRecursiva) <> 0;
+          FindClose(BuscaRecursiva);
+        end;
       end;
 
-      // Procurar por subpastas
-      if FindFirst(Pasta + DirectorySeparator + '*', faDirectory, BuscaRecursiva) = 0 then
+      var
+        PastaAtual, Padrao: string;
+        FileAtual : string;
       begin
-        repeat
-          // Verificar se é uma pasta válida
-          if (BuscaRecursiva.Name <> '.') and (BuscaRecursiva.Name <> '..') then
-          begin
-            CaminhoCompleto := Pasta + DirectorySeparator + BuscaRecursiva.Name;
-            // Chamar a função recursivamente para listar arquivos nas subpastas
-            ListarArquivosNaPasta(CaminhoCompleto, Padrao);
-          end;
-        until FindNext(BuscaRecursiva) <> 0;
-        FindClose(BuscaRecursiva);
+        { Código anterior com o path incluindo em mask
+          // Obter a pasta atual
+          //PastaAtual := GetCurrentDir;
+          PastaAtual := ExtractFilePath(mask);
+
+          // Definir o padrão (wildcard) dos arquivos que deseja listar
+          // Por exemplo, '*.txt' irá listar todos os arquivos com a extensão .txt
+          Padrao := mask;
+          system.Delete(Padrao,1,Length(PastaAtual));
+
+          // Chamar a função para listar arquivos com o padrão especificado
+          ListarArquivosNaPasta(PastaAtual, Padrao);
+        }
+
+        if aPath = ''
+        Then aPath := GetCurrentDir;
+
+        // Definir o padrão (wildcard) dos arquivos que deseja listar
+        // Por exemplo, '*.txt' irá listar todos os arquivos com a extensão .txt
+        // Chamar a função para listar arquivos com o mask especificado
+        ListarArquivosNaPasta(aPath, mask);
+
       end;
-    end;
 
-    var
-      PastaAtual, Padrao: string;
-      FileAtual : string;
-    begin
-      // Obter a pasta atual
-      //PastaAtual := GetCurrentDir;
-      PastaAtual := ExtractFilePath(mask);
-
-      // Definir o padrão (wildcard) dos arquivos que deseja listar
-      // Por exemplo, '*.txt' irá listar todos os arquivos com a extensão .txt
-      Padrao := mask;
-      system.Delete(Padrao,1,Length(PastaAtual));
-
-      // Chamar a função para listar arquivos com o padrão especificado
-      ListarArquivosNaPasta(PastaAtual, Padrao);
-    end;
 
   class function TFiles.GetCurrentDir: AnsiString;
   begin

@@ -11,7 +11,7 @@ unit mi_rtl_ui_Dmxscroller;
         - [TvDmx](https://www.pcorner.com/list/PASCAL/TVDMX.ZIP/INFO)
 
     - **VERSÃO**
-      - Alpha - 0.7.1
+      - Alpha - Alpha - 0.8.0
 
     - **HISTÓRICO**
       - @html(<a href="../units/mi_rtl_ui_dmxscroller_historico.html">./mi_rtl_ui_dmxscroller_historico.html </a>)   
@@ -3017,7 +3017,7 @@ implementation
              end;
         End;
 
-        function GetAlias:AnsiString;
+        function Get_Alias:AnsiString;
         begin
           result := '';
           Inc(i);
@@ -3093,7 +3093,7 @@ implementation
                             Inc(TrueLen);
                             FieldSize := sizeof(BYTE);
                             FillValue := #0;
-                            Alias := GetAlias;
+                            Alias := Get_Alias;
                             Rex.ShownWid := + Rex.ShownWid + Length(alias);
                             getHints;
                             continue;
@@ -3125,7 +3125,7 @@ implementation
 
                                 templx(#0,dataformat^[i]);
                                 Inc(Rex^.TrueLen);
-                                Rex^.Alias := GetAlias;
+                                Rex^.Alias := Get_Alias;
                                 Rex^.ShownWid := + Rex^.ShownWid + Length(Rex^.alias);
                                 GetHints;
                                 continue;

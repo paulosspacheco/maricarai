@@ -5,12 +5,17 @@ unit mi.rtl.Objects.Methods;
     - Esta unit foi testada nas plataformas: win32, win64 e linux.
 
   - **VERSÃO**
-    - Alpha - 0.7.1
+    - Alpha - Alpha - 0.8.0
 
   - **HISTÓRICO**
     - Criado por: Paulo Sérgio da Silva Pacheco e-mail: paulosspacheco@@yahoo.com.br
-      - **19/11/2021** 21:25 a 23:15 Criar a unit mi.rtl.objects.TObjectsMethods.pas
-      - **20/11/2021** 18:00 a 19:15 Criar a unit mi.rtl.objects.tStream.pas
+    - **19/11/2021**
+      - 21:25 a 23:15 Criar a unit mi.rtl.objects.TObjectsMethods.pas
+
+    - **20/11/2021**
+      - 18:00 a 19:15 Criar a unit mi.rtl.objects.tStream.pas
+    - **27/07/2023**
+      - 09:00 a 12:00 Criar método StringReplaceTgLink
 
   - **CÓDIGO FONTE**:
     - @html(<a href="../units/mi.rtl.objects.Methods.pas">mi.rtl.objects.Methods.pas</a>)
@@ -26,6 +31,7 @@ interface
 uses
   Classes
   ,SysUtils
+  ,macuuid
   ,System.UITypes
 //  ,StrUtils
 
@@ -45,7 +51,7 @@ uses
   ,mi.rtl.objects.consts.MI_MsgBox
   ,mi.rtl.objects.consts.progressdlg_if
   ,mi.rtl.objects.Consts.logs
-  ,mi.rtl.consts.StringList
+  ,mi.rtl.MiStringList
 
   ;
 
@@ -54,10 +60,14 @@ uses
   {: - A classe **@name** implementa os método de classe comum a todas as classes de TObjects do pacote **mi.rtl**.}
   TObjectsMethods =
   class(TObjectsConsts)
-  //Construção da propriedade Alias
-    Private _Alias : AnsiString      ;
-    Public Property Alias:AnsiString Read _Alias Write _Alias;
 
+  //Construção da propriedade Alias
+  {$REGION '--->Construção da propriedade Alias'}
+    Private  _Alias    : AnsiString;
+    Protected Function GetAlias:AnsiString;Virtual;
+    Protected Procedure SetAlias(Const aAlias:AnsiString);Virtual;
+    Published  Property Alias : AnsiString Read GetAlias Write SetAlias;
+  {$ENDREGION}
     public type TMI_MsgBox = mi.rtl.objects.consts.MI_MsgBox.TMI_MsgBox;
     public const MI_MsgBox: TMI_MsgBox = nil;
 //    public Class Procedure Set_MI_MsgBox(aMI_MsgBox: TMI_MsgBox);virtual;abstract;
@@ -510,6 +520,497 @@ uses
     {: O método @name Executa o browser padrão do sistema operacional.
     }
     Public class Procedure ShowHtml(URL:string);virtual;  //Deve ser redefinido onde a LCL for declarada.
+
+    //Criação da propriedade HelpCtx_StrCurrentModule. Obs: Corrente módulo em execução independente do módulo da classe.
+    private _HelpCtx_StrCurrentModule :AnsiString;
+    protected Function GetHelpCtx_StrCurrentModule :AnsiString;virtual;   //< Nortsoft Obs: Ao criar o objeto inicializa com Db_Global.StrCurrentModule
+
+    {: A propriedade **@name** contém o nome do corrente módudo do projeto
+      - NOTAS
+        - Ao criar o objeto inicializa com Db_Global.StrCurrentModule
+    }
+    Public property HelpCtx_StrCurrentModule: AnsiString read GetHelpCtx_StrCurrentModule write _HelpCtx_StrCurrentModule;
+
+
+    {: - A propriedade **@name** contém o nome do corrente comando do projeto
+
+       - NOTAS
+         - Ao criar o objeto inicializa com Db_Global.StrCurrentCommand
+    }
+    Private _HelpCtx_StrCurrentCommand: AnsiString;
+    protected Function GetHelpCtx_StrCurrentCommand: AnsiString; Virtual;
+    Public property HelpCtx_StrCurrentCommand: AnsiString read GetHelpCtx_StrCurrentCommand write _HelpCtx_StrCurrentCommand;
+
+    {: - A propriedade **@name** contém o nome da opção do corrente comando do projeto
+
+       - NOTAS
+         - Nome da opcao ativa dentro do comando
+    }
+    Private _HelpCtx_StrCurrentCommand_Opcao : AnsiString;
+    Protected Function GetHelpCtx_StrCurrentCommand_Opcao: AnsiString; virtual; //< Nome da opcao ativa dentro do comando
+    Public property HelpCtx_StrCurrentCommand_Opcao: AnsiString read GetHelpCtx_StrCurrentCommand_Opcao write _HelpCtx_StrCurrentCommand_Opcao;
+    {: O método **@name** retorna o número de ordem do controlo no grupo.}
+    public Function  TabIndex:Longint;Virtual;
+
+    Protected function CreateHTML : AnsiString;Overload;Virtual;
+    Protected Function GetAcao():AnsiString;Virtual; //Retorna o link da ação da classe
+
+    {$REGION '---> Construção da propriedade ID_Dinamic'}
+      Private _ID_Dinamic   : AnsiString; //
+      private Function GetID_Dinamic:AnsiString;
+      {: - A propriedade **@name** retorno um string com um registro tipo
+         [**TGuid**](https://www.freepascal.org/docs-html/rtl/system/tguid.html) para
+         representar a classe.
+      }
+      Public  Property ID_Dinamic : AnsiString Read GetID_Dinamic;
+    {$ENDREGION}
+
+    {$REGION '---> Construção da propriedade OnHTMLTag_tgcustom'}
+      Private _OnHTMLTag_tgcustom : THTMLTagEvent;
+
+      {: - O evento **@name** retorna em *ReplaceText* o código preechido passado por
+           *TagString* e *TagParams*.
+
+         - **DESCRIÇÃO**
+           - O método @name foi criado para processar todo template criado pelo
+             usuário e que não tem relação com tags html.
+
+         - **EXEMPLO DE TEMPLATE CUSTOMIZADO**
+           - O template abaixo dentro de TPageProducer.FileName, informa para o
+             método *@name* que a função *ListFilesText* deve retornar um texto
+             com a lista de nomes de arquivos.
+
+             ```pascal
+                 <!-- Arquivo: template.txt -->
+
+                 <!--# tgCustom [- ListFilesText=Arquivo: - "~FileName" -] #-->
+
+             ```
+
+           - O método *@name* retorna no prâmetro em **ReplaceText** a lista de texto.
+
+             ```pascal
+
+                 procedure TFPWebModule.@name(Sender: TObject; const TagString:  String; TagParams: TStringList; Out ReplaceText: String);override;
+
+                   function ListFilesText(const atemplate,aPath,aMask :String) : string;
+                     var
+                       ListFiles : TStringList;
+                       i : Integer;
+                   begin
+                     ListFiles := TStringList.Create;
+                     try
+                       with TObjectss do
+                       begin
+                         Result := New_Line;
+                         FindFilesAll(aPath,aMask,faArchive ,ListFiles );// Retorna todos os arquivos da pasta e subpastas
+                         For i := 0 to ListFiles.Count-1 do
+                         begin
+                           Result := result + StringReplace(atemplate,'~FileName'  , ListFiles.Strings[i]  , [rfReplaceAll]);// +  New_Line;
+                         end;
+                       end;
+
+                     finally
+                       FreeAndNil(ListFiles);
+                     end;
+                   end;
+
+               begin
+
+                  if AnsiCompareText(TagString, 'tgCustom') = 0 then
+                  begin
+                    s1 := TagParams.Values['ListFilesText'];
+                    if s1 <> ''
+                    Then begin //Retorna a lista de links.
+                           ReplaceText:=ListFilesText(s1,'','*');
+                         end;
+                  end else
+               end;
+
+
+             ```
+      }
+      Public Property OnHTMLTag_tgcustom : THTMLTagEvent Read _OnHTMLTag_tgcustom write _OnHTMLTag_tgcustom ;
+    {$ENDREGION}
+
+    {$REGION '---> Construção da propriedade OnHTMLTag_tgLink'}
+      Private _OnHTMLTag_tgLink : THTMLTagEvent;
+
+      {: - O evento **@name** retorna em *ReplaceText* o código preechido passado por *TagString* e *TagParams* onde
+         *TagString* contém a tag *tgLink* e *TagParams* contém o template de um link html com os atributos
+         hRef, target, title, text.
+
+         - **DESCRIÇÃO**
+           - O método **@name** foi criado para processar todos os templates referentes a links
+             cuja a tag seja *tgLink* dentro do arquivo de templates.html
+
+         - **EXEMPLO DE TEMPLATE **
+           - O template abaixo dentro de TPageProduce.FileName, informa para o evento *@name*
+             que os parâmetros BlogPsspAppBr e PsspAppBr deve ser preenchido com um link e
+             a função *FindFilesAll* deve retornar um código html com uma lista de links de
+             todos os nomes de arquivos dentro da pasta corrente e subpastas.
+
+             ```pascal
+                 <!-- Arquivo: template.html -->
+
+                 <html>
+                   <head>
+                       <meta charset="UTF-8">
+                       <title>Teste do componente mi.rtl.Objects.Methods.TPageProduce</title>
+
+                       <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+                   </head>
+
+                 <body>
+                   <h3> Meu Blog </h3>
+
+                   <p> A tag abaixo deve ser preenchida com o endereço: http://www.pssp.app.br
+                        onde o destino da visualização é uma nova aba do browser<p>
+                   <!--# tgLink [- BlogPsspAppBr=[a href="~url" target="_blank" title="~title"] ~text [/a]  -] #-->
+
+                   <p> A tag abaixo deve ser preenchida com o endereço: http://www.pssp.app.br
+                        onde o destino da visualização é uma variável definida no ato da produção
+                        da página</p>
+                   <!--# tgLink [-     PsspAppBr=[a href="~url" target="~target" title="~title"] ~text [/a]  -] #-->
+
+                   <br>
+
+                   <h3> Link com a lista de arquivos .html da pasta corrente</h3>
+                   <!--# tgLink [- FindFilesAll=[a href="~url" target="_blank" title="~title"] ~text [/a]  -] #-->
+                   <br>
+                 </body>
+                 </html>
+
+             ```
+
+           - O método *@name* retorna no prâmetro em **ReplaceText** o template acima preenchido.
+
+             ```pascal
+
+                 procedure TFPWebModule.@name(Sender: TObject; const TagString:  String; TagParams: TStringList; Out ReplaceText: String);override;
+                 begin
+                   if AnsiCompareText(TagString, 'tgLink') = 0 then
+                   begin
+                     s1 := TagParams.Values['BlogPsspAppBr'];
+                     ReplaceText := TObjectss.StringReplaceTgLink('BlogPsspAppBr',
+                                                                   s1,
+                                                                   'http://www.pssp.app.br',
+                                                                   '', // Mantém o destino definido no ptemplate
+                                                                   'Blog do Paulo Sérgio da Silva Pacheco',
+                                                                   'http://www.pssp.app.br  ➚');
+
+                     s1 := TagParams.Values['PsspAppBr'];
+                     if s1 <> ''
+                     then ReplaceText := TObjectss.StringReplaceTgLink('PsspAppBr',
+                                                                       s1,
+                                                                       'http://www.pssp.app.br',
+                                                                       '_self', //Abre o documento na mesma aba
+                                                                       'Blog do Paulo Pacheco',
+                                                                       'http://www.pssp.app.br')
+                     else begin
+                            s1 := TagParams.Values['FindFilesAll'];
+                            if s1 <> ''
+                            Then begin //Retorna a lista de links.
+                                   ReplaceText:=ListFilesURLs(s1);
+                                 end;
+                          end;
+
+                   end
+
+
+                 end;
+
+             ```
+
+           - Notas:
+             - A ação padrão de @name é executar o evento *OnHTMLTag_tgLink*, porém
+               é possível ser redefinido para ter outro tipo de comportamento
+               conforme preferência da aplicação que o utiliza.
+      }
+      Public Property OnHTMLTag_tgLink : THTMLTagEvent Read _OnHTMLTag_tgLink write _OnHTMLTag_tgLink ;
+    {$ENDREGION}
+
+    {$REGION '---> Construção da propriedade OnHTMLTag_tgImage'}
+      Private _OnHTMLTag_tgImage : THTMLTagEvent;
+      Public Property OnHTMLTag_tgImage : THTMLTagEvent Read _OnHTMLTag_tgImage write _OnHTMLTag_tgImage ;
+    {$ENDREGION}
+
+    {$REGION '---> Construção da propriedade OnHTMLTag_tgTable'}
+
+      Private _OnHTMLTag_tgTable : THTMLTagEvent;
+
+      {: O método **@name**  retorna em *ReplaceText* o código preechido passado
+         por *TagString* e *TagParams*.
+
+         - **EXEMPLO DE TEMPLATE**
+
+           ```pascal
+              <html>
+                <head>
+                     <meta charset="UTF-8">
+                     <title>Teste do componente fptemplate</title>
+
+                     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+                </head>
+
+                <body>
+
+                 List of records:
+                 <table class="beautify1">
+                   <tr class="beautify2">
+                     <td class="beautify3">
+
+                       <!--# tgTable
+
+                         [- Header=
+                           <table bordercolorlight="#6699CC" bordercolordark="#E1E1E1" class="Label">
+                             <tr class="Label" align=center bgcolor="#6699CC">
+                               <th>
+                                 <font color="white">~Column1</font>
+                               </th>
+                               <th>
+                                 <font color="white">~Column2</font>
+                               </th>
+                             </tr>
+                         -]
+
+                         [- OneRow=
+                           <tr bgcolor="#F2F2F2" class="Label3" align="center">
+                             <td>~Column1Value</td>
+                             <td>~Column2value</td>
+                           </tr>
+                         -]
+                         .
+                         .snip, and so on more parameters if needed
+                         .
+                         [- NotFound=
+                           <tr class="Error">
+                             <td>There are no entries found.</td>
+                           </tr>
+                         -]
+
+                         [- Footer=
+                           </table>
+                         -]
+
+                       #-->
+
+                      </td>
+                    </tr>
+                  </table>
+                </body>
+
+              </html>
+
+           ```
+
+           - **PARÂMETROS ESPERADOS EM  TagParams**
+             - Header
+             - OneRow
+             - NotFound
+             - Footer
+
+         - **EXEMPLO DE CÓDIGO PARA PREENCHE O TEMPLATE ACIMA**
+
+           ```pascal
+
+               procedure TFPWebModule2.DoOnHTMLTag_tgTable(Sender: TObject; const TagString: String;TagParams: tStrings; var ReplaceText: String);
+
+                 var
+                   header, footer, onerow:String;
+                   NoRecordsToShow:Boolean;
+                   ColumnHeaders:array[1..2] of String;
+                   ColumnValues:array[1..3,1..2]of String;
+                   I:Integer;
+
+               begin //Manipulação de tags de modelo HTML para um arquivo de modelo html
+
+                 //Substitui a tag html tgTable usando seus parâmetros de tag
+                 if AnsiCompareText(TagString, 'tgTable') = 0 then
+                 begin
+                   //preenche alguns arrays com dados (pode vir de uma consulta SQL)
+                   NoRecordsToShow := false;
+
+                   ColumnHeaders[1] := 'Amount';
+                   ColumnHeaders[2] := 'Percentage';
+
+                   ColumnValues[1,1] := '10.00';
+                   ColumnValues[1,2] := '5';
+
+                   ColumnValues[2,1] := '15.00';
+                   ColumnValues[2,2] := '4';
+
+                   ColumnValues[3,1] := '20.00';
+                   ColumnValues[3,2] := '3';
+
+                   //NoRecordsToShow pode ser algo como SQL1.IsEmpty , etc.
+                   if NoRecordsToShow then
+                   begin
+                     //se não houver nada para listar, basta substituir toda a tag pelo
+                     //Mensagem "Not Found" que o template contém
+                     ReplaceText := TagParams.Values['NotFound'];
+                     Exit;
+                   end;
+
+                   header := TagParams.Values['Header'];
+                   //inserir parâmetros de cabeçalho
+                   header := StringReplace(header, '~Column1', ColumnHeaders[1], []);
+                   header := StringReplace(header, '~Column2', ColumnHeaders[2], []);
+
+                   ReplaceText := header; //concluído com o cabeçalho (poderia estar em loop
+                                          //através dos nomes dos campos da tabela também)
+
+                   //inserir as linhas
+                   onerow := TagParams.Values['OneRow'];//modelo para 1 linha
+
+                   //percorre as linhas, pode ser algo como "while not SQL1.EOF do"
+                   for I := 1 to 3 do
+                   begin
+                     ReplaceText := ReplaceText +
+                                    StringReplace(StringReplace(onerow ,'~Column1Value', '$' + ColumnValues[I, 1], []),
+                                                                        '~Column2value', ColumnValues[I, 2] + '%', []) +
+                                    #13#10;
+                   end;
+
+                   //inserir o rodapé
+                   footer := TagParams.Values['FOOTER'];
+
+                   //substitua os parâmetros do rodapé se necessário
+                   //...
+
+                   ReplaceText := ReplaceText + footer;
+                 end
+                 else begin
+                         //Valor não encontrado para tag -> TagString
+                         ReplaceText := 'Etiqueta de modelo <!--#' + TagString + '#--> ainda não está implementado.';
+                      end;
+               end;
+
+           ```
+
+         - @url("#" 🔝)
+      }
+      Public Property OnHTMLTag_tgTable : THTMLTagEvent Read _OnHTMLTag_tgTable write _OnHTMLTag_tgTable ;
+    {$ENDREGION}
+
+    {$REGION '---> Construção da propriedade OnHTMLTag_tgImageMap'}
+      Private _OnHTMLTag_tgImageMap : THTMLTagEvent;
+      Public Property OnHTMLTag_tgImageMap : THTMLTagEvent Read _OnHTMLTag_tgImageMap write _OnHTMLTag_tgImageMap ;
+    {$ENDREGION}
+
+    {$REGION '---> Construção da propriedade OnHTMLTag_tgObject'}
+      Private _OnHTMLTag_tgObject : THTMLTagEvent;
+      Public Property OnHTMLTag_tgObject : THTMLTagEvent Read _OnHTMLTag_tgObject write _OnHTMLTag_tgObject ;
+    {$ENDREGION}
+
+    {$REGION '---> Construção da propriedade OnHTMLTag_tgEmbed'}
+      Private _OnHTMLTag_tgEmbed : THTMLTagEvent;
+      Public Property OnHTMLTag_tgEmbed : THTMLTagEvent Read _OnHTMLTag_tgEmbed write _OnHTMLTag_tgEmbed ;
+    {$ENDREGION}
+
+    {: - O método **@name** é usado para preencher templates html **tgLink** usado nos templates do componente *TPageProducer*.
+
+       - PARÂMETROS
+         - aAlias     = Apelido do template
+         - atemplate  = <!--# tgLink [- %s=[a href="~url" target="_blank" title="~title"] ~text [/a]  -] #-->
+         - aURL       = Endereço do link
+         - atarget    = Destino onde a página deve ser aberta, se vazio abre na aba atual.
+         - aTitle     = Documentação do link
+         - aText      = Descrição do link
+
+       - ATRIBUTOS DO TEMPLATE
+         - ~alias     = Apelido do template;
+         - ~url       = Endereço do link
+         - ~target    = Destino onde a página deve ser aberta, se vazio abre na aba atual.
+         - ~title     = Documentação do link
+         - ~text      = Descrição do link
+    }
+    public class function StringReplaceTgLink(const aAlias, atemplate,aURL,atarget,aTitle,aText:String):string;
+
+    protected procedure DoOnHTMLTag_tgCustom (Sender: TObject; const TagString: String;TagParams: tStrings; var ReplaceText: String);Virtual;
+
+    protected procedure DoOnHTMLTag_tgLink    (Sender: TObject; const TagString: String;TagParams: tStrings; var ReplaceText: String);Virtual;
+    protected procedure DoOnHTMLTag_tgImage   (Sender: TObject; const TagString: String;TagParams: tStrings; var ReplaceText: String);Virtual;
+    protected procedure DoOnHTMLTag_tgTable   (Sender: TObject; const TagString: String;TagParams: tStrings; var ReplaceText: String);Virtual;
+    protected procedure DoOnHTMLTag_tgImageMap(Sender: TObject; const TagString: String;TagParams: tStrings; var ReplaceText: String);Virtual;
+    protected procedure DoOnHTMLTag_tgObject  (Sender: TObject; const TagString: String;TagParams: tStrings; var ReplaceText: String);Virtual;
+    protected procedure DoOnHTMLTag_tgEmbed   (Sender: TObject; const TagString: String;TagParams: tStrings; var ReplaceText: String);Virtual;
+    protected procedure DoReplaceTag(Sender: TObject; const TagString: String; TagParams: TStringList; out ReplaceText: String);Virtual;
+
+    Protected function GetHelpCtx_Path: AnsiString;Virtual;
+
+    {$REGION '---> Construção da propriedade ID_Dinamic'}
+      Private _HelpCtx_StrCommand: AnsiString;
+      protected Function GetHelpCtx_StrCommand: AnsiString; Virtual;
+      {: A propriedade **@name** retorna o nome do comando que está
+         utilizando esta classe}
+      Public property HelpCtx_StrCommand: AnsiString read GetHelpCtx_StrCommand write _HelpCtx_StrCommand;
+    {$ENDREGION}
+
+    {$REGION '---> Construção da propriedade HelpCtx_StrCurrentCommand_Topic'}
+        private _HelpCtx_StrCurrentCommand_Topic: AnsiString;
+        protected Function GetHelpCtx_StrCurrentCommand_Topic: AnsiString;virtual;
+        {: A propriedade **@name** retorna o nome do tópico corrente do comando que está utilizando esta classe
+           - NOTAS
+             - Ao criar o objeto inicializa com Db_Global.StrCurrentCommand_topic
+        }
+        Public property HelpCtx_StrCurrentCommand_Topic: AnsiString read GetHelpCtx_StrCurrentCommand_Topic write _HelpCtx_StrCurrentCommand_Topic;
+
+    {$ENDREGION}
+
+    {$REGION '---> Construção da propriedade HelpCtx_StrCommand_Topic'}
+      private _HelpCtx_StrCommand_Topic: AnsiString;
+      protected Function GetHelpCtx_StrCommand_Topic: AnsiString;virtual;
+
+      {: A propriedade **@name** retorna o nome do tópico corrente do comando que está utilizando esta classe
+         - NOTAS
+           - Ao criar o objeto deve ser inicicializado pelo Alias da classe
+      }
+      Public property HelpCtx_StrCommand_Topic: AnsiString read GetHelpCtx_StrCommand_Topic write _HelpCtx_StrCommand_Topic;
+    {$ENDREGION}
+
+    {$REGION '---> Construção da propriedade HelpCtx_StrCurrentCommand_Topic_Content_Run'}
+      private _HelpCtx_StrCurrentCommand_Topic_Content_Run: TEnum_HelpCtx_StrCurrentCommand_Topic_Content_run;
+      protected Function GetHelpCtx_StrCurrentCommand_Topic_Content_Run: TEnum_HelpCtx_StrCurrentCommand_Topic_Content_run;virtual;
+      Protected Procedure SetHelpCtx_StrCurrentCommand_Topic_Content_Run(wHelpCtx_StrCurrentCommand_Topic_Content_Run: TEnum_HelpCtx_StrCurrentCommand_Topic_Content_run);virtual;
+      {: A propriedade **@name** retorna o nome StrCurrentCommand_topic_Content_run do comando que está utilizando esta classe
+         - NOTAS
+           - Ao criar o objeto inicializa com Db_Global.StrCurrentCommand_topic_Content_run;
+      }
+      Public property HelpCtx_StrCurrentCommand_Topic_Content_Run: TEnum_HelpCtx_StrCurrentCommand_Topic_Content_run read GetHelpCtx_StrCurrentCommand_Topic_Content_Run write SetHelpCtx_StrCurrentCommand_Topic_Content_Run;
+
+    {$ENDREGION}
+
+    {$REGION '---> Construção da propriedade Ok_HelpCtx_StrCurrentCommand_Topic_Content_run_Parameter_File'}
+      private _Ok_HelpCtx_StrCurrentCommand_Topic_Content_run_Parameter_File: Boolean;
+      Protected  Function Get_Ok_HelpCtx_StrCurrentCommand_Topic_Content_run_Parameter_File:Boolean;Virtual;
+      Protected  procedure Set_Ok_HelpCtx_StrCurrentCommand_Topic_Content_run_Parameter_File(a_Ok_HelpCtx_StrCurrentCommand_Topic_Content_run_Parameter_File: Boolean);Virtual;
+      {: A propriedade **@name** é usado para indica a propriedade **HelpCtx_StrCurrentCommand_Topic_Content_Run** que existe documento referente a visão corrente. Ou seja help sencível ao contexto.
+         - **NOTAS**
+           - Ao criar o objeto inicializa com Db_Global.StrCurrentCommand_topic
+           - Se HelpCtx_StrCurrentCommand_Topic_Content_Run = HelpCtx_StrCurrentCommand_Topic_Content_run_Parameter_File então:
+             - Retorna true;
+           - Se HelpCtx_StrCurrentCommand_Topic_Content_Run <> HelpCtx_StrCurrentCommand_Topic_Content_run_Parameter_File então:
+             - Retorna false;
+      }
+      Public property Ok_HelpCtx_StrCurrentCommand_Topic_Content_run_Parameter_File: Boolean read _Ok_HelpCtx_StrCurrentCommand_Topic_Content_run_Parameter_File write Set_Ok_HelpCtx_StrCurrentCommand_Topic_Content_run_Parameter_File;
+    {$ENDREGION}
+
+    {$REGION '---> Construção da propriedade HelpCtx_StrCurrentCommand_Topic_Content'}
+      private _HelpCtx_StrCurrentCommand_Topic_Content: AnsiString;
+      protected Function GetHelpCtx_StrCurrentCommand_Topic_Content: AnsiString;virtual;
+      protected Procedure SetHelpCtx_StrCurrentCommand_Topic_Content(wHelpCtx_StrCurrentCommand_Topic_Content:AnsiString);virtual;
+      {: A propriedade **@name** contém o conteúdo do campo no qual será criado um arquivo .html
+         - **NOTAS**
+           - Ao criar o objeto inicializa com Db_Global.StrCurrentCommand_topic_Content;
+      }
+
+      Public property HelpCtx_StrCurrentCommand_Topic_Content: AnsiString read GetHelpCtx_StrCurrentCommand_Topic_Content write SetHelpCtx_StrCurrentCommand_Topic_Content;
+    {$ENDREGION}
+    Public function GetHelpCtx_Doc_HTML: AnsiString;Virtual; //Se quem herdar esta classe não for do tipo campo então este metodo deve ser redefinido.
+
 
 
   end;
@@ -2332,7 +2833,7 @@ implementation
      - **RETORNA**
        - **GUID**    : Novo GUID se sucesso ou string vazia se fracasso.
   }
-        class function TObjectsMethods.CreateGUID: TString;
+  class function TObjectsMethods.CreateGUID: TString;
     var
       GUID : TGuid;
       err: integer;
@@ -2775,8 +3276,330 @@ implementation
      Result := err = 0;
    end;
 
-   class Procedure TObjectsMethods.ShowHtml(URL: string);
+   class procedure TObjectsMethods.ShowHtml(URL: string);
    begin
+   end;
+
+   function TObjectsMethods.GetHelpCtx_StrCurrentModule: AnsiString;
+   begin
+      Result := _HelpCtx_StrCurrentModule;
+   end;
+
+   function TObjectsMethods.GetHelpCtx_StrCurrentCommand: AnsiString;
+   begin
+     Result := _HelpCtx_StrCurrentCommand;
+   end;
+
+   function TObjectsMethods.GetHelpCtx_StrCurrentCommand_Opcao: AnsiString;
+   begin
+     Result :=  _HelpCtx_StrCurrentCommand_Opcao;
+   end;
+
+   function TObjectsMethods.TabIndex: Longint;
+   begin
+     result := -1;
+   end;
+
+   function TObjectsMethods.CreateHTML: AnsiString;
+   begin
+     result := '';
+   end;
+
+   function TObjectsMethods.GetAcao(): AnsiString;
+
+     Function GetSubAcao(SubAcao:AnsiString):AnsiString;
+     //<a href="/cgi-bin/GCIC.exe/XX">Cadastrar planos de pagamentos</a>
+     //"/cgi-bin/GCIC.exe/CSistemaIntegrado,Cm_Arq_Plano_de_PagamentoI"
+     Begin
+       If SubAcao <> ''
+       Then Result :=','+SubAcao
+       Else Result := '';
+     end;
+     {
+       Deve tornar um link para ação
+     }
+   Begin
+     //Result :=  Application.ParamExecucao.HostName+
+     //           ExtractFileName(Application.ParamExecucao.NomeDeArquivosGenericos.NomeArqExe)+
+     //           '/'+
+     //           HelpCtx_StrCurrentModule+
+     //           GetSubAcao(HelpCtx_StrCurrentCommand)+
+     //           GetSubAcao(HelpCtx_StrCurrentCommand_Opcao);
+
+   end;
+
+   function TObjectsMethods.GetID_Dinamic: AnsiString;
+   begin
+     if _ID_Dinamic = ''
+     then _ID_Dinamic := _ID_Dinamic;
+
+     result := _ID_Dinamic;
+   end;
+
+
+  function TObjectsMethods.GetHelpCtx_StrCommand: AnsiString;
+  Begin
+    Result := _HelpCtx_StrCommand;
+
+    if Result = ''
+    then Result := HelpCtx_StrCurrentCommand;
+  end;
+
+  function TObjectsMethods.GetHelpCtx_StrCurrentCommand_Topic: AnsiString;
+  Begin
+    if ExtractFileDrive(_HelpCtx_StrCurrentCommand_Topic) = ''
+    then Result := _HelpCtx_StrCurrentCommand_Topic
+    Else Result := ExtractFileName(_HelpCtx_StrCurrentCommand_Topic);
+  End;
+
+  function TObjectsMethods.GetHelpCtx_StrCommand_Topic: AnsiString;
+  Begin
+    if ExtractFileDrive(_HelpCtx_StrCommand_Topic) = ''
+    then Result := _HelpCtx_StrCommand_Topic
+    Else ExtractFileName(HelpCtx_StrCurrentCommand_Topic);
+
+
+    if Result = ''
+    then Begin
+           if ExtractFileDrive(HelpCtx_StrCurrentCommand_Topic) = ''
+           then Result := HelpCtx_StrCurrentCommand_Topic
+           Else Result := ExtractFileName(HelpCtx_StrCurrentCommand_Topic);
+         end;
+  End;
+
+
+
+  function TObjectsMethods.GetHelpCtx_StrCurrentCommand_Topic_Content_Run: TEnum_HelpCtx_StrCurrentCommand_Topic_Content_run;
+  Begin
+    Result := _HelpCtx_StrCurrentCommand_Topic_Content_Run;
+  end;
+
+  procedure TObjectsMethods.SetHelpCtx_StrCurrentCommand_Topic_Content_Run(
+      wHelpCtx_StrCurrentCommand_Topic_Content_Run: TEnum_HelpCtx_StrCurrentCommand_Topic_Content_run
+    );
+  Begin
+    _HelpCtx_StrCurrentCommand_Topic_Content_Run := wHelpCtx_StrCurrentCommand_Topic_Content_Run;
+  end;
+
+
+  function TObjectsMethods.Get_Ok_HelpCtx_StrCurrentCommand_Topic_Content_run_Parameter_File: Boolean;
+  Begin
+    Result := _Ok_HelpCtx_StrCurrentCommand_Topic_Content_run_Parameter_File;
+  end;
+
+  procedure TObjectsMethods.Set_Ok_HelpCtx_StrCurrentCommand_Topic_Content_run_Parameter_File(a_Ok_HelpCtx_StrCurrentCommand_Topic_Content_run_Parameter_File: Boolean);
+  Begin
+    _Ok_HelpCtx_StrCurrentCommand_Topic_Content_run_Parameter_File := a_Ok_HelpCtx_StrCurrentCommand_Topic_Content_run_Parameter_File;
+  End;
+
+
+    function TObjectsMethods.GetHelpCtx_StrCurrentCommand_Topic_Content: AnsiString;
+  Begin
+    Result := _HelpCtx_StrCurrentCommand_Topic_Content;
+  end;
+
+    procedure TObjectsMethods.SetHelpCtx_StrCurrentCommand_Topic_Content(
+    wHelpCtx_StrCurrentCommand_Topic_Content: AnsiString);
+  Begin
+    _HelpCtx_StrCurrentCommand_Topic_Content := wHelpCtx_StrCurrentCommand_Topic_Content;
+  end;
+
+  function TObjectsMethods.GetHelpCtx_Doc_HTML: AnsiString;
+      {ATENÇAO:
+
+      Está um Implemntação só funciona se o objeto que herdar TNSComponent for do tipo campo.
+      Caso a classe que herdar TNSComponent seja tabela, então este método deve ser redefinido
+      para que os dados sejão pegos do corrente campo.
+      }
+
+     {
+      Retorna nome do documento associando a visao.
+     }
+     Var
+       wHelpCtx_StrCommand,wHelpCtx_StrCommand_Topic : AnsiString;
+
+  Begin
+     //Dar prioride a HelpCtx_StrCommand
+     wHelpCtx_StrCommand := HelpCtx_StrCommand;
+     if wHelpCtx_StrCommand = ''
+     then wHelpCtx_StrCommand := HelpCtx_StrCurrentCommand;
+
+     //Dar prioride a HelpCtx_StrCommand_Topic
+     wHelpCtx_StrCommand_Topic := HelpCtx_StrCommand_Topic;
+
+     //Se não foi definido um topico para o comando, então usa o corrente.
+     if wHelpCtx_StrCommand_Topic = ''
+     then wHelpCtx_StrCommand_Topic := HelpCtx_StrCurrentCommand_Topic;
+
+     If HelpCtx_StrCurrentCommand_Opcao <> ''
+     Then Result := GetHelpCtx_Path + wHelpCtx_StrCommand+'_'+HelpCtx_StrCurrentCommand_Opcao+'.htm'
+     Else If wHelpCtx_StrCommand <> ''
+          Then Begin
+                 if HelpCtx_StrCurrentCommand_Topic_Content_Run = HelpCtx_StrCurrentCommand_Topic_Content_run_Parameter_File
+                 Then Begin {$Region '// HelpCtx_StrCurrentCommand_Topic_Content_Run = HelpCtx_StrCurrentCommand_Topic_Content_run_Parameter_File'}
+                        Ok_HelpCtx_StrCurrentCommand_Topic_Content_run_Parameter_File := true;
+                       //HelpCtx_StrCurrentCommand_Topic_Content_run_Parameter_File. Nota: Para cada campo o conteudo do campo é criado um arquivo.
+                        Result := GetHelpCtx_Path + wHelpCtx_StrCommand+'_'+wHelpCtx_StrCommand_Topic+'_'+Alias_To_Name(HelpCtx_StrCurrentCommand_Topic_Content+'.htm') //
+                      end   {$EndRegion '// HelpCtx_StrCurrentCommand_Topic_Content_Run = HelpCtx_StrCurrentCommand_Topic_Content_run_Parameter_File'}
+                 Else Begin
+                        Ok_HelpCtx_StrCurrentCommand_Topic_Content_run_Parameter_File := False;
+                        Result := GetHelpCtx_Path + wHelpCtx_StrCommand+'.htm'
+                      End;
+              end
+          Else Result := '';
+   end;
+
+   class  function TObjectsMethods.StringReplaceTgLink(const aAlias,atemplate,aURL,atarget,aTitle,aText:String):string;
+   begin
+      result :=  atemplate;
+      Result := StringReplace(Result, '~alias'  , aAlias  , [rfReplaceAll]);
+      Result := StringReplace(Result, '~url'    , aURL    , [rfReplaceAll]);
+      Result := StringReplace(Result, '~target' , atarget , [rfReplaceAll]);
+      Result := StringReplace(Result, '~title'  , aTitle, [rfReplaceAll]);
+      Result := StringReplace(Result, '~text'   , aText, [rfReplaceAll]);
+      Result := StringReplace(Result, '['       , '<', [rfReplaceAll]);
+      Result := StringReplace(Result, ']'       , '>', [rfReplaceAll]);
+   end;
+
+   procedure TObjectsMethods.DoOnHTMLTag_tgCustom(Sender: TObject;const TagString: String; TagParams: tStrings; var ReplaceText: String);
+   begin
+     if Assigned(OnHTMLTag_tgCustom)
+     then OnHTMLTag_tgCustom(Sender,TagString,TagParams,ReplaceText);
+   end;
+
+   procedure TObjectsMethods.DoOnHTMLTag_tgLink(Sender: TObject; const TagString: String; TagParams: tStrings; var ReplaceText: String);
+   begin
+     if Assigned(OnHTMLTag_tgLink)
+     then OnHTMLTag_tgLink(Sender,TagString,TagParams,ReplaceText);
+   end;
+
+   procedure TObjectsMethods.DoOnHTMLTag_tgImage(Sender: TObject;  const TagString: String; TagParams: tStrings; var ReplaceText: String);
+   begin
+     if Assigned(OnHTMLTag_tgImage)
+     then OnHTMLTag_tgImage(Sender,TagString,TagParams,ReplaceText);
+   end;
+
+   procedure TObjectsMethods.DoOnHTMLTag_tgTable   (Sender: TObject; const TagString: String;TagParams: tStrings; var ReplaceText: String);
+
+    {Original:
+      tgTable  = The TagString parameter is TABLE.
+                 The TagParams describe a desired tabular image.
+                 The event handler should return a sequence of HTML commands beginning with a
+                 <TABLE> tag and ending with a </TABLE> tag.
+
+      tgTable = O parametro de TagString e TABELA.
+                O TagParams descrevem uma imagem tabelar desejada.
+                O manipulador de evento deveria devolver uma sucessão de comandos de HTML que comecam com um
+                <TABLE> etiqueta e terminando com um </TABLE> etiqueta.
+
+      TAG=<#TABLE#>
+    }
+
+    Begin
+      if Assigned(OnHTMLTag_tgTable)
+      then OnHTMLTag_tgTable(Sender,TagString,TagParams,ReplaceText);
+    end;
+
+    procedure TObjectsMethods.DoOnHTMLTag_tgImageMap(Sender: TObject; const TagString: String;TagParams: tStrings; var ReplaceText: String);
+    Begin
+      if Assigned(OnHTMLTag_tgImageMap)
+      then OnHTMLTag_tgImageMap(Sender,TagString,TagParams,ReplaceText);
+    end;
+
+    procedure TObjectsMethods.DoOnHTMLTag_tgObject  (Sender: TObject; const TagString: String;TagParams: tStrings; var ReplaceText: String);
+    Begin
+      if Assigned(OnHTMLTag_tgObject)
+      then OnHTMLTag_tgObject(Sender,TagString,TagParams,ReplaceText);
+
+    end;
+
+    procedure TObjectsMethods.DoOnHTMLTag_tgEmbed   (Sender: TObject; const TagString: String;TagParams: tStrings; var ReplaceText: String);
+    Begin
+      if Assigned(OnHTMLTag_tgEmbed)
+      then OnHTMLTag_tgEmbed(Sender,TagString,TagParams,ReplaceText);
+    end;
+
+    procedure TObjectsMethods.DoReplaceTag(Sender: TObject; const TagString: String; TagParams: TStringList; out ReplaceText: String);
+    Begin
+      {  If TagParams.Count = 0
+        Then wTagString := Fmaiuscula(ShortString(TagString))
+        Else wTagString := Fmaiuscula(ShortString(TagString+TagParams[0]));
+      }
+
+      If TagString = 'ACAO' // A Acao deve retorna o nome do executável +/+nome do comando+/+operacao
+      Then Begin
+             ReplaceText := '';
+           end
+      Else
+      If TagString = 'ALIAS'
+      Then Begin
+             ReplaceText := Self.ALIAS;
+           end
+      Else
+      If TagString = 'ID'
+      Then Begin
+             ReplaceText := ID_Dinamic;
+           end
+      Else
+    {  If wTagString = 'SIZE'
+      Then Begin
+             ReplaceText := IntToStr(self.Size.X);
+           end
+      Else}
+      If TagString = 'ACCESSKEY'
+      Then Begin
+             ReplaceText := ''; // Não tenho atalho baseado no inputLine
+           end
+      else
+      If TagString = 'TIPODEACESSO'   //Deveria retorna ReadOnly DISABLED
+      Then Begin
+             ReplaceText := ''; // Não tenho tipo de acesso em tinputLine
+           end
+      else
+      If TagString = 'ALIGN'   //deveria retorna "left" OU "center"  OU "right" OU "justify"
+      Then Begin
+             ReplaceText := ''; // Como inputLine e um texto como não tenho como determinar o alinhamento
+           end;
+    {  else
+      If TagString = 'TABINDEX' // Deve retornar o numero de orden do botão
+      Then Begin
+             ReplaceText := IntToStr(tabindex);
+           end;}
+
+    end;
+
+    function TObjectsMethods.GetHelpCtx_Path: AnsiString;
+      {
+       Retorna path do documento associando a visao.
+      }
+     //Function SIF(Const Logica : Boolean; Const E1 , E2 : String ) : String ;
+     //Begin
+     //  If Logica Then SIF := E1 Else SIF := E2;
+     //End;
+
+    Begin
+      result := '';
+      //if HelpCtx_StrCommand <>''
+      //then Result := application.ParamExecucao.NomeDeArquivosGenericos.DirHTML+
+      //               SIF(HelpCtx_StrModule<>'',HelpCtx_StrModule+PathDelim,'')+
+      //               SIF(HelpCtx_StrCommand<>'',HelpCtx_StrCommand+PathDelim,'')
+      //Else Result := application.ParamExecucao.NomeDeArquivosGenericos.DirHTML+
+      //               SIF(HelpCtx_StrCurrentModule<>'',HelpCtx_StrCurrentModule+PathDelim,'')+
+      //               SIF(HelpCtx_StrCurrentCommand<>'',HelpCtx_StrCurrentCommand+PathDelim,'');
+    end;
+
+   function TObjectsMethods.GetAlias: AnsiString;
+   begin
+     If _Alias <> ''
+     Then Result := _Alias
+     Else Result := '';
+   end;
+
+   procedure TObjectsMethods.SetAlias(const aAlias: AnsiString);
+   begin
+     If aAlias <> ''
+     Then _Alias   := AAlias
+     else _Alias   := ClassName;
    end;
 
    class function TObjectsMethods.ShellScript(aCommand: String): String;

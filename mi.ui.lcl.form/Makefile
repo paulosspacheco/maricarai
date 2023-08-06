@@ -329,7 +329,7 @@ FPCFPMAKE=$(FPC)
 endif
 endif
 override PACKAGE_NAME=mi.ui.lcl.form
-override PACKAGE_VERSION=0.7.1.687
+override PACKAGE_VERSION=0.8.0.687
 ifndef LCL_PLATFORM
 ifeq ($(OS_TARGET),win32)
 LCL_PLATFORM=win32

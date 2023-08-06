@@ -1,0 +1,677 @@
+unit mi.rtl.objects.methods.pageproducer;
+{:< - A unit **@name** implementa as propriedade e métodos para produzir
+      página html, semelhante a unit HTTPProd do Delphi.
+
+  - **NOTAS**
+    -
+
+  - **VERSÃO**
+    - Alpha - Alpha - 0.8.0
+
+  - **HISTÓRICO**
+    - Criado por: Paulo Sérgio da Silva Pacheco e-mail: paulosspacheco@@yahoo.com.br
+      - **23/07/2023**
+        - 08:12 a 12:00: Criar a unit **@name**
+
+      - **24/07/2023**
+        - 08:45 a 12:00: Documento da unit
+        - 14:00 a 17:30: Documento da unit
+
+      - **25/07/2023**
+        - 08:15 a 12:00: Documento da unit
+        - 13:30 a 17:30: Documento da unit
+
+
+  - **CÓDIGO FONTE**:
+    - @html(<a href="../units/mi.rtl.objects.pas">mi.rtl.objects.pas</a>)
+
+}
+
+{$IFDEF FPC}
+  {$MODE Delphi} {$H+}
+{$ENDIF}
+
+interface
+
+uses
+  Classes, SysUtils,FPTemplate
+  ,mi.rtl.Objects.Methods
+  ,mi.rtl.Objects.Methods.Paramexecucao.Application
+
+  ;
+
+
+
+Type
+
+  { TBasePageProducer }
+
+  TBasePageProducer = class(TObjectsMethods)
+    public
+
+      Type
+
+        {: O tipo **@name** usado em THTMLTagEven indicando o tipo de tag.
+           - **NOTAS:**
+             -  
+        }
+        TTag = (Tgcustom, tgLink, tgImage, tgTable, tgImageMap, tgObject, tgEmbed);
+
+      Type
+        {: O tipo **@name** usado para preencher modelos pre-fabricados de códigos para preencher com varáveis.}
+        THTMLTagEvent = TReplaceTagEvent;
+        //THTMLTagEvent = procedure (Sender: TObject; Tag: TTag; const TagString: string;  TagParams: TStrings; var ReplaceText: string) of object;
+
+      public constructor create(aOwner:TComponent);override;
+      public destructor destroy; override;
+
+      {$REGION '--->Construção da propriedade Alias'}
+        Private  _Alias    : AnsiString;
+        Published  Property Alias : AnsiString Read _Alias Write _Alias;
+      {$ENDREGION}
+
+      protected Function GetHTMLContent : AnsiString;Virtual;
+      Public Property HTMLContent : AnsiString Read GetHTMLContent;// write SetHTMLContent;
+
+      {$REGION '---> Construção da propriedade OnHTMLTag'}
+        Private  var _OnHTMLTag    : Boolean;
+        Private Procedure SetOnHTMLTag(const aOnHTMLTag    : Boolean);
+        Public Property OnHTMLTag  : Boolean Read _OnHTMLTag Write SetOnHTMLTag;
+      {$ENDREGION}
+
+      {$REGION '---> Construção da propriedade HTMLDoc'}
+        private var _HTMLDoc: TStrings;
+        Private Procedure SetHTMLDoc(Const aHTMLDoc: tStrings);
+        Private Function GetHTMLDoc: tStrings;
+        Public Property HTMLDoc  : tStrings Read GetHTMLDoc Write SetHTMLDoc;
+      {$ENDREGION}
+
+      {$REGION '---> Construção da propriedade HTMLFile'}
+        Protected Procedure SetHTMLFile(Const aHTMLFile: TFileName );Overload;Virtual;
+        Protected Private Function GetHTMLFile : TFileName;Virtual;
+        Public Property HTMLFile : TFileName read GetHTMLFile Write SetHTMLFile;
+        Public Procedure SetHTMLFile();Overload;Virtual;//< Deve se definido em cada objeto herdado.
+      {$ENDREGION}
+
+        Public Function  SaveHTMLContentToFile(FileNameDest:AnsiString):Integer;overload ;Virtual;
+        Public Function  SaveHTMLContentToFile:Integer;overload ;Virtual;
+
+      {$REGION '---> Construção da propriedade FPTemplate'}
+        Private _FPTemplate : TFPTemplate;
+        Public Property FPTemplate : TFPTemplate read _FPTemplate write _FPTemplate;
+      {$ENDREGION}
+
+      {: O método **@name** é executado por - *@link(DoReplaceTag)*.
+
+         - **DESCRIÇÃO**
+
+           - O manipulador de eventos *DoOnHTMLTag* deve retornar os comandos HTML
+             convertidos no parâmetro *ReplaceText*. O valor retornado pode conter tags
+             HTML transparentes para outro produtor de página converter.
+             - Por exemplo:
+               - Um produtor de página pode ter um modelo que representa o formato
+                 do HTTP final da resposta. Ele pode ler a solicitação HTTP e, para cada
+                 seção da solicitação, montar um conjunto de Tags transparentes
+                 em HTML com parâmetros baseados na solicitação.
+
+               - Outro produtor de página pode pegar o conteúdo do produtor da
+                 primeira página e interpretá-los os parâmetros.
+
+
+         - **PARÂMETROS**
+           - **TagParams**:*TStringList*
+             - O parâmetro *TagParams* fornece a parte do parâmetro da tag do template.
+               - Cada string no objeto *tStrings* tem a forma *ParamName*=*Value*.
+               - Use as propriedades *Names* e *Values* do objeto *tStrings* para analisar esses parâmetros.
+
+           - **TagString**:String*
+             - Nome da tag no template.
+               - Exemplo de template para preencher a data e hora no formato: *MM/DD hh:mm:ss*:
+
+                   ```pascal
+  
+                       <html>
+                       <body>
+
+                            DateTime in format "MM/DD hh:mm:ss": <b><!--#DATETIME [-FORMAT=MM/DD hh:mm:ss-]#--></b>
+                            <br>
+
+                       </body>
+                       </html>
+
+                   ```
+
+                    - **NOTAS**
+                      - **TagString** = *DATETIME*
+                      - **Parâmetro** = *FORMAT=MM/DD hh:mm:ss*
+                        
+
+                   - **TagParams**: *FORMAT*
+                     ```pascal
+
+                        [- FORMAT=MM/DD hh:mm:ss -]
+
+                     ```
+
+               - Exemplo de template para criar código html *<pre>* **lista de arquivos da pasta atual e subpastas** </pre>:
+
+                   ```pascal
+  
+                       <html>
+                       <body>
+
+                            <h1> Teste do componente PageProducer </h1>
+                            
+                            <pre>
+                                <!--# tgCustom [- ListFilesText=
+                                                              Arquivo:
+                                                                -"~FileName" -] #-->
+                            </pre>
+
+                       </body>
+                       </html>
+
+                   ```
+               - Exemplo de template para criar código html de um link de nome BlogPsspPappBr:
+
+                   ```pascal
+  
+                       <html>
+                       <body>
+
+                            <h3> Meu Blog </h3>
+                            <!--# tgLink [- BlogPsspPappBr=[a href="~url" target="~target" title="~title"] ~text [/a]  -] #-->
+
+                       </body>
+                       </html>
+
+
+                   ```
+
+
+               - Exemplo de template para criar código html que lista de links usando o nome dos arquivos da pasta atual e subpastas:
+
+                   ```pascal
+  
+                       <html>
+                       <body>                         
+                          <!--# tgLink [- FindFilesAll=[a href="~url" target="_blank" title="~title"] ~text [/a]  -] #-->
+                       </body>
+                       </html>
+
+
+                   ```
+
+                 - **NOTAS**
+                   - **TagString** : *DATETIME*:
+
+                     ```pascal
+
+                        <!--# DATETIME #-->
+
+                     ```
+
+                   - **TagParams**: *FORMAT*
+                     ```pascal
+
+                        [- FORMAT=MM/DD hh:mm:ss -]
+
+                     ```
+
+           - **ReplaceText** : *String*
+               - Retorna o template preenchido para a classe que o executou.
+                 - Exemplo:
+
+                   ```pascal
+
+                       procedure TFPWebModule2.func1callReplaceTag(Sender: TObject; const TagString:                      String; TagParams: TStringList; Out ReplaceText: String);
+                       begin
+                         if AnsiCompareText(TagString, 'DATETIME') = 0 then
+                         begin
+                           ReplaceText := FormatDateTime(TagParams.Values['FORMAT'], Now);
+                         end;
+                       end;
+
+                   ```
+
+           - **aTag** : *TTag*
+             - Usado para executar métodos produtores de código baseado em templates.
+               - *aTag* = *tgCustom*:
+                 - Executa o método virtual @link(DoOnHTMLTag_tgCustom):
+                   - O método @link(DoOnHTMLTag_tgCustom) deve processar os parâmetros *Name*=*Values* de
+                     **TagParams** definido pelo método que o executadou. @link(DoOnHTMLTag_tgCustom Veja mais):
+                   - **Exemplo**:
+                     -
+
+               - *atag* = *tgTable*
+                   - Executa a procedure virtual @link(DoOnHTMLTag_tgTable) para que seja preenchido
+                     os seguintes parâmetros:
+                     - HEADER
+                     - ONEROW
+                     - NOTFOUND
+                     - FOOTER
+
+
+                 - Os métodos que serão executados depende do parâmetro **aTag**:
+                   - **aTag** = *tgLink*
+                     - DoOnHTMLTag_tgLink
+                       - Parâmetros esperados:
+                         - href
+                         - name
+                         - type
+                         - label
+                         - Exemplo:
+
+                           ```pascal
+
+                              [- <a href="#link" name="name" type="text/html">label=Descrição do Link</a> -]
+
+                           ```
+                   - **aTag** = *tgImage*
+                     - DoOnHTMLTag_tgImage
+                       - Parâmetros esperados:
+                         - src=Nome do arquivo de imagem
+                         - alt = Mensagem a ser mostrada caso a imagem não exista.
+                         - title = Help
+                         - Exemplo:
+
+                           ```pascal
+
+                              <img src="images/image01.jpg"
+                                   alt="Imagem de vários repositórios e o servidor"
+                                   title="Esta imagem mostra de forma visual como funciona as cópias dos arquivos.">
+
+                           ```
+
+                   - **atag** = *tgImageMap*
+                     - DoOnHTMLTag_tgImageMap
+
+                   - **atag** = *tgObject*
+                     - DoOnHTMLTag_tgObject
+
+                   - **atag** = *tgEmbed*
+                     - DoOnHTMLTag_tgEmbed
+
+                   - **atag** = *tgCustom*
+                     - DoOnHTMLTag_tgCustom
+
+         - **EXEMPLO**
+
+             ```pascal
+
+               <html>
+
+               <body>
+                 DateTime in format "MM/DD hh:mm:ss":
+                 <b>
+                   <!--# DATETIME [-FORMAT=MM/DD hh:mm:ss-] #-->
+                 </b>
+
+                 <br>
+
+                 List of records:
+                 <table class="beautify1">
+                   <tr class="beautify2">
+                     <td class="beautify3">
+
+                       <!--# tgTable
+
+                         [-Header=
+                           <table bordercolorlight="#6699CC" bordercolordark="#E1E1E1" class="Label">
+                             <tr class="Label" align=center bgcolor="#6699CC">
+                               <th>
+                                 <font color="white">~Column1</font>
+                               </th>
+                               <th>
+                                 <font color="white">~Column2</font>
+                               </th>
+                             </tr>
+                         -]
+
+                         [- OneRow =
+                           <tr bgcolor="#F2F2F2" class="Label3" align="center">
+                             <td>~Column1Value</td>
+                             <td>~Column2value</td>
+                           </tr>
+                         -]
+                         .
+                         .snip, and so on more parameters if needed
+                         .
+                         [- NotFound=
+                           <tr class="Error">
+                             <td>There are no entries found.</td>
+                           </tr>
+                         -]
+
+                         [-Footer=
+                           </table>
+                         -]
+
+                       #-->
+
+                     </td>
+                   </tr>
+                 </table>
+               </body>
+
+               </html>
+
+             ```
+
+         - @url("#" 🔝)
+
+      }
+      Public  procedure DoOnHTMLTag (Sender : TObject;
+                                     aTag :TTag;
+                                     Const TagString : String;
+                                     TagParams:TStringList;
+                                     Out ReplaceText : String);
+
+      {: O método @name é passado para *@link(FPTemplate.OnReplaceTag)* com objetivo de executar
+         os produtor código da classe.
+
+         - NOTA
+           - O método FPTemplate.OnReplaceTag pode ser definido para que possa customizar
+             essa classe
+
+      }
+      private procedure DoReplaceTag_Default(Sender: TObject;  const TagString: String;TagParams: TStringList; Out ReplaceText: String);
+
+  end;
+
+Resourcestring
+
+  {: O recurso **@name** deve ser usado nos templates para o componente *TBasePageProducer*.
+
+     - PARÂMETROS
+       - %s      = Alias ou Nome do template;
+       - ~url    = Endereço do link
+       - ~target = Destino onde a página deve ser aberta, se vazio abre na aba atual.
+       - ~title  = Documentação do link
+       - ~text   = Descrição do link
+
+     - Exemplo de uso:
+
+       ```pascal
+
+
+
+       ```
+  }
+  Template_html_tglink = '<!--# tgLink [- %s=[a href="~url" target="~target" title="~title"] ~text [/a]  -] #-->';
+
+
+procedure register;
+
+implementation
+
+procedure register;
+begin
+
+end;
+
+
+procedure TBasePageProducer.SetOnHTMLTag(const aOnHTMLTag: Boolean);
+Begin
+   If aOnHTMLTag
+   Then with TObjectsMethods do
+        Begin
+          //se tiver assinalado deve ser descartado
+          If isValidPtr(_FPTemplate)
+          Then Discard(TObject(_FPTemplate));
+
+//          Method.code := self.MethodAddress('DoOnHTMLTag');
+{          If Method.code <> nil
+          Then Begin}
+                 If TFPTemplate=nil
+                 Then Begin
+                        FPTemplate := TFPTemplate.Create;
+                        //FPTemplate.StripParamQuotes := false; Não encontrei no fptemplate
+                      End;
+//                 Method.Data  := self;
+                 FPTemplate.OnReplaceTag := DoReplaceTag_Default;//DoOnHTMLTagEvent;
+                 _OnHTMLTag := True;
+{               End
+          Else _OnHTMLTag := false;}
+        End
+   Else Begin
+          TObjectsMethods.Discard(TObject(_FPTemplate));
+          _OnHTMLTag := false;
+        End;
+End;
+
+procedure TBasePageProducer.SetHTMLFile(const aHTMLFile: TFileName);
+
+Begin
+  If (aHTMLFile='') or (TObjectsMethods.FileExists(aHTMLFile))
+  Then Begin
+         OnHTMLTag := true;
+         If OnHTMLTag
+         Then begin
+                 //function ExtractRelativePath(const BaseName, DestName: string): string; overload;
+                 FPTemplate.FileName:= aHTMLFile
+              end;
+       End
+  Else Begin
+         OnHTMLTag := False;
+         TObjectsMethods.TaStatus  := TObjectsMethods.ArquivoNaoEncontrado2;
+       end;
+end;
+
+function TBasePageProducer.GetHTMLFile: TFileName;
+Begin
+  If OnHTMLTag
+  Then Result := FPTemplate.FileName
+  Else Result := '';
+end;
+
+function TBasePageProducer.SaveHTMLContentToFile(FileNameDest: AnsiString): Integer;
+  Var
+    PathDest : AnsiString;
+    F        : Text;
+
+begin
+  Result := -1;
+  If OnHTMLTag
+  Then with TObjectsMethods do
+       Begin
+         Try  //Except
+           PathDest := ExtractFileDir(FileNameDest);
+
+           if Not DirectoryExists(PathDest)
+           Then ok := CreateDir(PathDest)
+           Else ok := true;
+
+           If ok
+           Then Begin
+                  AssignFile(F,FileNameDest);
+
+                  {$I+}
+                  rewrite(f);
+                  {$I-}
+
+                  Result := IoResult ;
+
+                  If Result = 0
+                  Then Begin
+                         {$I+}
+                         write(F,self.HTMLContent);
+                         {$I-}
+                         Result := IoResult;
+
+                         close(f) ;
+                       End;
+
+                End;
+         Except
+           if Result = 0
+           then Result :=   Erro_Excecao_inesperada ;
+           Raise
+         end;
+       End;
+end;
+
+function TBasePageProducer.SaveHTMLContentToFile: Integer;
+Begin
+  Result := -1;
+End;
+
+procedure TBasePageProducer.SetHTMLDoc(const aHTMLDoc: tStrings);
+Begin
+  _HTMLDoc := aHTMLDoc;
+
+  OnHTMLTag := true;
+  If OnHTMLTag
+  Then begin
+         {O componente fpTemplate não existe opção de template em memória.
+          Para implementar HTMLDoc é necessário criar arquivo temporário.
+         }
+         //FPTemplate.HTMLDoc := aHTMLDoc;
+
+       end;
+
+end;
+
+procedure TBasePageProducer.SetHTMLFile;
+begin
+
+
+end;
+
+function TBasePageProducer.GetHTMLDoc: tStrings;
+Begin
+  {O componente fpTemplate não existe opção de template em memória.
+   Para implementar HTMLDoc é necessário criar arquivo temporário.
+  }
+  //If OnHTMLTag
+  //Then Result := TFPTemplate.HTMLDoc
+  //Else Result := nil;
+end;
+
+constructor TBasePageProducer.create(aOwner:TComponent);
+begin
+  inherited create(aOwner);
+
+  _FPTemplate := TFPTemplate.Create;
+  with FPTemplate do
+  begin
+    AllowTagParams := true;
+    StartDelimiter := '<!--#';
+    EndDelimiter := '#-->';
+    OnReplaceTag := DoReplaceTag;
+  end;
+end;
+
+destructor TBasePageProducer.destroy;
+begin
+  freeAndnil(_FPTemplate);
+  inherited destroy;
+end;
+
+function TBasePageProducer.GetHTMLContent: AnsiString;
+{< NortSoft
+   Retorna O código HTML implementados em:
+     1 - TvDialogs.TButton      Retorna o código Html associado ao botão
+     2 - ViEditor.TDmxEditor    Retorna o codigo Html associado ao Dmx
+     3 - ViEditor.TLIsDialog   Retorna a lista html
+     4 - tvDMXBUF.TDmxEditBuf;  Retorna o formulário em forma de gride
+     5 - View.TWindow           Retorna todos os códigos html dentro da windows
+     6 - TvDialogs.TDialog      Retorna o formulário completo <html><head> </head> <body> </body></html
+}
+Begin
+  If OnHTMLTag
+  Then Result := FPTemplate.GetContent
+  Else Result := '';
+end;
+
+procedure TBasePageProducer.DoOnHTMLTag(Sender: TObject;  aTag :TTag; const TagString: String; TagParams: TStringList; out ReplaceText: String);
+
+{ Original:
+   The TagString parameter is the tag name of the HTML-transparent tag.
+   If the Tag parameter is tgCustom, TagString should be used to determine what conversion to perform.
+   The TagParams parameter gives the parameter portion of the HTML-transparent tag.
+   Each string in the tStrings object has the form ParamName=Value.
+   Use the Names and Values properties of the tStrings object to parse these parameters.
+
+   The DoOnHTMLTag event handler should return the converted HTML commands in the ReplaceText parameter.
+
+   The returned value can contain HTML-transparent tags for another page producer to convert.
+
+   For example, one page producer might have a template that represents the format of the final HTTP
+   response. It could read the HTTP request and for each section in the request assemble a set of
+   HTML-transparent tags with parameters based on the request.
+   Another page producer might take the content of the first page producer, and interpret those
+   parameters.
+}
+
+{
+
+ Evento OnHTMLTag
+     O componente TFPTemplate apresenta apenas um evento: o evento OnHTMLTag.
+     É nesse evento que é definido o código HTML usado para substituir os tags
+     transparentes lidos pelo TFPTemplate.
+     O evento é chamado uma vez para cada tag transparente encontrado.
+
+     OnHTMLTag recebe vários parâmetros importantes. Veja quais são, no seguinte código básico do evento.
+
+     Procedure TwebModule1.TFPTemplate1HTMLTag(Sender: Tobject; Tag: Ttag; const      TagString:String; TagParams: Tstring; var ReplaceText: String);
+     Begin
+
+     end;
+
+     O parâmetro TagString recebe o nome do tag transparente. Para o tag transparente <#data> por exemplo,
+     TagString seria “data”. O texto no parâmetro TagString deve ser verificado pelo programa, para determinar
+     o código HTML a ser usado para a substituição do tag transparente.
+
+     O parâmetro ReplaceText é passado por referência para o código do evento OnHTMLTag. É inicialmente um
+     String vazio. Dentro do código para evento, ReplaceText deve receber um String com o código HTML
+     usado para substituir o tag transparente.
+
+     Em *TagParams* são armazenados os parâmetros do tag transparente. Os parâmetros são armazenados na forma
+     *Nome*=*Valor* e podem ser acessados usando as propriedades *Names* e *Values*. Por exemplo, para o tag:
+
+     <#calendário ano=2023 mês=12>
+
+     Teríamos o seguinte:      
+     TagParams.Names[0] = ‘ano’
+     TagParams.Names[1] = ‘mês’
+     TagParams.Values[‘ano’] = ‘2023’
+     TagParams.Values[‘mês’] = ‘12’
+
+     Caso o tag transparente não apresente parâmetros, os valores retornados para Values e Names
+     serão tStrings vazios.
+}
+Begin
+  Case aTag of
+    tgCustom   : DoOnHTMLTag_tgCustom  (Sender,TagString,TagParams, ReplaceText);
+    tgLink     : DoOnHTMLTag_tgLink    (Sender,TagString,TagParams, ReplaceText);
+    tgImage    : DoOnHTMLTag_tgImage   (Sender,TagString,TagParams, ReplaceText);
+    tgTable    : DoOnHTMLTag_tgTable   (Sender,TagString,TagParams, ReplaceText);
+    tgImageMap : DoOnHTMLTag_tgImageMap(Sender,TagString,TagParams, ReplaceText);
+    tgObject   : DoOnHTMLTag_tgObject  (Sender,TagString,TagParams, ReplaceText);
+    tgEmbed    : DoOnHTMLTag_tgEmbed   (Sender,TagString,TagParams, ReplaceText)
+    else         DoReplaceTag(Sender,TagString,TagParams, ReplaceText)
+  End;
+end;
+
+procedure TBasePageProducer.DoReplaceTag_Default(Sender: TObject; const TagString: String; TagParams: TStringList; out ReplaceText: String);
+begin
+
+  if AnsiCompareText(TagString, 'tgCustom') = 0
+  then DoOnHTMLTag_tgCustom(Sender,TagString,TagParams,ReplaceText)
+  else  if AnsiCompareText(TagString, 'tgLink') = 0
+        then DoOnHTMLTag_tgLink(Sender,TagString,TagParams,ReplaceText)
+        else if AnsiCompareText(TagString, 'tgImage') = 0
+             then DoOnHTMLTag_tgImage(Sender,TagString,TagParams,ReplaceText)
+             else if AnsiCompareText(TagString, 'tgTable') = 0
+                  then DoOnHTMLTag_tgTable(Sender,TagString,TagParams,ReplaceText)
+                  else if AnsiCompareText(TagString, 'tgImageMap') = 0
+                       then DoOnHTMLTag_tgImageMap(Sender,TagString,TagParams,ReplaceText)
+                       else if AnsiCompareText(TagString, 'tgObject') = 0
+                            then DoOnHTMLTag_tgImageMap(Sender,TagString,TagParams,ReplaceText)
+                            else if AnsiCompareText(TagString, 'tgEmbed') = 0
+                                 then DoOnHTMLTag_tgEmbed(Sender,TagString,TagParams,ReplaceText)
+                                 else DoReplaceTag(Sender,TagString,TagParams,ReplaceText);
+end;
+
+end.

@@ -1,7 +1,7 @@
 {: - A unit **@name** implementa a classe TProgressDlg_If do pacote mi.rtl.
 
     - **VERSÃO**:
-      - Alpha - 0.7.1
+      - Alpha - Alpha - 0.8.0
 
     - **CÓDIGO FONTE**:
       - @html(<a href="../units/mi.rtl.objects.methods.tprogressdlg_if.pas">mi.rtl.objects.methods.tprogressdlg_if.pas</a>)

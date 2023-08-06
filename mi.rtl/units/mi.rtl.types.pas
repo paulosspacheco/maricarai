@@ -6,7 +6,7 @@ unit mi.rtl.Types;
     - O Método **TTypes.TPointer.Get_Mem** ignora alocação de memória real porque não sei como fazer nas plataformas diferentes do Windows.
 
   - **VERSÃO**
-    - Alpha - 0.7.1
+    - Alpha - Alpha - 0.8.0
 
   - **CÓDIGO FONTE**:
     - @html(<a href="../units/mi.rtl.types.pas">mi.rtl.types.pas</a>)          
@@ -556,8 +556,103 @@ uses
        {: Tipos de banco de dados reconhecidos pela função CreateDB_or_DropDB}
        TConnectorType = (PostgresSQL,SqLite3);
 
-  end;
+     Type
 
+      {: O tipo enumerado **@name** é usado para gera documentação, baseado no conteúdo
+         do campo selecionado.
+      }
+      TEnum_HelpCtx_StrCurrentCommand_Topic_Content_run = (
+
+        {: Quando a tecla F1 é pressionada, o sistema executa com o browser o arquivo do topico
+           cujo o nome é:
+           - **GetHelpCtx_Path + HelpCtx_StrCurrentCommand+'.htm'+'#'+HelpCtx_StrCurrentCommand_Topic**
+
+           - **NOTAS:**
+             - Indica ao sistema, que o conteúdo do campo selecionado deve ser ignorado
+               ao criar o arquivo de documento.
+
+             - Caso o campo selecionado executar o método TDmxEditor.EditViewHelpCtx()
+               com a opção HelpCtx_StrCurrentCommand_Topic_Content_run_Parameter_File,
+               então todos os campos devem imprimir o valor corrente no documento criado.
+
+             - Caso o campo selecionado executar o método TDmxEditor.EditViewHelpCtx()
+               com a opção HelpCtx_StrCurrentCommand_Topic_Content_run_Parameter_File,
+               então todos os campos devem imprimir o valor corrente no documento criado.
+
+             - Caso o arquivo não exista, o sistema gera abaixo da Documentação do nome
+               do campo selecionado, as seguintes informções:
+               - A lista de valores possiveis para o campos, caso o tipo seja enumerado
+                 (InputListBox, InputComoBox, InputSelect, InputChequeButton, InputRadioButton).
+         }
+         HelpCtx_StrCurrentCommand_Topic_Content_run_Parameter_Indefinido,
+
+       {: Quando a tecla F1 é pressionada, o sistema executa com o browser o arquivo do
+          topico cujo o nome é:
+          - **GetHelpCtx_Path + HelpCtx_StrCurrentCommand+'.htm'+'#'+HelpCtx_StrCurrentCommand_Topic+'_'+HelpCtx_StrCurrentCommand_Topic_Content**
+
+          - **NOTAS**
+            - Caso o arquivo não exista, o sistema gera abaixo da Documentação do nome do
+              campo selecionado, as seguintes informções:
+              - Conteudo do campo Selecionado com o rótulo Valor Corrente.
+              - A lista de valores possíveis para os campos, caso o tipo seja enumerado
+                (InputListBox, InputComoBox, InputSelect, InputChequeButton, InputRadioButton).
+                ou lista o valor do campo selecionado de todos os registros do arquivo mais o
+                conteudo dos campos vinculados ao compo corrente.
+         }
+         HelpCtx_StrCurrentCommand_Topic_Content_run_Parameter_indicator,
+
+
+         {: Quando a tecla F1 é pressionada, o sistema executa com o browser o arquivo do
+            topico cujo o nome é:
+            - **GetHelpCtx_Path + HelpCtx_StrCurrentCommand+'_'+HelpCtx_StrCurrentCommand_Topic+'_'HelpCtx_StrCurrentCommand_Topic_Content+'.htm'**
+
+            - **NOTAS 1**
+              - Para cada campo o conteúdo do campo é criado um arquivo .html.
+
+            - **NOTAS 2**
+              - Caso o arquivo não exista, o sistema gera abaixo da Documentação do nome do
+                campo selecionado, as seguintes informções:
+                - Conteudo do campo Selecionado com o rótulo Valor Corrente.
+
+                - A lista de valores possiveis para o campos, caso o tipo seja enumerado
+                  (InputListBox, InputComoBox, InputSelect, InputChequeButton, InputRadioButton).
+                  ou lista o valor do campo selecionado de todos os registros do arquivo mais o
+                  conteudo dos campos vinculados ao compo corrente.
+
+            - **NOTAS 3**
+              - Caso o arquivo não existe, o sistema criar um arquivo com o nome do conteúdo
+                do campo selecionado, com objetivo de documentar o registro, baseado no
+                conteúdo do campo.
+                - Obs: Criei esta opção para documentar as naturezas de operação (CFOP).
+
+         }
+         HelpCtx_StrCurrentCommand_Topic_Content_run_Parameter_File
+           );
+
+     public
+       Type
+
+         {: O tipo **@name** usado em THTMLTagEven indicando o tipo de tag.
+             - **NOTAS:**
+               -
+         }
+         TTag = (tgcustom, tgLink, tgImage, tgTable, tgImageMap, tgObject, tgEmbed);
+
+       type
+         {: O tipo **@name** é usado pela classe **mi.rtl.Objects.Methods** para implementar
+            os eventos:
+              - OnHTMLTag_tgCustom,
+              - OnHTMLTag_tgLink,
+              - OnHTMLTag_tgImage,
+              - OnHTMLTag_tgTable,
+              - OnHTMLTag_tgImageMap,
+              - OnHTMLTag_tgObject,
+              - OnHTMLTag_tgEmbed.
+         }
+         THTMLTagEvent = procedure (Sender: TObject; const TagString: string;
+                                    TagParams: TStrings; var ReplaceText: string) of object;
+
+  end;
 
 
 

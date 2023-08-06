@@ -2,7 +2,7 @@ unit mi.rtl.Consts.StrError;
 {:< -A unit **@name** implementa a classe TStrError do pacote mi.rtl.
 
     - **VERSÃO**:
-      - Alpha - 0.7.1
+      - Alpha - Alpha - 0.8.0
 
     - **CÓDIGO FONTE**:
       - @html(<a href="../units/mi.rtl.tstrerror.pas">mi.rtl.tStrError.pas</a>)
