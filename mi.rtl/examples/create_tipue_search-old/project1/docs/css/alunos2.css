@@ -1,0 +1,12 @@
+#theadAlunos2 th:nth-child(1) {width:100px;}
+#tbodyAlunos2 td:nth-child(1) {width:100px;}
+#tfootAlunos2 td:nth-child(1) {width:100px;}
+#theadAlunos2 th:nth-child(2) {width:150px;}
+#tbodyAlunos2 td:nth-child(2) {width:150px;}
+#tfootAlunos2 td:nth-child(2) {width:150px;}
+#theadAlunos2 th:nth-child(3) {width:150px;}
+#tbodyAlunos2 td:nth-child(3) {width:150px;}
+#tfootAlunos2 td:nth-child(3) {width:150px;}
+#theadAlunos2 th:nth-child(4) {width:120px;}
+#tbodyAlunos2 td:nth-child(4) {width:120px;}
+#tfootAlunos2 td:nth-child(4) {width:120px;}

@@ -1,0 +1,1423 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<title>mi_rtl_ui_dmxscroller_form</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="generator" content="PasDoc 0.16.0">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<link rel="stylesheet" type="text/css" href="tipuesearch/tipuesearch.css">
+
+<link rel="StyleSheet" type="text/css" href="pasdoc.css">
+</head>
+<body>
+<div class="container"><div class="navigation">
+<ul><li><a href="AllUnits.html">Units</a></li><li><a href="ClassHierarchy.html">Hierarquia de Classes</a></li><li><a href="AllClasses.html">Classes, Interfaces, Objetos e Registros</a></li><li><a href="AllTypes.html">Tipos</a></li><li><a href="AllVariables.html">Variáveis</a></li><li><a href="AllConstants.html">Constantes</a></li><li><a href="AllFunctions.html">Funções e Procedimentos</a></li><li><a href="AllIdentifiers.html">Identificadores</a></li><li><form class="search-form" action="tipue_results.html"><div class="search-input"><input type="text" name="q" id="tipue_search_input" pattern=".{3,}" title="At least 3 characters" required><div class="search-button"><input type="button" id="tipue_search_button" onclick="this.form.submit();"></div></div></form>
+<div style="clear: both"></div>
+</li></ul></div><div class="content">
+<h1 class="unit">Unit mi_rtl_ui_dmxscroller_form</h1>
+<div class="sections">
+<div class="one_section"><a class="section" href="#PasDoc-Description">Descrição</a></div><div class="one_section"><a class="section" href="#PasDoc-Uses">Uses</a></div><div class="one_section"><a class="section" href="#PasDoc-Classes">Classes, Interfaces, Objetos e Registros</a></div><div class="one_section"><a class="section" href="#PasDoc-FuncsProcs">Funções e Procedimentos</a></div><div class="one_section"><a class="section" href="#PasDoc-Types">Tipos</a></div><div class="one_section"><a class="section" href="#PasDoc-Constants">Constantes</a></div><div class="one_section">Variáveis</div></div>
+<span id="PasDoc-Description"></span><h2 class="description">Descrição</h2>
+<p>
+A unit <strong><code>mi_rtl_ui_dmxscroller_form</code></strong> implementa a classe <a class="normal" href="mi_rtl_ui_dmxscroller_form.TDmxScroller_Form.html">TDmxScroller_Form</a>.
+
+<p></p>
+
+<ul class="paragraph_spacing">
+  <li><p>Primeiro autor: Paulo Sérgio da Silva Pacheco paulosspacheco@yahoo.com.br)</p></li>
+  <li><p><strong>VERSÃO</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Alpha - Alpha - 0.9.0</p></li>
+</ul>
+
+<p></p></li>
+  <li><p><strong>CÓDIGO FONTE</strong>: </p>
+
+<ul class="paragraph_spacing">
+  <li><p><a href="../units/umi_ui_dmxscroller_form.pas">uMi_rtl_ui_Dmxscroller_form.pas</a></p></li>
+</ul>
+
+<p></p></li>
+  <li><p><strong>HISTÓRICO</strong>: </p>
+
+<ul class="paragraph_spacing">
+  <li><p><a href="../units/umi_ui_dmxscroller_form_historico.md">umi_ui_dmxscroller_form_historico.md</a></p></li>
+</ul>
+
+<p></p></li>
+  <li><p><strong>PENDÊNCIAS</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>T12 Documentar a unit.</p></li>
+  <li><p>T12 Criar propriedade UiDmxScroller_Buttons:<a class="normal" href="mi_rtl_ui_DmxScroller_Buttons.TUiDmxScroller_Buttons.html">TUiDmxScroller_Buttons</a></p></li>
+</ul>
+
+<p></p></li>
+  <li><p><strong>CONCLUÍDO</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Criar atributo private FirstDataRow : integer; ✅</p></li>
+  <li><p>Criar atributo private PrevRec : integer; ✅</p></li>
+  <li><p>Criar atributo protected DMXFields : TFPList; ✅</p></li>
+  <li><p>Criar atributo protected FldRadioButtonsAdicionados:TStringList;✅</p></li>
+  <li><p>Criar atributo Public Function SetHelpCtx_Hint ✅</p></li>
+  <li><p>Criar atributo Public Procedure SetHelpCtx_Hint ✅</p></li>
+  <li><p>Criar constructor Create(aOwner:TComponent);Override; ✅</p></li>
+  <li><p>Criar método public procedure AfterConstruction; override; ✅</p></li>
+  <li><p>Criar public destructor destroy;override; ✅</p></li>
+  <li><p>Criar método protected procedure ShowControlState;override; ✅</p></li>
+  <li><p>Criar método protected procedure CreateStruct ✅</p></li>
+  <li><p>Criar método Protected procedure DestroyStruct; Override; ✅</p></li>
+  <li><p>Criar método procedure Scroll_it_inview_LCL ✅</p></li>
+  <li><p>Criar método public procedure Scroll_it_inview ✅</p></li>
+  <li><p>Criar método protected procedure CreateFormLCL ✅</p></li>
+  <li><p>Criar método public function GetTemplate(aNext: <a class="normal" href="mi_rtl_ui_Dmxscroller.html#PSItem">PSItem</a>) ✅</p></li>
+  <li><p>Criar método protected procedure UpdateBuffers_Controls;virtual; ✅</p></li>
+  <li><p>Criar método public procedure UpdateBuffers;override; ✅</p></li>
+  <li><p>Criar método public procedure Refresh;override; ✅</p></li>
+  <li><p>Criar método protected procedure SetActiveTarget(aActive : Boolean);override; ✅</p></li>
+  <li><p>Criar método protected procedure SetActive(aActive : Boolean);override; ✅</p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p>
+<span id="PasDoc-Uses"></span><h2 class="uses">Uses</h2>
+<ul class="useslist"><li>Classes</li><li>SysUtils</li><li>typInfo</li><li><a href="mi.rtl.Consts.html">mi.rtl.Consts</a></li><li><a href="mi_rtl_ui_Dmxscroller.html">mi_rtl_ui_Dmxscroller</a></li></ul><h2 class="overview">Visão Geral</h2>
+<span id="PasDoc-Classes"></span><h3 class="cio">Classes, Interfaces, Objetos e Registros</h3>
+<table class="classestable wide_list">
+<tr class="listheader">
+<th class="itemname">Nome</th>
+<th class="itemdesc">Descrição</th>
+</tr>
+<tr class="list">
+<td class="itemname">Classe&nbsp;<a class="bold" href="mi_rtl_ui_dmxscroller_form.TDmxScroller_Form_Atributos.html"><code>TDmxScroller_Form_Atributos</code></a></td>
+<td class="itemdesc">&nbsp;</td>
+</tr>
+<tr class="list2">
+<td class="itemname">Classe&nbsp;<a class="bold" href="mi_rtl_ui_dmxscroller_form.TDmxScroller_Form.html"><code>TDmxScroller_Form</code></a></td>
+<td class="itemdesc">&nbsp;</td>
+</tr>
+</table>
+<span id="PasDoc-FuncsProcs"></span><h3 class="summary">Funções e Procedimentos</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="itemcode"><code>procedure <strong><a href="mi_rtl_ui_dmxscroller_form.html#Register">Register</a></strong>;</code></td>
+</tr>
+</table>
+<span id="PasDoc-Types"></span><h3 class="summary">Tipos</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="itemcode"><code><strong><a href="mi_rtl_ui_dmxscroller_form.html#TDmxFieldRec">TDmxFieldRec</a></strong> = <a href="mi_rtl_ui_Dmxscroller.TDmxFieldRec.html">mi_rtl_ui_Dmxscroller.TDmxFieldRec</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><strong><a href="mi_rtl_ui_dmxscroller_form.html#pDmxFieldRec">pDmxFieldRec</a></strong> = <a href="mi_rtl_ui_Dmxscroller.html#pDmxFieldRec">mi_rtl_ui_Dmxscroller.pDmxFieldRec</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><strong><a href="mi_rtl_ui_dmxscroller_form.html#SmallWord">SmallWord</a></strong>    = TUiDmxScroller.SmallWord;</code></td>
+</tr>
+</table>
+<span id="PasDoc-Constants"></span><h3 class="summary">Constantes</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="itemcode"><code><strong><a href="mi_rtl_ui_dmxscroller_form.html#accDelimiter">accDelimiter</a></strong>          = <a href="mi.rtl.Consts.TConsts.html#accDelimiter">TConsts.accDelimiter</a> ;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><strong><a href="mi_rtl_ui_dmxscroller_form.html#accHidden">accHidden</a></strong>             = <a href="mi.rtl.Consts.TConsts.html#accHidden">TConsts.accHidden</a>    ;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><strong><a href="mi_rtl_ui_dmxscroller_form.html#AccNormal">AccNormal</a></strong>             = <a href="mi.rtl.Consts.TConsts.html#accNormal">TConsts.AccNormal</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><strong><a href="mi_rtl_ui_dmxscroller_form.html#accReadOnly">accReadOnly</a></strong>           = <a href="mi.rtl.Consts.TConsts.html#accReadOnly">TConsts.accReadOnly</a>  ;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><strong><a href="mi_rtl_ui_dmxscroller_form.html#accSkip">accSkip</a></strong>               = <a href="mi.rtl.Consts.TConsts.html#accSkip">TConsts.accSkip</a>      ;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><strong><a href="mi_rtl_ui_dmxscroller_form.html#CharHint">CharHint</a></strong>              = <a href="mi.rtl.Consts.TConsts.html#CharHint">TConsts.CharHint</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><strong><a href="mi_rtl_ui_dmxscroller_form.html#CharHintOnde">CharHintOnde</a></strong>          = <a href="mi.rtl.Consts.TConsts.html#CharHintOnde">TConsts.CharHintOnde</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><strong><a href="mi_rtl_ui_dmxscroller_form.html#CharHintPorque">CharHintPorque</a></strong>        = <a href="mi.rtl.Consts.TConsts.html#CharHintPorque">TConsts.CharHintPorque</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><strong><a href="mi_rtl_ui_dmxscroller_form.html#fld_LData">fld_LData</a></strong>             = <a href="mi.rtl.Consts.TConsts.html#fld_LData">TConsts.fld_LData</a>          ;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><strong><a href="mi_rtl_ui_dmxscroller_form.html#fld_LHora">fld_LHora</a></strong>             = <a href="mi.rtl.Consts.TConsts.html#fld_LHora">TConsts.fld_LHora</a>          ;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><strong><a href="mi_rtl_ui_dmxscroller_form.html#fldAnsiChar">fldAnsiChar</a></strong>           = <a href="mi.rtl.Consts.TConsts.html#fldAnsiChar">TConsts.fldAnsiChar</a>          ;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><strong><a href="mi_rtl_ui_dmxscroller_form.html#fldAnsiChar_Minuscula">fldAnsiChar_Minuscula</a></strong> = <a href="mi.rtl.Consts.TConsts.html#fldAnsiChar_Minuscula">TConsts.fldAnsiChar_Minuscula</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><strong><a href="mi_rtl_ui_dmxscroller_form.html#fldAnsiCharNUM">fldAnsiCharNUM</a></strong>        = <a href="mi.rtl.Consts.TConsts.html#fldAnsiCharNUM">TConsts.fldAnsiCharNUM</a>     ;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><strong><a href="mi_rtl_ui_dmxscroller_form.html#fldAnsiCharVAL">fldAnsiCharVAL</a></strong>        = <a href="mi.rtl.Consts.TConsts.html#fldAnsiCharVAL">TConsts.fldAnsiCharVAL</a>     ;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><strong><a href="mi_rtl_ui_dmxscroller_form.html#fldAPPEND">fldAPPEND</a></strong>             = <a href="mi.rtl.Consts.TConsts.html#fldAPPEND">TConsts.fldAPPEND</a>          ;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><strong><a href="mi_rtl_ui_dmxscroller_form.html#fldBLOb">fldBLOb</a></strong>               = <a href="mi.rtl.Consts.TConsts.html#fldBLOb">TConsts.fldBLOb</a>            ;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><strong><a href="mi_rtl_ui_dmxscroller_form.html#fldBYTE">fldBYTE</a></strong>               = <a href="mi.rtl.Consts.TConsts.html#fldBYTE">TConsts.fldBYTE</a>            ;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><strong><a href="mi_rtl_ui_dmxscroller_form.html#fldBoolean">fldBoolean</a></strong>          =   <a href="mi.rtl.Consts.TConsts.html#fldBoolean">TConsts.fldBoolean</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><strong><a href="mi_rtl_ui_dmxscroller_form.html#fldCONTRACTION">fldCONTRACTION</a></strong>        = <a href="mi.rtl.Consts.TConsts.html#fldCONTRACTION">TConsts.fldCONTRACTION</a>     ;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><strong><a href="mi_rtl_ui_dmxscroller_form.html#fldData">fldData</a></strong>               = <a href="mi.rtl.Consts.TConsts.html#fldData">TConsts.fldData</a>            ;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><strong><a href="mi_rtl_ui_dmxscroller_form.html#FldDateTimeDos">FldDateTimeDos</a></strong>        = <a href="mi.rtl.Consts.TConsts.html#FldDateTimeDos">TConsts.FldDateTimeDos</a>     ;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><strong><a href="mi_rtl_ui_dmxscroller_form.html#fldENUM">fldENUM</a></strong>               = <a href="mi.rtl.Consts.TConsts.html#fldENUM">TConsts.fldENUM</a>            ;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><strong><a href="mi_rtl_ui_dmxscroller_form.html#CharExecAction">CharExecAction</a></strong>        = <a href="mi.rtl.Consts.TConsts.html#CharExecAction">TConsts.CharExecAction</a>        ;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><strong><a href="mi_rtl_ui_dmxscroller_form.html#fldExtended">fldExtended</a></strong>           = <a href="mi.rtl.Consts.TConsts.html#fldExtended">TConsts.fldExtended</a>        ;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><strong><a href="mi_rtl_ui_dmxscroller_form.html#CharFieldName">CharFieldName</a></strong>          = <a href="mi.rtl.Consts.TConsts.html#CharFieldName">TConsts.CharFieldName</a>       ;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><strong><a href="mi_rtl_ui_dmxscroller_form.html#ChFN">ChFN</a></strong>                 = <a href="mi.rtl.Consts.TConsts.html#ChFN">TConsts.ChFN</a>              ;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><strong><a href="mi_rtl_ui_dmxscroller_form.html#fldHexValue">fldHexValue</a></strong>           = <a href="mi.rtl.Consts.TConsts.html#fldHexValue">TConsts.fldHexValue</a>        ;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><strong><a href="mi_rtl_ui_dmxscroller_form.html#fldLData">fldLData</a></strong>              = <a href="mi.rtl.Consts.TConsts.html#fldLData">TConsts.fldLData</a>           ;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><strong><a href="mi_rtl_ui_dmxscroller_form.html#fldLHora">fldLHora</a></strong>              = <a href="mi.rtl.Consts.TConsts.html#fldLHora">TConsts.fldLHora</a>           ;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><strong><a href="mi_rtl_ui_dmxscroller_form.html#fldLONGINT">fldLONGINT</a></strong>            = <a href="mi.rtl.Consts.TConsts.html#fldLONGINT">TConsts.fldLONGINT</a>         ;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><strong><a href="mi_rtl_ui_dmxscroller_form.html#FldMemo">FldMemo</a></strong>               = <a href="mi.rtl.Consts.TConsts.html#FldMemo">TConsts.FldMemo</a>            ;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><strong><a href="mi_rtl_ui_dmxscroller_form.html#FldOperador">FldOperador</a></strong>           = <a href="mi.rtl.Consts.TConsts.html#FldOperador">TConsts.FldOperador</a>        ;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><strong><a href="mi_rtl_ui_dmxscroller_form.html#FldRadioButton">FldRadioButton</a></strong>        = <a href="mi.rtl.Consts.TConsts.html#FldRadioButton">TConsts.FldRadioButton</a>     ;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><strong><a href="mi_rtl_ui_dmxscroller_form.html#fldReal4">fldReal4</a></strong>              = <a href="mi.rtl.Consts.TConsts.html#fldReal4">TConsts.fldReal4</a>           ;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><strong><a href="mi_rtl_ui_dmxscroller_form.html#fldReal4P">fldReal4P</a></strong>             = <a href="mi.rtl.Consts.TConsts.html#fldReal4P">TConsts.fldReal4P</a>          ;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><strong><a href="mi_rtl_ui_dmxscroller_form.html#fldReal4Positivo">fldReal4Positivo</a></strong>      = <a href="mi.rtl.Consts.TConsts.html#fldReal4Positivo">TConsts.fldReal4Positivo</a>   ;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><strong><a href="mi_rtl_ui_dmxscroller_form.html#fldReal4PPositivo">fldReal4PPositivo</a></strong>     = <a href="mi.rtl.Consts.TConsts.html#fldReal4PPositivo">TConsts.fldReal4PPositivo</a>  ;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><strong><a href="mi_rtl_ui_dmxscroller_form.html#fldRealNum">fldRealNum</a></strong>            = <a href="mi.rtl.Consts.TConsts.html#fldRealNum">TConsts.fldRealNum</a>         ;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><strong><a href="mi_rtl_ui_dmxscroller_form.html#fldRealNum_Positivo">fldRealNum_Positivo</a></strong>   = <a href="mi.rtl.Consts.TConsts.html#fldRealNum_Positivo">TConsts.fldRealNum_Positivo</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><strong><a href="mi_rtl_ui_dmxscroller_form.html#FldSData">FldSData</a></strong>              = <a href="mi.rtl.Consts.TConsts.html#FldSData">TConsts.FldSData</a>           ;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><strong><a href="mi_rtl_ui_dmxscroller_form.html#FldSDateTimeDos">FldSDateTimeDos</a></strong>       = <a href="mi.rtl.Consts.TConsts.html#FldSDateTimeDos">TConsts.FldSDateTimeDos</a>    ;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><strong><a href="mi_rtl_ui_dmxscroller_form.html#FldSHora">FldSHora</a></strong>              = <a href="mi.rtl.Consts.TConsts.html#FldSHora">TConsts.FldSHora</a>           ;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><strong><a href="mi_rtl_ui_dmxscroller_form.html#fldSHORTINT">fldSHORTINT</a></strong>           = <a href="mi.rtl.Consts.TConsts.html#fldSHORTINT">TConsts.fldSHORTINT</a>        ;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><strong><a href="mi_rtl_ui_dmxscroller_form.html#fldSItems">fldSItems</a></strong>             = <a href="mi.rtl.Consts.TConsts.html#fldSItems">TConsts.fldSItems</a>          ;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><strong><a href="mi_rtl_ui_dmxscroller_form.html#fldSmallInt">fldSmallInt</a></strong>           = <a href="mi.rtl.Consts.TConsts.html#fldSmallInt">TConsts.fldSmallInt</a>        ;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><strong><a href="mi_rtl_ui_dmxscroller_form.html#fldSmallWORD">fldSmallWORD</a></strong>          = <a href="mi.rtl.Consts.TConsts.html#fldSmallWORD">TConsts.fldSmallWORD</a>       ;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><strong><a href="mi_rtl_ui_dmxscroller_form.html#fldSTR">fldSTR</a></strong>                = <a href="mi.rtl.Consts.TConsts.html#fldStr">TConsts.fldSTR</a>          ;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><strong><a href="mi_rtl_ui_dmxscroller_form.html#fldSTR_Minuscula">fldSTR_Minuscula</a></strong>      = <a href="mi.rtl.Consts.TConsts.html#fldSTR_Minuscula">TConsts.fldSTR_Minuscula</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><strong><a href="mi_rtl_ui_dmxscroller_form.html#fldSTRNUM">fldSTRNUM</a></strong>             = <a href="mi.rtl.Consts.TConsts.html#fldSTRNUM">TConsts.fldSTRNUM</a>       ;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><strong><a href="mi_rtl_ui_dmxscroller_form.html#CharUpperlimit">CharUpperlimit</a></strong>         = <a href="mi.rtl.Consts.TConsts.html#CharUpperlimit">TConsts.CharUpperlimit</a>      ;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><strong><a href="mi_rtl_ui_dmxscroller_form.html#fldZEROMOD">fldZEROMOD</a></strong>            = <a href="mi.rtl.Consts.TConsts.html#fldZEROMOD">TConsts.fldZEROMOD</a>         ;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><strong><a href="mi_rtl_ui_dmxscroller_form.html#CharShowPassword">CharShowPassword</a></strong>          = <a href="mi.rtl.Consts.TConsts.html#CharShowPassword">TConsts.CharShowPassword</a>       ;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><strong><a href="mi_rtl_ui_dmxscroller_form.html#CharShowPasswordChar">CharShowPasswordChar</a></strong>      = <a href="mi.rtl.Consts.TConsts.html#CharShowPasswordChar">TConsts.CharShowPasswordChar</a>   ;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><strong><a href="mi_rtl_ui_dmxscroller_form.html#TypeDate">TypeDate</a></strong>              = <a href="mi.rtl.Consts.TConsts.html#TypeDate">TConsts.TypeDate</a>           ;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><strong><a href="mi_rtl_ui_dmxscroller_form.html#_TypeDate">_TypeDate</a></strong>             = <a href="mi.rtl.Consts.TConsts.html#_TypeDate">TConsts._TypeDate</a>          ;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><strong><a href="mi_rtl_ui_dmxscroller_form.html#TypeHora">TypeHora</a></strong>              = <a href="mi.rtl.Consts.TConsts.html#TypeHora">TConsts.TypeHora</a>           ;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><strong><a href="mi_rtl_ui_dmxscroller_form.html#TypeMemo">TypeMemo</a></strong>              = <a href="mi.rtl.Consts.TConsts.html#TypeMemo">TConsts.TypeMemo</a>           ;</code></td>
+</tr>
+</table>
+<h2 class="description">Descrição</h2>
+<h3 class="detail">Funções e Procedimentos</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="Register"></span><code>procedure <strong>Register</strong>;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<h3 class="detail">Tipos</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="TDmxFieldRec"></span><code><strong>TDmxFieldRec</strong> = <a href="mi_rtl_ui_Dmxscroller.TDmxFieldRec.html">mi_rtl_ui_Dmxscroller.TDmxFieldRec</a>;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="pDmxFieldRec"></span><code><strong>pDmxFieldRec</strong> = <a href="mi_rtl_ui_Dmxscroller.html#pDmxFieldRec">mi_rtl_ui_Dmxscroller.pDmxFieldRec</a>;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="SmallWord"></span><code><strong>SmallWord</strong>    = TUiDmxScroller.SmallWord;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<h3 class="detail">Constantes</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="accDelimiter"></span><code><strong>accDelimiter</strong>          = <a href="mi.rtl.Consts.TConsts.html#accDelimiter">TConsts.accDelimiter</a> ;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+A constante <strong><code>accDelimiter</code></strong> informa que o campo é delimitador de campos no Template.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="accHidden"></span><code><strong>accHidden</strong>             = <a href="mi.rtl.Consts.TConsts.html#accHidden">TConsts.accHidden</a>    ;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+A constante <strong><code>accHidden</code></strong> (Const <code>accHidden</code> = 2;) é um mapa de bits usado para identificar o bit do campo <a class="normal" href="mi_rtl_ui_Dmxscroller.TDmxFieldRec.html#access">TDmxFieldRec.access</a> que informa se o mesmo é invisível.
+
+<p></p>
+
+<ul class="paragraph_spacing">
+  <li><p><strong>EXEMPLO</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Como usar o mapa de bits <code>accHidden</code> para saber se o campo está invisível.
+
+<p></p>
+
+<pre class="longcode">
+
+<span class="pascal_keyword">with</span> pDmxFieldRec&circ; <span class="pascal_keyword">do</span>
+  <span class="pascal_keyword">If</span> (access <span class="pascal_keyword">and</span> accHidden &lt;&gt; <span class="pascal_numeric">0</span>)
+  <span class="pascal_keyword">then</span> <span class="pascal_keyword">begin</span>
+         ShowMessage(Format(<span class="pascal_string">'O campo %s está invisível'</span>),[CharFieldName]); 
+       <span class="pascal_keyword">end</span>;</pre>
+
+<p></p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="AccNormal"></span><code><strong>AccNormal</strong>             = <a href="mi.rtl.Consts.TConsts.html#accNormal">TConsts.AccNormal</a>;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+A constante <strong><code>AccNormal</code></strong> (Const <code>AccNormal</code> = 0;) é um mapa de bits usado para identificar o bit do campo <a class="normal" href="mi_rtl_ui_Dmxscroller.TDmxFieldRec.html#access">TDmxFieldRec.access</a> que informa se que o campo pode ser editado.
+
+<p></p>
+
+<ul class="paragraph_spacing">
+  <li><p><strong>EXEMPLO</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Como usar o mapa de bits <code>accNormal</code> para saber se o campo pode ser editado.
+
+<p></p>
+
+<pre class="longcode">
+
+<span class="pascal_keyword">with</span> pDmxFieldRec&circ; <span class="pascal_keyword">do</span>
+  <span class="pascal_keyword">If</span> (access <span class="pascal_keyword">and</span> accNormal &lt;&gt; <span class="pascal_numeric">0</span>) 
+  <span class="pascal_keyword">then</span> <span class="pascal_keyword">begin</span>
+         ShowMessage(Format(<span class="pascal_string">'O campo %s pode ser editado'</span>),[FieldName]);
+       <span class="pascal_keyword">end</span>;</pre>
+
+<p></p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="accReadOnly"></span><code><strong>accReadOnly</strong>           = <a href="mi.rtl.Consts.TConsts.html#accReadOnly">TConsts.accReadOnly</a>  ;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+A constante <strong><code>accReadOnly</code></strong> (Const ReadOnly = 1;) é um mapa de bits usado para identificar o bit do campo <a class="normal" href="mi_rtl_ui_Dmxscroller.TDmxFieldRec.html#access">TDmxFieldRec.access</a> que informa se o campo é somente para leitura. </p>
+
+<ul class="paragraph_spacing">
+  <li><p><strong>EXEMPLO</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Como usar o mapa de bits ReadOnly para saber se o campo não pode ser editado. </p>
+
+<pre class="longcode">
+<span class="pascal_keyword">with</span> pDmxFieldRec&circ; <span class="pascal_keyword">do</span>
+  <span class="pascal_keyword">If</span> (access <span class="pascal_keyword">and</span> ReadOnly &lt;&gt; <span class="pascal_numeric">0</span>)
+  <span class="pascal_keyword">then</span> <span class="pascal_keyword">begin</span>
+         ShowMessage(Format(<span class="pascal_string">'O campo %s não pode ser editado'</span>),[FieldName]);
+       <span class="pascal_keyword">end</span>;</pre>
+
+<p></p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="accSkip"></span><code><strong>accSkip</strong>               = <a href="mi.rtl.Consts.TConsts.html#accSkip">TConsts.accSkip</a>      ;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+A constante <strong><code>accSkip</code></strong> (Const <code>accSkip</code> = 4;) é um mapa de bits usado para identificar o bit do campo <a class="normal" href="mi_rtl_ui_Dmxscroller.TDmxFieldRec.html#access">TDmxFieldRec.access</a> que informa se o campo pode receber o focus. </p>
+
+<ul class="paragraph_spacing">
+  <li><p><strong>EXEMPLO</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Como usar o mapa de bits <code>accSkip</code> para saber se o campo não pode receber o focus. </p>
+
+<pre class="longcode">
+<span class="pascal_keyword">with</span> pDmxFieldRec&circ; <span class="pascal_keyword">do</span>
+  <span class="pascal_keyword">If</span> (access <span class="pascal_keyword">and</span> accSkip &lt;&gt; <span class="pascal_numeric">0</span>)
+  <span class="pascal_keyword">then</span> <span class="pascal_keyword">begin</span>
+         ShowMessage(Format(<span class="pascal_string">'O campo %s não pode receber o focus'</span>),[FieldName]);
+       <span class="pascal_keyword">end</span>;</pre>
+
+<p></p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="CharHint"></span><code><strong>CharHint</strong>              = <a href="mi.rtl.Consts.TConsts.html#CharHint">TConsts.CharHint</a>;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+A constante <strong><code>CharHint</code></strong> é usado para documentar o campo e indica que todo o texto até o próximo caractere de controle será o conteúdo do campo HelpCtx_Hint.
+
+<p></p>
+
+<ul class="paragraph_spacing">
+  <li><p><strong>EXEMPLO</strong>
+
+<p></p>
+
+<pre class="longcode">
+
+<span class="pascal_keyword">Resourcestring</span>
+
+ tmp_Alunos_Idade = <span class="pascal_string">'\BB'</span>+ChFN+<span class="pascal_string">'idade'</span>+CharUpperlimit+<span class="pascal_string">#64</span>+
+                     CharHint+<span class="pascal_string">'A idade do aluno. Valores válidos 1 a 64'</span>+
+                     CharHintPorque+<span class="pascal_string">'Este campo é necessário para que se agrupe o alunos baseado em sua faixa etária'</span>+
+                     CharHintOnde+<span class="pascal_string">'Ele será usado pelo coordenador ao classificar a turma'</span>;
+
+
+ tmp_Alunos_Matricula = \IIII<span class="pascal_string">'+ChFN+'</span>matricula<span class="pascal_string">'+CharHint+'</span>A matricula <span class="pascal_keyword">do</span> aluno é um campo sequencial e calculado ao incluir o registro<span class="pascal_string">';
+
+ tmp_Alunos = '</span>&tilde;     Idade:&tilde;%s<span class="pascal_string">'+lf+
+              '</span>&tilde; Matricula:&tilde;%s</pre>
+
+<p></p></li>
+</ul>
+
+<p></p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="CharHintOnde"></span><code><strong>CharHintOnde</strong>          = <a href="mi.rtl.Consts.TConsts.html#CharHintOnde">TConsts.CharHintOnde</a>;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+A contante <strong><code>CharHintOnde</code></strong> informa que todo texto até o próximo delimitador contém informações para o campo HelpCtx_Onde</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="CharHintPorque"></span><code><strong>CharHintPorque</strong>        = <a href="mi.rtl.Consts.TConsts.html#CharHintPorque">TConsts.CharHintPorque</a>;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+A contante <strong><code>CharHintPorque</code></strong> informa que todo texto até o próximo delimitador contém informações para o campo HelpCtx_Porque</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="fld_LData"></span><code><strong>fld_LData</strong>             = <a href="mi.rtl.Consts.TConsts.html#fld_LData">TConsts.fld_LData</a>          ;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+A constante <strong><code>fld_LData</code></strong> é do tipo TDateTime e guarda a data compactada 'dd/dd/dd'</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="fld_LHora"></span><code><strong>fld_LHora</strong>             = <a href="mi.rtl.Consts.TConsts.html#fld_LHora">TConsts.fld_LHora</a>          ;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+A constante <strong><code>fld_LHora</code></strong> é do tipo TDateTime e guarda a hora compactada ##:##:##</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="fldAnsiChar"></span><code><strong>fldAnsiChar</strong>           = <a href="mi.rtl.Consts.TConsts.html#fldAnsiChar">TConsts.fldAnsiChar</a>          ;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+A constante <strong><code>fldAnsiChar</code></strong> (Const <code>fldAnsiChar</code> = 'C') usado na máscara do Template, informa ao componente <strong><a class="normal" href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html">TUiDmxScroller</a></strong> que a sequência de caracteres 'C' após o caractere <strong>&quot;\&quot;</strong> representa no buffer do formulário um tipo AnsiString que só aceita caractere maiúsculo.
+
+<p></p>
+
+<ul class="paragraph_spacing">
+  <li><p><strong>EXEMPLO</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Representação de um AnsiString de 10 dígitos em um buffer de 11 bytes onde o ultimo byte contém o caractere #0 informando o fim da string;
+
+<p></p>
+
+<pre class="longcode">
+
+<span class="pascal_keyword">Const</span>
+  Nome := <span class="pascal_string">'\CCCCCCCCCC'</span>; <span class="pascal_comment">//PAULO SÉRG</span></pre>
+
+<p></p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="fldAnsiChar_Minuscula"></span><code><strong>fldAnsiChar_Minuscula</strong> = <a href="mi.rtl.Consts.TConsts.html#fldAnsiChar_Minuscula">TConsts.fldAnsiChar_Minuscula</a>;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+A constante <strong><code>fldAnsiChar_Minuscula</code></strong> (Const <a class="normal" href="mi_rtl_ui_dmxscroller_form.html#fldAnsiChar">fldAnsiChar</a> = 'c') usado na máscara do Template, informa ao componente <strong><a class="normal" href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html">TUiDmxScroller</a></strong> que a sequência de caracteres 'c' após o caractere <strong>&quot;\&quot;</strong> representa no buffer do formulário um tipo AnsiString que só aceita caractere minúsculo.
+
+<p></p>
+
+<ul class="paragraph_spacing">
+  <li><p><strong>EXEMPLO</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Representação de um AnsiString de 10 dígitos em um buffer de 11 bytes onde o ultimo byte contém o caractere #0 informando o fim da string;
+
+<p></p>
+
+<pre class="longcode">
+
+<span class="pascal_keyword">Const</span>
+  Nome := <span class="pascal_string">'\cccccccccc'</span>; <span class="pascal_comment">//paulo Sérg</span>
+  Nome := <span class="pascal_string">'\Cccccccccc'</span>; <span class="pascal_comment">//Paulo Sérg</span></pre>
+
+<p></p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="fldAnsiCharNUM"></span><code><strong>fldAnsiCharNUM</strong>        = <a href="mi.rtl.Consts.TConsts.html#fldAnsiCharNUM">TConsts.fldAnsiCharNUM</a>     ;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+A constante <strong><code>fldAnsiCharNUM</code></strong> (Const <a class="normal" href="mi_rtl_ui_dmxscroller_form.html#fldAnsiChar">fldAnsiChar</a> = '0') usado na máscara do Template, informa ao componente <strong><a class="normal" href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html">TUiDmxScroller</a></strong> que a sequência de caracteres '0' após o caractere <strong>&quot;\&quot;</strong> representa no buffer do formulário um tipo AnsiString que só aceita caractere numérico ['0'..'9']] .
+
+<p></p>
+
+<ul class="paragraph_spacing">
+  <li><p><strong>EXEMPLO</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Representação de um AnsiString de 11 dígitos em um buffer de 12 bytes onde o ultimo byte contém o caractere #0 informando o fim da string;
+
+<p></p>
+
+<pre class="longcode">
+
+<span class="pascal_keyword">Const</span>
+
+  telefone := <span class="pascal_string">'\(00) 0 0000-0000'</span> <span class="pascal_comment">//85 9 9702 4498</span></pre>
+
+<p></p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="fldAnsiCharVAL"></span><code><strong>fldAnsiCharVAL</strong>        = <a href="mi.rtl.Consts.TConsts.html#fldAnsiCharVAL">TConsts.fldAnsiCharVAL</a>     ;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+A constante <strong><code>fldAnsiCharVAL</code></strong> (Const <a class="normal" href="mi_rtl_ui_dmxscroller_form.html#fldAnsiChar">fldAnsiChar</a> = '0') usado na máscara do Template, informa ao componente <strong><a class="normal" href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html">TUiDmxScroller</a></strong> que a sequência de caracteres '0' após o caractere <strong>&quot;\&quot;</strong> representa no buffer do formulário um tipo AnsiString que só aceita caractere numérico ['0'..'9']] com formatação dbase.
+
+<p></p>
+
+<ul class="paragraph_spacing">
+  <li><p><strong>EXEMPLO</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Representação de um AnsiString de 11 dígitos em um buffer de 12 bytes onde o ultimo byte contém o caractere #0 informando o fim da string;
+
+<p></p>
+
+<pre class="longcode">
+
+<span class="pascal_keyword">Const</span>
+
+  telefone := <span class="pascal_string">'\(NN) N NNNN-NNNN'</span> <span class="pascal_comment">//85 9 9702 4498</span></pre>
+
+<p></p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="fldAPPEND"></span><code><strong>fldAPPEND</strong>             = <a href="mi.rtl.Consts.TConsts.html#fldAPPEND">TConsts.fldAPPEND</a>          ;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+A constante <strong><code>fldAPPEND</code></strong> é usada para concatenar duas listas do tipo <a class="normal" href="mi_rtl_ui_Dmxscroller.html#PSItem">PSItem</a>.
+
+<p></p>
+
+<ul class="paragraph_spacing">
+  <li><p>A constante <strong><code>fldAPPEND</code></strong> é necessário porque DmxScroller trabalha com string curta e a mesma tem um tamanho de 255 caracteres, onde o tamanho está na posição 0.</p></li>
+  <li><p>Como usar a constante <strong><code>fldAPPEND</code></strong>:
+
+<p></p>
+
+<ul class="paragraph_spacing">
+  <li><p>A função <strong>CreateAppendFields</strong> retorna a constante <strong><code>fldAPPEND</code></strong> mais o endereço da string a ser concatenada.
+
+<p></p>
+
+<ul class="paragraph_spacing">
+  <li><p><strong>EXEMPLO</strong>
+
+<p></p>
+
+<pre class="longcode">
+
+<span class="pascal_keyword">procedure</span> Template : ShortString;
+  <span class="pascal_keyword">Var</span>
+    S1,s2,Template : TString;
+<span class="pascal_keyword">begin</span>
+  S1 := <span class="pascal_string">'&tilde;Nome do Aluno....:&tilde;\ssssssssssssssssssssssssssssssssss'</span>;
+  s2 := <span class="pascal_string">'&tilde;Endereço do aluno:&tilde;\sssssssssssssssssssssssss'</span>;
+  result := S1+CreateAppendFields(s2);
+<span class="pascal_keyword">end</span>;</pre>
+
+<p></p></li>
+  <li><p><strong>NOTA</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>A contante <strong><code>fldAPPEND</code></strong> foi criada porque o projeto inicial foi para turbo pascal e ambiente console.</p></li>
+  <li><p>A versão atual podemos usar AnsiString visto que o limite do mesmo é a memória.</p></li>
+  <li><p>Para usar AnsiString é necessário converter para <a class="normal" href="mi_rtl_ui_Dmxscroller.html#PSItem">PSitem</a> com a função: <strong>StringToSItem</strong>.
+
+<p></p>
+
+<ul class="paragraph_spacing">
+  <li><p><strong>EXEMPLO:</strong>
+
+<p></p>
+
+<pre class="longcode">
+
+<span class="pascal_keyword">function</span> TMI_UI_InputBox.DmxScroller_Form1GetTemplate(aNext: PSItem): PSItem;
+<span class="pascal_keyword">begin</span>
+  <span class="pascal_keyword">with</span> DmxScroller_Form1 <span class="pascal_keyword">do</span>
+  <span class="pascal_keyword">begin</span>
+    <span class="pascal_keyword">if</span> _Template  &lt;&gt; <span class="pascal_string">''</span>
+    <span class="pascal_keyword">then</span> Result := StringToSItem(_Template, <span class="pascal_numeric">80</span>);
+
+<span class="pascal_comment">//    Result := StringToSItem(_Template, 40,TObjectsTypes.TAlinhamento.Alinhamento_Esquerda)</span>
+<span class="pascal_comment">//    Result := StringToSItem(_Template, 40,TObjectsTypes.TAlinhamento.Alinhamento_Central)</span>
+<span class="pascal_comment">//    Result := StringToSItem(_Template, 40,TObjectsTypes.TAlinhamento.Alinhamento_Direita)</span>
+<span class="pascal_comment">//    Result := StringToSItem(_Template, 80,TObjectsTypes.TAlinhamento.Alinhamento_Justificado)</span>
+
+    <span class="pascal_keyword">else</span> result := <span class="pascal_keyword">nil</span>;
+  <span class="pascal_keyword">end</span>;
+<span class="pascal_keyword">end</span>;</pre>
+
+<p></p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="fldBLOb"></span><code><strong>fldBLOb</strong>               = <a href="mi.rtl.Consts.TConsts.html#fldBLOb">TConsts.fldBLOb</a>            ;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+A constante <strong><code>fldBLOb</code></strong> indica que o campo é não formatado podendo ser um Record, porém a edição do mesmo será feito por outros meios.
+
+<p></p>
+
+<ul class="paragraph_spacing">
+  <li><p><strong>NOTA</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Para informar ao buffer do registro que o campo é <strong><code>fldBLOb</code></strong>, a função <strong>CreateBlobField</strong> é necessário.</p></li>
+  <li><p>A <strong>class function <a class="normal" href="mi_rtl_ui_methods.TUiMethods.html#CreateBlobField">TUiMethods.CreateBlobField</a>(Len: integer; AccMode,Default: byte) : DmxIDstr;</strong> reserva espaço para o mesmo.</p></li>
+  <li><p>Pendência: Preciso criar um exemplo de uso deste tipo de informação.</p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="fldBYTE"></span><code><strong>fldBYTE</strong>               = <a href="mi.rtl.Consts.TConsts.html#fldBYTE">TConsts.fldBYTE</a>            ;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+A constante <strong><code>fldBYTE</code></strong> (Const <code>fldBYTE</code> = 'B') usado na máscara do Template, informa ao componente <strong><a class="normal" href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html">TUiDmxScroller</a></strong> que a sequência de caracteres 'B' após o caractere <strong>&quot;\&quot;</strong> representa no buffer do formulário um tipo byte.
+
+<p></p>
+
+<ul class="paragraph_spacing">
+  <li><p><strong>EXEMPLO</strong>
+
+<p></p>
+
+<pre class="longcode">
+
+<span class="pascal_keyword">Const</span>
+   idade := <span class="pascal_string">'\BB'</span> <span class="pascal_comment">//Os dois dígitos estarão em um buffer de 1 byte;</span></pre>
+
+<p></p></li>
+</ul>
+
+<p></p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="fldBoolean"></span><code><strong>fldBoolean</strong>          =   <a href="mi.rtl.Consts.TConsts.html#fldBoolean">TConsts.fldBoolean</a>;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+A constante <strong><code>fldBoolean</code></strong> (<code>fldBoolean</code> = 'X') indica que o campo é do tipo byte e só pode ter dois valores.
+
+<p></p>
+
+<ul class="paragraph_spacing">
+  <li><p><strong>NOTA</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Valores possíveis: </p>
+
+<ul class="paragraph_spacing">
+  <li><p>0 - False; não</p></li>
+  <li><p>1 = True; sim</p></li>
+</ul>
+
+<p></p></li>
+  <li><p>A forma de editá-los deve ser com o componente checkbox.</p></li>
+</ul>
+
+<p></p></li>
+  <li><p><strong>EXEMPLO</strong>
+
+<p></p>
+
+<pre class="longcode">
+
+<span class="pascal_keyword">Resourcestring</span>
+  tmp_Aceita = <span class="pascal_string">'\[X]'</span>+ChFN+<span class="pascal_string">'Aceita_contrato'</span>+CharHint+<span class="pascal_string">'Aceita os termos do contrato?'</span>;
+  Template = tmp_Aceita+<span class="pascal_string">'&tilde;Aceita os termos do contrato&tilde;'</span>;</pre>
+
+<p></p></li>
+</ul>
+
+<p></p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="fldCONTRACTION"></span><code><strong>fldCONTRACTION</strong>        = <a href="mi.rtl.Consts.TConsts.html#fldCONTRACTION">TConsts.fldCONTRACTION</a>     ;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+A constante <strong><code>fldCONTRACTION</code></strong> ...</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="fldData"></span><code><strong>fldData</strong>               = <a href="mi.rtl.Consts.TConsts.html#fldData">TConsts.fldData</a>            ;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+A constante <strong><code>fldData</code></strong> ...</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="FldDateTimeDos"></span><code><strong>FldDateTimeDos</strong>        = <a href="mi.rtl.Consts.TConsts.html#FldDateTimeDos">TConsts.FldDateTimeDos</a>     ;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+A constante <strong><code>FldDateTimeDos</code></strong> ...</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="fldENUM"></span><code><strong>fldENUM</strong>               = <a href="mi.rtl.Consts.TConsts.html#fldENUM">TConsts.fldENUM</a>            ;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+A constante <strong><code>fldENUM</code></strong> (<code>fldENUM</code>=&circ;E) é um campo do tipo byte(0..255) que contém uma lista de string que são selecionadas por um componente tipo ComboBox.
+
+<p></p>
+
+<ul class="paragraph_spacing">
+  <li><p><strong>EXEMPLO</strong>
+
+<p></p>
+
+<pre class="longcode">
+
+  <span class="pascal_keyword">Const</span> tmpMidia : PSitem = <span class="pascal_keyword">nil</span>;
+<span class="pascal_keyword">begin</span>
+  tmpMidia := CreateEnumField(TRUE, accNormal, <span class="pascal_numeric">0</span>,
+                              NewSItem(<span class="pascal_string">' indefinido '</span>,
+                              NewSItem(<span class="pascal_string">' PenDriver  '</span>,
+                              NewSItem(<span class="pascal_string">' SSD        '</span>,
+                              <span class="pascal_keyword">nil</span>))))+CharFieldName+<span class="pascal_string">'Midia;
+
+  Template = NewSItem('</span>&tilde;  Eu uso &tilde;<span class="pascal_string">'+ tmpMidia + '</span>&tilde; em meu computador.&tilde;</pre>
+
+<p></p></li>
+</ul>
+
+<p></p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="CharExecAction"></span><code><strong>CharExecAction</strong>        = <a href="mi.rtl.Consts.TConsts.html#CharExecAction">TConsts.CharExecAction</a>        ;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+A contante <strong><code>CharExecAction</code></strong> é usado para associar ao campo atual uma classe <strong>TAction</strong>.
+
+<p></p>
+
+<ul class="paragraph_spacing">
+  <li><p><strong>NOTA</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>O interpretador de Templates associa a ação do Template ao corrente campo.</p></li>
+</ul>
+
+<p></p></li>
+  <li><p><strong>EXEMPLO DE USO DE AÇÕES NO TEMPLATE</strong> </p>
+
+<ol class="paragraph_spacing">
+  <li value="1"><p>Se o atributo <strong>Fieldnum</strong> do campo for diferente de zero, então o <strong>rótulo</strong> do botão associado a ação será o caracteres 🔍 e a ação pode atualizar o buffer do campo. </p>
+
+<ul class="paragraph_spacing">
+  <li><p>No exemplo a seguir um rótulo e um campo de cliente:
+
+<p></p>
+
+<pre class="longcode">
+
+NewSItem(<span class="pascal_string">'&tilde;Cliente:&tilde;'</span>+<span class="pascal_string">'\LLLLL'</span>+CharExecAction+CreateExecAction(Action_pesquisa)</pre>
+
+<p></p></li>
+</ul>
+
+<p></p></li>
+  <li value="2"><p>Se o atributo <strong>Fieldnum</strong> do campo for igual a zero, então a rótulo do botão será o rótulo do campo. </p>
+
+<ul class="paragraph_spacing">
+  <li><p>No exemplo a seguir um rótulo de novo cliente (icons 🆕) e um botão ok (icons 🆗)
+
+<p></p>
+
+<pre class="longcode">
+
+NewSItem(<span class="pascal_string">'&tilde; 🆕 &amp;Novo cliente:&tilde;'</span>+CharExecAction+CreateExecAction(Action_Novo)+
+         <span class="pascal_string">'&tilde;   &tilde;&tilde; 🆗 &tilde;'</span>+CharExecAction+CreateExecAction(Action_Ok)</pre>
+
+<p></p></li>
+</ul>
+
+<p></p></li>
+</ol>
+
+<p></p></li>
+</ul>
+
+<p></p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="fldExtended"></span><code><strong>fldExtended</strong>           = <a href="mi.rtl.Consts.TConsts.html#fldExtended">TConsts.fldExtended</a>        ;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+A constante <strong><code>fldExtended</code></strong> (<code>fldExtended</code>='E') usado na máscara do Template, informa ao componente <strong><a class="normal" href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html">TUiDmxScroller</a></strong> que a sequência de caracteres 'E' após o caractere <strong>&quot;\&quot;</strong> representa no buffer do formulário um tipo Extended.
+
+<p></p>
+
+<ul class="paragraph_spacing">
+  <li><p><strong>EXEMPLO</strong>
+
+<p></p>
+
+<pre class="longcode">
+
+<span class="pascal_keyword">Const</span>
+   Valor := <span class="pascal_string">'\EEE,EEE,EEE,EEE,EE'</span> <span class="pascal_comment">//Todos os números editados nesta</span>
+                                  <span class="pascal_comment">//mascara, estarão em um buffer de 10 bytes;</span></pre>
+
+<p></p></li>
+</ul>
+
+<p></p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="CharFieldName"></span><code><strong>CharFieldName</strong>          = <a href="mi.rtl.Consts.TConsts.html#CharFieldName">TConsts.CharFieldName</a>       ;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+A constante <strong><code>CharFieldName</code></strong> usada para informar o nome do campo informado antes deste caractere.
+
+<p></p>
+
+<ul class="paragraph_spacing">
+  <li><p><strong>EXEMPLO</strong>
+
+<p></p>
+
+<pre class="longcode">
+
+<span class="pascal_keyword">Const</span>
+  idade := <span class="pascal_string">'\BB'</span>+CharFieldName+<span class="pascal_string">'idade'</span></pre>
+
+<p></p></li>
+</ul>
+
+<p></p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="ChFN"></span><code><strong>ChFN</strong>                 = <a href="mi.rtl.Consts.TConsts.html#ChFN">TConsts.ChFN</a>              ;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+A constante <strong><code>ChFN</code></strong> é igual a <a class="normal" href="mi_rtl_ui_dmxscroller_form.html#CharFieldName">CharFieldName</a>. Foi criada para facilitar seu uso.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="fldHexValue"></span><code><strong>fldHexValue</strong>           = <a href="mi.rtl.Consts.TConsts.html#fldHexValue">TConsts.fldHexValue</a>        ;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+A constante <strong><code>fldHexValue</code></strong> ...</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="fldLData"></span><code><strong>fldLData</strong>              = <a href="mi.rtl.Consts.TConsts.html#fldLData">TConsts.fldLData</a>           ;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+A constante <strong><code>fldLData</code></strong> ...</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="fldLHora"></span><code><strong>fldLHora</strong>              = <a href="mi.rtl.Consts.TConsts.html#fldLHora">TConsts.fldLHora</a>           ;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+A constante <strong><code>fldLHora</code></strong> ...</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="fldLONGINT"></span><code><strong>fldLONGINT</strong>            = <a href="mi.rtl.Consts.TConsts.html#fldLONGINT">TConsts.fldLONGINT</a>         ;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+A constante <strong><code>fldLONGINT</code></strong> ...</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="FldMemo"></span><code><strong>FldMemo</strong>               = <a href="mi.rtl.Consts.TConsts.html#FldMemo">TConsts.FldMemo</a>            ;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+A constante <strong><code>FldMemo</code></strong> ...</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="FldOperador"></span><code><strong>FldOperador</strong>           = <a href="mi.rtl.Consts.TConsts.html#FldOperador">TConsts.FldOperador</a>        ;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+A constante <strong><code>FldOperador</code></strong> ...</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="FldRadioButton"></span><code><strong>FldRadioButton</strong>        = <a href="mi.rtl.Consts.TConsts.html#FldRadioButton">TConsts.FldRadioButton</a>     ;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+A constante <strong><code>FldRadioButton</code></strong> ...</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="fldReal4"></span><code><strong>fldReal4</strong>              = <a href="mi.rtl.Consts.TConsts.html#fldReal4">TConsts.fldReal4</a>           ;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+A constante <strong><code>fldReal4</code></strong> ...</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="fldReal4P"></span><code><strong>fldReal4P</strong>             = <a href="mi.rtl.Consts.TConsts.html#fldReal4P">TConsts.fldReal4P</a>          ;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+A constante <strong><code>fldReal4P</code></strong> ...</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="fldReal4Positivo"></span><code><strong>fldReal4Positivo</strong>      = <a href="mi.rtl.Consts.TConsts.html#fldReal4Positivo">TConsts.fldReal4Positivo</a>   ;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+A constante <strong><code>fldReal4Positivo</code></strong> ...</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="fldReal4PPositivo"></span><code><strong>fldReal4PPositivo</strong>     = <a href="mi.rtl.Consts.TConsts.html#fldReal4PPositivo">TConsts.fldReal4PPositivo</a>  ;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+A constante <strong><code>fldReal4PPositivo</code></strong> ...</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="fldRealNum"></span><code><strong>fldRealNum</strong>            = <a href="mi.rtl.Consts.TConsts.html#fldRealNum">TConsts.fldRealNum</a>         ;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+A constante <strong><code>fldRealNum</code></strong> ...</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="fldRealNum_Positivo"></span><code><strong>fldRealNum_Positivo</strong>   = <a href="mi.rtl.Consts.TConsts.html#fldRealNum_Positivo">TConsts.fldRealNum_Positivo</a>;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+A constante <strong><code>fldRealNum_Positivo</code></strong> ...</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="FldSData"></span><code><strong>FldSData</strong>              = <a href="mi.rtl.Consts.TConsts.html#FldSData">TConsts.FldSData</a>           ;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+A constante <strong><code>FldSData</code></strong> ...</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="FldSDateTimeDos"></span><code><strong>FldSDateTimeDos</strong>       = <a href="mi.rtl.Consts.TConsts.html#FldSDateTimeDos">TConsts.FldSDateTimeDos</a>    ;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+A constante <strong><code>FldSDateTimeDos</code></strong> ...</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="FldSHora"></span><code><strong>FldSHora</strong>              = <a href="mi.rtl.Consts.TConsts.html#FldSHora">TConsts.FldSHora</a>           ;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+A constante <strong><code>FldSHora</code></strong> ...</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="fldSHORTINT"></span><code><strong>fldSHORTINT</strong>           = <a href="mi.rtl.Consts.TConsts.html#fldSHORTINT">TConsts.fldSHORTINT</a>        ;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+A constante <strong><code>fldSHORTINT</code></strong> ...</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="fldSItems"></span><code><strong>fldSItems</strong>             = <a href="mi.rtl.Consts.TConsts.html#fldSItems">TConsts.fldSItems</a>          ;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+A constante <strong><code>fldSItems</code></strong> ...</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="fldSmallInt"></span><code><strong>fldSmallInt</strong>           = <a href="mi.rtl.Consts.TConsts.html#fldSmallInt">TConsts.fldSmallInt</a>        ;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+A constante <strong><code>fldSmallInt</code></strong> ...</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="fldSmallWORD"></span><code><strong>fldSmallWORD</strong>          = <a href="mi.rtl.Consts.TConsts.html#fldSmallWORD">TConsts.fldSmallWORD</a>       ;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+A constante <strong><code>fldSmallWORD</code></strong> ...</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="fldSTR"></span><code><strong>fldSTR</strong>                = <a href="mi.rtl.Consts.TConsts.html#fldStr">TConsts.fldSTR</a>          ;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+A constante <strong><code>fldSTR</code></strong> (Const <code>fldStr</code> = 'S') usado na máscara do Template, informa ao componente <strong><a class="normal" href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html">TUiDmxScroller</a></strong> que a sequência de caracteres 'S' após o caractere <strong>&quot;\&quot;</strong> representa no buffer do formulário um tipo ShortString que só aceita caractere maiúsculo.
+
+<p></p>
+
+<ul class="paragraph_spacing">
+  <li><p><strong>EXEMPLO</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Representação de um string de 10 dígitos em um buffer de 11 bytes onde o byte zero contém o tamanho da string;
+
+<p></p>
+
+<pre class="longcode">
+
+<span class="pascal_keyword">Const</span>
+  Nome := <span class="pascal_string">'\SSSSSSSSSS'</span>  <span class="pascal_comment">//PAULO SÉRG</span></pre>
+
+<p></p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="fldSTR_Minuscula"></span><code><strong>fldSTR_Minuscula</strong>      = <a href="mi.rtl.Consts.TConsts.html#fldSTR_Minuscula">TConsts.fldSTR_Minuscula</a>;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+A constante <strong><code>fldSTR_Minuscula</code></strong> (Const <code>fldSTR_Minuscula</code> = 's') usado na máscara do Template, informa ao componente <strong><a class="normal" href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html">TUiDmxScroller</a></strong> que a sequência de caracteres 's' após o caractere <strong>&quot;\&quot;</strong> representa no buffer do formulário um tipo ShortString que só aceita caractere minúscula.
+
+<p></p>
+
+<ul class="paragraph_spacing">
+  <li><p><strong>EXEMPLO</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Representação de um string de 10 dígitos em um buffer de 11 bytes onde o byte zero contém o tamanho da string;
+
+<p></p>
+
+<pre class="longcode">
+
+<span class="pascal_keyword">Const</span>
+  Nome := <span class="pascal_string">'\ssssssssss'</span> <span class="pascal_comment">//paulo sérg</span>
+  Nome := <span class="pascal_string">'\Ssssssssss'</span> <span class="pascal_comment">//Paulo sérg</span></pre>
+
+<p></p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="fldSTRNUM"></span><code><strong>fldSTRNUM</strong>             = <a href="mi.rtl.Consts.TConsts.html#fldSTRNUM">TConsts.fldSTRNUM</a>       ;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+A constante <strong><code>fldSTRNUM</code></strong> (Const <code>fldSTRNUM</code> = '#') usado na máscara do Template, informa ao componente <strong><a class="normal" href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html">TUiDmxScroller</a></strong> que a sequência de caracteres '#' após o caractere <strong>&quot;\&quot;</strong> representa no buffer do formulário um tipo ShortString que só aceita caractere numérico.
+
+<p></p>
+
+<ul class="paragraph_spacing">
+  <li><p><strong>EXEMPLO</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Representação de um string de 11 dígitos em um buffer de 12 bytes onde o byte zero contém o tamanho da string;
+
+<p></p>
+
+<pre class="longcode">
+
+<span class="pascal_keyword">Const</span>
+  telefone := <span class="pascal_string">'\(##) # ####-####'</span> <span class="pascal_comment">//85 9 9702 4498</span></pre>
+
+<p></p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="CharUpperlimit"></span><code><strong>CharUpperlimit</strong>         = <a href="mi.rtl.Consts.TConsts.html#CharUpperlimit">TConsts.CharUpperlimit</a>      ;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+A constante <strong><code>CharUpperlimit</code></strong> (<code>CharUpperlimit</code>=&circ;U) permite informar um limite superior para campos do tipo byte.
+
+<p></p>
+
+<ul class="paragraph_spacing">
+  <li><p>O gerador de formulário deve usar o conteúdo do campo pDmxFieldRec.Upperlimit para criticar se o valor do campo está na faixa entre 1 e pDmxFieldRec.Upperlimit.</p></li>
+  <li><p>O valor zero significa que o campo está nulo.</p></li>
+  <li><p><strong>EXEMPLO</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Um campo onde o seu conteúdo não ultrapasse um byte, pode ser informado no Template da seguinte forma:
+
+<p></p>
+
+<pre class="longcode">
+
+<span class="pascal_keyword">Const</span>
+  idade := <span class="pascal_string">'\BBB+CharUpperlimit+#130+CharHint+'</span>Não existe humanos com a idade superior a <span class="pascal_numeric">130</span> anos.</pre>
+
+<p></p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="fldZEROMOD"></span><code><strong>fldZEROMOD</strong>            = <a href="mi.rtl.Consts.TConsts.html#fldZEROMOD">TConsts.fldZEROMOD</a>         ;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+A constante <strong><code>fldZEROMOD</code></strong> ...</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="CharShowPassword"></span><code><strong>CharShowPassword</strong>          = <a href="mi.rtl.Consts.TConsts.html#CharShowPassword">TConsts.CharShowPassword</a>       ;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+A constante <strong><code>CharShowPassword</code></strong> informa para controle que os caracteres não devem ser visualizado.
+
+<p></p>
+
+<ul class="paragraph_spacing">
+  <li><p><strong>NOTA</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Usados no campos tipo senha.</p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="CharShowPasswordChar"></span><code><strong>CharShowPasswordChar</strong>      = <a href="mi.rtl.Consts.TConsts.html#CharShowPasswordChar">TConsts.CharShowPasswordChar</a>   ;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+A constante <strong><code>CharShowPasswordChar</code></strong> ...</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="TypeDate"></span><code><strong>TypeDate</strong>              = <a href="mi.rtl.Consts.TConsts.html#TypeDate">TConsts.TypeDate</a>           ;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+A constante <strong><code>TypeDate</code></strong> ...</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="_TypeDate"></span><code><strong>_TypeDate</strong>             = <a href="mi.rtl.Consts.TConsts.html#_TypeDate">TConsts._TypeDate</a>          ;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+A constante <strong><code>_TypeDate</code></strong> ...</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="TypeHora"></span><code><strong>TypeHora</strong>              = <a href="mi.rtl.Consts.TConsts.html#TypeHora">TConsts.TypeHora</a>           ;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+A constante <strong><code>TypeHora</code></strong> ...</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="TypeMemo"></span><code><strong>TypeMemo</strong>              = <a href="mi.rtl.Consts.TConsts.html#TypeMemo">TConsts.TypeMemo</a>           ;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+A constante <strong><code>TypeMemo</code></strong> ...</p>
+</td></tr>
+</table>
+<hr><span class="appinfo"><em>Gerado por <a href="https://pasdoc.github.io/">PasDoc 0.16.0</a>. </em>
+</span>
+</div></div></body></html>

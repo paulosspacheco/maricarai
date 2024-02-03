@@ -2,7 +2,7 @@ unit mi_rtl_ui_types;
 {:< A unit **@name** implementa a classe TUiTypes.
 
   - **VERSÃO**
-    - Alpha - 0.8.0
+    - Alpha - Alpha - 0.9.0
 
   - **CÓDIGO FONTE**:
     - @html(<a href="../units/mi_ui_types.pas">mi_ui_types.pas</a>)
@@ -237,7 +237,7 @@ uses
         {: Usado por TDmxScroller_sql para criar consulta sql no banco de dados
 
            - **REFERÊNCIA**
-             - [Ótimo exemplo de uso das contantes abaixo](https://www.devmedia.com.br/providerflags-no-delphi-atualizando-dados-de-uma-unica-tabela/26689)
+             - [Ótimo exemplo de uso das contantes abaixo](https://www.devmedia.com.br/providerflags-no-Delphi-atualizando-dados-de-uma-unica-tabela/26689)
         }
         type TMiProviderFlag = (pfInUpdate, {:< Usado por SqlDbConnector : As alterações no campo devem ser propagadas para o banco de dados..}
                                 pfInWhere,{:< Usado por SqlDbConnector : O campo deve ser usado na cláusula WHERE de uma instrução de atualização no caso de upWhereChanged.}
@@ -255,7 +255,7 @@ uses
 
         {: O tipo **@name** é usado pelo componente TDataSet para gerar instruções sql de acesso ao banco de dados.
            - **REFERÊNCIA**:
-             - [providerflags atualizando dados de uma única tabela](https://www.devmedia.com.br/providerflags-no-delphi-atualizando-dados-de-uma-unica-tabela/26689)
+             - [providerflags atualizando dados de uma única tabela](https://www.devmedia.com.br/providerflags-no-Delphi-atualizando-dados-de-uma-unica-tabela/26689)
         }
         type TMiProviderFlags = Set of TMiProviderFlag;
 

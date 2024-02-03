@@ -4,7 +4,7 @@ unit uMi_ui_Dmxscroller_form_lcl;
     - Primeiro autor: Paulo Sérgio da Silva Pacheco paulosspacheco@@yahoo.com.br)
 
     - **VERSÃO**
-      - Alpha - 0.8.0
+      - Alpha - 0.9.0
 
     - **CÓDIGO FONTE**:
       - @html(<a href="../units/umi_ui_dmxscroller_form.pas">uMi_rtl_ui_Dmxscroller_form.pas</a>)
@@ -66,10 +66,12 @@ uses
   ,umi_ui_radiogroup_lcl
   ,uMi_ui_Label_lcl
   ,uMi_ui_ScrollBox_lcl
+
+
    ;
 
 //Constantes publicas
-{$include ../mi.rtl/units/mi.rtl.consts.inc}
+{$I inc/mi.rtl.consts.inc}
 
 type
   { Os tipos abaixo foi declarado fora da classe TDmxScroller_Form_Atributos para
@@ -99,6 +101,8 @@ type
 
     {: O Método **@name** cria o formulário LCL baseado na lista de campos PDmxScroller. }
     protected procedure CreateFormLCL(aOwner:TScrollingWinControl);virtual;
+
+    Protected procedure DestroyStruct; Override;
 
     protected   procedure UpdateBuffers_Controls;override;
     public procedure UpdateBuffers;override;
@@ -183,12 +187,7 @@ end;
 constructor TDmxScroller_Form_Lcl.Create(aOwner: TComponent);
 begin
   inherited Create(aOwner);
-//
-//  If MessageDlg('Test','Teste do raise no constuctor.'+^M+
-//              ^M+
-//              'Aborta o componente?'
-//              ,MtConfirmation,mbYesNoCancel,0,mbNo)= MrYes
-//  then raise EFOpenError.Createfmt('teste raise em constructor',[]);
+  AlignmentLabels := taLeftJustify;
 end;
 
 procedure TDmxScroller_Form_Lcl.ShowControlState;
@@ -355,7 +354,8 @@ procedure TDmxScroller_Form_Lcl.CreateFormLCL(aOwner: TScrollingWinControl);
 
    {: A função **@name** insere o controle LCL associado ao campo pDmxFieldRec}
 
-   Procedure Insert(DmxFieldRec : pDmxFieldRec; aAddCol:Boolean);
+
+  Procedure Insert(DmxFieldRec : pDmxFieldRec; aAddCol:Boolean);
 
         Procedure CreateLabel;
         begin
@@ -415,15 +415,15 @@ procedure TDmxScroller_Form_Lcl.CreateFormLCL(aOwner: TScrollingWinControl);
         CurrentFieldActual:= CurrentField;
         control := GetRadioButtonLCL(CurrentField,i);
         CurrentField := CurrentFieldActual;
-        if (control <> nil) and (CurrentField<>nil)
-        then with CurrentField^ do begin
-               writeLn(Format('Fieldnum: %d | FieldName: %s | Width %d | Height %d ' ,[FieldNum,FieldName,Control.Width, Control.Height]));
-             end;
+        //if (control <> nil) and (CurrentField<>nil)
+        //then with CurrentField^ do begin
+        //       writeLn(Format('Fieldnum: %d | FieldName: %s | Width %d | Height %d ' ,[FieldNum,FieldName,Control.Width, Control.Height]));
+        //     end;
       end;
 
    Begin
-     with DmxFieldRec^ do
-       writeLn(Format('Num: %d ;Template: %s ; Template_org %s ; Alias: %s',[Fieldnum,Template^,Template_org,alias]));
+     //with DmxFieldRec^ do
+     //  writeLn(Format('Num: %d ;Template: %s ; Template_org %s ; Alias: %s',[Fieldnum,Template^,Template_org,alias]));
 
      if DmxFieldRec^.FieldSize = 0
      then begin //Create label
@@ -490,7 +490,8 @@ procedure TDmxScroller_Form_Lcl.CreateFormLCL(aOwner: TScrollingWinControl);
                    End;
             end;
             DmxFieldRec^.LinkEdit  := Control;
-            aOwner.InsertControl(Control);
+            aOwner.InsertControl(DmxFieldRec^.LinkEdit as TControl);
+//            aOwner.InsertControl(Control);
             Control.SetBounds(RectNew.A.X,RectNew.A.Y, RectNew.B.X, RectNew.B.Y);
 
             with Control do
@@ -502,8 +503,8 @@ procedure TDmxScroller_Form_Lcl.CreateFormLCL(aOwner: TScrollingWinControl);
             end;
           end;
    End;
-{
-   Procedure WriteDebug;
+
+  {  Procedure WriteDebug;
    begin
      with (aOwner as TScrollBox) do
      begin
@@ -541,7 +542,7 @@ procedure TDmxScroller_Form_Lcl.CreateFormLCL(aOwner: TScrollingWinControl);
 //***Principal para dezenhar o formulário associado a lista pDmxFieldRec.
 begin
   if DMXFields = nil
-  then raise TException.Create(ParametroInvalido);
+  then exit;//raise TException.Create('O atributo DMXFields não inicializado!');
 
   If aOwner is TForm
   then (aOwner as TForm).AutoScroll :=false
@@ -594,14 +595,20 @@ begin
   end;
 
   If aOwner is TForm
-  then with  (aOwner as TForm) do begin AutoScroll := true end
+  then with  (aOwner as TForm) do
+       begin
+         AutoScroll := true
+       end
   else if aOwner is TScrollBox
-       then with  aOwner as TScrollBox do begin AutoScroll :=true;end;
+       then with  aOwner as TScrollBox do
+            begin
+              AutoScroll :=true;
+            end;
 
   {Briguei muito para fazer funcionar autoscroll quando em tempo de designer ele é setado
    como true e os controle são inseridos em tempo de execução. Não obedece.
 
-   - Obrigatóriamente ele precisa ser false em tempo de designer.
+   - obrigatoriamente ele precisa ser false em tempo de designer.
   }
   // Código usado para testar tScrollbox.
   // A propriedade AutoScroll :=true calcula os parâmetros, por isso não adianta informar aqui;
@@ -628,6 +635,53 @@ begin
      end;
    }
 end;
+
+procedure TDmxScroller_Form_Lcl.DestroyStruct;
+
+  var i : Integer;
+  var  P : pDmxFieldRec;
+begin
+  SetState(MB_Destroying,true);
+  for i := 0 to DMXFields.Count-1 do
+  begin
+    CurrentField := DMXFields[i];
+    while Assigned(CurrentField) do
+    begin
+
+      if Assigned(CurrentField.LinkEdit)
+      then begin
+             //if (csDesigning in CurrentField.LinkEdit.ComponentState)
+             //then begin
+             //       Dialogs.ShowMessage(CurrentField.LinkEdit.name);
+             //     end;
+
+                 if not (csDestroying in CurrentField^.LinkEdit.ComponentState)
+                 then begin
+                        if Assigned(CurrentField^.LinkEdit.Owner)
+                        then CurrentField^.LinkEdit.Owner.RemoveComponent(CurrentField^.LinkEdit);
+
+                        if Assigned(ParentLCL) and Assigned(CurrentField^.LinkEdit)
+                        then ParentLCL.RemoveComponent(CurrentField^.LinkEdit);
+
+                        CurrentField^.LinkEdit.Free;
+                        CurrentField^.LinkEdit := nil;
+                        //freeAndNil(CurrentField^.LinkEdit);
+                      end
+                else begin
+                       if (csDestroying in CurrentField^.LinkEdit.ComponentState)
+                       Then CurrentField^.LinkEdit := nil;
+                     end;
+
+          end;
+      if CurrentField <> nil
+      Then CurrentField := CurrentField^.Next;
+    end;
+
+   end;
+   inherited DestroyStruct;
+   SetState(MB_Destroying,false);
+end;
+
 
 procedure TDmxScroller_Form_Lcl.UpdateBuffers_Controls;
 begin

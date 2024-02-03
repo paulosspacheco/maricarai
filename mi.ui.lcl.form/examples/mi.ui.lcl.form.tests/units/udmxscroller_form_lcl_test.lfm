@@ -14,6 +14,7 @@ object DmxScroller_Form_Lcl_test: TDmxScroller_Form_Lcl_test
   OnClose = FormClose
   OnCreate = FormCreate
   Position = poDesktopCenter
+  LCLVersion = '3.1.0.0'
   object Panel1: TPanel
     Left = 0
     Height = 32
@@ -32,9 +33,9 @@ object DmxScroller_Form_Lcl_test: TDmxScroller_Form_Lcl_test
       Caption = '&form_ds_Test'
       Font.Height = -13
       Font.Name = 'DejaVu Sans Mono'
-      OnClick = form_ds_TestClick
       ParentFont = False
       TabOrder = 0
+      OnClick = form_ds_TestClick
     end
     object InputBox: TButton
       Left = 96
@@ -42,8 +43,8 @@ object DmxScroller_Form_Lcl_test: TDmxScroller_Form_Lcl_test
       Top = 2
       Width = 88
       Caption = 'InputBox'
-      OnClick = InputBoxClick
       TabOrder = 1
+      OnClick = InputBoxClick
     end
     object Button_ModifyFontsAll_LCL: TButton
       Left = 184
@@ -51,8 +52,8 @@ object DmxScroller_Form_Lcl_test: TDmxScroller_Form_Lcl_test
       Top = -1
       Width = 136
       Caption = 'ModifyFontsAll_LCL'
-      OnClick = Button_ModifyFontsAll_LCLClick
       TabOrder = 2
+      OnClick = Button_ModifyFontsAll_LCLClick
     end
     object AddTemplate: TButton
       Left = 320
@@ -60,8 +61,8 @@ object DmxScroller_Form_Lcl_test: TDmxScroller_Form_Lcl_test
       Top = 3
       Width = 104
       Caption = 'AddTemplate'
-      OnClick = AddTemplateClick
       TabOrder = 3
+      OnClick = AddTemplateClick
     end
     object GetTemplate: TButton
       Left = 424
@@ -69,8 +70,8 @@ object DmxScroller_Form_Lcl_test: TDmxScroller_Form_Lcl_test
       Top = 2
       Width = 105
       Caption = 'GetTemplate'
-      OnClick = GetTemplateClick
       TabOrder = 4
+      OnClick = GetTemplateClick
     end
     object Button1: TButton
       Left = 528
@@ -100,7 +101,7 @@ object DmxScroller_Form_Lcl_test: TDmxScroller_Form_Lcl_test
     Width = 790
     Align = alClient
     Caption = 'GroupBox1'
-    ClientHeight = 201
+    ClientHeight = 200
     ClientWidth = 788
     TabOrder = 1
     object Mi_ScrollBox_LCL1: TMi_ScrollBox_LCL
@@ -131,8 +132,8 @@ object DmxScroller_Form_Lcl_test: TDmxScroller_Form_Lcl_test
     Active = False
     AlignmentLabels = taLeftJustify
     ActionList = ActionList1
-    Left = 488
-    Top = 72
+    Left = 384
+    Top = 64
   end
   object ActionList1: TActionList
     Left = 664

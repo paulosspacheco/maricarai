@@ -1,0 +1,15 @@
+object form_main: Tform_main
+  Left = 374
+  Height = 240
+  Top = 250
+  Width = 320
+  Caption = 'form_main'
+  Menu = MainMenu1
+  object MainMenu1: TMainMenu
+    Left = 208
+    Top = 56
+    object MenuItem1: TMenuItem
+      Caption = 'MenuItem1'
+    end
+  end
+end

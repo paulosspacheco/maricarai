@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<title>u_criate_index_stork</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="generator" content="PasDoc 0.16.0">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<link rel="stylesheet" type="text/css" href="tipuesearch/tipuesearch.css">
+
+<link rel="StyleSheet" type="text/css" href="pasdoc.css">
+</head>
+<body>
+<div class="container"><div class="navigation">
+<ul><li><a href="AllUnits.html">Units</a></li><li><a href="ClassHierarchy.html">Hierarquia de Classes</a></li><li><a href="AllClasses.html">Classes, Interfaces, Objetos e Registros</a></li><li><a href="AllTypes.html">Tipos</a></li><li><a href="AllVariables.html">Variáveis</a></li><li><a href="AllConstants.html">Constantes</a></li><li><a href="AllFunctions.html">Funções e Procedimentos</a></li><li><a href="AllIdentifiers.html">Identificadores</a></li><li><form class="search-form" action="tipue_results.html"><div class="search-input"><input type="text" name="q" id="tipue_search_input" pattern=".{3,}" title="At least 3 characters" required><div class="search-button"><input type="button" id="tipue_search_button" onclick="this.form.submit();"></div></div></form>
+<div style="clear: both"></div>
+</li></ul></div><div class="content">
+<h1 class="unit">Unit u_criate_index_stork</h1>
+<div class="sections">
+<div class="one_section"><a class="section" href="#PasDoc-Description">Descrição</a></div><div class="one_section"><a class="section" href="#PasDoc-Uses">Uses</a></div><div class="one_section"><a class="section" href="#PasDoc-Classes">Classes, Interfaces, Objetos e Registros</a></div><div class="one_section"><a class="section" href="#PasDoc-FuncsProcs">Funções e Procedimentos</a></div><div class="one_section">Tipos</div><div class="one_section">Constantes</div><div class="one_section">Variáveis</div></div>
+<span id="PasDoc-Description"></span><h2 class="description">Descrição</h2>
+<p>
+O programa <strong><code>u_criate_index_stork</code></strong> cria o arquivo .
+
+<p></p>
+
+<ul class="paragraph_spacing">
+  <li><p><strong>VERSÃO</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Alpha - Alpha - 0.1.0</p></li>
+</ul>
+
+<p></p></li>
+  <li><p><strong>CÓDIGO FONTE</strong>: </p>
+
+<ul class="paragraph_spacing">
+  <li><p><a href="../units/u_criate_index_stork.pas">u_criate_index_stork.pas</a></p></li>
+</ul>
+
+<p></p></li>
+  <li><p><strong>OBJETIVO</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Esta unit tem como missão criar o arquivo <strong>index_stork.torm</strong> para ser usado como parâmetro do programa <strong>rust stork</strong> executado na raiz do site a ser criado o arquivo <strong>list_stork.st</strong>.</p></li>
+  <li><p>O programa de linha de comando <strong>stork</strong>, receberá o arquivo de configuração <strong>.index_stork.toml</strong> e criará o arquivo de índice <strong>list_stork.st</strong> para ser uado como índice do programa <strong>stornk.js</strong>. O arquivo é blob serializado e compactado que a biblioteca Stork Javascript utiliza. Geralmente tem a extensão de arquivo de nome <strong>.st</strong> e tem aproximadamente o tamanho de um <strong>JPEG</strong>.</p></li>
+  <li><p>Para criar um índice de pesquisa, o projeto Stork requer que se crie um arquivo de configuração que declare quais documentos devem ser indexados. Este arquivo de configuração deve ter o formato de arquivo <strong>TOML</strong>. </p>
+
+<ul class="paragraph_spacing">
+  <li><p><strong>EXEMPLO</strong>:
+
+<p></p>
+
+<pre class="longcode">
+
+[input]
+   base_directory = &quot;&quot;
+   url_prefix = &quot;&quot;
+   files = [
+  ]</pre>
+
+<p></p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p></li>
+  <li><p><strong>NOTAS</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Este unit espera o arquivo que o arquivo './templates/stork/index_stork.toml' existe e tenha a tag <strong>files_path</strong></p></li>
+</ul>
+
+<p></p></li>
+  <li><p><strong>HISTÓRICO</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Criado por: Paulo Pacheco paulosspacheco@yahoo.com.br)</p></li>
+  <li><p><strong>2023-09-12 </p>
+
+<ul class="paragraph_spacing">
+  <li><p>14:00 as 17:00 </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Criar unit</p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></strong><code>u_criate_index_stork</code></p>
+
+<ul class="paragraph_spacing">
+  <li><p>Criar unit <strong><code>u_criate_index_stork</code></strong>; ✅</p></li>
+  <li><p>Craar classe <a class="normal" href="u_criate_index_stork.TIndex_stork.html">TIndex_stork</a>;</p></li>
+  <li><p>Criar function <a class="normal" href="u_criate_index_stork.html#CrateIndexStork">CrateIndexStork</a>:Integer;</p></li>
+</ul>
+
+<p></p></li>
+  <li><p><strong>2023-09-14 </p>
+
+<ul class="paragraph_spacing">
+  <li><p>08:32 as 11:50 </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Criar métodos </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Create;</p></li>
+  <li><p>Destroy;</p></li>
+  <li><p>toml_Undefined;</p></li>
+  <li><p><a class="normal" href="u_criate_index_stork.html#CrateIndexStork">CrateIndexStork</a> -</p></li>
+</ul>
+
+<p></p></li>
+  <li><p>Documentar unit</p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></strong><code>u_criate_index_stork</code></p>
+
+<ul class="paragraph_spacing">
+  <li><p>Documentar unit <strong><code>u_criate_index_stork</code></strong>; -</p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p>
+<span id="PasDoc-Uses"></span><h2 class="uses">Uses</h2>
+<ul class="useslist"><li>Classes</li><li>SysUtils</li><li><a href="mi.rtl.objects.methods.pageproducer.html">mi.rtl.Objects.Methods.pageproducer</a></li></ul><h2 class="overview">Visão Geral</h2>
+<span id="PasDoc-Classes"></span><h3 class="cio">Classes, Interfaces, Objetos e Registros</h3>
+<table class="classestable wide_list">
+<tr class="listheader">
+<th class="itemname">Nome</th>
+<th class="itemdesc">Descrição</th>
+</tr>
+<tr class="list">
+<td class="itemname">Classe&nbsp;<a class="bold" href="u_criate_index_stork.TIndex_stork.html"><code>TIndex_stork</code></a></td>
+<td class="itemdesc">&nbsp;</td>
+</tr>
+</table>
+<span id="PasDoc-FuncsProcs"></span><h3 class="summary">Funções e Procedimentos</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="itemcode"><code>Function <strong><a href="u_criate_index_stork.html#CrateIndexStork">CrateIndexStork</a></strong>:Integer;</code></td>
+</tr>
+</table>
+<h2 class="description">Descrição</h2>
+<h3 class="detail">Funções e Procedimentos</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="CrateIndexStork"></span><code>Function <strong>CrateIndexStork</strong>:Integer;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<hr><span class="appinfo"><em>Gerado por <a href="https://pasdoc.github.io/">PasDoc 0.16.0</a>. </em>
+</span>
+</div></div></body></html>

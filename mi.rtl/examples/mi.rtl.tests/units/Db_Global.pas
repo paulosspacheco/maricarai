@@ -1092,7 +1092,7 @@ TYPE
   End;
 
   TipoProc   = Procedure;
-  TShow_HTML = Function(aURL:AnsiString):system.integer; //<  Retorna 0 se tiver sucesso ou o codigo do erro se for fracasso
+  TShow_HTML = Function(aURL:AnsiString):system.integer; //<  Retorna 0 se tiver sucesso ou o código do erro se for fracasso
 
 var
   EndProcShiftF9 : TipoProc = Nil ; {<Usado em Vi_Grid_Table e Vi_Forms_Table}
@@ -2012,7 +2012,7 @@ Type
 {Funcoes gerais}
 
 Function StrHex( W :  SmallWord;
-                 Str_Indicador:tString {<Caractere que indica codigo hexadecial. % para HTML e $ para pascal}
+                 Str_Indicador:tString {<Caractere que indica código hexadecial. % para HTML e $ para pascal}
                ) : tString;Overload;
 Function StrHex( w :   SmallWord) : tString;Overload;
 Function FPrimeiroHandleLivre : SmallInt;
@@ -2152,7 +2152,7 @@ Function Set_Ok_Modo_relario_de_erros(wOk_Modo_relario_de_erros: Boolean) : Bool
 
 Function Nome_da_Moeda(wMoeda:TEnumerado_Moeda):tString;
 
-Function FShow_HTML(aURL:AnsiString):system.integer; //<  Retorna 0 se tiver sucesso ou o codigo do erro se for fracasso
+Function FShow_HTML(aURL:AnsiString):system.integer; //<  Retorna 0 se tiver sucesso ou o código do erro se for fracasso
 
 
 Function AnsiString_to_TCollectionString(Msg: AnsiString): TCollectionString;
@@ -2173,7 +2173,7 @@ function EnableBit(const Value: DWord; const Bit: Byte; const TurnOn: Boolean): 
 
 Function CriaDiretorio(NomeDiretorio:PathStr): Boolean;
 function ExisteDiretorio(Path :PathStr) : Boolean;
-Function GetDirTemp(Const env:tString;Var path:PathStr):SmallInt;{Retorna o codigo do error se houver}
+Function GetDirTemp(Const env:tString;Var path:PathStr):SmallInt;{Retorna o código do error se houver}
 Function Alias_To_FileName(AFilename  : AnsiString):AnsiString;
 Function Alias_To_Name(AAlias  : AnsiString):AnsiString;
 
@@ -2407,7 +2407,7 @@ Begin
 
 End;
 
-Function GetDirTemp(Const env:tString;Var path:PathStr):SmallInt;{Retorna o codigo do error se houver}
+Function GetDirTemp(Const env:tString;Var path:PathStr):SmallInt;{Retorna o código do error se houver}
    var Dir: DirStr; var Name: NameStr; var Ext: ExtStr;
 Begin
   taStatus := 0;
@@ -2498,7 +2498,7 @@ Begin
 end;
 
 Function FShow_HTML(aURL:AnsiString):system.integer;
-//<  Retorna 0 se tiver sucesso ou o codigo do erro se for fracasso
+//<  Retorna 0 se tiver sucesso ou o código do erro se for fracasso
 Begin
 //  HLinkNavigateString(aURL);
 //  SysShellExecute(Const lpOperation,FileName, Params, DefaultDir: AnsiString;ShowCmd: Integer): THandle;Overload;
@@ -3836,7 +3836,7 @@ End;*)
 
 
 Function Strhex( w:   SmallWord;
-                 Str_Indicador:tString {<Caractere que indica codigo hexadecial. % para HTML e $ para pascal}
+                 Str_Indicador:tString {<Caractere que indica código hexadecial. % para HTML e $ para pascal}
                ) : tString;Overload;
 
   const
@@ -4878,7 +4878,7 @@ end;
       n_brancos_iniciais := 0;
 
 
-      //Troca o  espaco pelo codigo html do espaco.
+      //Troca o  espaco pelo código html do espaco.
       while (LENGTH(S) > 0) AND (S[1] = ' ')  do
       begin
         system.delete(S,1,1);
@@ -4889,7 +4889,7 @@ end;
       For j := 1 to n_brancos_iniciais do
         S := '&nbsp;' + S;
 
-      //Troca o  espaco pelo codigo html do espaco.
+      //Troca o  espaco pelo código html do espaco.
   {   Desativei por que desta forma o texto não aceita código HTML
        PosSpace := Pos(' ', S);
       while PosSpace <> 0  do
@@ -5160,7 +5160,7 @@ Function TCollectionString.GetMaiorString(Const aConjDespreze:AnsiCharSet;aIgnor
       Then Begin
              S := '';
              {
-               esta faltando o codigo??????????????????? fazer depois
+               esta faltando o código??????????????????? fazer depois
              }
 
              J := 1;

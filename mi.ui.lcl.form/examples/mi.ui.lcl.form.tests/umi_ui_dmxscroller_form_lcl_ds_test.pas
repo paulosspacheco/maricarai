@@ -3,7 +3,7 @@ unit uMi_ui_DmxScroller_Form_Lcl_ds_test;
    componente TDmxScroller_Form_Lcl_DS.
 
    - **VERSÃO**
-     - Alpha - 0.8.0
+     - Alpha - 0.9.0
 
    - **CÓDIGO FONTE**:
      - @html(<a href="../units/uMi_ui_DmxScroller_Form_Lcl_ds_test.pas">uMi_ui_DmxScroller_Form_Lcl_ds_test.pas</a>)

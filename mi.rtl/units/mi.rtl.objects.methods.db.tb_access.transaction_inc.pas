@@ -24,7 +24,7 @@
 
   CORREÇÕES
     11/01/02
-      1 - Apareceu um problema nos indexs dos arquivos na versao delphi. Verificar o que esta acontecendo.
+      1 - Apareceu um problema nos indexs dos arquivos na versao Delphi. Verificar o que esta acontecendo.
 
 
   MELHORIAS
@@ -1001,7 +1001,7 @@ CONST
                                aTempoDeTentativas := TempoDeTentativas ;
                                ClockBegin         := GetDosTicks;
 
-    //                           AProgress1Passo := OpenProgress1Passo('Aguarde: Conectando...','Rollback. Codigo: '+Int2Str(TaStatus),TempoDeTentativas);
+    //                           AProgress1Passo := OpenProgress1Passo('Aguarde: Conectando...','Rollback. código: '+Int2Str(TaStatus),TempoDeTentativas);
 
                                WHILE (TaStatus <> 0 ) and (GetDosTicks - ClockBegin <= Seg_to_MillSeg(TempoDeTentativas)) DO
                                BEGIN

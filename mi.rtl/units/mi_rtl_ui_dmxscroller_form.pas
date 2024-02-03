@@ -4,7 +4,7 @@ unit mi_rtl_ui_dmxscroller_form;
     - Primeiro autor: Paulo Sérgio da Silva Pacheco paulosspacheco@@yahoo.com.br)
 
     - **VERSÃO**
-      - Alpha - 0.8.0
+      - Alpha - Alpha - 0.9.0
 
     - **CÓDIGO FONTE**:
       - @html(<a href="../units/umi_ui_dmxscroller_form.pas">uMi_rtl_ui_Dmxscroller_form.pas</a>)
@@ -54,6 +54,7 @@ uses
 //  ,types
   ,mi.rtl.Consts
   ,mi_rtl_ui_Dmxscroller
+//  ,mi.rtl.ui.dmxscroller.inputbox
 //  ,mi_rtl_ui_DmxScroller_Buttons
 //  ,mi_rtl_ui_Dmxscroller_sql
 
@@ -273,17 +274,6 @@ begin
   If (Items = nil)
   then Exit;
 
-  //p := Items;
-  //i := 0;
-  //while p<>nil do
-  //begin
-  //  if p^.Value <> nil
-  //  then writeln(Format('Item %d = %s',[i,P^.Value^]));
-  //  p := p.next;
-  //  inc(i);
-  //end;
-
-
   FirstDataRow := -1;
   AllZ := (Items.Value <> nil) and
           (Items.Value^[1] = CharAllZeroes);
@@ -334,7 +324,7 @@ begin
     If (Lim < Limit.X)
     then Lim := Limit.X;
 
-    //DMXFields^[i] := DMXField1;
+
     DMXFields.Add(DMXField1);
     Inc(i);
     Items := Items.Next;
@@ -349,7 +339,6 @@ begin
   If (FirstDataRow >= 0)
   then CurrentRecord := FirstDataRow;
 
-  //DMXField1 := DMXFields^[CurrentRecord];
   DMXField1 := DMXFields[CurrentRecord];
 
   PrevRec := -1;
@@ -371,11 +360,13 @@ begin
     DMXField1 := DMXFields[pred(i)];
     If (DMXField1 <> nil)
     then Inherited DestroyStruct;
+
     Dec(i);
   end;
-  freeAndNil(DMXFields);
-  FreeAndNil(FldRadioButtonsAdicionados);
+
   DestroyData;
+  FreeAndNil(FldRadioButtonsAdicionados);
+  freeAndNil(DMXFields);
 end;
 
 
@@ -478,10 +469,11 @@ begin
               End;
        end;
 
-  //Criar um formulário da aplicação tipo LCL
+  //Criar um formulário da aplicação tipo LCL, web, celular etc...
   if (not Active) and aActive
   Then SetActiveTarget(aActive);
 end;
+
 
 
 end.

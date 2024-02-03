@@ -75,7 +75,10 @@ implementation
   Procedure Setapplication(aApplication : TApplication);
   begin
     if _ok_destroy_Application
-    then freeAndNil(_Application);
+    then begin
+           freeAndNil(_Application);
+           _ok_destroy_Application := false;
+         end;
 
     _Application := aApplication;
   end;

@@ -22,7 +22,7 @@ Type
                     Procedure ListaTabelas;
                     procedure Insert(Item: Pointer); Override;
                     procedure FreeItem(Item: Pointer); Override;
-                    Function FOkCodigo (NomeIxF:PathStr;Const Codigo:tString):Boolean;
+                    Function FOkCodigo (NomeIxF:PathStr;Const código:tString):Boolean;
                     Procedure FlushIndexs;
                     Procedure FlushAllFiles;
                     Function StrDatFRecsLocks(Const DatF:dataFile):tString;
@@ -176,7 +176,7 @@ Begin
   End;
 End;
 
-Function TFilesOpens.FOkCodigo (NomeIxF:PathStr;Const Codigo:tString):Boolean;
+Function TFilesOpens.FOkCodigo (NomeIxF:PathStr;Const codigo:tString):Boolean;
 Var I        : SmallInt;
 {    FileName : PAnsiChar;}
     WOk : Boolean;
@@ -192,7 +192,7 @@ Begin
        (FMaiuscula(TTb_Access.IndexFile(PItemList(Items)^[i]^).DataF.F.FileName) = NomeIxF )
     Then
     Begin
-      FOkCodigo := TTb_Access.FExisteCodigo(TTb_Access.IndexFile(PItemList(Items)^[i]^),Codigo);
+      FOkCodigo := TTb_Access.FExisteCodigo(TTb_Access.IndexFile(PItemList(Items)^[i]^),codigo);
       Ok := Wok;
 
       Exit;

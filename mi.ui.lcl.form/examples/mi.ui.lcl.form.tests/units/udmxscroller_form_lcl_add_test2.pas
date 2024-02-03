@@ -84,7 +84,7 @@ procedure TDmxScroller_Form_Lcl_add_test2.FormCreate(Sender: TObject);
 begin
   DmxScroller_Form_Lcl1.ParentLCL := Mi_ScrollBox_LCL1;
   DmxScroller_Form_Lcl1.Active:= true;
-  writeLn(Mi_ScrollBox_LCL1.WidthChar);
+//  writeLn(Mi_ScrollBox_LCL1.WidthChar);
 end;
 
 end.

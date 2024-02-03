@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <title>Teste do componente TPageProducer</title>
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <!-- CSS markdown  -->
+        <link type="text/css" href="/css/defaultthemeMarkdown.css"  rel="stylesheet"/>
+            
+        <!-- CSS da página /index.html -->
+        <link type="text/css" href="/css/defaulttheme.css" rel="stylesheet"/>
+
+        <style>
+
+          thead {
+             display: block;
+             background-color: #bfc2c4;         
+             border: 1px solid #333;
+             padding: 3px;
+             border-radius: 5px;
+    
+          }
+    
+          tbody {
+             display: block;
+             background-color: #eaedef;
+             border: 1px solid #333;
+             overflow-y: scroll;
+             overflow-x: hidden;
+             height: 100px;
+             padding: 3px;
+             /*color:blue;*/
+             border-radius: 5px;
+    
+          }
+    
+          tfoot {
+             display: block;         
+             background-color: #bfc2c4;         
+             border: 1px solid #333;
+             padding: 3px;
+             border-radius: 5px;
+       
+          }
+    
+          table {
+             font-family: "Times New Roman", Times, serif;   
+             table-layout: fixed;
+             border-collapse: collapse;
+             /*width: 0%;*/
+             /*margin-bottom : .5em;*/
+             /*table-layout: fixed;*/
+             text-align: center;      
+          }
+    
+          th, td {
+             border: solid 1px;
+             padding: 0
+          }
+ 
+          table th {
+             background-color: #bfc2c4;
+          }
+          
+          Table tr:nth-child(even){background-color: #f2f2f2;}   
+          Table tr:hover {background-color: #ddd;}
+          
+       </style>
+    
+       <style>
+       
+          #miTable1 {
+             font-family: "Times New Roman", Times, serif;
+             border-collapse: collapse;
+             /* width: 100%; */
+          }
+    
+          #miTable1 td, #miTable1 th {
+             border: 1px solid #ddd;
+             padding:3px;
+          }
+          #miTable1 th {
+             background-color: #bfc2c4;
+          }
+          
+    
+          #miTable1 tr:nth-child(even){background-color: #f2f2f2;} 
+          #miTable1 tr:hover {background-color: #ddd;}
+    
+          #miTable1 th {
+             padding-top: 3px;
+             padding-bottom: 3px;
+             text-align: left;         
+             background-color: #bfc2c4;                        
+             text-align: right;
+          }
+    
+       </style>
+    
+       <link type="text/css" href="./css/Alunos.css"  rel="stylesheet"/>
+       <link type="text/css" href="./css/Alunos2.css"  rel="stylesheet"/>
+       <link type="text/css" href="./css/Professores.css" rel="stylesheet" />        
+ 
+    </head>
+
+<bodY>
+
+  <h2>Image Maps</h2>
+  <p>Clique no computador, no telefone ou na xícara de café para ir para uma nova página e ler mais sobre o tema:</p>
+
+  <img src="./img/brasao.png" alt="Workplace" usemap="#workmap" width="400" height="379">
+
+  <map name="workmap">
+    <area shape="rect" coords="34,44,270,350" alt="Computer" href="computer.htm">
+    <area shape="rect" coords="290,172,333,250" alt="Phone" href="phone.htm">
+    <area shape="circle" coords="337,300,44" alt="Cup of coffee" href="coffee.htm">
+  </map>
+
+ </body>
+
+</html>

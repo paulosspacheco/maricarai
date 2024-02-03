@@ -1,0 +1,288 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CONFIG>
+  <Package Version="5">
+    <Name Value="mi.rtl"/>
+    <Type Value="RunAndDesignTime"/>
+    <Author Value="PauloSSPacheco@yahoo.com; "/>
+    <CompilerOptions>
+      <Version Value="11"/>
+      <SearchPaths>
+        <IncludeFiles Value="$(ProjOutDir);units/include/linux;units/include/windows;units;units/fcl-base/src"/>
+        <Libraries Value="lib/$(TargetCPU)-$(TargetOS)/lib"/>
+        <OtherUnitFiles Value="units;units/fcl-base/src"/>
+        <UnitOutputDirectory Value="lib/$(TargetCPU)-$(TargetOS)/units"/>
+      </SearchPaths>
+      <Parsing>
+        <SyntaxOptions>
+          <SyntaxMode Value="Delphi"/>
+        </SyntaxOptions>
+      </Parsing>
+      <Other>
+        <CreateMakefileOnBuild Value="True"/>
+      </Other>
+    </CompilerOptions>
+    <Description Value="# Pacote mi.rtl
+## Objetivo do pacote _mi.rtl_
+- Encapsular as units do FreePascal convergindo tudo para TObjectss com propósito de evitar declaração de units secundárias bem como manter uma compatibilidade com o passado.
+
+## Como funciona o número da versão do pacote
+- O número da versão é composta de 4 números sendo xx.yy.zz.ww
+  - xx : Versão PRINCIPAL do projeto e só deve mudar nas seguintes situações:
+    - Quando troca de estado de Alpha para Beta e Final e caso no furo se faça algo que torne o passado incompatível;
+  - yy : Muda a cada vez que é criado algo novo no projeto;
+  - zz : Muda a cada correção de bugs ou otimização.
+  - ww : Número de vezes que o pacote foi construido do zero.
+"/>
+    <License Value="Copyright (c) &lt;2023> &lt;PauloSSPacheco@gmail.com>
+
+A permissão é concedida, gratuitamente, a qualquer pessoa que obtenha uma cópia  deste software e arquivos de documentação associados (o &quot;Software&quot;), para   negociar no Software sem restrições, incluindo, sem limitação, o   direitos de usar, copiar, modificar, mesclar, publicar, distribuir, sublicenciar e/ou vender cópias do Software e permitir que as pessoas a quem o Software é  munidos para o efeito, nas seguintes condições:
+
+   O aviso de direitos autorais acima e este aviso de permissão devem ser incluídos em todas as cópias ou partes substanciais do Software.
+
+   O SOFTWARE É FORNECIDO &quot;COMO ESTÁ&quot;, SEM GARANTIA DE QUALQUER TIPO, EXPRESSA OU IMPLÍCITAS, INCLUINDO, SEM
+   LIMITAÇÃO,  AS GARANTIAS DE COMERCIALIZAÇÃO,  ADEQUAÇÃO PARA UM FIM ESPECÍFICO E NÃO VIOLAÇÃO. 
+   EM NENHUM CASO O  OS AUTORES OU DETENTORES DOS DIREITOS AUTORAIS SERÃO RESPONSÁVEIS POR QUALQUE
+   REIVINDICAÇÃO,  DANOS OU OUTROS  RESPONSABILIDADE, SEJA EM UMA AÇÃO DE CONTRATO, ILÍCITO OU DE OUTRA FORMA,
+   DECORRENTE  DE,  FORA DE OU EM CONEXÃO COM O SOFTWARE OU O USO OU OUTROS NEGÓCIOS  NO SOFTWARE.   "/>
+    <Version Minor="9" Build="621"/>
+    <Files>
+      <Item>
+        <Filename Value="histórico.pas"/>
+        <Type Value="Include"/>
+      </Item>
+      <Item>
+        <Filename Value="tarefas_a_fazer.pas"/>
+        <Type Value="Include"/>
+      </Item>
+      <Item>
+        <Filename Value="mi.rtl.pas"/>
+        <UnitName Value="mi.rtl"/>
+      </Item>
+      <Item>
+        <Filename Value="units/fcl-base/src/fptemplate.md"/>
+        <Type Value="Text"/>
+      </Item>
+      <Item>
+        <Filename Value="units/fcl-base/src/fptemplate.pp"/>
+        <UnitName Value="fpTemplate"/>
+      </Item>
+      <Item>
+        <Filename Value="units/mi.rtl.mistringlist.pas"/>
+        <UnitName Value="mi.rtl.miStringlist"/>
+      </Item>
+      <Item>
+        <Filename Value="units/mi.rtl.mistringlistbase.pas"/>
+        <UnitName Value="mi.rtl.MiStringlistbase"/>
+      </Item>
+      <Item>
+        <Filename Value="units/mi.rtl.libbinres.pas"/>
+        <UnitName Value="mi.rtl.libBinRes"/>
+      </Item>
+      <Item>
+        <Filename Value="units/mi.rtl.applicationabstract.pas"/>
+        <UnitName Value="mi.rtl.ApplicationAbstract"/>
+      </Item>
+      <Item>
+        <Filename Value="units/mi.rtl.class_of_char.pas"/>
+        <UnitName Value="mi.rtl.Class_Of_Char"/>
+      </Item>
+      <Item>
+        <Filename Value="units/mi.rtl.types.pas"/>
+        <UnitName Value="mi.rtl.Types"/>
+      </Item>
+      <Item>
+        <Filename Value="units/mi.rtl.consts.pas"/>
+        <UnitName Value="mi.rtl.Consts"/>
+      </Item>
+      <Item>
+        <Filename Value="units/mi.rtl.files.pas"/>
+        <UnitName Value="mi.rtl.files"/>
+      </Item>
+      <Item>
+        <Filename Value="units/mi.rtl.consts.strerror.pas"/>
+        <UnitName Value="mi.rtl.Consts.StrError"/>
+      </Item>
+      <Item>
+        <Filename Value="units/mi.rtl.objects.types.pas"/>
+        <UnitName Value="mi.rtl.objects.types"/>
+      </Item>
+      <Item>
+        <Filename Value="units/mi.rtl.objects.consts.pas"/>
+        <UnitName Value="mi.rtl.Objects.Consts"/>
+      </Item>
+      <Item>
+        <Filename Value="units/mi.rtl.objects.consts.logs.pas"/>
+        <UnitName Value="mi.rtl.Objects.Consts.Logs"/>
+      </Item>
+      <Item>
+        <Filename Value="units/mi.rtl.objects.consts.mi_msgbox.pas"/>
+        <HasRegisterProc Value="True"/>
+        <UnitName Value="mi.rtl.Objects.Consts.Mi_MsgBox"/>
+      </Item>
+      <Item>
+        <Filename Value="units/mi.rtl.objects.consts.progressdlg_if.pas"/>
+        <HasRegisterProc Value="True"/>
+        <UnitName Value="mi.rtl.Objects.Consts.ProgressDlg_If"/>
+      </Item>
+      <Item>
+        <Filename Value="units/mi.rtl.objects.methods.pas"/>
+        <UnitName Value="mi.rtl.Objects.Methods"/>
+      </Item>
+      <Item>
+        <Filename Value="units/mi.rtl.objects.methods.dates.pas"/>
+        <UnitName Value="mi.rtl.objects.Methods.dates"/>
+      </Item>
+      <Item>
+        <Filename Value="units/mi.rtl.objects.methods.exception.pas"/>
+        <UnitName Value="mi.rtl.Objects.Methods.Exception"/>
+      </Item>
+      <Item>
+        <Filename Value="units/mi.rtl.objects.methods.paramexecucao.pas"/>
+        <UnitName Value="mi.rtl.Objects.Methods.Paramexecucao"/>
+      </Item>
+      <Item>
+        <Filename Value="units/mi.rtl.objects.methods.paramexecucao.application.pas"/>
+        <UnitName Value="mi.rtl.Objects.Methods.Paramexecucao.Application"/>
+      </Item>
+      <Item>
+        <Filename Value="units/mi.rtl.objects.methods.streambase.pas"/>
+        <UnitName Value="mi.rtl.Objects.Methods.StreamBase"/>
+      </Item>
+      <Item>
+        <Filename Value="units/mi.rtl.objects.methods.streambase.stream.pas"/>
+        <UnitName Value="mi.rtl.Objects.Methods.StreamBase.Stream"/>
+      </Item>
+      <Item>
+        <Filename Value="units/mi.rtl.objects.methods.streambase.stream.filestream.pas"/>
+        <UnitName Value="mi.rtl.Objects.Methods.StreamBase.Stream.FileStream"/>
+      </Item>
+      <Item>
+        <Filename Value="units/mi.rtl.objects.methods.streambase.stream.memorystream.pas"/>
+        <UnitName Value="mi.rtl.Objects.Methods.StreamBase.Stream.MemoryStream"/>
+      </Item>
+      <Item>
+        <Filename Value="units/mi.rtl.objects.methods.streambase.stream.memorystream.buffermemory.pas"/>
+        <UnitName Value="mi.rtl.objects.methods.StreamBase.Stream.MemoryStream.BufferMemory"/>
+      </Item>
+      <Item>
+        <Filename Value="units/mi.rtl.objects.methods.collection.pas"/>
+        <UnitName Value="mi.rtl.Objects.Methods.Collection"/>
+      </Item>
+      <Item>
+        <Filename Value="units/mi.rtl.objects.methods.collection.filesstreams.pas"/>
+        <UnitName Value="mi.rtl.Objects.Methods.Collection.FilesStreams"/>
+      </Item>
+      <Item>
+        <Filename Value="units/mi.rtl.objects.methods.system.pas"/>
+        <UnitName Value="mi.rtl.Objects.Methods.System"/>
+      </Item>
+      <Item>
+        <Filename Value="units/mi.rtl.objects.methods.collection.sortedcollection.pas"/>
+        <UnitName Value="mi.rtl.Objects.Methods.Collection.SortedCollection"/>
+      </Item>
+      <Item>
+        <Filename Value="units/mi.rtl.objects.methods.collection.sortedcollection.stringcollection.pas"/>
+        <UnitName Value="mi.rtl.Objects.Methods.Collection.SortedCollection.StringCollection"/>
+      </Item>
+      <Item>
+        <Filename Value="units/mi.rtl.objects.methods.collection.sortedcollection.stringcollection.collectionstring.pas"/>
+        <UnitName Value="mi.rtl.Objects.Methods.Collection.Sortedcollection.Stringcollection.Collectionstring"/>
+      </Item>
+      <Item>
+        <Filename Value="units/mi.rtl.objects.methods.collection.sortedcollection.strcollection.pas"/>
+        <UnitName Value="mi.rtl.Objects.Methods.Collection.SortedCollection.StrCollection"/>
+      </Item>
+      <Item>
+        <Filename Value="units/mi.rtl.objects.methods.db.tb_access.pas"/>
+        <UnitName Value="mi.rtl.Objects.Methods.Db.Tb_Access"/>
+      </Item>
+      <Item>
+        <Filename Value="units/mi.rtl.objects.methods.db.tb__access.pas"/>
+        <UnitName Value="mi.rtl.Objects.Methods.Db.Tb__Access"/>
+      </Item>
+      <Item>
+        <Filename Value="units/mi.rtl.objects.methods.db.tb___access.pas"/>
+        <UnitName Value="mi.rtl.Objects.Methods.Db.Tb___Access"/>
+      </Item>
+      <Item>
+        <Filename Value="units/mi.rtl.objects.methods.pageproducer.pas"/>
+        <HasRegisterProc Value="True"/>
+        <UnitName Value="mi.rtl.objects.methods.pageproducer"/>
+      </Item>
+      <Item>
+        <Filename Value="units/mi.rtl.objectss.pas"/>
+        <HasRegisterProc Value="True"/>
+        <UnitName Value="mi.rtl.Objectss"/>
+      </Item>
+      <Item>
+        <Filename Value="units/mi_rtl_ui_types.pas"/>
+        <UnitName Value="mi_rtl_ui_types"/>
+      </Item>
+      <Item>
+        <Filename Value="units/mi_rtl_ui_consts.pas"/>
+        <UnitName Value="mi_rtl_ui_consts"/>
+      </Item>
+      <Item>
+        <Filename Value="units/mi_rtl_ui_methods.pas"/>
+        <UnitName Value="mi_rtl_ui_methods"/>
+      </Item>
+      <Item>
+        <Filename Value="units/mi_rtl_ui_dmxscroller_buttons.pas"/>
+        <UnitName Value="mi_rtl_ui_DmxScroller_Buttons"/>
+      </Item>
+      <Item>
+        <Filename Value="units/mi_rtl_ui_dmxscroller_consts_inc.pas"/>
+        <Type Value="Include"/>
+      </Item>
+      <Item>
+        <Filename Value="units/mi_rtl_ui_dmxscroller.pas"/>
+        <UnitName Value="mi_rtl_ui_Dmxscroller"/>
+      </Item>
+      <Item>
+        <Filename Value="units/mi_rtl_ui_dmxscroller_historico.md"/>
+        <Type Value="Text"/>
+      </Item>
+      <Item>
+        <Filename Value="units/mi_ui_dmxscroller.md"/>
+        <Type Value="Text"/>
+      </Item>
+      <Item>
+        <Filename Value="units/mi_rtl_ui_dmxscroller_historico.html"/>
+        <Type Value="Text"/>
+      </Item>
+      <Item>
+        <Filename Value="units/mi_rtl_ui_dmxscroller_buttons_historico.html"/>
+        <Type Value="Text"/>
+      </Item>
+      <Item>
+        <Filename Value="units/mi_rtl_ui_dmxscroller_buttons_historico.md"/>
+        <Type Value="Text"/>
+      </Item>
+      <Item>
+        <Filename Value="units/mi_rtl_ui_dmxscroller_form.pas"/>
+        <HasRegisterProc Value="True"/>
+        <UnitName Value="mi_rtl_ui_dmxscroller_form"/>
+      </Item>
+      <Item>
+        <Filename Value="units/mi_rtl_ui_dmxscroller_form_historico.md"/>
+        <Type Value="Text"/>
+      </Item>
+      <Item>
+        <Filename Value="units/mi_rtl_ui_custom_application.pas"/>
+        <UnitName Value="mi_rtl_ui_custom_application"/>
+      </Item>
+    </Files>
+    <RequiredPkgs>
+      <Item>
+        <PackageName Value="LazUtils"/>
+      </Item>
+    </RequiredPkgs>
+    <UsageOptions>
+      <UnitPath Value="$(PkgOutDir)"/>
+    </UsageOptions>
+    <PublishOptions>
+      <Version Value="2"/>
+      <UseFileFilters Value="True"/>
+    </PublishOptions>
+  </Package>
+</CONFIG>

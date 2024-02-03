@@ -5,7 +5,7 @@ unit mi.rtl.objects.Methods.db.types.consts.Methods;
       -
 
     - **VERSÃO**
-      - Alpha - 0.8.0
+      - Alpha - Alpha - 0.9.0
 
     - **HISTÓRICO**
       - Criado por: Paulo Sérgio da Silva Pacheco e-mail: paulosspacheco@@yahoo.com.br
@@ -40,7 +40,7 @@ uses
   class(TDbConsts)
     public constructor Create(aowner:TComponent);Overload;Override;
     public destructor Destroy; override;
-    public function FExisteCodigo (Var IxF:IndexFile; Const Codigo:tString):Boolean;//inline;
+    public function FExisteCodigo (Var IxF:IndexFile; Const código:tString):Boolean;//inline;
     public procedure CreateTAccess;
     public procedure DestroyTAccess;
 
@@ -993,7 +993,7 @@ Function TDb_Methods.UpperCase(str:AnsiString):AnsiString;
 var
   i : Integer;
 begin
-  Result := Sgc(AnsiUpperCase(scg(Str)));
+  Result := AnsiUpperCase(scg(Str));
 end;
 
 Function TDb_Methods.FMinuscula(str:AnsiString):AnsiString;
@@ -1004,7 +1004,7 @@ begin
   if str <> ''
   Then Begin
         {Mantém a primeira letra em Maiuscula}
-        S := Sgc(AnsiUpperCase(scg(copy(Str,1,1))));
+        S := AnsiUpperCase(scg(copy(Str,1,1)));
         if length(str)>1
         then Begin
               Result := Copy(str,2,length(str)-1);
@@ -1033,16 +1033,16 @@ begin
 end;}
 
 
-Function TDb_Methods.FExisteCodigo (Var IxF:IndexFile;Const Codigo:tString):Boolean;
+Function TDb_Methods.FExisteCodigo (Var IxF:IndexFile;Const código:tString):Boolean;
 Var NRec    : Longint;
     WCodigo : tString;
 Begin
 //  {$IFDEF TaDebug}Application.Push_MsgErro('Tb_Access.FExisteCodigo',ListaDeChamadas);{$ENDIF}
   If Is_TFileOpen(IxF.dataF.F) Then
   Begin
-    WCodigo := UpperCase(Codigo);
+    WCodigo := UpperCase(código);
     SearchKey(IxF,NRec,WCodigo);
-    FExisteCodigo := ok And (Codigo=Copy(WCodigo,1,Byte(Codigo[0])));
+    FExisteCodigo := ok And (código=Copy(WCodigo,1,Byte(código[0])));
   End
   Else
     FExisteCodigo := False;
@@ -1456,7 +1456,7 @@ begin
 
 end;
 
-Function TDb_Methods.GetTempDir(Const env:tString;Var path:PathStr):SmallInt;{Retorna o codigo do error se houver}
+Function TDb_Methods.GetTempDir(Const env:tString;Var path:PathStr):SmallInt;{Retorna o código do error se houver}
    var Dir: DirStr; var Name: TFileName; var Ext: ExtStr;
 Begin
   taStatus := 0;
@@ -2063,7 +2063,7 @@ begin
     Else
     Begin
 
-      // O delphi 2010 esta com bug em Rename. Ele troca o nome mais criar um arquivos com vêrios zeros na pasta corrente. ?????????????????
+      // O Delphi 2010 esta com bug em Rename. Ele troca o nome mais criar um arquivos com vêrios zeros na pasta corrente. ?????????????????
 //      AssignFile(F,NomeFonte);
 //      {$i-} Rename(f,NomeDestino);{$i+}
 //      OK := Db_Error.IoResult = 0 ;

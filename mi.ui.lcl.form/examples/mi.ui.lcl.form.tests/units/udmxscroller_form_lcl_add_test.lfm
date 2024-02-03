@@ -9,10 +9,9 @@ object DmxScroller_Form_Lcl_add_test: TDmxScroller_Form_Lcl_add_test
   Font.Name = 'Verdana'
   OnCreate = FormCreate
   Position = poDesktopCenter
-  LCLVersion = '2.2.2.0'
   object Mi_ScrollBox_LCL1: TMi_ScrollBox_LCL
     Left = 0
-    Height = 207
+    Height = 202
     Top = 0
     Width = 500
     HorzScrollBar.Increment = 1
@@ -27,8 +26,8 @@ object DmxScroller_Form_Lcl_add_test: TDmxScroller_Form_Lcl_add_test
   end
   object ButtonPanel1: TButtonPanel
     Left = 6
-    Height = 39
-    Top = 213
+    Height = 44
+    Top = 208
     Width = 488
     OKButton.Name = 'OKButton'
     OKButton.DefaultCaption = True
@@ -43,9 +42,11 @@ object DmxScroller_Form_Lcl_add_test: TDmxScroller_Form_Lcl_add_test
     ShowGlyphs = [pbOK, pbCancel]
   end
   object DmxScroller_Form_Lcl1: TDmxScroller_Form_Lcl
+    Alias = 'TDmxScroller_Form_Lcl'
     OnAddTemplate = DmxScroller_Form_Lcl1AddTemplate
     Active = False
     AlignmentLabels = taLeftJustify
+    ParentLCL = Owner
     Left = 64
     Top = 16
   end

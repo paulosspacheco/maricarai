@@ -7,7 +7,7 @@ program mi.ui.lcl.form.test;
     código para: win32, win64 e linux.
 
   - **VERSÃO**:
-    - Alpha - 0.8.0
+    - Alpha - 0.9.0
 
     - **CÓDIGO FONTE**:
       - @html(<a href="../units/mi.ui.tests.pas">mi.ui.tests.pas.pas</a>)
@@ -29,12 +29,23 @@ uses
   {$IFDEF HASAMIGA}
   athreads,
   {$ENDIF}
-  Interfaces, Forms, sdflaz, lazcontrols, memdslaz, tachartlazaruspkg, drivers,
-  sysUtils, dialogs, LCLIntf, uMi_ui_mi_msgbox_dm, mi.rtl.Types,
-  mi.rtl.Objects.Methods, mi_rtl_ui_consts, umi_ui_inputbox_lcl_test,
-  uMi_ui_DmxScroller_Form_Lcl_ds_test, uMi_ui_DmxScroller_Form_Lcl_ds_test2_dm,
-  uMi_ui_DmxScroller_Form_Lcl_ds_test2, uDmxScroller_Form_Lcl_test,
-  uDmxScroller_Form_Lcl_add_test, uDmxScroller_Form_Lcl_add_test2;
+  Interfaces
+  //, Forms
+  ,uMi_ui_Application_lcl
+
+  , sdflaz, lazcontrols, memdslaz, tachartlazaruspkg, drivers,
+  sysUtils, dialogs, LCLIntf, LCLVersion
+
+  , mi.rtl.Types
+  , mi.rtl.Objects.Methods
+  , mi_rtl_ui_consts
+  , uMi_ui_DmxScroller_Form_Lcl_ds_test
+  , uMi_ui_DmxScroller_Form_Lcl_ds_test2_dm
+  , uMi_ui_DmxScroller_Form_Lcl_ds_test2
+  , uDmxScroller_Form_Lcl_test
+  , uDmxScroller_Form_Lcl_add_test
+  , uDmxScroller_Form_Lcl_add_test2
+  , MI_UI_InputBox_lcl_test_u;
 
 {$R *.res}
 
@@ -81,9 +92,27 @@ begin
 
   End;
 end;
-
+Procedure fabiodica;
+  const
+    fpcver = 'Free Pascal Compiler version '+{$I %FPCVERSION%};
+    lazver = 'Lazarus version '+lcl_version;
+    compiledate =  'Data da compilação: '+{$I %DATE%}+' '+{$I %TIME%};
+    cputarget = 'Target CPU: '+{$I %FPCTARGETCPU%};
+    osTarget  = 'Target OS: '+{$I %FPCTARGETOS%};
 
 begin
+  writeLn('-------------------');
+  writeLn(fpcver);
+  writeLn(lazver);
+  writeLn(compiledate);
+  writeLn(cputarget);
+  writeLn(osTarget);
+
+  writeLn('-------------------');
+end;
+
+begin
+  fabiodica;
 //  writeLn(sizeof(b));
 //  showMessage(SetDirSeparators ( '/pp\bin/win32\ppc386' ) );
   // showMessage(DefaultFormatSettings.DecimalSeparator);
@@ -100,7 +129,9 @@ begin
 //  writeLn(TObjectsMethods.DeleteMask('0.00',['0'..'9','.']));
   TUiConsts.OkCreateTableSQL := false;
 
-  RequireDerivedFormResource:=True;
+ SetRequireDerivedFormResource(True);
+//  RequireDerivedFormResource := True;
+
   Application.Scaled:=True;
   Application.Initialize;
   //  Application.CreateForm(TMi_ui_mi_msgBox, Mi_ui_mi_msgBox);
@@ -115,6 +146,7 @@ begin
 
   Application.CreateForm(TDmxScroller_Form_Lcl_add_test,DmxScroller_Form_Lcl_add_test);
   Application.CreateForm(TDmxScroller_Form_Lcl_add_test2,DmxScroller_Form_Lcl_add_test2);
+  Application.CreateForm(TMI_UI_InputBox_lcl_test, MI_UI_InputBox_lcl_test);
   Application.Run;
 end.
 

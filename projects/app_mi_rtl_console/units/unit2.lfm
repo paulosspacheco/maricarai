@@ -1,0 +1,21 @@
+object Form2: TForm2
+  Left = 408
+  Height = 240
+  Top = 250
+  Width = 320
+  Caption = 'Form2'
+  ClientHeight = 240
+  ClientWidth = 320
+  OnCreate = FormCreate
+  LCLVersion = '3.1.0.0'
+  object Mi_ScrollBox_LCL1: TMi_ScrollBox_LCL
+    Left = 0
+    Height = 240
+    Top = 0
+    Width = 320
+    Align = alClient
+    AutoScroll = False
+    TabOrder = 0
+    TabStop = True
+  end
+end

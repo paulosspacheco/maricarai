@@ -1,0 +1,229 @@
+object form_main: Tform_main
+  Left = 407
+  Height = 240
+  Top = 250
+  Width = 320
+  Caption = 'Assistente Virtual para Médicos'
+  ClientHeight = 240
+  ClientWidth = 320
+  Menu = MainMenu1
+  OnClose = FormClose
+  OnCreate = FormCreate
+  Position = poMainFormCenter
+  LCLVersion = '3.1.0.0'
+  object StatusBar1: TStatusBar
+    Left = 0
+    Height = 18
+    Top = 222
+    Width = 320
+    Panels = <>
+  end
+  object AnchorDockPanel1: TAnchorDockPanel
+    Left = 0
+    Height = 222
+    Top = 0
+    Width = 320
+    Align = alClient
+    Caption = 'AnchorDockPanel1'
+    ClientHeight = 222
+    ClientWidth = 320
+    TabOrder = 1
+    object TopCoolBar: TCoolBar
+      Left = 1
+      Height = 32
+      Top = 1
+      Width = 318
+      AutoSize = True
+      Bands = <      
+        item
+          Control = ToolBar1
+          Width = 100
+        end>
+      DockSite = True
+      object ToolBar1: TToolBar
+        AnchorSideLeft.Control = TopCoolBar
+        AnchorSideTop.Control = TopCoolBar
+        Left = 24
+        Height = 22
+        Top = 5
+        Width = 70
+        Align = alNone
+        AutoSize = True
+        BorderSpacing.Left = 22
+        BorderSpacing.Top = 3
+        Caption = 'ToolBar1'
+        DragKind = dkDock
+        DragMode = dmAutomatic
+        EdgeBorders = []
+        Images = ImageList1
+        TabOrder = 0
+        Transparent = True
+        object ToolButton1: TToolButton
+          Left = 1
+          Top = 0
+          Caption = '☰ Menu'
+          ImageIndex = 0
+        end
+        object ToolButton2: TToolButton
+          Left = 24
+          Top = 0
+          Action = Action_home
+        end
+        object ToolButton3: TToolButton
+          Left = 47
+          Top = 0
+          Action = Action_search
+        end
+      end
+    end
+  end
+  object ImageList1: TImageList
+    Scaled = True
+    Left = 24
+    Top = 176
+    Bitmap = {
+      4C7A030000001000000010000000AC0300000000000078DAB5955D48936114C7
+      97BA8B5002BDF1A23249C479E5C83289F04273BA1BA71749E50742890341090C
+      F2420B4AA58B30C8A4406193A1E2A6E2749A36A7D64D9B9F2035BBF0A2B41451
+      746E7E307D773A67F8C0CBDBBB0F3FBAF8E3E339FFDFF371DEE73C030009F856
+      C8C1C181627777B7C5E5728DE2DF771CC7C5FBF2622EEE90E392DD6EF703F436
+      3B1C8E3F9B9B9BC0D7D6D6966B7971A199CF7A3C9E8BDBDBDBDF286F341A41AB
+      D58A8A72E4C17997577F2E3EF170DC79E2712D2DC5351A0D94953E040D7AC554
+      5159E9F59017F758CCD6C7F9562956575707FDBD7A70389DA2B28C8D793DE4DD
+      D9D9E938E2CFE199BCB1D6D656B08C987CF2B6C949AF87BC785E3B5B7FCBE170
+      526C647818CC1F07C0323E0EB6A929307477C3FAC606747476C2E4F4347CB7DB
+      61767696D5C0C178A7D3394DB15C950A6E5CBF060909099EF2F272C8562AE169
+      7535A4A4A480B6AD0D9293933DB5B5B5EC3B00ED9DF8BDBDBD46C66766A473D1
+      D1D120E435477C4D4D0DE33D8C3F3C3CBCC5F66FECED82AF369B77BFFFEC7F61
+      01E6E6E6D8FE57F97700CF30759CFAE17DFCCCE7F19EDE39CEF7DBDFDF7F2EBC
+      C3EDEDED1F82B93F787637DED92B223D201D1A1A1A09747F71ED677E7A4E8ADF
+      E30DAEC189F40E60EE35F51AF8EF5B09F6A20CBD2FB14E269485E6C4983C1077
+      96B25AAD0A12FB7F626222D7603094602CC31F87B50DADAFAF6F0C090901128D
+      292697CB172512096466668EF862B1B69185858583E4CBCACAB291685C545434
+      989898F8DB1FBFB2B272353535F507792A2A2A3A5A5A5A5E90684C3126311EFB
+      323D262666432A95724D4D4DAFAAAAAA74CC4F638A514E8CEFE9E951474444B8
+      A3A2A2F671FC58A9545AF9EB91284639F2848787BB715C4A6C4343C35BAA914C
+      26FB653299D478C66521CB4439F290971862B3B3B327B14656BD5E5F191919E9
+      F2C5329187BCC4108BF5BE80FD1F4E670AC4F2EB470CB1AC06423E3636761DEB
+      F69E44E340F517F20A856296E568FCBF79AC47D03C7985FCFCFCFC4D9D4E57C2
+      343A3A9AC37234E6E7C87B563D8A6FD23DFC9E85C188BC42BEAFAFEF2EE6EE07
+      23E4F3CFFA8DC1372D14152650A8F03D2189F16565655D0505057D7CA9D56AFA
+      6D0FB5DBED72FCBF3F3F3FFF13CA8C6323C69282D917B12A95CAB2B6B67689C5
+      689C93933346B9403CAE35C06779735CA61CAFFEC558DB474C333333B7F1AC61
+      B85F9F6F249D85FD769F963FEDFEFDD42F49AC7E69696956B3D99C7BD2EF876C
+      1EBE5B5F979696E24E7A7F908DE7CF7112D11C7979795F4EDB3FA7EDDFBF3D0E
+      EAB7
+    }
+  end
+  object ActionList1: TActionList
+    Images = ImageList1
+    Left = 104
+    Top = 176
+    object Action_home: TAction
+      Category = 'home'
+      Caption = 'home'
+      ImageIndex = 1
+      OnExecute = Action_homeExecute
+    end
+    object Action_search: TAction
+      Category = 'Pesquisa'
+      Caption = '🔎'
+      ImageIndex = 2
+      OnExecute = Action_searchExecute
+    end
+    object Actionform3: TAction
+      Category = 'menu'
+      Caption = 'form3'
+      OnExecute = Actionform3Execute
+    end
+    object Actionform4: TAction
+      Category = 'menu'
+      Caption = 'form4'
+      OnExecute = Actionform4Execute
+    end
+    object Action_Gestao_Profissionais_medicos: TAction
+      Caption = 'Gestão de Profissionais (médicos)'
+    end
+    object Action_Gestao_usuario_pacientes: TAction
+      Caption = 'Gestão de usuário (pacientes)'
+    end
+    object Action_Agendamentos: TAction
+      Caption = ' Agendamentos'
+    end
+    object Action_Gestao_Financeira: TAction
+      Caption = 'Gestão Financeira'
+    end
+    object Action_Gestao_Convenios_Hospitais: TAction
+      Caption = 'Gestão de Convênios e Hospitais'
+    end
+    object Action_Gestao_Operadores: TAction
+      Caption = 'Gestão de Operadores'
+    end
+    object Action_Integracao_Configuracoes: TAction
+      Caption = 'Integração e Configurações'
+    end
+    object Action_Relatorios_Analises: TAction
+      Caption = 'Relatórios e Análises'
+    end
+    object Action_Suporte_Ajuda: TAction
+      Caption = 'Suporte e Ajuda'
+    end
+    object Action_Sair: TAction
+      Caption = 'Sair'
+      OnExecute = Action_SairExecute
+    end
+  end
+  object MainMenu1: TMainMenu
+    Left = 208
+    Top = 176
+    object MenuItem_index: TMenuItem
+      Caption = '☰ Menu'
+      ImageIndex = 0
+      object MenuItem2: TMenuItem
+        Action = Action_Gestao_Operadores
+      end
+      object MenuItem3: TMenuItem
+        Action = Action_Integracao_Configuracoes
+      end
+      object MenuItem1: TMenuItem
+        Action = Action_Gestao_Profissionais_medicos
+      end
+      object MenuItem4: TMenuItem
+        Action = Action_Gestao_usuario_pacientes
+      end
+      object MenuItem10: TMenuItem
+        Action = Action_Gestao_Convenios_Hospitais
+      end
+      object MenuItem9: TMenuItem
+        Action = Action_Agendamentos
+      end
+      object MenuItem5: TMenuItem
+        Action = Action_Relatorios_Analises
+      end
+      object MenuItem6: TMenuItem
+        Action = Action_Suporte_Ajuda
+      end
+      object MenuItem8: TMenuItem
+        Action = Action_Gestao_Financeira
+      end
+      object MenuItem7: TMenuItem
+        Action = Action_Sair
+      end
+    end
+    object MenuItem_home: TMenuItem
+      Action = Action_home
+    end
+    object MenuItem_search: TMenuItem
+      Action = Action_search
+    end
+    object MenuItem_test: TMenuItem
+      Caption = 'Form_test'
+      object MenuItem11: TMenuItem
+        Action = Actionform3
+      end
+      object MenuItem12: TMenuItem
+        Action = Actionform4
+      end
+    end
+  end
+end

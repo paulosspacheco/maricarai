@@ -1,0 +1,25 @@
+    <!--  Metas Author, e_mail e local -->
+    <meta name="author" content="Paulo Sérgio da Silva Pacheco">
+    <meta name="e_mail" content="paulosspacheco@yahoo.com.br">
+    <meta name="local" content="Icaraí - Caucaia - Ceará - Brasil">
+
+    <div class="footer"> <!-- inicio <div class="footer"> -->
+        <table style="width: 100%;">
+            <tbody>
+                <tr>
+                    <td>
+                        Criado em....: <span id="createDate">??????</span> <br>
+                        Atualizado em: <span id="createDateUpdate">??????</span><br>
+                    </td>
+                    <td>
+                        Autor.: <span id="author">??????</span> <br>
+                        E-mail: <span id="e_mail">??????</span> <br>
+                        Local.: <span id="local">??????</span> <br>
+                    </td>
+                </tr>
+            </tbody>
+        </table>       
+    </div> <!-- fim <div class="footer"> -->
+    
+
+

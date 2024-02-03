@@ -887,11 +887,11 @@ Caso o campo selecionado executar o método TDmxEditor.EditViewHelpCtx() com a o
 //    }
 //
 //    (*
-//    <html> <head>
+//    <html lang="pt-BR"> <head>
 //    <meta http-equiv="Content-Language" content="pt-br">
 //    <meta http-equiv="Content-Type" content="text/html; AnsiCharset=windows-1252">
 //    <title>Teste da função Submit_form </title>
-//    </head> <body>
+//    </head> <bodY>
 //    <script> //function submit_form(form,btn)
 //    /* By: Paulo Pacheco em 09/08/2006
 //       OBJETIVO: Submeter um formulário ao servidor da seguinte forma:
@@ -968,7 +968,7 @@ Caso o campo selecionado executar o método TDmxEditor.EditViewHelpCtx() com a o
 //    <input  name="pesquisar" type="button" id="id12" onClick="submit_form(form1,this)" value="Pesquisar" tabindex="12" accesskey="P" title="Pesquisa um registro qualquer para ser editado">
 //
 //    </form>
-//    </body>
+//     </body>
 //    </html>
 //    *)
 //
@@ -1141,7 +1141,7 @@ Caso o campo selecionado executar o método TDmxEditor.EditViewHelpCtx() com a o
 //  //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 //    IHtml = Interface(IHTML_Base)
 //    ['{7DD7BDBA-B1E6-4BC0-8D7F-87463C3CC7F7}']
-//     //<html> ... </html> Specifies the beginning and end of an HTML document
+//     //<html lang="pt-BR"> ... </html> Specifies the beginning and end of an HTML document
 //
 //      Function GetVersion(): AnsiString;//=string specifies the HTML version used to create the document
 //    end;
@@ -1423,7 +1423,7 @@ end.
 //interface
 //
 //  TYPE
-//    {: <html> ... </html> Specifies the beginning and end of an HTML document}
+//    {: <html lang="pt-BR"> ... </html> Specifies the beginning and end of an HTML document}
 //    IHtml = Interface
 //      ['{C08BF9F6-E206-4029-BF4A-29A2126AC828}']
 //      Function GetVersion(): AnsiString;//:< =string specifies the HTML version used to create the document

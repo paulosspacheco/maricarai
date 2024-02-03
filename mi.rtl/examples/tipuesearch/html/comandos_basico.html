@@ -1,0 +1,1507 @@
+<!DOCTYPE html>
+    <html dir="ltr" lang="pt-br">
+    <head>
+        <meta charset="UTF-8"/>
+        <title>Comandos básico do Shell do Linux</title>
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <meta name="description" content="Well organized and easy to understand Web building tutorials with lots of examples of how to use HTML, CSS, JavaScript, SQL, Python, PHP, Bootstrap, Java, XML and more. " />
+        <meta name="keywords" content="html, javascript, css, Delphi, Lazarus, jardinagem, marcenaria, eletricidade, mecânica, curiosidades, saúde" />
+
+
+        <!-- CSS markdown  -->
+        <link type="text/css" href="/css/defaultthemeMarkdown.css"  rel="stylesheet"/>
+            
+        <!-- CSS da página /index.html -->
+        <link type="text/css" href="/css/defaulttheme.css" rel="stylesheet"/>
+
+
+    </head>
+    <body class="vscode-body vscode-dark">
+      
+        <!-- markdownlint-disable-next-line -->
+<h4 id="comandos-básico-do-shell-do-linux----"><span id="topo"><span>Comandos básico do Shell do Linux <a href="comandos_basico.html" target="_blank" title="Pressione aqui para expandir este documento em nova aba." >  ➚ </a></h4>
+<!-- markdownlint-disable-next-line -->
+<h4 id="index">INDEX</h4>
+<ol>
+<li>
+<p><a href="#id_introducao">Introdução</a></p>
+</li>
+<li>
+<p><a href="#id_Ctrl_Alt_T">Atalho para criar um terminal de comandos</a></p>
+</li>
+<li>
+<p><a href="#id_cmd_gestao_arquivo_pastas"><strong>Comandos de Gestão de Arquivos e Pastas</strong></a></p>
+<ol>
+<li><a href="#id_ls"><em>ls</em> - Comando para listar arquivos e pastas</a></li>
+<li><a href="#id_which"><em>which</em> -  mostra o caminho completo dos comandos</a></li>
+<li><a href="#id_cd"><em>cd</em> - Comando para mover-se entre os diretórios</a></li>
+<li><a href="#id_ln"><em>ln</em> - Comando para criar links simbólico</a></li>
+<li><a href="#id_cp"><em>cp</em> - Comando para copiar arquivos ou pastas</a></li>
+<li><a href="#id_dd"><em>dd</em> - Clona um dispositivo de bloco, convertendo e formatando de acordo com os operandos.</a></li>
+<li><a href="#id_e2image"><em>e2image</em> - Clona um dispositivo de bloco cujo o formato de arquivo seja ext2, ext3 e ext4</a></li>
+<li><a href="#id_gparted"><em>gparted</em> - Programa usado para criar partição, pode ser usado para clonar partição de forma muito simples e visual</a></li>
+<li><a href="#id_mount"><em>mount</em> - monta um sistema de arquivos</a></li>
+<li><a href="#id_chmod"><em>chmod</em> - altera os bits do modo de arquivo</a></li>
+</ol>
+</li>
+<li>
+<p><a href="#id_cmd_ajuda_documentacao"><strong>Comandos de Ajuda e Documentação</strong></a></p>
+</li>
+<li>
+<p><a href="#id_comandos_comunicacoes"><strong>Comandos de Comunicações</strong></a></p>
+</li>
+<li>
+<p><a href="#id_Cmd_edicao_de_texto"><strong>Comandos de Edição de Texto</strong></a></p>
+</li>
+<li>
+<p><a href="#id_cmd_transferencia_arquivos"><strong>Comandos de Transferência de Arquivos</strong></a></p>
+<ol>
+<li><a href="#id_cmd_rsync"><em>rsync</em> - Sincroniza de forma rápida e flexível dados entre dois computadores.</a></li>
+</ol>
+</li>
+<li>
+<p><a href="#id_cmd__noticias_Rede"><strong>Comandos de Notícias ou Rede</strong></a></p>
+</li>
+<li>
+<p><a href="#id_cmd_controle_processos"><strong>Comandos de Controle de Processos</strong></a></p>
+</li>
+<li>
+<p><a href="#id_cmd_informacao_estado"><strong>Comandos de Informação de Estado</strong></a></p>
+</li>
+<li>
+<p><a href="#id_cmd_processamento_texto"><strong>Comandos de Processamento de Texto</strong></a></p>
+</li>
+<li>
+<p><a href="#id_web"><strong>Web</strong></a></p>
+</li>
+<li>
+<p><a href="#id_referencias">REFERÊNCIAS</a></p>
+</li>
+</ol>
+<!-- markdownlint-disable-next-line -->
+<h4 id="conteúdo">CONTEÚDO</h4>
+<ol>
+<li>
+<!-- markdownlint-disable-next-line -->
+<p><span id='id_introducao'></span><strong>Introdução:</strong></p>
+<ul>
+<li>
+<p>Este documento descreve com exemplos os comandos que costumo usar no dia a dia para a manutenção do sistema.</p>
+</li>
+<li>
+<p>A estrutura do sistema de arquivos do Linux é definida por um padrão de mercado chamado Filesystem Hierarchy Standard ou FHS, criado pela comunidade Linux em 1994 e mantida pela Linux Foundation. Atualmente a FHS está na versão 3.0. As distribuições não são obrigadas a seguir este padrão, mas elas entendem a importância da localização dos arquivos e diretórios padronizados. <a href="https://www.certificacaolinux.com.br/diretorios-e-arquivos/">Veja mais...</a></p>
+<p><img src="./img/nome_das_pastas_linux.jpeg" alt="Resumo das estrutura de pastas do linux"></p>
+</li>
+<li>
+<p>Para compreender a expressão <em>nome do arquivo fonte</em> ou <em>nome do arquivo destino</em> é necessário seguir a sintaxe de nome de arquivo para a arquitetura linux.</p>
+</li>
+<li>
+<p>Use qualquer caractere na página de código atual para um nome, incluindo caracteres Unicode e caracteres no conjunto de caracteres estendido (128–255), exceto os seguintes caracteres porque são interpretados de forma especial:</p>
+<ul>
+<li>
+<p><strong><em>&lt;</em> (menor que)</strong></p>
+<ul>
+<li>Apesar de permitido, não deve ser usado porque é usado por aplicativos tipo shell para redirecionar entrada, quando o aplicativo aceita entrada padrão;</li>
+</ul>
+</li>
+<li>
+<p><strong><em>&gt;</em> (maior que)</strong></p>
+<ul>
+<li>Apesar de permitido, não deve ser usado porque é usado para <em>redirecionar a saída</em> de um comando;</li>
+</ul>
+</li>
+<li>
+<p><strong><em>:</em> (dois-pontos)</strong></p>
+<ul>
+<li>Apesar de permitido, o mesmo deve <em>ser evitado</em> porque o outros sistemas operacionais no qual o linux interage usa como separador de dispositivo ;</li>
+</ul>
+</li>
+<li>
+<p><strong><em>&quot;</em> (aspas duplas)</strong></p>
+<ul>
+<li>Apesar de permitido, não deve ser usado, porque é usado para separar o nome do arquivo, quando o mesmo tem caracteres especiais no nome do arquivo;</li>
+</ul>
+</li>
+<li>
+<p><strong><em>/</em> (barra)</strong></p>
+<ul>
+<li>Não é permitido porque é usada como separar o caminho na arvore de diretórios;</li>
+</ul>
+</li>
+<li>
+<p><strong><em>|</em> (barra vertical ou pipe)</strong></p>
+<ul>
+<li>Apesar de permitido no nome de arquivo, o mesmo deve ser evitado, porque define redirecionamento de software em aplicativos tipo shell;</li>
+</ul>
+</li>
+<li>
+<p><strong><em>?</em> (ponto de interrogação)</strong></p>
+<ul>
+<li>Apesar de permitido deve ser evitado porque o shell usa como caractere coringa que representa qualquer caractere na posição onde o mesmo apareça na linha de comandos de aplicativos tipo shell;</li>
+</ul>
+</li>
+<li>
+<p><strong><em>*</em> (Asterisco)</strong></p>
+<ul>
+<li>Apesar de permitido no linux, o mesmo deve ser evitado, porque é usado como coringa, ou seja: representa uma sequência de caracteres antes ou depois que ele aparece no nome do arquivo nos parâmetros de entrada dos programas tipo shell.</li>
+</ul>
+</li>
+<li>
+<p><strong><em>.</em> (Ponto)</strong></p>
+<ul>
+<li>É permitido, porém deve ser evitado porque quando usado na primeira posição o arquivo será interpretado como invisível, outros sistemas operacionais que o linux interage usa o ponto para separar o nome do arquivo e o nome da extensão do arquivo;</li>
+</ul>
+</li>
+<li>
+<p><em>&quot; &quot;</em> <strong>(Espaço em branco)</strong></p>
+<ul>
+<li>É permitido, mas como também é um separador de parâmetros de linha de comando, deve-se delimitar o nome com aspas (&quot;) para diferenciar dos parâmetros dos aplicativos tipo shell. <a href="https://www.youtube.com/watch?v=QZ2nyxzZXPY&amp;t=406s">Veja a vídeo aula...</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>O comprimento de uma especificação de arquivo é limitado.</p>
+<ul>
+<li>
+<p>O comprimento máximo de um nome de arquivo é <em>255 bytes</em>. O comprimento máximo combinado de nome de arquivo (nome de todas as pastas anteriores a pasta no qual o arquivo pertença) é de <em>4096 bytes</em>. Esse comprimento corresponde ao <em>PATH_MAX</em> que é suportado pelo sistema operacional. A representação <em>Unicode</em> de um caractere pode ocupar <em>vários bytes</em>, de modo que o número máximo de caracteres que englobam um caminho e nome de arquivo possa variar. A limitação real é o número de bytes nos componentes de caminho e arquivo, que pode corresponder a um número igual de caracteres.</p>
+</li>
+<li>
+<p>Para operações de recuperação e arquivamento, o comprimento máximo que pode ser especificado para um caminho e nome de arquivo (combinado) permanecerá em <em>1024 bytes</em>.</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Importante:</strong></p>
+<ul>
+<li>Os caracteres <em>&lt;&gt;|:()&amp;;#?*</em> apesar de aceitos,  normalmente precisam ser &quot;escapados&quot; com barra invertida, ou delimitados com aspas em linha de comando:</li>
+<li>Os caracteres <em>espaço em branco</em> e os <em>caracteres acentuados</em> apesar de serem permitidos, é bom evitar, porque quando o arquivo é visualizado em outro idioma, esses caracteres podem aparecer de forma errada se a página de código do gerenciador de arquivo for diferente da página de código no qual o mesmo foi criado.</li>
+<li>Apesar de permitir quase todos os caracteres, é bom usar somente os seguintes caracteres abaixo para evitar incompatibilidade quando se usa o sistema de arquivos <em>NTFS</em>:</li>
+<li>a-z</li>
+<li>A-Z</li>
+<li>0-9</li>
+<li>underline (_)</li>
+<li>traço (-)</li>
+<li>ponto (.)</li>
+</ul>
+</li>
+<li>
+<p><strong>Exemplo de nome de arquivos</strong>:</p>
+<ul>
+<li><em>./bkp.sh</em></li>
+<li><em>../bkp.sh</em></li>
+<li><em>~/bkp.sh</em></li>
+<li><em>/home/paulosspacheco/bkp.sh</em></li>
+</ul>
+</li>
+</ul>
+<!-- markdownlint-disable-next-line -->
+</li>
+<li>
+<p><span id='id_Ctrl_Alt_T'></span><strong>Atalho para criar um terminal de comandos:</strong></p>
+<ol>
+<li>Teclas <em>Ctrl+Alt+T</em></li>
+</ol>
+<!-- markdownlint-disable-next-line -->
+</li>
+<li>
+<p><span id='id_cmd_gestao_arquivo_pastas'></span><strong>Comandos de Gestão de Arquivos e Pastas</strong></p>
+<!-- markdownlint-disable-next-line -->
+<ol>
+<li>
+<p><span id='id_ls'></span> <strong><em>ls</em> - O comando <a href="https://man7.org/linux/man-pages/man1/ls.1.html"><em>ls</em></a> é usado para listar arquivos ou diretórios (pastas):</strong></p>
+<ol>
+<li>
+<p>Sintaxe: $ <em>ls -opções</em></p>
+<pre><code class="hljs language-bash">      <span class="hljs-comment"># EXEMPLOS</span>
+
+      <span class="hljs-comment"># Lista nome dos arquivos, nome dos links e nome das pastas em várias colunas</span>
+      ls
+
+      <span class="hljs-comment"># Lista o atributos, nome do dono, nome do grupo, data, hora e nome do arquivo.</span>
+      ls -l
+
+</code></pre>
+</li>
+</ol>
+</li>
+<li>
+<!-- markdownlint-disable-next-line -->
+<p><span id='id_which'></span>  <a href="https://linux.die.net/man/1/which"><em>which</em> -  <strong>Mostra o nome do aquivo e local (pasta) onde o arquivo foi localizado</strong></a></p>
+<ol>
+<li>
+<p>Sintaxe: $ <em>which nome_arquivo_no_path</em></p>
+<pre><code class="hljs language-bash">      <span class="hljs-comment"># EXEMPLO</span>
+
+      <span class="hljs-comment"># Mostra o nome da pasta onde o jva está instalado.</span>
+      <span class="hljs-built_in">which</span> java
+      &gt; /usr/lib/jvm/java-1.11.0-openjdk-amd64/bin/java
+      
+</code></pre>
+<ul>
+<li><strong>Nota</strong>:
+<ul>
+<li>Só procura nas pastas registrados em <a href="/etc/environment">/etc/environment</a> ou <a href="~/.bashrc">~/.bashrc</a>.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+</li>
+<li>
+<!-- markdownlint-disable-next-line -->
+<p><span id='id_cd'></span> <strong><em>cd</em> - O comando <a href="https://man7.org/linux/man-pages/man1/cd.1p.html"><em>cd</em></a> é usado para mover-se entre os diretórios ou seja: sair de um diretório e ir para o destino passado pelo parâmetro:</strong></p>
+<ol>
+<li>
+<p>Sintaxe: <em>$ cd NomeDaPastaDestino</em></p>
+<pre><code class="hljs language-bash">    <span class="hljs-comment"># EXEMPLOS</span>
+
+    <span class="hljs-comment"># move-se para a pasta ~/ ou seja: Pasta raiz do usuário.</span>
+    <span class="hljs-built_in">cd</span>
+
+    <span class="hljs-comment"># Move-se para a pasta passado por NomeDir.</span>
+    <span class="hljs-comment"># Para nome dia igual ~ (Pasta raiz do usuário) então:</span>
+    <span class="hljs-built_in">cd</span> ~
+
+<span class="hljs-comment"># Move para a pasta /usr/lib</span>
+<span class="hljs-built_in">cd</span> <span class="hljs-built_in">cd</span> /usr/lib
+
+</code></pre>
+</li>
+</ol>
+<!-- markdownlint-disable-next-line -->
+</li>
+<li>
+<p><span id='id_ln'></span><strong><em>ln</em> - O comando <em>ln -s</em> cria um links simbólico para simplificar o acesso a arquivos que estão com nome da pasta muito grande ou esteja em um hd diferente.</strong></p>
+<ol>
+<li>
+<p><strong>Sintaxe:</strong> <em>ln</em> <em>-s</em> <em>&quot;target file&quot;</em> <em>&quot;Symbolic filename&quot;</em></p>
+<pre><code class="hljs language-bash">   <span class="hljs-comment"># EXEMPLO: </span>
+
+   <span class="hljs-comment"># Cria o link pastaRaisDoUsuarioLogado para a pasta ~/ </span>
+   ln -s ~/ pastaRaisDoUsuarioLogado
+
+   <span class="hljs-comment"># Criar o link lib para a pasta /usr/lib</span>
+   ln -s /usr/lib lib
+
+   <span class="hljs-comment"># Cria o link environment.txt para o arquivo ~/.bashrc</span>
+   ln -s ~/.bashrc environment.txt
+
+
+</code></pre>
+</li>
+<li>
+<p><strong>Notas</strong>:</p>
+<ol>
+<li>O segundo parâmetro <em>&quot;target file&quot;</em> precisa ser um nome de arquivo ou pasta válido;</li>
+<li>O terceiro parâmetro  <em>&quot;Symbolic filename&quot;</em> precisa ser um nome diferente de vazio e não pode existe um arquivo ou pasta com mesmo nome do link a ser criado;</li>
+<li>Ao apagar um link os dados apontados por ele não será apagado;</li>
+<li>Caso o link seja copiado para uma pasta de nome diferente da pasta no qual o mesmo foi criado, esse link se torna inválido;</li>
+<li>O modo de acesso ao link criado, será: <em>leitura</em>, <em>gravação</em> e <em>execução</em> para o <em>usuário dono</em>, <em>grupo</em> e <em>outros usuários</em>, porém o modo de acesso para onde ele aponta, não é alterado.</li>
+</ol>
+</li>
+</ol>
+</li>
+<li>
+<!-- markdownlint-disable-next-line -->
+<p><span id='id_cp'></span><strong><em>cp</em> - O comando <a href="https://linux.die.net/man/1/cp"><em>cp</em></a> copia um arquivo ou pasta para outra pasta ou arquivo.</strong></p>
+<ol>
+<li>
+<p><strong>Parâmetros</strong>:</p>
+<ol>
+<li>
+<p>O atributo do arquivo é levado para a cópia;</p>
+</li>
+<li>
+<p><em>-R</em> : jj</p>
+</li>
+<li>
+<p><em>-r</em> : Copia diretórios recursivamente;</p>
+</li>
+<li>
+<p><em>-i</em> : Pergunta se quer subscrever caso o arquivo existe.</p>
+<ol>
+<li>Caso exista pressione <em>y</em> para confirmar ou enter para não gravar;</li>
+</ol>
+</li>
+<li>
+<p><em>-uprR</em> : Usado para atualizar o diretório destino com os novos arquivos do diretório de origem.;</p>
+</li>
+<li>
+<p><em>-p</em> : Usado para preservar quando possível o atributo de origem;</p>
+</li>
+<li>
+<p><em>-v</em> : (verbose) explica o que está sendo feito</p>
+<pre><code class="hljs language-bash">    <span class="hljs-comment"># EXEMPLOS</span>
+
+    <span class="hljs-comment"># Copia o arquivo ~/.bashrc para o arquivo ~/.bashrc.txt</span>
+    cp ~/.bashrc ~/.bashrc.txt   
+
+    <span class="hljs-comment"># Copia o arquivo ~/.bashrc para a pasta ~/tmp</span>
+    cp ~/.bashrc ~/tmp
+
+    <span class="hljs-comment"># copiar diretórios recursivamente</span>
+    sudo cp -R /etc ~/tmp
+
+    <span class="hljs-comment"># Copia a toda a pasta /etc e subpastas para a pasta ~/tmp perguntado se </span>
+    <span class="hljs-comment"># quer subscrever caso algum arquivo já exista.</span>
+    <span class="hljs-comment"># Caso exista pressione y para confirmar ou enter para não gravar</span>
+    sudo cp -i -R /etc ~/tmp
+
+    <span class="hljs-comment"># O parâmetro -f é usado caso um arquivo de destino existente não puder ser aberto, remove-o e tente novamente (redundante se a opção -n for usada</span>
+    cp -f ~/.bashrc ~/tmp
+
+    <span class="hljs-comment"># Atualiza o diretório ~/tmp com os arquivos diferentes da pasta /etc criado depois da ultima cópia. Cópia incremental.</span>
+    <span class="hljs-comment"># Resumindo: Só será copiado os arquivos com data superior a data da cópia ou se a cópia não existe o arquivo de origem.           </span>
+    sudo cp -upvR /etc ~/tmp
+
+</code></pre>
+</li>
+</ol>
+</li>
+<li>
+<p>Script <a href="./bkp.sh"><em>bkp.sh</em></a> para fazer backup incremental, onde é passado nome de origem (param 1) e destino (param 2):</p>
+<pre><code class="hljs language-bash">   <span class="hljs-comment">#!/bin/bash</span>
+   <span class="hljs-comment"># Program bkp.sh</span>
+   <span class="hljs-comment"># Exemplo de uso</span>
+   <span class="hljs-comment">#  $ ./bkp.sh /Documentos /tmp</span>
+
+   origem=<span class="hljs-string">"<span class="hljs-variable">$1</span>"</span>
+   destino=<span class="hljs-string">"<span class="hljs-variable">$2</span>"</span>
+
+   <span class="hljs-built_in">echo</span> <span class="hljs-string">"Atualiza o diretório <span class="hljs-variable">$destino</span> com os arquivos diferentes da "</span>
+   <span class="hljs-built_in">echo</span> <span class="hljs-string">"pasta <span class="hljs-variable">$origem</span> criado depois da ultima cópia."</span>
+   <span class="hljs-built_in">echo</span> <span class="hljs-string">"Cópia incremental"</span>.               
+   sudo cp -upvrR <span class="hljs-variable">$origem</span> <span class="hljs-variable">$destino</span>
+
+result_cp=<span class="hljs-string">"$?"</span>
+<span class="hljs-keyword">if</span> [ <span class="hljs-variable">$result_cp</span> != 0 ]; <span class="hljs-keyword">then</span>
+   <span class="hljs-built_in">echo</span> <span class="hljs-string">"algo errado na cópia"</span>
+   <span class="hljs-built_in">exit</span> 1;
+<span class="hljs-keyword">fi</span>
+</code></pre>
+</li>
+<li>
+<p>O exemplo de uso do script acima para copiar a pasta ~/Documentos para o destino passado pelo parâmetro 1</p>
+<pre><code class="hljs language-bash">
+   <span class="hljs-comment"># Copia a pasta Documentos para a pasta temporária na área do usuário.   </span>
+   ./bkp.sk ~/Documentos ~/tmp
+
+</code></pre>
+</li>
+<li>
+<p>O script <a href="./bkpdocs.sh"><em>bkpdocs.sh</em></a> executa a mesma tarefa que o script do item 3 acima.</p>
+<pre><code class="hljs language-bash">
+   <span class="hljs-comment">#!/bin/bash</span>
+   <span class="hljs-comment"># Program bkpDocs.sh</span>
+   <span class="hljs-comment"># Exemplo de uso:</span>
+   <span class="hljs-comment">#   ./bkpdocs.sh /PastaDestino</span>
+   
+   origem=<span class="hljs-string">"~/Documentos"</span>
+   destino=<span class="hljs-string">"<span class="hljs-variable">$1</span>"</span>
+   <span class="hljs-keyword">if</span> [-z <span class="hljs-variable">$destino</span> ]; <span class="hljs-keyword">then</span>
+   <span class="hljs-built_in">echo</span> <span class="hljs-string">"O destino precisa ser informado"</span>
+   <span class="hljs-built_in">exit</span> 1
+   <span class="hljs-keyword">fi</span>  
+
+   <span class="hljs-built_in">echo</span> <span class="hljs-string">"Atualiza o diretório <span class="hljs-variable">$destino</span> com os arquivos diferentes da "</span>
+   <span class="hljs-built_in">echo</span> <span class="hljs-string">"pasta <span class="hljs-variable">$origem</span> criado depois da ultima cópia."</span>
+   <span class="hljs-built_in">echo</span> <span class="hljs-string">"Cópia incremental"</span>.         
+   sudo cp -upvR <span class="hljs-variable">$origem</span> <span class="hljs-variable">$destino</span>
+   
+   result_cp=<span class="hljs-string">"$?"</span>
+   <span class="hljs-keyword">if</span> [ <span class="hljs-variable">$result_cp</span> != 0 ]; <span class="hljs-keyword">then</span>
+   <span class="hljs-built_in">echo</span> <span class="hljs-string">"Algo errado na cópia"</span>
+   <span class="hljs-built_in">exit</span> 1;
+   <span class="hljs-keyword">fi</span>
+
+
+</code></pre>
+</li>
+<li>
+<p><a href="https://www.youtube.com/watch?v=QZ2nyxzZXPY&amp;t=685s">Vídeo aula sobre o comando cp...</a></p>
+</li>
+</ol>
+</li>
+<li>
+<!-- markdownlint-disable-next-line -->
+<p><span id='id_dd'></span> - <strong><a href="https://man7.org/linux/man-pages/man1/dd.1.html"><em>dd</em></a> :  Clona um dispositivo de bloco, convertendo e formatando de acordo com os operandos. <a href="https://www.linuxdescomplicado.com.br/2016/11/alguns-exemplos-de-que-o-comando-dd-pode-ser-considerado-umas-das-ferramentas-mais-versateis-do-linux.html">Veja mais...</a></strong></p>
+<ol>
+<li>
+<p>Parâmetros:</p>
+<ol>
+<li>‘<em>if</em>=<em>/dev/sdax</em>‘ : Representa o disco de origem a ser copiado;</li>
+<li>‘<em>of</em>=<em>/dev/sdbx</em>‘ : Representa o disco de destino que vai receber a cópia;</li>
+<li>'<em>bs</em>=<em>4096</em>' : Representa o tamanho do bloco (número de bytes a serem lidos/gravados de cada vez).</li>
+<li><em>conv</em>=<em>noerror</em>,<em>sync</em> representa o parâmetro de conversão.
+<ol>
+<li>A opção ‘noerror’ : permite que a ferramenta continue copiando os dados mesmo que encontre erros.</li>
+<li>E a opção ‘sync’ : permite usar operações de Entrada/Saída sincronizadas.</li>
+</ol>
+</li>
+<li>'<em>status</em>=<em>progress</em>' : Mostra em que posição está a cópia.</li>
+</ol>
+</li>
+<li>
+<p>Exemplos de backup de todo o disco rígido para uma outra unidade:</p>
+<pre><code class="hljs language-bash">
+  <span class="hljs-comment"># ‘if=/dev/sda‘ : representa o disco de origem a ser copiado;</span>
+  <span class="hljs-comment"># ‘of=/dev/sdb‘ : representa o disco de destino que vai receber a cópia;           </span>
+  sudo dd <span class="hljs-keyword">if</span>=/dev/sda of=/dev/sdb bs=4096 conv=noerror,sync status=progress
+
+</code></pre>
+</li>
+<li>
+<p>Exemplos de backup da partição <em>sda1</em> para <em>sdb1</em>:</p>
+<pre><code class="hljs language-bash">
+   <span class="hljs-comment"># Copia a partição sda1 para sdb1 mantendo a mesma formatação.            </span>
+   sudo dd <span class="hljs-keyword">if</span>=/dev/sda1 of=/dev/sdb1 status=progress
+   
+   <span class="hljs-comment"># Copia a partição sda1 para sdb1 usando os parâmetros 4096 e noerror,sync:</span>
+   sudo dd <span class="hljs-keyword">if</span>=/dev/sda1 of=/dev/sdb1 bs=4096 conv=noerror,sync status=progress
+
+</code></pre>
+</li>
+<li>
+<p>Exemplos de backup da partição <em>sda1</em> para o arquivo sda1.iso:</p>
+<pre><code class="hljs language-bash">
+   <span class="hljs-comment"># Copia a partição sda1 para sdb1 mantendo a mesma formatação.            </span>
+   sudo dd <span class="hljs-keyword">if</span>=/dev/sda1 of=sdb1.iso status=progress
+   
+   <span class="hljs-comment"># Copia a partição sda1 para sdb1 usando os parâmetros 4096 e noerror,sync:</span>
+   sudo dd <span class="hljs-keyword">if</span>=/dev/sda1 of=sdb1.iso bs=4096 conv=noerror,sync status=progress
+
+</code></pre>
+</li>
+</ol>
+</li>
+<li>
+<!-- markdownlint-disable-next-line -->
+<p><span id='id_e2image'></span> <strong><em><a href="http://rpm.pbone.net/manpage_idpl_25428807_numer_8_nazwa_e2image.html">e2image</a></em> - Clona um dispositivo de bloco cujo o formato de arquivo seja: <em>ext2</em>, <em>ext3</em> e <em>ext4</em></strong></p>
+<ol>
+<li>O objetivo do programa <em>e2image</em> é salvar metadados críticos do sistema de arquivos <em>ext2/ext3/ext4</em> em um arquivo de imagem do dispositivo.</li>
+<li>Para clonar uma partição não montada usa-se as opções <em>-ra</em> e <em>-p</em>. Veja o exemplo de como clonar a partição não montada <em>/dev/sdb1</em> para <em>/dev/sdb2</em>:</li>
+</ol>
+<pre><code class="hljs language-bash">
+    <span class="hljs-comment"># A opção -a copia os arquivos também além </span>
+    sudo e2image -ra -p <span class="hljs-string">'/dev/sdb1'</span> <span class="hljs-string">'/dev/sdb2'</span>
+
+</code></pre>
+</li>
+<li>
+<!-- markdownlint-disable-next-line -->
+<p><span id='id_gparted'></span> <strong><em><a href="https://gparted.org/display-doc.php%3Fname%3Dhelp-manual">gparted</a></em> - Programa usado para criar partição, pode ser usado para clonar partição de forma muito simples e visual.</strong></p>
+<ol>
+<li>Para clonar uma partição siga os seguintes passos:
+<ol>
+<li>
+<p>Instale o programa <em>gparted</em> com o comando abaixo:</p>
+<pre><code class="hljs language-bash">
+  <span class="hljs-comment"># Atualiza a lista do apt-get</span>
+  sudo apt update
+
+  <span class="hljs-comment"># Instala o programa gparted</span>
+  sudo apt install gparted             
+
+</code></pre>
+</li>
+<li>
+<p>Executa o programa <em>gparted</em> com o comando abaixo</p>
+</li>
+</ol>
+</li>
+</ol>
+<pre><code class="hljs language-bash">      
+
+</code></pre>
+</li>
+<li>
+<!-- markdownlint-disable-next-line -->
+<p><span id='id_mount'></span> <em>mount</em> - <strong>Monta um sistema de arquivos</strong></p>
+<ol>
+<li>
+<p>Exemplo de montagem de pasta compartilhada usando o protocolo samba do windows:</p>
+<ol>
+<li>
+<p><strong>Com domínio:</strong></p>
+<pre><code class="hljs language-bash">
+    <span class="hljs-comment"># mount -t cifs &lt;ORIGEM&gt; &lt;DESTINO&gt; -o user=&lt;USUARIO&gt;,password=&lt;SENHA&gt;,domain=&lt;DOMINIO&gt;</span>
+    mount -t cifs //192.168.15.3/publico /mnt/backup/ -o user=paulosspacheco,password=1234,domain=itms
+
+</code></pre>
+</li>
+<li>
+<p><strong>Sem domínio:</strong></p>
+<pre><code class="hljs language-bash">
+    <span class="hljs-comment"># mount -t cifs &lt;ORIGEM&gt; &lt;DESTINO&gt; -o user=&lt;USUARIO&gt;,password=&lt;SENHA&gt;</span>
+    mount -t cifs //192.168.15.3/publico /mnt/backup/ -o user=paulosspacheco,password=1234
+
+</code></pre>
+</li>
+</ol>
+</li>
+<li>
+<p><strong>Notas:</strong></p>
+<ol>
+<li><em>mount</em>: Comando utilizado para realizar montagens no Linux.</li>
+<li><em>-t</em>: Tipo de montagem. No nosso exemplo para acessar as pastas compartilhadas no Windows, utilizamos o tipo cifs.</li>
+<li><em>origem</em>: O caminho de origem do compartilhamento de rede. Ex: //maquina01/publico ou <a href="//192.168.50.3/publico">//192.168.50.3/publico</a>.</li>
+<li><em>destino</em>: O ponto de montagem onde será montado o compartilhamento Ex: /mnt/backup.</li>
+<li><em>-o</em>: Parâmetro utilizado para passar outras opções ao comando mount como por exemplo:
+<ol>
+<li><em>user</em>: Nome do usuário do domínio que tem permissão de leitura e gravação na pasta de origem compartilhada.</li>
+<li><em>password</em>: Senha do usuário informado.</li>
+<li><em>domain</em>: Nome do Domínio em que a máquina de origem esta inserida.</li>
+</ol>
+</li>
+</ol>
+</li>
+<li>
+<p><strong>Exemplo de montagem de pasta compartilhada usando o protocolo <em>NFS</em></strong>:</p>
+<ol>
+<li>
+<p><strong>Usando o usuário logado na máquina local e no servidor com mesmo login e senha:</strong></p>
+<pre><code class="hljs language-bash">
+    <span class="hljs-comment"># sudo mount &lt;ORIGEM&gt; &lt;DESTINO&gt; </span>
+    <span class="hljs-comment"># sudo mount host_ip:/var/nfs/share ~/LnxMint_Server_Share</span>
+    sudo mount 192.168.15.3:/var/nfs/share ~/LnxMint_Server_Share
+    
+
+</code></pre>
+</li>
+<li>
+<p><strong>Notas:</strong></p>
+<ol>
+<li><em>mount</em>: Comando utilizado para realizar montagens no Linux.</li>
+<li><em>origem</em>: O caminho de origem do compartilhamento de rede. Ex: 192.168.15.3:/var/nfs/share.</li>
+<li><em>destino</em>: O ponto de montagem onde será montado o compartilhamento Ex: ~/LnxMint_Server_Share</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+<li>
+<!-- markdownlint-disable-next-line -->
+<p><span id='id_chmod'></span> <a href="https://linux.die.net/man/1/chmod"><em>chmod</em></a> altera os bits do modo de arquivo</p>
+<ol>
+<li>
+<p><strong>Sintaxe:</strong></p>
+<ol>
+<li><em>chmod</em> <em>-R</em> <em>ZZZ</em> (+ ou - pu) <em>YYY</em> ./
+<ol>
+<li>
+<p><em>-R</em> significa:</p>
+<ol>
+<li>Informa ao <em>chmod</em> para altera o flag de todas as subpasta dentro da pasta corrente (<em>./</em>)</li>
+</ol>
+</li>
+<li>
+<p><em>Z</em> significa: Tipo de usuários, onde:</p>
+<ol>
+<li><em>u</em> = para usuário proprietário do arquivo</li>
+<li><em>g</em> = para grupo usuários de acesso ao arquivos</li>
+<li><em>o</em> = para outros usuários não registrados no sistema</li>
+<li><em>a</em> = para todos os usuários</li>
+</ol>
+</li>
+<li>
+<p><em>Y</em> significa: tipo de operação, onde:</p>
+<ol>
+<li><em>x</em> = Execução</li>
+<li><em>r</em> = Leitura</li>
+<li><em>w</em> = Escrita</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+<li>
+<p><strong>Exemplo:</strong></p>
+<pre><code class="hljs language-bash">
+   <span class="hljs-comment"># Permite que usuários, grupo e outros executem, leem  e gravem todos arquivos da pasta.</span>
+   sudo chmod -R ugo+xrw ./ 
+
+   <span class="hljs-comment"># Não permite em todos arquivos da pasta, que usuários, grupo e outros executem e gravem os arquivos .</span>
+   sudo chmod -R ugo-xw ./ 
+
+   <span class="hljs-comment"># Permite em todos arquivos da pasta e subpastas que outros usuários só podem ler os arquivos.</span>
+   sudo chmod -R o=r ./                
+
+   <span class="hljs-comment"># Permite em todos arquivos da pasta e subpastas que grupo de usuários só podem ler e gravar os arquivos.</span>
+   sudo chmod -R g=rw ./                               
+                
+</code></pre>
+</li>
+</ol>
+</li>
+<li>
+<!-- markdownlint-disable-next-line -->
+<p><span id='id_chmod'></span> <a href="https://man7.org/linux/man-pages/man2/setuid.2.html"><em>setuid</em></a> : Define a identidade do usuário</p>
+<pre><code class="hljs language-bash">
+</code></pre>
+</li>
+<li>
+<p><em>chgrp</em>: Mudar o grupo de um arquivo ou diretório</p>
+<pre><code class="hljs language-bash">
+</code></pre>
+</li>
+<li>
+<p><em>chown</em>: Mudar o dono ou grupo de um arquivo ou diretório, vem de change owner</p>
+<pre><code class="hljs language-bash">
+</code></pre>
+</li>
+<li>
+<p><em>chgrp</em>: Mudar o grupo de um arquivo ou diretório</p>
+<pre><code class="hljs language-bash"> 
+</code></pre>
+</li>
+<li>
+<p><em>cmp</em>: Compara dois arquivos</p>
+<pre><code class="hljs language-bash">
+</code></pre>
+</li>
+<li>
+<p><em>comm</em>: Seleciona ou rejeita linhas comuns a dois arquivos selecionados</p>
+<pre><code class="hljs language-bash">
+</code></pre>
+</li>
+<li>
+<p><em>crypt</em>: Encripta ou Descripta arquivos (apenas CCWF)</p>
+<pre><code class="hljs language-bash">
+</code></pre>
+</li>
+<li>
+<p><em>diff</em>: Compara o conteúdo de dois arquivos ASCII</p>
+<pre><code class="hljs language-bash">
+</code></pre>
+</li>
+<li>
+<p><em>file</em>: Determina o tipo de arquivo</p>
+<pre><code class="hljs language-bash">
+</code></pre>
+</li>
+<li>
+<p><em>grep</em>: Procura um arquivo por um padrão, sendo um filtro muito útil e usado, por exemplo um cat a.txt | grep ola irá mostrar-nos apenas as linhas do arquivo a.txt que contenham a palavra “ola”</p>
+<pre><code class="hljs language-bash">
+</code></pre>
+</li>
+<li>
+<p><em>gzip</em>: Comprime ou expande arquivo</p>
+<pre><code class="hljs language-bash">
+</code></pre>
+</li>
+<li>
+<p><em>lsof</em>: Lista os arquivos abertos, vem de list open files</p>
+<pre><code class="hljs language-bash">
+</code></pre>
+</li>
+<li>
+<p><em>mkdir</em>: Cria uma diretório, vem de make directory”</p>
+<pre><code class="hljs language-bash">
+</code></pre>
+</li>
+<li>
+<p><em>mv</em>: Move ou renomeia arquivos ou diretórios</p>
+<pre><code class="hljs language-bash">
+</code></pre>
+</li>
+<li>
+<p><em>pwd</em>: Mostra-nos o caminho por inteiro da diretório em que nos encontramos em dado momento, ou seja um pathname</p>
+<pre><code class="hljs language-bash">
+</code></pre>
+</li>
+<li>
+<p><em>quota</em>: Mostra-nos o uso do disco e os limites</p>
+<pre><code class="hljs language-bash">
+</code></pre>
+</li>
+<li>
+<p><em>rm</em>: Apaga arquivos, vem de remove, e é semelhante ao comando del no MS-DOS, é preciso ter cuidado com o comando rm * pois apaga tudo sem confirmação por defeito</p>
+<pre><code class="hljs language-bash">
+</code></pre>
+</li>
+<li>
+<p><em>rmdir</em>: Apaga diretório, vem de remove directory</p>
+<pre><code class="hljs language-bash">
+</code></pre>
+</li>
+<li>
+<p><em>stat</em>: Mostra o estado de um arquivo, útil para saber por exemplo a hora e data do último acesso ao mesmo</p>
+<pre><code class="hljs language-bash">
+</code></pre>
+</li>
+<li>
+<p><em>sync</em>: Faz um flush aos buffers do sistema de arquivos, sincroniza os dados no disco com a memória, ou seja escreve todos os dados presentes nos buffers da memória para o disco</p>
+<pre><code class="hljs language-bash">
+</code></pre>
+</li>
+<li>
+<p><em>sort</em>: Ordena, une ou compara texto, podendo ser usado para extrair informações dos arquivos de texto ou mesmo para ordenar dados de outros comandos como por exemplo listar arquivos ordenados pelo nome</p>
+<pre><code class="hljs language-bash">
+</code></pre>
+</li>
+<li>
+<p><em>tar</em>: Cria ou extrai arquivos, muito usado como programa de backup ou compressão de arquivos</p>
+<pre><code class="hljs language-bash">
+</code></pre>
+</li>
+<li>
+<p><em>tee</em>: Copia o input para um standard output e outros arquivos</p>
+<ol>
+<li>O exemplo abaixo verificará a linha do arquivo file1.txt, gerar o resultado no terminal e salvar no file2.txt.</li>
+</ol>
+<pre><code class="hljs language-bash">
+   wc -l file1.txt | tee file2.txt
+
+</code></pre>
+</li>
+<li>
+<p><em>tr</em>: Traduz caracteres</p>
+<pre><code class="hljs language-bash">
+</code></pre>
+</li>
+<li>
+<p><em>umask</em>: Muda as proteções de arquivos</p>
+<pre><code class="hljs language-bash">
+</code></pre>
+</li>
+<li>
+<p><em>uncompress</em>: Restaura um arquivo comprimido</p>
+<pre><code class="hljs language-bash">
+</code></pre>
+</li>
+<li>
+<p><em>uniq</em>: Reporta ou apaga linhas repetidas num arquivo</p>
+</li>
+<li>
+<p><em>wc</em>: Conta linhas, palavras e mesmo caracteres num arquivo</p>
+<pre><code class="hljs language-bash">
+   wc -l file1.txt | tee file2.txt
+
+</code></pre>
+</li>
+<li>
+<p><strong>Redirecionares</strong></p>
+<ol>
+<li>
+<p><em>&gt;&gt;</em> Transfere a saída de um comando para a entrada do comandos após ele.</p>
+<pre><code class="hljs language-bash">
+  ls -l &gt;&gt; <span class="hljs-string">""</span>Lista de arquivo.txt<span class="hljs-string">""</span>
+
+</code></pre>
+<ol>
+<li><a href="https://www.youtube.com/watch?v=QZ2nyxzZXPY&amp;t=334s">Vídeo aula sobre o comando &gt;&gt;...</a></li>
+</ol>
+</li>
+<li>
+<p>...</p>
+</li>
+</ol>
+</li>
+<li>
+<p><em>apropos</em>: Localiza comandos por pesquisa de palavra-chave</p>
+<pre><code class="hljs language-bash">
+</code></pre>
+</li>
+<li>
+<p><em>find</em>: Localiza arquivos, como por exemplo: <em>find . -name *.txt -print</em>, para pesquisa de arquivos de texto a partir da pasta atual</p>
+<ol>
+<li>
+<p>Sintaxe</p>
+<ol>
+<li>
+<p>find ./ -type d -iname 'NomeDaPasta'</p>
+<pre><code class="hljs language-bash">
+   <span class="hljs-comment"># find &lt;startingdirectory&gt; &lt;opções&gt; &lt;termo de busca&gt;</span>
+   find ./ -<span class="hljs-built_in">type</span> d -iname <span class="hljs-string">'shell'</span> 
+    
+</code></pre>
+</li>
+</ol>
+</li>
+<li>
+<p>Para configurar o comando <em>finddir</em> para que faça pesquisa a partir da pasta atual:</p>
+<ol>
+<li>
+<p>Editar o arquivo <em>~/.bashrc</em></p>
+<pre><code class="hljs language-bash">
+  Editar o arquivo
+  xed ~/.bashrc
+
+</code></pre>
+</li>
+<li>
+<p>No final do arquivo adicionar a linha a seguir:</p>
+<pre><code class="hljs language-bash">
+   <span class="hljs-built_in">alias</span> finddir=<span class="hljs-string">"find './' -type d -iname"</span>
+        
+</code></pre>
+</li>
+</ol>
+</li>
+<li>
+<p>Referências</p>
+<ul>
+<li><a href="https://www.hostinger.com.br/tutoriais/find-locate-comandos-linux#:~:text=Para%20descobrir%20seu%20diret%C3%B3rio%20atual,utilizar%20para%20procurar%20seu%20arquivo.">Comandos Linux: Find e Locate – Como Usar</a></li>
+</ul>
+</li>
+</ol>
+</li>
+<li>
+<p><em>info</em>: Abre o explorador de informações</p>
+<pre><code class="hljs language-bash">
+</code></pre>
+</li>
+<li>
+<!-- markdownlint-disable-next-line -->
+<p><span id='id_install'></span> <a href="https://ss64.com/bash/install.html"><em>Install</em></a> : Copie arquivos e defina atributos, copie arquivos enquanto define seus modos de permissão e, se possível, seu proprietário e grupo.</p>
+<ol>
+<li>Sintaxe:
+<ol>
+<li>install [options]... SOURCE DEST</li>
+<li>install [options]... SOURCE... DIRECTORY</li>
+<li>install -d [options]... DIRECTORY...</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+<li>
+<!-- markdownlint-disable-next-line -->
+<p><span id='id_cmd_ajuda_documentacao'></span> <strong>Comandos de Ajuda e Documentação</strong></p>
+<ol>
+<li>
+<p><em>man</em>: Manual muito completo, pesquisa informação acerca de todos os comandos que necessitemos de saber, como por exemplo man find</p>
+<pre><code class="hljs language-bash">
+</code></pre>
+</li>
+<li>
+<p><em>whatis</em>: Descreve o que um determinado comando é/faz</p>
+<pre><code class="hljs language-bash">
+</code></pre>
+</li>
+<li>
+<p><em>whereis</em> : Localizar a página de ajuda (man page), código fonte, ou arquivos binários, de um determinado programa</p>
+<pre><code class="hljs language-bash">
+</code></pre>
+</li>
+</ol>
+</li>
+<li>
+<!-- markdownlint-disable-next-line -->
+<p><span id='id_comandos_comunicacoes'></span><strong>Comandos de Comunicações</strong></p>
+<ol>
+<li>
+<p><em>mail</em>: Enviar e receber emails</p>
+<pre><code class="hljs language-bash">
+</code></pre>
+</li>
+<li>
+<p><em>mesg</em>: Permitir ou negar mensagens de terminal e pedidos de conversação (talk requests)</p>
+<pre><code class="hljs language-bash">
+</code></pre>
+</li>
+<li>
+<p><em>pine</em>: Outra forma de enviar e receber emails, uma ferramenta rápida e prática</p>
+<pre><code class="hljs language-bash">
+</code></pre>
+</li>
+<li>
+<p><em>talk</em>: Falar com outros utilizadores que estejam logados no momento</p>
+<pre><code class="hljs language-bash">
+</code></pre>
+</li>
+<li>
+<p><em>write</em>: Escrever para outros utilizadores que estejam logados no momento</p>
+<pre><code class="hljs language-bash">
+</code></pre>
+</li>
+</ol>
+</li>
+<li>
+<!-- markdownlint-disable-next-line -->
+<p><span id='id_Cmd_edicao_de_texto'><strong>Comandos de Edição de Texto</strong></p>
+<ol>
+<li>
+<p><em>emacs</em>: Editor de texto screen-oriented</p>
+<pre><code class="hljs language-bash">
+</code></pre>
+</li>
+<li>
+<p><em>pico</em>: Editor de texto screen-oriented, também chamado de nano</p>
+<pre><code class="hljs language-bash">
+</code></pre>
+</li>
+<li>
+<p><em>sed</em>: Editor de texto stream-oriented</p>
+<pre><code class="hljs language-bash">
+</code></pre>
+</li>
+<li>
+<p><em>vi</em>: Editor de texto full-screen</p>
+<pre><code class="hljs language-bash">
+</code></pre>
+</li>
+<li>
+<p><em>vim</em>: Editor de texto full-screen melhorado (vi improved)</p>
+<pre><code class="hljs language-bash">
+</code></pre>
+</li>
+</ol>
+</li>
+<li>
+<!-- markdownlint-disable-next-line -->
+<p><span id='id_exibicao_impressao_arquivos'></span><strong>Exibição ou Impressão de Arquivos</strong></p>
+<ol>
+<li>
+<p><em>cat</em>: Mostra o conteúdo de um arquivo, como o comando type do MD-DOS, e é muito usado também para concatenar arquivos, como por exemplo fazendo <em>cat a.txt b.txt &gt; c.txt</em> para juntar o arquivo <em>a.txt</em> e <em>b.txt</em> num único de nome <em>c.txt</em></p>
+<pre><code class="hljs language-bash">
+  cat a.txt b.txt &gt; c.txt
+
+</code></pre>
+</li>
+<li>
+<p><em>fold</em>: Encurta, ou seja, faz um fold das linhas longas para caberem no dispositivo de output</p>
+<pre><code class="hljs language-bash">
+</code></pre>
+</li>
+<li>
+<p><em>head</em>: Mostra as primeiras linhas de um arquivo, como por exemplo com head -10 a.txt, ou usado como filtro para mostrar apenas os primeiros x resultados de outro comando</p>
+<pre><code class="hljs language-bash">
+</code></pre>
+</li>
+<li>
+<p><em>lpq</em>: Examina a spooling queue da impressora</p>
+<pre><code class="hljs language-bash">
+</code></pre>
+</li>
+<li>
+<p><em>lpr</em>: Imprime um arquivo</p>
+<pre><code class="hljs language-bash">
+</code></pre>
+</li>
+<li>
+<p><em>lprm</em>: Remove jobs da spooling queue da impressora</p>
+<pre><code class="hljs language-bash">
+</code></pre>
+</li>
+<li>
+<p><em>more</em>: Mostra o conteúdo de um arquivo, mas apenas um ecrã de cada vez, ou mesmo output de outros comandos, como por exemplo ls | more</p>
+<pre><code class="hljs language-bash">
+</code></pre>
+</li>
+<li>
+<p><em>less</em>: Funciona como o more, mas com menos features, menos características e potenciais usos</p>
+<pre><code class="hljs language-bash">
+</code></pre>
+</li>
+<li>
+<p><em>page</em>: Funciona de forma parecida com o comando more, mas exibe os ecrãs de forma invertida ao comando more</p>
+<pre><code class="hljs language-bash">
+</code></pre>
+</li>
+<li>
+<p><em>pr</em>: Pagina um arquivo para posterior impressão</p>
+<pre><code class="hljs language-bash">
+</code></pre>
+</li>
+<li>
+<p><em>tail</em>: Funciona de forma inversa ao comando head, mostra-nos as últimas linhas de um arquivo ou mesmo do output de outro comando, quando usado como filtro</p>
+<pre><code class="hljs language-bash">
+</code></pre>
+</li>
+<li>
+<p><em>zcat</em>: Mostra-nos um arquivo comprimido</p>
+<pre><code class="hljs language-bash">
+</code></pre>
+</li>
+<li>
+<p><em>xv</em>: Serve para exibir, imprimir ou mesmo manipular imagens</p>
+<pre><code class="hljs language-bash">
+</code></pre>
+</li>
+<li>
+<p><em>gv</em>: Exibe arquivos ps e pdf</p>
+<pre><code class="hljs language-bash">
+</code></pre>
+</li>
+<li>
+<p><em>xpdf</em>: Exibe arquivos pdf, usa o gv</p>
+<pre><code class="hljs language-bash">
+</code></pre>
+</li>
+</ol>
+</li>
+<li>
+<!-- markdownlint-disable-next-line -->
+<p><span id='id_cmd_transferencia_arquivos'></span><strong>Comandos de Transferência de Arquivos</strong></p>
+<ol>
+<li>
+<p><em>ftp</em>: Vem de file transfer protocol, e permite-nos, usando o protocolo de transferência de arquivos ftp, transferir arquivos entre vários hosts de uma rede, como a um servidor de ftp para enviar ou puxar arquivos</p>
+<pre><code class="hljs language-bash">
+</code></pre>
+</li>
+<li>
+<!-- markdownlint-disable-next-line -->
+<p><span id='id_cmd_rsync'></span> - <em><a href="https://www.hostinger.com.br/tutoriais/comando-rsync-linux">rsync</a></em>: Sincroniza de forma rápida e flexível dados entre dois computadores. <a href="https://linux.die.net/man/1/rsync">Veja mais...</a></p>
+<ol>
+<li>
+<p><strong>Sintaxe:</strong></p>
+<ol>
+<li>
+<p>Cópia para máquina local:</p>
+<ol>
+<li><em>rsync</em> [<em>parâmetros</em>] [<em>source</em>] [<em>destination</em>]</li>
+</ol>
+</li>
+<li>
+<p>Cópia para máquina remotas:</p>
+<ol>
+<li><em>rsync</em> [<em>parâmetros</em>] [<em>source</em>] [<em>user</em>]@[<em>host</em>]:[<em>destination</em>]</li>
+</ol>
+</li>
+</ol>
+</li>
+<li>
+<p><strong>Parâmetros:</strong></p>
+<ol>
+<li><em>-a</em> : --archive O modo de arquivamento é igual a <em>-rlptgoD</em> (sem -H,-A,-X).</li>
+<li><em>-r</em> : Copia a pasta ~/duplicate/ para a pasta ~/original/* recursivamente</li>
+<li><em>-R</em> : Copia deve ter o nome original e não o nome relativo</li>
+<li><em>-z</em> : Comprime os dados dos arquivos antes de enviá-los</li>
+<li><em>-v</em> : Mostra a versão do <em>rsync</em> ao iniciar a cópia.</li>
+<li><em>-h</em> : output num formato legível para humanos.</li>
+<li><em>-l</em> : Quando links simbólicos forem encontrados, recrie o link simbólico no destino.</li>
+<li><em>-i</em> : Copia links simbólicos como links simbólicos.</li>
+<li><em>-u</em> : Força o <em>rsync</em> a ignorar todos os arquivos existentes no destino e cuja hora de modificação seja mais recente que o arquivo de origem.</li>
+<li><em>-n</em> : Modo “dry run” – executa uma tentativa de copiar dados sem realmente copiar qualquer arquivo.</li>
+<li><em>-P</em> ou <em>--progress</em> : Esta opção diz ao <em>rsync</em> para imprimir informações mostrando o progresso da transferência.</li>
+<li><em>-p</em> : Preserva as permissões.</li>
+<li><em>-t</em> : Preserva datas</li>
+<li><em>-g</em> : Preserva o grupo.</li>
+<li><em>-o</em> : Preserva o dono. Precisa de root.</li>
+<li><em>-D</em> : --devices --specials Preservar dispositivos (somente superusuário) +arquivos</li>
+<li><em>--delete</em> : Exclui arquivos no diretório de destino se eles não existirem no diretório de origem.</li>
+</ol>
+<pre><code class="hljs language-bash">
+   <span class="hljs-comment"># Copia todas as pastas do local ~/original/* para a pasta ~/duplicate/</span>
+   <span class="hljs-comment"># -a = -rlptgoD                      </span>
+   rsync -zahui --progress ~/original/* ~/duplicate/
+
+   <span class="hljs-comment"># Copia todas as pastas do local ~/original/* para a pasta ~/duplicate/</span>
+   <span class="hljs-comment"># -a = -rlptgoD</span>
+   <span class="hljs-comment"># -R = Copia deve ter o nome original e não o nome relativo</span>
+   <span class="hljs-comment"># --delete : Exclui arquivos no diretório de destino se eles não existirem no diretório de origem.</span>
+   rsync -zaRhui --progress --delete ~/original/* ~/duplicate/                    
+
+</code></pre>
+</li>
+<li>
+<p><strong>Script <em>copyto</em>:</strong></p>
+<ol>
+<li>
+<p>O script copyto copia para o DESTINO, somente os arquivos diferentes, ou os que a data de ORIGEM seja inferior a data de DESTINO. Copia também os arquivos e pastas invisíveis.</p>
+<pre><code class="hljs language-bash">
+   <span class="hljs-comment">#!/bin/bash</span>
+   <span class="hljs-comment"># Program copyto.sh</span>
+   <span class="hljs-comment"># Exemplo de uso:</span>
+   <span class="hljs-comment">#  ./copyto.sh /PastaDestino /arquivos_de_exessão.txt</span>
+
+   <span class="hljs-built_in">echo</span> <span class="hljs-string">"Script: copyto.sh"</span>
+   <span class="hljs-built_in">echo</span> .
+   origem_invisivel=<span class="hljs-string">"./.[^.]*"</span>
+   origem=<span class="hljs-string">"./*"</span>
+   destino=<span class="hljs-string">"<span class="hljs-variable">$1</span>"</span>
+   except=<span class="hljs-string">"<span class="hljs-variable">$2</span>"</span>
+   <span class="hljs-keyword">if</span> [ -z destino ]; <span class="hljs-keyword">then</span>
+      <span class="hljs-built_in">echo</span> <span class="hljs-string">"O destino precisa ser informado"</span>
+      <span class="hljs-built_in">exit</span> 1
+   <span class="hljs-keyword">fi</span>  
+   <span class="hljs-built_in">echo</span> .
+   <span class="hljs-built_in">echo</span> <span class="hljs-string">"Origem..: <span class="hljs-variable">$destino</span>"</span>
+   <span class="hljs-built_in">echo</span> <span class="hljs-string">"Destino.: <span class="hljs-variable">$origem</span>"</span>
+   <span class="hljs-built_in">echo</span> <span class="hljs-string">"Exessão.: <span class="hljs-variable">$except</span>"</span>
+   <span class="hljs-built_in">echo</span> <span class="hljs-string">"Nota....: Copia para o DESTINO, somente os arquivos diferentes, ou os que a data de ORIGEM seja inferior a data de DESTINO."</span>
+   <span class="hljs-built_in">echo</span> .
+   <span class="hljs-built_in">echo</span> <span class="hljs-string">"Cópia incremental"</span>.         
+   sudo rsync --exclude-from=<span class="hljs-variable">$except</span> --delete -arRvhui --progress <span class="hljs-variable">$origem_invisivel</span> <span class="hljs-variable">$destino</span>
+   sudo rsync --exclude-from=<span class="hljs-variable">$except</span> --delete -arRvhui --progress <span class="hljs-variable">$origem</span> <span class="hljs-variable">$destino</span>
+   result_cp=<span class="hljs-string">"$?"</span>
+   <span class="hljs-keyword">if</span> [ <span class="hljs-variable">$result_cp</span> != 0 ]; <span class="hljs-keyword">then</span>
+      <span class="hljs-built_in">echo</span> .
+      <span class="hljs-built_in">echo</span> algo errado na cópia
+      <span class="hljs-built_in">exit</span> 1;
+   <span class="hljs-keyword">fi</span>
+
+
+</code></pre>
+</li>
+</ol>
+</li>
+<li>
+<p><strong>Referências:</strong></p>
+<ol>
+<li><a href="https://ss64.com/bash/rsync_options.html">rsync_options</a></li>
+<li><a href="http://www.bosontreinamentos.com.br/linux/10-exemplos-do-comando-rsync-para-backup-e-sincronismo-de-arquivos-no-linux/">10 exemplos do comando rsync para backup e sincronismo de arquivos no Linux</a></li>
+<li><a href="https://www.hostgator.com.br/blog/utilizar-comando-rsync-do-linux/">Rsync: confira como utilizar o comando do Linux</a></li>
+<li><a href="https://linuxconfig.org/rsync-exclude-directory">Rsync: excluir diretório</a></li>
+<li><a href="https://linuxconfig.org/rsync-command-examples">Exemplos de Rsync no Linux</a></li>
+<li><a href="https://www.cyberciti.biz/faq/linux-unix-appleosx-bsd-rsync-copy-hidden-dot-files/">Linux / Unix Rsync Copiar apenas arquivos e diretórios de pontos ocultos</a></li>
+</ol>
+</li>
+</ol>
+</li>
+<li>
+<p><em>scp</em>: Versão segura do rcp</p>
+<pre><code class="hljs language-bash">
+</code></pre>
+</li>
+</ol>
+</li>
+<li>
+<!-- markdownlint-disable-next-line -->
+<p><span id='id_cmd__noticias_Rede'></span><strong>Comandos de Notícias ou Rede</strong></p>
+<ol>
+<li>
+<p><em>netstat</em>: Mostra o estado da rede</p>
+<pre><code class="hljs language-bash">
+</code></pre>
+</li>
+<li>
+<p><em>rsh</em>: Um shell em outros sistemas UNIX</p>
+<pre><code class="hljs language-bash">
+</code></pre>
+</li>
+<li>
+<p><em>ssh</em>: Versão segura do rsh</p>
+<pre><code class="hljs language-bash">
+</code></pre>
+</li>
+<li>
+<p><em>nmap</em>: Poderoso port-scan, para visualizarmos portas abertas num dado host</p>
+<pre><code class="hljs language-bash">
+</code></pre>
+</li>
+<li>
+<p><em>ifconfig</em>: Visualizar os ips da nossa máquina, entre outras funções relacionadas com ips</p>
+<pre><code class="hljs language-bash">
+</code></pre>
+</li>
+<li>
+<p><em>ping</em>: Pingar um determinado host, ou seja, enviar pacotes icmp para um determinado host e medir tempos de resposta, entre outras coisas</p>
+<pre><code class="hljs language-bash">
+</code></pre>
+</li>
+</ol>
+</li>
+<li>
+<!-- markdownlint-disable-next-line -->
+<p><span id='id_cmd_controle_processos'></span><strong>Comandos de Controle de Processos</strong></p>
+<ol>
+<li>
+<p><em>kill</em>: Mata um processo, como por exemplo kill -kill 100 ou kill -9 100 ou kill -9 %1</p>
+<pre><code class="hljs language-bash">
+</code></pre>
+</li>
+<li>
+<p><em>bg</em>: Coloca um processo suspenso em background</p>
+<pre><code class="hljs language-bashid_cmd_controle_processos">
+</code></pre>
+</li>
+<li>
+<p><em>fg</em>: Ao contrário do comando bg, o fg traz de volta um processo ao foreground</p>
+<pre><code class="hljs language-bash">
+</code></pre>
+</li>
+<li>
+<p><em>jobs</em>: Permite-nos visualizar jobs em execução, quando corremos uma aplicação em background, poderemos ver esse job com este comando, e termina-lo com um comando kill -9 %1, se for o job número 1, por exemplo</p>
+<pre><code class="hljs language-bash">
+</code></pre>
+</li>
+<li>
+<p><em>top</em>: Lista os processos que mais cpu usam, útil para verificar que processos estão a provocar um uso excessivo de memória, e quanta percentagem de cpu cada um usa em dado momento</p>
+<pre><code class="hljs language-bash">
+</code></pre>
+</li>
+<li>
+<p><em>htop</em>  : A mesma finalidade o top ao listar os processos ativos, porém contém mais recursos, podendo até matar um processo.</p>
+<pre><code class="hljs language-bash">
+   htop
+
+</code></pre>
+<ul>
+<li><a href="https://www.youtube.com/watch?v=QZ2nyxzZXPY&amp;t=24m50s">Vídeo aula sobre o comando htop...</a></li>
+</ul>
+</li>
+<li>
+<p><em>^y</em>: Suspende o processo no próximo pedido de input</p>
+<pre><code class="hljs language-bash">
+</code></pre>
+</li>
+<li>
+<p><em>^z</em>: Suspende o processo actual</p>
+<pre><code class="hljs language-bash">
+</code></pre>
+</li>
+</ol>
+</li>
+<li>
+<!-- markdownlint-disable-next-line -->
+<p><span id='id_cmd_informacao_estado'></span><strong>Comandos de Informação de Estado</strong></p>
+<ol>
+<li>
+<p><em>clock</em>: Define a hora do processador</p>
+<pre><code class="hljs language-bash">
+</code></pre>
+</li>
+<li>
+<p><em>date</em>: Exibe a data e hora</p>
+<pre><code class="hljs language-bash">
+</code></pre>
+</li>
+<li>
+<p><em>df</em>: Exibe um resumo do espaço livre em disco</p>
+<pre><code class="hljs language-bash">
+   df -h
+
+</code></pre>
+</li>
+<li>
+<p><em>blkid</em> : utilitário de linha de comando para localizar/imprimir atributos do dispositivo de bloco.</p>
+<pre><code class="hljs language-bash">
+   blkid
+
+</code></pre>
+</li>
+<li>
+<p><em>du</em>: Exibe um resumo do uso do espaço em disco</p>
+<pre><code class="hljs language-bash">
+</code></pre>
+</li>
+<li>
+<p><em>ncdu</em> : Lista em ordem decrescente quais diretórios estão usando o espaço em disco.</p>
+<pre><code class="hljs language-bash">
+  ncdu
+
+</code></pre>
+<ul>
+<li><a href="https://www.youtube.com/watch?v=QZ2nyxzZXPY&amp;t=1780s">Vídeo aula sobre o comando ncdu...</a></li>
+</ul>
+</li>
+<li>
+<p><em>mc</em> Midnight Commander : Gerenciador de arquivos modo texto. Útil quando operando o servidor não possa usar modo gráfico.</p>
+<pre><code class="hljs language-bash">
+  ncdu
+
+</code></pre>
+<ul>
+<li><a href="https://www.youtube.com/watch?v=rddUniuHuWM">Vídeo aula sobre o comando mc...</a></li>
+</ul>
+</li>
+<li>
+<p><em>env</em>: Exibe as variáveis de ambiente</p>
+<pre><code class="hljs language-bash">
+</code></pre>
+</li>
+<li>
+<p><em>finger</em>: Pesquisa informações de utilizadores</p>
+<pre><code class="hljs language-bash">
+</code></pre>
+</li>
+<li>
+<p><em>history</em>: Lista os últimos comandos usados, muito útil para lembrar também de que comandos foram usados para fazer determinada acção no passado ou o que foi feito em dada altura</p>
+<pre><code class="hljs language-bash">
+</code></pre>
+</li>
+<li>
+<p><em>last</em>: Indica o último login de utilizadores</p>
+<pre><code class="hljs language-bash">
+</code></pre>
+</li>
+<li>
+<p><em>lpq</em>: Examina a spool queue</p>
+<pre><code class="hljs language-bash">
+</code></pre>
+</li>
+<li>
+<p><em>manpath</em>: Mostra a path de procura para as páginas do comando man</p>
+<pre><code class="hljs language-bash">
+</code></pre>
+</li>
+<li>
+<p><em>printenv</em>: Imprime as variáveis de ambiente</p>
+<pre><code class="hljs language-bash">
+</code></pre>
+</li>
+<li>
+<p><em>ps</em>: Lista a lista de processos em execução, útil para saber o pid de um processo para o mandar abaixo com o comando</p>
+<pre><code class="hljs language-bash">
+</code></pre>
+</li>
+<li>
+<p><em>kill</em>, entre outras coisas</p>
+<pre><code class="hljs language-bash">
+</code></pre>
+</li>
+<li>
+<p><em>pwd</em>: Mostra-nos o caminho por inteiro do diretório em que nos encontramos em dado momento, ou seja um pathname</p>
+<pre><code class="hljs language-bash">
+</code></pre>
+</li>
+<li>
+<p><em>set</em>: Define variáveis da sessão, ou seja, da shell, na C shell, na bash ou na ksh</p>
+<pre><code class="hljs language-bash">
+</code></pre>
+</li>
+<li>
+<p><em>spend</em>: Lista os custos ACITS UNIX até à data</p>
+<pre><code class="hljs language-bash">
+</code></pre>
+</li>
+<li>
+<p><em>time</em> Mede o tempo de execução de programas</p>
+<pre><code class="hljs language-bash">
+</code></pre>
+</li>
+<li>
+<p><em>uptime</em>: Diz-nos há quanto tempo o sistema está funcional, quando foi ligado e o seu uptime</p>
+<pre><code class="hljs language-bash">
+</code></pre>
+</li>
+<li>
+<p><em>w</em>: Mostra-nos quem está no sistema ou que comando cada job está a executar</p>
+<pre><code class="hljs language-bash">
+</code></pre>
+</li>
+<li>
+<p><em>who</em>: Mostra-nos quem está logado no sistema</p>
+<pre><code class="hljs language-bash">
+</code></pre>
+</li>
+<li>
+<p><em>whois</em>: Serviço de diretório de domínios da Internet, permite-nos saber informações sobre determinados domínios na Internet, quando um domínio foi registado, quando expira, etc</p>
+<pre><code class="hljs language-bash">
+</code></pre>
+</li>
+<li>
+<p><em>whoami</em>: Diz-nos quem é o dono da shell</p>
+<pre><code class="hljs language-bash">
+</code></pre>
+</li>
+</ol>
+</li>
+<li>
+<!-- markdownlint-disable-next-line -->
+<p><span id='id_cmd_processamento_texto'></span><strong>Comandos de Processamento de Texto</strong></p>
+<ol>
+<li><em>abiword</em>: Processador de Texto Open Source</li>
+<li><em>addbib</em>: Cria ou modifica bases de dados bibliográficas</li>
+<li><em>col</em>: Reverte o filtro a line feeds</li>
+<li><em>diction</em>: Identifica sentenças com palavras</li>
+<li><em>diffmk</em>: Marca diferenças entre arquivos</li>
+<li><em>dvips</em>: Converte arquivos TeX DVI em arquivos PostScript</li>
+<li><em>explain</em>: Explica frases encontradas pelo programa diction</li>
+<li><em>grap</em>: Preprocessador pic para desenhar gráficos, usado em tarefas elementares de análises de dados</li>
+<li><em>hyphen</em>: Encontra palavras com hífens</li>
+<li><em>ispell</em>: Verifica a ortografia de forma interativa</li>
+<li><em>latex</em>: Formata texto em LaTeX, que é baseado no TeX</li>
+<li><em>pdfelatex</em>: Para documentos LaTeX em formato pdf</li>
+<li><em>latex2html</em>: Converter LaTeX para html</li>
+<li><em>lookbib</em>: Encontra referências bibliográficas</li>
+<li><em>macref</em>: Cria uma referência cruzada listando arquivos de macros nroff/troff</li>
+<li><em>ndx</em>: Cria uma página de indexação para um documento</li>
+<li><em>neqn</em>: Fórmula matemáticas com nroff</li>
+<li><em>nroff</em>: Formata texto para exibição simples</li>
+<li><em>pic</em>: Produz simples imagens para troff input</li>
+<li><em>psdit</em>: Filtra um output troff para a Apple LaserWriter</li>
+<li><em>ptx</em>: Cria uma indexação permutada mas não em CCWF</li>
+<li><em>refer</em>: Insere referências de bases de dados bibliográficas</li>
+<li><em>roffbib</em>: Faz o run off de uma base de dados bibliográfica</li>
+<li><em>sortbib</em>: Ordena uma base de dados bibliográfica</li>
+<li><em>spell</em>: Encontra erros de ortografia</li>
+<li><em>style</em>: Analisa as características superficiais de um documento</li>
+<li><em>tbl</em>: Formata tabelas para nroff/troff</li>
+<li><em>tex</em>: Formata texto</li>
+<li><em>tpic</em>: Converte arquivos pic source em comandos TeX</li>
+<li><em>wget</em>: Permite-nos fazer o download completo de páginas web, com todos os arquivos, de forma fácil e não interactiva, sem exigir por isso presença do utilizador, respeitando também o arquivorobots.txt</li>
+</ol>
+</li>
+<li>
+<!-- markdownlint-disable-next-line -->
+<p><span id='id_web'></span><strong>Web</strong></p>
+<ol>
+<li><em>html2ps</em>: Conversor de html para ps</li>
+<li><em>latex2html</em>: Conversor de LaTeX para html</li>
+<li><em>lynx</em>: Navegador web baseado em modo de texto, ou seja, é um web browser que nos permite abrir todo o tipo de páginas visualizando apenas os textos elinks, não vendo assim as imagens, e sendo por isso bastante rápido, mas requere prática para ser manuseado</li>
+<li><em>Chromium</em> é um projeto de navegador web de código aberto desenvolvido pela Google, no qual o Google Chrome baseia o seu código-fonte.</li>
+<li><a href="https://linux.die.net/man/1/sitecopy">sitecopy</a>: Aplicação que nos permite manter fácil e remotamente web sites</li>
+<li><em>weblint</em>: Verificador de sintaxes e de estilos html</li>
+</ol>
+</li>
+</ol>
+   <!-- markdownlint-disable-next-line -->
+<ol start="14">
+<li><span id='id_referencias'></span><strong>REFERÊNCIAS</strong>
+<ol>
+<li><a href="https://man7.org/linux/man-pages/man1/ln.1.html">Manual Linux</a></li>
+<li><a href="https://www.hostinger.com.br/tutoriais/como-criar-link-simbolico-linux/">https://www.hostinger.com.br/tutoriais/como-criar-link-simbolico-linux/</a></li>
+<li><a href="https://canaltech.com.br/linux/aprenda-a-usar-links-simbolicos-e-hardlinks-no-linux/">https://canaltech.com.br/linux/aprenda-a-usar-links-simbolicos-e-hardlinks-no-linux/</a></li>
+<li><a href="https://ss64.com/bash/cp.html">cp = Copy one or more files to another location</a>.</li>
+<li><a href="https://www.youtube.com/watch?v=QZ2nyxzZXPY">30 comandos mais usados do Linux</a></li>
+<li><a href="https://www.devmedia.com.br/comandos-importantes-linux/23893">Comandos Importantes Linux</a></li>
+<li><a href="http://www.bosontreinamentos.com.br/linux/10-exemplos-do-comando-rsync-para-backup-e-sincronismo-de-arquivos-no-linux/">10 exemplos do comando rsync para backup e sincronismo de arquivos no Linux</a></li>
+<li><a href="https://ss64.com/bash/rsync_options.html">rsync_options</a></li>
+</ol>
+</li>
+</ol>
+<!-- markdownlint-disable-next-line -->
+<h4 id="histórico-"><strong>HISTÓRICO</strong> <span id='id_historico'></span></h4>
+<!--TODO: HISTÓRICO -->
+<ul>
+<li>
+<p><em>23/05/2023 a 25/05/2023</em></p>
+<ul class="contains-task-list">
+<li class="task-list-item enabled"><input class="task-list-item-checkbox"type="checkbox"> Catalogar os principais comandos do sistema operacional linux.</li>
+</ul>
+</li>
+<li>
+<p><em>22/05/2023</em></p>
+<ul class="contains-task-list">
+<li class="task-list-item enabled"><input class="task-list-item-checkbox" checked=""type="checkbox"> Concluir documento: introdução descrevendo como o documento foi criado.</li>
+</ul>
+</li>
+<li>
+<p><em>19/05/2023</em></p>
+<ul class="contains-task-list">
+<li class="task-list-item enabled"><input class="task-list-item-checkbox" checked=""type="checkbox"> Criado documento do comando <em>cp</em>;</li>
+<li class="task-list-item enabled"><input class="task-list-item-checkbox" checked=""type="checkbox"> Iniciar o documento: introdução descrevendo como o documento foi criado.</li>
+</ul>
+</li>
+<li>
+<p><em>18/05/2023</em></p>
+<ul class="contains-task-list">
+<li class="task-list-item enabled"><input class="task-list-item-checkbox" checked=""type="checkbox"> Criado documento do comando <em>ln</em> (link simbólico)</li>
+</ul>
+</li>
+<li>
+<p><em>17/03/2023</em></p>
+<ul class="contains-task-list">
+<li class="task-list-item enabled"><input class="task-list-item-checkbox" checked=""type="checkbox"> Criado documento dos comandos <em>ls</em> e <em>cd</em>;</li>
+</ul>
+</li>
+<li>
+<p><em>15/05/2021</em></p>
+<ul class="contains-task-list">
+<li class="task-list-item enabled"><input class="task-list-item-checkbox" checked=""type="checkbox"> Criado este documento;</li>
+</ul>
+</li>
+</ul>
+
+        <script async src="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.js"></script>
+        
+    </body>
+    </html>

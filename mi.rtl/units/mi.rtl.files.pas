@@ -6,7 +6,7 @@ unit mi.rtl.files;
         windows e por isso mantenho o mesmo comportamento do windows.
 
       - **VERSÃO**:
-        - Alpha - 0.8.0
+        - Alpha - Alpha - 0.9.0
 
       - **NOTA**:
         - [Veja o link de como escrever código portátil em relação à arquitetura do processador?](https://wiki.freepascal.org/Writing_portable_code_regarding_the_processor_architecture);
@@ -127,6 +127,9 @@ unit mi.rtl.files;
 
             - 2023=07-18
               - 16:00 - Criar a classe método FindFilesAll
+            - 2023=07-27
+              - 08:25 - Em mi.rtl.files.findFileAll adicionar o parâmetro apath.
+
   }
 
   {$IFDEF FPC}
@@ -141,9 +144,10 @@ uses
   Classes
   ,dos
   ,SysUtils
+  ,LazFileUtils
 //  ,forms
   ,crt
-  //,Dialogs // Uso o showMessage porém o mesmo deve ser substituido pelo um showMessage que não trava se tiver dentro de uma transação.
+  //,Dialogs // Uso o showMessage porém o mesmo deve ser substituído pelo um showMessage que não trava se tiver dentro de uma transação.
   ,FileUtil // <https://wiki.lazarus.freepascal.org/fileutil
   ,mi.rtl.libBinRes
   ,mi.rtl.types
@@ -153,16 +157,20 @@ uses
   ;
 
   type
+    { TFiles }
     {: - A classe **@name** contém as classes métodos para acessar o sistema operacional usada no acesso a arquivos.
 
        - REFERẼNCIAS
          - [Como criar aplicativo multi-plataforma](https://wiki.freepascal.org/Multiplatform_Programming_Guide)
     }
-
-    { TFiles }
-
     TFiles = class(TConsts)
-        {: O método @name contém o número da versão do projeto corrente.
+      {: O método @name retorna true se o arquivo F estiver aberto e false caso contrário}
+      class function IsFileOpen(VAR F:Text):BOOLEAN ; overload;
+
+      {: O método @name retorna true se o arquivo F estiver aberto e false caso contrário}
+      class function IsFileOpen(VAR F:File):BOOLEAN ; overload;
+
+     {: O método @name contém o número da versão do projeto corrente.
 
        - Esta contante retira essa informação do arquivo de recursos, caso o
          projeto não esteja habilitado o número da versão o acesso ao mesmo ao
@@ -200,7 +208,6 @@ uses
       {: A função **@name** captura o estados de system.ioResult e atualiza TaStatus
       }
       public class Function IoResult : Integer;
-
 
       {:- A função **@name** dar opção para que a aplicação execute outras tarefas caso ela se encontre em estado de espera.
 
@@ -848,9 +855,17 @@ uses
       }
       public class function GetDriveType(aPath : AnsiString): TDriveType;Overload;
 
+      {: - A classe método @name duplica o handle do arquivo no windows e linux.
+      }
+      public Class function DuplicateHandle(var hSource: File;Var lpTarge: File) :  Longint;overload;
+
+      {: - A classe método @name duplica o handle do arquivo no windows e linux.
+      }
+      public Class function DuplicateHandle(var hSource: Text;Var lpTarge: Text) :  Longint;overload;
+
       {: - A classe método @name duplica o handle do arquivo no windows e no linux essa função não funciona.
       }
-      public Class function DuplicateHandle(hSourceHandle: THandle;Var lpTargeTHandle: THandle) :  Longint;
+      public Class function DuplicateHandle(hSourceHandle: THandle;Var lpTargeTHandle: THandle) :  Longint;overload;
 
       {: A classe function **@name** descarrega o buffer do arquivo passado por aHandle
 
@@ -1086,9 +1101,9 @@ uses
                  then FileAttrs := FileAttrs or faDirectory;
 
                  with TObjectss do
-               //    FindFiles(Edit1.Text,FileAttrs ,ListFiles );
-                   FindFilesAll(Edit1.Text,FileAttrs ,ListFiles );
-               //  FindFilesAll(GetCurrentDir,FileAttrs ,ListFiles );
+                  FindFilesAll(GetCurrentDir,*.html,FileAttrs ,ListFiles );
+                  // Quando o path não informado, FindFileAll seleciona todos os arquivos apartir da pasta atual.
+                  FindFilesAll('',*.html,FileAttrs ,ListFiles );
 
                  LabelCount.Caption := Format('ListFiles.Count %d',[ListFiles.Count]);
                  LabelCount.Show;
@@ -1106,11 +1121,9 @@ uses
 
 
              ```
-
-
-
       }
-      class procedure FindFilesAll(Mask : AnsiString; FileAttrs : Cardinal; var List : TStringList);
+      class procedure FindFilesAll(aPath,Mask : AnsiString; FileAttrs : Cardinal;aRelative:Boolean; var List : TStringList);
+      //      class procedure FindFilesAll(Mask: AnsiString; FileAttrs: Cardinal;var List: TStringList);
 
       {: A classe método **@name** retorna o corrente pasta.
       }
@@ -1214,14 +1227,28 @@ uses
 
       class Function ByteDrive(Const NomeArquivo:AnsiString) : Byte;
 
-
-
     end;
 
 implementation
 
 
 {$REGION  'implementation' }
+
+  class function TFiles.IsFileOpen(VAR F:FILE):BOOLEAN ;
+  BEGIN
+    Result  := (FILEREC (F ).MODE = System.FmInOut )  OR
+               (FILEREC (F ).MODE = System.FmOutput ) OR
+               (FILEREC (F ).MODE = System.FmInput )  ;
+
+  END ;
+
+  class function TFiles.IsFileOpen(VAR F:Text):BOOLEAN ;
+  BEGIN
+    Result := (TextRec(F).MODE = System.FmInOut )  OR
+              (TextRec(F).MODE = System.FmOutput ) OR
+              (TextRec(F).MODE = System.FmInput );
+  END ;
+
 
   class function TFiles.AppVersionInfo: TAppVersionInfo;
   begin
@@ -1514,24 +1541,29 @@ implementation
 
   class function TFiles.FileExists(const FileName: AnsiString): Boolean;
   begin
-    result := SysUtils.FileExists(FileName,true);
+    result := SysUtils.FileExists(FExpand(FileName),true);
   end;
 
   class function TFiles.DirectoryExists(const Directory: AnsiString): Boolean;
   begin
-    result := SysUtils.DirectoryExists(Directory,true);
+    result := SysUtils.DirectoryExists(FExpand(Directory),true);
   end;
 
   class function TFiles.CreateDir(const NewDir: AnsiString): Boolean;
-    var Dir: DirStr;
-    var Name: NameStr;
-    var Ext: ExtStr;
+    var Dir: DirStr = '';
+    var Name: NameStr ='';
+    var Ext: ExtStr='';
   Begin
-   FSplit(FExpand(NewDir),Dir,Name,Ext);
+    Dir := NewDir;
+    if NewDir[length(Dir)] <> DirectorySeparator
+    then Dir := Dir + DirectorySeparator ;
+   FSplit(FExpand(Dir),Dir,Name,Ext);
+
+
    result := DirectoryExists(dir);
    IF Not result
    Then Begin
-          Result := SysUtils.createDir(dir);
+          Result := SysUtils.ForceDirectories(dir);
         end;
 
    if not result
@@ -1591,7 +1623,7 @@ implementation
   end;
 
   class function TFiles.GetDriveType(aPath : AnsiString): TDriveType;Overload;
-    var
+        var
       p : pChar;
   Begin
     {$IFDEF Windows}
@@ -1620,13 +1652,36 @@ implementation
   end;
 
 
+  class function TFiles.DuplicateHandle(var hSource: File;   var lpTarge: File): Longint;
+  begin
 
+     {$IFDEF WINDOWS}
+       Result := DuplicateHandle(TFileRec(hSource).Handle,TFileRec(lpTarge).Handle);
+     {$ELSE}
+        Result := fpdup(hSource, lpTarge);
+        result := SetResult(TFileRec(lpTarge).Handle,TFileRec(lpTarge).Handle > 0);
+     {$ENDIF}
+  end;
 
+  class function TFiles.DuplicateHandle(var hSource: Text;   var lpTarge: Text): Longint;
+//    var s,t:Thandle;
+  begin
+     //s := TTextRec(hSource).Handle;
+     //t := TTextRec(lpTarge).Handle;
 
-  class function TFiles.DuplicateHandle(hSourceHandle: THandle;
-    var lpTargeTHandle: THandle): Longint;
+    {$IFDEF WINDOWS}
+      Result := DuplicateHandle(TTextRec(hSource).Handle,TTextRec(lpTarge).Handle);
+    {$ELSE}
+       Result := fpdup(hSource, lpTarge);
+       result := SetResult(TTextRec(lpTarge).Handle,TTextRec(lpTarge).Handle > 0);
+    {$ENDIF}
+  end;
+
+  class function TFiles.DuplicateHandle(hSourceHandle: THandle; var lpTargeTHandle: THandle): Longint;
+
   Begin
     lpTargeTHandle := HANDLE_INVALID;
+
 
     {$IFDEF Windows}
 
@@ -1643,9 +1698,15 @@ implementation
                                       ));
 
       Result :=  SetResult(lpTargeTHandle,result > 0 );
+
     {$ELSE}
-       Result := -1;//?? Não existe função duplicateHandle no linux.
+       lpTargeTHandle := fpdup(hSourceHandle);
+       result := SetResult(lpTargeTHandle,lpTargeTHandle > 0);
+       if result <> 0
+       then hSourceHandle := HANDLE_INVALID;
+
     {$ENDIF}
+
 
   end;
 
@@ -1724,7 +1785,7 @@ implementation
         until SysUtils.FindNext(sr) <> 0;
         SysUtils.FindClose(sr);
       end;
-
+      List.Sort;
     //Except
     //  If TaStatus = 0
     //  Then TaStatus := Erro_Excecao_inesperada;
@@ -1737,69 +1798,91 @@ implementation
     //end;
   end;
 
-  class procedure TFiles.FindFilesAll(Mask: AnsiString; FileAttrs: Cardinal;var List: TStringList);
+//  class procedure TFiles.FindFilesAll(Mask: AnsiString; FileAttrs: Cardinal;var List: TStringList);
+  class procedure TFiles.FindFilesAll(aPath,Mask: AnsiString; FileAttrs: Cardinal;aRelative:Boolean;var List: TStringList);
+      var FileAtual : string;
 
-    procedure ListarArquivosNaPasta( Pasta:string; const Padrao: string);
-    var
-      BuscaRecursiva: TSearchRec;
-      CaminhoCompleto: string;
-    begin
-      if pasta[Length(pasta)] = DirectorySeparator
-      then system.Delete(pasta,Length(pasta),1);
-
-      // Procurar por arquivos na pasta atual usando caracteres coringas
-      if FindFirst(Pasta + DirectorySeparator + Padrao, FileAttrs{faAnyFile}, BuscaRecursiva) = 0 then
+      procedure ListarArquivosNaPasta( Pasta:string; const Padrao: string);
+      var
+        BuscaRecursiva: TSearchRec;
+        CaminhoCompleto: string;
       begin
-        repeat
-          // Verificar se é um arquivo regular (não diretório)
-          if (BuscaRecursiva.Name <> '.') and (BuscaRecursiva.Name <> '..')
-          //  and ((BuscaRecursiva.Attr and faDirectory) = 0)
-          then
-          begin
-            if (BuscaRecursiva.Attr and FileAttrs <>0)
-            Then Begin
-                    CaminhoCompleto := Pasta + DirectorySeparator + BuscaRecursiva.Name;
-                    //WriteLn(CaminhoCompleto);
-                    List.Add(CaminhoCompleto);
-                 end;
+        if pasta[Length(pasta)] = DirectorySeparator
+        then system.Delete(pasta,Length(pasta),1);
 
-          end;
-        until FindNext(BuscaRecursiva) <> 0;
-        FindClose(BuscaRecursiva);
+        // Procurar por arquivos na pasta atual usando caracteres coringas
+        if FindFirst(Pasta + DirectorySeparator + Padrao, FileAttrs{faAnyFile}, BuscaRecursiva) = 0 then
+        begin
+          repeat
+            // Verificar se é um arquivo regular (não diretório)
+            if (BuscaRecursiva.Name <> '.') and (BuscaRecursiva.Name <> '..')
+            //  and ((BuscaRecursiva.Attr and faDirectory) = 0)
+            then
+            begin
+              if (BuscaRecursiva.Attr and FileAttrs <>0)
+              Then Begin
+                      CaminhoCompleto := Pasta + DirectorySeparator + BuscaRecursiva.Name;
+                      //WriteLn(CaminhoCompleto);
+                      if aRelative
+                      Then List.Add(CreateRelativePath(CaminhoCompleto,FileAtual,false,true))
+                      else List.Add(CaminhoCompleto)
+                   end;
+
+            end;
+          until FindNext(BuscaRecursiva) <> 0;
+          FindClose(BuscaRecursiva);
+        end;
+
+        // Procurar por subpastas
+        if FindFirst(Pasta + DirectorySeparator + '*', faDirectory, BuscaRecursiva) = 0 then
+        begin
+          repeat
+            // Verificar se é uma pasta válida
+            if (BuscaRecursiva.Name <> '.') and (BuscaRecursiva.Name <> '..') then
+            begin
+              CaminhoCompleto := Pasta + DirectorySeparator + BuscaRecursiva.Name;
+              // Chamar a função recursivamente para listar arquivos nas subpastas
+              ListarArquivosNaPasta(CaminhoCompleto, Padrao);
+            end;
+          until FindNext(BuscaRecursiva) <> 0;
+          FindClose(BuscaRecursiva);
+        end;
       end;
 
-      // Procurar por subpastas
-      if FindFirst(Pasta + DirectorySeparator + '*', faDirectory, BuscaRecursiva) = 0 then
+      //var
+      //  PastaAtual, Padrao: string;
+
       begin
-        repeat
-          // Verificar se é uma pasta válida
-          if (BuscaRecursiva.Name <> '.') and (BuscaRecursiva.Name <> '..') then
-          begin
-            CaminhoCompleto := Pasta + DirectorySeparator + BuscaRecursiva.Name;
-            // Chamar a função recursivamente para listar arquivos nas subpastas
-            ListarArquivosNaPasta(CaminhoCompleto, Padrao);
-          end;
-        until FindNext(BuscaRecursiva) <> 0;
-        FindClose(BuscaRecursiva);
+        if Not Assigned(List)
+        Then begin
+               raise EArgumentException.Create('O Parâmetro Var List não inidicializado!');
+             end;
+
+        { Código anterior com o path incluindo em mask
+          // Obter a pasta atual
+          //PastaAtual := GetCurrentDir;
+          PastaAtual := ExtractFilePath(mask);
+
+          // Definir o padrão (wildcard) dos arquivos que deseja listar
+          // Por exemplo, '*.txt' irá listar todos os arquivos com a extensão .txt
+          Padrao := mask;
+          system.Delete(Padrao,1,Length(PastaAtual));
+
+          // Chamar a função para listar arquivos com o padrão especificado
+          ListarArquivosNaPasta(PastaAtual, Padrao);
+        }
+        if aPath = ''
+        Then aPath := GetCurrentDir;
+        FileAtual := aPath ;
+
+        // Definir o padrão (wildcard) dos arquivos que deseja listar
+        // Por exemplo, '*.txt' irá listar todos os arquivos com a extensão .txt
+        // Chamar a função para listar arquivos com o mask especificado
+        ListarArquivosNaPasta(aPath, mask);
+
+        List.Sort;
       end;
-    end;
 
-    var
-      PastaAtual, Padrao: string;
-      FileAtual : string;
-    begin
-      // Obter a pasta atual
-      //PastaAtual := GetCurrentDir;
-      PastaAtual := ExtractFilePath(mask);
-
-      // Definir o padrão (wildcard) dos arquivos que deseja listar
-      // Por exemplo, '*.txt' irá listar todos os arquivos com a extensão .txt
-      Padrao := mask;
-      system.Delete(Padrao,1,Length(PastaAtual));
-
-      // Chamar a função para listar arquivos com o padrão especificado
-      ListarArquivosNaPasta(PastaAtual, Padrao);
-    end;
 
   class function TFiles.GetCurrentDir: AnsiString;
   begin

@@ -1,0 +1,6 @@
+var tipuesearch = {
+  pages: [
+    { title: "~title", text: "~text", tags: "~tags", url: "~url" },
+  ],
+};
+  

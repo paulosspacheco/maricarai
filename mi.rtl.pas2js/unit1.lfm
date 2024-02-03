@@ -1,0 +1,22 @@
+object WForm1: TWForm1
+  Left = 577
+  Height = 439
+  Top = 135
+  Width = 297
+  AlphaBlend = False
+  AlphaBlendValue = 255
+  Caption = 'WForm1'
+  ClientHeight = 439
+  ClientWidth = 297
+  object WButton1: TWButton
+    Left = 104
+    Height = 32
+    Top = 399
+    Width = 88
+    Anchors = [akBottom]
+    Caption = 'WButton1'
+    ModalResult = 3
+    TabOrder = 0
+    OnClick = WButton1Click
+  end
+end

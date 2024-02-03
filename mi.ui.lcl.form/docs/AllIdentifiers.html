@@ -1,0 +1,1532 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<title>Todos os Identificadores</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="generator" content="PasDoc 0.16.0">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<link rel="stylesheet" type="text/css" href="tipuesearch/tipuesearch.css">
+
+<link rel="StyleSheet" type="text/css" href="pasdoc.css">
+</head>
+<body>
+<div class="container"><div class="navigation">
+<ul><li><a href="AllUnits.html">Units</a></li><li><a href="ClassHierarchy.html">Hierarquia de Classes</a></li><li><a href="AllClasses.html">Classes, Interfaces, Objetos e Registros</a></li><li><a href="AllTypes.html">Tipos</a></li><li><a href="AllVariables.html">Variáveis</a></li><li><a href="AllConstants.html">Constantes</a></li><li><a href="AllFunctions.html">Funções e Procedimentos</a></li><li><a href="AllIdentifiers.html">Identificadores</a></li><li><form class="search-form" action="tipue_results.html"><div class="search-input"><input type="text" name="q" id="tipue_search_input" pattern=".{3,}" title="At least 3 characters" required><div class="search-button"><input type="button" id="tipue_search_button" onclick="this.form.submit();"></div></div></form>
+<div style="clear: both"></div>
+</li></ul></div><div class="content">
+<h1 class="allitems">Todos os Identificadores</h1>
+<table class="itemstable wide_list">
+<tr class="listheader">
+<th class="itemname">Nome</th>
+<th class="itemunit">Unit</th>
+<th class="itemdesc">Descrição</th>
+</tr>
+<tr class="list">
+<td class="itemname"><a class="bold" href="uMi_ui_Dmxscroller_form_lcl.html#accDelimiter">accDelimiter</a></td>
+<td class="itemunit"><a class="bold" href="uMi_ui_Dmxscroller_form_lcl.html">uMi_ui_Dmxscroller_form_lcl</a></td>
+<td class="itemdesc"><p>A constante <strong><code>accDelimiter</code></strong> informa que o campo é delimitador de campos no Template.</p></td>
+</tr>
+<tr class="list2">
+<td class="itemname"><a class="bold" href="uMi_ui_Dmxscroller_form_lcl.html#accHidden">accHidden</a></td>
+<td class="itemunit"><a class="bold" href="uMi_ui_Dmxscroller_form_lcl.html">uMi_ui_Dmxscroller_form_lcl</a></td>
+<td class="itemdesc"><p>A constante <strong><code>accHidden</code></strong> (Const <code>accHidden</code> = 2;) é um mapa de bits usado para identificar o bit do campo TDmxFieldRec.access que informa se o mesmo é invisível.
+
+<p></p>
+
+<ul class="paragraph_spacing">
+  <li><p><strong>EXEMPLO</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Como usar o mapa de bits <code>accHidden</code> para saber se o campo está invisível.
+
+<p></p>
+
+<pre class="longcode">
+
+<span class="pascal_keyword">with</span> pDmxFieldRec&circ; <span class="pascal_keyword">do</span>
+  <span class="pascal_keyword">If</span> (access <span class="pascal_keyword">and</span> accHidden &lt;&gt; <span class="pascal_numeric">0</span>)
+  <span class="pascal_keyword">then</span> <span class="pascal_keyword">begin</span>
+         ShowMessage(Format(<span class="pascal_string">'O campo %s está invisível'</span>),[CharFieldName]); 
+       <span class="pascal_keyword">end</span>;</pre>
+
+<p></p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p></td>
+</tr>
+<tr class="list">
+<td class="itemname"><a class="bold" href="uMi_ui_Dmxscroller_form_lcl.html#AccNormal">AccNormal</a></td>
+<td class="itemunit"><a class="bold" href="uMi_ui_Dmxscroller_form_lcl.html">uMi_ui_Dmxscroller_form_lcl</a></td>
+<td class="itemdesc"><p>A constante <strong><code>AccNormal</code></strong> (Const <code>AccNormal</code> = 0;) é um mapa de bits usado para identificar o bit do campo TDmxFieldRec.access que informa se que o campo pode ser editado.
+
+<p></p>
+
+<ul class="paragraph_spacing">
+  <li><p><strong>EXEMPLO</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Como usar o mapa de bits <code>accNormal</code> para saber se o campo pode ser editado.
+
+<p></p>
+
+<pre class="longcode">
+
+<span class="pascal_keyword">with</span> pDmxFieldRec&circ; <span class="pascal_keyword">do</span>
+  <span class="pascal_keyword">If</span> (access <span class="pascal_keyword">and</span> accNormal &lt;&gt; <span class="pascal_numeric">0</span>) 
+  <span class="pascal_keyword">then</span> <span class="pascal_keyword">begin</span>
+         ShowMessage(Format(<span class="pascal_string">'O campo %s pode ser editado'</span>),[FieldName]);
+       <span class="pascal_keyword">end</span>;</pre>
+
+<p></p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p></td>
+</tr>
+<tr class="list2">
+<td class="itemname"><a class="bold" href="umi_ui_dmxscroller_form_lcl_ds.html#AccNormal">AccNormal</a></td>
+<td class="itemunit"><a class="bold" href="umi_ui_dmxscroller_form_lcl_ds.html">umi_ui_dmxscroller_form_lcl_ds</a></td>
+<td class="itemdesc"><p>&nbsp;</p></td>
+</tr>
+<tr class="list">
+<td class="itemname"><a class="bold" href="uMi_ui_Dmxscroller_form_lcl.html#accReadOnly">accReadOnly</a></td>
+<td class="itemunit"><a class="bold" href="uMi_ui_Dmxscroller_form_lcl.html">uMi_ui_Dmxscroller_form_lcl</a></td>
+<td class="itemdesc"><p>A constante <strong><code>accReadOnly</code></strong> (Const ReadOnly = 1;) é um mapa de bits usado para identificar o bit do campo TDmxFieldRec.access que informa se o campo é somente para leitura. </p>
+
+<ul class="paragraph_spacing">
+  <li><p><strong>EXEMPLO</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Como usar o mapa de bits ReadOnly para saber se o campo não pode ser editado. </p>
+
+<pre class="longcode">
+<span class="pascal_keyword">with</span> pDmxFieldRec&circ; <span class="pascal_keyword">do</span>
+  <span class="pascal_keyword">If</span> (access <span class="pascal_keyword">and</span> ReadOnly &lt;&gt; <span class="pascal_numeric">0</span>)
+  <span class="pascal_keyword">then</span> <span class="pascal_keyword">begin</span>
+         ShowMessage(Format(<span class="pascal_string">'O campo %s não pode ser editado'</span>),[FieldName]);
+       <span class="pascal_keyword">end</span>;</pre>
+
+<p></p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p></td>
+</tr>
+<tr class="list2">
+<td class="itemname"><a class="bold" href="uMi_ui_Dmxscroller_form_lcl.html#accSkip">accSkip</a></td>
+<td class="itemunit"><a class="bold" href="uMi_ui_Dmxscroller_form_lcl.html">uMi_ui_Dmxscroller_form_lcl</a></td>
+<td class="itemdesc"><p>A constante <strong><code>accSkip</code></strong> (Const <code>accSkip</code> = 4;) é um mapa de bits usado para identificar o bit do campo TDmxFieldRec.access que informa se o campo pode receber o focus. </p>
+
+<ul class="paragraph_spacing">
+  <li><p><strong>EXEMPLO</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Como usar o mapa de bits <code>accSkip</code> para saber se o campo não pode receber o focus. </p>
+
+<pre class="longcode">
+<span class="pascal_keyword">with</span> pDmxFieldRec&circ; <span class="pascal_keyword">do</span>
+  <span class="pascal_keyword">If</span> (access <span class="pascal_keyword">and</span> accSkip &lt;&gt; <span class="pascal_numeric">0</span>)
+  <span class="pascal_keyword">then</span> <span class="pascal_keyword">begin</span>
+         ShowMessage(Format(<span class="pascal_string">'O campo %s não pode receber o focus'</span>),[FieldName]);
+       <span class="pascal_keyword">end</span>;</pre>
+
+<p></p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p></td>
+</tr>
+<tr class="list">
+<td class="itemname"><a class="bold" href="uMi_ui_Dmxscroller_form_lcl.html#CharExecAction">CharExecAction</a></td>
+<td class="itemunit"><a class="bold" href="uMi_ui_Dmxscroller_form_lcl.html">uMi_ui_Dmxscroller_form_lcl</a></td>
+<td class="itemdesc"><p>A contante <strong><code>CharExecAction</code></strong> é usado para associar ao campo atual uma classe <strong>TAction</strong>.
+
+<p></p>
+
+<ul class="paragraph_spacing">
+  <li><p><strong>NOTA</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>O interpretador de Templates associa a ação do Template ao corrente campo.</p></li>
+</ul>
+
+<p></p></li>
+  <li><p><strong>EXEMPLO DE USO DE AÇÕES NO TEMPLATE</strong> </p>
+
+<ol class="paragraph_spacing">
+  <li value="1"><p>Se o atributo <strong>Fieldnum</strong> do campo for diferente de zero, então o <strong>rótulo</strong> do botão associado a ação será o caracteres 🔍 e a ação pode atualizar o buffer do campo. </p>
+
+<ul class="paragraph_spacing">
+  <li><p>No exemplo a seguir um rótulo e um campo de cliente:
+
+<p></p>
+
+<pre class="longcode">
+
+NewSItem(<span class="pascal_string">'&tilde;Cliente:&tilde;'</span>+<span class="pascal_string">'\LLLLL'</span>+CharExecAction+CreateExecAction(Action_pesquisa)</pre>
+
+<p></p></li>
+</ul>
+
+<p></p></li>
+  <li value="2"><p>Se o atributo <strong>Fieldnum</strong> do campo for igual a zero, então a rótulo do botão será o rótulo do campo. </p>
+
+<ul class="paragraph_spacing">
+  <li><p>No exemplo a seguir um rótulo de novo cliente (icons 🆕) e um botão ok (icons 🆗)
+
+<p></p>
+
+<pre class="longcode">
+
+NewSItem(<span class="pascal_string">'&tilde; 🆕 &amp;Novo cliente:&tilde;'</span>+CharExecAction+CreateExecAction(Action_Novo)+
+         <span class="pascal_string">'&tilde;   &tilde;&tilde; 🆗 &tilde;'</span>+CharExecAction+CreateExecAction(Action_Ok)</pre>
+
+<p></p></li>
+</ul>
+
+<p></p></li>
+</ol>
+
+<p></p></li>
+</ul>
+
+<p></p></td>
+</tr>
+<tr class="list2">
+<td class="itemname"><a class="bold" href="uMi_ui_Dmxscroller_form_lcl.html#CharFieldName">CharFieldName</a></td>
+<td class="itemunit"><a class="bold" href="uMi_ui_Dmxscroller_form_lcl.html">uMi_ui_Dmxscroller_form_lcl</a></td>
+<td class="itemdesc"><p>A constante <strong><code>CharFieldName</code></strong> usada para informar o nome do campo informado antes deste caractere.
+
+<p></p>
+
+<ul class="paragraph_spacing">
+  <li><p><strong>EXEMPLO</strong>
+
+<p></p>
+
+<pre class="longcode">
+
+<span class="pascal_keyword">Const</span>
+  idade := <span class="pascal_string">'\BB'</span>+CharFieldName+<span class="pascal_string">'idade'</span></pre>
+
+<p></p></li>
+</ul>
+
+<p></p></td>
+</tr>
+<tr class="list">
+<td class="itemname"><a class="bold" href="uMi_ui_Dmxscroller_form_lcl.html#CharHint">CharHint</a></td>
+<td class="itemunit"><a class="bold" href="uMi_ui_Dmxscroller_form_lcl.html">uMi_ui_Dmxscroller_form_lcl</a></td>
+<td class="itemdesc"><p>A constante <strong><code>CharHint</code></strong> é usado para documentar o campo e indica que todo o texto até o próximo caractere de controle será o conteúdo do campo HelpCtx_Hint.
+
+<p></p>
+
+<ul class="paragraph_spacing">
+  <li><p><strong>EXEMPLO</strong>
+
+<p></p>
+
+<pre class="longcode">
+
+<span class="pascal_keyword">Resourcestring</span>
+
+ tmp_Alunos_Idade = <span class="pascal_string">'\BB'</span>+ChFN+<span class="pascal_string">'idade'</span>+CharUpperlimit+<span class="pascal_string">#64</span>+
+                     CharHint+<span class="pascal_string">'A idade do aluno. Valores válidos 1 a 64'</span>+
+                     CharHintPorque+<span class="pascal_string">'Este campo é necessário para que se agrupe o alunos baseado em sua faixa etária'</span>+
+                     CharHintOnde+<span class="pascal_string">'Ele será usado pelo coordenador ao classificar a turma'</span>;
+
+
+ tmp_Alunos_Matricula = \IIII<span class="pascal_string">'+ChFN+'</span>matricula<span class="pascal_string">'+CharHint+'</span>A matricula <span class="pascal_keyword">do</span> aluno é um campo sequencial e calculado ao incluir o registro<span class="pascal_string">';
+
+ tmp_Alunos = '</span>&tilde;     Idade:&tilde;%s<span class="pascal_string">'+lf+
+              '</span>&tilde; Matricula:&tilde;%s</pre>
+
+<p></p></li>
+</ul>
+
+<p></p></td>
+</tr>
+<tr class="list2">
+<td class="itemname"><a class="bold" href="uMi_ui_Dmxscroller_form_lcl.html#CharHintOnde">CharHintOnde</a></td>
+<td class="itemunit"><a class="bold" href="uMi_ui_Dmxscroller_form_lcl.html">uMi_ui_Dmxscroller_form_lcl</a></td>
+<td class="itemdesc"><p>A contante <strong><code>CharHintOnde</code></strong> informa que todo texto até o próximo delimitador contém informações para o campo HelpCtx_Onde</p></td>
+</tr>
+<tr class="list">
+<td class="itemname"><a class="bold" href="uMi_ui_Dmxscroller_form_lcl.html#CharHintPorque">CharHintPorque</a></td>
+<td class="itemunit"><a class="bold" href="uMi_ui_Dmxscroller_form_lcl.html">uMi_ui_Dmxscroller_form_lcl</a></td>
+<td class="itemdesc"><p>A contante <strong><code>CharHintPorque</code></strong> informa que todo texto até o próximo delimitador contém informações para o campo HelpCtx_Porque</p></td>
+</tr>
+<tr class="list2">
+<td class="itemname"><a class="bold" href="uMi_ui_Dmxscroller_form_lcl.html#CharShowPassword">CharShowPassword</a></td>
+<td class="itemunit"><a class="bold" href="uMi_ui_Dmxscroller_form_lcl.html">uMi_ui_Dmxscroller_form_lcl</a></td>
+<td class="itemdesc"><p>A constante <strong><code>CharShowPassword</code></strong> informa para controle que os caracteres não devem ser visualizado.
+
+<p></p>
+
+<ul class="paragraph_spacing">
+  <li><p><strong>NOTA</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Usados no campos tipo senha.</p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p></td>
+</tr>
+<tr class="list">
+<td class="itemname"><a class="bold" href="uMi_ui_Dmxscroller_form_lcl.html#CharShowPasswordChar">CharShowPasswordChar</a></td>
+<td class="itemunit"><a class="bold" href="uMi_ui_Dmxscroller_form_lcl.html">uMi_ui_Dmxscroller_form_lcl</a></td>
+<td class="itemdesc"><p>A constante <strong><code>CharShowPasswordChar</code></strong> ...</p></td>
+</tr>
+<tr class="list2">
+<td class="itemname"><a class="bold" href="uMi_ui_Dmxscroller_form_lcl.html#CharUpperlimit">CharUpperlimit</a></td>
+<td class="itemunit"><a class="bold" href="uMi_ui_Dmxscroller_form_lcl.html">uMi_ui_Dmxscroller_form_lcl</a></td>
+<td class="itemdesc"><p>A constante <strong><code>CharUpperlimit</code></strong> (<code>CharUpperlimit</code>=&circ;U) permite informar um limite superior para campos do tipo byte.
+
+<p></p>
+
+<ul class="paragraph_spacing">
+  <li><p>O gerador de formulário deve usar o conteúdo do campo pDmxFieldRec.Upperlimit para criticar se o valor do campo está na faixa entre 1 e pDmxFieldRec.Upperlimit.</p></li>
+  <li><p>O valor zero significa que o campo está nulo.</p></li>
+  <li><p><strong>EXEMPLO</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Um campo onde o seu conteúdo não ultrapasse um byte, pode ser informado no Template da seguinte forma:
+
+<p></p>
+
+<pre class="longcode">
+
+<span class="pascal_keyword">Const</span>
+  idade := <span class="pascal_string">'\BBB+CharUpperlimit+#130+CharHint+'</span>Não existe humanos com a idade superior a <span class="pascal_numeric">130</span> anos.</pre>
+
+<p></p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p></td>
+</tr>
+<tr class="list">
+<td class="itemname"><a class="bold" href="uMi_ui_Dmxscroller_form_lcl.html#ChFN">ChFN</a></td>
+<td class="itemunit"><a class="bold" href="uMi_ui_Dmxscroller_form_lcl.html">uMi_ui_Dmxscroller_form_lcl</a></td>
+<td class="itemdesc"><p>A constante <strong><code>ChFN</code></strong> é igual a <a class="normal" href="uMi_ui_Dmxscroller_form_lcl.html#CharFieldName">CharFieldName</a>. Foi criada para facilitar seu uso.</p></td>
+</tr>
+<tr class="list2">
+<td class="itemname"><a class="bold" href="uDmxScroller_Form_Lcl_add_test.html#DmxScroller_Form_Lcl_add_test">DmxScroller_Form_Lcl_add_test</a></td>
+<td class="itemunit"><a class="bold" href="uDmxScroller_Form_Lcl_add_test.html">uDmxScroller_Form_Lcl_add_test</a></td>
+<td class="itemdesc"><p>&nbsp;</p></td>
+</tr>
+<tr class="list">
+<td class="itemname"><a class="bold" href="Unit1.html#DmxScroller_Form_Lcl_add_test1">DmxScroller_Form_Lcl_add_test1</a></td>
+<td class="itemunit"><a class="bold" href="Unit1.html">Unit1</a></td>
+<td class="itemdesc"><p>&nbsp;</p></td>
+</tr>
+<tr class="list2">
+<td class="itemname"><a class="bold" href="uDmxScroller_Form_Lcl_add_test2.html#DmxScroller_Form_Lcl_add_test2">DmxScroller_Form_Lcl_add_test2</a></td>
+<td class="itemunit"><a class="bold" href="uDmxScroller_Form_Lcl_add_test2.html">uDmxScroller_Form_Lcl_add_test2</a></td>
+<td class="itemdesc"><p>&nbsp;</p></td>
+</tr>
+<tr class="list">
+<td class="itemname"><a class="bold" href="uDmxScroller_Form_Lcl_test.html#DmxScroller_Form_Lcl_test">DmxScroller_Form_Lcl_test</a></td>
+<td class="itemunit"><a class="bold" href="uDmxScroller_Form_Lcl_test.html">uDmxScroller_Form_Lcl_test</a></td>
+<td class="itemdesc"><p>&nbsp;</p></td>
+</tr>
+<tr class="list2">
+<td class="itemname"><a class="bold" href="uMi_ui_Dmxscroller_form_lcl.html#fldAnsiChar">fldAnsiChar</a></td>
+<td class="itemunit"><a class="bold" href="uMi_ui_Dmxscroller_form_lcl.html">uMi_ui_Dmxscroller_form_lcl</a></td>
+<td class="itemdesc"><p>A constante <strong><code>fldAnsiChar</code></strong> (Const <code>fldAnsiChar</code> = 'C') usado na máscara do Template, informa ao componente <strong>TUiDmxScroller</strong> que a sequência de caracteres 'C' após o caractere <strong>&quot;\&quot;</strong> representa no buffer do formulário um tipo AnsiString que só aceita caractere maiúsculo.
+
+<p></p>
+
+<ul class="paragraph_spacing">
+  <li><p><strong>EXEMPLO</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Representação de um AnsiString de 10 dígitos em um buffer de 11 bytes onde o ultimo byte contém o caractere #0 informando o fim da string;
+
+<p></p>
+
+<pre class="longcode">
+
+<span class="pascal_keyword">Const</span>
+  Nome := <span class="pascal_string">'\CCCCCCCCCC'</span>; <span class="pascal_comment">//PAULO SÉRG</span></pre>
+
+<p></p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p></td>
+</tr>
+<tr class="list">
+<td class="itemname"><a class="bold" href="uMi_ui_Dmxscroller_form_lcl.html#fldAnsiCharNUM">fldAnsiCharNUM</a></td>
+<td class="itemunit"><a class="bold" href="uMi_ui_Dmxscroller_form_lcl.html">uMi_ui_Dmxscroller_form_lcl</a></td>
+<td class="itemdesc"><p>A constante <strong><code>fldAnsiCharNUM</code></strong> (Const <a class="normal" href="uMi_ui_Dmxscroller_form_lcl.html#fldAnsiChar">fldAnsiChar</a> = '0') usado na máscara do Template, informa ao componente <strong>TUiDmxScroller</strong> que a sequência de caracteres '0' após o caractere <strong>&quot;\&quot;</strong> representa no buffer do formulário um tipo AnsiString que só aceita caractere numérico ['0'..'9']] .
+
+<p></p>
+
+<ul class="paragraph_spacing">
+  <li><p><strong>EXEMPLO</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Representação de um AnsiString de 11 dígitos em um buffer de 12 bytes onde o ultimo byte contém o caractere #0 informando o fim da string;
+
+<p></p>
+
+<pre class="longcode">
+
+<span class="pascal_keyword">Const</span>
+
+  telefone := <span class="pascal_string">'\(00) 0 0000-0000'</span> <span class="pascal_comment">//85 9 9702 4498</span></pre>
+
+<p></p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p></td>
+</tr>
+<tr class="list2">
+<td class="itemname"><a class="bold" href="uMi_ui_Dmxscroller_form_lcl.html#fldAnsiCharVAL">fldAnsiCharVAL</a></td>
+<td class="itemunit"><a class="bold" href="uMi_ui_Dmxscroller_form_lcl.html">uMi_ui_Dmxscroller_form_lcl</a></td>
+<td class="itemdesc"><p>A constante <strong><code>fldAnsiCharVAL</code></strong> (Const <a class="normal" href="uMi_ui_Dmxscroller_form_lcl.html#fldAnsiChar">fldAnsiChar</a> = '0') usado na máscara do Template, informa ao componente <strong>TUiDmxScroller</strong> que a sequência de caracteres '0' após o caractere <strong>&quot;\&quot;</strong> representa no buffer do formulário um tipo AnsiString que só aceita caractere numérico ['0'..'9']] com formatação dbase.
+
+<p></p>
+
+<ul class="paragraph_spacing">
+  <li><p><strong>EXEMPLO</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Representação de um AnsiString de 11 dígitos em um buffer de 12 bytes onde o ultimo byte contém o caractere #0 informando o fim da string;
+
+<p></p>
+
+<pre class="longcode">
+
+<span class="pascal_keyword">Const</span>
+
+  telefone := <span class="pascal_string">'\(NN) N NNNN-NNNN'</span> <span class="pascal_comment">//85 9 9702 4498</span></pre>
+
+<p></p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p></td>
+</tr>
+<tr class="list">
+<td class="itemname"><a class="bold" href="uMi_ui_Dmxscroller_form_lcl.html#fldAnsiChar_Minuscula">fldAnsiChar_Minuscula</a></td>
+<td class="itemunit"><a class="bold" href="uMi_ui_Dmxscroller_form_lcl.html">uMi_ui_Dmxscroller_form_lcl</a></td>
+<td class="itemdesc"><p>A constante <strong><code>fldAnsiChar_Minuscula</code></strong> (Const <a class="normal" href="uMi_ui_Dmxscroller_form_lcl.html#fldAnsiChar">fldAnsiChar</a> = 'c') usado na máscara do Template, informa ao componente <strong>TUiDmxScroller</strong> que a sequência de caracteres 'c' após o caractere <strong>&quot;\&quot;</strong> representa no buffer do formulário um tipo AnsiString que só aceita caractere minúsculo.
+
+<p></p>
+
+<ul class="paragraph_spacing">
+  <li><p><strong>EXEMPLO</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Representação de um AnsiString de 10 dígitos em um buffer de 11 bytes onde o ultimo byte contém o caractere #0 informando o fim da string;
+
+<p></p>
+
+<pre class="longcode">
+
+<span class="pascal_keyword">Const</span>
+  Nome := <span class="pascal_string">'\cccccccccc'</span>; <span class="pascal_comment">//paulo Sérg</span>
+  Nome := <span class="pascal_string">'\Cccccccccc'</span>; <span class="pascal_comment">//Paulo Sérg</span></pre>
+
+<p></p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p></td>
+</tr>
+<tr class="list2">
+<td class="itemname"><a class="bold" href="uMi_ui_Dmxscroller_form_lcl.html#fldAPPEND">fldAPPEND</a></td>
+<td class="itemunit"><a class="bold" href="uMi_ui_Dmxscroller_form_lcl.html">uMi_ui_Dmxscroller_form_lcl</a></td>
+<td class="itemdesc"><p>A constante <strong><code>fldAPPEND</code></strong> é usada para concatenar duas listas do tipo <a class="normal" href="uMi_ui_scrollbox_lcl.html#PSItem">PSItem</a>.
+
+<p></p>
+
+<ul class="paragraph_spacing">
+  <li><p>A constante <strong><code>fldAPPEND</code></strong> é necessário porque DmxScroller trabalha com string curta e a mesma tem um tamanho de 255 caracteres, onde o tamanho está na posição 0.</p></li>
+  <li><p>Como usar a constante <strong><code>fldAPPEND</code></strong>:
+
+<p></p>
+
+<ul class="paragraph_spacing">
+  <li><p>A função <strong>CreateAppendFields</strong> retorna a constante <strong><code>fldAPPEND</code></strong> mais o endereço da string a ser concatenada.
+
+<p></p>
+
+<ul class="paragraph_spacing">
+  <li><p><strong>EXEMPLO</strong>
+
+<p></p>
+
+<pre class="longcode">
+
+<span class="pascal_keyword">procedure</span> Template : ShortString;
+  <span class="pascal_keyword">Var</span>
+    S1,s2,Template : TString;
+<span class="pascal_keyword">begin</span>
+  S1 := <span class="pascal_string">'&tilde;Nome do Aluno....:&tilde;\ssssssssssssssssssssssssssssssssss'</span>;
+  s2 := <span class="pascal_string">'&tilde;Endereço do aluno:&tilde;\sssssssssssssssssssssssss'</span>;
+  result := S1+CreateAppendFields(s2);
+<span class="pascal_keyword">end</span>;</pre>
+
+<p></p></li>
+  <li><p><strong>NOTA</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>A contante <strong><code>fldAPPEND</code></strong> foi criada porque o projeto inicial foi para turbo pascal e ambiente console.</p></li>
+  <li><p>A versão atual podemos usar AnsiString visto que o limite do mesmo é a memória.</p></li>
+  <li><p>Para usar AnsiString é necessário converter para <a class="normal" href="uMi_ui_scrollbox_lcl.html#PSItem">PSitem</a> com a função: <strong>StringToSItem</strong>.
+
+<p></p>
+
+<ul class="paragraph_spacing">
+  <li><p><strong>EXEMPLO:</strong>
+
+<p></p>
+
+<pre class="longcode">
+
+<span class="pascal_keyword">function</span> TMI_UI_InputBox.DmxScroller_Form1GetTemplate(aNext: PSItem): PSItem;
+<span class="pascal_keyword">begin</span>
+  <span class="pascal_keyword">with</span> DmxScroller_Form1 <span class="pascal_keyword">do</span>
+  <span class="pascal_keyword">begin</span>
+    <span class="pascal_keyword">if</span> _Template  &lt;&gt; <span class="pascal_string">''</span>
+    <span class="pascal_keyword">then</span> Result := StringToSItem(_Template, <span class="pascal_numeric">80</span>);
+
+<span class="pascal_comment">//    Result := StringToSItem(_Template, 40,TObjectsTypes.TAlinhamento.Alinhamento_Esquerda)</span>
+<span class="pascal_comment">//    Result := StringToSItem(_Template, 40,TObjectsTypes.TAlinhamento.Alinhamento_Central)</span>
+<span class="pascal_comment">//    Result := StringToSItem(_Template, 40,TObjectsTypes.TAlinhamento.Alinhamento_Direita)</span>
+<span class="pascal_comment">//    Result := StringToSItem(_Template, 80,TObjectsTypes.TAlinhamento.Alinhamento_Justificado)</span>
+
+    <span class="pascal_keyword">else</span> result := <span class="pascal_keyword">nil</span>;
+  <span class="pascal_keyword">end</span>;
+<span class="pascal_keyword">end</span>;</pre>
+
+<p></p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p></td>
+</tr>
+<tr class="list">
+<td class="itemname"><a class="bold" href="uMi_ui_Dmxscroller_form_lcl.html#fldBLOb">fldBLOb</a></td>
+<td class="itemunit"><a class="bold" href="uMi_ui_Dmxscroller_form_lcl.html">uMi_ui_Dmxscroller_form_lcl</a></td>
+<td class="itemdesc"><p>A constante <strong><code>fldBLOb</code></strong> indica que o campo é não formatado podendo ser um Record, porém a edição do mesmo será feito por outros meios.
+
+<p></p>
+
+<ul class="paragraph_spacing">
+  <li><p><strong>NOTA</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Para informar ao buffer do registro que o campo é <strong><code>fldBLOb</code></strong>, a função <strong>CreateBlobField</strong> é necessário.</p></li>
+  <li><p>A <strong>class function TUiMethods.CreateBlobField(Len: integer; AccMode,Default: byte) : DmxIDstr;</strong> reserva espaço para o mesmo.</p></li>
+  <li><p>Pendência: Preciso criar um exemplo de uso deste tipo de informação.</p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p></td>
+</tr>
+<tr class="list2">
+<td class="itemname"><a class="bold" href="uMi_ui_Dmxscroller_form_lcl.html#fldBoolean">fldBoolean</a></td>
+<td class="itemunit"><a class="bold" href="uMi_ui_Dmxscroller_form_lcl.html">uMi_ui_Dmxscroller_form_lcl</a></td>
+<td class="itemdesc"><p>A constante <strong><code>fldBoolean</code></strong> (<code>fldBoolean</code> = 'X') indica que o campo é do tipo byte e só pode ter dois valores.
+
+<p></p>
+
+<ul class="paragraph_spacing">
+  <li><p><strong>NOTA</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Valores possíveis: </p>
+
+<ul class="paragraph_spacing">
+  <li><p>0 - False; não</p></li>
+  <li><p>1 = True; sim</p></li>
+</ul>
+
+<p></p></li>
+  <li><p>A forma de editá-los deve ser com o componente checkbox.</p></li>
+</ul>
+
+<p></p></li>
+  <li><p><strong>EXEMPLO</strong>
+
+<p></p>
+
+<pre class="longcode">
+
+<span class="pascal_keyword">Resourcestring</span>
+  tmp_Aceita = <span class="pascal_string">'\[X]'</span>+ChFN+<span class="pascal_string">'Aceita_contrato'</span>+CharHint+<span class="pascal_string">'Aceita os termos do contrato?'</span>;
+  Template = tmp_Aceita+<span class="pascal_string">'&tilde;Aceita os termos do contrato&tilde;'</span>;</pre>
+
+<p></p></li>
+</ul>
+
+<p></p></td>
+</tr>
+<tr class="list">
+<td class="itemname"><a class="bold" href="uMi_ui_Dmxscroller_form_lcl.html#fldBYTE">fldBYTE</a></td>
+<td class="itemunit"><a class="bold" href="uMi_ui_Dmxscroller_form_lcl.html">uMi_ui_Dmxscroller_form_lcl</a></td>
+<td class="itemdesc"><p>A constante <strong><code>fldBYTE</code></strong> (Const <code>fldBYTE</code> = 'B') usado na máscara do Template, informa ao componente <strong>TUiDmxScroller</strong> que a sequência de caracteres 'B' após o caractere <strong>&quot;\&quot;</strong> representa no buffer do formulário um tipo byte.
+
+<p></p>
+
+<ul class="paragraph_spacing">
+  <li><p><strong>EXEMPLO</strong>
+
+<p></p>
+
+<pre class="longcode">
+
+<span class="pascal_keyword">Const</span>
+   idade := <span class="pascal_string">'\BB'</span> <span class="pascal_comment">//Os dois dígitos estarão em um buffer de 1 byte;</span></pre>
+
+<p></p></li>
+</ul>
+
+<p></p></td>
+</tr>
+<tr class="list2">
+<td class="itemname"><a class="bold" href="uMi_ui_Dmxscroller_form_lcl.html#fldCONTRACTION">fldCONTRACTION</a></td>
+<td class="itemunit"><a class="bold" href="uMi_ui_Dmxscroller_form_lcl.html">uMi_ui_Dmxscroller_form_lcl</a></td>
+<td class="itemdesc"><p>A constante <strong><code>fldCONTRACTION</code></strong> ...</p></td>
+</tr>
+<tr class="list">
+<td class="itemname"><a class="bold" href="uMi_ui_Dmxscroller_form_lcl.html#fldData">fldData</a></td>
+<td class="itemunit"><a class="bold" href="uMi_ui_Dmxscroller_form_lcl.html">uMi_ui_Dmxscroller_form_lcl</a></td>
+<td class="itemdesc"><p>A constante <strong><code>fldData</code></strong> ...</p></td>
+</tr>
+<tr class="list2">
+<td class="itemname"><a class="bold" href="uMi_ui_Dmxscroller_form_lcl.html#FldDateTimeDos">FldDateTimeDos</a></td>
+<td class="itemunit"><a class="bold" href="uMi_ui_Dmxscroller_form_lcl.html">uMi_ui_Dmxscroller_form_lcl</a></td>
+<td class="itemdesc"><p>A constante <strong><code>FldDateTimeDos</code></strong> ...</p></td>
+</tr>
+<tr class="list">
+<td class="itemname"><a class="bold" href="uMi_ui_Dmxscroller_form_lcl.html#fldENUM">fldENUM</a></td>
+<td class="itemunit"><a class="bold" href="uMi_ui_Dmxscroller_form_lcl.html">uMi_ui_Dmxscroller_form_lcl</a></td>
+<td class="itemdesc"><p>A constante <strong><code>fldENUM</code></strong> (<code>fldENUM</code>=&circ;E) é um campo do tipo byte(0..255) que contém uma lista de string que são selecionadas por um componente tipo ComboBox.
+
+<p></p>
+
+<ul class="paragraph_spacing">
+  <li><p><strong>EXEMPLO</strong>
+
+<p></p>
+
+<pre class="longcode">
+
+  <span class="pascal_keyword">Const</span> tmpMidia : PSitem = <span class="pascal_keyword">nil</span>;
+<span class="pascal_keyword">begin</span>
+  tmpMidia := CreateEnumField(TRUE, accNormal, <span class="pascal_numeric">0</span>,
+                              NewSItem(<span class="pascal_string">' indefinido '</span>,
+                              NewSItem(<span class="pascal_string">' PenDriver  '</span>,
+                              NewSItem(<span class="pascal_string">' SSD        '</span>,
+                              <span class="pascal_keyword">nil</span>))))+CharFieldName+<span class="pascal_string">'Midia;
+
+  Template = NewSItem('</span>&tilde;  Eu uso &tilde;<span class="pascal_string">'+ tmpMidia + '</span>&tilde; em meu computador.&tilde;</pre>
+
+<p></p></li>
+</ul>
+
+<p></p></td>
+</tr>
+<tr class="list2">
+<td class="itemname"><a class="bold" href="uMi_ui_Dmxscroller_form_lcl.html#fldExtended">fldExtended</a></td>
+<td class="itemunit"><a class="bold" href="uMi_ui_Dmxscroller_form_lcl.html">uMi_ui_Dmxscroller_form_lcl</a></td>
+<td class="itemdesc"><p>A constante <strong><code>fldExtended</code></strong> (<code>fldExtended</code>='E') usado na máscara do Template, informa ao componente <strong>TUiDmxScroller</strong> que a sequência de caracteres 'E' após o caractere <strong>&quot;\&quot;</strong> representa no buffer do formulário um tipo Extended.
+
+<p></p>
+
+<ul class="paragraph_spacing">
+  <li><p><strong>EXEMPLO</strong>
+
+<p></p>
+
+<pre class="longcode">
+
+<span class="pascal_keyword">Const</span>
+   Valor := <span class="pascal_string">'\EEE,EEE,EEE,EEE,EE'</span> <span class="pascal_comment">//Todos os números editados nesta</span>
+                                  <span class="pascal_comment">//mascara, estarão em um buffer de 10 bytes;</span></pre>
+
+<p></p></li>
+</ul>
+
+<p></p></td>
+</tr>
+<tr class="list">
+<td class="itemname"><a class="bold" href="uMi_ui_Dmxscroller_form_lcl.html#fldHexValue">fldHexValue</a></td>
+<td class="itemunit"><a class="bold" href="uMi_ui_Dmxscroller_form_lcl.html">uMi_ui_Dmxscroller_form_lcl</a></td>
+<td class="itemdesc"><p>A constante <strong><code>fldHexValue</code></strong> ...</p></td>
+</tr>
+<tr class="list2">
+<td class="itemname"><a class="bold" href="uMi_ui_Dmxscroller_form_lcl.html#fldLData">fldLData</a></td>
+<td class="itemunit"><a class="bold" href="uMi_ui_Dmxscroller_form_lcl.html">uMi_ui_Dmxscroller_form_lcl</a></td>
+<td class="itemdesc"><p>A constante <strong><code>fldLData</code></strong> ...</p></td>
+</tr>
+<tr class="list">
+<td class="itemname"><a class="bold" href="uMi_ui_Dmxscroller_form_lcl.html#fldLHora">fldLHora</a></td>
+<td class="itemunit"><a class="bold" href="uMi_ui_Dmxscroller_form_lcl.html">uMi_ui_Dmxscroller_form_lcl</a></td>
+<td class="itemdesc"><p>A constante <strong><code>fldLHora</code></strong> ...</p></td>
+</tr>
+<tr class="list2">
+<td class="itemname"><a class="bold" href="uMi_ui_Dmxscroller_form_lcl.html#fldLONGINT">fldLONGINT</a></td>
+<td class="itemunit"><a class="bold" href="uMi_ui_Dmxscroller_form_lcl.html">uMi_ui_Dmxscroller_form_lcl</a></td>
+<td class="itemdesc"><p>A constante <strong><code>fldLONGINT</code></strong> ...</p></td>
+</tr>
+<tr class="list">
+<td class="itemname"><a class="bold" href="uMi_ui_Dmxscroller_form_lcl.html#FldMemo">FldMemo</a></td>
+<td class="itemunit"><a class="bold" href="uMi_ui_Dmxscroller_form_lcl.html">uMi_ui_Dmxscroller_form_lcl</a></td>
+<td class="itemdesc"><p>A constante <strong><code>FldMemo</code></strong> ...</p></td>
+</tr>
+<tr class="list2">
+<td class="itemname"><a class="bold" href="uMi_ui_Dmxscroller_form_lcl.html#FldOperador">FldOperador</a></td>
+<td class="itemunit"><a class="bold" href="uMi_ui_Dmxscroller_form_lcl.html">uMi_ui_Dmxscroller_form_lcl</a></td>
+<td class="itemdesc"><p>A constante <strong><code>FldOperador</code></strong> ...</p></td>
+</tr>
+<tr class="list">
+<td class="itemname"><a class="bold" href="uMi_ui_Dmxscroller_form_lcl.html#FldRadioButton">FldRadioButton</a></td>
+<td class="itemunit"><a class="bold" href="uMi_ui_Dmxscroller_form_lcl.html">uMi_ui_Dmxscroller_form_lcl</a></td>
+<td class="itemdesc"><p>A constante <strong><code>FldRadioButton</code></strong> ...</p></td>
+</tr>
+<tr class="list2">
+<td class="itemname"><a class="bold" href="uMi_ui_Dmxscroller_form_lcl.html#fldReal4">fldReal4</a></td>
+<td class="itemunit"><a class="bold" href="uMi_ui_Dmxscroller_form_lcl.html">uMi_ui_Dmxscroller_form_lcl</a></td>
+<td class="itemdesc"><p>A constante <strong><code>fldReal4</code></strong> ...</p></td>
+</tr>
+<tr class="list">
+<td class="itemname"><a class="bold" href="uMi_ui_Dmxscroller_form_lcl.html#fldReal4P">fldReal4P</a></td>
+<td class="itemunit"><a class="bold" href="uMi_ui_Dmxscroller_form_lcl.html">uMi_ui_Dmxscroller_form_lcl</a></td>
+<td class="itemdesc"><p>A constante <strong><code>fldReal4P</code></strong> ...</p></td>
+</tr>
+<tr class="list2">
+<td class="itemname"><a class="bold" href="uMi_ui_Dmxscroller_form_lcl.html#fldReal4Positivo">fldReal4Positivo</a></td>
+<td class="itemunit"><a class="bold" href="uMi_ui_Dmxscroller_form_lcl.html">uMi_ui_Dmxscroller_form_lcl</a></td>
+<td class="itemdesc"><p>A constante <strong><code>fldReal4Positivo</code></strong> ...</p></td>
+</tr>
+<tr class="list">
+<td class="itemname"><a class="bold" href="uMi_ui_Dmxscroller_form_lcl.html#fldReal4PPositivo">fldReal4PPositivo</a></td>
+<td class="itemunit"><a class="bold" href="uMi_ui_Dmxscroller_form_lcl.html">uMi_ui_Dmxscroller_form_lcl</a></td>
+<td class="itemdesc"><p>A constante <strong><code>fldReal4PPositivo</code></strong> ...</p></td>
+</tr>
+<tr class="list2">
+<td class="itemname"><a class="bold" href="uMi_ui_Dmxscroller_form_lcl.html#fldRealNum">fldRealNum</a></td>
+<td class="itemunit"><a class="bold" href="uMi_ui_Dmxscroller_form_lcl.html">uMi_ui_Dmxscroller_form_lcl</a></td>
+<td class="itemdesc"><p>A constante <strong><code>fldRealNum</code></strong> ...</p></td>
+</tr>
+<tr class="list">
+<td class="itemname"><a class="bold" href="uMi_ui_Dmxscroller_form_lcl.html#fldRealNum_Positivo">fldRealNum_Positivo</a></td>
+<td class="itemunit"><a class="bold" href="uMi_ui_Dmxscroller_form_lcl.html">uMi_ui_Dmxscroller_form_lcl</a></td>
+<td class="itemdesc"><p>A constante <strong><code>fldRealNum_Positivo</code></strong> ...</p></td>
+</tr>
+<tr class="list2">
+<td class="itemname"><a class="bold" href="uMi_ui_Dmxscroller_form_lcl.html#FldSData">FldSData</a></td>
+<td class="itemunit"><a class="bold" href="uMi_ui_Dmxscroller_form_lcl.html">uMi_ui_Dmxscroller_form_lcl</a></td>
+<td class="itemdesc"><p>A constante <strong><code>FldSData</code></strong> ...</p></td>
+</tr>
+<tr class="list">
+<td class="itemname"><a class="bold" href="uMi_ui_Dmxscroller_form_lcl.html#FldSDateTimeDos">FldSDateTimeDos</a></td>
+<td class="itemunit"><a class="bold" href="uMi_ui_Dmxscroller_form_lcl.html">uMi_ui_Dmxscroller_form_lcl</a></td>
+<td class="itemdesc"><p>A constante <strong><code>FldSDateTimeDos</code></strong> ...</p></td>
+</tr>
+<tr class="list2">
+<td class="itemname"><a class="bold" href="uMi_ui_Dmxscroller_form_lcl.html#FldSHora">FldSHora</a></td>
+<td class="itemunit"><a class="bold" href="uMi_ui_Dmxscroller_form_lcl.html">uMi_ui_Dmxscroller_form_lcl</a></td>
+<td class="itemdesc"><p>A constante <strong><code>FldSHora</code></strong> ...</p></td>
+</tr>
+<tr class="list">
+<td class="itemname"><a class="bold" href="uMi_ui_Dmxscroller_form_lcl.html#fldSHORTINT">fldSHORTINT</a></td>
+<td class="itemunit"><a class="bold" href="uMi_ui_Dmxscroller_form_lcl.html">uMi_ui_Dmxscroller_form_lcl</a></td>
+<td class="itemdesc"><p>A constante <strong><code>fldSHORTINT</code></strong> ...</p></td>
+</tr>
+<tr class="list2">
+<td class="itemname"><a class="bold" href="uMi_ui_Dmxscroller_form_lcl.html#fldSItems">fldSItems</a></td>
+<td class="itemunit"><a class="bold" href="uMi_ui_Dmxscroller_form_lcl.html">uMi_ui_Dmxscroller_form_lcl</a></td>
+<td class="itemdesc"><p>A constante <strong><code>fldSItems</code></strong> ...</p></td>
+</tr>
+<tr class="list">
+<td class="itemname"><a class="bold" href="uMi_ui_Dmxscroller_form_lcl.html#fldSmallInt">fldSmallInt</a></td>
+<td class="itemunit"><a class="bold" href="uMi_ui_Dmxscroller_form_lcl.html">uMi_ui_Dmxscroller_form_lcl</a></td>
+<td class="itemdesc"><p>A constante <strong><code>fldSmallInt</code></strong> ...</p></td>
+</tr>
+<tr class="list2">
+<td class="itemname"><a class="bold" href="uMi_ui_Dmxscroller_form_lcl.html#fldSmallWORD">fldSmallWORD</a></td>
+<td class="itemunit"><a class="bold" href="uMi_ui_Dmxscroller_form_lcl.html">uMi_ui_Dmxscroller_form_lcl</a></td>
+<td class="itemdesc"><p>A constante <strong><code>fldSmallWORD</code></strong> ...</p></td>
+</tr>
+<tr class="list">
+<td class="itemname"><a class="bold" href="uMi_ui_Dmxscroller_form_lcl.html#fldSTR">fldSTR</a></td>
+<td class="itemunit"><a class="bold" href="uMi_ui_Dmxscroller_form_lcl.html">uMi_ui_Dmxscroller_form_lcl</a></td>
+<td class="itemdesc"><p>A constante <strong><code>fldSTR</code></strong> (Const <code>fldStr</code> = 'S') usado na máscara do Template, informa ao componente <strong>TUiDmxScroller</strong> que a sequência de caracteres 'S' após o caractere <strong>&quot;\&quot;</strong> representa no buffer do formulário um tipo ShortString que só aceita caractere maiúsculo.
+
+<p></p>
+
+<ul class="paragraph_spacing">
+  <li><p><strong>EXEMPLO</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Representação de um string de 10 dígitos em um buffer de 11 bytes onde o byte zero contém o tamanho da string;
+
+<p></p>
+
+<pre class="longcode">
+
+<span class="pascal_keyword">Const</span>
+  Nome := <span class="pascal_string">'\SSSSSSSSSS'</span>  <span class="pascal_comment">//PAULO SÉRG</span></pre>
+
+<p></p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p></td>
+</tr>
+<tr class="list2">
+<td class="itemname"><a class="bold" href="uMi_ui_Dmxscroller_form_lcl.html#fldSTRNUM">fldSTRNUM</a></td>
+<td class="itemunit"><a class="bold" href="uMi_ui_Dmxscroller_form_lcl.html">uMi_ui_Dmxscroller_form_lcl</a></td>
+<td class="itemdesc"><p>A constante <strong><code>fldSTRNUM</code></strong> (Const <code>fldSTRNUM</code> = '#') usado na máscara do Template, informa ao componente <strong>TUiDmxScroller</strong> que a sequência de caracteres '#' após o caractere <strong>&quot;\&quot;</strong> representa no buffer do formulário um tipo ShortString que só aceita caractere numérico.
+
+<p></p>
+
+<ul class="paragraph_spacing">
+  <li><p><strong>EXEMPLO</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Representação de um string de 11 dígitos em um buffer de 12 bytes onde o byte zero contém o tamanho da string;
+
+<p></p>
+
+<pre class="longcode">
+
+<span class="pascal_keyword">Const</span>
+  telefone := <span class="pascal_string">'\(##) # ####-####'</span> <span class="pascal_comment">//85 9 9702 4498</span></pre>
+
+<p></p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p></td>
+</tr>
+<tr class="list">
+<td class="itemname"><a class="bold" href="uMi_ui_Dmxscroller_form_lcl.html#fldSTR_Minuscula">fldSTR_Minuscula</a></td>
+<td class="itemunit"><a class="bold" href="uMi_ui_Dmxscroller_form_lcl.html">uMi_ui_Dmxscroller_form_lcl</a></td>
+<td class="itemdesc"><p>A constante <strong><code>fldSTR_Minuscula</code></strong> (Const <code>fldSTR_Minuscula</code> = 's') usado na máscara do Template, informa ao componente <strong>TUiDmxScroller</strong> que a sequência de caracteres 's' após o caractere <strong>&quot;\&quot;</strong> representa no buffer do formulário um tipo ShortString que só aceita caractere minúscula.
+
+<p></p>
+
+<ul class="paragraph_spacing">
+  <li><p><strong>EXEMPLO</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Representação de um string de 10 dígitos em um buffer de 11 bytes onde o byte zero contém o tamanho da string;
+
+<p></p>
+
+<pre class="longcode">
+
+<span class="pascal_keyword">Const</span>
+  Nome := <span class="pascal_string">'\ssssssssss'</span> <span class="pascal_comment">//paulo sérg</span>
+  Nome := <span class="pascal_string">'\Ssssssssss'</span> <span class="pascal_comment">//Paulo sérg</span></pre>
+
+<p></p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p></td>
+</tr>
+<tr class="list2">
+<td class="itemname"><a class="bold" href="uMi_ui_Dmxscroller_form_lcl.html#fldZEROMOD">fldZEROMOD</a></td>
+<td class="itemunit"><a class="bold" href="uMi_ui_Dmxscroller_form_lcl.html">uMi_ui_Dmxscroller_form_lcl</a></td>
+<td class="itemdesc"><p>A constante <strong><code>fldZEROMOD</code></strong> ...</p></td>
+</tr>
+<tr class="list">
+<td class="itemname"><a class="bold" href="uMi_ui_Dmxscroller_form_lcl.html#fld_LData">fld_LData</a></td>
+<td class="itemunit"><a class="bold" href="uMi_ui_Dmxscroller_form_lcl.html">uMi_ui_Dmxscroller_form_lcl</a></td>
+<td class="itemdesc"><p>A constante <strong><code>fld_LData</code></strong> é do tipo TDateTime e guarda a data compactada 'dd/dd/dd'</p></td>
+</tr>
+<tr class="list2">
+<td class="itemname"><a class="bold" href="uMi_ui_Dmxscroller_form_lcl.html#fld_LHora">fld_LHora</a></td>
+<td class="itemunit"><a class="bold" href="uMi_ui_Dmxscroller_form_lcl.html">uMi_ui_Dmxscroller_form_lcl</a></td>
+<td class="itemdesc"><p>A constante <strong><code>fld_LHora</code></strong> é do tipo TDateTime e guarda a hora compactada ##:##:##</p></td>
+</tr>
+<tr class="list">
+<td class="itemname"><a class="bold" href="umi_ui_mi_msgbox_dm.html#get_MI_MsgBox">get_MI_MsgBox</a></td>
+<td class="itemunit"><a class="bold" href="umi_ui_mi_msgbox_dm.html">umi_ui_mi_msgbox_dm</a></td>
+<td class="itemdesc"><p>&nbsp;</p></td>
+</tr>
+<tr class="list2">
+<td class="itemname"><a class="bold" href="umi_ui_InputBox_lcl.html#InputBox">InputBox</a></td>
+<td class="itemunit"><a class="bold" href="umi_ui_InputBox_lcl.html">umi_ui_InputBox_lcl</a></td>
+<td class="itemdesc"><p>A função <strong><code>InputBox</code></strong> cria um formulário passado por Template e executa os eventos do formulário passado pelos parâmetros.
+
+<p></p>
+
+<ul class="paragraph_spacing">
+  <li><p><strong>PARÂMETROS</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>atitle; // Título do formulário;</p></li>
+  <li><p>aTemplate; // Modelo do formulário cuja a sintaxe segue abaixo:</p></li>
+  <li><p>aOnEnter; // Executado ao entrar no formulário criado baseado no Template;</p></li>
+  <li><p>aOnExit; // Executado ao sair do formulário criado baseado no Template;</p></li>
+  <li><p>aOnEnterField; // Executado ao entrar um campo focado;</p></li>
+  <li><p>aOnExitField; // Executado ao sair do campo focado;</p></li>
+  <li><p>aOnCloseQuery // Executado ao fechar o form se CanClose = true;</p></li>
+</ul>
+
+<p></p></li>
+  <li><p><strong>SINTAXE DO MODELO</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Exemplo </p>
+
+<pre class="longcode">
+
+<span class="pascal_keyword">const</span>
+  Template := <span class="pascal_string">'&tilde;Nome do Aluno:&tilde;\sssssssssssssssssssssssss'</span>+lf+
+              <span class="pascal_string">'&tilde;     Endereço:&tilde;\sssssssssssssssssssssssss`ssssssssssssssss'</span>+lf+
+              <span class="pascal_string">'&tilde;          Cep:&tilde;\##-###-###'</span>+lf+
+              <span class="pascal_string">'&tilde;       Bairro:&tilde;\sssssssssssssssssssssssss'</span>+lf+
+              <span class="pascal_string">'&tilde;       Cidade:&tilde;\sssssssssssssssssssssssss'</span>+lf+
+              <span class="pascal_string">'&tilde;       Estado:&tilde;\sssssssssssssssssssssssss'</span>+lf+
+              <span class="pascal_string">'&tilde;        Idade:&tilde;\BB'</span>+lf+
+              <span class="pascal_string">'&tilde;  Mensalidade:&tilde;\R,RRR.RR'</span>;</pre>
+
+<p></p></li>
+  <li><p>Tipos de dados do formulário: </p>
+
+<ul class="paragraph_spacing">
+  <li><p>s = Char alfanumérico</p></li>
+  <li><p># = Char numérico</p></li>
+  <li><p>R = Double</p></li>
+  <li><p>B = Byte</p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p></li>
+  <li><p>Exemplo de chamada da função:
+
+<p></p>
+
+<pre class="longcode">
+
+<span class="pascal_keyword">if</span> InputBox(<span class="pascal_string">'Dados do aluno'</span>,
+             <span class="pascal_string">'&tilde;Nome do Aluno:&tilde;\sssssssssssssssssssssssss'</span>+lf+
+             <span class="pascal_string">'&tilde;     Endereço:&tilde;\sssssssssssssssssssssssss`ssssssssssssssss'</span>+lf+
+             <span class="pascal_string">'&tilde;          Cep:&tilde;\##-###-###'</span>+lf+
+             <span class="pascal_string">'&tilde;       Bairro:&tilde;\sssssssssssssssssssssssss'</span>+lf+
+             <span class="pascal_string">'&tilde;       Cidade:&tilde;\sssssssssssssssssssssssss'</span>+lf+
+             <span class="pascal_string">'&tilde;       Estado:&tilde;\sssssssssssssssssssssssss'</span>+lf+
+             <span class="pascal_string">'&tilde;        Idade:&tilde;\BB'</span>+lf+
+             <span class="pascal_string">'&tilde;    Mensalidade:&tilde;\R,RRR.RR'</span>,
+             <span class="pascal_keyword">nil</span>,<span class="pascal_keyword">nil</span>,<span class="pascal_keyword">nil</span>,<span class="pascal_keyword">nil</span>,<span class="pascal_keyword">nil</span>
+        ) = MrOk
+<span class="pascal_keyword">then</span> <span class="pascal_keyword">begin</span>
+     <span class="pascal_keyword">end</span>;</pre>
+
+<p></p></li>
+</ul>
+
+<p></p></td>
+</tr>
+<tr class="list">
+<td class="itemname"><a class="bold" href="uMi_ui_DmxScroller_Form_Lcl_ds_test.html#Mi_ui_DmxScroller_Form_Lcl_ds_test">Mi_ui_DmxScroller_Form_Lcl_ds_test</a></td>
+<td class="itemunit"><a class="bold" href="uMi_ui_DmxScroller_Form_Lcl_ds_test.html">uMi_ui_DmxScroller_Form_Lcl_ds_test</a></td>
+<td class="itemdesc"><p>&nbsp;</p></td>
+</tr>
+<tr class="list2">
+<td class="itemname"><a class="bold" href="uMi_ui_DmxScroller_Form_Lcl_ds_test2.html#Mi_ui_DmxScroller_Form_Lcl_ds_test2">Mi_ui_DmxScroller_Form_Lcl_ds_test2</a></td>
+<td class="itemunit"><a class="bold" href="uMi_ui_DmxScroller_Form_Lcl_ds_test2.html">uMi_ui_DmxScroller_Form_Lcl_ds_test2</a></td>
+<td class="itemdesc"><p>&nbsp;</p></td>
+</tr>
+<tr class="list">
+<td class="itemname"><a class="bold" href="uMi_ui_DmxScroller_Form_Lcl_ds_test2_dm.html#Mi_ui_DmxScroller_Form_Lcl_ds_test2_dm">Mi_ui_DmxScroller_Form_Lcl_ds_test2_dm</a></td>
+<td class="itemunit"><a class="bold" href="uMi_ui_DmxScroller_Form_Lcl_ds_test2_dm.html">uMi_ui_DmxScroller_Form_Lcl_ds_test2_dm</a></td>
+<td class="itemdesc"><p>&nbsp;</p></td>
+</tr>
+<tr class="list2">
+<td class="itemname"><a class="bold" href="uMi_ui_Dmxscroller_form_lcl.html#pDmxFieldRec">pDmxFieldRec</a></td>
+<td class="itemunit"><a class="bold" href="uMi_ui_Dmxscroller_form_lcl.html">uMi_ui_Dmxscroller_form_lcl</a></td>
+<td class="itemdesc"><p>&nbsp;</p></td>
+</tr>
+<tr class="list">
+<td class="itemname"><a class="bold" href="umi_ui_dmxscroller_form_lcl_ds.html#pDmxFieldRec">pDmxFieldRec</a></td>
+<td class="itemunit"><a class="bold" href="umi_ui_dmxscroller_form_lcl_ds.html">umi_ui_dmxscroller_form_lcl_ds</a></td>
+<td class="itemdesc"><p>&nbsp;</p></td>
+</tr>
+<tr class="list2">
+<td class="itemname"><a class="bold" href="uMi_ui_scrollbox_lcl.html#PSItem">PSItem</a></td>
+<td class="itemunit"><a class="bold" href="uMi_ui_scrollbox_lcl.html">uMi_ui_scrollbox_lcl</a></td>
+<td class="itemdesc"><p>&nbsp;</p></td>
+</tr>
+<tr class="list">
+<td class="itemname"><a class="bold" href="umi_ui_bitbtn_lcl.html#Register">Register</a></td>
+<td class="itemunit"><a class="bold" href="umi_ui_bitbtn_lcl.html">umi_ui_bitbtn_lcl</a></td>
+<td class="itemdesc"><p>&nbsp;</p></td>
+</tr>
+<tr class="list2">
+<td class="itemname"><a class="bold" href="umi_ui_button_lcl.html#Register">Register</a></td>
+<td class="itemunit"><a class="bold" href="umi_ui_button_lcl.html">umi_ui_button_lcl</a></td>
+<td class="itemdesc"><p>&nbsp;</p></td>
+</tr>
+<tr class="list">
+<td class="itemname"><a class="bold" href="umi_ui_checkbox_lcl.html#Register">Register</a></td>
+<td class="itemunit"><a class="bold" href="umi_ui_checkbox_lcl.html">umi_ui_checkbox_lcl</a></td>
+<td class="itemdesc"><p>&nbsp;</p></td>
+</tr>
+<tr class="list2">
+<td class="itemname"><a class="bold" href="uMi_ui_ComboBox_lcl.html#Register">Register</a></td>
+<td class="itemunit"><a class="bold" href="uMi_ui_ComboBox_lcl.html">uMi_ui_ComboBox_lcl</a></td>
+<td class="itemdesc"><p>&nbsp;</p></td>
+</tr>
+<tr class="list">
+<td class="itemname"><a class="bold" href="uMi_Ui_DBCheckBox_Lcl.html#Register">Register</a></td>
+<td class="itemunit"><a class="bold" href="uMi_Ui_DBCheckBox_Lcl.html">uMi_Ui_DBCheckBox_Lcl</a></td>
+<td class="itemdesc"><p>&nbsp;</p></td>
+</tr>
+<tr class="list2">
+<td class="itemname"><a class="bold" href="uMi_Ui_DbComboBox_lcl.html#Register">Register</a></td>
+<td class="itemunit"><a class="bold" href="uMi_Ui_DbComboBox_lcl.html">uMi_Ui_DbComboBox_lcl</a></td>
+<td class="itemdesc"><p>&nbsp;</p></td>
+</tr>
+<tr class="list">
+<td class="itemname"><a class="bold" href="uMI_ui_DbEdit_LCL.html#Register">Register</a></td>
+<td class="itemunit"><a class="bold" href="uMI_ui_DbEdit_LCL.html">uMI_ui_DbEdit_LCL</a></td>
+<td class="itemdesc"><p>&nbsp;</p></td>
+</tr>
+<tr class="list2">
+<td class="itemname"><a class="bold" href="umi_ui_dblookupComboBox_lcl.html#Register">Register</a></td>
+<td class="itemunit"><a class="bold" href="umi_ui_dblookupComboBox_lcl.html">umi_ui_dblookupComboBox_lcl</a></td>
+<td class="itemdesc"><p>&nbsp;</p></td>
+</tr>
+<tr class="list">
+<td class="itemname"><a class="bold" href="uMI_ui_DbRadioGroup_Lcl.html#Register">Register</a></td>
+<td class="itemunit"><a class="bold" href="uMI_ui_DbRadioGroup_Lcl.html">uMI_ui_DbRadioGroup_Lcl</a></td>
+<td class="itemdesc"><p>&nbsp;</p></td>
+</tr>
+<tr class="list2">
+<td class="itemname"><a class="bold" href="uMi_ui_Dmxscroller_form_lcl.html#Register">Register</a></td>
+<td class="itemunit"><a class="bold" href="uMi_ui_Dmxscroller_form_lcl.html">uMi_ui_Dmxscroller_form_lcl</a></td>
+<td class="itemdesc"><p>&nbsp;</p></td>
+</tr>
+<tr class="list">
+<td class="itemname"><a class="bold" href="umi_ui_dmxscroller_form_lcl_ds.html#Register">Register</a></td>
+<td class="itemunit"><a class="bold" href="umi_ui_dmxscroller_form_lcl_ds.html">umi_ui_dmxscroller_form_lcl_ds</a></td>
+<td class="itemdesc"><p>&nbsp;</p></td>
+</tr>
+<tr class="list2">
+<td class="itemname"><a class="bold" href="uMi_ui_Label_lcl.html#Register">Register</a></td>
+<td class="itemunit"><a class="bold" href="uMi_ui_Label_lcl.html">uMi_ui_Label_lcl</a></td>
+<td class="itemdesc"><p>&nbsp;</p></td>
+</tr>
+<tr class="list">
+<td class="itemname"><a class="bold" href="uMi_ui_maskedit_lcl.html#Register">Register</a></td>
+<td class="itemunit"><a class="bold" href="uMi_ui_maskedit_lcl.html">uMi_ui_maskedit_lcl</a></td>
+<td class="itemdesc"><p>&nbsp;</p></td>
+</tr>
+<tr class="list2">
+<td class="itemname"><a class="bold" href="umi_ui_radiogroup_lcl.html#Register">Register</a></td>
+<td class="itemunit"><a class="bold" href="umi_ui_radiogroup_lcl.html">umi_ui_radiogroup_lcl</a></td>
+<td class="itemdesc"><p>&nbsp;</p></td>
+</tr>
+<tr class="list">
+<td class="itemname"><a class="bold" href="uMi_ui_scrollbox_lcl.html#Register">Register</a></td>
+<td class="itemunit"><a class="bold" href="uMi_ui_scrollbox_lcl.html">uMi_ui_scrollbox_lcl</a></td>
+<td class="itemdesc"><p>&nbsp;</p></td>
+</tr>
+<tr class="list2">
+<td class="itemname"><a class="bold" href="uMi_ui_Dmxscroller_form_lcl.html#SmallWord">SmallWord</a></td>
+<td class="itemunit"><a class="bold" href="uMi_ui_Dmxscroller_form_lcl.html">uMi_ui_Dmxscroller_form_lcl</a></td>
+<td class="itemdesc"><p>&nbsp;</p></td>
+</tr>
+<tr class="list">
+<td class="itemname"><a class="bold" href="umi_ui_dmxscroller_form_lcl_ds.html#SmallWord">SmallWord</a></td>
+<td class="itemunit"><a class="bold" href="umi_ui_dmxscroller_form_lcl_ds.html">umi_ui_dmxscroller_form_lcl_ds</a></td>
+<td class="itemdesc"><p>&nbsp;</p></td>
+</tr>
+<tr class="list2">
+<td class="itemname"><a class="bold" href="uMi_ui_Dmxscroller_form_lcl.html#TDmxFieldRec">TDmxFieldRec</a></td>
+<td class="itemunit"><a class="bold" href="uMi_ui_Dmxscroller_form_lcl.html">uMi_ui_Dmxscroller_form_lcl</a></td>
+<td class="itemdesc"><p>&nbsp;</p></td>
+</tr>
+<tr class="list">
+<td class="itemname"><a class="bold" href="umi_ui_dmxscroller_form_lcl_ds.html#TDmxFieldRec">TDmxFieldRec</a></td>
+<td class="itemunit"><a class="bold" href="umi_ui_dmxscroller_form_lcl_ds.html">umi_ui_dmxscroller_form_lcl_ds</a></td>
+<td class="itemdesc"><p>&nbsp;</p></td>
+</tr>
+<tr class="list2">
+<td class="itemname"><a class="bold" href="uMi_ui_Dmxscroller_form_lcl.TDmxScroller_Form_Lcl.html">TDmxScroller_Form_Lcl</a></td>
+<td class="itemunit"><a class="bold" href="uMi_ui_Dmxscroller_form_lcl.html">uMi_ui_Dmxscroller_form_lcl</a></td>
+<td class="itemdesc"><p>A classe <strong><code>TDmxScroller_Form_Lcl</code></strong> implementa a construção de formulários usando uma lista de Templates do tipo TDmxScroller</p></td>
+</tr>
+<tr class="list">
+<td class="itemname"><a class="bold" href="uDmxScroller_Form_Lcl_add_test.TDmxScroller_Form_Lcl_add_test.html">TDmxScroller_Form_Lcl_add_test</a></td>
+<td class="itemunit"><a class="bold" href="uDmxScroller_Form_Lcl_add_test.html">uDmxScroller_Form_Lcl_add_test</a></td>
+<td class="itemdesc"><p>&nbsp;</p></td>
+</tr>
+<tr class="list2">
+<td class="itemname"><a class="bold" href="Unit1.TDmxScroller_Form_Lcl_add_test1.html">TDmxScroller_Form_Lcl_add_test1</a></td>
+<td class="itemunit"><a class="bold" href="Unit1.html">Unit1</a></td>
+<td class="itemdesc"><p>&nbsp;</p></td>
+</tr>
+<tr class="list">
+<td class="itemname"><a class="bold" href="uDmxScroller_Form_Lcl_add_test2.TDmxScroller_Form_Lcl_add_test2.html">TDmxScroller_Form_Lcl_add_test2</a></td>
+<td class="itemunit"><a class="bold" href="uDmxScroller_Form_Lcl_add_test2.html">uDmxScroller_Form_Lcl_add_test2</a></td>
+<td class="itemdesc"><p>&nbsp;</p></td>
+</tr>
+<tr class="list2">
+<td class="itemname"><a class="bold" href="umi_ui_dmxscroller_form_lcl_attributes.TDmxScroller_Form_Lcl_attributes.html">TDmxScroller_Form_Lcl_attributes</a></td>
+<td class="itemunit"><a class="bold" href="umi_ui_dmxscroller_form_lcl_attributes.html">umi_ui_dmxscroller_form_lcl_attributes</a></td>
+<td class="itemdesc"><p>A classe <strong> <code>TDmxScroller_Form_Lcl_attributes</code> </strong> conscentra os atibutos comuns do pacote para construção da classe <strong><a class="normal" href="uMi_ui_Dmxscroller_form_lcl.TDmxScroller_Form_Lcl.html">TDmxScroller_Form_Lcl</a></strong></p></td>
+</tr>
+<tr class="list">
+<td class="itemname"><a class="bold" href="umi_ui_dmxscroller_form_lcl_ds.TDmxScroller_Form_Lcl_DS.html">TDmxScroller_Form_Lcl_DS</a></td>
+<td class="itemunit"><a class="bold" href="umi_ui_dmxscroller_form_lcl_ds.html">umi_ui_dmxscroller_form_lcl_ds</a></td>
+<td class="itemdesc"><p>&nbsp;</p></td>
+</tr>
+<tr class="list2">
+<td class="itemname"><a class="bold" href="uDmxScroller_Form_Lcl_test.TDmxScroller_Form_Lcl_test.html">TDmxScroller_Form_Lcl_test</a></td>
+<td class="itemunit"><a class="bold" href="uDmxScroller_Form_Lcl_test.html">uDmxScroller_Form_Lcl_test</a></td>
+<td class="itemdesc"><p>&nbsp;</p></td>
+</tr>
+<tr class="list">
+<td class="itemname"><a class="bold" href="mi_ui_Dmxscroller_sql.TDmxScroller_sql_Atributos.html">TDmxScroller_sql_Atributos</a></td>
+<td class="itemunit"><a class="bold" href="mi_ui_Dmxscroller_sql.html">mi_ui_Dmxscroller_sql</a></td>
+<td class="itemdesc"><p>A class <strong><code>TDmxScroller_sql_Atributos</code></strong> contém os atributos da class TDmxScroller_sql</p></td>
+</tr>
+<tr class="list2">
+<td class="itemname"><a class="bold" href="umi_ui_inputbox_lcl_test.html#TestinputBox">TestinputBox</a></td>
+<td class="itemunit"><a class="bold" href="umi_ui_inputbox_lcl_test.html">umi_ui_inputbox_lcl_test</a></td>
+<td class="itemdesc"><p>&nbsp;</p></td>
+</tr>
+<tr class="list">
+<td class="itemname"><a class="bold" href="umi_ui_bitbtn_lcl.TMi_BitBtn_LCL.html">TMi_BitBtn_LCL</a></td>
+<td class="itemunit"><a class="bold" href="umi_ui_bitbtn_lcl.html">umi_ui_bitbtn_lcl</a></td>
+<td class="itemdesc"><p>A classe <strong> <code>TMi_BitBtn_LCL</code> </strong> é necessária para que se possa selecionar o controle associado ao botão criado pelo método: <a class="normal" href="uMi_ui_Dmxscroller_form_lcl.html#pDmxFieldRec">pDmxFieldRec</a>&circ;.createExecAction na construção da classe <strong><a class="normal" href="uMi_ui_Dmxscroller_form_lcl.TDmxScroller_Form_Lcl.html">TDmxScroller_Form_Lcl</a></strong>.</p></td>
+</tr>
+<tr class="list2">
+<td class="itemname"><a class="bold" href="umi_ui_button_lcl.TMI_Button_LCL.html">TMI_Button_LCL</a></td>
+<td class="itemunit"><a class="bold" href="umi_ui_button_lcl.html">umi_ui_button_lcl</a></td>
+<td class="itemdesc"><p>A classe <strong><code>TMI_Button_LCL</code></strong> é necessária para que se possa selecionar o controle associado ao botão criado pelo método: <a class="normal" href="uMi_ui_Dmxscroller_form_lcl.html#pDmxFieldRec">pDmxFieldRec</a>&circ;.createExecAction.</p></td>
+</tr>
+<tr class="list">
+<td class="itemname"><a class="bold" href="umi_ui_checkbox_lcl.TMI_CheckBox_LCL.html">TMI_CheckBox_LCL</a></td>
+<td class="itemunit"><a class="bold" href="umi_ui_checkbox_lcl.html">umi_ui_checkbox_lcl</a></td>
+<td class="itemdesc"><p>&nbsp;</p></td>
+</tr>
+<tr class="list2">
+<td class="itemname"><a class="bold" href="uMi_ui_ComboBox_lcl.TMI_ComboBox_LCL.html">TMI_ComboBox_LCL</a></td>
+<td class="itemunit"><a class="bold" href="uMi_ui_ComboBox_lcl.html">uMi_ui_ComboBox_lcl</a></td>
+<td class="itemdesc"><p>A classe <strong><code>TMI_ComboBox_LCL</code></strong> permite edita um campo enumerado do componente <strong><a class="normal" href="uMi_ui_Dmxscroller_form_lcl.html#TDmxFieldRec">TDmxFieldRec</a></strong>
+
+<p></p>
+
+<ul class="paragraph_spacing">
+  <li><p><strong>NOTA</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>O item zero cont�m a string selecionada e caso a mesma seja editada o valor digitado passa ser o filtro de pesquisa.</p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p></td>
+</tr>
+<tr class="list">
+<td class="itemname"><a class="bold" href="uMi_Ui_DbComboBox_lcl.TMi_DbComboBox_LCL.html">TMi_DbComboBox_LCL</a></td>
+<td class="itemunit"><a class="bold" href="uMi_Ui_DbComboBox_lcl.html">uMi_Ui_DbComboBox_lcl</a></td>
+<td class="itemdesc"><p>A classe <strong><code>TMi_DbComboBox_LCL</code></strong> permite edita um campo enumerado do registro <strong><a class="normal" href="uMi_ui_Dmxscroller_form_lcl.html#TDmxFieldRec">TDmxFieldRec</a></strong>
+
+<p></p>
+
+<ul class="paragraph_spacing">
+  <li><p><strong>NOTA</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>O item zero contém a string selecionada e caso a mesma seja editada o valor digitado passa ser o filtro de pesquisa.</p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p></td>
+</tr>
+<tr class="list2">
+<td class="itemname"><a class="bold" href="uMI_ui_DbEdit_LCL.TMI_DbEdit_LCL.html">TMI_DbEdit_LCL</a></td>
+<td class="itemunit"><a class="bold" href="uMI_ui_DbEdit_LCL.html">uMI_ui_DbEdit_LCL</a></td>
+<td class="itemdesc"><p>&nbsp;</p></td>
+</tr>
+<tr class="list">
+<td class="itemname"><a class="bold" href="uMi_ui_maskedit_lcl.TMI_MaskEdit_LCL.html">TMI_MaskEdit_LCL</a></td>
+<td class="itemunit"><a class="bold" href="uMi_ui_maskedit_lcl.html">uMi_ui_maskedit_lcl</a></td>
+<td class="itemdesc"><p>&nbsp;</p></td>
+</tr>
+<tr class="list2">
+<td class="itemname"><a class="bold" href="umi_ui_radiogroup_lcl.TMI_RadioGroup_LCL.html">TMI_RadioGroup_LCL</a></td>
+<td class="itemunit"><a class="bold" href="umi_ui_radiogroup_lcl.html">umi_ui_radiogroup_lcl</a></td>
+<td class="itemdesc"><p>&nbsp;</p></td>
+</tr>
+<tr class="list">
+<td class="itemname"><a class="bold" href="uMi_ui_scrollbox_lcl.TMi_ScrollBox_LCL.html">TMi_ScrollBox_LCL</a></td>
+<td class="itemunit"><a class="bold" href="uMi_ui_scrollbox_lcl.html">uMi_ui_scrollbox_lcl</a></td>
+<td class="itemdesc"><p>A Classe <strong><code>TMi_ScrollBox_LCL</code></strong> foi redefinida para que os eventos DmxScroller.OnEnter e DmxScroller.OnExit sejam executados quando o ScrollBox recebe e perde o foco.
+
+<p></p>
+
+<ul class="paragraph_spacing">
+  <li><p><strong>REFERẼNCIAS</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>[TScrollBox](<a href="https://lazarus-ccr.sourceforge.io/docs/lcl/forms/tscrollbox.html">https://lazarus-ccr.sourceforge.io/docs/lcl/forms/tscrollbox.html</a>)</p></li>
+  <li><p><a href="https://wiki.freepascal.org/Form_Tutorial">Form_Tutorial</a> -</p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p></td>
+</tr>
+<tr class="list2">
+<td class="itemname"><a class="bold" href="uMi_Ui_DBCheckBox_Lcl.TMi_Ui_DBCheckBox_Lcl.html">TMi_Ui_DBCheckBox_Lcl</a></td>
+<td class="itemunit"><a class="bold" href="uMi_Ui_DBCheckBox_Lcl.html">uMi_Ui_DBCheckBox_Lcl</a></td>
+<td class="itemdesc"><p>A classe <strong><code>TMi_Ui_DBCheckBox_Lcl</code></strong> permite edita um campo boolean do registro <strong><a class="normal" href="uMi_ui_Dmxscroller_form_lcl.html#TDmxFieldRec">TDmxFieldRec</a></strong>
+
+<p></p>
+
+<ul class="paragraph_spacing">
+  <li><p><strong>NOTA</strong> -</p></li>
+</ul>
+
+<p></p></td>
+</tr>
+<tr class="list">
+<td class="itemname"><a class="bold" href="umi_ui_dblookupComboBox_lcl.TMi_ui_DBLookupComboBox_Lcl.html">TMi_ui_DBLookupComboBox_Lcl</a></td>
+<td class="itemunit"><a class="bold" href="umi_ui_dblookupComboBox_lcl.html">umi_ui_dblookupComboBox_lcl</a></td>
+<td class="itemdesc"><p>&nbsp;</p></td>
+</tr>
+<tr class="list2">
+<td class="itemname"><a class="bold" href="uMI_ui_DbRadioGroup_Lcl.TMI_ui_DbRadioGroup_Lcl.html">TMI_ui_DbRadioGroup_Lcl</a></td>
+<td class="itemunit"><a class="bold" href="uMI_ui_DbRadioGroup_Lcl.html">uMI_ui_DbRadioGroup_Lcl</a></td>
+<td class="itemdesc"><p>&nbsp;</p></td>
+</tr>
+<tr class="list">
+<td class="itemname"><a class="bold" href="uMi_ui_DmxScroller_Form_Lcl_ds_test.TMi_ui_DmxScroller_Form_Lcl_ds_test.html">TMi_ui_DmxScroller_Form_Lcl_ds_test</a></td>
+<td class="itemunit"><a class="bold" href="uMi_ui_DmxScroller_Form_Lcl_ds_test.html">uMi_ui_DmxScroller_Form_Lcl_ds_test</a></td>
+<td class="itemdesc"><p>A class <strong><code>TMi_ui_DmxScroller_Form_Lcl_ds_test</code></strong> demonstra a classe <strong><a class="normal" href="umi_ui_dmxscroller_form_lcl_ds.TDmxScroller_Form_Lcl_DS.html">TDmxScroller_Form_Lcl_DS</a></strong> integrada aos controles associados a <a class="normal" href="uMi_ui_DmxScroller_Form_Lcl_ds_test.TMi_ui_DmxScroller_Form_Lcl_ds_test.html#DataSource1">DataSource1</a>.
+
+<p></p>
+
+<ul class="paragraph_spacing">
+  <li><p><strong>NOTA</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>A class <strong><code>TMi_ui_DmxScroller_Form_Lcl_ds_test</code></strong> cria o dataset associado a <a class="normal" href="uMi_ui_DmxScroller_Form_Lcl_ds_test.TMi_ui_DmxScroller_Form_Lcl_ds_test.html#DataSource1">DataSource1</a> caso DataSource1.DataSet seja nil.</p></li>
+  <li><p>Caso DataSource1.dataSet &lt;&gt; nil, então o mesmo precisa ter os mesmo campos passado pelo template. </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Obs: Se o campos passados em DataSource1.DataSet não sejão iguais aos templates, o sistema vai haver execeção.</p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p></td>
+</tr>
+<tr class="list2">
+<td class="itemname"><a class="bold" href="uMi_ui_DmxScroller_Form_Lcl_ds_test2.TMi_ui_DmxScroller_Form_Lcl_ds_test2.html">TMi_ui_DmxScroller_Form_Lcl_ds_test2</a></td>
+<td class="itemunit"><a class="bold" href="uMi_ui_DmxScroller_Form_Lcl_ds_test2.html">uMi_ui_DmxScroller_Form_Lcl_ds_test2</a></td>
+<td class="itemdesc"><p>&nbsp;</p></td>
+</tr>
+<tr class="list">
+<td class="itemname"><a class="bold" href="uMi_ui_DmxScroller_Form_Lcl_ds_test2_dm.TMi_ui_DmxScroller_Form_Lcl_ds_test2_dm.html">TMi_ui_DmxScroller_Form_Lcl_ds_test2_dm</a></td>
+<td class="itemunit"><a class="bold" href="uMi_ui_DmxScroller_Form_Lcl_ds_test2_dm.html">uMi_ui_DmxScroller_Form_Lcl_ds_test2_dm</a></td>
+<td class="itemdesc"><p>&nbsp;</p></td>
+</tr>
+<tr class="list2">
+<td class="itemname"><a class="bold" href="umi_ui_InputBox_lcl.TMI_UI_InputBox.html">TMI_UI_InputBox</a></td>
+<td class="itemunit"><a class="bold" href="umi_ui_InputBox_lcl.html">umi_ui_InputBox_lcl</a></td>
+<td class="itemdesc"><p>A class <strong><code>TMI_UI_InputBox</code></strong> edita uma formulário passado em forma de <a class="normal" href="umi_ui_InputBox_lcl.TMI_UI_InputBox.html#Template">Template</a> e devolve o formulário LCL caso o botão <strong>OK</strong> seja pressionando ou nil caso o botão <strong>Cancelar</strong> seja pressionando.
+
+<p></p>
+
+<ul class="paragraph_spacing">
+  <li><p><strong>EXEMPLO</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>O exemplo abaixo cria um formulário e permite interagir com com os eventos ao entrar e ao sair do formulário.</p></li>
+</ul>
+
+<p> </p>
+
+<pre class="longcode">
+
+<span class="pascal_keyword">procedure</span> InputBoxOnEnter(aDmxScroller: TUiDmxScroller);
+ <span class="pascal_comment">//Ao entrar no formulário este evento inicia os campos nome, endereço e cep</span>
+
+  <span class="pascal_keyword">procedure</span> SetValue(Field:<span class="pascal_keyword">String</span>;Value:<span class="pascal_keyword">String</span>);
+    <span class="pascal_keyword">var</span>
+      aField: pDmxFieldRec;
+  <span class="pascal_keyword">begin</span>
+    <span class="pascal_keyword">with</span> aDmxScroller <span class="pascal_keyword">do</span>
+    <span class="pascal_keyword">begin</span>
+      aField := FieldByName(Field);
+      <span class="pascal_keyword">if</span> aField&lt;&gt;<span class="pascal_keyword">nil</span>
+      <span class="pascal_keyword">Then</span> aField.AsString:= value;
+    <span class="pascal_keyword">end</span>;
+  <span class="pascal_keyword">end</span>;
+
+<span class="pascal_keyword">begin</span>
+  <span class="pascal_keyword">with</span> aDmxScroller <span class="pascal_keyword">do</span>
+  <span class="pascal_keyword">begin</span>
+    setValue(<span class="pascal_string">'nome'</span>,<span class="pascal_string">'Paulo Henrique'</span>);
+    setValue(<span class="pascal_string">'endereço'</span>,<span class="pascal_string">'Rua Francisco de Souza Oliveira, 15'</span>);
+    setValue(<span class="pascal_string">'cep'</span>,<span class="pascal_string">'60310770'</span>);
+  <span class="pascal_keyword">end</span>;
+<span class="pascal_keyword">end</span>;
+
+<span class="pascal_keyword">procedure</span> InputBoxOnEnterField(aField: pDmxFieldRec);
+    <span class="pascal_comment">// Ao entrar no campo 01 e o mesmo for vazio inicializa-o com o nome Paulo Sérgio</span>
+
+<span class="pascal_keyword">begin</span>
+  <span class="pascal_keyword">Case</span> aField.Fieldnum <span class="pascal_keyword">of</span>
+    <span class="pascal_numeric">1</span> : <span class="pascal_keyword">begin</span>
+          <span class="pascal_keyword">if</span> aField.AsString = <span class="pascal_string">''</span>
+          <span class="pascal_keyword">then</span> aField.AsString := <span class="pascal_string">'Paulo Sérgio'</span>;
+        <span class="pascal_keyword">end</span>;
+    <span class="pascal_numeric">2</span> : <span class="pascal_keyword">begin</span> <span class="pascal_keyword">end</span>;
+  <span class="pascal_keyword">end</span>;
+
+<span class="pascal_keyword">end</span>;
+
+
+<span class="pascal_keyword">Procedure</span> InputBoxOnCloseQuery (aDmxScroller:TUiDmxScroller; <span class="pascal_keyword">var</span> CanClose:boolean);
+  <span class="pascal_comment">//Esta função permite validar o formulário ao pressionar o botão ok.</span>
+
+  <span class="pascal_keyword">var</span>
+    idade : byte;
+    s : <span class="pascal_keyword">string</span>;
+<span class="pascal_keyword">begin</span>
+  s := aDmxScroller.FieldByName(<span class="pascal_string">'idade'</span>)<span class="pascal_float">.</span>AsString;
+  idade := StrToInt(s);
+  <span class="pascal_keyword">if</span>  idade &lt;&gt; <span class="pascal_numeric">64</span>
+  <span class="pascal_keyword">then</span> <span class="pascal_keyword">begin</span>
+         ShowMessage(<span class="pascal_string">'O campo idade &lt;&gt; de 64!.'</span>);
+         CanClose := false;
+       <span class="pascal_keyword">end</span>
+  <span class="pascal_keyword">else</span> CanClose := true;
+<span class="pascal_keyword">end</span>;
+
+
+<span class="pascal_keyword">Procedure</span> TestInputBox;
+    <span class="pascal_comment">//Criar o formulário</span>
+
+  <span class="pascal_keyword">Var</span>
+    MI_UI_InputBox : TMI_UI_InputBox = <span class="pascal_keyword">nil</span>;
+<span class="pascal_keyword">begin</span>
+  <span class="pascal_keyword">with</span> TDmxScroller_Form <span class="pascal_keyword">do</span>
+  <span class="pascal_keyword">if</span> InputBox(<span class="pascal_string">'Dados do aluno'</span>,
+                 <span class="pascal_string">'&tilde;Nome do Aluno:&tilde;\Sssssssssssssssssssssssss`ssssssssssssssss'</span>+ChFN+<span class="pascal_string">'Nome'</span>+lf+
+                 <span class="pascal_string">'&tilde;     Endereço:&tilde;\Sssssssssssssssssssssssss`ssssssssssssssss'</span>+ChFN+<span class="pascal_string">'endereco'</span>+lf+
+                 <span class="pascal_string">'&tilde;          Cep:&tilde;\##-###-###'</span>+ChFN+<span class="pascal_string">'cep'</span>+lf+
+                 <span class="pascal_string">'&tilde;       Bairro:&tilde;\sssssssssssssssssssssssss'</span>+ChFN+<span class="pascal_string">'bairro'</span>+lf+
+                 <span class="pascal_string">'&tilde;       Cidade:&tilde;\sssssssssssssssssssssssss'</span>+ChFN+<span class="pascal_string">'cidade'</span>+lf+
+                 <span class="pascal_string">'&tilde;       Estado:&tilde;\SS'</span>+ChFN+<span class="pascal_string">'estado'</span>+lf+
+                 <span class="pascal_string">'&tilde;        Idade:&tilde;\BB'</span>+ChFN+<span class="pascal_string">'idade'</span>+lf+
+                 <span class="pascal_string">'&tilde;    Matricula:&tilde;\III'</span>+ChFN+<span class="pascal_string">'matricula'</span>+lf+
+                 <span class="pascal_string">'&tilde;  Mensalidade:&tilde;\R,RRR.RR'</span>+ChFN+<span class="pascal_string">'mensalidade'</span>,
+                 InputBoxOnEnter,<span class="pascal_keyword">nil</span>,
+
+                 InputBoxOnEnterField,<span class="pascal_keyword">nil</span>,
+                 InputBoxOnCloseQuery,
+                 MI_UI_InputBox
+            ) = MrOk
+  <span class="pascal_keyword">then</span> <span class="pascal_keyword">with</span> MI_UI_InputBox.DmxScroller_Form1 <span class="pascal_keyword">do</span>
+       <span class="pascal_keyword">begin</span>
+         <span class="pascal_keyword">if</span> FieldByName(<span class="pascal_string">'nome'</span>)<span class="pascal_float">.</span>AsString = <span class="pascal_string">''</span>
+         <span class="pascal_keyword">then</span> <span class="pascal_keyword">begin</span>
+                ShowMessage(<span class="pascal_string">'Campo &quot;nome&quot; não pode ser vazio'</span>);
+              <span class="pascal_keyword">end</span>;
+         MI_UI_InputBox.free;
+       <span class="pascal_keyword">end</span>;
+<span class="pascal_keyword">end</span>;
+
+<span class="pascal_keyword">procedure</span> TDmxscroller_form_test.Button_InputBoxClick(Sender: TObject);
+<span class="pascal_keyword">begin</span>
+  TestInputBox;
+<span class="pascal_keyword">end</span>;</pre>
+
+<p></p></li>
+</ul>
+
+<p></p></td>
+</tr>
+<tr class="list">
+<td class="itemname"><a class="bold" href="uMi_ui_Label_lcl.TMi_ui_Label_lcl.html">TMi_ui_Label_lcl</a></td>
+<td class="itemunit"><a class="bold" href="uMi_ui_Label_lcl.html">uMi_ui_Label_lcl</a></td>
+<td class="itemdesc"><p>&nbsp;</p></td>
+</tr>
+<tr class="list2">
+<td class="itemname"><a class="bold" href="umi_ui_mi_msgbox_dm.TMi_ui_mi_msgBox.html">TMi_ui_mi_msgBox</a></td>
+<td class="itemunit"><a class="bold" href="umi_ui_mi_msgbox_dm.html">umi_ui_mi_msgbox_dm</a></td>
+<td class="itemdesc"><p>&nbsp;</p></td>
+</tr>
+<tr class="list">
+<td class="itemname"><a class="bold" href="uDmxScroller_Form_Lcl_test.html#tmp_Alunos">tmp_Alunos</a></td>
+<td class="itemunit"><a class="bold" href="uDmxScroller_Form_Lcl_test.html">uDmxScroller_Form_Lcl_test</a></td>
+<td class="itemdesc"><p>&nbsp;</p></td>
+</tr>
+<tr class="list2">
+<td class="itemname"><a class="bold" href="uDmxScroller_Form_Lcl_test.html#tmp_Alunos_Idade">tmp_Alunos_Idade</a></td>
+<td class="itemunit"><a class="bold" href="uDmxScroller_Form_Lcl_test.html">uDmxScroller_Form_Lcl_test</a></td>
+<td class="itemdesc"><p>&nbsp;</p></td>
+</tr>
+<tr class="list">
+<td class="itemname"><a class="bold" href="uDmxScroller_Form_Lcl_test.html#tmp_Alunos_Matricula">tmp_Alunos_Matricula</a></td>
+<td class="itemunit"><a class="bold" href="uDmxScroller_Form_Lcl_test.html">uDmxScroller_Form_Lcl_test</a></td>
+<td class="itemdesc"><p>&nbsp;</p></td>
+</tr>
+<tr class="list2">
+<td class="itemname"><a class="bold" href="umi_ui_InputBox_lcl.html#TOnCloseQueryLocal">TOnCloseQueryLocal</a></td>
+<td class="itemunit"><a class="bold" href="umi_ui_InputBox_lcl.html">umi_ui_InputBox_lcl</a></td>
+<td class="itemdesc"><p>O tipo <strong><code>TOnCloseQueryLocal</code></strong> é usado para implementar evento OnCloseQueryLocal do atributo <strong>Mi_ScrollBox_LCL1</strong>.
+
+<p></p>
+
+<ul class="paragraph_spacing">
+  <li><p><strong>NOTA* </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Este evento é disparado antes de desativar a classe **TUiDmxScroller</p></li>
+</ul>
+
+<p></strong>. </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Obs: Se o parâmetro <strong>CanClose</strong> for <strong>false</strong>, então a classe <strong>TUiDmxScroller</strong> não é desativado.</p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p></td>
+</tr>
+<tr class="list">
+<td class="itemname"><a class="bold" href="umi_ui_InputBox_lcl.html#TOnEnterFieldLocal">TOnEnterFieldLocal</a></td>
+<td class="itemunit"><a class="bold" href="umi_ui_InputBox_lcl.html">umi_ui_InputBox_lcl</a></td>
+<td class="itemdesc"><p>O tipo <strong><code>TOnEnterFieldLocal</code></strong> é usado para implementar evento OnEnterFieldLocal do atributo <strong>Mi_ScrollBox_LCL1</strong></p></td>
+</tr>
+<tr class="list2">
+<td class="itemname"><a class="bold" href="umi_ui_InputBox_lcl.html#TOnEnterLocal">TOnEnterLocal</a></td>
+<td class="itemunit"><a class="bold" href="umi_ui_InputBox_lcl.html">umi_ui_InputBox_lcl</a></td>
+<td class="itemdesc"><p>O tipo <strong><code>TOnEnterLocal</code></strong> é usado para implementar evento onEnterLocal do atributo <strong>Mi_ScrollBox_LCL1</strong></p></td>
+</tr>
+<tr class="list">
+<td class="itemname"><a class="bold" href="umi_ui_InputBox_lcl.html#TOnExitFieldLocal">TOnExitFieldLocal</a></td>
+<td class="itemunit"><a class="bold" href="umi_ui_InputBox_lcl.html">umi_ui_InputBox_lcl</a></td>
+<td class="itemdesc"><p>O tipo <strong><code>TOnExitFieldLocal</code></strong> é usado para implementar evento OnExitFieldLocal do atributo <strong>Mi_ScrollBox_LCL1</strong></p></td>
+</tr>
+<tr class="list2">
+<td class="itemname"><a class="bold" href="umi_ui_InputBox_lcl.html#TOnExitLocal">TOnExitLocal</a></td>
+<td class="itemunit"><a class="bold" href="umi_ui_InputBox_lcl.html">umi_ui_InputBox_lcl</a></td>
+<td class="itemdesc"><p>O tipo <strong><code>TOnExitLocal</code></strong> é usado para implementar evento onExitLocal do atributo <strong>Mi_ScrollBox_LCL1</strong></p></td>
+</tr>
+<tr class="list">
+<td class="itemname"><a class="bold" href="mi_ui_Dmxscroller_sql.TUiDmxScroller_sql.html">TUiDmxScroller_sql</a></td>
+<td class="itemunit"><a class="bold" href="mi_ui_Dmxscroller_sql.html">mi_ui_Dmxscroller_sql</a></td>
+<td class="itemdesc"><p>A classe <strong><code>TUiDmxScroller_sql</code></strong> implementa o acesso ao banco de dados usando o atributo <strong><a class="normal" href="mi_ui_Dmxscroller_sql.TDmxScroller_sql_Atributos.html#CustomBufDataset">CustomBufDataset</a></strong>
+
+<p></p>
+
+<ul class="paragraph_spacing">
+  <li><p><strong>NOTA</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>O atributo <strong><a class="normal" href="mi_ui_Dmxscroller_sql.TDmxScroller_sql_Atributos.html#CustomBufDataset">CustomBufDataset</a></strong> pode ser <strong>TBufDataset</strong> não conectado a banco de dados sql e <strong>TCustomSQLQuery</strong> conectado ao banco de dados SQL.</p></li>
+</ul>
+
+<p></p></li>
+  <li><p><strong>REFERÊNCIA</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>[Working_With_TSQLQuery](<a href="https://wiki.freepascal.org/Working_With_TSQLQuery">https://wiki.freepascal.org/Working_With_TSQLQuery</a>)</p></li>
+  <li><p>[Parameters_in_TSQLQuery](<a href="https://wiki.freepascal.org/Working_With_TSQLQuery#Parameters_in_TSQLQuery.SQL">https://wiki.freepascal.org/Working_With_TSQLQuery#Parameters_in_TSQLQuery.SQL</a>)</p></li>
+  <li><p>[sql-basico](<a href="https://www.devmedia.com.br/sql-basico/28877">https://www.devmedia.com.br/sql-basico/28877</a>)</p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p></td>
+</tr>
+<tr class="list2">
+<td class="itemname"><a class="bold" href="uMi_ui_Dmxscroller_form_lcl.html#TypeDate">TypeDate</a></td>
+<td class="itemunit"><a class="bold" href="uMi_ui_Dmxscroller_form_lcl.html">uMi_ui_Dmxscroller_form_lcl</a></td>
+<td class="itemdesc"><p>A constante <strong><code>TypeDate</code></strong> ...</p></td>
+</tr>
+<tr class="list">
+<td class="itemname"><a class="bold" href="uMi_ui_Dmxscroller_form_lcl.html#TypeHora">TypeHora</a></td>
+<td class="itemunit"><a class="bold" href="uMi_ui_Dmxscroller_form_lcl.html">uMi_ui_Dmxscroller_form_lcl</a></td>
+<td class="itemdesc"><p>A constante <strong><code>TypeHora</code></strong> ...</p></td>
+</tr>
+<tr class="list2">
+<td class="itemname"><a class="bold" href="uMi_ui_Dmxscroller_form_lcl.html#TypeMemo">TypeMemo</a></td>
+<td class="itemunit"><a class="bold" href="uMi_ui_Dmxscroller_form_lcl.html">uMi_ui_Dmxscroller_form_lcl</a></td>
+<td class="itemdesc"><p>A constante <strong><code>TypeMemo</code></strong> ...</p></td>
+</tr>
+<tr class="list">
+<td class="itemname"><a class="bold" href="uMi_ui_Dmxscroller_form_lcl.html#_TypeDate">_TypeDate</a></td>
+<td class="itemunit"><a class="bold" href="uMi_ui_Dmxscroller_form_lcl.html">uMi_ui_Dmxscroller_form_lcl</a></td>
+<td class="itemdesc"><p>A constante <strong><code>_TypeDate</code></strong> ...</p></td>
+</tr>
+</table>
+<hr><span class="appinfo"><em>Gerado por <a href="https://pasdoc.github.io/">PasDoc 0.16.0</a>. </em>
+</span>
+</div></div></body></html>

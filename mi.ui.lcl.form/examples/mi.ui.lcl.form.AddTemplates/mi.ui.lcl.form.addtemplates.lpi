@@ -23,11 +23,11 @@
     <VersionInfo>
       <UseVersionInfo Value="True"/>
       <AutoIncrementBuild Value="True"/>
-      <MinorVersionNr Value="8"/>
-      <BuildNr Value="333"/>
+      <MinorVersionNr Value="9"/>
+      <BuildNr Value="334"/>
       <Language Value="0416"/>
       <Attributes pvaDebug="True" pvaPreRelease="True"/>
-      <StringTable Comments="Este produto é parte do projeto MarIcarai" CompanyName="Itm Sistemas e Consultoria Ltda." ProductName="Exemplo de uso do pacote mi.ui.lclrtl.form"/>
+      <StringTable Comments="Este produto é parte do projeto MarIcarai" CompanyName="Itm Sistemas e Consultoria Ltda." FileDescription="Exemplo de formulário do projeto mi.ui.lcl.form" ProductName="mi.rtl"/>
     </VersionInfo>
     <BuildModes>
       <Item Name="Default" Default="True"/>

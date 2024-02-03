@@ -1,0 +1,75 @@
+object MI_UI_InputBox_lcl: TMI_UI_InputBox_lcl
+  Left = 462
+  Height = 240
+  Top = 250
+  Width = 320
+  Caption = 'MI_UI_InputBox_lcl'
+  ClientHeight = 240
+  ClientWidth = 320
+  OnCloseQuery = FormCloseQuery
+  object Mi_ScrollBox_LCL1: TMi_ScrollBox_LCL
+    Left = 0
+    Height = 240
+    Top = 0
+    Width = 320
+    Align = alClient
+    AutoScroll = False
+    ClientHeight = 238
+    ClientWidth = 318
+    TabOrder = 0
+    TabStop = True
+    object ButtonPanel1: TButtonPanel
+      Left = 6
+      Height = 46
+      Top = 186
+      Width = 306
+      OKButton.Name = 'OKButton'
+      OKButton.DefaultCaption = True
+      HelpButton.Name = 'HelpButton'
+      HelpButton.DefaultCaption = True
+      CloseButton.Name = 'CloseButton'
+      CloseButton.DefaultCaption = True
+      CancelButton.Name = 'CancelButton'
+      CancelButton.DefaultCaption = True
+      TabOrder = 0
+    end
+  end
+  object DmxScroller_Form_Lcl1: TDmxScroller_Form_Lcl
+    Alias = 'TDmxScroller_Form_Lcl'
+    OnAddTemplate = DmxScroller_Form_Lcl1AddTemplate
+    OnNewRecord = DmxScroller_Form_Lcl1NewRecord
+    onCloseQuery = DmxScroller_Form_Lcl1CloseQuery
+    onEnter = DmxScroller_Form_Lcl1Enter
+    onExit = DmxScroller_Form_Lcl1Exit
+    onEnterField = DmxScroller_Form_Lcl1EnterField
+    onExitField = DmxScroller_Form_Lcl1ExitField
+    Active = False
+    AlignmentLabels = taLeftJustify
+    ParentLCL = Mi_ScrollBox_LCL1
+    ActionList = ActionList1
+    Left = 80
+    Top = 16
+  end
+  object ActionList1: TActionList
+    Left = 240
+    Top = 32
+    object Action_OkButton: TAction
+      Caption = 'Ok'
+    end
+    object Action_CancelButton: TAction
+      Caption = 'Cancela'
+    end
+    object Action_CloseButton: TAction
+      Caption = 'Fechar'
+    end
+    object Action_HelpButton: TAction
+      Caption = 'Ajuda'
+    end
+  end
+  object MI_UI_InputBox1: TMI_UI_InputBox
+    OnEnterLocal = MI_UI_InputBox1EnterLocal
+    onInputBox = MI_UI_InputBox1InputBox
+    Left = 80
+    Top = 99
+  end
+end

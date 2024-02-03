@@ -11,7 +11,7 @@
 </head>
 <body>
 <div class="container"><div class="navigation">
-<ul><li><a href="AllUnits.html">Units</a></li><li><a href="ClassHierarchy.html">Hierarquia de Classes</a></li><li><a href="AllClasses.html">Classes, Interfaces, Objetos e Registros</a></li><li><a href="AllTypes.html">Tipos</a></li><li><a href="AllVariables.html">Variáveis</a></li><li><a href="AllConstants.html">Constantes</a></li><li><a href="AllFunctions.html">Funções e Procedimentos</a></li><li><a href="AllIdentifiers.html">Identificadores</a></li><li><form class="search-form" action="tipue_results.html"><div class="search-input"><input type="text" name="q" id="tipue_search_input" pattern=".{1,}" title="At least 1 characters" required><div class="search-button"><input type="button" id="tipue_search_button" onclick="this.form.submit();"></div></div></form>
+<ul><li><a href="AllUnits.html">Units</a></li><li><a href="ClassHierarchy.html">Hierarquia de Classes</a></li><li><a href="AllClasses.html">Classes, Interfaces, Objetos e Registros</a></li><li><a href="AllTypes.html">Tipos</a></li><li><a href="AllVariables.html">Variáveis</a></li><li><a href="AllConstants.html">Constantes</a></li><li><a href="AllFunctions.html">Funções e Procedimentos</a></li><li><a href="AllIdentifiers.html">Identificadores</a></li><li><form class="search-form" action="tipue_results.html"><div class="search-input"><input type="text" name="q" id="tipue_search_input" pattern=".{3,}" title="At least 3 characters" required><div class="search-button"><input type="button" id="tipue_search_button" onclick="this.form.submit();"></div></div></form>
 <div style="clear: both"></div>
 </li></ul></div><div class="content">
 <span id="TObjectsMethods"></span><h1 class="cio">Classe TObjectsMethods</h1>
@@ -70,435 +70,451 @@
 <table class="summary wide_list">
 <tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
-<td class="itemcode"><code>class function <strong><a href="mi.rtl.Objects.Methods.TObjectsMethods.html#Logs">Logs</a></strong>: <a href="mi.rtl.Objects.Methods.TObjectsMethods.html#TFilesLogs">TFilesLogs</a>;</code></td>
+<td class="itemcode"><code>class Function <strong><a href="mi.rtl.Objects.Methods.TObjectsMethods.html#redirectOutput">redirectOutput</a></strong>(Var OutputFile: text;aFileName:TFileName):integer;</code></td>
 </tr>
 <tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>Function <strong><a href="mi.rtl.Objects.Methods.TObjectsMethods.html#GetAlias">GetAlias</a></strong>:AnsiString; Virtual;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>Procedure <strong><a href="mi.rtl.Objects.Methods.TObjectsMethods.html#SetAlias">SetAlias</a></strong>(Const aAlias:AnsiString); Virtual;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>class function <strong><a href="mi.rtl.Objects.Methods.TObjectsMethods.html#Logs">Logs</a></strong>: <a href="mi.rtl.Objects.Methods.TObjectsMethods.html#TFilesLogs">TFilesLogs</a>;</code></td>
+</tr>
+<tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
 <td class="itemcode"><code>class procedure <strong><a href="mi.rtl.Objects.Methods.TObjectsMethods.html#SysMessageBox">SysMessageBox</a></strong>(Msg, Title: AnsiString; Error: Boolean);</code></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
 <td class="itemcode"><code>class function <strong><a href="mi.rtl.Objects.Methods.TObjectsMethods.html#MessageBox">MessageBox</a></strong>(const Msg: AnsiString): Word; Virtual; overload;</code></td>
 </tr>
-<tr class="list2">
-<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
-<td class="itemcode"><code>class function <strong><a href="mi.rtl.Objects.Methods.TObjectsMethods.html#MessageBox">MessageBox</a></strong>(const aMsg: AnsiString; DlgType: TMsgDlgType; Buttons: TMsgDlgButtons): TModalResult; Virtual; overload;</code></td>
-</tr>
 <tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>class function <strong><a href="mi.rtl.Objects.Methods.TObjectsMethods.html#MessageBox">MessageBox</a></strong>(const aMsg: AnsiString; DlgType: TMsgDlgType; Buttons: TMsgDlgButtons): <a href="mi.rtl.ui.dmxscroller.inputbox.html#TModalResult">TModalResult</a>; Virtual; overload;</code></td>
+</tr>
+<tr class="list2">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
 <td class="itemcode"><code>class procedure <strong><a href="mi.rtl.Objects.Methods.TObjectsMethods.html#Abstracts">Abstracts</a></strong>;</code></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
 <td class="itemcode"><code>Class procedure <strong><a href="mi.rtl.Objects.Methods.TObjectsMethods.html#RegisterError">RegisterError</a></strong>;</code></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
 <td class="itemcode"><code>class procedure <strong><a href="mi.rtl.Objects.Methods.TObjectsMethods.html#RegisterType">RegisterType</a></strong>(Var S: TStreamRec);</code></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
 <td class="itemcode"><code>class function <strong><a href="mi.rtl.Objects.Methods.TObjectsMethods.html#LongMul">LongMul</a></strong>(X, Y: Integer): LongInt;</code></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
 <td class="itemcode"><code>class function <strong><a href="mi.rtl.Objects.Methods.TObjectsMethods.html#LongDiv">LongDiv</a></strong>(X: LongInt; Y: Integer): Integer;</code></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
 <td class="itemcode"><code>class procedure <strong><a href="mi.rtl.Objects.Methods.TObjectsMethods.html#NNewStr">NNewStr</a></strong>(Var PS : <a href="mi_rtl_ui_Dmxscroller.html#ptString">ptstring</a>;Const S : AnsiString);</code></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
 <td class="itemcode"><code>class function <strong><a href="mi.rtl.Objects.Methods.TObjectsMethods.html#CallPointerLocal">CallPointerLocal</a></strong>(Func: codepointer; Frame: Pointer; Param1: pointer): pointer; inline;</code></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
 <td class="itemcode"><code>class PROCEDURE <strong><a href="mi.rtl.Objects.Methods.TObjectsMethods.html#DisposeStr">DisposeStr</a></strong>( Var P: <a href="mi_rtl_ui_Dmxscroller.html#ptString">ptstring</a>);</code></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
 <td class="itemcode"><code>class FUNCTION <strong><a href="mi.rtl.Objects.Methods.TObjectsMethods.html#IsValidPtr">IsValidPtr</a></strong>( ADDR:POINTER):BOOLEAN ; overload;</code></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
 <td class="itemcode"><code>class FUNCTION <strong><a href="mi.rtl.Objects.Methods.TObjectsMethods.html#IsValidPtr">IsValidPtr</a></strong>( const aClass: Tobject):BOOLEAN ; overload;</code></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
 <td class="itemcode"><code>class Function <strong><a href="mi.rtl.Objects.Methods.TObjectsMethods.html#Name_Type_App_MarIcaraiV1">Name_Type_App_MarIcaraiV1</a></strong>:AnsiString;</code></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
 <td class="itemcode"><code>class Function <strong><a href="mi.rtl.Objects.Methods.TObjectsMethods.html#Set_IsApp_VCL">Set_IsApp_VCL</a></strong>(aIsApp_VCL:Boolean):Boolean;</code></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
 <td class="itemcode"><code>class Procedure <strong><a href="mi.rtl.Objects.Methods.TObjectsMethods.html#PopSItem">PopSItem</a></strong>(Var Items: <a href="mi_rtl_ui_Dmxscroller.html#PSItem">PSItem</a>);</code></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
 <td class="itemcode"><code>class PROCEDURE <strong><a href="mi.rtl.Objects.Methods.TObjectsMethods.html#DISCARD">DISCARD</a></strong>(Var AClass); overload;</code></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
 <td class="itemcode"><code>class PROCEDURE <strong><a href="mi.rtl.Objects.Methods.TObjectsMethods.html#DISCARD">DISCARD</a></strong>(Var AClass:TObject); overload;</code></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
 <td class="itemcode"><code>class Function <strong><a href="mi.rtl.Objects.Methods.TObjectsMethods.html#SetFlushBuffer_Disk">SetFlushBuffer_Disk</a></strong>(Const aFlushBuffer_Disk : Boolean): Boolean;</code></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
 <td class="itemcode"><code>class Function <strong><a href="mi.rtl.Objects.Methods.TObjectsMethods.html#SetFlushBuffer">SetFlushBuffer</a></strong>(Const aFlushBuffer : Boolean): Boolean;</code></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
 <td class="itemcode"><code>class Function <strong><a href="mi.rtl.Objects.Methods.TObjectsMethods.html#GetDosTicks">GetDosTicks</a></strong>:DWord;</code></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
 <td class="itemcode"><code>class Function <strong><a href="mi.rtl.Objects.Methods.TObjectsMethods.html#Seg_to_MillSeg">Seg_to_MillSeg</a></strong>(aSegundos:Longint):DWord;</code></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
 <td class="itemcode"><code>class Procedure <strong><a href="mi.rtl.Objects.Methods.TObjectsMethods.html#RunError">RunError</a></strong>(Error:Word);</code></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
 <td class="itemcode"><code>class Procedure <strong><a href="mi.rtl.Objects.Methods.TObjectsMethods.html#Run_Error">Run_Error</a></strong>(Error:Word;Procedimento_que_Executou:AnsiString);</code></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
 <td class="itemcode"><code>Class Procedure <strong><a href="mi.rtl.Objects.Methods.TObjectsMethods.html#Alert">Alert</a></strong>(aTitle: AnsiString;aMsg:AnsiString);</code></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
 <td class="itemcode"><code>Class procedure <strong><a href="mi.rtl.Objects.Methods.TObjectsMethods.html#ShowMessage">ShowMessage</a></strong>(const aMsg: string);</code></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
 <td class="itemcode"><code>Class Function <strong><a href="mi.rtl.Objects.Methods.TObjectsMethods.html#Confirm">Confirm</a></strong>(aTitle: AnsiString;aPergunta:AnsiString):Boolean;</code></td>
 </tr>
-<tr class="list">
-<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
-<td class="itemcode"><code>Class function <strong><a href="mi.rtl.Objects.Methods.TObjectsMethods.html#InputValue">InputValue</a></strong>(const aTitle,aLabel: AnsiString;var aValue : Variant): TModalResult;</code></td>
-</tr>
 <tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>Class function <strong><a href="mi.rtl.Objects.Methods.TObjectsMethods.html#InputValue">InputValue</a></strong>(const aTitle,aLabel: AnsiString;var aValue : Variant): <a href="mi.rtl.ui.dmxscroller.inputbox.html#TModalResult">TModalResult</a>;</code></td>
+</tr>
+<tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
 <td class="itemcode"><code>Class Function <strong><a href="mi.rtl.Objects.Methods.TObjectsMethods.html#Prompt">Prompt</a></strong>(aTitle: AnsiString;aPergunta:AnsiString;Var aResult: Variant):Boolean;</code></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
 <td class="itemcode"><code>Class Function <strong><a href="mi.rtl.Objects.Methods.TObjectsMethods.html#InputPassword">InputPassword</a></strong>(aTitle: AnsiString;out aUsername:AnsiString;out apassword:AnsiString):Boolean; Overload;</code></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
 <td class="itemcode"><code>Class Function <strong><a href="mi.rtl.Objects.Methods.TObjectsMethods.html#InputPassword">InputPassword</a></strong>(aTitle: AnsiString;out apassword:AnsiString):Boolean; Overload;</code></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
 <td class="itemcode"><code>class procedure <strong><a href="mi.rtl.Objects.Methods.TObjectsMethods.html#DisposeSItems">DisposeSItems</a></strong>(VAR AItems: <a href="mi_rtl_ui_Dmxscroller.html#PSItem">PSItem</a>); overload;</code></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
 <td class="itemcode"><code>class procedure <strong><a href="mi.rtl.Objects.Methods.TObjectsMethods.html#DisposeSItems">DisposeSItems</a></strong>(Var AStrItems: <a href="mi_rtl_ui_Dmxscroller.html#ptString">PtString</a>); overload;</code></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
 <td class="itemcode"><code>class function <strong><a href="mi.rtl.Objects.Methods.TObjectsMethods.html#MaxItemStrLen">MaxItemStrLen</a></strong>(AItems: <a href="mi_rtl_ui_Dmxscroller.html#PSItem">PSItem</a>) : integer; Overload;</code></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
 <td class="itemcode"><code>class function <strong><a href="mi.rtl.Objects.Methods.TObjectsMethods.html#MaxItemStrLen">MaxItemStrLen</a></strong>(PSItems: <a href="mi_rtl_ui_Dmxscroller.html#tString">tString</a>) : integer; Overload;</code></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
 <td class="itemcode"><code>class function <strong><a href="mi.rtl.Objects.Methods.TObjectsMethods.html#conststr">conststr</a></strong>( i : Longint; Const a : AnsiChar) : AnsiString;</code></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
 <td class="itemcode"><code>class function <strong><a href="mi.rtl.Objects.Methods.TObjectsMethods.html#centralizesStr">centralizesStr</a></strong>(Const campo : AnsiString; Const tamanho : Integer) : AnsiString;</code></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
 <td class="itemcode"><code>class Function <strong><a href="mi.rtl.Objects.Methods.TObjectsMethods.html#TypeFld">TypeFld</a></strong>(Const aTemplate : <a href="mi_rtl_ui_Dmxscroller.html#tString">tString</a>;Var aSize : <a href="mi_rtl_ui_Dmxscroller.html#SmallWord">SmallWord</a>):AnsiChar; overload;</code></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
 <td class="itemcode"><code>class Function <strong><a href="mi.rtl.Objects.Methods.TObjectsMethods.html#TypeFld">TypeFld</a></strong>(Const aTemplate : ShortString):AnsiChar; overload;</code></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
 <td class="itemcode"><code>class Function <strong><a href="mi.rtl.Objects.Methods.TObjectsMethods.html#IStr">IStr</a></strong>( Const I : Longint; Const Formato : <a href="mi_rtl_ui_Dmxscroller.html#tString">tString</a>) : <a href="mi_rtl_ui_Dmxscroller.html#tString">tString</a>; Overload;</code></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
 <td class="itemcode"><code>class Function <strong><a href="mi.rtl.Objects.Methods.TObjectsMethods.html#IStr">IStr</a></strong>( Const I : Longint) : <a href="mi_rtl_ui_Dmxscroller.html#tString">tString</a>; Overload;</code></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
 <td class="itemcode"><code>class Function <strong><a href="mi.rtl.Objects.Methods.TObjectsMethods.html#IStr">IStr</a></strong>( Const I : <a href="mi_rtl_ui_Dmxscroller.html#tString">tString</a>; Const Formato : <a href="mi_rtl_ui_Dmxscroller.html#tString">tString</a>) : <a href="mi_rtl_ui_Dmxscroller.html#tString">tString</a>; Overload;</code></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
 <td class="itemcode"><code>class function <strong><a href="mi.rtl.Objects.Methods.TObjectsMethods.html#StrNum">StrNum</a></strong>(formato : AnsiString; buffer :Variant; Const Tipo : AnsiChar;Const OkSpc:Boolean) : AnsiString; overload;</code></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
 <td class="itemcode"><code>class function <strong><a href="mi.rtl.Objects.Methods.TObjectsMethods.html#StrNum">StrNum</a></strong>(formato : AnsiString; buffer:Variant; Const Tipo : AnsiChar) : AnsiString; overload;</code></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
 <td class="itemcode"><code>class function <strong><a href="mi.rtl.Objects.Methods.TObjectsMethods.html#IIF">IIF</a></strong>(Const Logica : Boolean; Const E1 , E2 : Boolean) : Boolean; overload;</code></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
 <td class="itemcode"><code>class function <strong><a href="mi.rtl.Objects.Methods.TObjectsMethods.html#IIF">IIF</a></strong>(Const Logica : Boolean; Const E1 , E2 : AnsiChar) : AnsiChar; overload;</code></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
 <td class="itemcode"><code>class function <strong><a href="mi.rtl.Objects.Methods.TObjectsMethods.html#IIF">IIF</a></strong>(Const Logica : Boolean; Const E1 , E2 : Longint ) : Longint; overload;</code></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
 <td class="itemcode"><code>class function <strong><a href="mi.rtl.Objects.Methods.TObjectsMethods.html#IIF">IIF</a></strong>(Const Logica : Boolean; Const E1 , E2 : Extended ) : Extended; overload;</code></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
 <td class="itemcode"><code>class function <strong><a href="mi.rtl.Objects.Methods.TObjectsMethods.html#IIF">IIF</a></strong>(Const Logica : Boolean; Const E1 , E2 : AnsiString ) : AnsiString ; overload;</code></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
 <td class="itemcode"><code>class Function <strong><a href="mi.rtl.Objects.Methods.TObjectsMethods.html#SIF">SIF</a></strong>(Const Logica : Boolean; Const E1 , E2 : AnsiString ) : AnsiString ;</code></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
 <td class="itemcode"><code>class function <strong><a href="mi.rtl.Objects.Methods.TObjectsMethods.html#MinL">MinL</a></strong>(Const a,b:Longint):Longint;</code></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
 <td class="itemcode"><code>class function <strong><a href="mi.rtl.Objects.Methods.TObjectsMethods.html#MaxL">MaxL</a></strong>(Const a,b:Longint):Longint;</code></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
 <td class="itemcode"><code>class function <strong><a href="mi.rtl.Objects.Methods.TObjectsMethods.html#NumToStr">NumToStr</a></strong>(Const formato : AnsiString;buffer:Variant; Const Tipo : AnsiChar;Const OkSpc:Boolean):AnsiString;</code></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
 <td class="itemcode"><code>class Function <strong><a href="mi.rtl.Objects.Methods.TObjectsMethods.html#InsertCrtlJ">InsertCrtlJ</a></strong>(Const StrMsg:<a href="mi_rtl_ui_Dmxscroller.html#tString">tString</a>):<a href="mi_rtl_ui_Dmxscroller.html#tString">tString</a>;</code></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
 <td class="itemcode"><code>class procedure <strong><a href="mi.rtl.Objects.Methods.TObjectsMethods.html#Create_Progress1Passo">Create_Progress1Passo</a></strong>(ATitle : <a href="mi_rtl_ui_Dmxscroller.html#tString">tstring</a>;Obs:<a href="mi_rtl_ui_Dmxscroller.html#tString">tstring</a> ; ATotal : Longint); Virtual;</code></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
 <td class="itemcode"><code>class procedure <strong><a href="mi.rtl.Objects.Methods.TObjectsMethods.html#Set_Progress1Passo">Set_Progress1Passo</a></strong>(aNumber : Longint); Virtual;</code></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
 <td class="itemcode"><code>class procedure <strong><a href="mi.rtl.Objects.Methods.TObjectsMethods.html#Destroy_Progress1Passo">Destroy_Progress1Passo</a></strong>; Virtual;</code></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
 <td class="itemcode"><code>class procedure <strong><a href="mi.rtl.Objects.Methods.TObjectsMethods.html#LogError">LogError</a></strong>(const Fmt: String; Args: array of const); overload;</code></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
 <td class="itemcode"><code>class procedure <strong><a href="mi.rtl.Objects.Methods.TObjectsMethods.html#LogError">LogError</a></strong>(const Msg:AnsiString ); overload;</code></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
 <td class="itemcode"><code>class function <strong><a href="mi.rtl.Objects.Methods.TObjectsMethods.html#WideStringToString">WideStringToString</a></strong>(const ws: WideString): AnsiString;</code></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
 <td class="itemcode"><code>class Function <strong><a href="mi.rtl.Objects.Methods.TObjectsMethods.html#Set_FileModeDenyALLSalvaAnt">Set_FileModeDenyALLSalvaAnt</a></strong>(Const ModoDoArquivo : Boolean;Var _FileModeDenyALLAnt:Boolean):Boolean;</code></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
 <td class="itemcode"><code>Class Function <strong><a href="mi.rtl.Objects.Methods.TObjectsMethods.html#Set_FileModeDenyALL">Set_FileModeDenyALL</a></strong>(Const ModoDoArquivo : Boolean):Boolean;</code></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
 <td class="itemcode"><code>class Function <strong><a href="mi.rtl.Objects.Methods.TObjectsMethods.html#Sitems_MsgErro">Sitems_MsgErro</a></strong>() : <a href="mi_rtl_ui_Dmxscroller.html#PSItem">PSItem</a>;</code></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
 <td class="itemcode"><code>class Function <strong><a href="mi.rtl.Objects.Methods.TObjectsMethods.html#Pop_MsgErro">Pop_MsgErro</a></strong>:<a href="mi_rtl_ui_Dmxscroller.html#PSItem">PSItem</a>;</code></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
 <td class="itemcode"><code>class function <strong><a href="mi.rtl.Objects.Methods.TObjectsMethods.html#SpcStrD">SpcStrD</a></strong>(Const campo : <a href="mi_rtl_ui_Dmxscroller.html#tString">tString</a>; Const Tam : Byte): <a href="mi_rtl_ui_Dmxscroller.html#tString">tString</a>;</code></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
 <td class="itemcode"><code>class function <strong><a href="mi.rtl.Objects.Methods.TObjectsMethods.html#CentralizaStr">CentralizaStr</a></strong>(Const campo : AnsiString; Const tamanho : Integer) : AnsiString;</code></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
 <td class="itemcode"><code>class function <strong><a href="mi.rtl.Objects.Methods.TObjectsMethods.html#spc">spc</a></strong>(Const campo:AnsiString;Const tam :Longint):AnsiString;</code></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
 <td class="itemcode"><code>class function <strong><a href="mi.rtl.Objects.Methods.TObjectsMethods.html#NumberCharControl">NumberCharControl</a></strong>(s:AnsiString):Integer;</code></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
 <td class="itemcode"><code>class Function <strong><a href="mi.rtl.Objects.Methods.TObjectsMethods.html#StrAlinhado">StrAlinhado</a></strong>(aStrMsg:<a href="mi_rtl_ui_Dmxscroller.html#tString">tString</a>;Colunas : byte;Const Alinhamento:TAlinhamento):<a href="mi_rtl_ui_Dmxscroller.html#tString">tString</a>;</code></td>
 </tr>
-<tr class="list">
-<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
-<td class="itemcode"><code>class Function <strong><a href="mi.rtl.Objects.Methods.TObjectsMethods.html#StringToSItem">StringToSItem</a></strong>( StrMsg:AnsiString; Colunas : byte;Alinhamento:TAlinhamento):<a href="mi_rtl_ui_Dmxscroller.html#PSItem">PSItem</a>; virtual; overload;</code></td>
-</tr>
 <tr class="list2">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
-<td class="itemcode"><code>class Function <strong><a href="mi.rtl.Objects.Methods.TObjectsMethods.html#StringToSItem">StringToSItem</a></strong>( StrMsg:AnsiString; Colunas : byte):<a href="mi_rtl_ui_Dmxscroller.html#PSItem">PSItem</a>; virtual; overload;</code></td>
+<td class="itemcode"><code>class Function <strong><a href="mi.rtl.Objects.Methods.TObjectsMethods.html#StringToSItem">StringToSItem</a></strong>( StrMsg:AnsiString; Alinhamento:TAlinhamento):<a href="mi_rtl_ui_Dmxscroller.html#PSItem">PSItem</a>; virtual; overload;</code></td>
 </tr>
 <tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>class Function <strong><a href="mi.rtl.Objects.Methods.TObjectsMethods.html#StringToSItem">StringToSItem</a></strong>( StrMsg:AnsiString ):<a href="mi_rtl_ui_Dmxscroller.html#PSItem">PSItem</a>; virtual; overload;</code></td>
+</tr>
+<tr class="list2">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
 <td class="itemcode"><code>class function <strong><a href="mi.rtl.Objects.Methods.TObjectsMethods.html#SItemsLen">SItemsLen</a></strong>(S: <a href="mi_rtl_ui_Dmxscroller.html#PSItem">PSItem</a>) : SmallInt;</code></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
 <td class="itemcode"><code>class Function <strong><a href="mi.rtl.Objects.Methods.TObjectsMethods.html#SItemToString">SItemToString</a></strong>(Items: <a href="mi_rtl_ui_Dmxscroller.html#PSItem">PSItem</a>):AnsiString;</code></td>
 </tr>
-<tr class="list">
-<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
-<td class="itemcode"><code>class procedure <strong><a href="mi.rtl.Objects.Methods.TObjectsMethods.html#WriteSItems">WriteSItems</a></strong>(var S: <a href="mi.rtl.Consts.StringList.TMiStringList.html">TMiStringList</a>;const Items: <a href="mi_rtl_ui_Dmxscroller.html#PSItem">PSItem</a>);</code></td>
-</tr>
 <tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>class procedure <strong><a href="mi.rtl.Objects.Methods.TObjectsMethods.html#WriteSItems">WriteSItems</a></strong>(var S: <a href="mi.rtl.miStringlist.TMiStringList.html">TMiStringList</a>;const Items: <a href="mi_rtl_ui_Dmxscroller.html#PSItem">PSItem</a>);</code></td>
+</tr>
+<tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
 <td class="itemcode"><code>class Function <strong><a href="mi.rtl.Objects.Methods.TObjectsMethods.html#PSItem_ListaDeMsgErro">PSItem_ListaDeMsgErro</a></strong>:<a href="mi_rtl_ui_Dmxscroller.html#PSItem">PSItem</a>; virtual;</code></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
 <td class="itemcode"><code>class Procedure <strong><a href="mi.rtl.Objects.Methods.TObjectsMethods.html#MessageError">MessageError</a></strong>; virtual;</code></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
 <td class="itemcode"><code>class Function <strong><a href="mi.rtl.Objects.Methods.TObjectsMethods.html#String_ListaDeMsgErro">String_ListaDeMsgErro</a></strong>(Separador:String):AnsiString; Overload;</code></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
 <td class="itemcode"><code>class Procedure <strong><a href="mi.rtl.Objects.Methods.TObjectsMethods.html#Dispose_ListaDeMsgErro">Dispose_ListaDeMsgErro</a></strong>; virtual;</code></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
 <td class="itemcode"><code>class Function <strong><a href="mi.rtl.Objects.Methods.TObjectsMethods.html#FMaiuscula">FMaiuscula</a></strong>(str:AnsiString):AnsiString;</code></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
 <td class="itemcode"><code>class function <strong><a href="mi.rtl.Objects.Methods.TObjectsMethods.html#AnsiString_to_USASCII">AnsiString_to_USASCII</a></strong>(const pText: string): string;</code></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
 <td class="itemcode"><code>class function <strong><a href="mi.rtl.Objects.Methods.TObjectsMethods.html#RemoveAccents">RemoveAccents</a></strong>(const str: String ): String;</code></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
 <td class="itemcode"><code>class Function <strong><a href="mi.rtl.Objects.Methods.TObjectsMethods.html#String_Asc_GUI_to_Asc_Ingles">String_Asc_GUI_to_Asc_Ingles</a></strong>(Const S: String): String;</code></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
 <td class="itemcode"><code>class Function <strong><a href="mi.rtl.Objects.Methods.TObjectsMethods.html#SGI">SGI</a></strong>(Const S: String): String;</code></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
 <td class="itemcode"><code>class Function <strong><a href="mi.rtl.Objects.Methods.TObjectsMethods.html#String_Asc_GUI_to_Asc_HTML">String_Asc_GUI_to_Asc_HTML</a></strong>(Const S: String): String;</code></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
 <td class="itemcode"><code>class Function <strong><a href="mi.rtl.Objects.Methods.TObjectsMethods.html#SGH">SGH</a></strong>(Const S: String): String;</code></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
 <td class="itemcode"><code>class Procedure <strong><a href="mi.rtl.Objects.Methods.TObjectsMethods.html#Show_GetEnv_System">Show_GetEnv_System</a></strong>;</code></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
 <td class="itemcode"><code>class Function <strong><a href="mi.rtl.Objects.Methods.TObjectsMethods.html#FGetMem">FGetMem</a></strong>(Var Buff;Const TamBuff: Word) : Boolean;</code></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
 <td class="itemcode"><code>class Procedure <strong><a href="mi.rtl.Objects.Methods.TObjectsMethods.html#FFreeMem">FFreeMem</a></strong>(Var Buff;Const TamBuff: Word) ;</code></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
 <td class="itemcode"><code>class Function <strong><a href="mi.rtl.Objects.Methods.TObjectsMethods.html#CGetMem">CGetMem</a></strong>(Const BuffOriginal:Pointer ;Const TamBuff: Word):Pointer;</code></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
 <td class="itemcode"><code>class function <strong><a href="mi.rtl.Objects.Methods.TObjectsMethods.html#isfileopen">isfileopen</a></strong>(var f:file):boolean ; overload;</code></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
 <td class="itemcode"><code>class function <strong><a href="mi.rtl.Objects.Methods.TObjectsMethods.html#isfileopen">isfileopen</a></strong>(var f:text):boolean ; overload;</code></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
 <td class="itemcode"><code>class Function <strong><a href="mi.rtl.Objects.Methods.TObjectsMethods.html#CloseLst">CloseLst</a></strong>:SmallInt;</code></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
 <td class="itemcode"><code>class Procedure <strong><a href="mi.rtl.Objects.Methods.TObjectsMethods.html#RedirecionaParaImpressora">RedirecionaParaImpressora</a></strong>;</code></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
 <td class="itemcode"><code>class Procedure <strong><a href="mi.rtl.Objects.Methods.TObjectsMethods.html#RedirecionaRelatorio">RedirecionaRelatorio</a></strong>;</code></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
 <td class="itemcode"><code>class Function <strong><a href="mi.rtl.Objects.Methods.TObjectsMethods.html#ChangeSubStr">ChangeSubStr</a></strong>(aSubStrOld : AnsiString; aSubStrNew : AnsiString; S: AnsiString ):AnsiString;</code></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
 <td class="itemcode"><code>class Function <strong><a href="mi.rtl.Objects.Methods.TObjectsMethods.html#Alias_To_Name">Alias_To_Name</a></strong>(AAlias : AnsiString):AnsiString;</code></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
 <td class="itemcode"><code>class function <strong><a href="mi.rtl.Objects.Methods.TObjectsMethods.html#CreateGUID">CreateGUID</a></strong>():<a href="mi_rtl_ui_Dmxscroller.html#tString">TString</a>;</code></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
 <td class="itemcode"><code>class Function <strong><a href="mi.rtl.Objects.Methods.TObjectsMethods.html#SetExecAsync">SetExecAsync</a></strong>(aExecAsync:Byte):Byte;</code></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
 <td class="itemcode"><code>class Function <strong><a href="mi.rtl.Objects.Methods.TObjectsMethods.html#GetExecAsync">GetExecAsync</a></strong>():Byte;</code></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
 <td class="itemcode"><code>class function <strong><a href="mi.rtl.Objects.Methods.TObjectsMethods.html#ShellScript">ShellScript</a></strong>(aCommand:String): String;</code></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
 <td class="itemcode"><code>class function <strong><a href="mi.rtl.Objects.Methods.TObjectsMethods.html#ShellExecute">ShellExecute</a></strong>(Const lpOperation, FileName, Params, DefaultDir: AnsiString; ShowCmd: Integer): THandle; Overload;</code></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
 <td class="itemcode"><code>class function <strong><a href="mi.rtl.Objects.Methods.TObjectsMethods.html#ShellExecute">ShellExecute</a></strong>(const FileName, Params, DefaultDir: AnsiString;ShowCmd: Integer): THandle; Overload;</code></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
 <td class="itemcode"><code>class function <strong><a href="mi.rtl.Objects.Methods.TObjectsMethods.html#ShellExecute">ShellExecute</a></strong>(const FileName, Params: AnsiString): THandle; Overload;</code></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
 <td class="itemcode"><code>class Function <strong><a href="mi.rtl.Objects.Methods.TObjectsMethods.html#GetIpPub">GetIpPub</a></strong>:String;</code></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
 <td class="itemcode"><code>class function <strong><a href="mi.rtl.Objects.Methods.TObjectsMethods.html#StrToInt">StrToInt</a></strong>(aStr:String):Int64;</code></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
 <td class="itemcode"><code>class Function <strong><a href="mi.rtl.Objects.Methods.TObjectsMethods.html#BooleanToStr">BooleanToStr</a></strong>(Const FieldData:Boolean):AnsiString;</code></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
 <td class="itemcode"><code>class function <strong><a href="mi.rtl.Objects.Methods.TObjectsMethods.html#DelSpcED">DelSpcED</a></strong>(campo : Ansistring): AnsiString;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>class function <strong><a href="mi.rtl.Objects.Methods.TObjectsMethods.html#DeleteChars">DeleteChars</a></strong>(campo: Ansistring;CharInvalid:TAnsiCharSet): AnsiString;</code></td>
 </tr>
 <tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
@@ -568,12 +584,120 @@
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
 <td class="itemcode"><code>class Procedure <strong><a href="mi.rtl.Objects.Methods.TObjectsMethods.html#ShowHtml">ShowHtml</a></strong>(URL:string); virtual;</code></td>
 </tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>Function <strong><a href="mi.rtl.Objects.Methods.TObjectsMethods.html#GetHelpCtx_StrCurrentModule">GetHelpCtx_StrCurrentModule</a></strong>:AnsiString; virtual;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>Function <strong><a href="mi.rtl.Objects.Methods.TObjectsMethods.html#GetHelpCtx_StrCurrentCommand">GetHelpCtx_StrCurrentCommand</a></strong>: AnsiString; Virtual;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>Function <strong><a href="mi.rtl.Objects.Methods.TObjectsMethods.html#GetHelpCtx_StrCurrentCommand_Opcao">GetHelpCtx_StrCurrentCommand_Opcao</a></strong>: AnsiString; virtual;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>Function <strong><a href="mi.rtl.Objects.Methods.TObjectsMethods.html#TabIndex">TabIndex</a></strong>:Longint; Virtual;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="mi.rtl.Objects.Methods.TObjectsMethods.html#CreateHTML">CreateHTML</a></strong>: AnsiString; Overload; Virtual;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>Function <strong><a href="mi.rtl.Objects.Methods.TObjectsMethods.html#GetAcao">GetAcao</a></strong>():AnsiString; Virtual;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="mi.rtl.Objects.Methods.TObjectsMethods.html#GetHelpCtx_Path">GetHelpCtx_Path</a></strong>: AnsiString; Virtual;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>Function <strong><a href="mi.rtl.Objects.Methods.TObjectsMethods.html#GetHelpCtx_StrCommand">GetHelpCtx_StrCommand</a></strong>: AnsiString; Virtual;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>Function <strong><a href="mi.rtl.Objects.Methods.TObjectsMethods.html#GetHelpCtx_StrCurrentCommand_Topic">GetHelpCtx_StrCurrentCommand_Topic</a></strong>: AnsiString; virtual;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>Function <strong><a href="mi.rtl.Objects.Methods.TObjectsMethods.html#GetHelpCtx_StrCommand_Topic">GetHelpCtx_StrCommand_Topic</a></strong>: AnsiString; virtual;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>Function <strong><a href="mi.rtl.Objects.Methods.TObjectsMethods.html#GetHelpCtx_StrCurrentCommand_Topic_Content_Run">GetHelpCtx_StrCurrentCommand_Topic_Content_Run</a></strong>: <a href="mi_rtl_ui_interfaces.html#TEnum_HelpCtx_StrCurrentCommand_Topic_Content_run">TEnum_HelpCtx_StrCurrentCommand_Topic_Content_run</a>; virtual;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>Procedure <strong><a href="mi.rtl.Objects.Methods.TObjectsMethods.html#SetHelpCtx_StrCurrentCommand_Topic_Content_Run">SetHelpCtx_StrCurrentCommand_Topic_Content_Run</a></strong>(wHelpCtx_StrCurrentCommand_Topic_Content_Run: <a href="mi_rtl_ui_interfaces.html#TEnum_HelpCtx_StrCurrentCommand_Topic_Content_run">TEnum_HelpCtx_StrCurrentCommand_Topic_Content_run</a>); virtual;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>Function <strong><a href="mi.rtl.Objects.Methods.TObjectsMethods.html#Get_Ok_HelpCtx_StrCurrentCommand_Topic_Content_run_Parameter_File">Get_Ok_HelpCtx_StrCurrentCommand_Topic_Content_run_Parameter_File</a></strong>:Boolean; Virtual;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>procedure <strong><a href="mi.rtl.Objects.Methods.TObjectsMethods.html#Set_Ok_HelpCtx_StrCurrentCommand_Topic_Content_run_Parameter_File">Set_Ok_HelpCtx_StrCurrentCommand_Topic_Content_run_Parameter_File</a></strong>(a_Ok_HelpCtx_StrCurrentCommand_Topic_Content_run_Parameter_File: Boolean); Virtual;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>Function <strong><a href="mi.rtl.Objects.Methods.TObjectsMethods.html#GetHelpCtx_StrCurrentCommand_Topic_Content">GetHelpCtx_StrCurrentCommand_Topic_Content</a></strong>: AnsiString; virtual;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>Procedure <strong><a href="mi.rtl.Objects.Methods.TObjectsMethods.html#SetHelpCtx_StrCurrentCommand_Topic_Content">SetHelpCtx_StrCurrentCommand_Topic_Content</a></strong>(wHelpCtx_StrCurrentCommand_Topic_Content:AnsiString); virtual;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="mi.rtl.Objects.Methods.TObjectsMethods.html#GetHelpCtx_Doc_HTML">GetHelpCtx_Doc_HTML</a></strong>: AnsiString; Virtual;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>class function <strong><a href="mi.rtl.Objects.Methods.TObjectsMethods.html#SplitString">SplitString</a></strong>(aInputString:string; aDelimiter: Char):TStringArray;</code></td>
+</tr>
 </table>
 <span id="PasDoc-Properties"></span><h3 class="summary">Propriedades</h3>
 <table class="summary wide_list">
 <tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><code>property <strong><a href="mi.rtl.Objects.Methods.TObjectsMethods.html#Alias">Alias</a></strong> : AnsiString Read <a href="mi.rtl.Objects.Methods.TObjectsMethods.html#GetAlias">GetAlias</a> Write <a href="mi.rtl.Objects.Methods.TObjectsMethods.html#SetAlias">SetAlias</a>;</code></td>
+</tr>
+<tr class="list2">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
-<td class="itemcode"><code>property <strong><a href="mi.rtl.Objects.Methods.TObjectsMethods.html#Alias">Alias</a></strong>: AnsiString Read _Alias Write _Alias;</code></td>
+<td class="itemcode"><code>property <strong><a href="mi.rtl.Objects.Methods.TObjectsMethods.html#HelpCtx_StrCurrentModule">HelpCtx_StrCurrentModule</a></strong>: AnsiString read <a href="mi.rtl.Objects.Methods.TObjectsMethods.html#GetHelpCtx_StrCurrentModule">GetHelpCtx_StrCurrentModule</a> write _HelpCtx_StrCurrentModule;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="mi.rtl.Objects.Methods.TObjectsMethods.html#HelpCtx_StrCurrentCommand">HelpCtx_StrCurrentCommand</a></strong>: AnsiString read <a href="mi.rtl.Objects.Methods.TObjectsMethods.html#GetHelpCtx_StrCurrentCommand">GetHelpCtx_StrCurrentCommand</a> write _HelpCtx_StrCurrentCommand;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="mi.rtl.Objects.Methods.TObjectsMethods.html#HelpCtx_StrCurrentCommand_Opcao">HelpCtx_StrCurrentCommand_Opcao</a></strong>: AnsiString read <a href="mi.rtl.Objects.Methods.TObjectsMethods.html#GetHelpCtx_StrCurrentCommand_Opcao">GetHelpCtx_StrCurrentCommand_Opcao</a> write _HelpCtx_StrCurrentCommand_Opcao;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="mi.rtl.Objects.Methods.TObjectsMethods.html#HelpCtx_StrCommand">HelpCtx_StrCommand</a></strong>: AnsiString read <a href="mi.rtl.Objects.Methods.TObjectsMethods.html#GetHelpCtx_StrCommand">GetHelpCtx_StrCommand</a> write _HelpCtx_StrCommand;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="mi.rtl.Objects.Methods.TObjectsMethods.html#HelpCtx_StrCurrentCommand_Topic">HelpCtx_StrCurrentCommand_Topic</a></strong>: AnsiString read <a href="mi.rtl.Objects.Methods.TObjectsMethods.html#GetHelpCtx_StrCurrentCommand_Topic">GetHelpCtx_StrCurrentCommand_Topic</a> write _HelpCtx_StrCurrentCommand_Topic;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="mi.rtl.Objects.Methods.TObjectsMethods.html#HelpCtx_StrCommand_Topic">HelpCtx_StrCommand_Topic</a></strong>: AnsiString read <a href="mi.rtl.Objects.Methods.TObjectsMethods.html#GetHelpCtx_StrCommand_Topic">GetHelpCtx_StrCommand_Topic</a> write _HelpCtx_StrCommand_Topic;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="mi.rtl.Objects.Methods.TObjectsMethods.html#HelpCtx_StrCurrentCommand_Topic_Content_Run">HelpCtx_StrCurrentCommand_Topic_Content_Run</a></strong>: <a href="mi_rtl_ui_interfaces.html#TEnum_HelpCtx_StrCurrentCommand_Topic_Content_run">TEnum_HelpCtx_StrCurrentCommand_Topic_Content_run</a> read <a href="mi.rtl.Objects.Methods.TObjectsMethods.html#GetHelpCtx_StrCurrentCommand_Topic_Content_Run">GetHelpCtx_StrCurrentCommand_Topic_Content_Run</a> write <a href="mi.rtl.Objects.Methods.TObjectsMethods.html#SetHelpCtx_StrCurrentCommand_Topic_Content_Run">SetHelpCtx_StrCurrentCommand_Topic_Content_Run</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="mi.rtl.Objects.Methods.TObjectsMethods.html#Ok_HelpCtx_StrCurrentCommand_Topic_Content_run_Parameter_File">Ok_HelpCtx_StrCurrentCommand_Topic_Content_run_Parameter_File</a></strong>: Boolean read _Ok_HelpCtx_StrCurrentCommand_Topic_Content_run_Parameter_File write <a href="mi.rtl.Objects.Methods.TObjectsMethods.html#Set_Ok_HelpCtx_StrCurrentCommand_Topic_Content_run_Parameter_File">Set_Ok_HelpCtx_StrCurrentCommand_Topic_Content_run_Parameter_File</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="mi.rtl.Objects.Methods.TObjectsMethods.html#HelpCtx_StrCurrentCommand_Topic_Content">HelpCtx_StrCurrentCommand_Topic_Content</a></strong>: AnsiString read <a href="mi.rtl.Objects.Methods.TObjectsMethods.html#GetHelpCtx_StrCurrentCommand_Topic_Content">GetHelpCtx_StrCurrentCommand_Topic_Content</a> write <a href="mi.rtl.Objects.Methods.TObjectsMethods.html#SetHelpCtx_StrCurrentCommand_Topic_Content">SetHelpCtx_StrCurrentCommand_Topic_Content</a>;</code></td>
 </tr>
 </table>
 <h2 class="description">Descrição</h2>
@@ -639,6 +763,32 @@
 <table class="detail wide_list">
 <tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="redirectOutput"></span><code>class Function <strong>redirectOutput</strong>(Var OutputFile: text;aFileName:TFileName):integer;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+A classe método <strong><code>redirectOutput</code></strong> redireciona a saida de vídeo para arquivo passado como parâmetro.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="GetAlias"></span><code>Function <strong>GetAlias</strong>:AnsiString; Virtual;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="SetAlias"></span><code>Procedure <strong>SetAlias</strong>(Const aAlias:AnsiString); Virtual;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
 <td class="itemcode"><span id="Logs"></span><code>class function <strong>Logs</strong>: <a href="mi.rtl.Objects.Methods.TObjectsMethods.html#TFilesLogs">TFilesLogs</a>;</code></td>
 </tr>
 <tr><td colspan="2">
@@ -687,7 +837,7 @@ A classe <strong><code>MessageBox</code></strong> deve ser implementada no pacot
 <table class="detail wide_list">
 <tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
-<td class="itemcode"><span id="MessageBox"></span><code>class function <strong>MessageBox</strong>(const aMsg: AnsiString; DlgType: TMsgDlgType; Buttons: TMsgDlgButtons): TModalResult; Virtual; overload;</code></td>
+<td class="itemcode"><span id="MessageBox"></span><code>class function <strong>MessageBox</strong>(const aMsg: AnsiString; DlgType: TMsgDlgType; Buttons: TMsgDlgButtons): <a href="mi.rtl.ui.dmxscroller.inputbox.html#TModalResult">TModalResult</a>; Virtual; overload;</code></td>
 </tr>
 <tr><td colspan="2">
 <p>
@@ -702,7 +852,7 @@ O método <strong><code>MessageBox</code></strong> recebe 3 parâmetros. Criar u
 
 <pre class="longcode">
 
-<span class="pascal_keyword">If</span> MessageBox(<span class="pascal_string">'O arquivo '</span>+TMI_DataFile(DatF).nomeArq+<span class="pascal_string">' não existe.'</span>+&circ;M+
+<span class="pascal_keyword">If</span> MessageBox(<span class="pascal_string">'O arquivo '</span>+TMI_DataFile(DatF)<span class="pascal_float">.</span>nomeArq+<span class="pascal_string">' não existe.'</span>+&circ;M+
               &circ;M+
               <span class="pascal_string">'Cria o arquivo agora?'</span>
               ,MtConfirmation,mbYesNoCancel,mbYes)= MrYes
@@ -907,7 +1057,7 @@ A classe function <strong><code>LongDiv</code></strong> retorna o valor inteiro 
 </p>
 
 <ul class="paragraph_spacing">
-  <li><p>returns ticks at 18.2 Hz, just like DOS</p></li>
+  <li><p>returns ticks at 18.2 <a class="normal" href="synachar.html#HZ">Hz</a>, just like DOS</p></li>
 </ul>
 
 <p></p>
@@ -1011,7 +1161,7 @@ A função <strong><code>Seg_to_MillSeg</code></strong> converte segundos para m
 <table class="detail wide_list">
 <tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
-<td class="itemcode"><span id="InputValue"></span><code>Class function <strong>InputValue</strong>(const aTitle,aLabel: AnsiString;var aValue : Variant): TModalResult;</code></td>
+<td class="itemcode"><span id="InputValue"></span><code>Class function <strong>InputValue</strong>(const aTitle,aLabel: AnsiString;var aValue : Variant): <a href="mi.rtl.ui.dmxscroller.inputbox.html#TModalResult">TModalResult</a>;</code></td>
 </tr>
 <tr><td colspan="2">
 <p>
@@ -1402,7 +1552,7 @@ O método <strong><code>NumberCharControl</code></strong> retorna o número de c
 <table class="detail wide_list">
 <tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
-<td class="itemcode"><span id="StringToSItem"></span><code>class Function <strong>StringToSItem</strong>( StrMsg:AnsiString; Colunas : byte;Alinhamento:TAlinhamento):<a href="mi_rtl_ui_Dmxscroller.html#PSItem">PSItem</a>; virtual; overload;</code></td>
+<td class="itemcode"><span id="StringToSItem"></span><code>class Function <strong>StringToSItem</strong>( StrMsg:AnsiString; Alinhamento:TAlinhamento):<a href="mi_rtl_ui_Dmxscroller.html#PSItem">PSItem</a>; virtual; overload;</code></td>
 </tr>
 <tr><td colspan="2">
 &nbsp;</td></tr>
@@ -1410,7 +1560,7 @@ O método <strong><code>NumberCharControl</code></strong> retorna o número de c
 <table class="detail wide_list">
 <tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
-<td class="itemcode"><span id="StringToSItem"></span><code>class Function <strong>StringToSItem</strong>( StrMsg:AnsiString; Colunas : byte):<a href="mi_rtl_ui_Dmxscroller.html#PSItem">PSItem</a>; virtual; overload;</code></td>
+<td class="itemcode"><span id="StringToSItem"></span><code>class Function <strong>StringToSItem</strong>( StrMsg:AnsiString ):<a href="mi_rtl_ui_Dmxscroller.html#PSItem">PSItem</a>; virtual; overload;</code></td>
 </tr>
 <tr><td colspan="2">
 &nbsp;</td></tr>
@@ -1434,7 +1584,7 @@ O método <strong><code>NumberCharControl</code></strong> retorna o número de c
 <table class="detail wide_list">
 <tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
-<td class="itemcode"><span id="WriteSItems"></span><code>class procedure <strong>WriteSItems</strong>(var S: <a href="mi.rtl.Consts.StringList.TMiStringList.html">TMiStringList</a>;const Items: <a href="mi_rtl_ui_Dmxscroller.html#PSItem">PSItem</a>);</code></td>
+<td class="itemcode"><span id="WriteSItems"></span><code>class procedure <strong>WriteSItems</strong>(var S: <a href="mi.rtl.miStringlist.TMiStringList.html">TMiStringList</a>;const Items: <a href="mi_rtl_ui_Dmxscroller.html#PSItem">PSItem</a>);</code></td>
 </tr>
 <tr><td colspan="2">
 <p>
@@ -1488,7 +1638,7 @@ O Método <code>String_ListaDeMsgErro</code> retorna uma lista de erros da pilha
 </tr>
 <tr><td colspan="2">
 <p>
-A procedure <strong><code>Dispose_ListaDeMsgErro</code></strong> esvazia a pilha de mensagens de error caso as mensagen não tenhão sido tratadas antes de encerrar TMI_Application.</p>
+A procedure <strong><code>Dispose_ListaDeMsgErro</code></strong> esvazia a pilha de mensagens de <a class="normal" href="slogsend.html#Error">error</a> caso as mensagen não tenhão sido tratadas antes de encerrar TMI_Application.</p>
 </td></tr>
 </table>
 <table class="detail wide_list">
@@ -1514,7 +1664,7 @@ A função <strong><code>AnsiString_to_USASCII</code></strong> remove os acentos
   <li><p><strong>REFERÊNCIA</strong> </p>
 
 <ul class="paragraph_spacing">
-  <li><p>Exemplo completo: <a href="https://showdelphi.com.br/dica-funcao-para-remover-acentos-de-uma-string-delphi/">https://showdelphi.com.br/dica-funcao-para-remover-acentos-de-uma-string-delphi/</a></p></li>
+  <li><p>Exemplo completo: <a href="https://showdelphi.com.br/dica-funcao-para-remover-acentos-de-uma-string-Delphi/">https://showdelphi.com.br/dica-funcao-para-remover-acentos-de-uma-string-Delphi/</a></p></li>
 </ul>
 
 <p></p></li>
@@ -1800,6 +1950,37 @@ A classe function <strong><code>GetIpPub</code></strong> retorna o ip publico da
 <table class="detail wide_list">
 <tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="DeleteChars"></span><code>class function <strong>DeleteChars</strong>(campo: Ansistring;CharInvalid:TAnsiCharSet): AnsiString;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+O método <strong><code>DeleteChars</code></strong> exclui de campo os caracteres contidos em CharInvalid
+
+<p></p>
+
+<ul class="paragraph_spacing">
+  <li><p>Exemplo de uso </p>
+
+<pre class="preformatted">pascal
+
+           //inclui um conjunto de caracateres a tString
+             Var
+               s : String;
+           Begin
+             S := '&quot;Paulo.Sergio Idade: 1958&quot;';
+             DelChars(S,['&quot;']);
+             Resultado: Paulo.Sergio Idade: 1958
+           end;</pre>
+
+<p></p></li>
+</ul>
+
+<p></p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
 <td class="itemcode"><span id="Delspace"></span><code>class function <strong>Delspace</strong>(campo : Ansistring):AnsiString;</code></td>
 </tr>
 <tr><td colspan="2">
@@ -1922,10 +2103,10 @@ A função <strong><code>CreateDB_or_DropDB</code></strong> é usada para criar 
 
 <ul class="paragraph_spacing">
   <li><p>True : Conseguiu criar o banco de dados;</p></li>
-  <li><p>False : Error na ação </p>
+  <li><p>False : <a class="normal" href="slogsend.html#Error">Error</a> na ação </p>
 
 <ul class="paragraph_spacing">
-  <li><p>Error possiveis: </p>
+  <li><p><a class="normal" href="slogsend.html#Error">Error</a> possiveis: </p>
 
 <ul class="paragraph_spacing">
   <li><p>Banco de dados já existe quando se quer criar;</p></li>
@@ -2022,14 +2203,334 @@ O método <code>IntValid</code> retorna <strong>TRUE</strong> se o parâmetro S 
 O método <code>ShowHtml</code> Executa o browser padrão do sistema operacional.</p>
 </td></tr>
 </table>
-<h3 class="detail">Propriedades</h3>
 <table class="detail wide_list">
 <tr class="list">
-<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
-<td class="itemcode"><span id="Alias"></span><code>property <strong>Alias</strong>: AnsiString Read _Alias Write _Alias;</code></td>
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="GetHelpCtx_StrCurrentModule"></span><code>Function <strong>GetHelpCtx_StrCurrentModule</strong>:AnsiString; virtual;</code></td>
 </tr>
 <tr><td colspan="2">
 &nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="GetHelpCtx_StrCurrentCommand"></span><code>Function <strong>GetHelpCtx_StrCurrentCommand</strong>: AnsiString; Virtual;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="GetHelpCtx_StrCurrentCommand_Opcao"></span><code>Function <strong>GetHelpCtx_StrCurrentCommand_Opcao</strong>: AnsiString; virtual;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="TabIndex"></span><code>Function <strong>TabIndex</strong>:Longint; Virtual;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+O método <strong><code>TabIndex</code></strong> retorna o número de ordem do controlo no grupo.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="CreateHTML"></span><code>function <strong>CreateHTML</strong>: AnsiString; Overload; Virtual;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="GetAcao"></span><code>Function <strong>GetAcao</strong>():AnsiString; Virtual;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="GetHelpCtx_Path"></span><code>function <strong>GetHelpCtx_Path</strong>: AnsiString; Virtual;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="GetHelpCtx_StrCommand"></span><code>Function <strong>GetHelpCtx_StrCommand</strong>: AnsiString; Virtual;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="GetHelpCtx_StrCurrentCommand_Topic"></span><code>Function <strong>GetHelpCtx_StrCurrentCommand_Topic</strong>: AnsiString; virtual;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="GetHelpCtx_StrCommand_Topic"></span><code>Function <strong>GetHelpCtx_StrCommand_Topic</strong>: AnsiString; virtual;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="GetHelpCtx_StrCurrentCommand_Topic_Content_Run"></span><code>Function <strong>GetHelpCtx_StrCurrentCommand_Topic_Content_Run</strong>: <a href="mi_rtl_ui_interfaces.html#TEnum_HelpCtx_StrCurrentCommand_Topic_Content_run">TEnum_HelpCtx_StrCurrentCommand_Topic_Content_run</a>; virtual;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="SetHelpCtx_StrCurrentCommand_Topic_Content_Run"></span><code>Procedure <strong>SetHelpCtx_StrCurrentCommand_Topic_Content_Run</strong>(wHelpCtx_StrCurrentCommand_Topic_Content_Run: <a href="mi_rtl_ui_interfaces.html#TEnum_HelpCtx_StrCurrentCommand_Topic_Content_run">TEnum_HelpCtx_StrCurrentCommand_Topic_Content_run</a>); virtual;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="Get_Ok_HelpCtx_StrCurrentCommand_Topic_Content_run_Parameter_File"></span><code>Function <strong>Get_Ok_HelpCtx_StrCurrentCommand_Topic_Content_run_Parameter_File</strong>:Boolean; Virtual;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="Set_Ok_HelpCtx_StrCurrentCommand_Topic_Content_run_Parameter_File"></span><code>procedure <strong>Set_Ok_HelpCtx_StrCurrentCommand_Topic_Content_run_Parameter_File</strong>(a_Ok_HelpCtx_StrCurrentCommand_Topic_Content_run_Parameter_File: Boolean); Virtual;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="GetHelpCtx_StrCurrentCommand_Topic_Content"></span><code>Function <strong>GetHelpCtx_StrCurrentCommand_Topic_Content</strong>: AnsiString; virtual;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="SetHelpCtx_StrCurrentCommand_Topic_Content"></span><code>Procedure <strong>SetHelpCtx_StrCurrentCommand_Topic_Content</strong>(wHelpCtx_StrCurrentCommand_Topic_Content:AnsiString); virtual;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="GetHelpCtx_Doc_HTML"></span><code>function <strong>GetHelpCtx_Doc_HTML</strong>: AnsiString; Virtual;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="SplitString"></span><code>class function <strong>SplitString</strong>(aInputString:string; aDelimiter: Char):TStringArray;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+A classe método <strong><code>SplitString</code></strong> recebe em aInputString uma string separada pelo delimitador informado em aDelimiter e retorna um arrey de strings</p>
+</td></tr>
+</table>
+<h3 class="detail">Propriedades</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><span id="Alias"></span><code>property <strong>Alias</strong> : AnsiString Read <a href="mi.rtl.Objects.Methods.TObjectsMethods.html#GetAlias">GetAlias</a> Write <a href="mi.rtl.Objects.Methods.TObjectsMethods.html#SetAlias">SetAlias</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="HelpCtx_StrCurrentModule"></span><code>property <strong>HelpCtx_StrCurrentModule</strong>: AnsiString read <a href="mi.rtl.Objects.Methods.TObjectsMethods.html#GetHelpCtx_StrCurrentModule">GetHelpCtx_StrCurrentModule</a> write _HelpCtx_StrCurrentModule;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+A propriedade <strong><code>HelpCtx_StrCurrentModule</code></strong> contém o nome do corrente módudo do projeto </p>
+
+<ul class="paragraph_spacing">
+  <li><p>NOTAS </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Ao criar o objeto inicializa com Db_Global.StrCurrentModule</p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="HelpCtx_StrCurrentCommand"></span><code>property <strong>HelpCtx_StrCurrentCommand</strong>: AnsiString read <a href="mi.rtl.Objects.Methods.TObjectsMethods.html#GetHelpCtx_StrCurrentCommand">GetHelpCtx_StrCurrentCommand</a> write _HelpCtx_StrCurrentCommand;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="HelpCtx_StrCurrentCommand_Opcao"></span><code>property <strong>HelpCtx_StrCurrentCommand_Opcao</strong>: AnsiString read <a href="mi.rtl.Objects.Methods.TObjectsMethods.html#GetHelpCtx_StrCurrentCommand_Opcao">GetHelpCtx_StrCurrentCommand_Opcao</a> write _HelpCtx_StrCurrentCommand_Opcao;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="HelpCtx_StrCommand"></span><code>property <strong>HelpCtx_StrCommand</strong>: AnsiString read <a href="mi.rtl.Objects.Methods.TObjectsMethods.html#GetHelpCtx_StrCommand">GetHelpCtx_StrCommand</a> write _HelpCtx_StrCommand;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+A propriedade <strong><code>HelpCtx_StrCommand</code></strong> retorna o nome do comando que está utilizando esta classe</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="HelpCtx_StrCurrentCommand_Topic"></span><code>property <strong>HelpCtx_StrCurrentCommand_Topic</strong>: AnsiString read <a href="mi.rtl.Objects.Methods.TObjectsMethods.html#GetHelpCtx_StrCurrentCommand_Topic">GetHelpCtx_StrCurrentCommand_Topic</a> write _HelpCtx_StrCurrentCommand_Topic;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+A propriedade <strong><code>HelpCtx_StrCurrentCommand_Topic</code></strong> retorna o nome do tópico corrente do comando que está utilizando esta classe </p>
+
+<ul class="paragraph_spacing">
+  <li><p>NOTAS </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Ao criar o objeto inicializa com Db_Global.StrCurrentCommand_topic</p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="HelpCtx_StrCommand_Topic"></span><code>property <strong>HelpCtx_StrCommand_Topic</strong>: AnsiString read <a href="mi.rtl.Objects.Methods.TObjectsMethods.html#GetHelpCtx_StrCommand_Topic">GetHelpCtx_StrCommand_Topic</a> write _HelpCtx_StrCommand_Topic;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+A propriedade <strong><code>HelpCtx_StrCommand_Topic</code></strong> retorna o nome do tópico corrente do comando que está utilizando esta classe </p>
+
+<ul class="paragraph_spacing">
+  <li><p>NOTAS </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Ao criar o objeto deve ser inicicializado pelo <a class="normal" href="mi.rtl.Objects.Methods.TObjectsMethods.html#Alias">Alias</a> da classe</p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="HelpCtx_StrCurrentCommand_Topic_Content_Run"></span><code>property <strong>HelpCtx_StrCurrentCommand_Topic_Content_Run</strong>: <a href="mi_rtl_ui_interfaces.html#TEnum_HelpCtx_StrCurrentCommand_Topic_Content_run">TEnum_HelpCtx_StrCurrentCommand_Topic_Content_run</a> read <a href="mi.rtl.Objects.Methods.TObjectsMethods.html#GetHelpCtx_StrCurrentCommand_Topic_Content_Run">GetHelpCtx_StrCurrentCommand_Topic_Content_Run</a> write <a href="mi.rtl.Objects.Methods.TObjectsMethods.html#SetHelpCtx_StrCurrentCommand_Topic_Content_Run">SetHelpCtx_StrCurrentCommand_Topic_Content_Run</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+A propriedade <strong><code>HelpCtx_StrCurrentCommand_Topic_Content_Run</code></strong> retorna o nome StrCurrentCommand_topic_Content_run do comando que está utilizando esta classe </p>
+
+<ul class="paragraph_spacing">
+  <li><p>NOTAS </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Ao criar o objeto inicializa com Db_Global.StrCurrentCommand_topic_Content_run;</p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Ok_HelpCtx_StrCurrentCommand_Topic_Content_run_Parameter_File"></span><code>property <strong>Ok_HelpCtx_StrCurrentCommand_Topic_Content_run_Parameter_File</strong>: Boolean read _Ok_HelpCtx_StrCurrentCommand_Topic_Content_run_Parameter_File write <a href="mi.rtl.Objects.Methods.TObjectsMethods.html#Set_Ok_HelpCtx_StrCurrentCommand_Topic_Content_run_Parameter_File">Set_Ok_HelpCtx_StrCurrentCommand_Topic_Content_run_Parameter_File</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+A propriedade <strong><code>Ok_HelpCtx_StrCurrentCommand_Topic_Content_run_Parameter_File</code></strong> é usado para indica a propriedade <strong><a class="normal" href="mi.rtl.Objects.Methods.TObjectsMethods.html#HelpCtx_StrCurrentCommand_Topic_Content_Run">HelpCtx_StrCurrentCommand_Topic_Content_Run</a></strong> que existe documento referente a visão corrente. Ou seja help sencível ao contexto. </p>
+
+<ul class="paragraph_spacing">
+  <li><p><strong>NOTAS</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Ao criar o objeto inicializa com Db_Global.StrCurrentCommand_topic</p></li>
+  <li><p>Se <a class="normal" href="mi.rtl.Objects.Methods.TObjectsMethods.html#HelpCtx_StrCurrentCommand_Topic_Content_Run">HelpCtx_StrCurrentCommand_Topic_Content_Run</a> = <a class="normal" href="mi_rtl_ui_interfaces.html#HelpCtx_StrCurrentCommand_Topic_Content_run_Parameter_File">HelpCtx_StrCurrentCommand_Topic_Content_run_Parameter_File</a> então: </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Retorna true;</p></li>
+</ul>
+
+<p></p></li>
+  <li><p>Se <a class="normal" href="mi.rtl.Objects.Methods.TObjectsMethods.html#HelpCtx_StrCurrentCommand_Topic_Content_Run">HelpCtx_StrCurrentCommand_Topic_Content_Run</a> &lt;&gt; <a class="normal" href="mi_rtl_ui_interfaces.html#HelpCtx_StrCurrentCommand_Topic_Content_run_Parameter_File">HelpCtx_StrCurrentCommand_Topic_Content_run_Parameter_File</a> então: </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Retorna false;</p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="HelpCtx_StrCurrentCommand_Topic_Content"></span><code>property <strong>HelpCtx_StrCurrentCommand_Topic_Content</strong>: AnsiString read <a href="mi.rtl.Objects.Methods.TObjectsMethods.html#GetHelpCtx_StrCurrentCommand_Topic_Content">GetHelpCtx_StrCurrentCommand_Topic_Content</a> write <a href="mi.rtl.Objects.Methods.TObjectsMethods.html#SetHelpCtx_StrCurrentCommand_Topic_Content">SetHelpCtx_StrCurrentCommand_Topic_Content</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+A propriedade <strong><code>HelpCtx_StrCurrentCommand_Topic_Content</code></strong> contém o conteúdo do campo no qual será criado um arquivo .html </p>
+
+<ul class="paragraph_spacing">
+  <li><p><strong>NOTAS</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Ao criar o objeto inicializa com Db_Global.StrCurrentCommand_topic_Content;</p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p>
+</td></tr>
 </table>
 <hr><span class="appinfo"><em>Gerado por <a href="https://pasdoc.github.io/">PasDoc 0.16.0</a>. </em>
 </span>

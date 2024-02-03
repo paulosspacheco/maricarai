@@ -5,7 +5,7 @@ unit mi.rtl.Objects.Methods.StreamBase.Stream.FileStream;
       - Implementa banco um fluxo de dados em disco.
 
     - **VERSÃO**
-      - Alpha - 0.8.0
+      - Alpha - Alpha - 0.9.0
 
     - **HISTÓRICO**
       - Criado por: Paulo Sérgio da Silva Pacheco e-mail: paulosspacheco@@yahoo.com.br
@@ -236,6 +236,9 @@ uses
 
           ```
     }
+
+    { TFileStream }
+
     TFileStream =
     Class (TStream)
 
@@ -316,7 +319,7 @@ implementation
 {$Region '               TFileStream Class METHODS                         ' }
 {+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++}
 
-  Function TFileStream.GetDriveType:TDriveType;
+    function TFileStream.GetDriveType: TDriveType;
   Begin
     Result := GetDriveType(FileName);
   end;
@@ -324,7 +327,7 @@ implementation
 
   Const
     ok_SetShareMode : Boolean = false;
-  Procedure TFileStream.SetShareMode(Const a_ShareMode:Cardinal);
+    procedure TFileStream.SetShareMode(const a_ShareMode: CARDINAL);
     Var
       WStatus ,WErrorInfo : Integer;
   Begin
@@ -355,7 +358,7 @@ implementation
   end;
 
 
-  Procedure TFileStream.SetFileName(a_FileName: AnsiString);
+  procedure TFileStream.SetFileName(a_FileName: AnsiString);
   Begin
     ErrorInfo := 0;
     Status    := 0;
@@ -368,10 +371,7 @@ implementation
   end;
 
 
-
-  CONSTRUCTOR TFileStream.Create(aFName: AnsiString;
-                                 aFileMode: Word;
-                                 aShareMode:Cardinal);overload;
+  constructor TFileStream.Create(aFName: AnsiString; aFileMode: Word;  aShareMode: Cardinal);
   BEGIN
     Handle   := HANDLE_INVALID;
     Inherited Create;
@@ -399,12 +399,13 @@ implementation
 
   END;
 
-  CONSTRUCTOR TFileStream.Create(aFName: AnsiString; aFileMode: Word);overload;
+    constructor TFileStream.Create(aFName: AnsiString; aFileMode: Word);
   Begin
     Create (aFName,aFileMode,ShareMode); // obs: O flag FILE_FLAG_RANDOM_ACCESS só encontrei no windows
   end;
 
-  CONSTRUCTOR TFileStream.Create(aFileName: AnsiString; aFileMode: Word;Size: Sw_Word;a_BaseSize,a_RecSize:Longint);overload;
+    constructor TFileStream.Create(aFileName: AnsiString; aFileMode: Word;
+    Size: Sw_Word; a_BaseSize, a_RecSize: Longint);
   Begin
     Create (aFileName,aFileMode,Size);
 //    Flags := Flags or FILE_FLAG_RANDOM_ACCESS;
@@ -413,7 +414,7 @@ implementation
     RecSize  := a_RecSize;
   end;
 
-  DESTRUCTOR TFileStream.Destroy;
+    destructor TFileStream.Destroy;
   BEGIN
     If (Handle  <>  HANDLE_INVALID) Then
     Begin
@@ -425,7 +426,7 @@ implementation
     Inherited Destroy;                                    { Call ancestor }
   END;
 
-  PROCEDURE TFileStream.Close;
+    procedure TFileStream.Close;
   BEGIN
     If (Handle  <>  HANDLE_INVALID) Then
     Begin
@@ -438,7 +439,7 @@ implementation
     Status         := 0;
   END;
 
-  PROCEDURE TFileStream.Truncate;
+    procedure TFileStream.Truncate;
   VAR Success: Integer;
   BEGIN
      If (Status = stOk) Then
@@ -494,7 +495,7 @@ implementation
     TaStatus  := ErrorInfo;
   END;
 
-  PROCEDURE TFileStream.Open;
+    procedure TFileStream.Open;
      Var Success: Integer;
   BEGIN
     If (Handle  =  HANDLE_INVALID)
@@ -527,7 +528,7 @@ implementation
      TaStatus  := ErrorInfo;
   END;
 
-  PROCEDURE TFileStream.Open (aFileMode: Word;aShareMode:Cardinal);Overload;
+    procedure TFileStream.Open(aFileMode: Word; aShareMode: Cardinal);
   begin
     FileMode := aFileMode;
     ShareMode := aShareMode;
@@ -535,7 +536,7 @@ implementation
   end;
 
   { File not open }
-  PROCEDURE TFileStream.Reset;
+    procedure TFileStream.Reset;
    Var Success: Integer;
   Begin
     If (Handle = HANDLE_INVALID)
@@ -594,14 +595,14 @@ implementation
     TaStatus  := ErrorInfo;
   end;
 
-  PROCEDURE TFileStream.Reset(aFileMode: Word;aShareMode : Cardinal);
+    procedure TFileStream.Reset(aFileMode: Word; aShareMode: Cardinal);
   Begin
     FileMode := aFileMode;
     ShareMode := aShareMode;
     Reset();
   end;
 
-  PROCEDURE TFileStream.Rewrite;
+    procedure TFileStream.Rewrite;
     VAR
       Success: Integer;
   Begin
@@ -640,7 +641,7 @@ implementation
     Rewrite();
   end;
 
-  PROCEDURE TFileStream.Read (Var Buf; Count: Sw_Word);
+    procedure TFileStream.Read(var Buf; Count: Sw_Word);
      VAR Success: Integer;
          W,
          BytesMoved: int64;
@@ -707,7 +708,7 @@ implementation
     TaStatus  := ErrorInfo;
   END;
 
-  PROCEDURE TFileStream.Write (Var Buf; Count: Sw_Word);
+    procedure TFileStream.Write(var Buf; Count: Sw_Word);
   VAR Success: Integer;
       W, BytesMoved: int64;
       //P: PByteArray;
@@ -763,7 +764,7 @@ implementation
   END;
 
 
-  FUNCTION TFileStream.GetSize: LongInt;
+    function TFileStream.GetSize: LongInt;
 
   Begin
 
@@ -805,7 +806,7 @@ implementation
     TaStatus  := ErrorInfo;
   end;
 
-  Function TFileStream.CloseOpen:Integer;
+    function TFileStream.CloseOpen: Integer;
     Var
       HandleCopy : THandle;
   BEGIN
@@ -823,7 +824,7 @@ implementation
     TaStatus  := ErrorInfo;
   END;
 
-  Function TFileStream.Flush_Disk:Integer;
+    function TFileStream.Flush_Disk: Integer;
   Begin
     If (Handle = HANDLE_INVALID)
     Then Error(stWriteError,ErroArquivoFechado);    { File not open }
@@ -846,7 +847,7 @@ implementation
     TaStatus  := ErrorInfo;
   end;
 
-  PROCEDURE TFileStream.Flush;
+    procedure TFileStream.Flush;
 
   BEGIN                                                 { Abstract method }
     If (Status = StOk) and (Handle<>HANDLE_INVALID)
@@ -873,12 +874,12 @@ implementation
     TaStatus  := ErrorInfo;
   END;
 
-  Function TFileStream.IsFileOpen:Boolean;
+    function TFileStream.IsFileOpen: Boolean;
   Begin
     Result := Handle <> HANDLE_INVALID;
   end;
 
-  Procedure TFileStream.DeleteFile;
+    procedure TFileStream.DeleteFile;
   Begin
     ErrorInfo := 0;
     if Self.IsFileOpen

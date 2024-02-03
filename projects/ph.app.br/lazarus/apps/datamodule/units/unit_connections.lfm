@@ -1,0 +1,27 @@
+object DataModule1: TDataModule1
+  OldCreateOrder = False
+  Height = 150
+  HorizontalOffset = 596
+  VerticalOffset = 250
+  Width = 356
+  object SQLTransaction1: TSQLTransaction
+    Active = False
+    Database = SQLConnector1
+    Left = 152
+    Top = 8
+  end
+  object SQLConnector1: TSQLConnector
+    Connected = False
+    LoginPrompt = True
+    OnLogin = SQLConnector1Login
+    DatabaseName = 'assistente_virtual'
+    KeepConnection = False
+    Password = 'masterkey'
+    Transaction = SQLTransaction1
+    UserName = 'postgres'
+    HostName = '45.160.125.12'
+    ConnectorType = 'PostgreSQL'
+    Left = 40
+    Top = 8
+  end
+end

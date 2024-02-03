@@ -11,7 +11,7 @@ unit mi_rtl_ui_Dmxscroller;
         - [TvDmx](https://www.pcorner.com/list/PASCAL/TVDMX.ZIP/INFO)
 
     - **VERSÃO**
-      - Alpha - 0.8.0
+      - Alpha - Alpha - 0.9.0
 
     - **HISTÓRICO**
       - @html(<a href="../units/mi_rtl_ui_dmxscroller_historico.html">./mi_rtl_ui_dmxscroller_historico.html </a>)   
@@ -121,6 +121,8 @@ unit mi_rtl_ui_Dmxscroller;
         - T12 Criar a propriedade Locked;  ✅
 
         - T12 No pacote mi.rtl.ui, transferir toda dependência do pacote LCL para o pacote mi.rtl.form.
+
+        - T12  Implementar a propriedade TUiDmxScroller.JSONObject  ✅
 }
 
 
@@ -133,6 +135,8 @@ unit mi_rtl_ui_Dmxscroller;
       - Toda a referência da LCL dentro do pacote mi.rtl.ui devem ser transferias para mi.rtl .
         Motivo: Criar Mi.rtl.web. ✅
 
+  - **2024-01-26**
+    - Implementar a propriedade TUiDmxScroller.JSONObject
 
 }
 
@@ -146,12 +150,7 @@ unit mi_rtl_ui_Dmxscroller;
 interface
 
 uses
-  Classes, SysUtils
-  //, dialogs
-//  ,controls
-//  ,forms
-  //,ActnList
-  ,db,BufDataset,SqlDb
+  Classes, SysUtils  ,db,BufDataset,SqlDb,fpjson
   ,mi.rtl.Objects.Consts.Mi_MsgBox
   ,mi.rtl.objects.Methods.dates
   ,mi_rtl_ui_Types
@@ -426,9 +425,9 @@ uses
            {$EndRegion ID_Dynamic}
 
            {$Region owner}
-             private _owner :  TUiDmxScroller;
-             private Procedure Set_owner(a_owner:TUiDmxScroller);
-             public property owner :  TUiDmxScroller read _owner write Set_owner;
+             private _owner_UiDmxScroller :  TUiDmxScroller;
+             private Procedure SetOwner(a_owner:TUiDmxScroller);
+             public property owner_UiDmxScroller :  TUiDmxScroller read _owner_UiDmxScroller write SetOwner;
            {$EndRegion owner}
 
            {: O campo **@name** é inicializado no interpretador de Template quando
@@ -839,7 +838,7 @@ uses
         {: O atributo **@name** contém o ponteiro do buffer do corrente campo calculado pela propriedade CurrentField}
         Public FieldData       : pointer;
 
-        Public RecordData      : pointer;
+        //Public RecordData      : pointer;
 
         Private CurrentRecordOld : Longint;
         Private _CurrentRecord : Longint;
@@ -1338,8 +1337,13 @@ uses
           public property Locked : Boolean read _Locked write SetLocked;
         {$ENDREGION 'Construção Propriedade Locked'}
 
+//         public Procedure SetArgs(aArgs: array of const);virtual;
 
-
+        {$REGION 'Propety JSonObject'}
+          private Procedure Set_JObject(aJSONObject: TJSONObject);
+          private function Get_JObject: TJSONObject;
+          Public property JObject: TJSONObject read Get_JObject write Set_JObject;
+        {$ENDREGION 'Propety JSonObject'}
     end;
 
   type SmallWord  = TUiDmxScroller.SmallWord;
@@ -1471,20 +1475,8 @@ implementation
              if Assigned(apDmxFieldRec^.FldEnum_Lookup)
              then FreeAndNil(apDmxFieldRec^.FldEnum_Lookup);
 
-             //try //Desativei porque está gerando exceção no formulário InpuBox. checar depois
-             //
-             //  if Assigned(apDmxFieldRec^.LinkEdit)
-             //  then begin
-             //         c:= apDmxFieldRec^.LinkEdit.ComponentState;
-             //         if (csDesigning in C)
-             //         Then
-             //          //ShowMessage(apDmxFieldRec^.LinkEdit.name+' - if (csDesigning in apDmxFieldRec.LinkEdit.ComponentState)');
-             //          FreeAndNIl(apDmxFieldRec^.LinkEdit);
-             //        end;
-             //except
-             //end;
-
              System.Dispose(apDmxFieldRec);
+             apDmxFieldRec := nil;
            end;
     end;
 
@@ -1508,9 +1500,11 @@ implementation
       Then Alias := aFieldName;
     end;
 
-    procedure TDmxFieldRec.Set_owner(a_owner: TUiDmxScroller);
+    procedure TDmxFieldRec.Setowner(a_owner: TUiDmxScroller);
     begin
-      _owner := a_owner;
+      if Assigned(a_owner)
+      Then _owner_UiDmxScroller := a_owner
+      else _owner_UiDmxScroller := nil;
     end;
 
     function TDmxFieldRec.GetFieldAltered: Boolean;
@@ -1519,21 +1513,20 @@ implementation
     Begin
       if Not _FieldAltered
       then begin
-             if (owner<>nil) and (owner.WorkingDataOld<>nil)
+             if (owner_UiDmxScroller<>nil) and (owner_UiDmxScroller.WorkingDataOld<>nil)
              Then begin
                     try
-                      wCurrentField := owner.CurrentField;
-                      owner.SetCurrentField(RSelf);
-                      result := GetAsString <> GetAsStringFromBuffer(owner.WorkingDataOld)
+                      wCurrentField := owner_UiDmxScroller.CurrentField;
+                      owner_UiDmxScroller.SetCurrentField(RSelf);
+                      result := GetAsString <> GetAsStringFromBuffer(owner_UiDmxScroller.WorkingDataOld)
                     Finally
-                      owner.SetCurrentField(wCurrentField);
+                      owner_UiDmxScroller.SetCurrentField(wCurrentField);
                     End;
                   end
              else Result := False;
            End
       else Result := _FieldAltered;
     End;
-
 
     procedure TDmxFieldRec.SetOkSpc(aOkSpc: Boolean);
     begin
@@ -1543,7 +1536,7 @@ implementation
 
     function TDmxFieldRec.StrNumberValid(S: AnsiString): AnsiString;
     begin
-      With owner do
+      With owner_UiDmxScroller do
       begin
         Result  := DeleteMask(S,['0'..'9','-','+',showDecPt]);
         if (pos(showDecPt ,Result)<>0) and (showDecPt<>DecPt)
@@ -1561,204 +1554,202 @@ implementation
       //     Executa o evento OnExit visto que pode ser feito um processamento de saída
       //     antes de gravar no registro.
 
-      Var
-        pv : pointer;
-        P      : PValue;
-        Err    : Integer;
-        NumInt : Longint;
-        I,Len  : Word;
-        n1,n2,n3 : Int64;
-
-       Var
-         ws,Aux : AnsiString;
-         aData  : TDates.TypeData;
-         LData,LHora : Longint;
-
+        Var
+          pv : pointer;
+          P      : PValue;
+          Err    : Integer;
+          //NumInt : Longint;
+          I,Len  : Word;
+          //n1,n2,n3 : Int64;
+          ws,Aux : AnsiString;
+          aData  : TDates.TypeData;
+          LData,LHora : Longint;
       Begin
-        Err := 0;
-        with owner do
-          TaStatus := 0;
+        If Assigned(owner_UiDmxScroller) Then
+        begin
+          Err := 0;
+          owner_UiDmxScroller.TaStatus := 0;
 
-        If (owner <> nil) and (owner.GetRecordData<>nil)
-        Then
-        Begin
-          Pv := owner.GetRecordData;
-          Pv := Pv+DataTab;
-          p := pv;
+          If Assigned(owner_UiDmxScroller.GetRecordData) Then
+          Begin
+            Pv := owner_UiDmxScroller.GetRecordData;
+            Pv := Pv+DataTab;
+            p := pv;
 
-          If P <> nil
-          Then With owner,TDates do
-               Begin
-                 if TypeCode = fldSTRNUM
-                 then begin {REGION '---> Crítica para gerar exceção caso a data ou hora sejam inválidos.'
-                                Necessário porque tvDmx pode ler uma data como string para converter
-                                depois. }
-                         case TypeFld(Template_org) of
-                              FldData     : Begin //Obs: S=Ano+Mes+Dia
-                                              aData := StrToDate(s,_DateMask)^;
-                                            End;
+            If P <> nil
+            Then With owner_UiDmxScroller,TDates do
+                 Begin
+                   if TypeCode = fldSTRNUM
+                   then begin {REGION '---> Crítica para gerar exceção caso a data ou hora sejam inválidos.'
+                                  Necessário porque tvDmx pode ler uma data como string para converter
+                                  depois. }
+                           case TypeFld(Template_org) of
+                                FldData     : Begin //Obs: S=Ano+Mes+Dia
+                                                aData := StrToDate(s,_DateMask)^;
+                                              End;
 
-                              fldLData    : Begin //Guarda a data compactada
-                                               LData := PackDate(S,_DateMask,LData);
-                                            End;
+                                fldLData    : Begin //Guarda a data compactada
+                                                 LData := PackDate(S,_DateMask,LData);
+                                              End;
 
-                              FldDateTimeDos : Begin
-                                                  Aux := '';
-                                                  ws := S;
+                                FldDateTimeDos : Begin
+                                                    Aux := '';
+                                                    ws := S;
 
-                                                  //Retira todos os caracteres não válidos
-                                                  for I := 1 to Length(wS) do
-                                                    if wS[i] in ['0'..'9']
-                                                    then Aux := Aux + wS[i];
+                                                    //Retira todos os caracteres não válidos
+                                                    for I := 1 to Length(wS) do
+                                                      if wS[i] in ['0'..'9']
+                                                      then Aux := Aux + wS[i];
 
-                                                  if Length(Aux) = length('DDMMAAAAHHMMSS')
-                                                  then LData :=   StrToDateTimeDos(Aux,DateMask_DDMMAAAAHHMMSS)
-                                                  Else
-                                                  if Length(Aux) = length('DDMMAAHHMMSS')
-                                                  Then LData :=   StrToDateTimeDos(Aux,DateMask_DDMMAAHHMMSS)
-                                                  Else
-                                                  if Length(Aux) = length('DDMMAAHHMM')
-                                                  Then LData :=   StrToDateTimeDos(Aux,DateMask_DDMMAAHHMM)
-                                                  Else Raise TException.Create(ErroFormatoInvalido);
-                                               End;
+                                                    if Length(Aux) = length('DDMMAAAAHHMMSS')
+                                                    then LData :=   StrToDateTimeDos(Aux,DateMask_DDMMAAAAHHMMSS)
+                                                    Else
+                                                    if Length(Aux) = length('DDMMAAHHMMSS')
+                                                    Then LData :=   StrToDateTimeDos(Aux,DateMask_DDMMAAHHMMSS)
+                                                    Else
+                                                    if Length(Aux) = length('DDMMAAHHMM')
+                                                    Then LData :=   StrToDateTimeDos(Aux,DateMask_DDMMAAHHMM)
+                                                    Else Raise TException.Create(ErroFormatoInvalido);
+                                                 End;
 
-                              fldLHora,
-                              fld_LHora
-                                  : Begin // Guarda a hora compactada
-                                      Lhora :=   PackHour(S,_HourMask,Lhora);
-                                    End;
-                         end; //case
-                      end;
-                    {ENDREGION}
-
-                 Case TypeCode of
-                    fldSTR,
-                    fldSTR_Minuscula ,
-                    fldSTRNUM,
-                    FldDbRadioButton
-                                : Begin
-                                    s := trim(s);
-                                    If FieldSize <= 255 Then
-                                    Begin
-                                      If OkSpc
-                                      Then P^.asString := Spc(S,FieldSize-1)
-                                      Else Begin
-                                             If Length(S) < FieldSize
-                                             Then P^.asString := S
-                                             else P^.asString := Copy(S,1,FieldSize-1);
-                                           end;
-                                    End;
-                                  End;
-
-                    FldData     ,
-                    fldLData    ,
-                    FldDateTimeDos    : begin
-                                          P^.asString := S;
-                                        end;
-
-                    fldLHora,
-                    fld_LHora         : begin
-                                          P^.asString := S;
-                                        end;
-
-                    fldAnsiChar,
-                    FldAnsiChar_Minuscula,
-                    fldAnsiCharNUM,
-                    fldAnsiCharVAL  : Begin
-                                        Len := Length(s);
-                                        If Len <= FieldSize
-                                        Then Begin
-                                               If Len > 0
-                                               Then Move(s[1],P^,Len);
-                                               If Len < FieldSize
-                                               Then For I := len+1 to  len+1 + (FieldSize-(len+1))
-                                                    do TArrayAnsiChar(Pointer(P)^)[i-1] := FillValue;
-                                             end
-                                        else Move(s[1],P^,FieldSize)
+                                fldLHora,
+                                fld_LHora
+                                    : Begin // Guarda a hora compactada
+                                        Lhora :=   PackHour(S,_HourMask,Lhora);
                                       End;
+                           end; //case
+                        end;
+                      {ENDREGION}
 
-                    fldENUM ,    
-                    fldLONGINT  : Begin
-                                    P^.asLongint := Longint(CheckRanger(s,High(Longint),Low(Longint),err));
-                                  end;
+                   Case TypeCode of
+                      fldSTR,
+                      fldSTR_Minuscula ,
+                      fldSTRNUM,
+                      FldDbRadioButton
+                                  : Begin
+                                      s := trim(s);
+                                      If FieldSize <= 255 Then
+                                      Begin
+                                        If OkSpc
+                                        Then P^.asString := Spc(S,FieldSize-1)
+                                        Else Begin
+                                               If Length(S) < FieldSize
+                                               Then P^.asString := S
+                                               else P^.asString := Copy(S,1,FieldSize-1);
+                                             end;
+                                      End;
+                                    End;
 
-                    FldBoolean,
-                    fldBYTE     : Begin
-                                    P^.asByte := Byte(CheckRanger(s,High(byte),Low(byte),err));
-                                  end;
+                      FldData     ,
+                      fldLData    ,
+                      FldDateTimeDos    : begin
+                                            P^.asString := S;
+                                          end;
 
-                    fldSHORTINT : Begin
-                                    P^.asSHORTINT := SHORTINT(CheckRanger(s,High(SHORTINT),Low(SHORTINT),err));
-                                   end;
+                      fldLHora,
+                      fld_LHora         : begin
+                                            P^.asString := S;
+                                          end;
 
-                    fldSmallWORD: Begin
-                                    P^.asSmallWord := SmallWORD(CheckRanger(s,High(SmallWord),Low(SmallWord),err));
-                                   end;
+                      fldAnsiChar,
+                      FldAnsiChar_Minuscula,
+                      fldAnsiCharNUM,
+                      fldAnsiCharVAL  : Begin
+                                          Len := Length(s);
+                                          If Len <= FieldSize
+                                          Then Begin
+                                                 If Len > 0
+                                                 Then Move(s[1],P^,Len);
+                                                 If Len < FieldSize
+                                                 Then For I := len+1 to  len+1 + (FieldSize-(len+1))
+                                                      do TArrayAnsiChar(Pointer(P)^)[i-1] := FillValue;
+                                               end
+                                          else Move(s[1],P^,FieldSize)
+                                        End;
 
-                    FldRadioButton: Begin
-                                      P^.asCluster := TCluster(CheckRanger(s,High(TCluster),Low(TCluster),err));
+                      fldENUM ,
+                      fldLONGINT  : Begin
+                                      P^.asLongint := Longint(CheckRanger(s,High(Longint),Low(Longint),err));
                                     end;
 
-                    fldSmallInt : Begin
-                                    P^.asSmallInt := SmallInt(CheckRanger(s,High(SmallInt),Low(SmallInt),err));
-                                  end;
+                      FldBoolean,
+                      fldBYTE     : Begin
+                                      P^.asByte := Byte(CheckRanger(s,High(byte),Low(byte),err));
+                                    end;
 
-                    fldRealNum,
-                    fldRealNum_Positivo
-                                : Begin
-                                    s := StrNumberValid(s);
-                                    If S<>''
-                                    Then Val(S,P^.asRealNum,err)
-                                    Else P^.asRealNum:= 0;
+                      fldSHORTINT : Begin
+                                      P^.asSHORTINT := SHORTINT(CheckRanger(s,High(SHORTINT),Low(SHORTINT),err));
+                                     end;
 
-                                    If err <> 0
-                                    Then TaStatus := Tipo_em_memoria_incompativel_com_o_tipo_do_campo_no_arquivo
-                                  end;
+                      fldSmallWORD: Begin
+                                      P^.asSmallWord := SmallWORD(CheckRanger(s,High(SmallWord),Low(SmallWord),err));
+                                     end;
 
-                    fldReal4    : Begin
-                                    s := StrNumberValid(s);
-                                    If S<>''
-                                    Then Val(S,P^.asReal,err)
-                                    Else P^.asReal := 0;
+                      FldRadioButton: Begin
+                                        P^.asCluster := TCluster(CheckRanger(s,High(TCluster),Low(TCluster),err));
+                                      end;
 
-                                    If err <> 0
-                                    Then TaStatus := Tipo_em_memoria_incompativel_com_o_tipo_do_campo_no_arquivo
-                                  end;
+                      fldSmallInt : Begin
+                                      P^.asSmallInt := SmallInt(CheckRanger(s,High(SmallInt),Low(SmallInt),err));
+                                    end;
 
-                    fldReal4P   : Begin
-                                    s := StrNumberValid(s);
-                                    If S<>''
-                                    Then Val(S,P^.asReal,err)
-                                    Else P^.asReal := 0;
+                      fldRealNum,
+                      fldRealNum_Positivo
+                                  : Begin
+                                      s := StrNumberValid(s);
+                                      If S<>''
+                                      Then Val(S,P^.asRealNum,err)
+                                      Else P^.asRealNum:= 0;
 
-                                    If err <> 0
-                                    Then TaStatus := Tipo_em_memoria_incompativel_com_o_tipo_do_campo_no_arquivo
-                                    else P^.asReal:= P^.asReal/100;
-                                  End;
+                                      If err <> 0
+                                      Then TaStatus := Tipo_em_memoria_incompativel_com_o_tipo_do_campo_no_arquivo
+                                    end;
 
-                    fldExtended : begin
-                                    s := StrNumberValid(s);
-                                    If S<>''
-                                    Then Val(S,P^.asExtended,err)
-                                    Else P^.asExtended:= 0;
+                      fldReal4    : Begin
+                                      s := StrNumberValid(s);
+                                      If S<>''
+                                      Then Val(S,P^.asReal,err)
+                                      Else P^.asReal := 0;
 
-                                    If err <> 0
-                                    Then TaStatus := Tipo_em_memoria_incompativel_com_o_tipo_do_campo_no_arquivo
+                                      If err <> 0
+                                      Then TaStatus := Tipo_em_memoria_incompativel_com_o_tipo_do_campo_no_arquivo
+                                    end;
 
-                                  end;
+                      fldReal4P   : Begin
+                                      s := StrNumberValid(s);
+                                      If S<>''
+                                      Then Val(S,P^.asReal,err)
+                                      Else P^.asReal := 0;
 
-                    fldHexValue : Begin end;
-                    fldBLOb     : Begin end;
-                End;
+                                      If err <> 0
+                                      Then TaStatus := Tipo_em_memoria_incompativel_com_o_tipo_do_campo_no_arquivo
+                                      else P^.asReal:= P^.asReal/100;
+                                    End;
 
-                If TaStatus <>0
-                Then Begin
-                       //abort;
-                       showMessage('Erro em SettString campo: '+FieldName+' Valor: '+S);
-//                        Raise TException.Create('Erro em SettString campo: '+FieldName+' Valor: '+S);
+                      fldExtended : begin
+                                      s := StrNumberValid(s);
+                                      If S<>''
+                                      Then Val(S,P^.asExtended,err)
+                                      Else P^.asExtended:= 0;
 
-                     end;
-               End;
+                                      If err <> 0
+                                      Then TaStatus := Tipo_em_memoria_incompativel_com_o_tipo_do_campo_no_arquivo
+
+                                    end;
+
+                      fldHexValue : Begin end;
+                      fldBLOb     : Begin end;
+                  End;
+
+                  If TaStatus <>0
+                  Then Begin
+                         //abort;
+                         showMessage('Erro em SettString campo: '+FieldName+' Valor: '+S);
+  //                        Raise TException.Create('Erro em SettString campo: '+FieldName+' Valor: '+S);
+
+                       end;
+                 End;
+          end;
         end;
       End;
 
@@ -1766,18 +1757,18 @@ implementation
       var
          wCurrentField : PDmxFieldRec;
     begin
-      if Assigned(owner)
+      if Assigned(owner_UiDmxScroller)
       then begin
              try
-               wCurrentField := owner.CurrentField;
-               owner.SetCurrentField(RSelf);
+               wCurrentField := owner_UiDmxScroller.CurrentField;
+               owner_UiDmxScroller.SetCurrentField(RSelf);
 
-               if (owner.GetRecordData<>nil)
-               then result := GetAsStringFromBuffer(owner.GetRecordData)
+               if (owner_UiDmxScroller.GetRecordData<>nil)
+               then result := GetAsStringFromBuffer(owner_UiDmxScroller.GetRecordData)
                else Result := '';
 
              finally
-               owner.SetCurrentField(wCurrentField);
+               owner_UiDmxScroller.SetCurrentField(wCurrentField);
              end;
            end
       else result := '';
@@ -1838,7 +1829,15 @@ implementation
                                            End;
                                       Result := S;
                                     End;
-                   fldENUM,
+                   fldENUM     : begin
+                                   If (Not OkSpc) and (P^.asLongint = 0)
+                                   Then Result := '0'
+                                   else Begin
+                                           if OkMask
+                                           Then Result := NumToStr('LLLLLL',P^.asLONGINT,TypeCode,OkSpc)
+                                           else Result := IStr(P^.asLONGINT ,ConstStr(Length('LLLLLL'),'L'));
+                                         end;
+                                 end;
                    fldLONGINT  : Begin
                                    If (Not OkSpc) and (P^.asLongint = 0)
                                    Then Result := '0'
@@ -1935,7 +1934,7 @@ implementation
 
     function TDmxFieldRec.IsInputText: Boolean;
     begin
-      with owner do
+      with owner_UiDmxScroller do
       Result :=  TypeCode in [fldSTR,
                               fldSTRNUM,
                               fldSTR_Minuscula,
@@ -1999,7 +1998,7 @@ implementation
         function  SItemsLenString(Const Str: tString) : SmallInt;
           var S : PSItem;
         begin
-          with owner do
+          with owner_UiDmxScroller do
           If Str[1] <> fldSItems Then
             Result := Length(Str)
           Else
@@ -2014,7 +2013,7 @@ implementation
         j  : Integer;
         P  : PSItem;
     Begin
-      with owner do
+      with owner_UiDmxScroller do
       If TypeCode in [FldRadioButton,FldDbRadioButton]
       Then Begin
              Result := 0;
@@ -2054,19 +2053,19 @@ implementation
 
     function TDmxFieldRec.IsInputRadio: Boolean;
     Begin
-      with owner do
+      with owner_UiDmxScroller do
         Result := TypeCode in [FldRadioButton];
     End;
 
     function TDmxFieldRec.IsInputDbRadio: Boolean;
     begin
-      with owner do
+      with owner_UiDmxScroller do
         Result := TypeCode in [FldDbRadioButton];
     end;
 
     function TDmxFieldRec.IsInputCheckbox: Boolean;
     Begin
-      with owner do
+      with owner_UiDmxScroller do
         Result := TypeCode = FldBoolean;
     end;
 
@@ -2077,7 +2076,7 @@ implementation
 
     function TDmxFieldRec.IsInputHidden: Boolean;
     Begin
-      with owner do
+      with owner_UiDmxScroller do
         Result := IsInputText and ((access and accHidden)<>0);
     end;
 
@@ -2088,7 +2087,7 @@ implementation
 
     function TDmxFieldRec.IsComboBox: Boolean;//< Usado quando trata-se de campos enumerados.
     Begin
-      with owner do
+      with owner_UiDmxScroller do
         Result := TypeCode = fldENUM;   {< ^E; enumerated Field }
     end;
 
@@ -2099,24 +2098,24 @@ implementation
       //Else Result := nil;
     end;
 
-        function TDmxFieldRec.LastField: pDmxFieldRec;
+    function TDmxFieldRec.LastField: pDmxFieldRec;
     begin
       //If owner <> nil
       //Then  Result := owner.LastField
       //Else Result := nil;
     end;
 
-        function TDmxFieldRec.NextField: pDmxFieldRec;
+    function TDmxFieldRec.NextField: pDmxFieldRec;
     begin
        Result := Next;
     end;
 
-        function TDmxFieldRec.PrevField: pDmxFieldRec;
+    function TDmxFieldRec.PrevField: pDmxFieldRec;
     begin
       Result := Prev;
     end;
 
-        function TDmxFieldRec.SelectFirstField: pDmxFieldRec;
+    function TDmxFieldRec.SelectFirstField: pDmxFieldRec;
     begin
       //If owner <> nil
       //Then  Result := owner.SelectFirstField
@@ -2228,17 +2227,17 @@ implementation
 
     end;
 
-        function TDmxFieldRec.GetCount_Select: Variant;
+    function TDmxFieldRec.GetCount_Select: Variant;
     begin
 
     end;
 
-        function TDmxFieldRec.GetSize_Select: Variant;
+    function TDmxFieldRec.GetSize_Select: Variant;
     begin
 
     end;
 
-        function TDmxFieldRec.GetValue_Select(aItem: Integer): AnsiString;
+    function TDmxFieldRec.GetValue_Select(aItem: Integer): AnsiString;
     begin
 
     end;
@@ -2257,7 +2256,7 @@ implementation
         Var
           P : PSItem;
     Begin
-      with owner do
+      with owner_UiDmxScroller do
         Case TypeCode of
           FLdEnum : Begin
                       SetValue(aItem);
@@ -2270,49 +2269,49 @@ implementation
 
     function TDmxFieldRec.IsNumber: Boolean;
     Begin
-      with owner do
+      with owner_UiDmxScroller do
         Result := TypeCode in [fldBYTE,fldSHORTINT,fldSmallWORD,fldSmallInt,fldLONGINT,fldRealNum,fldExtended,fldHexValue,fldENUM];//fldSTRNUM,fldAnsiCharNUM,fldAnsiCharVAL,
     end;
 
     function TDmxFieldRec.IsNumberReal: Boolean;
     begin
-      with owner do
+      with owner_UiDmxScroller do
         Result := TypeCode in [fldRealNum,fldExtended];
     end;
 
     function TDmxFieldRec.IsNumberInteger: Boolean;
     begin
-      with owner do
+      with owner_UiDmxScroller do
         Result := TypeCode in [fldBYTE,fldSHORTINT,fldSmallWORD,fldSmallInt,fldLONGINT,fldHexValue,fldENUM];
     end;
 
     function TDmxFieldRec.IsData: Boolean;
     begin
-      with owner do
+      with owner_UiDmxScroller do
          Result := TypeCode in [fldData,fldLData,fld_LData,fldDateTimeDos];
     end;
 
     function TDmxFieldRec.IsHora: Boolean;
     begin
-      with owner do
+      with owner_UiDmxScroller do
          Result := TypeCode in [fld_LHora,fldLHora];
     end;
-
 
     function TDmxFieldRec.GetFldOrigin_Y: Integer;
     begin
       if _FldOrigin_Y < 0
-      then Result := owner.currentRecord
+      then Result := owner_UiDmxScroller.currentRecord
       else Result := _FldOrigin_Y;
     end;
 
     function TDmxFieldRec.GetFldOrigin: TPoint;
+
     begin
       Result.X := ScreenTab;
       Result.Y := FldOrigin_Y;
     end;
 
-    //function TDmxFieldRec.GetLeft: Integer;
+    {function TDmxFieldRec.GetLeft: Integer;
     //begin
     //  Result := Self.FldOrigin.X;
     //end;
@@ -2337,6 +2336,7 @@ implementation
     //  //Then result := (LinkEdit as TControl).Height
     //  //else result := 0;
     //end;
+    }
 
     function TDmxFieldRec.SetAccess(aaccess: byte): Byte;
     begin
@@ -2373,25 +2373,25 @@ implementation
 
     procedure TDmxFieldRec.DoOnEnter(Sender: TObject);
     begin
-      if Assigned(owner)
+      if Assigned(owner_UiDmxScroller)
       then begin
-             owner.SetCurrentField(RSelf);
-             owner.Scroll_it_inview(RSelf);
-             if Assigned(owner.onEnterField) and (Fieldnum<>0)
+             owner_UiDmxScroller.SetCurrentField(RSelf);
+             owner_UiDmxScroller.Scroll_it_inview(RSelf);
+             if Assigned(owner_UiDmxScroller.onEnterField) and (Fieldnum<>0)
              then begin
-                    owner.onEnterField(RSelf);
+                    owner_UiDmxScroller.onEnterField(RSelf);
                   end;
            end;
     end;
 
     procedure TDmxFieldRec.DoOnExit(Sender: TObject);
     begin
-      if Assigned(owner)
+      if Assigned(owner_UiDmxScroller)
       Then begin
-             if Assigned(owner.onExitField) and (Fieldnum<>0)
-             then owner.onExitField(RSelf);
+             if Assigned(owner_UiDmxScroller.onExitField) and (Fieldnum<>0)
+             then owner_UiDmxScroller.onExitField(RSelf);
              if FieldAltered
-             then owner.UpdateBuffers;
+             then owner_UiDmxScroller.UpdateBuffers;
           end;
     end;
 
@@ -2631,26 +2631,34 @@ implementation
     function TUiDmxScroller.FieldByName(aName: String): PDmxFieldRec;
       Var
         i : Integer;
+        fld:PDmxFieldRec;
     begin
+      result:=nil;
       for i := 0 to Fields.Count-1 do
       begin
-        result := Fields[i];
-
-        if LowerCase(result.FieldName) = LowerCase(aName)
-        then exit;
-
+        fld := Fields[i];
+        if LowerCase(fld.FieldName) = LowerCase(aName)
+        then begin
+               Result := fld;
+               exit;
+             end;
       end;
     end;
 
     function TUiDmxScroller.FieldByNumber(aFieldNum: Integer): PDmxFieldRec;
     Var
       i : Integer;
+      fld : PDmxFieldRec;
     begin
+      result := nil;
       for i := 0 to Fields.Count-1 do
       begin
-        result := Fields[i];
-        if result.Fieldnum = AFieldNum
-        then exit;
+        fld := Fields[i];
+        if fld.Fieldnum = AFieldNum
+        then begin
+               result := fld;
+               exit;
+             end;
       end;
     end;
 
@@ -2760,11 +2768,16 @@ implementation
 
     procedure TUiDmxScroller.SetCurrentField(aCurrentField: pDmxFieldRec);
     begin
-      _CurrentField := aCurrentField;
-      if (_CurrentField <> nil) and (_CurrentField.Fieldnum<>0)
-      then begin
+      if Assigned(aCurrentField) and (aCurrentField.Fieldnum<>0)
+      Then begin
+             _CurrentField := aCurrentField;
              FieldData := WorkingData;
              FieldData := FieldData + _CurrentField.DataTab;
+           end
+      else begin
+             _CurrentField := aCurrentField;
+             //Raise TException.Create(self,'SetCurrentField','Campo não pode ser o corrente porque não tem buffer!');
+
            end;
     end;
 
@@ -2941,7 +2954,7 @@ implementation
           Rex.ShowZeroes := AllZeroes;
 
           WFieldName := ''; //< NortSoft
-          Rex.Owner := Self; // NortSoft
+          Rex.Owner_UiDmxScroller := Self; // NortSoft
 
           Rex.ProviderFlags := [pfInUpdate,pfInWhere];
           Rex.ID_Dynamic := Alias+'_'+CreateGUID;
@@ -3017,7 +3030,7 @@ implementation
              end;
         End;
 
-        function GetAlias:AnsiString;
+        function Get_Alias:AnsiString;
         begin
           result := '';
           Inc(i);
@@ -3093,7 +3106,7 @@ implementation
                             Inc(TrueLen);
                             FieldSize := sizeof(BYTE);
                             FillValue := #0;
-                            Alias := GetAlias;
+                            Alias := Get_Alias;
                             Rex.ShownWid := + Rex.ShownWid + Length(alias);
                             getHints;
                             continue;
@@ -3125,7 +3138,7 @@ implementation
 
                                 templx(#0,dataformat^[i]);
                                 Inc(Rex^.TrueLen);
-                                Rex^.Alias := GetAlias;
+                                Rex^.Alias := Get_Alias;
                                 Rex^.ShownWid := + Rex^.ShownWid + Length(Rex^.alias);
                                 GetHints;
                                 continue;
@@ -3776,11 +3789,6 @@ implementation
         begin
           If DMXField1.Template <> nil
           then begin
-                 {  original
-                 If (upcase(DMXField1.TypeCode) = fldENUM)
-                 then DmxGizMa.DisposeSItems(PSItem(DMXField1.Template ))
-                 else DisposeStr(DMXField1.Template);}
-
                  If upcase(DMXField1.TypeCode) in [fldENUM,fldSItems] //<NortSoft
                  then Begin
                          DisposeSItems(PSItem(DMXField1.Template ));
@@ -3790,22 +3798,7 @@ implementation
                end;
 
           P := DMXField1.Next;
-//          with Fields do
-//           if IndexOf(DMXField1)>=0
-//           then begin
-//                  Delete(IndexOf(DMXField1));
-//
-//                  if DMXField1.LinkEdit <> nil
-//                  then begin
-//                         if (csDesigning in DMXField1.LinkEdit.ComponentState)
-//                         then begin
-////                                ShowMessage('if (csDesigning in DMXField1.LinkEdit.ComponentState)');
-//                                FreeAndNil(DMXField1.LinkEdit);
-//                              end;
-//                       end;
-//
-//                  system.Dispose(DMXField1);
-//                end;
+
           Dispose(DMXField1);
           DMXField1 := P;
         end;
@@ -3840,11 +3833,13 @@ implementation
       then begin
              fFreeMem(WorkingData, RecordSize);
              fFreeMem(WorkingDataOld, RecordSize);
-             //WorkingData := nil;
+             WorkingDataOld:= nil;
+             WorkingData := nil;
 
              DataBlockSize := 0;
              RecordSize  := 0;;
              FieldData := nil;
+
              CurrentField:= nil;
              CurrentField  :=nil;
              CurrentRecord := 0;
@@ -3854,6 +3849,8 @@ implementation
              RecordSize := 0;
              freeandnil(Fields);
            end;
+
+      _Strings.Clear;
     end;
 
     function TUiDmxScroller.GetRecordData: Pointer;
@@ -4172,7 +4169,7 @@ implementation
                       Then Result := Result + aTemplate[i];
                       OKSeparador := true;
 
-  {Caso coloque os caracteres abaixo na mascara o delphi não reconhecerá como número.
+  {Caso coloque os caracteres abaixo na mascara o Delphi não reconhecerá como número.
                       If (aTypeFld in [fldExtended,fldReal4,fldReal4P,fldRealNum,fldRealNum_Positivo,fldReal4Positivo,fldReal4PPositivo])
                           and (aTemplate[i] in [' ','%','$'])
                       Then Result := Result + aTemplate[i];
@@ -4506,9 +4503,281 @@ implementation
 
     end;
 
+    //procedure TUiDmxScroller.SetArgs(aArgs: array of const);
+    //   procedure displayFiels;
+    //      var
+    //        fld : PDmxFieldRec;
+    //        i,j : integer;
+    //        s :AnsiString;
+    //   begin
+    //     for i := 0 to Fields.Count-1 do
+    //     begin
+    //      fld := FieldByNumber(i);
+    //      if fld<> nil
+    //      Then begin
+    //             if fld^.FieldName<>''
+    //             Then s := fld^.FieldName+' '+fld^.template^
+    //             else s := fld^.Alias+' '+IntToStr(fld^.Fieldnum);
+    //           end;
+    //
+    //     end;
+    //   end;
+    //
+    //
+    //
+    //   var
+    //     fld : PDmxFieldRec;
+    //     i,j : integer;
+    //     s :AnsiString;
+    // begin
+    //   If High(aArgs)<0 then  exit;
+    //   j := 0;
+    //   for i := 0 to Fields.Count-1 do
+    //   begin
+    //    fld := FieldByNumber(i);
+    //    if fld<> nil
+    //    Then begin
+    //            s   := fld^.FieldName;
+    //            if s<>''
+    //            then begin
+    //                   CurrentField := fld;
+    //                   case aArgs[j].vtype of
+    //                     vtinteger    : CurrentField.Value := aArgs[j].vinteger;
+    //                     vtboolean    : CurrentField.Value := aArgs[j].vboolean;
+    //                     vtchar       : CurrentField.Value := aArgs[j].vchar;
+    //                     vtextended   : CurrentField.Value := aArgs[j].VExtended^;
+    //                     vtString     : CurrentField.Value := aArgs[j].VString^;
+    //
+    //                     {$ifdef CPU16}
+    //                       vtPointer    : CurrentField.Value := Longint(aArgs[j].VPointer);
+    //                     {$else}
+    //                       vtPointer    : CurrentField.Value := Int64(aArgs[j].VPointer);
+    //                     {$endif}
+    //
+    //                     vtPChar      : CurrentField.Value := aArgs[j].VPChar;
+    //                     vtObject     : CurrentField.Value := aArgs[j].VObject.Classname;
+    //                     vtClass      : CurrentField.Value := aArgs[j].VClass.Classname;
+    //                     vtAnsiString : begin
+    //                                      s:=AnsiString(aArgs[j].VAnsiString);
+    //                                      CurrentField.AsString := AnsiString(aArgs[j].VAnsiString);
+    //                                    end
+    //                     else           CurrentField.Value := '';
+    //                   end;
+    //                   inc(j);
+    //                 end;
+    //         end;
+    //   end;
+    //   Refresh;
+    // end;
+
+
+    procedure TUiDmxScroller.Set_JObject(aJSONObject: TJSONObject);
+       var
+         fld : PDmxFieldRec;
+         i   : Integer;
+         s:string;
+    begin
+      if Assigned(aJSONObject)
+      then begin
+             s:= aJSONObject.AsJSON;
+             for i := 0 to aJSONObject.Count-1 do
+             begin
+               fld := FieldByName(aJSONObject.Names[i]);
+               if Assigned(fld)
+               then begin
+                      fld.AsString := aJSONObject.strings[fld.FieldName];
+                    end
+               else raise TException.Create(self,'Set_JObject','Nome do campo '+aJSONObject.Names[i]+' não existe no formulário!!!') ;
+             end;
+             Refresh;
+           end;
+    end;
+
+
+    function TUiDmxScroller.Get_JObject: TJSONObject;
+        // Doc: https://wiki.freepascal.org/fcl-json
+
+        { program testJson;
+
+
+              uses fpjson;
+
+              var
+                O : TJSONObject;
+                A : TJSONArray;
+              begin
+                WriteLn('Teste TJSONObject:');
+                O:=TJSONObject.Create(['a',1,'b','two','three',
+                                       TJSONObject.Create(['x',10,'y',20])
+                                      ]
+                                     );
+                Writeln (O.FormatJSon);
+                Writeln (O.FormatJSon([foDonotQuoteMembers,foUseTabChar],1));
+                Writeln (O.FormatJSon([foSingleLineObject,foUseTabChar],1));
+                Writeln (O.asJSON);
+
+                WriteLn('Teste: TJSONArray.Create(');
+                A:=TJSONArray.Create([1,2,'a',TJSONObject.Create(['x',10,'y',20])]);
+
+                WriteLn('Teste: A.FormatJSon');
+                Writeln (A.FormatJSon());
+                WriteLn('Teste: (A.FormatJSON([foSinglelineArray],2));');
+                Writeln (A.FormatJSON([foSinglelineArray],2));
+
+                WriteLn('Teste: A.FormatJSON([foSinglelineArray,foSingleLineObject],2));');
+                Writeln (A.FormatJSON([foSinglelineArray,foSingleLineObject],2));
+
+                WriteLn('Teste: A.asJSON);');
+                Writeln (A.asJSON);
+              end.
+            }
+
+        { Procedure DoTestObject;
+
+          Var
+            J : TJSONObject;
+            I : Char;
+            k : Integer;
+
+          begin
+            Writeln('Objeto JSON com elementos: a=0,b=1,c=2,d=3');
+            J:=TJSONObject.Create(['a',0,'b',1,'c',2,'d',3]);
+            Write('Obtenha nomes de elementos com a propriedade de array Names[]: ');
+            For K:=0 to J.Count-1 do
+              begin
+              Write(J.Names[k]);
+              If K<J.Count-1 then
+                Write(', ');
+              end;
+            Writeln;
+
+            Write('Acesso através da propriedade do array Elements[] (padrão): ');
+            For I:='a' to 'd' do
+              begin
+              Write(i,' : ',J[I].AsString);
+              If I<'d' then
+                Write(', ');
+              end;
+            Writeln;
+
+            Write('Acesso através da propriedade do array Nulls[]: ');
+            For I:='a' to 'd' do
+              begin
+              Write(i,' : ',J.Nulls[I]);
+              If I<'d' then
+                Write(', ');
+              end;
+            Writeln;
+
+            Write('Acesso através da propriedade do array Booleans[]:');
+            For I:='a' to 'd' do
+              begin
+              Write(i,' : ',J.Booleans[I]);
+              If I<'d' then
+                Write(', ');
+              end;
+            Writeln;
+
+            Write('Acesso através da propriedade do array Integers[]: ');
+            For I:='a' to 'd' do
+              begin
+              Write(i,' : ',J.Integers[I]);
+              If I<'d' then
+                Write(', ');
+              end;
+            Writeln;
+
+            Write('Acesso através da propriedade do array Floats[]: ');
+            For I:='a' to 'd' do
+              begin
+              Write(i,' : ',J.Floats[I]:5:2);
+              If I<'d' then
+                Write(', ');
+              end;
+            Writeln;
+
+            Write('Acesso através da propriedade do array Strings[]: ');
+            For I:='a' to 'd' do
+              begin
+              Write(i,' : ',J.Strings[I]);
+              If I<'d' then
+                Write(', ');
+              end;
+            Writeln;
+            FreeAndNil(J);
+            WriteLn;
+            writeln;
+            Writeln('Crie com 3 TJSONObjects vazios no construtor de array');
+            Write('Acesso através da propriedade do array Objects[]: ');
+
+            J:=TJSONObject.Create(['a',TJSOnObject.Create,'b',TJSOnObject.Create,'c',TJSOnObject.Create]);
+            For I:='a' to 'c' do
+              begin
+              Write(i,' : ');
+              DumpJSONData(J.Objects[i],False);
+              If I<'c' then
+                Write(', ');
+              end;
+            Writeln;
+            FreeAndNil(J);
+
+            Writeln('Crie com 3 TJSONArrays vazios no construtor de array');
+            Write('Acesso através da propriedade do array Arrays[]: ');
+            J:=TJSONObject.Create(['a',TJSONArray.Create,'b',TJSONArray.Create,'c',TJSONArray.Create]);
+            For I:='a' to 'c' do
+              begin
+              Write(i,' : ');
+              DumpJSONData(J.Arrays[I],False);
+              If I<'c' then
+                Write(', ');
+              end;
+            Writeln;
+            FreeAndNil(J);
+
+
+            Writeln('Crie um objeto vazio. Adicione elementos com o método Add() sobrecarregado');
+            J:=TJSONObject.Create;
+            J.Add('a'); // Null
+            J.Add('b',True);
+            J.Add('c',False);
+            J.Add('d',123);
+            J.Add('e',2.34);
+            J.Add('f','A string');
+            J.Add('g',TJSONArray.Create);
+            J.Add('h',TJSOnObject.Create);
+            DumpJSONData(J);
+            FreeAndNil(J);
+          end;
+      }
+
+      var
+        fld : PDmxFieldRec;
+        s,v:string;
+      Var
+        i : Integer;
+    begin
+
+      if Assigned(Fields)
+      then begin
+              Result := TJSONObject.Create;
+              for i := 0 to Fields.Count-1 do
+              begin
+                fld := Fields[i];
+                if  Assigned(fld) and (fld.Fieldnum<>0) and (fld.FieldName<>'')
+                then begin
+                       //s :=fld.FieldName;
+                       //v := fld.AsString;
+
+                       Result.add(fld.FieldName,fld.AsString);
+                     end;
+              end;
+           end
+      else result := nil;
+    end;
 
   {$EndRegion 'TUiDmxScroller'}
   //======================================================
+
 
 end.
 

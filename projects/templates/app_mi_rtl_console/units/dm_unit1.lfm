@@ -1,0 +1,41 @@
+object DataModule1: TDataModule1
+  OldCreateOrder = False
+  Height = 150
+  HorizontalOffset = 424
+  VerticalOffset = 250
+  Width = 447
+  object DmxScroller_Form1: TDmxScroller_Form
+    Alias = 'TDmxScroller_Form'
+    OnAddTemplate = DmxScroller_Form1AddTemplate
+    Active = False
+    AlignmentLabels = taLeftJustify
+    Left = 64
+    Top = 16
+  end
+  object SQLConnector1: TSQLConnector
+    Connected = False
+    LoginPrompt = False
+    KeepConnection = False
+    Transaction = SQLTransaction1
+    Left = 56
+    Top = 88
+  end
+  object SQLTransaction1: TSQLTransaction
+    Active = False
+    Database = SQLConnector1
+    Left = 166
+    Top = 88
+  end
+  object SQLQuery1: TSQLQuery
+    FieldDefs = <>
+    Params = <>
+    Macros = <>
+    Left = 264
+    Top = 88
+  end
+  object DataSource1: TDataSource
+    DataSet = SQLQuery1
+    Left = 368
+    Top = 88
+  end
+end

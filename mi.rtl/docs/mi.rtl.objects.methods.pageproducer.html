@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<title>mi.rtl.objects.methods.pageproducer</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="generator" content="PasDoc 0.16.0">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<link rel="stylesheet" type="text/css" href="tipuesearch/tipuesearch.css">
+
+<link rel="StyleSheet" type="text/css" href="pasdoc.css">
+</head>
+<body>
+<div class="container"><div class="navigation">
+<ul><li><a href="AllUnits.html">Units</a></li><li><a href="ClassHierarchy.html">Hierarquia de Classes</a></li><li><a href="AllClasses.html">Classes, Interfaces, Objetos e Registros</a></li><li><a href="AllTypes.html">Tipos</a></li><li><a href="AllVariables.html">Variáveis</a></li><li><a href="AllConstants.html">Constantes</a></li><li><a href="AllFunctions.html">Funções e Procedimentos</a></li><li><a href="AllIdentifiers.html">Identificadores</a></li><li><form class="search-form" action="tipue_results.html"><div class="search-input"><input type="text" name="q" id="tipue_search_input" pattern=".{3,}" title="At least 3 characters" required><div class="search-button"><input type="button" id="tipue_search_button" onclick="this.form.submit();"></div></div></form>
+<div style="clear: both"></div>
+</li></ul></div><div class="content">
+<h1 class="unit">Unit mi.rtl.objects.methods.pageproducer</h1>
+<div class="sections">
+<div class="one_section"><a class="section" href="#PasDoc-Description">Descrição</a></div><div class="one_section"><a class="section" href="#PasDoc-Uses">Uses</a></div><div class="one_section"><a class="section" href="#PasDoc-Classes">Classes, Interfaces, Objetos e Registros</a></div><div class="one_section"><a class="section" href="#PasDoc-FuncsProcs">Funções e Procedimentos</a></div><div class="one_section">Tipos</div><div class="one_section"><a class="section" href="#PasDoc-Constants">Constantes</a></div><div class="one_section">Variáveis</div></div>
+<span id="PasDoc-Description"></span><h2 class="description">Descrição</h2>
+<p>
+</p>
+
+<ul class="paragraph_spacing">
+  <li><p>A unit <strong><code>mi.rtl.objects.methods.pageproducer</code></strong> implementa as propriedade e métodos para produzir página html, semelhante a unit HTTPProd do Delphi.
+
+<p></p>
+
+<ul class="paragraph_spacing">
+  <li><p><strong>NOTAS</strong> -</p></li>
+  <li><p><strong>VERSÃO</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Alpha - Alpha - 0.9.0</p></li>
+</ul>
+
+<p></p></li>
+  <li><p><strong>HISTÓRICO</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Criado por: Paulo Sérgio da Silva Pacheco e-mail: paulosspacheco@yahoo.com.br </p>
+
+<ul class="paragraph_spacing">
+  <li><p><strong>23/07/2023</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>08:12 a 12:00: Criar a unit <strong><code>mi.rtl.objects.methods.pageproducer</code></strong></p></li>
+</ul>
+
+<p></p></li>
+  <li><p><strong>24/07/2023</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>08:45 a 12:00: Documento da unit</p></li>
+  <li><p>14:00 a 17:30: Documento da unit</p></li>
+</ul>
+
+<p></p></li>
+  <li><p><strong>25/07/2023</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>08:15 a 12:00: Documento da unit</p></li>
+  <li><p>13:30 a 17:30: Documento da unit</p></li>
+</ul>
+
+<p></p></li>
+  <li><p><strong>10/08/2023</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>08:10 a 12:00: Implementar componente <a class="normal" href="mi.rtl.objects.methods.pageproducer.TPageProducer.html">TPageProducer</a></p></li>
+</ul>
+
+<p></p></li>
+  <li><p><strong>16/08/2023</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>08:00 a 12:00: T12 Criar o componente <a class="normal" href="mi.rtl.objects.methods.pageproducer.TPageProducer.html">TPageProducer</a>. A procedure create_css_table() deve criar o arquivo na pasta template/css</p></li>
+  <li><p>13:20 a 17:25: T12 Criar o componente TPageProducer.GetHtmlTable</p></li>
+</ul>
+
+<p></p></li>
+  <li><p><strong>16/08/2023</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>08:00 a 12:00 T12 Documentar componente <a class="normal" href="mi.rtl.objects.methods.pageproducer.TPageProducer.html">TPageProducer</a></p></li>
+  <li><p>13:30 a 17:30 T12 Documentar componente <a class="normal" href="mi.rtl.objects.methods.pageproducer.TPageProducer.html">TPageProducer</a></p></li>
+</ul>
+
+<p></p></li>
+  <li><p><strong>17/08/2023</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>08:00 a 11:56 T12 Documentar componente <a class="normal" href="mi.rtl.objects.methods.pageproducer.TPageProducer.html">TPageProducer</a></p></li>
+  <li><p>13:30 a 17:17 T12 Documentar componente <a class="normal" href="mi.rtl.objects.methods.pageproducer.TPageProducer.html">TPageProducer</a></p></li>
+</ul>
+
+<p></p></li>
+  <li><p><strong>18/08/2023</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>09:55 a 12:00 T12 Documentar componente <a class="normal" href="mi.rtl.objects.methods.pageproducer.TPageProducer.html">TPageProducer</a></p></li>
+  <li><p>14:23 a 17:15 T12 Documentar componente <a class="normal" href="mi.rtl.objects.methods.pageproducer.TPageProducer.html">TPageProducer</a></p></li>
+</ul>
+
+<p></p></li>
+  <li><p><strong>25/08/2023</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>09:35 a 12:00 T12 Documentar componente <a class="normal" href="mi.rtl.objects.methods.pageproducer.TPageProducer.html">TPageProducer</a></p></li>
+  <li><p>14:23 a 17:15 T12 Documentar componente <a class="normal" href="mi.rtl.objects.methods.pageproducer.TPageProducer.html">TPageProducer</a></p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p></li>
+  <li><p><strong>CÓDIGO FONTE</strong>: </p>
+
+<ul class="paragraph_spacing">
+  <li><p><a href="../units/mi.rtl.objects.methods.pageproducer.pas</a></p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p>
+<span id="PasDoc-Uses"></span><h2 class="uses">Uses</h2>
+<ul class="useslist"><li>Classes</li><li>SysUtils</li><li>StrUtils</li><li><a href="fpTemplate.html">FPTemplate</a></li><li><a href="mi.rtl.Consts.html">mi.rtl.Consts</a></li><li><a href="mi.rtl.Objects.Methods.html">mi.rtl.Objects.Methods</a></li><li><a href="mi.rtl.miStringlist.html">mi.rtl.miStringlist</a></li><li><a href="mi.rtl.Objects.Methods.Paramexecucao.Application.html">mi.rtl.Objects.Methods.Paramexecucao.Application</a></li></ul><h2 class="overview">Visão Geral</h2>
+<span id="PasDoc-Classes"></span><h3 class="cio">Classes, Interfaces, Objetos e Registros</h3>
+<table class="classestable wide_list">
+<tr class="listheader">
+<th class="itemname">Nome</th>
+<th class="itemdesc">Descrição</th>
+</tr>
+<tr class="list">
+<td class="itemname">Classe&nbsp;<a class="bold" href="mi.rtl.objects.methods.pageproducer.TBasePageProducer.html"><code>TBasePageProducer</code></a></td>
+<td class="itemdesc">&nbsp;</td>
+</tr>
+<tr class="list2">
+<td class="itemname">Classe&nbsp;<a class="bold" href="mi.rtl.objects.methods.pageproducer.TPageProducer.html"><code>TPageProducer</code></a></td>
+<td class="itemdesc">&nbsp;</td>
+</tr>
+</table>
+<span id="PasDoc-FuncsProcs"></span><h3 class="summary">Funções e Procedimentos</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="itemcode"><code>procedure <strong><a href="mi.rtl.objects.methods.pageproducer.html#register">register</a></strong>;</code></td>
+</tr>
+</table>
+<span id="PasDoc-Constants"></span><h3 class="summary">Constantes</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="itemcode"><code><strong><a href="mi.rtl.objects.methods.pageproducer.html#Template_html_tglink">Template_html_tglink</a></strong> = '&lt;!--# tgLink [- TagName=[a href=&quot;&tilde;url&quot; target=&quot;_blank&quot; title=&quot;&tilde;title&quot;] &tilde;text [/a]  -] #--&gt;';</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><strong><a href="mi.rtl.objects.methods.pageproducer.html#Tag_html_tgTable">Tag_html_tgTable</a></strong> = ''+
+    '&lt;!--# tgTable [- TagName=[Alias=&quot;Titulo da tabela&quot;;'+<a href="mi.rtl.Consts.TConsts.html#New_Line">TConsts.New_Line</a>+
+    '                                 Header=&quot;Column1: &quot;,&quot;:Column2:&quot;,&quot;:Column3&quot;,&quot;:Column4&quot; ;'+<a href="mi.rtl.Consts.TConsts.html#New_Line">TConsts.New_Line</a>+
+    '                                 widths=&quot;300px&quot;    ,&quot;250px&quot;    ,&quot;150px&quot;   ,&quot;180px&quot;    ;'+<a href="mi.rtl.Consts.TConsts.html#New_Line">TConsts.New_Line</a>+
+    '                                 OneRow=[&quot;   a11  &quot;,&quot;    a12  &quot;,&quot;  a13r  &quot;,&quot;    a14 &quot;,/,'+<a href="mi.rtl.Consts.TConsts.html#New_Line">TConsts.New_Line</a>+
+    '                                         &quot;   a21  &quot;,&quot;    a22  &quot;,&quot;  a23r  &quot;,&quot;    a24 &quot;,/,'+<a href="mi.rtl.Consts.TConsts.html#New_Line">TConsts.New_Line</a>+
+    '                                        ];'+<a href="mi.rtl.Consts.TConsts.html#New_Line">TConsts.New_Line</a>+
+    '                                 Footer=&quot;soma Columm1&quot;,&quot;soma Columm2&quot;,&quot;soma Columm3&quot;,&quot;soma Columm4&quot;;'+<a href="mi.rtl.Consts.TConsts.html#New_Line">TConsts.New_Line</a>+
+    '                                 NotFound=&quot;Mensagem em caso de erro&quot;;'+<a href="mi.rtl.Consts.TConsts.html#New_Line">TConsts.New_Line</a>+
+    '                                 template=&quot;&lt;Table id=&quot;table&quot;&gt;'+<a href="mi.rtl.Consts.TConsts.html#New_Line">TConsts.New_Line</a>+
+    '                                               &lt;thead id=&quot;theadTagName&quot;&gt;'+<a href="mi.rtl.Consts.TConsts.html#New_Line">TConsts.New_Line</a>+
+    '                                                  &lt;tr&gt;&lt;th colspan=&quot;4&quot;&gt; &lt;p  style=&quot;text-align: center&quot;&gt;  &tilde;Alias  &lt;/p&gt; &lt;/th&gt;  &lt;/tr&gt;'+<a href="mi.rtl.Consts.TConsts.html#New_Line">TConsts.New_Line</a>+
+    '                                                  &lt;tr&gt;&tilde;HeaderCols&lt;/tr&gt;'+<a href="mi.rtl.Consts.TConsts.html#New_Line">TConsts.New_Line</a>+
+    '                                               &lt;/thead&gt;'+<a href="mi.rtl.Consts.TConsts.html#New_Line">TConsts.New_Line</a>+
+    '                                               &lt;tbody id=&quot;tbodyTagName&quot;&gt;'+<a href="mi.rtl.Consts.TConsts.html#New_Line">TConsts.New_Line</a>+
+    '                                                  &tilde;OneRowCols'+<a href="mi.rtl.Consts.TConsts.html#New_Line">TConsts.New_Line</a>+
+    '                                               &lt;/tbody&gt;'+<a href="mi.rtl.Consts.TConsts.html#New_Line">TConsts.New_Line</a>+
+    '                                               &lt;tfoot id=&quot;tfootTagName&quot;&gt;'+<a href="mi.rtl.Consts.TConsts.html#New_Line">TConsts.New_Line</a>+
+    '                                                  &tilde;FooterCols'+<a href="mi.rtl.Consts.TConsts.html#New_Line">TConsts.New_Line</a>+
+    '                                               &lt;/tfoot&gt;'+<a href="mi.rtl.Consts.TConsts.html#New_Line">TConsts.New_Line</a>+
+    '                                           &lt;/Table&gt;&quot;'+<a href="mi.rtl.Consts.TConsts.html#New_Line">TConsts.New_Line</a>+
+    '                                ]'+<a href="mi.rtl.Consts.TConsts.html#New_Line">TConsts.New_Line</a>+
+    '                      -]'+<a href="mi.rtl.Consts.TConsts.html#New_Line">TConsts.New_Line</a>+
+    '#--&gt;'+<a href="mi.rtl.Consts.TConsts.html#New_Line">TConsts.New_Line</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><strong><a href="mi.rtl.objects.methods.pageproducer.html#Tag_html_tgImage">Tag_html_tgImage</a></strong> = ''+
+    '&lt;!--# tgImage [- $Param(NomeDaFigura)=[&lt;figure&gt;'+<a href="mi.rtl.Consts.TConsts.html#New_Line">TConsts.New_Line</a>+
+    '                                        &lt;img src=&quot;&tilde;src&quot;'+<a href="mi.rtl.Consts.TConsts.html#New_Line">TConsts.New_Line</a>+
+    '                                             alt=&quot;&tilde;alt&quot;'+<a href="mi.rtl.Consts.TConsts.html#New_Line">TConsts.New_Line</a>+
+    '                                             title=&quot;&tilde;title&quot;'+<a href="mi.rtl.Consts.TConsts.html#New_Line">TConsts.New_Line</a>+
+    '                                             style=&quot;width:10%&quot;&gt;'+<a href="mi.rtl.Consts.TConsts.html#New_Line">TConsts.New_Line</a>+
+    '                                        &lt;figcaption&gt;&tilde;figcaption&lt;/figcaption&gt;'+<a href="mi.rtl.Consts.TConsts.html#New_Line">TConsts.New_Line</a>+
+    '                                       &lt;/figure&gt;'+<a href="mi.rtl.Consts.TConsts.html#New_Line">TConsts.New_Line</a>+
+    '                                      ]'+<a href="mi.rtl.Consts.TConsts.html#New_Line">TConsts.New_Line</a>+
+    '              -]'+<a href="mi.rtl.Consts.TConsts.html#New_Line">TConsts.New_Line</a>+
+    '#--&gt;'+<a href="mi.rtl.Consts.TConsts.html#New_Line">TConsts.New_Line</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><strong><a href="mi.rtl.objects.methods.pageproducer.html#Tag_html_tgImageMap">Tag_html_tgImageMap</a></strong> = ''+
+    '&lt;!--# tgImageMap [- $Param(NomeDaImagem)=[ src=&quot;./img/$Param(NomeDaImagem).jpg&quot;;'+<a href="mi.rtl.Consts.TConsts.html#New_Line">TConsts.New_Line</a>+
+    '                                           usemap=&quot;$Param(NomeDaImagem)&quot;;'+<a href="mi.rtl.Consts.TConsts.html#New_Line">TConsts.New_Line</a>+
+    '                                           OneRowArea=[&quot;$Param(rect)&quot;   , &quot;$Param(target)&quot; , &quot;$Param(alt_rect)&quot;   , &quot;$Param(title_rect)&quot;   , &quot;$Param(href_rect.html)&quot;   , &quot;$Param(y1),$Param(y1),$Param(x2),$Param(y2)&quot;,/,'+<a href="mi.rtl.Consts.TConsts.html#New_Line">TConsts.New_Line</a>+
+    '                                                       &quot;$Param(circle)&quot; , &quot;$Param(target)&quot; , &quot;$Param(alt_circle)&quot; , &quot;$Param(title_circle)&quot; , &quot;$Param(href_circle.html)&quot; , &quot;$Param(x1),$Param(y1),$Param(raio)&quot;,/,'+<a href="mi.rtl.Consts.TConsts.html#New_Line">TConsts.New_Line</a>+
+    '                                                       &quot;$Param(poly)&quot;   , &quot;$Param(target)&quot; , &quot;$Param(alt_poly)&quot;   , &quot;$Param(title_poly)&quot;   , &quot;$Param(href_poly.html)&quot;   , &quot;$Param(x1),$Param(y1),$Param(x2),$Param(y2),$Param(x3),$Param(y3),$Param(x4),$Param(y4)$Param(..),$Param(xn),$Param(yn)&quot;,/,'+<a href="mi.rtl.Consts.TConsts.html#New_Line">TConsts.New_Line</a>+
+    '                                                       &lt;!-- Adicione aqui ,mais linhas semelhantes a linha acima e apague esse comentário--&gt;'+<a href="mi.rtl.Consts.TConsts.html#New_Line">TConsts.New_Line</a>+
+    '                                                      ];'+<a href="mi.rtl.Consts.TConsts.html#New_Line">TConsts.New_Line</a>+
+    '                                           templateOneRowArea=&lt;area target=&quot;&tilde;target&quot; alt=&quot;&tilde;alt&quot; title=&quot;&tilde;title&quot; href=&quot;&tilde;href&quot; coords=&quot;&tilde;coords&quot; shape=&quot;&tilde;shape&quot;&gt;;'+<a href="mi.rtl.Consts.TConsts.html#New_Line">TConsts.New_Line</a>+
+    '                                           templateImageMap=&quot;&lt; img src=&quot;&tilde;src&quot;'+<a href="mi.rtl.Consts.TConsts.html#New_Line">TConsts.New_Line</a>+
+    '                                                               alt=&quot;&tilde;alt&quot;'+<a href="mi.rtl.Consts.TConsts.html#New_Line">TConsts.New_Line</a>+
+    '                                                               usemap=&quot;#&tilde;usemap&quot;&gt;'+<a href="mi.rtl.Consts.TConsts.html#New_Line">TConsts.New_Line</a>+
+    '                                                               &lt;map name=&quot;&tilde;usemap&quot;&gt;'+<a href="mi.rtl.Consts.TConsts.html#New_Line">TConsts.New_Line</a>+
+    '                                                                  &lt;area shape=&quot;default&quot; nohref /&gt;'+<a href="mi.rtl.Consts.TConsts.html#New_Line">TConsts.New_Line</a>+
+    '                                                                  &tilde;OneRowArea'+<a href="mi.rtl.Consts.TConsts.html#New_Line">TConsts.New_Line</a>+
+    '                                                               &lt;/map&gt;&quot;'+<a href="mi.rtl.Consts.TConsts.html#New_Line">TConsts.New_Line</a>+
+    '                                         ]'+<a href="mi.rtl.Consts.TConsts.html#New_Line">TConsts.New_Line</a>+
+    '                 -]'+<a href="mi.rtl.Consts.TConsts.html#New_Line">TConsts.New_Line</a>+
+    '#--&gt;'+<a href="mi.rtl.Consts.TConsts.html#New_Line">TConsts.New_Line</a>;</code></td>
+</tr>
+</table>
+<h2 class="description">Descrição</h2>
+<h3 class="detail">Funções e Procedimentos</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="register"></span><code>procedure <strong>register</strong>;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<h3 class="detail">Constantes</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="Template_html_tglink"></span><code><strong>Template_html_tglink</strong> = '&lt;!--# tgLink [- TagName=[a href=&quot;&tilde;url&quot; target=&quot;_blank&quot; title=&quot;&tilde;title&quot;] &tilde;text [/a]  -] #--&gt;';</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+O recurso <strong><code>Template_html_tglink</code></strong> é usado como template para o componente <em><a class="normal" href="mi.rtl.objects.methods.pageproducer.TBasePageProducer.html">TBasePageProducer</a></em> com a finalidade de produzir links variáveis.
+
+<p></p>
+
+<ul class="paragraph_spacing">
+  <li><p>O evento <strong>OnHTMLTag_tgLink</strong> deve ser usado para preencher as varáveis do template.</p></li>
+  <li><p><strong>PARÂMETROS</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>TagName = Nome do template. </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Deve ser informado no template</p></li>
+</ul>
+
+<p></p></li>
+  <li><p>&tilde;url = Endereço do link </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Deve ser informado no evento <strong>OnHTMLTag_tgLink</strong></p></li>
+</ul>
+
+<p></p></li>
+  <li><p>&tilde;target = Destino onde a página deve ser aberta, se vazio abre na aba atual. </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Deve ser informado no evento <strong>OnHTMLTag_tgLink</strong></p></li>
+</ul>
+
+<p></p></li>
+  <li><p>&tilde;title = Documentação do link </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Deve ser informado no evento <strong>OnHTMLTag_tgLink</strong></p></li>
+</ul>
+
+<p></p></li>
+  <li><p>&tilde;text = Descrição do link </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Deve ser informado no evento <strong>OnHTMLTag_tgLink</strong></p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p></li>
+  <li><p><strong>Exemplo de uso</strong>:
+
+<p></p>
+
+<pre class="longcode">
+
+&lt;!--<span class="pascal_string">#</span> tgLink [-  PsspAppBr=[a href=&quot;&tilde;url&quot; target=&quot;&tilde;target&quot; title=&quot;&tilde;title&quot;] &tilde;text [/a]  -] <span class="pascal_string">#</span>--&gt;
+
+&lt;!--<span class="pascal_string">#</span> tgCustom [- ListFilesText=Arquivo:-&quot;&tilde;ListFilesText&quot; -] <span class="pascal_string">#</span>--></pre>
+
+<p></p></li>
+</ul>
+
+<p></p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="Tag_html_tgTable"></span><code><strong>Tag_html_tgTable</strong> = ''+
+    '&lt;!--# tgTable [- TagName=[Alias=&quot;Titulo da tabela&quot;;'+<a href="mi.rtl.Consts.TConsts.html#New_Line">TConsts.New_Line</a>+
+    '                                 Header=&quot;Column1: &quot;,&quot;:Column2:&quot;,&quot;:Column3&quot;,&quot;:Column4&quot; ;'+<a href="mi.rtl.Consts.TConsts.html#New_Line">TConsts.New_Line</a>+
+    '                                 widths=&quot;300px&quot;    ,&quot;250px&quot;    ,&quot;150px&quot;   ,&quot;180px&quot;    ;'+<a href="mi.rtl.Consts.TConsts.html#New_Line">TConsts.New_Line</a>+
+    '                                 OneRow=[&quot;   a11  &quot;,&quot;    a12  &quot;,&quot;  a13r  &quot;,&quot;    a14 &quot;,/,'+<a href="mi.rtl.Consts.TConsts.html#New_Line">TConsts.New_Line</a>+
+    '                                         &quot;   a21  &quot;,&quot;    a22  &quot;,&quot;  a23r  &quot;,&quot;    a24 &quot;,/,'+<a href="mi.rtl.Consts.TConsts.html#New_Line">TConsts.New_Line</a>+
+    '                                        ];'+<a href="mi.rtl.Consts.TConsts.html#New_Line">TConsts.New_Line</a>+
+    '                                 Footer=&quot;soma Columm1&quot;,&quot;soma Columm2&quot;,&quot;soma Columm3&quot;,&quot;soma Columm4&quot;;'+<a href="mi.rtl.Consts.TConsts.html#New_Line">TConsts.New_Line</a>+
+    '                                 NotFound=&quot;Mensagem em caso de erro&quot;;'+<a href="mi.rtl.Consts.TConsts.html#New_Line">TConsts.New_Line</a>+
+    '                                 template=&quot;&lt;Table id=&quot;table&quot;&gt;'+<a href="mi.rtl.Consts.TConsts.html#New_Line">TConsts.New_Line</a>+
+    '                                               &lt;thead id=&quot;theadTagName&quot;&gt;'+<a href="mi.rtl.Consts.TConsts.html#New_Line">TConsts.New_Line</a>+
+    '                                                  &lt;tr&gt;&lt;th colspan=&quot;4&quot;&gt; &lt;p  style=&quot;text-align: center&quot;&gt;  &tilde;Alias  &lt;/p&gt; &lt;/th&gt;  &lt;/tr&gt;'+<a href="mi.rtl.Consts.TConsts.html#New_Line">TConsts.New_Line</a>+
+    '                                                  &lt;tr&gt;&tilde;HeaderCols&lt;/tr&gt;'+<a href="mi.rtl.Consts.TConsts.html#New_Line">TConsts.New_Line</a>+
+    '                                               &lt;/thead&gt;'+<a href="mi.rtl.Consts.TConsts.html#New_Line">TConsts.New_Line</a>+
+    '                                               &lt;tbody id=&quot;tbodyTagName&quot;&gt;'+<a href="mi.rtl.Consts.TConsts.html#New_Line">TConsts.New_Line</a>+
+    '                                                  &tilde;OneRowCols'+<a href="mi.rtl.Consts.TConsts.html#New_Line">TConsts.New_Line</a>+
+    '                                               &lt;/tbody&gt;'+<a href="mi.rtl.Consts.TConsts.html#New_Line">TConsts.New_Line</a>+
+    '                                               &lt;tfoot id=&quot;tfootTagName&quot;&gt;'+<a href="mi.rtl.Consts.TConsts.html#New_Line">TConsts.New_Line</a>+
+    '                                                  &tilde;FooterCols'+<a href="mi.rtl.Consts.TConsts.html#New_Line">TConsts.New_Line</a>+
+    '                                               &lt;/tfoot&gt;'+<a href="mi.rtl.Consts.TConsts.html#New_Line">TConsts.New_Line</a>+
+    '                                           &lt;/Table&gt;&quot;'+<a href="mi.rtl.Consts.TConsts.html#New_Line">TConsts.New_Line</a>+
+    '                                ]'+<a href="mi.rtl.Consts.TConsts.html#New_Line">TConsts.New_Line</a>+
+    '                      -]'+<a href="mi.rtl.Consts.TConsts.html#New_Line">TConsts.New_Line</a>+
+    '#--&gt;'+<a href="mi.rtl.Consts.TConsts.html#New_Line">TConsts.New_Line</a>;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+O recurso <strong><code>Tag_html_tgTable</code></strong> é usado para criar tabela em um arquivo de modelo.
+
+<p></p>
+
+<ul class="paragraph_spacing">
+  <li><p><strong>PARÂMETROS</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>TagName=[] : Nome da tag </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Deve ser informado na <strong>tag</strong>;</p></li>
+</ul>
+
+<p></p></li>
+  <li><p>Alias : Título da tabela </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Deve ser informado na <strong>tag</strong>;</p></li>
+</ul>
+
+<p></p></li>
+  <li><p>Header : Lista os rótulos do título da tabela </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Deve ser informado na <strong>tag</strong>;</p></li>
+</ul>
+
+<p></p></li>
+  <li><p>widths : Lista as larguras das colunas e alinhamentos onde o : indica se o alinhamento usando as regras do markdown. </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Deve ser informado na <strong>tag</strong>;</p></li>
+</ul>
+
+<p></p></li>
+  <li><p>OneRow=[] : Matriz do conteúdo com todas as linhas e colunas da tabela, onde o número de colunas deve coincidir o número de elementos do Header e número de elementos do widths e o número de elementos do Footer. </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Deve ser informado na <strong>tag</strong>;</p></li>
+</ul>
+
+<p></p></li>
+  <li><p>NotFound : String com uma mensagem de erro se existir. </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Deve ser informado na <strong>tag</strong>;</p></li>
+</ul>
+
+<p></p></li>
+  <li><p>Footer : Lista as somas impressas no rodapé da tabela, podendo ser omitida; </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Deve ser informado na <strong>tag</strong>;</p></li>
+</ul>
+
+<p></p></li>
+  <li><p>Template : Template de uma tabela onde os parâmetros acima serão inseridos. </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Deve ser informado na <strong>tag</strong>;</p></li>
+  <li><p><strong>Notas</strong>: </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Parâmetros obrigatórios do template: </p>
+
+<ul class="paragraph_spacing">
+  <li><p>id=&quot;table&quot;, onde o nome table deve ser um elemento .css no heard da página. </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Deve ser informado na <strong>tag</strong>;</p></li>
+</ul>
+
+<p></p></li>
+  <li><p>id=&quot;theadTagName&quot;, onde a palavra tagName deve ter o mesmo nome do parâmetro tagName[] acima; </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Deve ser informado na <strong>tag</strong>;</p></li>
+</ul>
+
+<p></p></li>
+  <li><p>id=&quot;tbodyTagName&quot;, onde a palavra tagName deve ter o mesmo nome do parâmetro tagName[] acima; </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Deve ser informado na <strong>tag</strong>;</p></li>
+</ul>
+
+<p></p></li>
+  <li><p>id=&quot;tfootTagName&quot;, onde a palavra tagName deve ter o mesmo nome do parâmetro tagName[] acima; </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Deve ser informado na <strong>tag</strong>;</p></li>
+</ul>
+
+<p></p></li>
+  <li><p>colspan=&quot;4&quot;, onde 4 deve ser substituído pelo número de colunas a ser mesclada para formar a barra de títulos; </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Deve ser informado na <strong>tag</strong>;</p></li>
+</ul>
+
+<p></p></li>
+  <li><p>&tilde;Alias : Indica a posição onde o título deve ser inserido; </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Deve ser informado na <strong>tag</strong>;</p></li>
+</ul>
+
+<p></p></li>
+  <li><p>&tilde;HeaderCols : Indica a posição onde a lista de rótulos deve ser inserida; </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Deve ser informado na <strong>tag</strong>;</p></li>
+</ul>
+
+<p></p></li>
+  <li><p>&tilde;OneRowCols : Indica a posição onde a matriz de linhas e colunas deve ser inserida; </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Deve ser informado na <strong>tag</strong>;</p></li>
+</ul>
+
+<p></p></li>
+  <li><p>&tilde;FooterCols : Indica a posição onde a lista Footer deve ser inserida; </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Deve ser informado na <strong>tag</strong>;</p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p></li>
+  <li><p><strong>Exemplo de uso</strong>:
+
+<p></p>
+
+<pre class="longcode">
+&lt;!--<span class="pascal_string">#</span> tgTable [- ALUNOS=[Alias=&quot;Cadastro de Alunos&quot;;
+                         Header=&quot;Column1:      &quot;,&quot;:Column2:     &quot;,&quot;:Column3      &quot;,&quot;:Column4    &quot;;
+                         widths=&quot;<span class="pascal_numeric">300</span>px&quot;         ,&quot;<span class="pascal_numeric">250</span>px&quot;         ,&quot;<span class="pascal_numeric">150</span>px&quot;         ,&quot;<span class="pascal_numeric">180</span>px&quot;;
+                         OneRow=[&quot;<span class="pascal_numeric">1</span> Paulo Sérgio&quot;,&quot;Marcos Pacheco&quot;,&quot;George Bruno  &quot;,&quot;George Bruno&quot;,/,
+                                 &quot;<span class="pascal_numeric">2</span> José Carlos&quot; ,&quot;Antônio       &quot;,&quot;Paulo Henrique&quot;,&quot;George Bruno&quot;,/,
+                                ];
+                         Footer=&quot;soma Columm1&quot;,&quot;soma Columm2&quot;,&quot;soma Columm3&quot;,&quot;soma Columm4&quot;;
+                         NotFound=&quot;Mensagem em caso de erro&quot;;
+                         template=&quot;&lt;Table id=&quot;table&quot;&gt;
+
+                                    &lt;thead id=&quot;theadAlunos&quot;&gt;
+                                      &lt;tr&gt;&lt;th colspan=&quot;<span class="pascal_numeric">4</span>&quot;&gt; &lt;p  style=&quot;text-align: center&quot;&gt;  &tilde;Alias  &lt;/p&gt; &lt;/th&gt;  &lt;/tr&gt;
+                                      &lt;tr&gt;&tilde;HeaderCols&lt;/tr&gt;
+                                    &lt;/thead&gt;
+
+                                    &lt;tbody id=&quot;tbodyAlunos&quot;&gt;
+                                      &tilde;OneRowCols
+                                    &lt;/tbody&gt;
+
+                                    &lt;tfoot id=&quot;tfootAlunos&quot;&gt;
+                                      &tilde;FooterCols
+                                    &lt;/tfoot&gt;
+                                   &lt;/Table&gt;&quot;
+                        ]
+              -]
+<span class="pascal_string">#</span>--></pre>
+
+<p></p></li>
+</ul>
+
+<p></p></li>
+  <li><p><strong>NOTAS</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>As palavras que começam com o sinal <strong>&tilde;</strong> são substituídas no evento <strong>OnHTMLTag_tgTable</strong> pelos dados informados na própria <strong>tag</strong>, porém em caso de omissão do dado, o programa pode inserir uma varável específica.</p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="Tag_html_tgImage"></span><code><strong>Tag_html_tgImage</strong> = ''+
+    '&lt;!--# tgImage [- $Param(NomeDaFigura)=[&lt;figure&gt;'+<a href="mi.rtl.Consts.TConsts.html#New_Line">TConsts.New_Line</a>+
+    '                                        &lt;img src=&quot;&tilde;src&quot;'+<a href="mi.rtl.Consts.TConsts.html#New_Line">TConsts.New_Line</a>+
+    '                                             alt=&quot;&tilde;alt&quot;'+<a href="mi.rtl.Consts.TConsts.html#New_Line">TConsts.New_Line</a>+
+    '                                             title=&quot;&tilde;title&quot;'+<a href="mi.rtl.Consts.TConsts.html#New_Line">TConsts.New_Line</a>+
+    '                                             style=&quot;width:10%&quot;&gt;'+<a href="mi.rtl.Consts.TConsts.html#New_Line">TConsts.New_Line</a>+
+    '                                        &lt;figcaption&gt;&tilde;figcaption&lt;/figcaption&gt;'+<a href="mi.rtl.Consts.TConsts.html#New_Line">TConsts.New_Line</a>+
+    '                                       &lt;/figure&gt;'+<a href="mi.rtl.Consts.TConsts.html#New_Line">TConsts.New_Line</a>+
+    '                                      ]'+<a href="mi.rtl.Consts.TConsts.html#New_Line">TConsts.New_Line</a>+
+    '              -]'+<a href="mi.rtl.Consts.TConsts.html#New_Line">TConsts.New_Line</a>+
+    '#--&gt;'+<a href="mi.rtl.Consts.TConsts.html#New_Line">TConsts.New_Line</a>;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="Tag_html_tgImageMap"></span><code><strong>Tag_html_tgImageMap</strong> = ''+
+    '&lt;!--# tgImageMap [- $Param(NomeDaImagem)=[ src=&quot;./img/$Param(NomeDaImagem).jpg&quot;;'+<a href="mi.rtl.Consts.TConsts.html#New_Line">TConsts.New_Line</a>+
+    '                                           usemap=&quot;$Param(NomeDaImagem)&quot;;'+<a href="mi.rtl.Consts.TConsts.html#New_Line">TConsts.New_Line</a>+
+    '                                           OneRowArea=[&quot;$Param(rect)&quot;   , &quot;$Param(target)&quot; , &quot;$Param(alt_rect)&quot;   , &quot;$Param(title_rect)&quot;   , &quot;$Param(href_rect.html)&quot;   , &quot;$Param(y1),$Param(y1),$Param(x2),$Param(y2)&quot;,/,'+<a href="mi.rtl.Consts.TConsts.html#New_Line">TConsts.New_Line</a>+
+    '                                                       &quot;$Param(circle)&quot; , &quot;$Param(target)&quot; , &quot;$Param(alt_circle)&quot; , &quot;$Param(title_circle)&quot; , &quot;$Param(href_circle.html)&quot; , &quot;$Param(x1),$Param(y1),$Param(raio)&quot;,/,'+<a href="mi.rtl.Consts.TConsts.html#New_Line">TConsts.New_Line</a>+
+    '                                                       &quot;$Param(poly)&quot;   , &quot;$Param(target)&quot; , &quot;$Param(alt_poly)&quot;   , &quot;$Param(title_poly)&quot;   , &quot;$Param(href_poly.html)&quot;   , &quot;$Param(x1),$Param(y1),$Param(x2),$Param(y2),$Param(x3),$Param(y3),$Param(x4),$Param(y4)$Param(..),$Param(xn),$Param(yn)&quot;,/,'+<a href="mi.rtl.Consts.TConsts.html#New_Line">TConsts.New_Line</a>+
+    '                                                       &lt;!-- Adicione aqui ,mais linhas semelhantes a linha acima e apague esse comentário--&gt;'+<a href="mi.rtl.Consts.TConsts.html#New_Line">TConsts.New_Line</a>+
+    '                                                      ];'+<a href="mi.rtl.Consts.TConsts.html#New_Line">TConsts.New_Line</a>+
+    '                                           templateOneRowArea=&lt;area target=&quot;&tilde;target&quot; alt=&quot;&tilde;alt&quot; title=&quot;&tilde;title&quot; href=&quot;&tilde;href&quot; coords=&quot;&tilde;coords&quot; shape=&quot;&tilde;shape&quot;&gt;;'+<a href="mi.rtl.Consts.TConsts.html#New_Line">TConsts.New_Line</a>+
+    '                                           templateImageMap=&quot;&lt; img src=&quot;&tilde;src&quot;'+<a href="mi.rtl.Consts.TConsts.html#New_Line">TConsts.New_Line</a>+
+    '                                                               alt=&quot;&tilde;alt&quot;'+<a href="mi.rtl.Consts.TConsts.html#New_Line">TConsts.New_Line</a>+
+    '                                                               usemap=&quot;#&tilde;usemap&quot;&gt;'+<a href="mi.rtl.Consts.TConsts.html#New_Line">TConsts.New_Line</a>+
+    '                                                               &lt;map name=&quot;&tilde;usemap&quot;&gt;'+<a href="mi.rtl.Consts.TConsts.html#New_Line">TConsts.New_Line</a>+
+    '                                                                  &lt;area shape=&quot;default&quot; nohref /&gt;'+<a href="mi.rtl.Consts.TConsts.html#New_Line">TConsts.New_Line</a>+
+    '                                                                  &tilde;OneRowArea'+<a href="mi.rtl.Consts.TConsts.html#New_Line">TConsts.New_Line</a>+
+    '                                                               &lt;/map&gt;&quot;'+<a href="mi.rtl.Consts.TConsts.html#New_Line">TConsts.New_Line</a>+
+    '                                         ]'+<a href="mi.rtl.Consts.TConsts.html#New_Line">TConsts.New_Line</a>+
+    '                 -]'+<a href="mi.rtl.Consts.TConsts.html#New_Line">TConsts.New_Line</a>+
+    '#--&gt;'+<a href="mi.rtl.Consts.TConsts.html#New_Line">TConsts.New_Line</a>;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<hr><span class="appinfo"><em>Gerado por <a href="https://pasdoc.github.io/">PasDoc 0.16.0</a>. </em>
+</span>
+</div></div></body></html>

@@ -3,7 +3,7 @@ unit unit1;
                  Esta unit foi testada nas plataformas: win32, win64 e linux.
 
     - **VERSÃO**
-      - Alpha - 0.8.0
+      - Alpha - 0.7.1
 
     - **CÓDIGO FONTE**:
       - @html(<a href="../units/unit1.pas">unit1.pas</a>)
@@ -88,7 +88,9 @@ interface
 
 uses
   Classes, SysUtils, Forms, Controls, Graphics, Dialogs, Menus, ActnList,
-  ComCtrls, ExtCtrls, StdCtrls, Grids, //charset,lazUtils,
+  ComCtrls, ExtCtrls, StdCtrls,
+  simpleipc, //comunição entre processo; https://wiki.freepascal.org/SimpleIPC
+  Grids, LazHelpHTML, //charset,lazUtils,
 //  mi.ui.CreateMessageDialog,    // LConvEncoding,  LazUTF8,
   //mi.rtl.objects.consts.MI_MsgBox,
 //  mi.rtl.objects.Methods.tprogressdlg_if,
@@ -97,6 +99,7 @@ uses
   {$IFDEF linux}
     systemlog,
   {$ENDIF}
+  FileUtil ,
   eventlog,
   LazLogger
   ,Mi_ui_mi_msgBox_dm
@@ -105,15 +108,18 @@ uses
   //, mi.rtl.objects.methods.ui.Dmxscroller.test
   , mi.rtl.objectss
   ,mi.rtl.Types
-  , Types;
+  , Types
+  ,mi.rtl.objects.methods.pageproducer.test
+
+  ;
 
 type
-
-  {: - O formulário **@name** é usado para testar as funções do pacote mi.rtl}
-
   { TForm1 }
-
+  {: - O formulário **@name** é usado para testar o pacote pacote
+       mi.rtl}
   TForm1 = class(TForm)
+      Action_test1_pageProducer: TAction;
+      Action_sobre: TAction;
       Action_test_GetTempDir: TAction;
       Action_Test_TTb_access_SetTransaction: TAction;
       Action_test_TTb_access_DeleteRec: TAction;
@@ -152,7 +158,10 @@ type
       MenuItem26: TMenuItem;
       MenuItem27: TMenuItem;
       MenuItem36: TMenuItem;
+      MenuItem44: TMenuItem;
       MenuItem45: TMenuItem;
+      MenuItem46: TMenuItem;
+      MenuItem47: TMenuItem;
       TMi_Rtl_TObjectss: TMenuItem;
       MenuItem38: TMenuItem;
       MenuItem39: TMenuItem;
@@ -251,6 +260,8 @@ type
     ToggleBox1: TToggleBox;
 
 
+    procedure Action_sobreExecute(Sender: TObject);
+    procedure Action_test1_pageProducerExecute(Sender: TObject);
     procedure Action_test_GetTempDirExecute(Sender: TObject);
 
     {: Exemplo de uso das mensagens de erros empilhadas.
@@ -370,9 +381,11 @@ type
 
 
     procedure FormDestroy(Sender: TObject);
+    procedure ListBox1Click(Sender: TObject);
 
     procedure TabSheet_TfilesStreamsEnter(Sender: TObject);
-
+    private
+      Form_pageproducer_test1:TForm_pageproducer_test;
 
     protected
 
@@ -441,6 +454,8 @@ type
          - etc...
     }
     protected procedure test_removeAccents;
+
+
   end;
 
 
@@ -448,6 +463,7 @@ type
 var
   Form1: TForm1;
   FileLog : TEventLog;
+
 
 implementation
 
@@ -458,7 +474,7 @@ implementation
 
 procedure TForm1.FormCreate(Sender: TObject);
 begin
-  TObjectss.Set_MI_MsgBox(Mi_ui_mi_msgBox.MI_MsgBox1);
+//TObjectss.Set_MI_MsgBox(Mi_ui_mi_msgBox.MI_MsgBox1);
 
   ListFiles := TStringList.Create;
   filesStreams  := TObjectss.TfilesStreams.Create(10,10);
@@ -476,6 +492,11 @@ procedure TForm1.FormDestroy(Sender: TObject);
 begin
   FreeAndNil(ListFiles);
   FreeAndNil(filesStreams);
+end;
+
+procedure TForm1.ListBox1Click(Sender: TObject);
+begin
+
 end;
 
 
@@ -1439,131 +1460,131 @@ begin
       Alignment := TaCenter;
     end;
 
-    L := TLabel.Create(Lform);
-    Lform.InsertControl(L);
-    with L do begin
-      aTop := atop+20;
-      Caption := 'INFORMAÇÕES TÉCNICAS:';
-      SetBounds(0,aTop, 280, 20);
-    end;
-
-    L := TLabel.Create(Lform);
-    Lform.InsertControl(L);
-    with L do begin
-      aTop := atop+20;
-      Caption := '  Unit....: mi,rtl.tests';
-      SetBounds(0,aTop, 280, 20);
-    end;
-
-    L := TLabel.Create(Lform);
-    Lform.InsertControl(L);
-    with L do begin
-      aTop := atop+20;
-      Caption := '  Método..: test_TStrError';
-      SetBounds(0,aTop, 280, 20);
-    end;
-
-    L := TLabel.Create(Lform);
-    Lform.InsertControl(L);
-    with L do begin
-      aTop := atop+20;
-      Caption := '  Unit....: mi,rtl.tests';
-      SetBounds(0,aTop, 280, 20);
-    end;
-
-    L := TLabel.Create(Lform);
-    Lform.InsertControl(L);
-    with L do begin
-      aTop := atop+20;
-      Caption := '  Método..: test_TStrError';
-      SetBounds(0,aTop, 280, 20);
-    end;
-
-    L := TLabel.Create(Lform);
-    Lform.InsertControl(L);
-    with L do begin
-      aTop := atop+20;
-      Caption := '  Unit....: mi,rtl.tests';
-      SetBounds(0,aTop, 280, 20);
-    end;
-
-    L := TLabel.Create(Lform);
-    Lform.InsertControl(L);
-    with L do begin
-      aTop := atop+20;
-      Caption := '  Método..: test_TStrError';
-      SetBounds(0,aTop, 280, 20);
-    end;
-
-
-    L := TLabel.Create(Lform);
-    Lform.InsertControl(L);
-    with L do begin
-      aTop := atop+20;
-      Caption := 'INFORMAÇÕES TÉCNICAS:';
-      SetBounds(0,aTop, 280, 20);
-    end;
-
-    L := TLabel.Create(Lform);
-    Lform.InsertControl(L);
-    with L do begin
-      aTop := atop+20;
-      Caption := '  Unit....: mi,rtl.tests';
-      SetBounds(0,aTop, 280, 20);
-    end;
-
-    L := TLabel.Create(Lform);
-    Lform.InsertControl(L);
-    with L do begin
-      aTop := atop+20;
-      Caption := '  Método..: test_TStrError';
-      SetBounds(0,aTop, 280, 20);
-    end;
-
-    L := TLabel.Create(Lform);
-    Lform.InsertControl(L);
-    with L do begin
-      aTop := atop+20;
-      Caption := '  Unit....: mi,rtl.tests';
-      SetBounds(0,aTop, 280, 20);
-    end;
-
-    L := TLabel.Create(Lform);
-    Lform.InsertControl(L);
-    with L do begin
-      aTop := atop+20;
-      Caption := '  Método..: test_TStrError';
-      SetBounds(0,aTop, 280, 20);
-    end;
-
-    L := TLabel.Create(Lform);
-    Lform.InsertControl(L);
-    with L do begin
-      aTop := atop+20;
-      Caption := '  Unit....: mi,rtl.tests';
-      SetBounds(0,aTop, 280, 20);
-    end;
-
-    L := TLabel.Create(Lform);
-    Lform.InsertControl(L);
-    with L do begin
-      aTop := atop+20;
-      Caption := '  Método..: test_TStrError';
-      SetBounds(0,aTop, 280, 20);
-    end;
-
-
-
-    B := TButton.Create(LForm);
-    Lform.InsertControl(B);
-    with B do begin
-      aTop := atop+20;
-      Caption := 'OK';
-      ModalResult := MrOk;
-
-      SetBounds(10,aTop, 30, 20);
-    end;
-
+    //L := TLabel.Create(Lform);
+    //Lform.InsertControl(L);
+    //with L do begin
+    //  aTop := atop+20;
+    //  Caption := 'INFORMAÇÕES TÉCNICAS:';
+    //  SetBounds(0,aTop, 280, 20);
+    //end;
+    //
+    //L := TLabel.Create(Lform);
+    //Lform.InsertControl(L);
+    //with L do begin
+    //  aTop := atop+20;
+    //  Caption := '  Unit....: mi,rtl.tests';
+    //  SetBounds(0,aTop, 280, 20);
+    //end;
+    //
+    //L := TLabel.Create(Lform);
+    //Lform.InsertControl(L);
+    //with L do begin
+    //  aTop := atop+20;
+    //  Caption := '  Método..: test_TStrError';
+    //  SetBounds(0,aTop, 280, 20);
+    //end;
+    //
+    //L := TLabel.Create(Lform);
+    //Lform.InsertControl(L);
+    //with L do begin
+    //  aTop := atop+20;
+    //  Caption := '  Unit....: mi,rtl.tests';
+    //  SetBounds(0,aTop, 280, 20);
+    //end;
+    //
+    //L := TLabel.Create(Lform);
+    //Lform.InsertControl(L);
+    //with L do begin
+    //  aTop := atop+20;
+    //  Caption := '  Método..: test_TStrError';
+    //  SetBounds(0,aTop, 280, 20);
+    //end;
+    //
+    //L := TLabel.Create(Lform);
+    //Lform.InsertControl(L);
+    //with L do begin
+    //  aTop := atop+20;
+    //  Caption := '  Unit....: mi,rtl.tests';
+    //  SetBounds(0,aTop, 280, 20);
+    //end;
+    //
+    //L := TLabel.Create(Lform);
+    //Lform.InsertControl(L);
+    //with L do begin
+    //  aTop := atop+20;
+    //  Caption := '  Método..: test_TStrError';
+    //  SetBounds(0,aTop, 280, 20);
+    //end;
+    //
+    //
+    //L := TLabel.Create(Lform);
+    //Lform.InsertControl(L);
+    //with L do begin
+    //  aTop := atop+20;
+    //  Caption := 'INFORMAÇÕES TÉCNICAS:';
+    //  SetBounds(0,aTop, 280, 20);
+    //end;
+    //
+    //L := TLabel.Create(Lform);
+    //Lform.InsertControl(L);
+    //with L do begin
+    //  aTop := atop+20;
+    //  Caption := '  Unit....: mi,rtl.tests';
+    //  SetBounds(0,aTop, 280, 20);
+    //end;
+    //
+    //L := TLabel.Create(Lform);
+    //Lform.InsertControl(L);
+    //with L do begin
+    //  aTop := atop+20;
+    //  Caption := '  Método..: test_TStrError';
+    //  SetBounds(0,aTop, 280, 20);
+    //end;
+    //
+    //L := TLabel.Create(Lform);
+    //Lform.InsertControl(L);
+    //with L do begin
+    //  aTop := atop+20;
+    //  Caption := '  Unit....: mi,rtl.tests';
+    //  SetBounds(0,aTop, 280, 20);
+    //end;
+    //
+    //L := TLabel.Create(Lform);
+    //Lform.InsertControl(L);
+    //with L do begin
+    //  aTop := atop+20;
+    //  Caption := '  Método..: test_TStrError';
+    //  SetBounds(0,aTop, 280, 20);
+    //end;
+    //
+    //L := TLabel.Create(Lform);
+    //Lform.InsertControl(L);
+    //with L do begin
+    //  aTop := atop+20;
+    //  Caption := '  Unit....: mi,rtl.tests';
+    //  SetBounds(0,aTop, 280, 20);
+    //end;
+    //
+    //L := TLabel.Create(Lform);
+    //Lform.InsertControl(L);
+    //with L do begin
+    //  aTop := atop+20;
+    //  Caption := '  Método..: test_TStrError';
+    //  SetBounds(0,aTop, 280, 20);
+    //end;
+    //
+    //
+    //
+    //B := TButton.Create(LForm);
+    //Lform.InsertControl(B);
+    //with B do begin
+    //  aTop := atop+20;
+    //  Caption := 'OK';
+    //  ModalResult := MrOk;
+    //
+    //  SetBounds(10,aTop, 30, 20);
+    //end;
+    //
 
 
     if LForm <> nil
@@ -1851,7 +1872,8 @@ procedure TForm1.Action_test_FindFirstExecute(Sender: TObject);
                                 faSymLink or
                                 faDirectory ;
 
-
+  var
+    aext : String;
 begin
   ListFiles.Clear;
   ListBox1.Clear;
@@ -1880,11 +1902,21 @@ begin
   then FileAttrs := FileAttrs or faDirectory;
 
   with TObjectss do
+  begin
 // Retorna somente os arquivos da pasta
-// FindFiles(Edit1.Text,FileAttrs ,ListFiles );
+ //FindFiles(Edit1.Text,FileAttrs ,ListFiles );
 
 // Retorna todos os arquivos da pasta e subpastas
-    FindFilesAll(Edit1.Text,FileAttrs ,ListFiles );
+   aExt := ExtractFileName(Edit1.Text);
+   if aExt = ''
+   Then aExt := '*';
+
+
+   if Confirm('Confirma?'
+              ,'O método TObjectss.FindFilesAll pode demorar se o resultado for mais de 200 arguivos?')
+   Then FindFilesAll(ExtractFileDir(Edit1.Text),aExt,FileAttrs,true ,ListFiles );
+
+  end;
 
   LabelCount.Caption := Format('ListFiles.Count %d',[ListFiles.Count]);
   LabelCount.Show;
@@ -2131,6 +2163,35 @@ procedure TForm1.Action_test_GetTempDirExecute(Sender: TObject);
 begin
   test_GetTempDir;
 end;
+
+procedure TForm1.Action_sobreExecute(Sender: TObject);
+begin
+  with TObjectss do  begin
+    ShowMessageEx('Sobre: Programa de teste do pacote mi.rtl. Versão: '+
+                  AppVersionInfo.VersionStr);
+
+
+    //ShowMessageEx('Sobre: Programa de teste do pacote mi.rtl. Versão: '+
+    //              AppVersionInfo.VersionStrEx[C_DEF_VER_FORMAT3]);
+    //ShowMessageEx('Sobre: Programa de teste do pacote mi.rtl. Versão: '+
+    //              AppVersionInfo.MajorAsStr + '.'+AppVersionInfo.MinorAsStr+'.'+AppVersionInfo.RevisionAsStr+ '.'+AppVersionInfo.BuildNoAsStr);
+    //
+
+  end;
+end;
+
+procedure TForm1.Action_test1_pageProducerExecute(Sender: TObject);
+begin
+  try
+   Form_pageproducer_test1 := TForm_pageproducer_test.Create(self);
+   Form_pageproducer_test1.ShowModal;
+
+  finally
+    Freeandnil(Form_pageproducer_test1);
+  end;
+end;
+
+
 
 
 initialization

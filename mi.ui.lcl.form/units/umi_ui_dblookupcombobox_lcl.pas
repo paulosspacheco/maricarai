@@ -3,7 +3,7 @@ unit umi_ui_dblookupComboBox_lcl;
    os campo tipo TDmxFieldRec.fldEnum com o componente TDbLookupComboBox do Lazarus.
 
    - **VERSÂO**
-     - Alpha - 0.8.0
+     - Alpha - 0.9.0
 
    - **CÓDIGO FONTE**:
      - @html(<a href="../units/uMi_ui_DBLookupComboBox_Lcl.pas">uMi_ui_DBLookupComboBox_Lcl.pas</a>)

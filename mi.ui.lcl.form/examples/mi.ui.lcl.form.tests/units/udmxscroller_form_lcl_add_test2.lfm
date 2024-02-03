@@ -10,7 +10,7 @@ object DmxScroller_Form_Lcl_add_test2: TDmxScroller_Form_Lcl_add_test2
   OnCreate = FormCreate
   object Mi_ScrollBox_LCL1: TMi_ScrollBox_LCL
     Left = 0
-    Height = 190
+    Height = 184
     Top = 0
     Width = 320
     Align = alClient
@@ -23,8 +23,8 @@ object DmxScroller_Form_Lcl_add_test2: TDmxScroller_Form_Lcl_add_test2
   end
   object ButtonPanel1: TButtonPanel
     Left = 6
-    Height = 38
-    Top = 196
+    Height = 44
+    Top = 190
     Width = 308
     OKButton.Name = 'OKButton'
     OKButton.DefaultCaption = True
@@ -44,6 +44,7 @@ object DmxScroller_Form_Lcl_add_test2: TDmxScroller_Form_Lcl_add_test2
     onGetTemplate = DmxScroller_Form_Lcl1GetTemplate
     Active = False
     AlignmentLabels = taLeftJustify
+    ParentLCL = Owner
     Left = 184
     Top = 56
   end

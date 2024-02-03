@@ -1,0 +1,237 @@
+object dm_connections: Tdm_connections
+  OldCreateOrder = False
+  Height = 160
+  HorizontalOffset = 616
+  VerticalOffset = 328
+  Width = 414
+  object SQLTransaction1: TSQLTransaction
+    Active = False
+    Database = SQLConnector1
+    Left = 160
+    Top = 16
+  end
+  object SQLConnector1: TSQLConnector
+    Connected = False
+    LoginPrompt = True
+    OnLogin = SQLConnector1Login
+    DatabaseName = 'assistente_virtual'
+    KeepConnection = False
+    Transaction = SQLTransaction1
+    HostName = '45.160.125.12'
+    ConnectorType = 'PostgreSQL'
+    Left = 40
+    Top = 16
+  end
+  object ActionList1: TActionList
+    Left = 280
+    Top = 16
+    object acOperadoresIncluir: TAction
+      Category = 'Operadores'
+      Caption = 'Incluir Operadores'
+    end
+    object acOperadoresExcluir: TAction
+      Category = 'Operadores'
+      Caption = 'Excluir Operadores'
+    end
+    object acOperadoresAlterar: TAction
+      Category = 'Operadores'
+      Caption = 'Alterar Operadores'
+    end
+    object acOperadoresConsultar: TAction
+      Category = 'Operadores'
+      Caption = 'Consultar Operadores'
+    end
+    object acHospitaisIncluir: TAction
+      Category = 'Hospitais'
+      Caption = 'Incluir Hospitais'
+    end
+    object acHospitaisExcluir: TAction
+      Category = 'Hospitais'
+      Caption = 'Excluir Hospitais'
+    end
+    object acHospitaisAlterar: TAction
+      Category = 'Hospitais'
+      Caption = 'Alterar Hospitais'
+    end
+    object acHospitaisConsultar: TAction
+      Category = 'Hospitais'
+      Caption = 'Consultar Hospitais'
+    end
+    object acStatusAgendaIncluir: TAction
+      Category = 'Status da Agenda ou Consulta'
+      Caption = 'Incluir Status da Agenda'
+    end
+    object acStatusAgendaExcluir: TAction
+      Category = 'Status da Agenda ou Consulta'
+      Caption = 'Excluir Status da Agenda'
+    end
+    object acStatusAgendaAlterar: TAction
+      Category = 'Status da Agenda ou Consulta'
+      Caption = 'Alterar Status da Agenda'
+    end
+    object acStatusAgendaConsultar: TAction
+      Category = 'Status da Agenda ou Consulta'
+      Caption = 'Consultar Status da Agenda'
+    end
+    object acMedicosIncluir: TAction
+      Category = 'Médicos'
+      Caption = 'Incluir Médicos'
+    end
+    object acMedicosExcluir: TAction
+      Category = 'Médicos'
+      Caption = 'Excluir Médicos'
+    end
+    object acMedicosAlterar: TAction
+      Category = 'Médicos'
+      Caption = 'Alterar Médicos'
+    end
+    object acMedicosConsultar: TAction
+      Category = 'Médicos'
+      Caption = 'Consultar Médicos'
+    end
+    object acServicoAgendasIncluir: TAction
+      Category = 'Serviço de Agendas'
+      Caption = 'Incluir Serviço de Agendas'
+    end
+    object acServicoAgendasExcluir: TAction
+      Category = 'Serviço de Agendas'
+      Caption = 'Excluir Serviço de Agendas'
+    end
+    object acServicoAgendasAlterar: TAction
+      Category = 'Serviço de Agendas'
+      Caption = 'Alterar Serviço de Agendas'
+    end
+    object acServicoAgendasConsultar: TAction
+      Category = 'Serviço de Agendas'
+      Caption = 'Consultar Serviço de Agendas'
+    end
+    object acConveniosIncluir: TAction
+      Category = 'Convênios'
+      Caption = 'Incluir Convênios'
+    end
+    object acConveniosExcluir: TAction
+      Category = 'Convênios'
+      Caption = 'Excluir Convênios'
+    end
+    object acConveniosAlterar: TAction
+      Category = 'Convênios'
+      Caption = 'Alterar Convênios'
+    end
+    object acConveniosConsultar: TAction
+      Category = 'Convênios'
+      Caption = 'Consultar Convênios'
+    end
+    object acClientesIncluir: TAction
+      Category = 'Clientes'
+      Caption = 'Incluir Clientes'
+    end
+    object acClientesExcluir: TAction
+      Category = 'Clientes'
+      Caption = 'Excluir Clientes'
+    end
+    object acClientesAlterar: TAction
+      Category = 'Clientes'
+      Caption = 'Alterar Clientes'
+    end
+    object acClientesConsultar: TAction
+      Category = 'Clientes'
+      Caption = 'Consultar Clientes'
+    end
+    object acIntegracaoIncluir: TAction
+      Category = 'Integração'
+      Caption = 'Incluir Integração'
+    end
+    object acIntegracaoExcluir: TAction
+      Category = 'Integração'
+      Caption = 'Excluir Integração'
+    end
+    object acIntegracaoAlterar: TAction
+      Category = 'Integração'
+      Caption = 'Alterar Integração'
+    end
+    object acIntegracaoConsultar: TAction
+      Category = 'Integração'
+      Caption = 'Consultar Integração'
+    end
+    object acExpedienteDataIncluir: TAction
+      Category = 'Expediente do Médico (Data)'
+      Caption = 'Incluir Expediente (Data)'
+    end
+    object acExpedienteDataExcluir: TAction
+      Category = 'Expediente do Médico (Data)'
+      Caption = 'Excluir Expediente (Data)'
+    end
+    object acExpedienteDataAlterar: TAction
+      Category = 'Expediente do Médico (Data)'
+      Caption = 'Alterar Expediente (Data)'
+    end
+    object acExpedienteDataConsultar: TAction
+      Category = 'Expediente do Médico (Data)'
+      Caption = 'Consultar Expediente (Data)'
+    end
+    object acExpedienteHorasIncluir: TAction
+      Category = 'Expediente do Médico (Horas)'
+      Caption = 'Incluir Expediente (Horas)'
+    end
+    object acExpedienteHorasExcluir: TAction
+      Category = 'Expediente do Médico (Horas)'
+      Caption = 'Excluir Expediente (Horas)'
+    end
+    object acExpedienteHorasAlterar: TAction
+      Category = 'Expediente do Médico (Horas)'
+      Caption = 'Alterar Expediente (Horas)'
+    end
+    object acExpedienteHorasConsultar: TAction
+      Category = 'Expediente do Médico (Horas)'
+      Caption = 'Consultar Expediente (Horas)'
+    end
+    object acAgendaIncluir: TAction
+      Category = 'Agenda'
+      Caption = 'Incluir Agenda'
+    end
+    object acAgendaExcluir: TAction
+      Category = 'Agenda'
+      Caption = 'Excluir Agenda'
+    end
+    object acAgendaAlterar: TAction
+      Category = 'Agenda'
+      Caption = 'Alterar Agenda'
+    end
+    object acAgendaConsultar: TAction
+      Category = 'Agenda'
+      Caption = 'Consultar Agenda'
+    end
+    object acFormasPagamentoIncluir: TAction
+      Category = 'Formas de Pagamento'
+      Caption = 'Incluir Forma de Pagamento'
+    end
+    object acFormasPagamentoExcluir: TAction
+      Category = 'Formas de Pagamento'
+      Caption = 'Excluir Forma de Pagamento'
+    end
+    object acFormasPagamentoAlterar: TAction
+      Category = 'Formas de Pagamento'
+      Caption = 'Alterar Forma de Pagamento'
+    end
+    object acFormasPagamentoConsultar: TAction
+      Category = 'Formas de Pagamento'
+      Caption = 'Consultar Forma de Pagamento'
+    end
+    object acConsultaIncluir: TAction
+      Category = 'Consulta'
+      Caption = 'Incluir Consulta'
+    end
+    object acConsultaExcluir: TAction
+      Category = 'Consulta'
+      Caption = 'Excluir Consulta'
+    end
+    object acConsultaAlterar: TAction
+      Category = 'Consulta'
+      Caption = 'Alterar Consulta'
+    end
+    object acConsultaConsultar: TAction
+      Category = 'Consulta'
+      Caption = 'Consultar Consulta'
+    end
+  end
+end

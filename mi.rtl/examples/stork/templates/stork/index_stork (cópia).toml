@@ -1,0 +1,11 @@
+ [input]
+ base_directory = ""
+ url_prefix = ""
+ files = [
+  {path = "./historico.html",    url = "./historico.html", title = "Histórico das ocorrência do Blog"},
+  {path = "./linguas_humanas/portugues/producao_de_textos/fake_fato_opiniao.html",    url = "./linguas_humanas/portugues/producao_de_textos/fake_fato_opiniao.html", title = "Reflexão sobre fake, fatos e opinião"},
+  {path = "./linguas_humanas/portugues/producao_de_textos/descricao_de_textos.html",  url = "./linguas_humanas/portugues/producao_de_textos/descricao_de_textos.html", title = "Estudo da língua portuguesa"},
+  {path = "./programacao/html/js/stork/o_que_e_stork.html",                           url = "./programacao/html/js/stork/o_que_e_stork.html", title = "O que é pacote de pesquisa de site stork"}
+ ]
+
+

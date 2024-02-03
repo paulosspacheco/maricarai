@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<title>dnssend: Classe TDNSSend</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="generator" content="PasDoc 0.16.0">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<link rel="stylesheet" type="text/css" href="tipuesearch/tipuesearch.css">
+
+<link rel="StyleSheet" type="text/css" href="pasdoc.css">
+</head>
+<body>
+<div class="container"><div class="navigation">
+<ul><li><a href="AllUnits.html">Units</a></li><li><a href="ClassHierarchy.html">Hierarquia de Classes</a></li><li><a href="AllClasses.html">Classes, Interfaces, Objetos e Registros</a></li><li><a href="AllTypes.html">Tipos</a></li><li><a href="AllVariables.html">Variáveis</a></li><li><a href="AllConstants.html">Constantes</a></li><li><a href="AllFunctions.html">Funções e Procedimentos</a></li><li><a href="AllIdentifiers.html">Identificadores</a></li><li><form class="search-form" action="tipue_results.html"><div class="search-input"><input type="text" name="q" id="tipue_search_input" pattern=".{3,}" title="At least 3 characters" required><div class="search-button"><input type="button" id="tipue_search_button" onclick="this.form.submit();"></div></div></form>
+<div style="clear: both"></div>
+</li></ul></div><div class="content">
+<span id="TDNSSend"></span><h1 class="cio">Classe TDNSSend</h1>
+<div class="sections">
+<div class="one_section"><a class="section" href="#PasDoc-Description">Descrição</a></div><div class="one_section"><a class="section" href="#PasDoc-Hierarchy">Hierarquia</a></div><div class="one_section">Campos</div><div class="one_section"><a class="section" href="#PasDoc-Methods">Métodos</a></div><div class="one_section"><a class="section" href="#PasDoc-Properties">Propriedades</a></div></div>
+<span id="PasDoc-Description"></span><h2 class="unit">Unit</h2>
+<p class="unitlink">
+<a href="dnssend.html">dnssend</a></p>
+<h2 class="declaration">Declaração</h2>
+<p class="declaration">
+<code>type TDNSSend = class(<a class="normal" href="blcksock.TSynaClient.html">TSynaClient</a>)</code></p>
+<h2 class="description">Descrição</h2>
+<p>
+Implementation of DNS protocol by UDP or TCP protocol.</p>
+<p>
+
+
+<p>Note: Are you missing properties for specify server address <a class="normal" href="int65math.html#and">and</a> port? Look to parent <a class="normal" href="blcksock.TSynaClient.html">TSynaClient</a> too!</p>
+<span id="PasDoc-Hierarchy"></span><h2 class="hierarchy">Hierarquia</h2>
+<ul class="hierarchy"><li class="ancestor">TObject</li>
+<li class="ancestor"><a class="normal" href="blcksock.TSynaClient.html">TSynaClient</a></li>
+<li class="thisitem">TDNSSend</li></ul><h2 class="overview">Visão Geral</h2>
+<span id="PasDoc-Methods"></span><h3 class="summary">Métodos</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>constructor <strong><a href="dnssend.TDNSSend.html#Create">Create</a></strong>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>destructor <strong><a href="dnssend.TDNSSend.html#Destroy">Destroy</a></strong>; override;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="dnssend.TDNSSend.html#DNSQuery">DNSQuery</a></strong>(Name: AnsiString; QType: Integer; const Reply: TStrings): Boolean;</code></td>
+</tr>
+</table>
+<span id="PasDoc-Properties"></span><h3 class="summary">Propriedades</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><code>property <strong><a href="dnssend.TDNSSend.html#Sock">Sock</a></strong>: <a href="blcksock.TUDPBlockSocket.html">TUDPBlockSocket</a> read FSock;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><code>property <strong><a href="dnssend.TDNSSend.html#TCPSock">TCPSock</a></strong>: <a href="blcksock.TTCPBlockSocket.html">TTCPBlockSocket</a> read FTCPSock;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><code>property <strong><a href="dnssend.TDNSSend.html#UseTCP">UseTCP</a></strong>: Boolean read FUseTCP Write FUseTCP;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><code>property <strong><a href="dnssend.TDNSSend.html#RCode">RCode</a></strong>: Integer read FRCode;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><code>property <strong><a href="dnssend.TDNSSend.html#Authoritative">Authoritative</a></strong>: Boolean read FAuthoritative;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><code>property <strong><a href="dnssend.TDNSSend.html#Truncated">Truncated</a></strong>: Boolean read FTRuncated;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><code>property <strong><a href="dnssend.TDNSSend.html#AnswerInfo">AnswerInfo</a></strong>: TStringList read FAnswerInfo;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><code>property <strong><a href="dnssend.TDNSSend.html#NameserverInfo">NameserverInfo</a></strong>: TStringList read FNameserverInfo;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><code>property <strong><a href="dnssend.TDNSSend.html#AdditionalInfo">AdditionalInfo</a></strong>: TStringList read FAdditionalInfo;</code></td>
+</tr>
+</table>
+<h2 class="description">Descrição</h2>
+<h3 class="detail">Métodos</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Create"></span><code>constructor <strong>Create</strong>;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Destroy"></span><code>destructor <strong>Destroy</strong>; override;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="DNSQuery"></span><code>function <strong>DNSQuery</strong>(Name: AnsiString; QType: Integer; const Reply: TStrings): Boolean;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+Query a DNSHost for QType resources correspond to a name. Supported QType values are: <a class="normal" href="dnssend.html#QTYPE_A">Qtype_A</a>, <a class="normal" href="dnssend.html#QTYPE_NS">Qtype_NS</a>, <a class="normal" href="dnssend.html#QTYPE_MD">Qtype_MD</a>, <a class="normal" href="dnssend.html#QTYPE_MF">Qtype_MF</a>, <a class="normal" href="dnssend.html#QTYPE_CNAME">Qtype_CNAME</a>, <a class="normal" href="dnssend.html#QTYPE_SOA">Qtype_SOA</a>, <a class="normal" href="dnssend.html#QTYPE_MB">Qtype_MB</a>, <a class="normal" href="dnssend.html#QTYPE_MG">Qtype_MG</a>, <a class="normal" href="dnssend.html#QTYPE_MR">Qtype_MR</a>, <a class="normal" href="dnssend.html#QTYPE_NULL">Qtype_NULL</a>, <a class="normal" href="dnssend.html#QTYPE_PTR">Qtype_PTR</a>, <a class="normal" href="dnssend.html#QTYPE_HINFO">Qtype_HINFO</a>, <a class="normal" href="dnssend.html#QTYPE_MINFO">Qtype_MINFO</a>, <a class="normal" href="dnssend.html#QTYPE_MX">Qtype_MX</a>, <a class="normal" href="dnssend.html#QTYPE_TXT">Qtype_TXT</a>, <a class="normal" href="dnssend.html#QTYPE_RP">Qtype_RP</a>, <a class="normal" href="dnssend.html#QTYPE_AFSDB">Qtype_AFSDB</a>, <a class="normal" href="dnssend.html#QTYPE_X25">Qtype_X25</a>, <a class="normal" href="dnssend.html#QTYPE_ISDN">Qtype_ISDN</a>, <a class="normal" href="dnssend.html#QTYPE_RT">Qtype_RT</a>, <a class="normal" href="dnssend.html#QTYPE_NSAP">Qtype_NSAP</a>, <a class="normal" href="dnssend.html#QTYPE_NSAPPTR">Qtype_NSAPPTR</a>, <a class="normal" href="dnssend.html#QTYPE_PX">Qtype_PX</a>, <a class="normal" href="dnssend.html#QTYPE_GPOS">Qtype_GPOS</a>, <a class="normal" href="dnssend.html#QTYPE_KX">Qtype_KX</a>.
+
+<p>Type for zone transfers <a class="normal" href="dnssend.html#QTYPE_AXFR">QTYPE_AXFR</a> is supported too, but only in TCP mode!
+
+<p>&quot;Name&quot; is domain name or host name for queried resource. If &quot;name&quot; is IP address, automatically convert to reverse domain form (.in-addr.arpa).
+
+<p>If result is <code>True</code>, Reply contains resource records. One record on one line. If Resource record have multiple fields, they are stored on line divided by comma. (example: MX record contains value 'rs.cesnet.cz' with preference number 10, string in Reply is: '10,rs.cesnet.cz'). All numbers or IP address in resource are converted to string form.</p>
+</td></tr>
+</table>
+<h3 class="detail">Propriedades</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><span id="Sock"></span><code>property <strong>Sock</strong>: <a href="blcksock.TUDPBlockSocket.html">TUDPBlockSocket</a> read FSock;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+Socket object used for UDP operation. Good for seting OnStatus hook, etc.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><span id="TCPSock"></span><code>property <strong>TCPSock</strong>: <a href="blcksock.TTCPBlockSocket.html">TTCPBlockSocket</a> read FTCPSock;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+Socket object used for TCP operation. Good for seting OnStatus hook, etc.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><span id="UseTCP"></span><code>property <strong>UseTCP</strong>: Boolean read FUseTCP Write FUseTCP;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+if <code>True</code>, then is used TCP protocol instead UDP. It is needed for zone transfers, etc.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><span id="RCode"></span><code>property <strong>RCode</strong>: Integer read FRCode;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+After DNS operation contains ResultCode of DNS operation. Values are: 0-no <a class="normal" href="slogsend.html#Error">error</a>, 1-format <a class="normal" href="slogsend.html#Error">error</a>, 2-server failure, 3-name <a class="normal" href="slogsend.html#Error">error</a>, 4-not implemented, 5-refused.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><span id="Authoritative"></span><code>property <strong>Authoritative</strong>: Boolean read FAuthoritative;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+<code>True</code>, if answer is <code>authoritative</code>.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><span id="Truncated"></span><code>property <strong>Truncated</strong>: Boolean read FTRuncated;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+<code>True</code>, if answer is <code>truncated</code> to 512 bytes.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><span id="AnswerInfo"></span><code>property <strong>AnswerInfo</strong>: TStringList read FAnswerInfo;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+Detailed informations from name server reply. One record per line. Record have comma delimited entries with type number, TTL <a class="normal" href="int65math.html#and">and</a> data filelds. This information contains detailed information about query reply.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><span id="NameserverInfo"></span><code>property <strong>NameserverInfo</strong>: TStringList read FNameserverInfo;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+Detailed informations from name server reply. One record per line. Record have comma delimited entries with type number, TTL <a class="normal" href="int65math.html#and">and</a> data filelds. This information contains detailed information about nameserver.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><span id="AdditionalInfo"></span><code>property <strong>AdditionalInfo</strong>: TStringList read FAdditionalInfo;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+Detailed informations from name server reply. One record per line. Record have comma delimited entries with type number, TTL <a class="normal" href="int65math.html#and">and</a> data filelds. This information contains detailed additional information.</p>
+</td></tr>
+</table>
+<hr><span class="appinfo"><em>Gerado por <a href="https://pasdoc.github.io/">PasDoc 0.16.0</a>. </em>
+</span>
+</div></div></body></html>

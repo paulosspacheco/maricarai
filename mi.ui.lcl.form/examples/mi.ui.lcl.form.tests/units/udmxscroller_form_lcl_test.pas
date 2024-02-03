@@ -41,23 +41,25 @@ uses
   Classes, SysUtils, DB, BufDataset, memds, Forms, Controls, Graphics, Dialogs, typInfo,
   MaskEdit, StdCtrls, ExtCtrls, DBGrids, ButtonPanel, ActnList, DBCtrls, Spin,
   Buttons, DBExtCtrls, EditBtn, SpinEx, SynEdit, TAChartExtentLink, SQLite3Conn,
+
   SqlDb
   //, mi.rtl.Types
   //, mi_rtl_ui_consts
   //, mi_rtl_ui_Dmxscroller,
   ,uMi_ui_scrollbox_lcl
-
+  ,mi_rtl_ui_Dmxscroller
   //, uMi_Ui_DbComboBox_lcl, uMI_ui_DbEdit_LCL,  uMi_ui_maskedit_lcl
   //, uMi_ui_ComboBox_LCL, uMi_ui_BitBtn_LCL,
 
   ,uMi_ui_DmxScroller_Form_Lcl
-  , uMi_ui_mi_msgbox_dm,
-  uMi_ui_DmxScroller_Form_Lcl_DS_Test
-  ,umi_ui_InputBox_lcl
+  ,umi_ui_msgbox_lcl //Habilita dialogos lcl
+  ,uMi_ui_DmxScroller_Form_Lcl_DS_Test
+//  ,umi_ui_InputBox_lcl
   ,uDmxScroller_Form_Lcl_add_test
   ,uMi_ui_DmxScroller_Form_Lcl_ds_test2
-  ,umi_ui_inputbox_lcl_test
-  ,uDmxScroller_Form_Lcl_add_test2
+//  ,umi_ui_inputbox_lcl_test
+  ,uDmxScroller_Form_Lcl_add_test2, MI_UI_InputBox_lcl_test_u
+  ,MI_UI_InputBox_lcl_u
   ;
 //  ,mi.rtl.Consts;
 
@@ -133,8 +135,8 @@ type
 
 
 
-
   end;
+
 
 Resourcestring
 
@@ -237,7 +239,7 @@ begin
 
 //    CustomBufDataset.FileName:= 'TvDmx_Example'; //Nome do arquivo para gravação de dados em disco local
     Result :=
-     NewSItem('~Alfanumerico 01:~\SSSSSSSSSSSSSSS'+ChFN+'Fld01'+ChH+'Campo alfanumerico com 15 posicoes maiúsculas.',
+     NewSItem('~Senha:~\sssssssssssssss'+CharShowPassword+ChFN+'Fld01'+ChH+'Campo alfanumerico com 15 posicoes',
      NewSItem('~Emojis: https://emojidb.org/arrow-emojis?user_typed_query=1&utm_source=user_search~',
      NewSItem('~Emojis: https://emojipedia.org/search/?q=refres~',
      NewSItem('~Emojis: 📲 ◻️ 🔲 ⬜🆓 📂 🗂 📖 🗃  📄 🗄  🆕  🆗 ✅ ✔️🔷 🔶 🔍 🗑 ✖ ❎◾◽      xx~',
@@ -434,7 +436,7 @@ begin
                 ClientInfo(
                 Cadastro(
                 nil))))));
- end;
+  end;
 
 //  with DmxScroller_Form_Lcl1 do
 //    //vr := 999999999999.99;
@@ -462,7 +464,8 @@ end;
 
 procedure TDmxScroller_Form_Lcl_test.FormCreate(Sender: TObject);
 begin
-  DmxScroller_Form_Lcl1.MI_MsgBox := get_MI_MsgBox.MI_MsgBox1;
+  //DmxScroller_Form_Lcl1.MI_MsgBox := get_MI_MsgBox.MI_MsgBox1;
+
   DmxScroller_Form_Lcl1.ParentLCL := Mi_ScrollBox_LCL1;
   GroupBox1.Caption:=DmxScroller_Form_Lcl1.Alias;
   DmxScroller_Form_Lcl1.Active:= true;
@@ -589,7 +592,7 @@ end;
 
 procedure TDmxScroller_Form_Lcl_test.InputBoxClick(Sender: TObject);
 begin
-  TestinputBox;
+  MI_UI_InputBox_lcl_test.ShowModal;
 end;
 
 

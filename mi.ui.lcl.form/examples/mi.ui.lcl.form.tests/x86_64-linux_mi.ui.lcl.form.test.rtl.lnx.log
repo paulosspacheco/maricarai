@@ -1,0 +1,78 @@
+ [2024-01-31 10:09:23.302 Error] 
+Aplicação.......: x86_64-linux_mi.ui.lcl.form.test.rtl.lnx
+Error...........: EUSERS 87 Muitos usuários
+
+USUÁRIO LOGADO
+  Filial........: 0
+  Matrícula.....: 1
+  Login.........: 
+  Nome Completo.: 
+ 
+PASTA DO LOG....: /home/paulosspacheco/v/paulosspacheco/LazarusProjects/maricarai_fixe-3.0/mi.ui.lcl.form/examples/mi.ui.lcl.form.tests
+ARQUIVO DE LOG..: x86_64-linux_mi.ui.lcl.form.test.rtl.lnx.log
+
+ [2024-01-31 10:12:35.941 Error] 
+Aplicação.......: x86_64-linux_mi.ui.lcl.form.test.rtl.lnx
+Error...........: EUSERS 87 Muitos usuários
+
+USUÁRIO LOGADO
+  Filial........: 0
+  Matrícula.....: 1
+  Login.........: 
+  Nome Completo.: 
+ 
+PASTA DO LOG....: /home/paulosspacheco/v/paulosspacheco/LazarusProjects/maricarai_fixe-3.0/mi.ui.lcl.form/examples/mi.ui.lcl.form.tests
+ARQUIVO DE LOG..: x86_64-linux_mi.ui.lcl.form.test.rtl.lnx.log
+
+ [2024-01-31 10:14:30.877 Error] 
+Aplicação.......: x86_64-linux_mi.ui.lcl.form.test.rtl.lnx
+Error...........: O atributo DMXFields não inicializado!
+
+USUÁRIO LOGADO
+  Filial........: 0
+  Matrícula.....: 1
+  Login.........: 
+  Nome Completo.: 
+ 
+PASTA DO LOG....: /home/paulosspacheco/v/paulosspacheco/LazarusProjects/maricarai_fixe-3.0/mi.ui.lcl.form/examples/mi.ui.lcl.form.tests
+ARQUIVO DE LOG..: x86_64-linux_mi.ui.lcl.form.test.rtl.lnx.log
+
+ [2024-01-31 20:03:44.530 Error] 
+Aplicação.......: x86_64-linux_mi.ui.lcl.form.test.rtl.lnx
+Error...........:   Error : Campo não pode ser o corrente porque não tem buffer! INFORMAÇÔES TÉCNICAS  Unit.....: uMi_ui_Dmxscroller_form_lcl  Classe...: TDmxScroller_Form_Lcl  Método...: SetCurrentField
+
+USUÁRIO LOGADO
+  Filial........: 0
+  Matrícula.....: 1
+  Login.........: 
+  Nome Completo.: 
+ 
+PASTA DO LOG....: /home/paulosspacheco/v/paulosspacheco/LazarusProjects/maricarai_fixe-3.0/mi.ui.lcl.form/examples/mi.ui.lcl.form.tests
+ARQUIVO DE LOG..: x86_64-linux_mi.ui.lcl.form.test.rtl.lnx.log
+
+ [2024-01-31 20:04:26.317 Error] 
+Aplicação.......: x86_64-linux_mi.ui.lcl.form.test.rtl.lnx
+Error...........:   Error : Campo não pode ser o corrente porque não tem buffer! INFORMAÇÔES TÉCNICAS  Unit.....: uMi_ui_Dmxscroller_form_lcl  Classe...: TDmxScroller_Form_Lcl  Método...: SetCurrentField
+
+USUÁRIO LOGADO
+  Filial........: 0
+  Matrícula.....: 1
+  Login.........: 
+  Nome Completo.: 
+ 
+PASTA DO LOG....: /home/paulosspacheco/v/paulosspacheco/LazarusProjects/maricarai_fixe-3.0/mi.ui.lcl.form/examples/mi.ui.lcl.form.tests
+ARQUIVO DE LOG..: x86_64-linux_mi.ui.lcl.form.test.rtl.lnx.log
+
+ [2024-02-02 21:18:54.956 Error] 
+Aplicação.......: x86_64-linux_mi.ui.lcl.form.test.rtl.lnx
+Error...........: EUSERS 87 Muitos usuários INFORMAÇÔES TÉCNICAS  Unit.....: uMi_ui_Dmxscroller_form_lcl  Classe...: TDmxScroller_Form_Lcl  Método...: IfEqual
+
+USUÁRIO LOGADO
+  Filial........: 0
+  Matrícula.....: 1
+  Login.........: 
+  Nome Completo.: 
+ 
+PASTA DO LOG....: /home/paulosspacheco/v/paulosspacheco/LazarusProjects/maricarai_fixe-3.0/mi.ui.lcl.form/examples/mi.ui.lcl.form.tests
+ARQUIVO DE LOG..: x86_64-linux_mi.ui.lcl.form.test.rtl.lnx.log
+

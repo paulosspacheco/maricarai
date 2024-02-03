@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<title>multipagetemplate: Classe TMultipageTemplateReader</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="generator" content="PasDoc 0.16.0">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<link rel="stylesheet" type="text/css" href="tipuesearch/tipuesearch.css">
+
+<link rel="StyleSheet" type="text/css" href="pasdoc.css">
+</head>
+<body>
+<div class="container"><div class="navigation">
+<ul><li><a href="AllUnits.html">Units</a></li><li><a href="ClassHierarchy.html">Hierarquia de Classes</a></li><li><a href="AllClasses.html">Classes, Interfaces, Objetos e Registros</a></li><li><a href="AllTypes.html">Tipos</a></li><li><a href="AllVariables.html">Variáveis</a></li><li><a href="AllConstants.html">Constantes</a></li><li><a href="AllFunctions.html">Funções e Procedimentos</a></li><li><a href="AllIdentifiers.html">Identificadores</a></li><li><form class="search-form" action="tipue_results.html"><div class="search-input"><input type="text" name="q" id="tipue_search_input" pattern=".{3,}" title="At least 3 characters" required><div class="search-button"><input type="button" id="tipue_search_button" onclick="this.form.submit();"></div></div></form>
+<div style="clear: both"></div>
+</li></ul></div><div class="content">
+<span id="TMultipageTemplateReader"></span><h1 class="cio">Classe TMultipageTemplateReader</h1>
+<div class="sections">
+<div class="one_section"><a class="section" href="#PasDoc-Description">Descrição</a></div><div class="one_section"><a class="section" href="#PasDoc-Hierarchy">Hierarquia</a></div><div class="one_section"><a class="section" href="#PasDoc-Fields">Campos</a></div><div class="one_section"><a class="section" href="#PasDoc-Methods">Métodos</a></div><div class="one_section">Propriedades</div></div>
+<span id="PasDoc-Description"></span><h2 class="unit">Unit</h2>
+<p class="unitlink">
+<a href="multipagetemplate.html">multipagetemplate</a></p>
+<h2 class="declaration">Declaração</h2>
+<p class="declaration">
+<code>type TMultipageTemplateReader = class(TObject)</code></p>
+<h2 class="description">Descrição</h2>
+<p>
+Class to <a class="normal" href="simpleinternet.html#process">process</a> a multi-page <a class="normal" href="multipagetemplate.TMultipageTemplateReader.html#template">template</a></p>
+<p>
+ see <a class="normal" href="multipagetemplate.TMultiPageTemplate.html">TMultiPageTemplate</a> for a documentation of the allowed XML elements.</p>
+<span id="PasDoc-Hierarchy"></span><h2 class="hierarchy">Hierarquia</h2>
+<ul class="hierarchy"><li class="ancestor">TObject</li>
+<li class="thisitem">TMultipageTemplateReader</li></ul><h2 class="overview">Visão Geral</h2>
+<span id="PasDoc-Fields"></span><h3 class="summary">Campos</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code><strong><a href="multipagetemplate.TMultipageTemplateReader.html#template">template</a></strong>:<a href="multipagetemplate.TMultiPageTemplate.html">TMultiPageTemplate</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code><strong><a href="multipagetemplate.TMultipageTemplateReader.html#lastData">lastData</a></strong>: string;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code><strong><a href="multipagetemplate.TMultipageTemplateReader.html#lastContentType">lastContentType</a></strong>: string;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code><strong><a href="multipagetemplate.TMultipageTemplateReader.html#lastDataFormat">lastDataFormat</a></strong>: <a href="simplehtmltreeparser.html#TInternetToolsFormat">TInternetToolsFormat</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code><strong><a href="multipagetemplate.TMultipageTemplateReader.html#dataLoaded">dataLoaded</a></strong>: boolean;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code><strong><a href="multipagetemplate.TMultipageTemplateReader.html#queryCache">queryCache</a></strong>: TXQMapStringObject;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code><strong><a href="multipagetemplate.TMultipageTemplateReader.html#internet">internet</a></strong>:<a href="internetaccess.TInternetAccess.html">TInternetAccess</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code><strong><a href="multipagetemplate.TMultipageTemplateReader.html#parser">parser</a></strong>: <a href="extendedhtmlparser.THtmlTemplateParser.html">THtmlTemplateParser</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code><strong><a href="multipagetemplate.TMultipageTemplateReader.html#onLog">onLog</a></strong>: <a href="multipagetemplate.html#TLogEvent">TLogEvent</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code><strong><a href="multipagetemplate.TMultipageTemplateReader.html#onPageProcessed">onPageProcessed</a></strong>: <a href="multipagetemplate.html#TPageProcessed">TPageProcessed</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code><strong><a href="multipagetemplate.TMultipageTemplateReader.html#retryOnConnectionFailures">retryOnConnectionFailures</a></strong>: boolean;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code><strong><a href="multipagetemplate.TMultipageTemplateReader.html#actionTrace">actionTrace</a></strong>: TStringArrayList;</code></td>
+</tr>
+</table>
+<span id="PasDoc-Methods"></span><h3 class="summary">Métodos</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>procedure <strong><a href="multipagetemplate.TMultipageTemplateReader.html#needLoadedData">needLoadedData</a></strong>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>procedure <strong><a href="multipagetemplate.TMultipageTemplateReader.html#setTemplate">setTemplate</a></strong>(atemplate: <a href="multipagetemplate.TMultiPageTemplate.html">TMultiPageTemplate</a>);</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>procedure <strong><a href="multipagetemplate.TMultipageTemplateReader.html#applyPattern">applyPattern</a></strong>(pattern, name: string); virtual;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>procedure <strong><a href="multipagetemplate.TMultipageTemplateReader.html#setVariable">setVariable</a></strong>(name: string; value: <a href="simpleinternet.html#IXQValue">IXQValue</a>; namespace: string = ''); virtual;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>procedure <strong><a href="multipagetemplate.TMultipageTemplateReader.html#setVariable">setVariable</a></strong>(name: string; value: string; namespace: string = '');</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="multipagetemplate.TMultipageTemplateReader.html#parseQuery">parseQuery</a></strong>(const query: string): IXQuery;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="multipagetemplate.TMultipageTemplateReader.html#evaluateQuery">evaluateQuery</a></strong>(const query: IXQuery): <a href="simpleinternet.html#IXQValue">IXQValue</a>; virtual;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>constructor <strong><a href="multipagetemplate.TMultipageTemplateReader.html#create">create</a></strong>(atemplate:<a href="multipagetemplate.TMultiPageTemplate.html">TMultiPageTemplate</a>; ainternet: <a href="internetaccess.TInternetAccess.html">TInternetAccess</a>; patternMatcher: <a href="extendedhtmlparser.THtmlTemplateParser.html">THtmlTemplateParser</a> = nil);</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>destructor <strong><a href="multipagetemplate.TMultipageTemplateReader.html#destroy">destroy</a></strong>(); override;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="multipagetemplate.TMultipageTemplateReader.html#findAction">findAction</a></strong>(name:string):<a href="multipagetemplate.TTemplateAction.html">TTemplateAction</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>procedure <strong><a href="multipagetemplate.TMultipageTemplateReader.html#callAction">callAction</a></strong>(action:string);</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>procedure <strong><a href="multipagetemplate.TMultipageTemplateReader.html#callAction">callAction</a></strong>(const action:<a href="multipagetemplate.TTemplateAction.html">TTemplateAction</a>);</code></td>
+</tr>
+</table>
+<h2 class="description">Descrição</h2>
+<h3 class="detail">Campos</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="template"></span><code><strong>template</strong>:<a href="multipagetemplate.TMultiPageTemplate.html">TMultiPageTemplate</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="lastData"></span><code><strong>lastData</strong>: string;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="lastContentType"></span><code><strong>lastContentType</strong>: string;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="lastDataFormat"></span><code><strong>lastDataFormat</strong>: <a href="simplehtmltreeparser.html#TInternetToolsFormat">TInternetToolsFormat</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="dataLoaded"></span><code><strong>dataLoaded</strong>: boolean;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="queryCache"></span><code><strong>queryCache</strong>: TXQMapStringObject;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="internet"></span><code><strong>internet</strong>:<a href="internetaccess.TInternetAccess.html">TInternetAccess</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+Object used to send requests <a class="normal" href="int65math.html#and">and</a> download pages</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="parser"></span><code><strong>parser</strong>: <a href="extendedhtmlparser.THtmlTemplateParser.html">THtmlTemplateParser</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+<code>Parser</code> used to apply the given single page templates to a downloaded page</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="onLog"></span><code><strong>onLog</strong>: <a href="multipagetemplate.html#TLogEvent">TLogEvent</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+<a class="normal" href="bbdebugtools.html#log">Log</a> event</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="onPageProcessed"></span><code><strong>onPageProcessed</strong>: <a href="multipagetemplate.html#TPageProcessed">TPageProcessed</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+Event to access the changed variable state after each processed &lt;page&gt; element</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="retryOnConnectionFailures"></span><code><strong>retryOnConnectionFailures</strong>: boolean;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="actionTrace"></span><code><strong>actionTrace</strong>: TStringArrayList;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<h3 class="detail">Métodos</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="needLoadedData"></span><code>procedure <strong>needLoadedData</strong>;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="setTemplate"></span><code>procedure <strong>setTemplate</strong>(atemplate: <a href="multipagetemplate.TMultiPageTemplate.html">TMultiPageTemplate</a>);</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="applyPattern"></span><code>procedure <strong>applyPattern</strong>(pattern, name: string); virtual;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="setVariable"></span><code>procedure <strong>setVariable</strong>(name: string; value: <a href="simpleinternet.html#IXQValue">IXQValue</a>; namespace: string = ''); virtual;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="setVariable"></span><code>procedure <strong>setVariable</strong>(name: string; value: string; namespace: string = '');</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="parseQuery"></span><code>function <strong>parseQuery</strong>(const query: string): IXQuery;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="evaluateQuery"></span><code>function <strong>evaluateQuery</strong>(const query: IXQuery): <a href="simpleinternet.html#IXQValue">IXQValue</a>; virtual;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="create"></span><code>constructor <strong>create</strong>(atemplate:<a href="multipagetemplate.TMultiPageTemplate.html">TMultiPageTemplate</a>; ainternet: <a href="internetaccess.TInternetAccess.html">TInternetAccess</a>; patternMatcher: <a href="extendedhtmlparser.THtmlTemplateParser.html">THtmlTemplateParser</a> = nil);</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+Creates a reader using a certain <a class="normal" href="multipagetemplate.TMultipageTemplateReader.html#template">template</a> (atemplate is mandatory, ainternet optional)</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="destroy"></span><code>destructor <strong>destroy</strong>(); override;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="findAction"></span><code>function <strong>findAction</strong>(name:string):<a href="multipagetemplate.TTemplateAction.html">TTemplateAction</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+Searches the action element with the given id (equivalent to <a class="normal" href="multipagetemplate.TMultiPageTemplate.html#findAction">TMultiPageTemplate.findAction</a>)</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="callAction"></span><code>procedure <strong>callAction</strong>(action:string);</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+Executes the action with the given id <br> <br> This does not modify the action, so you can use the same <a class="normal" href="multipagetemplate.TMultipageTemplateReader.html#template">template</a> with multiple readers (even in other threads)</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="callAction"></span><code>procedure <strong>callAction</strong>(const action:<a href="multipagetemplate.TTemplateAction.html">TTemplateAction</a>);</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+Executes the given action <br> This does not modify the action, so you can use the same <a class="normal" href="multipagetemplate.TMultipageTemplateReader.html#template">template</a> with multiple readers (even in other threads)</p>
+</td></tr>
+</table>
+<hr><span class="appinfo"><em>Gerado por <a href="https://pasdoc.github.io/">PasDoc 0.16.0</a>. </em>
+</span>
+</div></div></body></html>

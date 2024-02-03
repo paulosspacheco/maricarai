@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CONFIG>
+  <ProjectGroup FileVersion="2">
+    <Targets>
+      <Target FileName="../mi.rtl/mi.rtl.lpk"/>
+      <Target FileName="../mi.rtl/examples/mi.rtl.tests/mi.rtl.tests.lpi">
+        <BuildModes>
+          <Mode Name="Default" Compile="True"/>
+          <Mode Name="i386-win32"/>
+          <Mode Name="x86_64-win64"/>
+        </BuildModes>
+      </Target>
+      <Target FileName="../mi.ui.lcl.form/mi.ui.lcl.form.lpk"/>
+      <Target FileName="../mi.ui.lcl.form/examples/mi.ui.lcl.form.tests/mi.ui.lcl.form.test.lpi">
+        <BuildModes>
+          <Mode Name="Default" Compile="True"/>
+          <Mode Name="i386-win32"/>
+          <Mode Name="x86_64-win64"/>
+        </BuildModes>
+      </Target>
+      <Target FileName="app_mi_rtl_console.lpi">
+        <BuildModes>
+          <Mode Name="Default" Compile="True"/>
+          <Mode Name="i386-win32"/>
+          <Mode Name="x86_64-win64"/>
+        </BuildModes>
+      </Target>
+      <Target FileName="app_mi_rtl_lcl.lpi">
+        <BuildModes>
+          <Mode Name="Default" Compile="True"/>
+          <Mode Name="i386-win32"/>
+          <Mode Name="x86_64-win64"/>
+        </BuildModes>
+      </Target>
+      <Target FileName="templates/app.mi.ui.lcl.form/__projname__.lpi">
+        <BuildModes>
+          <Mode Name="Default" Compile="True"/>
+          <Mode Name="i386-win32"/>
+          <Mode Name="x86_64-win64"/>
+        </BuildModes>
+      </Target>
+      <Target FileName="templates/mi.ui.lcl.form.linux/__projname__.lpi">
+        <BuildModes>
+          <Mode Name="Default"/>
+        </BuildModes>
+      </Target>
+    </Targets>
+  </ProjectGroup>
+</CONFIG>

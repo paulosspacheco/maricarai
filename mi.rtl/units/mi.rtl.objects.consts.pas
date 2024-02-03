@@ -5,7 +5,7 @@ unit mi.rtl.Objects.Consts;
       - Esta unit foi testada nas plataformas: win32, win64 e linux.
 
     - **VERSÃO**
-      - Alpha - 0.8.0
+      - Alpha - Alpha - 0.9.0
 
     - **HISTÓRICO**
       - Criado por: Paulo Sérgio da Silva Pacheco e-mail: paulosspacheco@@yahoo.com.br
@@ -26,7 +26,7 @@ unit mi.rtl.Objects.Consts;
 interface
 
 uses
-  Classes, SysUtils, mi.rtl.objects.types,mi.rtl.consts.StringListBase;
+  Classes, SysUtils, mi.rtl.objects.types,mi.rtl.MiStringListBase;
 
 
 
@@ -71,7 +71,13 @@ uses
 
             Const FmChildProcesses = $0080;           //:<     10000000
             Const FmCreate         = $0100;           //:<    100000000
+
+            {TODO -cBUG: 2023/09/07 : O modo FmWait não está funcionando no linux.
+                                      Entender como faço no windows para reproduzir no linux.}
+            {: O flag **@name** indica que quando o arquivo estiver ocupado a
+               rotina de abertura deve esperar até desocupar.}
             Const FmWait           = $0200 ;          //:<   1000000000
+
             Const FmMemory         = $0400 ;          //:<  10000000000 - Indica que o arquivo esta em tStreamemoria
             Const FmMemory_Temp    = $0800 ;          //:< 100000000000 - Indica que o arquivo e temporario e esta em tStreamemoria
           

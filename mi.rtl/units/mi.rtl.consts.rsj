@@ -18,7 +18,7 @@
 {"hash":74882946,"name":"mi.rtl.consts.scmimport","sourcebytes":[73,109,112,111,114,116,97,114],"value":"Importar"},
 {"hash":156880865,"name":"mi.rtl.consts.scmprocess","sourcebytes":[80,114,111,99,101,115,115,97],"value":"Processa"},
 {"hash":39163731,"name":"mi.rtl.consts.scmexecendproc","sourcebytes":[83,67,109,69,120,101,99,69,110,100,80,114,111,99],"value":"SCmExecEndProc"},
-{"hash":100129064,"name":"mi.rtl.consts.scmexecComboBox","sourcebytes":[83,67,109,69,120,101,99,67,111,109,98,111,66,111,120],"value":"SCmExecComboBox"},
+{"hash":100129064,"name":"mi.rtl.consts.scmexeccombobox","sourcebytes":[83,67,109,69,120,101,99,67,111,109,98,111,66,111,120],"value":"SCmExecComboBox"},
 {"hash":73456196,"name":"mi.rtl.consts.scmexeccommand","sourcebytes":[83,67,109,69,120,101,99,67,111,109,109,97,110,100],"value":"SCmExecCommand"},
 {"hash":11080531,"name":"mi.rtl.consts.scmcreate_shortcut","sourcebytes":[67,114,105,97,32,97,116,97,108,104,111,32,110,111,32,100,101,115,107,116,111,112,32,100,111,32,119,105,110,100,111,119,115],"value":"Cria atalho no desktop do windows"},
 {"hash":193519650,"name":"mi.rtl.consts.scmvisualizar","sourcebytes":[86,105,115,117,97,108,105,122,97,114],"value":"Visualizar"},
@@ -72,5 +72,6 @@
 {"hash":52680803,"name":"mi.rtl.consts.scmeditacores","sourcebytes":[69,100,105,116,97,32,99,111,114,101,115],"value":"Edita cores"},
 {"hash":53603075,"name":"mi.rtl.consts.scmsalvacores","sourcebytes":[83,97,108,118,97,32,99,111,114,101,115],"value":"Salva cores"},
 {"hash":226374332,"name":"mi.rtl.consts.scmhomepage","sourcebytes":[71,101,114,97,32,100,111,99,117,109,101,110,116,111,32,110,111,32,102,111,114,109,97,116,111,32,72,84,77,76,32,100,111,32,102,111,114,109,117,108,195,161,114,105,111,32,97,116,117,97,108],"value":"Gera documento no formato HTML do formul\u00C3\u00A1rio atual"},
-{"hash":354203,"name":"mi.rtl.consts.scmdbpack","sourcebytes":[80,97,99,107],"value":"Pack"}
+{"hash":354203,"name":"mi.rtl.consts.scmdbpack","sourcebytes":[80,97,99,107],"value":"Pack"},
+{"hash":260927277,"name":"mi.rtl.consts.serr201","sourcebytes":[69,114,114,111,58,32,37,100,32,45,32,79,32,118,97,108,111,114,32,37,115,32,101,115,116,195,161,32,102,111,114,97,32,100,97,32,102,97,105,120,97,32,112,101,114,109,105,116,105,100,97,32,112,97,114,97,32,111,32,99,97,109,112,111,46,32,70,97,105,120,97,58,32,91,37,100,32,46,46,32,37,100,32,93],"value":"Erro: %d - O valor %s est\u00C3\u00A1 fora da faixa permitida para o campo. Faixa: [%d .. %d ]"}
 ]}

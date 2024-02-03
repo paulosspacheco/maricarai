@@ -1,0 +1,157 @@
+[prws | property read write]
+$(AttributesStart)
+!Version=1
+!FileVersion=1
+$(AttributesEnd)
+property $param(Name) read $param(Get)$param(Name,sync=1) write $param(Set)$param(Name,sync=1);|
+[prwd | property read write default]
+$(AttributesStart)
+!Version=1
+$(AttributesEnd)
+property $param(Name) read $param(Get)$param(Name,sync=1) write $param(Set)$param(Name,sync=1) default $param(Const);|
+[pirws | property Integer read write]
+$(AttributesStart)
+!Version=1
+$(AttributesEnd)
+property $param(Name): Integer read $param(Get)$param(Name,sync=1) write $param(Set)$param(Name,sync=1);|
+[pirwd | property Integer read write default]
+$(AttributesStart)
+!Version=1
+$(AttributesEnd)
+property $param(Name): Integer read $param(Get)$param(Name,sync=1) write $param(Set)$param(Name,sync=1) default $param(Const);|
+[psrw | property string read write]
+$(AttributesStart)
+!Version=1
+$(AttributesEnd)
+property $param(Name): string read $param(Get)$param(Name,sync=1) write $param(Set)$param(Name,sync=1);|
+[pdrwd | property Double read write default]
+$(AttributesStart)
+!Version=1
+$(AttributesEnd)
+property $param(Name): Double read $param(Get)$param(Name,sync=1) write $param(Set)$param(Name,sync=1) default $param(Const);|
+[pdrws | property Double read write]
+$(AttributesStart)
+!Version=1
+$(AttributesEnd)
+property $param(Name): Double read $param(Get)$param(Name,sync=1) write $param(Set)$param(Name,sync=1);| 
+[mi_HTMLTag_tgImage_template | Template do evento tgImage do componente TPageProducer]
+$(AttributesStart)
+EnableMakros=true
+KeepSubIndent=true
+$(AttributesEnd)
+<!--# tgImage [- $Param(NomeDaFigura)=[<figure>
+                                 <img src="~src"
+                                      alt="~alt"
+                                      title="~title"
+                                      style="width:10%">
+                                 <figcaption>~figcaption</figcaption>
+                               </figure>
+                              ]
+              -]
+#-->
+|
+
+[mi_HTMLTag_tgImage_Event | código do evento para preencher o template mi_HTMLTag_tgImage_template]
+$(AttributesStart)
+EnableMakros=true
+KeepSubIndent=true
+$(AttributesEnd)
+procedure TForm_pageproducer_test.$Param(NomeDoObjeto)HTMLTag_tgImage(Sender: TObject;
+  const TagString: string; TagParams: TStrings; var ReplaceText: string);
+var
+  s1 : string;
+begin
+  s1 := TagParams.Values['$Param(NomeDaFigura)'];
+  if s1 <> ''
+  Then begin //Retorna a tag com a figura
+         ReplaceText:= TPageProducer.StringReplaceTgImage(s1,'./img/PageProducer1HTMLTag_tgTableNomeDaFigura).png',
+                       '$Param(Alt)','$Param(Title)','$Param(figcaption)');
+       end;
+end;
+
+|
+
+[mi_HTMLTag_tgtable_template | Template do evento tgTable do componente TPageProducer]
+$(AttributesStart)
+EnableMakros=true
+KeepSubIndent=true
+$(AttributesEnd)
+<!-- Adicionar a linha abaixo em header do documento-->
+<link type="text/css" href="./css/$Param(NomeDaTabela).css" rel="stylesheet" />
+
+<!-- Tag para criar uma tabela no estilo estilo $Param(table)
+  <!--# tgTable [- $Param(NomeDaTabela)=
+                   [ Alias="$Param(Alias_da_tabela)";
+                     Header="$Param(Column1):",":$Param(Column2):",":$Param(Column3)",":$Param(Column4)";
+                     widths="$Param(300px)","$Param(250px)","$Param(150px)","$Param(180px)";
+                     OneRow=["$Param(a11)","$Param(a12)","$Param(a13)  ","$Param(a14)",/,
+                             "$Param(a21)" ,"$Param(a22)","$Param(a23)","$Param(a24)",/,
+                             <!-- Adicione aqui ,mais linhas semelhantes a linha acima e apague esse comentário-->
+                            ];
+                     Footer="$Param(soma Columm1)","$Param(soma Columm2)","$Param(soma Columm3)","$Param(soma Columm4)";
+                     NotFound="$Param(Mensagem em caso de erro)";
+                     template="<Table id="$Param(table)">
+                                   <thead id="thead$Param(NomeDaTabela)">
+                                      <tr><th colspan="$Param(4)"> <p  style="text-align: center"> ~Alias  </p> </th>  </tr>
+                                      <tr>~HeaderCols</tr>
+                                   </thead>
+                                   <tbody id="tbody$Param(NomeDaTabela)">
+                                      ~OneRowCols
+                                   </tbody>
+                                   <tfoot id="tfoot$Param(NomeDaTabela)">
+                                      ~FooterCols
+                                   </tfoot>
+                               </Table>"
+                   ]
+                -]
+  #-->
+
+[mi_HTMLTag_tgtable_event | código do evento para preencher o template mi_HTMLTag_tgtable_template]
+$(AttributesStart)
+EnableMakros=true
+KeepSubIndent=true
+$(AttributesEnd)
+// Arquivo......: mi.rtl.objects.methods.pageproducer.test.pas
+// Code template: mi_HTMLTag_tgtable_event
+// O código abaixo deve ser inserido entre Begin End do evento $Param(NomeDoObjeto)HTMLTag_tgTable
+//   Exemplo: TForm_pageproducer_test.PageProducer1HTMLTag_tgTable()
+              Begin
+                ----> Adicione o code template aqui.
+              end;
+
+s1 := TagParams.Values['$Param(NomeDaTabela)'];
+if s1 <> '' Then
+begin
+  ReplaceText:= $Param(NomeDoObjeto).GetHtmlTable(TagParams,'$Param(NomeDaTabela)','$Param(table)');
+  exit;
+end;//$Param(NomeDaTabela)
+
+
+[mi_HTMLTag_tgImageMap_template | Template do evento tgImageMap do componente TPageProducer]
+$(AttributesStart)
+EnableMakros=true
+KeepSubIndent=true
+$(AttributesEnd)
+<!-- Site para gerar coord da área: https://www.image-map.net -->
+
+<!--# tgImageMap [- $Param(NomeDaImagem)=[ src="./img/$Param(NomeDaImagem).jpg";
+                                           usemap="$Param(NomeDaImagem)";
+                                           OneRowArea=["$Param(rect)"   , "$Param(target)" , "$Param(alt_rect)"   , "$Param(title_rect)"   , "$Param(href_rect.html)"   , "$Param(y1),$Param(y1),$Param(x2),$Param(y2)",/,
+                                                       "$Param(circle)" , "$Param(target)" , "$Param(alt_circle)" , "$Param(title_circle)" , "$Param(href_circle.html)" , "$Param(x1),$Param(y1),$Param(raio)",/,
+                                                       "$Param(poly)"   , "$Param(target)" , "$Param(alt_poly)"   , "$Param(title_poly)"   , "$Param(href_poly.html)"   , "$Param(x1),$Param(y1),$Param(x2),$Param(y2),$Param(x3),$Param(y3),$Param(x4),$Param(y4)$Param(..),$Param(xn),$Param(yn)",/,
+                                                       <!-- Adicione aqui ,mais linhas semelhantes a linha acima e apague esse comentário-->
+                                                      ];
+                                           templateOneRowArea=<area target="~target" alt="~alt" title="~title" href="~href" coords="~coords" shape="~shape">;
+                                           templateImageMap="< img src="~src"
+                                                               alt="~alt"
+                                                               usemap="#~usemap">
+                                                               <map name="~usemap">
+                                                                  <area shape="default" nohref />
+                                                                  ~OneRowArea
+                                                               </map>";
+                                         ]
+                 -]
+#-->
+
+|
+

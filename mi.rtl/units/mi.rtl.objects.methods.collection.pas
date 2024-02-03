@@ -5,7 +5,7 @@ unit mi.rtl.Objects.Methods.Collection;
     - Esta unit foi testada nas plataformas: linux.
 
   - **VERSÃO**
-    - Alpha - 0.8.0
+    - Alpha - Alpha - 0.9.0
 
   - **CÓDIGO FONTE**:
     - @html(<a href="../units/mi.rtl.objects.TCollection.pas">mi.rtl.objects.TCollection.pas</a>)

@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<title>tlntsend: Classe TTelnetSend</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="generator" content="PasDoc 0.16.0">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<link rel="stylesheet" type="text/css" href="tipuesearch/tipuesearch.css">
+
+<link rel="StyleSheet" type="text/css" href="pasdoc.css">
+</head>
+<body>
+<div class="container"><div class="navigation">
+<ul><li><a href="AllUnits.html">Units</a></li><li><a href="ClassHierarchy.html">Hierarquia de Classes</a></li><li><a href="AllClasses.html">Classes, Interfaces, Objetos e Registros</a></li><li><a href="AllTypes.html">Tipos</a></li><li><a href="AllVariables.html">Variáveis</a></li><li><a href="AllConstants.html">Constantes</a></li><li><a href="AllFunctions.html">Funções e Procedimentos</a></li><li><a href="AllIdentifiers.html">Identificadores</a></li><li><form class="search-form" action="tipue_results.html"><div class="search-input"><input type="text" name="q" id="tipue_search_input" pattern=".{3,}" title="At least 3 characters" required><div class="search-button"><input type="button" id="tipue_search_button" onclick="this.form.submit();"></div></div></form>
+<div style="clear: both"></div>
+</li></ul></div><div class="content">
+<span id="TTelnetSend"></span><h1 class="cio">Classe TTelnetSend</h1>
+<div class="sections">
+<div class="one_section"><a class="section" href="#PasDoc-Description">Descrição</a></div><div class="one_section"><a class="section" href="#PasDoc-Hierarchy">Hierarquia</a></div><div class="one_section">Campos</div><div class="one_section"><a class="section" href="#PasDoc-Methods">Métodos</a></div><div class="one_section"><a class="section" href="#PasDoc-Properties">Propriedades</a></div></div>
+<span id="PasDoc-Description"></span><h2 class="unit">Unit</h2>
+<p class="unitlink">
+<a href="tlntsend.html">tlntsend</a></p>
+<h2 class="declaration">Declaração</h2>
+<p class="declaration">
+<code>type TTelnetSend = class(<a class="normal" href="blcksock.TSynaClient.html">TSynaClient</a>)</code></p>
+<h2 class="description">Descrição</h2>
+<p>
+Class with implementation of Telnet/SSH script client.</p>
+<p>
+
+
+<p>Note: Are you missing properties for specify server address <a class="normal" href="int65math.html#and">and</a> port? Look to parent <a class="normal" href="blcksock.TSynaClient.html">TSynaClient</a> too!</p>
+<span id="PasDoc-Hierarchy"></span><h2 class="hierarchy">Hierarquia</h2>
+<ul class="hierarchy"><li class="ancestor">TObject</li>
+<li class="ancestor"><a class="normal" href="blcksock.TSynaClient.html">TSynaClient</a></li>
+<li class="thisitem">TTelnetSend</li></ul><h2 class="overview">Visão Geral</h2>
+<span id="PasDoc-Methods"></span><h3 class="summary">Métodos</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>constructor <strong><a href="tlntsend.TTelnetSend.html#Create">Create</a></strong>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>destructor <strong><a href="tlntsend.TTelnetSend.html#Destroy">Destroy</a></strong>; override;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="tlntsend.TTelnetSend.html#Login">Login</a></strong>: Boolean;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="tlntsend.TTelnetSend.html#SSHLogin">SSHLogin</a></strong>: Boolean;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>procedure <strong><a href="tlntsend.TTelnetSend.html#Logout">Logout</a></strong>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>procedure <strong><a href="tlntsend.TTelnetSend.html#Send">Send</a></strong>(const Value: string);</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="tlntsend.TTelnetSend.html#WaitFor">WaitFor</a></strong>(const Value: string): Boolean;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="tlntsend.TTelnetSend.html#RecvTerminated">RecvTerminated</a></strong>(const Terminator: string): string;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="tlntsend.TTelnetSend.html#RecvString">RecvString</a></strong>: string;</code></td>
+</tr>
+</table>
+<span id="PasDoc-Properties"></span><h3 class="summary">Propriedades</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><code>property <strong><a href="tlntsend.TTelnetSend.html#Sock">Sock</a></strong>: <a href="blcksock.TTCPBlockSocket.html">TTCPBlockSocket</a> read FSock;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><code>property <strong><a href="tlntsend.TTelnetSend.html#SessionLog">SessionLog</a></strong>: Ansistring read FSessionLog write FSessionLog;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><code>property <strong><a href="tlntsend.TTelnetSend.html#TermType">TermType</a></strong>: Ansistring read FTermType write FTermType;</code></td>
+</tr>
+</table>
+<h2 class="description">Descrição</h2>
+<h3 class="detail">Métodos</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Create"></span><code>constructor <strong>Create</strong>;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Destroy"></span><code>destructor <strong>Destroy</strong>; override;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Login"></span><code>function <strong>Login</strong>: Boolean;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+Connects to Telnet server.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="SSHLogin"></span><code>function <strong>SSHLogin</strong>: Boolean;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+Connects to SSH2 server <a class="normal" href="int65math.html#and">and</a> <a class="normal" href="tlntsend.TTelnetSend.html#Login">login</a> by <a class="normal" href="blcksock.TSynaClient.html#UserName">Username</a> <a class="normal" href="int65math.html#and">and</a> <a class="normal" href="blcksock.TSynaClient.html#Password">Password</a> properties.
+
+<p>You must use some of SSL plugins with SSH support. For exammple CryptLib.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Logout"></span><code>procedure <strong>Logout</strong>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+<code>Logout</code> from telnet server.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Send"></span><code>procedure <strong>Send</strong>(const Value: string);</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+<code>Send</code> this data to telnet server.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="WaitFor"></span><code>function <strong>WaitFor</strong>(const Value: string): Boolean;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+Reading data from telnet server until Value is readed. If it is not readed until <a class="normal" href="blcksock.TSynaClient.html#Timeout">timeout</a>, result is <code>False</code>. Otherwise result is <code>True</code>.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="RecvTerminated"></span><code>function <strong>RecvTerminated</strong>(const Terminator: string): string;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+Read data terminated by terminator from telnet server.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="RecvString"></span><code>function <strong>RecvString</strong>: string;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+Read string from telnet server.</p>
+</td></tr>
+</table>
+<h3 class="detail">Propriedades</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><span id="Sock"></span><code>property <strong>Sock</strong>: <a href="blcksock.TTCPBlockSocket.html">TTCPBlockSocket</a> read FSock;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+Socket object used for TCP/IP operation. Good for seting OnStatus hook, etc.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><span id="SessionLog"></span><code>property <strong>SessionLog</strong>: Ansistring read FSessionLog write FSessionLog;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+all readed datas in this session (from connect) is stored in this large string.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><span id="TermType"></span><code>property <strong>TermType</strong>: Ansistring read FTermType write FTermType;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+Terminal type indentification. By default is 'SYNAPSE'.</p>
+</td></tr>
+</table>
+<hr><span class="appinfo"><em>Gerado por <a href="https://pasdoc.github.io/">PasDoc 0.16.0</a>. </em>
+</span>
+</div></div></body></html>

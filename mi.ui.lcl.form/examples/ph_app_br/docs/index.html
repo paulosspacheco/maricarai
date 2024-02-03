@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+    <html>
+    <head>
+        <meta charset="UTF-8">
+        <title>project&period;ph&period;app&period;br</title>
+  
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <meta name="description"   content="" />
+        <meta name="keywords" content="" />
+           
+        <link type="text/css" href="./css/topnav.css" rel="stylesheet"/>        
+        <link type="text/css" href="./css/defaultthemeMarkdown.css"  rel="stylesheet"/>
+
+        <script type="application/x-javascript" src="./js/generic.js"></script>
+        <script type="application/x-javascript" src="./js/tgeneric.js"></script>
+
+        <script>document.addEventListener("DOMContentLoaded", function() {includeHTML();}                );</script>
+        <script>document.addEventListener("DOMContentLoaded", function() {FixHeader(window, "myHeader");});</script>
+        <script>document.addEventListener("DOMContentLoaded", function() {toggleTree();}                 );</script>   
+
+
+    </head>
+    <body class="vscode-body vscode-dark">
+        <div class="header" id="myHeader">
+  <div class="navbar" w3-include-html="./menu.inc"> </div>
+</div>
+<div class="title"><script> document.write(document.title);</script></div>  
+<main>
+<!-- markdownlint-disable-next-line -->
+<span id="topo"><span>
+<!-- <h1 id="projectphappbr"><a href="http://project.ph.app.br">project.ph.app.br</a></h1> -->
+<ol>
+<li><strong>Etapas:</strong>
+<ol>
+<li>
+<p>Estudar como o site OpenAI pode ajudar a criar o  <em>Assistant API da OpenAI</em>.</p>
+</li>
+<li>
+<p>Cadastros necessários para o projeto:</p>
+<ol>
+<li>
+<p>Medicos</p>
+<ol>
+<li>Id</li>
+<li>Nome</li>
+<li>Telefone</li>
+<li>Telefone_da_secretaria</li>
+<li>Login</li>
+<li>Senha</li>
+</ol>
+</li>
+<li>
+<p>Serviço_de_agendas</p>
+<ol>
+<li>id</li>
+<li>Nome</li>
+<li>Login</li>
+<li>Senha</li>
+</ol>
+</li>
+<li>
+<p>Convênios</p>
+<ol>
+<li>Id</li>
+<li>Nome</li>
+<li>Login</li>
+<li>Senha</li>
+</ol>
+</li>
+<li>
+<p>clientes</p>
+<ol>
+<li>Id;</li>
+<li>Nome;</li>
+<li>Telefone_WhatsApp;</li>
+<li>e-mail</li>
+<li>Login</li>
+<li>senha</li>
+<li>Id_Convenio</li>
+</ol>
+</li>
+<li>
+<p>Integração</p>
+<ol>
+<li>id</li>
+<li>endereço_do_site</li>
+<li>login</li>
+<li>senha</li>
+<li>status // Usado para saber o se o site está conectado</li>
+</ol>
+</li>
+<li>
+<p>Expediente_do_medico_data</p>
+<ol>
+<li>id</li>
+<li>Data</li>
+</ol>
+</li>
+<li>
+<p>Expediente_do_medico_horas</p>
+<ol>
+<li>Id_Expediente_do_medico_Data</li>
+<li>Hora_inicial</li>
+<li>Hora_final</li>
+</ol>
+</li>
+<li>
+<p>Disponibilidade_do_Paciente</p>
+<ol>
+<li>Id</li>
+<li>Data</li>
+<li>Hora</li>
+</ol>
+</li>
+<li>
+<p>Agenda</p>
+<ol>
+<li>Id</li>
+<li>Id_Medico</li>
+<li>Id_Cliente</li>
+<li>Data</li>
+<li>Hora</li>
+<li>Id_Convenio</li>
+<li>Natureza_da_Interação</li>
+<li>Observações</li>
+</ol>
+</li>
+</ol>
+</li>
+<li>
+<p>Criar rotinas para:</p>
+<ol>
+<li>
+<p>Criar programa para coletar as informações do paciente</p>
+<ol>
+<li>
+<p>Obs?</p>
+<ol>
+<li>Quais textos utilizar para interagir com o cliente no WhatsApp?
+<ol>
+<li>Podemos usar a IA para textos humanizados.</li>
+<li>Outras forma é fazer perguntas e o cliente responde com o número da opção.</li>
+</ol>
+</li>
+</ol>
+</li>
+<li>
+<p>Cadastros necessários para comunicar-se com os clientes:</p>
+<ol>
+<li>Medico</li>
+<li>Convênio</li>
+<li>Serviço_de_agendas</li>
+<li>Integração</li>
+<li>Expediente_do_medico_data</li>
+<li>Expediente_do_medico_horas</li>
+</ol>
+</li>
+<li>
+<p>Criar programa para confirmações de consultas.</p>
+<ol>
+<li>Cadastros atualizados aqui:
+<ol>
+<li>clientes</li>
+<li>Agenda</li>
+<li>Disponibilidade_do_Paciente
+???</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+<li>
+<p><strong>Confirmação de Consultas:</strong></p>
+<ol>
+<li>Utilize a <em>API do WhatsApp</em> para enviar</li>
+<li>Implementar a <em>API de voz da OpenAI</em> para fazer <em>chamadas de voz automatizadas</em> para <em>confirmação de consultas</em>.</li>
+</ol>
+</li>
+<li>
+<p><strong>Banco de Dados de Informações Adicionais:</strong></p>
+<ol>
+<li>Criar um <em>banco de dados adicional</em> para armazenar informações sobre <em>convênios</em>, <em>preços de consultas</em> e <em>hospitais onde o médico atende</em>.</li>
+</ol>
+</li>
+<li>
+<p>Testes e Validação:</p>
+<ol>
+<li>Realizar <em>testes abrangentes</em> para garantir o funcionamento adequado de todas as funcionalidades.</li>
+</ol>
+</li>
+<li>
+<p><strong>Documentação e Treinamento:</strong></p>
+</li>
+<li>
+<p>Preparar <em>documentação detalhada</em> e <em>oferecer treinamento</em> para o <em>médico</em> e a <em>equipe</em> sobre o uso da <em>secretária virtual</em>.</p>
+</li>
+<li>
+<p><strong>Manutenção e Atualização Contínua:</strong></p>
+<ol>
+<li>Criar um <em>plano de manutenção</em> e <em>atualização</em> para manter a segurança, eficiência e compatibilidade do sistema.</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+<!-- markdownlint-disable-next-line -->
+</main>
+<p><a href="#topo" title="Retorna ao topo">🔝🔝</a></p>
+
+        
+        
+    </body>
+    </html>

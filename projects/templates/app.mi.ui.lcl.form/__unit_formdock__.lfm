@@ -1,0 +1,7 @@
+object __FormDock__: T__FormDock__
+  Left = 519
+  Height = 240
+  Top = 250
+  Width = 320
+  Caption = '__FormDock__'
+end

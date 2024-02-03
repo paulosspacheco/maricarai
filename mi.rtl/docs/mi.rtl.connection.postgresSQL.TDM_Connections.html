@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<title>mi.rtl.connection.postgresSQL: Classe TDM_Connections</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="generator" content="PasDoc 0.16.0">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<link rel="stylesheet" type="text/css" href="tipuesearch/tipuesearch.css">
+
+<link rel="StyleSheet" type="text/css" href="pasdoc.css">
+</head>
+<body>
+<div class="container"><div class="navigation">
+<ul><li><a href="AllUnits.html">Units</a></li><li><a href="ClassHierarchy.html">Hierarquia de Classes</a></li><li><a href="AllClasses.html">Classes, Interfaces, Objetos e Registros</a></li><li><a href="AllTypes.html">Tipos</a></li><li><a href="AllVariables.html">Variáveis</a></li><li><a href="AllConstants.html">Constantes</a></li><li><a href="AllFunctions.html">Funções e Procedimentos</a></li><li><a href="AllIdentifiers.html">Identificadores</a></li><li><form class="search-form" action="tipue_results.html"><div class="search-input"><input type="text" name="q" id="tipue_search_input" pattern=".{3,}" title="At least 3 characters" required><div class="search-button"><input type="button" id="tipue_search_button" onclick="this.form.submit();"></div></div></form>
+<div style="clear: both"></div>
+</li></ul></div><div class="content">
+<span id="TDM_Connections"></span><h1 class="cio">Classe TDM_Connections</h1>
+<div class="sections">
+<div class="one_section"><a class="section" href="#PasDoc-Description">Descrição</a></div><div class="one_section"><a class="section" href="#PasDoc-Hierarchy">Hierarquia</a></div><div class="one_section"><a class="section" href="#PasDoc-Fields">Campos</a></div><div class="one_section"><a class="section" href="#PasDoc-Methods">Métodos</a></div><div class="one_section"><a class="section" href="#PasDoc-Properties">Propriedades</a></div></div>
+<span id="PasDoc-Description"></span><h2 class="unit">Unit</h2>
+<p class="unitlink">
+<a href="mi.rtl.connection.postgresSQL.html">mi.rtl.connection.postgresSQL</a></p>
+<h2 class="declaration">Declaração</h2>
+<p class="declaration">
+<code>type TDM_Connections = class(TDataModule)</code></p>
+<h2 class="description">Descrição</h2>
+<p>
+O Data Module <strong><code>TDM_Connections</code></strong> é usado para conectar-se ao banco de dados através de parâmetros salvos no arquivo config.ini</p>
+<span id="PasDoc-Hierarchy"></span><h2 class="hierarchy">Hierarquia</h2>
+<ul class="hierarchy"><li class="ancestor">TObject</li>
+<li class="ancestor">TPersistent</li>
+<li class="ancestor">TComponent</li>
+<li class="ancestor">TDataModule</li>
+<li class="thisitem">TDM_Connections</li></ul><h2 class="overview">Visão Geral</h2>
+<span id="PasDoc-Fields"></span><h3 class="summary">Campos</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code><strong><a href="mi.rtl.connection.postgresSQL.TDM_Connections.html#SQLConnector1">SQLConnector1</a></strong>: TSQLConnector;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code><strong><a href="mi.rtl.connection.postgresSQL.TDM_Connections.html#SQLTransaction1">SQLTransaction1</a></strong>: TSQLTransaction;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>var <strong><a href="mi.rtl.connection.postgresSQL.TDM_Connections.html#_Connection">_Connection</a></strong>:Boolean ;</code></td>
+</tr>
+</table>
+<span id="PasDoc-Methods"></span><h3 class="summary">Métodos</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>procedure <strong><a href="mi.rtl.connection.postgresSQL.TDM_Connections.html#DataModuleCreate">DataModuleCreate</a></strong>(Sender: TObject);</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>procedure <strong><a href="mi.rtl.connection.postgresSQL.TDM_Connections.html#SQLConnector1AfterConnect">SQLConnector1AfterConnect</a></strong>(Sender: TObject);</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>procedure <strong><a href="mi.rtl.connection.postgresSQL.TDM_Connections.html#SQLConnector1AfterDisconnect">SQLConnector1AfterDisconnect</a></strong>(Sender: TObject);</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>procedure <strong><a href="mi.rtl.connection.postgresSQL.TDM_Connections.html#SQLConnector1BeforeConnect">SQLConnector1BeforeConnect</a></strong>(Sender: TObject);</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>procedure <strong><a href="mi.rtl.connection.postgresSQL.TDM_Connections.html#SQLConnector1BeforeDisconnect">SQLConnector1BeforeDisconnect</a></strong>(Sender: TObject);</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>procedure <strong><a href="mi.rtl.connection.postgresSQL.TDM_Connections.html#SQLConnector1Log">SQLConnector1Log</a></strong>(Sender: TSQLConnection; EventType: TDBEventType; const Msg: String);</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>procedure <strong><a href="mi.rtl.connection.postgresSQL.TDM_Connections.html#SQLConnector1Login">SQLConnector1Login</a></strong>(Sender: TObject; Username, Password: string);</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>Function <strong><a href="mi.rtl.connection.postgresSQL.TDM_Connections.html#GetParametros_Conexao">GetParametros_Conexao</a></strong>(aFileName:String;var aParam:<a href="mi.rtl.connection.postgresSQL.TParam.html">TParam</a>):Boolean;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>procedure <strong><a href="mi.rtl.connection.postgresSQL.TDM_Connections.html#SetParametros_Conexao">SetParametros_Conexao</a></strong>(aFileName:String;var aParam:<a href="mi.rtl.connection.postgresSQL.TParam.html">TParam</a>);</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="mi.rtl.connection.postgresSQL.TDM_Connections.html#DoConnect">DoConnect</a></strong>(Const login: String; Const Senha: String): boolean;</code></td>
+</tr>
+</table>
+<span id="PasDoc-Properties"></span><h3 class="summary">Propriedades</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="mi.rtl.connection.postgresSQL.TDM_Connections.html#Connection">Connection</a></strong> : Boolean Read GetConnection Write SetConnection;</code></td>
+</tr>
+</table>
+<h2 class="description">Descrição</h2>
+<h3 class="detail">Campos</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="SQLConnector1"></span><code><strong>SQLConnector1</strong>: TSQLConnector;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="SQLTransaction1"></span><code><strong>SQLTransaction1</strong>: TSQLTransaction;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="_Connection"></span><code>var <strong>_Connection</strong>:Boolean ;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<h3 class="detail">Métodos</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="DataModuleCreate"></span><code>procedure <strong>DataModuleCreate</strong>(Sender: TObject);</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+O método <strong><code>DataModuleCreate</code></strong> checa se o arquivo <strong>config.ini</strong> existe, se existir, ler os parãmetros de conexão do arquivo <strong>config.ini</strong>, se não existir pede para a pessoa que executou o programa informar parâmetros para conexão e em seguida salva no arquivo <strong>config.ini</strong>.
+
+<p></p>
+
+<ul class="paragraph_spacing">
+  <li><p><strong>PARÂMETROS DE CONEXÃO</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>SESSÃO CONEXÃO; </p>
+
+<ul class="paragraph_spacing">
+  <li><p>ConnectorType;</p></li>
+  <li><p>UserName;</p></li>
+  <li><p>Password;</p></li>
+  <li><p>HostName;</p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p></li>
+  <li><p><strong>REFERÊNCIAS</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>[Using INI Files](<a href="https://wiki.freepascal.org/Using_INI_Files">https://wiki.freepascal.org/Using_INI_Files</a>)</p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="SQLConnector1AfterConnect"></span><code>procedure <strong>SQLConnector1AfterConnect</strong>(Sender: TObject);</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="SQLConnector1AfterDisconnect"></span><code>procedure <strong>SQLConnector1AfterDisconnect</strong>(Sender: TObject);</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="SQLConnector1BeforeConnect"></span><code>procedure <strong>SQLConnector1BeforeConnect</strong>(Sender: TObject);</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="SQLConnector1BeforeDisconnect"></span><code>procedure <strong>SQLConnector1BeforeDisconnect</strong>(Sender: TObject);</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="SQLConnector1Log"></span><code>procedure <strong>SQLConnector1Log</strong>(Sender: TSQLConnection; EventType: TDBEventType; const Msg: String);</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="SQLConnector1Login"></span><code>procedure <strong>SQLConnector1Login</strong>(Sender: TObject; Username, Password: string);</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+O evento <strong><code>SQLConnector1Login</code></strong> é usado para checar no banco de dados se o usuário tem permisão para conectar-se.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="GetParametros_Conexao"></span><code>Function <strong>GetParametros_Conexao</strong>(aFileName:String;var aParam:<a href="mi.rtl.connection.postgresSQL.TParam.html">TParam</a>):Boolean;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="SetParametros_Conexao"></span><code>procedure <strong>SetParametros_Conexao</strong>(aFileName:String;var aParam:<a href="mi.rtl.connection.postgresSQL.TParam.html">TParam</a>);</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="DoConnect"></span><code>function <strong>DoConnect</strong>(Const login: String; Const Senha: String): boolean;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<h3 class="detail">Propriedades</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Connection"></span><code>property <strong>Connection</strong> : Boolean Read GetConnection Write SetConnection;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<hr><span class="appinfo"><em>Gerado por <a href="https://pasdoc.github.io/">PasDoc 0.16.0</a>. </em>
+</span>
+</div></div></body></html>

@@ -1,10 +1,9 @@
 unit mi.rtl.Consts;
-{:< - A Unit **@name** reúne as constantes globais usados pelo pacote **mi.rtl**.
-               Esta unit foi testada nas plataformas: win32, win64 e linux.
-
+{:< - A Unit **@name** reúne as constantes globais usados pelo pacote
+      **mi.rtl**.
 
   - **VERSÃO**
-    - Alpha - 0.8.0
+    - Alpha - Alpha - 0.9.0
 
   - **CÓDIGO FONTE**:
     - @html(<a href="../units/mi.rtl.consts.pas">mi.rtl.consts.pas</a>)          
@@ -44,9 +43,11 @@ uses
   Classes
   ,SysUtils
   ,process
+  ,fpTemplate
   ,mi.rtl.types;
 
-  {: A classe **@name** declara todas as constantes globais do pacote MarIcarai
+  {: A classe **@name** declara todas as constantes globais do
+     pacote Mi.RTL
   }
   type TConsts =
   class(TTypes)
@@ -803,12 +804,20 @@ uses
       }
       const HANDLE_INVALID = high(THandle);
       
-      {- A constante **@name** é usada em writeln para passar a linha.
-      }
+      {: O caracter **@name** contém o código **CHR(10)** indicativo de  avanço
+         de linha nas impressões e arquivos do tipo texto}
       const LF = #10;
+
+      {: O caracter **@name** contém o código **CHR(13)** indicativo de  retorno
+         do carro nas impressões e arquivos do tipo texto}
       const CR = #13;
 
-      {: - A constantes **@name** é usado em **writeln** para passar a linha.
+      {: - A constantes **@name** indica passagem de linha nas impressões e nas
+           gravações de arquivo do tipo texto.
+
+         - Nota:
+           - No Windows usa a sequencia **CR+LF** para passar a linha, o linux
+             obdece o conceito inical no qual o **LF** foi criado que é passar a linha.
       }
       const New_Line = {$IFDEF WINDOWS} CR+LF {$ENDIF} {$IFDEF LINUX} LF {$ENDIF};
 
@@ -1755,6 +1764,9 @@ uses
         const cmDbMX_PutBuffer    = cmDMX + 59;  {< Grava o buffer de WorkingData para o registro do arquivo}
         {<Fin NortSoft}
 
+
+
+
       {: A contante **@name** contém o caractere separador de diretório.}
       public const DirectorySeparator :char = system.DirectorySeparator;   {'/' ou '\'}
 
@@ -1778,8 +1790,56 @@ uses
       }
       public const MessageBoxOff    : Boolean = false;
 
+      {: A constante padrão **@name** é usado para indicar início da tag do modelo do compoente TPageProducer
+
+         - **NOTA**
+           - Se você quiser estilo Delphi, defina-o como '<#'
+      }
+      public const DefaultStartDelimiter : TParseDelimiter = '<!--#';
+
+
+      {: A constante padrão **@name** é usado para indicar fim da tag do modelo do compoente TPageProducer
+
+         - **NOTA**
+           - Se você quiser estilo Delphi, defina-o como '>'
+      }
+      public const DefaultEndDelimiter   : TParseDelimiter = '#-->';
+
+      {: A constante padrão **@name** é usado para indicar inicio do parâmetro da
+         tag do modelo do compoente TPageProducer
+      }
+      public const DefaultParamStartDelimiter  : TParseDelimiter = '[-';
+
+      {: A constante padrão **@name** é usado para indicar fim do parâmetro da
+         tag do modelo do compoente TPageProducer
+      }
+      public const DefaultParamEndDelimiter    : TParseDelimiter = '-]';
+
+      {: A constante padrão **@name** é usado para indicar o separador parâmetro
+         nome / valor da tag do modelo do compoente TPageProducer
+      }
+      public const DefaultParamValueSeparator  : TParseDelimiter = '=';
+
+      {: A constante **@name** é usado como default da propreidade
+         TPageProducer.AllowTagParams.
+      }
+      public const DefaultAllowTagParams  : Boolean = true;
+
+      {: A constante **@name** contém o nome do usuário corrente logado no sistema }
+      Const User = {$I %USER%};
+
+      {: A constante **@name** contém a data em que o programa foi compilado}
+      Const DateCompiler = {$I %TIME%}+' on '+{$I %DATE%};
+
+      {: A constante **@name** contém a versão do compilador}
+      Const FPC_Version = {$I %FPCVERSION%};
+
+      {: A constante **@name** contém otipo de cpu no qual esse código se destina.}
+      Const FPC_Target = {$I %FPCTARGET%};
+
       public class function  CreateEnumField(ShowZ: boolean; AccMode,Default: LongInt;AItems: PSItem) : tString;
       public class function  CreateTSItemFields(ATemplates: PSItem) : tString;
+
 
     end;
 

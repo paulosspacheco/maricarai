@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<title>simplehtmlparser</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="generator" content="PasDoc 0.16.0">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<link rel="stylesheet" type="text/css" href="tipuesearch/tipuesearch.css">
+
+<link rel="StyleSheet" type="text/css" href="pasdoc.css">
+</head>
+<body>
+<div class="container"><div class="navigation">
+<ul><li><a href="AllUnits.html">Units</a></li><li><a href="ClassHierarchy.html">Hierarquia de Classes</a></li><li><a href="AllClasses.html">Classes, Interfaces, Objetos e Registros</a></li><li><a href="AllTypes.html">Tipos</a></li><li><a href="AllVariables.html">Variáveis</a></li><li><a href="AllConstants.html">Constantes</a></li><li><a href="AllFunctions.html">Funções e Procedimentos</a></li><li><a href="AllIdentifiers.html">Identificadores</a></li><li><form class="search-form" action="tipue_results.html"><div class="search-input"><input type="text" name="q" id="tipue_search_input" pattern=".{3,}" title="At least 3 characters" required><div class="search-button"><input type="button" id="tipue_search_button" onclick="this.form.submit();"></div></div></form>
+<div style="clear: both"></div>
+</li></ul></div><div class="content">
+<h1 class="unit">Unit simplehtmlparser</h1>
+<div class="sections">
+<div class="one_section"><a class="section" href="#PasDoc-Description">Descrição</a></div><div class="one_section"><a class="section" href="#PasDoc-Uses">Uses</a></div><div class="one_section"><a class="section" href="#PasDoc-Classes">Classes, Interfaces, Objetos e Registros</a></div><div class="one_section"><a class="section" href="#PasDoc-FuncsProcs">Funções e Procedimentos</a></div><div class="one_section"><a class="section" href="#PasDoc-Types">Tipos</a></div><div class="one_section">Constantes</div><div class="one_section">Variáveis</div></div>
+<span id="PasDoc-Description"></span><h2 class="description">Descrição</h2>
+<p>
+This is a simple html parser</p>
+<p>
+
+
+<p></p>
+<span id="PasDoc-Uses"></span><h2 class="uses">Uses</h2>
+<ul class="useslist"><li>Classes</li><li>SysUtils</li></ul><h2 class="overview">Visão Geral</h2>
+<span id="PasDoc-Classes"></span><h3 class="cio">Classes, Interfaces, Objetos e Registros</h3>
+<table class="classestable wide_list">
+<tr class="listheader">
+<th class="itemname">Nome</th>
+<th class="itemdesc">Descrição</th>
+</tr>
+<tr class="list">
+<td class="itemname">Registro&nbsp;<a class="bold" href="simplehtmlparser.THTMLProperty.html"><code>THTMLProperty</code></a></td>
+<td class="itemdesc">&nbsp;</td>
+</tr>
+</table>
+<span id="PasDoc-FuncsProcs"></span><h3 class="summary">Funções e Procedimentos</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="itemcode"><code>function <strong><a href="simplehtmlparser.html#pcharStartEqual">pcharStartEqual</a></strong>(p1,p2:pchar;l1,l2: SizeInt):boolean;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code>procedure <strong><a href="simplehtmlparser.html#parseHTML">parseHTML</a></strong>(const html:string; enterTagEvent: <a href="simplehtmlparser.html#TEnterTagEvent">TEnterTagEvent</a>; leaveTagEvent: <a href="simplehtmlparser.html#TLeaveTagEvent">TLeaveTagEvent</a>; textEvent: <a href="simplehtmlparser.html#TTextEvent">TTextEvent</a>; commentEvent: <a href="simplehtmlparser.html#TCommentEvent">TCommentEvent</a> = nil);</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code>procedure <strong><a href="simplehtmlparser.html#parseML">parseML</a></strong>(const html:string; const options: <a href="simplehtmlparser.html#TParsingOptions">TParsingOptions</a>; enterTagEvent: <a href="simplehtmlparser.html#TEnterTagEvent">TEnterTagEvent</a>; leaveTagEvent: <a href="simplehtmlparser.html#TLeaveTagEvent">TLeaveTagEvent</a>; textEvent: <a href="simplehtmlparser.html#TTextEvent">TTextEvent</a>; commentEvent: <a href="simplehtmlparser.html#TCommentEvent">TCommentEvent</a> = nil; processingInstruction: <a href="simplehtmlparser.html#TTextEvent">TTextEvent</a> = nil; docType: <a href="simplehtmlparser.html#TDocTypeEvent">TDocTypeEvent</a> = nil );</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code>function <strong><a href="simplehtmlparser.html#existPropertyWithValue">existPropertyWithValue</a></strong>(propertyName,propertyValue: string; properties:<a href="simplehtmlparser.html#THTMLProperties">THTMLProperties</a>):boolean;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code>function <strong><a href="simplehtmlparser.html#getProperty">getProperty</a></strong>(propertyName: string; properties:<a href="simplehtmlparser.html#THTMLProperties">THTMLProperties</a>):string;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code>function <strong><a href="simplehtmlparser.html#findLinkWithText">findLinkWithText</a></strong>(const html:string;text: string):string;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code>function <strong><a href="simplehtmlparser.html#findLinkWithProperty">findLinkWithProperty</a></strong>(const html:string;prop,value: string):string;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code>function <strong><a href="simplehtmlparser.html#findTagPropertyValueWithProperty">findTagPropertyValueWithProperty</a></strong>(const html:string;tag,prop_to_get,prop_must_match,value: string):string;</code></td>
+</tr>
+</table>
+<span id="PasDoc-Types"></span><h3 class="summary">Tipos</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="itemcode"><code><strong><a href="simplehtmlparser.html#TParsingOptions">TParsingOptions</a></strong> = set of (poRespectHTMLCDATAElements, poRespectHTMLProcessingInstructions, poRespectXMLProcessingInstructions);</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><strong><a href="simplehtmlparser.html#THTMLProperties">THTMLProperties</a></strong>=array of <a href="simplehtmlparser.THTMLProperty.html">THTMLProperty</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><strong><a href="simplehtmlparser.html#TParsingResult">TParsingResult</a></strong> = (...);</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><strong><a href="simplehtmlparser.html#TEnterTagEvent">TEnterTagEvent</a></strong> = function (tagName: pchar; tagNameLen: SizeInt; properties: <a href="simplehtmlparser.html#THTMLProperties">THTMLProperties</a>):<a href="simplehtmlparser.html#TParsingResult">TParsingResult</a> of object;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><strong><a href="simplehtmlparser.html#TLeaveTagEvent">TLeaveTagEvent</a></strong> = function (tagName: pchar; tagNameLen: SizeInt):<a href="simplehtmlparser.html#TParsingResult">TParsingResult</a> of object;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><strong><a href="simplehtmlparser.html#TCommentEvent">TCommentEvent</a></strong> = function (comment: pchar; commentLen: SizeInt):<a href="simplehtmlparser.html#TParsingResult">TParsingResult</a> of object;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><strong><a href="simplehtmlparser.html#TDocTypeEvent">TDocTypeEvent</a></strong> = procedure (name: pchar; nameLen: SizeInt; more: pchar; moreLen: SizeInt) of object;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><strong><a href="simplehtmlparser.html#TTextFlags">TTextFlags</a></strong> = set of (tfCDATA);</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><strong><a href="simplehtmlparser.html#TTextEvent">TTextEvent</a></strong> = function (text: pchar; textLen: SizeInt; textFlags: <a href="simplehtmlparser.html#TTextFlags">TTextFlags</a>):<a href="simplehtmlparser.html#TParsingResult">TParsingResult</a> of object;</code></td>
+</tr>
+</table>
+<h2 class="description">Descrição</h2>
+<h3 class="detail">Funções e Procedimentos</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="pcharStartEqual"></span><code>function <strong>pcharStartEqual</strong>(p1,p2:pchar;l1,l2: SizeInt):boolean;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="parseHTML"></span><code>procedure <strong>parseHTML</strong>(const html:string; enterTagEvent: <a href="simplehtmlparser.html#TEnterTagEvent">TEnterTagEvent</a>; leaveTagEvent: <a href="simplehtmlparser.html#TLeaveTagEvent">TLeaveTagEvent</a>; textEvent: <a href="simplehtmlparser.html#TTextEvent">TTextEvent</a>; commentEvent: <a href="simplehtmlparser.html#TCommentEvent">TCommentEvent</a> = nil);</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+This parses html data     <strong><a class="normal" href="slogsend.html#Notice">Notice</a>:</strong> You can pass nil for every callback function <a class="normal" href="int65math.html#and">and</a> if one of them returns <a class="normal" href="simplehtmlparser.html#prStop">prStop</a>, the parsing is aborted.</p>
+<h6 class="description_section">Parâmetros</h6>
+<dl class="parameters">
+<dt>html</dt>
+<dd>The html data</dd>
+<dt>enterTag</dt>
+<dd>Event to be called when a tag is entered</dd>
+<dt>leaveTag</dt>
+<dd>Event to be called when a tag is leaved</dd>
+<dt>textRead</dt>
+<dd>Event to be called when text between tags is read</dd>
+</dl>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="parseML"></span><code>procedure <strong>parseML</strong>(const html:string; const options: <a href="simplehtmlparser.html#TParsingOptions">TParsingOptions</a>; enterTagEvent: <a href="simplehtmlparser.html#TEnterTagEvent">TEnterTagEvent</a>; leaveTagEvent: <a href="simplehtmlparser.html#TLeaveTagEvent">TLeaveTagEvent</a>; textEvent: <a href="simplehtmlparser.html#TTextEvent">TTextEvent</a>; commentEvent: <a href="simplehtmlparser.html#TCommentEvent">TCommentEvent</a> = nil; processingInstruction: <a href="simplehtmlparser.html#TTextEvent">TTextEvent</a> = nil; docType: <a href="simplehtmlparser.html#TDocTypeEvent">TDocTypeEvent</a> = nil );</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+This parses html/xml data       <strong><a class="normal" href="slogsend.html#Notice">Notice</a>:</strong> You can pass nil for every callback function <a class="normal" href="int65math.html#and">and</a> if one of them returns <a class="normal" href="simplehtmlparser.html#prStop">prStop</a>, the parsing is aborted.</p>
+<h6 class="description_section">Parâmetros</h6>
+<dl class="parameters">
+<dt>html</dt>
+<dd>Input</dd>
+<dt>options</dt>
+<dd>Set of options to modify the low-level parsing behaviour. (Set it to [poScriptIsCDATA] for html <a class="normal" href="int65math.html#and">and</a> [] for xml)</dd>
+<dt>enterTag</dt>
+<dd>Event to be called when a tag is entered</dd>
+<dt>leaveTag</dt>
+<dd>Event to be called when a tag is leaved</dd>
+<dt>textRead</dt>
+<dd>Event to be called when text between tags is read</dd>
+<dt>commentEvent</dt>
+<dd>Event to be called when a comment is read</dd>
+</dl>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="existPropertyWithValue"></span><code>function <strong>existPropertyWithValue</strong>(propertyName,propertyValue: string; properties:<a href="simplehtmlparser.html#THTMLProperties">THTMLProperties</a>):boolean;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="getProperty"></span><code>function <strong>getProperty</strong>(propertyName: string; properties:<a href="simplehtmlparser.html#THTMLProperties">THTMLProperties</a>):string;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="findLinkWithText"></span><code>function <strong>findLinkWithText</strong>(const html:string;text: string):string;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="findLinkWithProperty"></span><code>function <strong>findLinkWithProperty</strong>(const html:string;prop,value: string):string;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="findTagPropertyValueWithProperty"></span><code>function <strong>findTagPropertyValueWithProperty</strong>(const html:string;tag,prop_to_get,prop_must_match,value: string):string;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<h3 class="detail">Tipos</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="TParsingOptions"></span><code><strong>TParsingOptions</strong> = set of (poRespectHTMLCDATAElements, poRespectHTMLProcessingInstructions, poRespectXMLProcessingInstructions);</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="THTMLProperties"></span><code><strong>THTMLProperties</strong>=array of <a href="simplehtmlparser.THTMLProperty.html">THTMLProperty</a>;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="TParsingResult"></span><code><strong>TParsingResult</strong> = (...);</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;<h6 class="description_section">Valores</h6>
+<ul>
+<li>
+<span id="prContinue">prContinue</span></li>
+<li>
+<span id="prStop">prStop</span></li>
+</ul>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="TEnterTagEvent"></span><code><strong>TEnterTagEvent</strong> = function (tagName: pchar; tagNameLen: SizeInt; properties: <a href="simplehtmlparser.html#THTMLProperties">THTMLProperties</a>):<a href="simplehtmlparser.html#TParsingResult">TParsingResult</a> of object;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="TLeaveTagEvent"></span><code><strong>TLeaveTagEvent</strong> = function (tagName: pchar; tagNameLen: SizeInt):<a href="simplehtmlparser.html#TParsingResult">TParsingResult</a> of object;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="TCommentEvent"></span><code><strong>TCommentEvent</strong> = function (comment: pchar; commentLen: SizeInt):<a href="simplehtmlparser.html#TParsingResult">TParsingResult</a> of object;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="TDocTypeEvent"></span><code><strong>TDocTypeEvent</strong> = procedure (name: pchar; nameLen: SizeInt; more: pchar; moreLen: SizeInt) of object;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="TTextFlags"></span><code><strong>TTextFlags</strong> = set of (tfCDATA);</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="TTextEvent"></span><code><strong>TTextEvent</strong> = function (text: pchar; textLen: SizeInt; textFlags: <a href="simplehtmlparser.html#TTextFlags">TTextFlags</a>):<a href="simplehtmlparser.html#TParsingResult">TParsingResult</a> of object;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<h2 class="authors">Autor</h2>
+<ul class="authors">
+<li>Benito van der Zander (<a href="http://www.benibela.de">www.benibela.de</a>)</li>
+</ul>
+<hr><span class="appinfo"><em>Gerado por <a href="https://pasdoc.github.io/">PasDoc 0.16.0</a>. </em>
+</span>
+</div></div></body></html>

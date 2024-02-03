@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<title>fastjsonreader</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="generator" content="PasDoc 0.16.0">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<link rel="stylesheet" type="text/css" href="tipuesearch/tipuesearch.css">
+
+<link rel="StyleSheet" type="text/css" href="pasdoc.css">
+</head>
+<body>
+<div class="container"><div class="navigation">
+<ul><li><a href="AllUnits.html">Units</a></li><li><a href="ClassHierarchy.html">Hierarquia de Classes</a></li><li><a href="AllClasses.html">Classes, Interfaces, Objetos e Registros</a></li><li><a href="AllTypes.html">Tipos</a></li><li><a href="AllVariables.html">Variáveis</a></li><li><a href="AllConstants.html">Constantes</a></li><li><a href="AllFunctions.html">Funções e Procedimentos</a></li><li><a href="AllIdentifiers.html">Identificadores</a></li><li><form class="search-form" action="tipue_results.html"><div class="search-input"><input type="text" name="q" id="tipue_search_input" pattern=".{3,}" title="At least 3 characters" required><div class="search-button"><input type="button" id="tipue_search_button" onclick="this.form.submit();"></div></div></form>
+<div style="clear: both"></div>
+</li></ul></div><div class="content">
+<h1 class="unit">Unit fastjsonreader</h1>
+<div class="sections">
+<div class="one_section"><a class="section" href="#PasDoc-Description">Descrição</a></div><div class="one_section"><a class="section" href="#PasDoc-Uses">Uses</a></div><div class="one_section"><a class="section" href="#PasDoc-Classes">Classes, Interfaces, Objetos e Registros</a></div><div class="one_section">Funções e Procedimentos</div><div class="one_section"><a class="section" href="#PasDoc-Types">Tipos</a></div><div class="one_section">Constantes</div><div class="one_section">Variáveis</div></div>
+<span id="PasDoc-Description"></span><h2 class="description">Descrição</h2>
+&nbsp;<span id="PasDoc-Uses"></span><h2 class="uses">Uses</h2>
+<ul class="useslist"><li>Classes</li><li>SysUtils</li><li><a href="fastjsonscanner.html">fastjsonscanner</a></li></ul><h2 class="overview">Visão Geral</h2>
+<span id="PasDoc-Classes"></span><h3 class="cio">Classes, Interfaces, Objetos e Registros</h3>
+<table class="classestable wide_list">
+<tr class="listheader">
+<th class="itemname">Nome</th>
+<th class="itemdesc">Descrição</th>
+</tr>
+<tr class="list">
+<td class="itemname">Classe&nbsp;<a class="bold" href="fastjsonreader.TJsonReader.html"><code>TJsonReader</code></a></td>
+<td class="itemdesc">&nbsp;</td>
+</tr>
+</table>
+<span id="PasDoc-Types"></span><h3 class="summary">Tipos</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="itemcode"><code><strong><a href="fastjsonreader.html#TJSONParsingPhase">TJSONParsingPhase</a></strong> = (...);</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><strong><a href="fastjsonreader.html#TJSONParserOption">TJSONParserOption</a></strong> = (...);</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><strong><a href="fastjsonreader.html#TJSONParserOptions">TJSONParserOptions</a></strong> = set of <a href="fastjsonreader.html#TJSONParserOption">TJSONParserOption</a>;</code></td>
+</tr>
+</table>
+<h2 class="description">Descrição</h2>
+<h3 class="detail">Tipos</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="TJSONParsingPhase"></span><code><strong>TJSONParsingPhase</strong> = (...);</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;<h6 class="description_section">Valores</h6>
+<ul>
+<li>
+<span id="jppArrayExpectValue">jppArrayExpectValue</span></li>
+<li>
+<span id="jppArrayExpectComma">jppArrayExpectComma</span></li>
+<li>
+<span id="jppObjectExpectKey">jppObjectExpectKey</span></li>
+<li>
+<span id="jppObjectExpectComma">jppObjectExpectComma</span></li>
+<li>
+<span id="jppObjectExpectValue">jppObjectExpectValue</span></li>
+<li>
+<span id="jppRoot">jppRoot</span></li>
+</ul>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="TJSONParserOption"></span><code><strong>TJSONParserOption</strong> = (...);</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;<h6 class="description_section">Valores</h6>
+<ul>
+<li>
+<span id="jpoAllowMultipleTopLevelItems">jpoAllowMultipleTopLevelItems</span></li>
+<li>
+<span id="jpoLiberal">jpoLiberal</span></li>
+<li>
+<span id="jpoAllowTrailingComma">jpoAllowTrailingComma</span></li>
+<li>
+<span id="jpoEscapeCharacters">jpoEscapeCharacters</span></li>
+<li>
+<span id="jpoJSONiq">jpoJSONiq</span></li>
+</ul>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="TJSONParserOptions"></span><code><strong>TJSONParserOptions</strong> = set of <a href="fastjsonreader.html#TJSONParserOption">TJSONParserOption</a>;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+Parsing options @value <a class="normal" href="fastjsonreader.html#jpoAllowMultipleTopLevelItems">jpoAllowMultipleTopLevelItems</a> allow <code>[], [], {}</code> as input @value <a class="normal" href="fastjsonreader.html#jpoLiberal">jpoLiberal</a> does not set <a class="normal" href="fastjsonscanner.html#joStrict">joStrict</a> for fpc's json scanner @value <a class="normal" href="fastjsonreader.html#jpoAllowTrailingComma">jpoAllowTrailingComma</a> sets <a class="normal" href="fastjsonscanner.html#joIgnoreTrailingComma">joIgnoreTrailingComma</a> for fpc's json scanner @value <a class="normal" href="fastjsonreader.html#jpoEscapeCharacters">jpoEscapeCharacters</a> escapes characters for XPath/XQuery 3.1, e.g. return strings with \n or \uxxxx @value <a class="normal" href="fastjsonreader.html#jpoJSONiq">jpoJSONiq</a> change from XPath/XQuery 3.1 parsing mode to JSONiq: </p>
+
+<table class="table_tag">
+  <tr class="head">
+    <th><p>input</p></th>
+    <th><p>XPath/XQuery 3.1</p></th>
+    <th><p> JSONiq</p></th>
+  </tr>
+  <tr class="odd">
+    <td><p>number</p></td>
+    <td><p>double </p></td>
+    <td><p> int, decimal, double</p></td>
+  </tr>
+  <tr class="even">
+    <td><p>null</p></td>
+    <td><p>empty sequence, () </p></td>
+    <td><p> null </p></td>
+  </tr>
+  <tr class="odd">
+    <td><p>invalid</p></td>
+    <td><p>err:FOJS0001</p></td>
+    <td><p> jerr:JNDY0021</p></td>
+  </tr>
+</table>
+
+<p></p>
+</td></tr>
+</table>
+<hr><span class="appinfo"><em>Gerado por <a href="https://pasdoc.github.io/">PasDoc 0.16.0</a>. </em>
+</span>
+</div></div></body></html>

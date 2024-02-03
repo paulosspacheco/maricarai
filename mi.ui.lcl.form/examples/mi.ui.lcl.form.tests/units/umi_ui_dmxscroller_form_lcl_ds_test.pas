@@ -3,7 +3,7 @@ unit uMi_ui_DmxScroller_Form_Lcl_ds_test;
    componente TDmxScroller_Form_Lcl_DS.
 
    - **VERSÃO**
-     - Alpha - 0.8.0
+     - Alpha - 0.9.0
 
    - **CÓDIGO FONTE**:
      - @html(<a href="../units/uMi_ui_DmxScroller_Form_Lcl_ds_test.pas">uMi_ui_DmxScroller_Form_Lcl_ds_test.pas</a>)
@@ -59,6 +59,8 @@ type
 
 var
   Mi_ui_DmxScroller_Form_Lcl_ds_test: TMi_ui_DmxScroller_Form_Lcl_ds_test;
+
+Procedure fabiodica;
 
 implementation
 
@@ -123,7 +125,7 @@ end;
 procedure TMi_ui_DmxScroller_Form_Lcl_ds_test.FormCreate(Sender: TObject);
 begin
   DmxScroller_Form_Lcl_DS1.Active := true;
-  writeLn(Mi_ScrollBox_LCL1.WidthChar);
+  //writeLn(Mi_ScrollBox_LCL1.WidthChar);
 end;
 
 end.

@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<title>fpTemplate: Classe TTemplateParser</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="generator" content="PasDoc 0.16.0">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<link rel="stylesheet" type="text/css" href="tipuesearch/tipuesearch.css">
+
+<link rel="StyleSheet" type="text/css" href="pasdoc.css">
+</head>
+<body>
+<div class="container"><div class="navigation">
+<ul><li><a href="AllUnits.html">Units</a></li><li><a href="ClassHierarchy.html">Hierarquia de Classes</a></li><li><a href="AllClasses.html">Classes, Interfaces, Objetos e Registros</a></li><li><a href="AllTypes.html">Tipos</a></li><li><a href="AllVariables.html">Variáveis</a></li><li><a href="AllConstants.html">Constantes</a></li><li><a href="AllFunctions.html">Funções e Procedimentos</a></li><li><a href="AllIdentifiers.html">Identificadores</a></li><li><form class="search-form" action="tipue_results.html"><div class="search-input"><input type="text" name="q" id="tipue_search_input" pattern=".{3,}" title="At least 3 characters" required><div class="search-button"><input type="button" id="tipue_search_button" onclick="this.form.submit();"></div></div></form>
+<div style="clear: both"></div>
+</li></ul></div><div class="content">
+<span id="TTemplateParser"></span><h1 class="cio">Classe TTemplateParser</h1>
+<div class="sections">
+<div class="one_section"><a class="section" href="#PasDoc-Description">Descrição</a></div><div class="one_section"><a class="section" href="#PasDoc-Hierarchy">Hierarquia</a></div><div class="one_section">Campos</div><div class="one_section"><a class="section" href="#PasDoc-Methods">Métodos</a></div><div class="one_section"><a class="section" href="#PasDoc-Properties">Propriedades</a></div></div>
+<span id="PasDoc-Description"></span><h2 class="unit">Unit</h2>
+<p class="unitlink">
+<a href="fpTemplate.html">fpTemplate</a></p>
+<h2 class="declaration">Declaração</h2>
+<p class="declaration">
+<code>type TTemplateParser = class(TObject)</code></p>
+<h2 class="description">Descrição</h2>
+<span id="PasDoc-Hierarchy"></span><h2 class="hierarchy">Hierarquia</h2>
+<ul class="hierarchy"><li class="ancestor">TObject</li>
+<li class="thisitem">TTemplateParser</li></ul><h2 class="overview">Visão Geral</h2>
+<span id="PasDoc-Methods"></span><h3 class="summary">Métodos</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>Constructor <strong><a href="fpTemplate.TTemplateParser.html#Create">Create</a></strong>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>Destructor <strong><a href="fpTemplate.TTemplateParser.html#Destroy">Destroy</a></strong>; override;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>Procedure <strong><a href="fpTemplate.TTemplateParser.html#Clear">Clear</a></strong>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>Function <strong><a href="fpTemplate.TTemplateParser.html#ReplaceTag">ReplaceTag</a></strong>(const Key: String; TagParams:TStringList; out ReplaceWith: String): Boolean;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>Function <strong><a href="fpTemplate.TTemplateParser.html#GetParam">GetParam</a></strong>(Const Key : String; Out AValue : String) : Boolean;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>Procedure <strong><a href="fpTemplate.TTemplateParser.html#GetTagParams">GetTagParams</a></strong>(var TagName:String; var TagParams : TStringList) ;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>Function <strong><a href="fpTemplate.TTemplateParser.html#ParseString">ParseString</a></strong>(Src : String) : String;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>Function <strong><a href="fpTemplate.TTemplateParser.html#ParseStream">ParseStream</a></strong>(Src : <a href="mi.rtl.Objects.Methods.StreamBase.Stream.TStream.html">TStream</a>; Dest : <a href="mi.rtl.Objects.Methods.StreamBase.Stream.TStream.html">TStream</a>) : Integer;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>Procedure <strong><a href="fpTemplate.TTemplateParser.html#ParseStrings">ParseStrings</a></strong>(Src : TStrings; Dest : TStrings) ;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>Procedure <strong><a href="fpTemplate.TTemplateParser.html#ParseFiles">ParseFiles</a></strong>(Const Src,Dest : String);</code></td>
+</tr>
+</table>
+<span id="PasDoc-Properties"></span><h3 class="summary">Propriedades</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="fpTemplate.TTemplateParser.html#OnGetParam">OnGetParam</a></strong> : <a href="fpTemplate.html#TGetParamEvent">TGetParamEvent</a> Read FOnGetParam Write FOnGetParam;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="fpTemplate.TTemplateParser.html#OnReplaceTag">OnReplaceTag</a></strong> : <a href="fpTemplate.html#TReplaceTagEvent">TReplaceTagEvent</a> Read FOnReplaceTag Write FOnReplaceTag;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="fpTemplate.TTemplateParser.html#StartDelimiter">StartDelimiter</a></strong> : <a href="fpTemplate.html#TParseDelimiter">TParseDelimiter</a> Index 1 Read GetDelimiter Write SetDelimiter;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="fpTemplate.TTemplateParser.html#EndDelimiter">EndDelimiter</a></strong> : <a href="fpTemplate.html#TParseDelimiter">TParseDelimiter</a> Index 2 Read GetDelimiter Write SetDelimiter;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="fpTemplate.TTemplateParser.html#ParamStartDelimiter">ParamStartDelimiter</a></strong> : <a href="fpTemplate.html#TParseDelimiter">TParseDelimiter</a> Index 3 Read GetDelimiter Write SetDelimiter;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="fpTemplate.TTemplateParser.html#ParamEndDelimiter">ParamEndDelimiter</a></strong> : <a href="fpTemplate.html#TParseDelimiter">TParseDelimiter</a> Index 4 Read GetDelimiter Write SetDelimiter;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="fpTemplate.TTemplateParser.html#ParamValueSeparator">ParamValueSeparator</a></strong> : <a href="fpTemplate.html#TParseDelimiter">TParseDelimiter</a> Index 5 Read GetDelimiter Write SetDelimiter;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="fpTemplate.TTemplateParser.html#Values">Values</a></strong>[Key:String]: String Read GetValue Write SetValue;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="fpTemplate.TTemplateParser.html#ValuesByIndex">ValuesByIndex</a></strong>[index:Integer]: String Read GetValueByIndex;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="fpTemplate.TTemplateParser.html#NamesByIndex">NamesByIndex</a></strong>[index:Integer]: String Read GetNameByIndex;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="fpTemplate.TTemplateParser.html#ValueCount">ValueCount</a></strong>: Integer Read GetValueCount;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="fpTemplate.TTemplateParser.html#Recursive">Recursive</a></strong> : Boolean Read FRecursive Write FRecursive;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="fpTemplate.TTemplateParser.html#AllowTagParams">AllowTagParams</a></strong> : Boolean Read FAllowTagParams Write FAllowTagParams;</code></td>
+</tr>
+</table>
+<h2 class="description">Descrição</h2>
+<h3 class="detail">Métodos</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Create"></span><code>Constructor <strong>Create</strong>;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Destroy"></span><code>Destructor <strong>Destroy</strong>; override;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Clear"></span><code>Procedure <strong>Clear</strong>;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="ReplaceTag"></span><code>Function <strong>ReplaceTag</strong>(const Key: String; TagParams:TStringList; out ReplaceWith: String): Boolean;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="GetParam"></span><code>Function <strong>GetParam</strong>(Const Key : String; Out AValue : String) : Boolean;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="GetTagParams"></span><code>Procedure <strong>GetTagParams</strong>(var TagName:String; var TagParams : TStringList) ;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="ParseString"></span><code>Function <strong>ParseString</strong>(Src : String) : String;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="ParseStream"></span><code>Function <strong>ParseStream</strong>(Src : <a href="mi.rtl.Objects.Methods.StreamBase.Stream.TStream.html">TStream</a>; Dest : <a href="mi.rtl.Objects.Methods.StreamBase.Stream.TStream.html">TStream</a>) : Integer;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="ParseStrings"></span><code>Procedure <strong>ParseStrings</strong>(Src : TStrings; Dest : TStrings) ;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="ParseFiles"></span><code>Procedure <strong>ParseFiles</strong>(Const Src,Dest : String);</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<h3 class="detail">Propriedades</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="OnGetParam"></span><code>property <strong>OnGetParam</strong> : <a href="fpTemplate.html#TGetParamEvent">TGetParamEvent</a> Read FOnGetParam Write FOnGetParam;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="OnReplaceTag"></span><code>property <strong>OnReplaceTag</strong> : <a href="fpTemplate.html#TReplaceTagEvent">TReplaceTagEvent</a> Read FOnReplaceTag Write FOnReplaceTag;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="StartDelimiter"></span><code>property <strong>StartDelimiter</strong> : <a href="fpTemplate.html#TParseDelimiter">TParseDelimiter</a> Index 1 Read GetDelimiter Write SetDelimiter;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="EndDelimiter"></span><code>property <strong>EndDelimiter</strong> : <a href="fpTemplate.html#TParseDelimiter">TParseDelimiter</a> Index 2 Read GetDelimiter Write SetDelimiter;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="ParamStartDelimiter"></span><code>property <strong>ParamStartDelimiter</strong> : <a href="fpTemplate.html#TParseDelimiter">TParseDelimiter</a> Index 3 Read GetDelimiter Write SetDelimiter;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="ParamEndDelimiter"></span><code>property <strong>ParamEndDelimiter</strong> : <a href="fpTemplate.html#TParseDelimiter">TParseDelimiter</a> Index 4 Read GetDelimiter Write SetDelimiter;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="ParamValueSeparator"></span><code>property <strong>ParamValueSeparator</strong> : <a href="fpTemplate.html#TParseDelimiter">TParseDelimiter</a> Index 5 Read GetDelimiter Write SetDelimiter;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Values"></span><code>property <strong>Values</strong>[Key:String]: String Read GetValue Write SetValue;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="ValuesByIndex"></span><code>property <strong>ValuesByIndex</strong>[index:Integer]: String Read GetValueByIndex;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="NamesByIndex"></span><code>property <strong>NamesByIndex</strong>[index:Integer]: String Read GetNameByIndex;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="ValueCount"></span><code>property <strong>ValueCount</strong>: Integer Read GetValueCount;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Recursive"></span><code>property <strong>Recursive</strong> : Boolean Read FRecursive Write FRecursive;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="AllowTagParams"></span><code>property <strong>AllowTagParams</strong> : Boolean Read FAllowTagParams Write FAllowTagParams;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<hr><span class="appinfo"><em>Gerado por <a href="https://pasdoc.github.io/">PasDoc 0.16.0</a>. </em>
+</span>
+</div></div></body></html>

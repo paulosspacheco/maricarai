@@ -395,7 +395,7 @@ Implementation
       If (TaStatus <> 0 ) and OkTempoDeTentativas
       Then Begin
              Try
-               _Progress1Passo := TProgressDlg_If.Create('Aguarde... ','Seek. Codigo: '+Format('%d',[TaStatus]),Delta_Locate,TempoDeTentativas);
+               _Progress1Passo := TProgressDlg_If.Create('Aguarde... ','Seek. código: '+Format('%d',[TaStatus]),Delta_Locate,TempoDeTentativas);
 
 
                aTempoDeTentativas := TempoDeTentativas ;

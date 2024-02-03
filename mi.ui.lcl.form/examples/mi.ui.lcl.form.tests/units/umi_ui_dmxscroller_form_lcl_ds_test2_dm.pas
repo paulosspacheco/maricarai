@@ -13,6 +13,7 @@ type
   { TMi_ui_DmxScroller_Form_Lcl_ds_test2_dm }
 
   TMi_ui_DmxScroller_Form_Lcl_ds_test2_dm = class(TDataModule)
+    DmxScroller_Form_Lcl_DS1: TDmxScroller_Form_Lcl_DS;
     GoBof: TAction;
     Next: TAction;
     Prev: TAction;
@@ -20,7 +21,7 @@ type
 
     ActionList1: TActionList;
     DataSource1: TDataSource;
-    DmxScroller_Form_Lcl_DS1: TDmxScroller_Form_Lcl_DS;
+
     Excluir: TAction;
     Gravar: TAction;
     Novo: TAction;
@@ -219,6 +220,7 @@ begin
     end;
   end;
 end;
+
 procedure TMi_ui_DmxScroller_Form_Lcl_ds_test2_dm.PrevExecute(Sender: TObject);
 begin
   with DmxScroller_Form_Lcl_DS1 do

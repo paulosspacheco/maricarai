@@ -1,0 +1,13 @@
+object Form1: TForm1
+  Left = 346
+  Height = 240
+  Top = 250
+  Width = 320
+  Caption = 'Form1'
+  OnCreate = FormCreate
+  LCLVersion = '2.2.6.0'
+  object Objectss1: TObjectss
+    Left = 64
+    Top = 24
+  end
+end

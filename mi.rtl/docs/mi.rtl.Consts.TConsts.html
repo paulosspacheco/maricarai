@@ -11,7 +11,7 @@
 </head>
 <body>
 <div class="container"><div class="navigation">
-<ul><li><a href="AllUnits.html">Units</a></li><li><a href="ClassHierarchy.html">Hierarquia de Classes</a></li><li><a href="AllClasses.html">Classes, Interfaces, Objetos e Registros</a></li><li><a href="AllTypes.html">Tipos</a></li><li><a href="AllVariables.html">Variáveis</a></li><li><a href="AllConstants.html">Constantes</a></li><li><a href="AllFunctions.html">Funções e Procedimentos</a></li><li><a href="AllIdentifiers.html">Identificadores</a></li><li><form class="search-form" action="tipue_results.html"><div class="search-input"><input type="text" name="q" id="tipue_search_input" pattern=".{1,}" title="At least 1 characters" required><div class="search-button"><input type="button" id="tipue_search_button" onclick="this.form.submit();"></div></div></form>
+<ul><li><a href="AllUnits.html">Units</a></li><li><a href="ClassHierarchy.html">Hierarquia de Classes</a></li><li><a href="AllClasses.html">Classes, Interfaces, Objetos e Registros</a></li><li><a href="AllTypes.html">Tipos</a></li><li><a href="AllVariables.html">Variáveis</a></li><li><a href="AllConstants.html">Constantes</a></li><li><a href="AllFunctions.html">Funções e Procedimentos</a></li><li><a href="AllIdentifiers.html">Identificadores</a></li><li><form class="search-form" action="tipue_results.html"><div class="search-input"><input type="text" name="q" id="tipue_search_input" pattern=".{3,}" title="At least 3 characters" required><div class="search-button"><input type="button" id="tipue_search_button" onclick="this.form.submit();"></div></div></form>
 <div style="clear: both"></div>
 </li></ul></div><div class="content">
 <span id="TConsts"></span><h1 class="cio">Classe TConsts</h1>
@@ -25,7 +25,7 @@
 <code>type TConsts = class(<a class="normal" href="mi.rtl.Types.TTypes.html">TTypes</a>)</code></p>
 <h2 class="description">Descrição</h2>
 <p>
-A classe <strong><code>TConsts</code></strong> declara todas as constantes globais do pacote MarIcarai</p>
+A classe <strong><code>TConsts</code></strong> declara todas as constantes globais do pacote <a class="normal" href="mi.rtl.html">Mi.RTL</a></p>
 <span id="PasDoc-Hierarchy"></span><h2 class="hierarchy">Hierarquia</h2>
 <ul class="hierarchy"><li class="ancestor">TObject</li>
 <li class="ancestor">TPersistent</li>
@@ -1837,6 +1837,46 @@ A classe <strong><code>TConsts</code></strong> declara todas as constantes globa
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
 <td class="itemcode"><code>nested const <strong><a href="mi.rtl.Consts.TConsts.html#MessageBoxOff">MessageBoxOff</a></strong>    : Boolean = false;</code></td>
 </tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>nested const <strong><a href="mi.rtl.Consts.TConsts.html#DefaultStartDelimiter">DefaultStartDelimiter</a></strong> : <a href="fpTemplate.html#TParseDelimiter">TParseDelimiter</a> = '&lt;!--#';</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>nested const <strong><a href="mi.rtl.Consts.TConsts.html#DefaultEndDelimiter">DefaultEndDelimiter</a></strong>   : <a href="fpTemplate.html#TParseDelimiter">TParseDelimiter</a> = '#--&gt;';</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>nested const <strong><a href="mi.rtl.Consts.TConsts.html#DefaultParamStartDelimiter">DefaultParamStartDelimiter</a></strong>  : <a href="fpTemplate.html#TParseDelimiter">TParseDelimiter</a> = '[-';</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>nested const <strong><a href="mi.rtl.Consts.TConsts.html#DefaultParamEndDelimiter">DefaultParamEndDelimiter</a></strong>    : <a href="fpTemplate.html#TParseDelimiter">TParseDelimiter</a> = '-]';</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>nested const <strong><a href="mi.rtl.Consts.TConsts.html#DefaultParamValueSeparator">DefaultParamValueSeparator</a></strong>  : <a href="fpTemplate.html#TParseDelimiter">TParseDelimiter</a> = '=';</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>nested const <strong><a href="mi.rtl.Consts.TConsts.html#DefaultAllowTagParams">DefaultAllowTagParams</a></strong>  : Boolean = true;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>nested const <strong><a href="mi.rtl.Consts.TConsts.html#User">User</a></strong> = {$I %<a href="mi.rtl.Consts.TConsts.html#User">USER</a>%};</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>nested const <strong><a href="mi.rtl.Consts.TConsts.html#DateCompiler">DateCompiler</a></strong> = {$I %TIME%}+' on '+{$I %DATE%};</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>nested const <strong><a href="mi.rtl.Consts.TConsts.html#FPC_Version">FPC_Version</a></strong> = {$I %FPCVERSION%};</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>nested const <strong><a href="mi.rtl.Consts.TConsts.html#FPC_Target">FPC_Target</a></strong> = {$I %FPCTARGET%};</code></td>
+</tr>
 </table>
 <span id="PasDoc-Methods"></span><h3 class="summary">Métodos</h3>
 <table class="summary wide_list">
@@ -2078,7 +2118,7 @@ A constante <strong><code>accDelimiter</code></strong> informa que o campo é de
 </tr>
 <tr><td colspan="2">
 <p>
-A constante <strong><code>fldStr</code></strong> (Const <code>fldStr</code> = 'S') usado na máscara do Template, informa ao componente <strong><a class="normal" href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html">TUiDmxScroller</a></strong> que a sequência de caracteres 'S' após o caractere <strong>&quot;\&quot;</strong> representa no buffer do formulário um tipo ShortString que só aceita caractere maiúsculo.
+A constante <strong><code>fldStr</code></strong> (Const <code>fldStr</code> = 'S') usado na máscara do Template, informa ao componente <strong><a class="normal" href="mi.rtl.ui.dmxscroller.inputbox.html#TUiDmxScroller">TUiDmxScroller</a></strong> que a sequência de caracteres 'S' após o caractere <strong>&quot;\&quot;</strong> representa no buffer do formulário um tipo ShortString que só aceita caractere maiúsculo.
 
 <p></p>
 
@@ -2119,7 +2159,7 @@ A constante <strong><code>fldStr</code></strong> (Const <code>fldStr</code> = 'S
 </tr>
 <tr><td colspan="2">
 <p>
-A constante <strong><code>fldSTR_Minuscula</code></strong> (Const <code>fldSTR_Minuscula</code> = 's') usado na máscara do Template, informa ao componente <strong><a class="normal" href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html">TUiDmxScroller</a></strong> que a sequência de caracteres 's' após o caractere <strong>&quot;\&quot;</strong> representa no buffer do formulário um tipo ShortString que só aceita caractere minúscula.
+A constante <strong><code>fldSTR_Minuscula</code></strong> (Const <code>fldSTR_Minuscula</code> = 's') usado na máscara do Template, informa ao componente <strong><a class="normal" href="mi.rtl.ui.dmxscroller.inputbox.html#TUiDmxScroller">TUiDmxScroller</a></strong> que a sequência de caracteres 's' após o caractere <strong>&quot;\&quot;</strong> representa no buffer do formulário um tipo ShortString que só aceita caractere minúscula.
 
 <p></p>
 
@@ -2161,7 +2201,7 @@ A constante <strong><code>fldSTR_Minuscula</code></strong> (Const <code>fldSTR_M
 </tr>
 <tr><td colspan="2">
 <p>
-A constante <strong><code>fldSTRNUM</code></strong> (Const <code>fldSTRNUM</code> = '#') usado na máscara do Template, informa ao componente <strong><a class="normal" href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html">TUiDmxScroller</a></strong> que a sequência de caracteres '#' após o caractere <strong>&quot;\&quot;</strong> representa no buffer do formulário um tipo ShortString que só aceita caractere numérico.
+A constante <strong><code>fldSTRNUM</code></strong> (Const <code>fldSTRNUM</code> = '#') usado na máscara do Template, informa ao componente <strong><a class="normal" href="mi.rtl.ui.dmxscroller.inputbox.html#TUiDmxScroller">TUiDmxScroller</a></strong> que a sequência de caracteres '#' após o caractere <strong>&quot;\&quot;</strong> representa no buffer do formulário um tipo ShortString que só aceita caractere numérico.
 
 <p></p>
 
@@ -2202,7 +2242,7 @@ A constante <strong><code>fldSTRNUM</code></strong> (Const <code>fldSTRNUM</code
 </tr>
 <tr><td colspan="2">
 <p>
-A constante <strong><code>fldAnsiChar</code></strong> (Const <code>fldAnsiChar</code> = 'C') usado na máscara do Template, informa ao componente <strong><a class="normal" href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html">TUiDmxScroller</a></strong> que a sequência de caracteres 'C' após o caractere <strong>&quot;\&quot;</strong> representa no buffer do formulário um tipo AnsiString que só aceita caractere maiúsculo.
+A constante <strong><code>fldAnsiChar</code></strong> (Const <code>fldAnsiChar</code> = 'C') usado na máscara do Template, informa ao componente <strong><a class="normal" href="mi.rtl.ui.dmxscroller.inputbox.html#TUiDmxScroller">TUiDmxScroller</a></strong> que a sequência de caracteres 'C' após o caractere <strong>&quot;\&quot;</strong> representa no buffer do formulário um tipo AnsiString que só aceita caractere maiúsculo.
 
 <p></p>
 
@@ -2243,7 +2283,7 @@ A constante <strong><code>fldAnsiChar</code></strong> (Const <code>fldAnsiChar</
 </tr>
 <tr><td colspan="2">
 <p>
-A constante <strong><code>fldAnsiChar_Minuscula</code></strong> (Const <a class="normal" href="mi.rtl.Consts.TConsts.html#fldAnsiChar">fldAnsiChar</a> = 'c') usado na máscara do Template, informa ao componente <strong><a class="normal" href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html">TUiDmxScroller</a></strong> que a sequência de caracteres 'c' após o caractere <strong>&quot;\&quot;</strong> representa no buffer do formulário um tipo AnsiString que só aceita caractere minúsculo.
+A constante <strong><code>fldAnsiChar_Minuscula</code></strong> (Const <a class="normal" href="mi.rtl.Consts.TConsts.html#fldAnsiChar">fldAnsiChar</a> = 'c') usado na máscara do Template, informa ao componente <strong><a class="normal" href="mi.rtl.ui.dmxscroller.inputbox.html#TUiDmxScroller">TUiDmxScroller</a></strong> que a sequência de caracteres 'c' após o caractere <strong>&quot;\&quot;</strong> representa no buffer do formulário um tipo AnsiString que só aceita caractere minúsculo.
 
 <p></p>
 
@@ -2285,7 +2325,7 @@ A constante <strong><code>fldAnsiChar_Minuscula</code></strong> (Const <a class=
 </tr>
 <tr><td colspan="2">
 <p>
-A constante <strong><code>fldAnsiCharNUM</code></strong> (Const <a class="normal" href="mi.rtl.Consts.TConsts.html#fldAnsiChar">fldAnsiChar</a> = '0') usado na máscara do Template, informa ao componente <strong><a class="normal" href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html">TUiDmxScroller</a></strong> que a sequência de caracteres '0' após o caractere <strong>&quot;\&quot;</strong> representa no buffer do formulário um tipo AnsiString que só aceita caractere numérico ['0'..'9']] .
+A constante <strong><code>fldAnsiCharNUM</code></strong> (Const <a class="normal" href="mi.rtl.Consts.TConsts.html#fldAnsiChar">fldAnsiChar</a> = '0') usado na máscara do Template, informa ao componente <strong><a class="normal" href="mi.rtl.ui.dmxscroller.inputbox.html#TUiDmxScroller">TUiDmxScroller</a></strong> que a sequência de caracteres '0' após o caractere <strong>&quot;\&quot;</strong> representa no buffer do formulário um tipo AnsiString que só aceita caractere numérico ['0'..'9']] .
 
 <p></p>
 
@@ -2327,7 +2367,7 @@ A constante <strong><code>fldAnsiCharNUM</code></strong> (Const <a class="normal
 </tr>
 <tr><td colspan="2">
 <p>
-A constante <strong><code>fldAnsiCharVAL</code></strong> (Const <a class="normal" href="mi.rtl.Consts.TConsts.html#fldAnsiChar">fldAnsiChar</a> = '0') usado na máscara do Template, informa ao componente <strong><a class="normal" href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html">TUiDmxScroller</a></strong> que a sequência de caracteres '0' após o caractere <strong>&quot;\&quot;</strong> representa no buffer do formulário um tipo AnsiString que só aceita caractere numérico ['0'..'9']] com formatação dbase.
+A constante <strong><code>fldAnsiCharVAL</code></strong> (Const <a class="normal" href="mi.rtl.Consts.TConsts.html#fldAnsiChar">fldAnsiChar</a> = '0') usado na máscara do Template, informa ao componente <strong><a class="normal" href="mi.rtl.ui.dmxscroller.inputbox.html#TUiDmxScroller">TUiDmxScroller</a></strong> que a sequência de caracteres '0' após o caractere <strong>&quot;\&quot;</strong> representa no buffer do formulário um tipo AnsiString que só aceita caractere numérico ['0'..'9']] com formatação dbase.
 
 <p></p>
 
@@ -2559,7 +2599,7 @@ O tipo do campo <strong><code>FldRadioButton</code></strong> é um campo tipo <a
 </ul>
 
 <p></p></li>
-  <li><p>Os campos clusteres possuem o mesmo número do campo e na primeira ocorrência contém o nome do campo na lista <a class="normal" href="mi_rtl_ui_Dmxscroller.html#pDmxFieldRec">pDmxFieldRec</a>.</p></li>
+  <li><p>Os campos clusteres possuem o mesmo número do campo e na primeira ocorrência contém o nome do campo na lista <a class="normal" href="mi.rtl.ui.dmxscroller.inputbox.html#pDmxFieldRec">pDmxFieldRec</a>.</p></li>
 </ul>
 
 <p></p></li>
@@ -2621,7 +2661,7 @@ O tipo do campo <strong><code>FldDbRadioButton</code></strong> é um campo tipo 
 </ul>
 
 <p></p></li>
-  <li><p>Os campos DbRadioButton possuem o mesmo número do campo e na primeira ocorrência contém o nome do campo na lista <a class="normal" href="mi_rtl_ui_Dmxscroller.html#pDmxFieldRec">pDmxFieldRec</a>.</p></li>
+  <li><p>Os campos DbRadioButton possuem o mesmo número do campo e na primeira ocorrência contém o nome do campo na lista <a class="normal" href="mi.rtl.ui.dmxscroller.inputbox.html#pDmxFieldRec">pDmxFieldRec</a>.</p></li>
   <li><p>O motivo pelo qual <strong><code>FldDbRadioButton</code></strong> foi criado é que o banco de dados do freepascal reconhece esse tipo como string com o nome do caption selecionado.</p></li>
   <li><p>O tamanho da string deve ser o tamanho da maior string da lista de opções.</p></li>
 </ul>
@@ -3737,7 +3777,9 @@ Número da filial do usuário logado Número do usuário Logado; Nome do usuári
 <td class="itemcode"><span id="LF"></span><code>nested const <strong>LF</strong> = #10;</code></td>
 </tr>
 <tr><td colspan="2">
-&nbsp;</td></tr>
+<p>
+O caracter <strong><code>LF</code></strong> contém o código <strong>CHR(10)</strong> indicativo de avanço de linha nas impressões e arquivos do tipo texto</p>
+</td></tr>
 </table>
 <table class="detail wide_list">
 <tr class="list">
@@ -3745,7 +3787,9 @@ Número da filial do usuário logado Número do usuário Logado; Nome do usuári
 <td class="itemcode"><span id="CR"></span><code>nested const <strong>CR</strong> = #13;</code></td>
 </tr>
 <tr><td colspan="2">
-&nbsp;</td></tr>
+<p>
+O caracter <strong><code>CR</code></strong> contém o código <strong>CHR(13)</strong> indicativo de retorno do carro nas impressões e arquivos do tipo texto</p>
+</td></tr>
 </table>
 <table class="detail wide_list">
 <tr class="list">
@@ -3757,7 +3801,21 @@ Número da filial do usuário logado Número do usuário Logado; Nome do usuári
 </p>
 
 <ul class="paragraph_spacing">
-  <li><p>A constantes <strong><code>New_Line</code></strong> é usado em <strong>writeln</strong> para passar a linha.</p></li>
+  <li><p>A constantes <strong><code>New_Line</code></strong> indica passagem de linha nas impressões e nas gravações de arquivo do tipo texto.
+
+<p></p>
+
+<ul class="paragraph_spacing">
+  <li><p>Nota: </p>
+
+<ul class="paragraph_spacing">
+  <li><p>No Windows usa a sequencia <strong><a class="normal" href="mi.rtl.Consts.TConsts.html#CR">CR</a>+<a class="normal" href="mi.rtl.Consts.TConsts.html#LF">LF</a></strong> para passar a linha, o linux obdece o conceito inical no qual o <strong><a class="normal" href="mi.rtl.Consts.TConsts.html#LF">LF</a></strong> foi criado que é passar a linha.</p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p></li>
 </ul>
 
 <p></p>
@@ -7086,6 +7144,134 @@ Se <code>MessageBoxOff</code> = true então não mostra o dialogo e torna o coma
 </ul>
 
 <p></p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="DefaultStartDelimiter"></span><code>nested const <strong>DefaultStartDelimiter</strong> : <a href="fpTemplate.html#TParseDelimiter">TParseDelimiter</a> = '&lt;!--#';</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+A constante padrão <strong><code>DefaultStartDelimiter</code></strong> é usado para indicar início da tag do modelo do compoente <a class="normal" href="mi.rtl.objects.methods.pageproducer.TPageProducer.html">TPageProducer</a>
+
+<p></p>
+
+<ul class="paragraph_spacing">
+  <li><p><strong>NOTA</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Se você quiser estilo Delphi, defina-o como '&lt;#'</p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="DefaultEndDelimiter"></span><code>nested const <strong>DefaultEndDelimiter</strong>   : <a href="fpTemplate.html#TParseDelimiter">TParseDelimiter</a> = '#--&gt;';</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+A constante padrão <strong><code>DefaultEndDelimiter</code></strong> é usado para indicar fim da tag do modelo do compoente <a class="normal" href="mi.rtl.objects.methods.pageproducer.TPageProducer.html">TPageProducer</a>
+
+<p></p>
+
+<ul class="paragraph_spacing">
+  <li><p><strong>NOTA</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Se você quiser estilo Delphi, defina-o como '&gt;'</p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="DefaultParamStartDelimiter"></span><code>nested const <strong>DefaultParamStartDelimiter</strong>  : <a href="fpTemplate.html#TParseDelimiter">TParseDelimiter</a> = '[-';</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+A constante padrão <strong><code>DefaultParamStartDelimiter</code></strong> é usado para indicar inicio do parâmetro da tag do modelo do compoente <a class="normal" href="mi.rtl.objects.methods.pageproducer.TPageProducer.html">TPageProducer</a></p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="DefaultParamEndDelimiter"></span><code>nested const <strong>DefaultParamEndDelimiter</strong>    : <a href="fpTemplate.html#TParseDelimiter">TParseDelimiter</a> = '-]';</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+A constante padrão <strong><code>DefaultParamEndDelimiter</code></strong> é usado para indicar fim do parâmetro da tag do modelo do compoente <a class="normal" href="mi.rtl.objects.methods.pageproducer.TPageProducer.html">TPageProducer</a></p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="DefaultParamValueSeparator"></span><code>nested const <strong>DefaultParamValueSeparator</strong>  : <a href="fpTemplate.html#TParseDelimiter">TParseDelimiter</a> = '=';</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+A constante padrão <strong><code>DefaultParamValueSeparator</code></strong> é usado para indicar o separador parâmetro nome / valor da tag do modelo do compoente <a class="normal" href="mi.rtl.objects.methods.pageproducer.TPageProducer.html">TPageProducer</a></p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="DefaultAllowTagParams"></span><code>nested const <strong>DefaultAllowTagParams</strong>  : Boolean = true;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+A constante <strong><code>DefaultAllowTagParams</code></strong> é usado como default da propreidade <a class="normal" href="mi.rtl.objects.methods.pageproducer.TPageProducer.html#AllowTagParams">TPageProducer.AllowTagParams</a>.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="User"></span><code>nested const <strong>User</strong> = {$I %<a href="mi.rtl.Consts.TConsts.html#User">USER</a>%};</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+A constante <strong><code>User</code></strong> contém o nome do usuário corrente logado no sistema</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="DateCompiler"></span><code>nested const <strong>DateCompiler</strong> = {$I %TIME%}+' on '+{$I %DATE%};</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+A constante <strong><code>DateCompiler</code></strong> contém a data em que o programa foi compilado</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="FPC_Version"></span><code>nested const <strong>FPC_Version</strong> = {$I %FPCVERSION%};</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+A constante <strong><code>FPC_Version</code></strong> contém a versão do compilador</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="FPC_Target"></span><code>nested const <strong>FPC_Target</strong> = {$I %FPCTARGET%};</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+A constante <strong><code>FPC_Target</code></strong> contém otipo de cpu no qual esse código se destina.</p>
 </td></tr>
 </table>
 <h3 class="detail">Métodos</h3>

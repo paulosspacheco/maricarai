@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<title>mimepart</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="generator" content="PasDoc 0.16.0">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<link rel="stylesheet" type="text/css" href="tipuesearch/tipuesearch.css">
+
+<link rel="StyleSheet" type="text/css" href="pasdoc.css">
+</head>
+<body>
+<div class="container"><div class="navigation">
+<ul><li><a href="AllUnits.html">Units</a></li><li><a href="ClassHierarchy.html">Hierarquia de Classes</a></li><li><a href="AllClasses.html">Classes, Interfaces, Objetos e Registros</a></li><li><a href="AllTypes.html">Tipos</a></li><li><a href="AllVariables.html">Variáveis</a></li><li><a href="AllConstants.html">Constantes</a></li><li><a href="AllFunctions.html">Funções e Procedimentos</a></li><li><a href="AllIdentifiers.html">Identificadores</a></li><li><form class="search-form" action="tipue_results.html"><div class="search-input"><input type="text" name="q" id="tipue_search_input" pattern=".{3,}" title="At least 3 characters" required><div class="search-button"><input type="button" id="tipue_search_button" onclick="this.form.submit();"></div></div></form>
+<div style="clear: both"></div>
+</li></ul></div><div class="content">
+<h1 class="unit">Unit mimepart</h1>
+<div class="sections">
+<div class="one_section"><a class="section" href="#PasDoc-Description">Descrição</a></div><div class="one_section"><a class="section" href="#PasDoc-Uses">Uses</a></div><div class="one_section"><a class="section" href="#PasDoc-Classes">Classes, Interfaces, Objetos e Registros</a></div><div class="one_section"><a class="section" href="#PasDoc-FuncsProcs">Funções e Procedimentos</a></div><div class="one_section"><a class="section" href="#PasDoc-Types">Tipos</a></div><div class="one_section"><a class="section" href="#PasDoc-Constants">Constantes</a></div><div class="one_section">Variáveis</div></div>
+<span id="PasDoc-Description"></span><h2 class="description">Descrição</h2>
+<p>
+MIME part handling</p>
+<p>
+ Handling with MIME parts.
+
+<p>Used RFC: RFC-2045</p>
+<span id="PasDoc-Uses"></span><h2 class="uses">Uses</h2>
+<ul class="useslist"><li>SysUtils</li><li>Classes</li><li><a href="synafpc.html">synafpc</a></li><li><a href="synachar.html">synachar</a></li><li><a href="synacode.html">synacode</a></li><li><a href="synautil.html">synautil</a></li><li><a href="mimeinln.html">mimeinln</a></li></ul><h2 class="overview">Visão Geral</h2>
+<span id="PasDoc-Classes"></span><h3 class="cio">Classes, Interfaces, Objetos e Registros</h3>
+<table class="classestable wide_list">
+<tr class="listheader">
+<th class="itemname">Nome</th>
+<th class="itemdesc">Descrição</th>
+</tr>
+<tr class="list">
+<td class="itemname">Classe&nbsp;<a class="bold" href="mimepart.TMimePart.html"><code>TMimePart</code></a></td>
+<td class="itemdesc">Object for working with parts of MIME e-mail.</td>
+</tr>
+</table>
+<span id="PasDoc-FuncsProcs"></span><h3 class="summary">Funções e Procedimentos</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="itemcode"><code>function <strong><a href="mimepart.html#GenerateBoundary">GenerateBoundary</a></strong>: string;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code>Function <strong><a href="mimepart.html#CreateStringList">CreateStringList</a></strong>: TStringList;</code></td>
+</tr>
+</table>
+<span id="PasDoc-Types"></span><h3 class="summary">Tipos</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="itemcode"><code><strong><a href="mimepart.html#THookWalkPart">THookWalkPart</a></strong> = procedure(const Sender: <a href="mimepart.TMimePart.html">TMimePart</a>) of object;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><strong><a href="mimepart.html#TMimePrimary">TMimePrimary</a></strong> = (...);</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><strong><a href="mimepart.html#TMimeEncoding">TMimeEncoding</a></strong> = (...);</code></td>
+</tr>
+</table>
+<span id="PasDoc-Constants"></span><h3 class="summary">Constantes</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="itemcode"><code><strong><a href="mimepart.html#MaxMimeType">MaxMimeType</a></strong> = 25;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><strong><a href="mimepart.html#MimeType">MimeType</a></strong>: array[0..<a href="mimepart.html#MaxMimeType">MaxMimeType</a>, 0..2] of string =
+  (
+    ('AU', 'audio', 'basic'),
+    ('AVI', 'video', 'x-msvideo'),
+    ('BMP', 'image', 'BMP'),
+    ('DOC', 'application', 'MSWord'),
+    ('EPS', 'application', 'Postscript'),
+    ('GIF', 'image', 'GIF'),
+    ('JPEG', 'image', 'JPEG'),
+    ('JPG', 'image', 'JPEG'),
+    ('MID', 'audio', 'midi'),
+    ('MOV', 'video', 'quicktime'),
+    ('MPEG', 'video', 'MPEG'),
+    ('MPG', 'video', 'MPEG'),
+    ('MP2', 'audio', 'mpeg'),
+    ('MP3', 'audio', 'mpeg'),
+    ('PDF', 'application', 'PDF'),
+    ('PNG', 'image', 'PNG'),
+    ('PS', 'application', 'Postscript'),
+    ('QT', 'video', 'quicktime'),
+    ('RA', 'audio', 'x-realaudio'),
+    ('RTF', 'application', 'RTF'),
+    ('SND', 'audio', 'basic'),
+    ('TIF', 'image', 'TIFF'),
+    ('TIFF', 'image', 'TIFF'),
+    ('WAV', 'audio', 'x-wav'),
+    ('WPD', 'application', 'Wordperfect5.1'),
+    ('ZIP', 'application', 'ZIP')
+    );</code></td>
+</tr>
+</table>
+<h2 class="description">Descrição</h2>
+<h3 class="detail">Funções e Procedimentos</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="GenerateBoundary"></span><code>function <strong>GenerateBoundary</strong>: string;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+Generates a unique boundary string.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="CreateStringList"></span><code>Function <strong>CreateStringList</strong>: TStringList;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+Generates a stringlist that does not write a BOM character.</p>
+</td></tr>
+</table>
+<h3 class="detail">Tipos</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="THookWalkPart"></span><code><strong>THookWalkPart</strong> = procedure(const Sender: <a href="mimepart.TMimePart.html">TMimePart</a>) of object;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+Procedural type for <a class="normal" href="mimepart.TMimePart.html#WalkPart">TMimepart.Walkpart</a> hook</p>
+<p>
+. This hook is used for easy walking through MIME subparts.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="TMimePrimary"></span><code><strong>TMimePrimary</strong> = (...);</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+The four types of MIME parts. (textual, multipart, <a class="normal" href="Classes_C.html#Message">message</a> or any other binary data.)</p>
+<h6 class="description_section">Valores</h6>
+<ul>
+<li>
+<span id="MP_TEXT">MP_TEXT</span></li>
+<li>
+<span id="MP_MULTIPART">MP_MULTIPART</span></li>
+<li>
+<span id="MP_MESSAGE">MP_MESSAGE</span></li>
+<li>
+<span id="MP_BINARY">MP_BINARY</span></li>
+</ul>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="TMimeEncoding"></span><code><strong>TMimeEncoding</strong> = (...);</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+The various types of possible part encodings.</p>
+<h6 class="description_section">Valores</h6>
+<ul>
+<li>
+<span id="ME_7BIT">ME_7BIT</span></li>
+<li>
+<span id="ME_8BIT">ME_8BIT</span></li>
+<li>
+<span id="ME_QUOTED_PRINTABLE">ME_QUOTED_PRINTABLE</span></li>
+<li>
+<span id="ME_BASE64">ME_BASE64</span></li>
+<li>
+<span id="ME_UU">ME_UU</span></li>
+<li>
+<span id="ME_XX">ME_XX</span></li>
+</ul>
+</td></tr>
+</table>
+<h3 class="detail">Constantes</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="MaxMimeType"></span><code><strong>MaxMimeType</strong> = 25;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="MimeType"></span><code><strong>MimeType</strong>: array[0..<a href="mimepart.html#MaxMimeType">MaxMimeType</a>, 0..2] of string =
+  (
+    ('AU', 'audio', 'basic'),
+    ('AVI', 'video', 'x-msvideo'),
+    ('BMP', 'image', 'BMP'),
+    ('DOC', 'application', 'MSWord'),
+    ('EPS', 'application', 'Postscript'),
+    ('GIF', 'image', 'GIF'),
+    ('JPEG', 'image', 'JPEG'),
+    ('JPG', 'image', 'JPEG'),
+    ('MID', 'audio', 'midi'),
+    ('MOV', 'video', 'quicktime'),
+    ('MPEG', 'video', 'MPEG'),
+    ('MPG', 'video', 'MPEG'),
+    ('MP2', 'audio', 'mpeg'),
+    ('MP3', 'audio', 'mpeg'),
+    ('PDF', 'application', 'PDF'),
+    ('PNG', 'image', 'PNG'),
+    ('PS', 'application', 'Postscript'),
+    ('QT', 'video', 'quicktime'),
+    ('RA', 'audio', 'x-realaudio'),
+    ('RTF', 'application', 'RTF'),
+    ('SND', 'audio', 'basic'),
+    ('TIF', 'image', 'TIFF'),
+    ('TIFF', 'image', 'TIFF'),
+    ('WAV', 'audio', 'x-wav'),
+    ('WPD', 'application', 'Wordperfect5.1'),
+    ('ZIP', 'application', 'ZIP')
+    );</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<hr><span class="appinfo"><em>Gerado por <a href="https://pasdoc.github.io/">PasDoc 0.16.0</a>. </em>
+</span>
+</div></div></body></html>

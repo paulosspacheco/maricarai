@@ -3,7 +3,7 @@ unit uMi_ui_scrollbox_lcl;
     container para UiDmxScroller.
 
   - **VERSÃO**
-    - Alpha - 0.8.0
+    - Alpha - 0.9.0
 
   - **CÓDIGO FONTE**:
     - @html(<a href="../units/mi.ui.lcl.scrollboxDmx.pas">mi.rtl.objects.methods.ui.DmxScroller.pas</a>)
@@ -95,7 +95,7 @@ type
            - A propriedade **@name** não deve ser published por que a mesma deve ser
            inicializada automatiocamente em TUiDmxScroller.SetParentLCL()
         }
-        public property UiDmxScroller : TUiDmxScroller read _UiDmxScroller write SetUiDmxScroller;
+        published property UiDmxScroller : TUiDmxScroller read _UiDmxScroller write SetUiDmxScroller;
     {$ENDREGION '<-- Propriedade DmxScroller'}
 
 //    protected procedure WMPaint(var Message: TLMPaint); message LM_PAINT;
@@ -106,6 +106,7 @@ type
 
 //    procedure ComputeScrollbars; override;
   end;
+
 
 
 procedure Register;
@@ -170,8 +171,11 @@ end;
 
 procedure TMi_ScrollBox_LCL.Refresh;
 Begin
-  //if UiDmxScroller<> nil
-  //then UiDmxScroller.UpdateBuffers;
+  if UiDmxScroller<> nil
+  then UiDmxScroller.UpdateBuffers;
+  if UiDmxScroller<> nil
+  then UiDmxScroller.UpdateBuffers;
+
   Invalidate;
   Update;
 End;

@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<title>slogsend</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="generator" content="PasDoc 0.16.0">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<link rel="stylesheet" type="text/css" href="tipuesearch/tipuesearch.css">
+
+<link rel="StyleSheet" type="text/css" href="pasdoc.css">
+</head>
+<body>
+<div class="container"><div class="navigation">
+<ul><li><a href="AllUnits.html">Units</a></li><li><a href="ClassHierarchy.html">Hierarquia de Classes</a></li><li><a href="AllClasses.html">Classes, Interfaces, Objetos e Registros</a></li><li><a href="AllTypes.html">Tipos</a></li><li><a href="AllVariables.html">Variáveis</a></li><li><a href="AllConstants.html">Constantes</a></li><li><a href="AllFunctions.html">Funções e Procedimentos</a></li><li><a href="AllIdentifiers.html">Identificadores</a></li><li><form class="search-form" action="tipue_results.html"><div class="search-input"><input type="text" name="q" id="tipue_search_input" pattern=".{3,}" title="At least 3 characters" required><div class="search-button"><input type="button" id="tipue_search_button" onclick="this.form.submit();"></div></div></form>
+<div style="clear: both"></div>
+</li></ul></div><div class="content">
+<h1 class="unit">Unit slogsend</h1>
+<div class="sections">
+<div class="one_section"><a class="section" href="#PasDoc-Description">Descrição</a></div><div class="one_section"><a class="section" href="#PasDoc-Uses">Uses</a></div><div class="one_section"><a class="section" href="#PasDoc-Classes">Classes, Interfaces, Objetos e Registros</a></div><div class="one_section"><a class="section" href="#PasDoc-FuncsProcs">Funções e Procedimentos</a></div><div class="one_section"><a class="section" href="#PasDoc-Types">Tipos</a></div><div class="one_section"><a class="section" href="#PasDoc-Constants">Constantes</a></div><div class="one_section">Variáveis</div></div>
+<span id="PasDoc-Description"></span><h2 class="description">Descrição</h2>
+<p>
+BSD SYSLOG protocol</p>
+<p>
+
+
+<p>Used RFC: RFC-3164, RFC-5424 (millisecond grade timestamp, nonASCII support)</p>
+<span id="PasDoc-Uses"></span><h2 class="uses">Uses</h2>
+<ul class="useslist"><li>SysUtils</li><li>Classes</li><li><a href="blcksock.html">blcksock</a></li><li><a href="synautil.html">synautil</a></li></ul><h2 class="overview">Visão Geral</h2>
+<span id="PasDoc-Classes"></span><h3 class="cio">Classes, Interfaces, Objetos e Registros</h3>
+<table class="classestable wide_list">
+<tr class="listheader">
+<th class="itemname">Nome</th>
+<th class="itemdesc">Descrição</th>
+</tr>
+<tr class="list">
+<td class="itemname">Classe&nbsp;<a class="bold" href="slogsend.TSyslogMessage.html"><code>TSyslogMessage</code></a></td>
+<td class="itemdesc">encoding or decoding of SYSLOG <a class="normal" href="Classes_C.html#Message">message</a></td>
+</tr>
+<tr class="list2">
+<td class="itemname">Classe&nbsp;<a class="bold" href="slogsend.TSyslogSend.html"><code>TSyslogSend</code></a></td>
+<td class="itemdesc">This object implement BSD SysLog client</td>
+</tr>
+</table>
+<span id="PasDoc-FuncsProcs"></span><h3 class="summary">Funções e Procedimentos</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="itemcode"><code>function <strong><a href="slogsend.html#ToSysLog">ToSysLog</a></strong>(const SyslogServer: string; Facil: Byte; Sever: <a href="slogsend.html#TSyslogSeverity">TSyslogSeverity</a>; const Content: string): Boolean;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code>function <strong><a href="slogsend.html#ToSysLog1">ToSysLog1</a></strong>(const SyslogServer: string; Facil: Byte; Sever: <a href="slogsend.html#TSyslogSeverity">TSyslogSeverity</a>; const ProcID, MsgID, Content: string): Boolean;</code></td>
+</tr>
+</table>
+<span id="PasDoc-Types"></span><h3 class="summary">Tipos</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="itemcode"><code><strong><a href="slogsend.html#TSyslogVersion">TSyslogVersion</a></strong> = (...);</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><strong><a href="slogsend.html#TSyslogSeverity">TSyslogSeverity</a></strong> = (...);</code></td>
+</tr>
+</table>
+<span id="PasDoc-Constants"></span><h3 class="summary">Constantes</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="itemcode"><code><strong><a href="slogsend.html#cSysLogProtocol">cSysLogProtocol</a></strong> = '514';</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><strong><a href="slogsend.html#FCL_Kernel">FCL_Kernel</a></strong> = 0;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><strong><a href="slogsend.html#FCL_UserLevel">FCL_UserLevel</a></strong> = 1;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><strong><a href="slogsend.html#FCL_MailSystem">FCL_MailSystem</a></strong> = 2;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><strong><a href="slogsend.html#FCL_System">FCL_System</a></strong> = 3;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><strong><a href="slogsend.html#FCL_Security">FCL_Security</a></strong> = 4;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><strong><a href="slogsend.html#FCL_Syslogd">FCL_Syslogd</a></strong> = 5;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><strong><a href="slogsend.html#FCL_Printer">FCL_Printer</a></strong> = 6;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><strong><a href="slogsend.html#FCL_News">FCL_News</a></strong> = 7;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><strong><a href="slogsend.html#FCL_UUCP">FCL_UUCP</a></strong> = 8;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><strong><a href="slogsend.html#FCL_Clock">FCL_Clock</a></strong> = 9;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><strong><a href="slogsend.html#FCL_Authorization">FCL_Authorization</a></strong> = 10;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><strong><a href="slogsend.html#FCL_FTP">FCL_FTP</a></strong> = 11;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><strong><a href="slogsend.html#FCL_NTP">FCL_NTP</a></strong> = 12;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><strong><a href="slogsend.html#FCL_LogAudit">FCL_LogAudit</a></strong> = 13;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><strong><a href="slogsend.html#FCL_LogAlert">FCL_LogAlert</a></strong> = 14;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><strong><a href="slogsend.html#FCL_Time">FCL_Time</a></strong> = 15;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><strong><a href="slogsend.html#FCL_Local0">FCL_Local0</a></strong> = 16;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><strong><a href="slogsend.html#FCL_Local1">FCL_Local1</a></strong> = 17;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><strong><a href="slogsend.html#FCL_Local2">FCL_Local2</a></strong> = 18;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><strong><a href="slogsend.html#FCL_Local3">FCL_Local3</a></strong> = 19;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><strong><a href="slogsend.html#FCL_Local4">FCL_Local4</a></strong> = 20;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><strong><a href="slogsend.html#FCL_Local5">FCL_Local5</a></strong> = 21;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><strong><a href="slogsend.html#FCL_Local6">FCL_Local6</a></strong> = 22;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><strong><a href="slogsend.html#FCL_Local7">FCL_Local7</a></strong> = 23;</code></td>
+</tr>
+</table>
+<h2 class="description">Descrição</h2>
+<h3 class="detail">Funções e Procedimentos</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="ToSysLog"></span><code>function <strong>ToSysLog</strong>(const SyslogServer: string; Facil: Byte; Sever: <a href="slogsend.html#TSyslogSeverity">TSyslogSeverity</a>; const Content: string): Boolean;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+Simply send old RFC-3164 packet to specified Syslog server.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="ToSysLog1"></span><code>function <strong>ToSysLog1</strong>(const SyslogServer: string; Facil: Byte; Sever: <a href="slogsend.html#TSyslogSeverity">TSyslogSeverity</a>; const ProcID, MsgID, Content: string): Boolean;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+Simply send RFC-5424 version 1 packet to specified Syslog server.</p>
+</td></tr>
+</table>
+<h3 class="detail">Tipos</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="TSyslogVersion"></span><code><strong>TSyslogVersion</strong> = (...);</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+Define Syslog versions</p>
+<h6 class="description_section">Valores</h6>
+<ul>
+<li>
+<span id="RFC3164">RFC3164</span></li>
+<li>
+<span id="RFC5424">RFC5424</span></li>
+</ul>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="TSyslogSeverity"></span><code><strong>TSyslogSeverity</strong> = (...);</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+Define possible priority of Syslog <a class="normal" href="Classes_C.html#Message">message</a></p>
+<h6 class="description_section">Valores</h6>
+<ul>
+<li>
+<span id="Emergency">Emergency</span></li>
+<li>
+<span id="Alert">Alert</span></li>
+<li>
+<span id="Critical">Critical</span></li>
+<li>
+<span id="Error">Error</span></li>
+<li>
+<span id="Warning">Warning</span></li>
+<li>
+<span id="Notice">Notice</span></li>
+<li>
+<span id="Info">Info</span></li>
+<li>
+<span id="Debug">Debug</span></li>
+</ul>
+</td></tr>
+</table>
+<h3 class="detail">Constantes</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="cSysLogProtocol"></span><code><strong>cSysLogProtocol</strong> = '514';</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="FCL_Kernel"></span><code><strong>FCL_Kernel</strong> = 0;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="FCL_UserLevel"></span><code><strong>FCL_UserLevel</strong> = 1;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="FCL_MailSystem"></span><code><strong>FCL_MailSystem</strong> = 2;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="FCL_System"></span><code><strong>FCL_System</strong> = 3;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="FCL_Security"></span><code><strong>FCL_Security</strong> = 4;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="FCL_Syslogd"></span><code><strong>FCL_Syslogd</strong> = 5;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="FCL_Printer"></span><code><strong>FCL_Printer</strong> = 6;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="FCL_News"></span><code><strong>FCL_News</strong> = 7;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="FCL_UUCP"></span><code><strong>FCL_UUCP</strong> = 8;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="FCL_Clock"></span><code><strong>FCL_Clock</strong> = 9;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="FCL_Authorization"></span><code><strong>FCL_Authorization</strong> = 10;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="FCL_FTP"></span><code><strong>FCL_FTP</strong> = 11;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="FCL_NTP"></span><code><strong>FCL_NTP</strong> = 12;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="FCL_LogAudit"></span><code><strong>FCL_LogAudit</strong> = 13;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="FCL_LogAlert"></span><code><strong>FCL_LogAlert</strong> = 14;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="FCL_Time"></span><code><strong>FCL_Time</strong> = 15;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="FCL_Local0"></span><code><strong>FCL_Local0</strong> = 16;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="FCL_Local1"></span><code><strong>FCL_Local1</strong> = 17;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="FCL_Local2"></span><code><strong>FCL_Local2</strong> = 18;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="FCL_Local3"></span><code><strong>FCL_Local3</strong> = 19;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="FCL_Local4"></span><code><strong>FCL_Local4</strong> = 20;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="FCL_Local5"></span><code><strong>FCL_Local5</strong> = 21;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="FCL_Local6"></span><code><strong>FCL_Local6</strong> = 22;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="FCL_Local7"></span><code><strong>FCL_Local7</strong> = 23;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<hr><span class="appinfo"><em>Gerado por <a href="https://pasdoc.github.io/">PasDoc 0.16.0</a>. </em>
+</span>
+</div></div></body></html>

@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<title>fpTemplate</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="generator" content="PasDoc 0.16.0">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<link rel="stylesheet" type="text/css" href="tipuesearch/tipuesearch.css">
+
+<link rel="StyleSheet" type="text/css" href="pasdoc.css">
+</head>
+<body>
+<div class="container"><div class="navigation">
+<ul><li><a href="AllUnits.html">Units</a></li><li><a href="ClassHierarchy.html">Hierarquia de Classes</a></li><li><a href="AllClasses.html">Classes, Interfaces, Objetos e Registros</a></li><li><a href="AllTypes.html">Tipos</a></li><li><a href="AllVariables.html">Variáveis</a></li><li><a href="AllConstants.html">Constantes</a></li><li><a href="AllFunctions.html">Funções e Procedimentos</a></li><li><a href="AllIdentifiers.html">Identificadores</a></li><li><form class="search-form" action="tipue_results.html"><div class="search-input"><input type="text" name="q" id="tipue_search_input" pattern=".{3,}" title="At least 3 characters" required><div class="search-button"><input type="button" id="tipue_search_button" onclick="this.form.submit();"></div></div></form>
+<div style="clear: both"></div>
+</li></ul></div><div class="content">
+<h1 class="unit">Unit fpTemplate</h1>
+<div class="sections">
+<div class="one_section"><a class="section" href="#PasDoc-Description">Descrição</a></div><div class="one_section"><a class="section" href="#PasDoc-Uses">Uses</a></div><div class="one_section"><a class="section" href="#PasDoc-Classes">Classes, Interfaces, Objetos e Registros</a></div><div class="one_section">Funções e Procedimentos</div><div class="one_section"><a class="section" href="#PasDoc-Types">Tipos</a></div><div class="one_section"><a class="section" href="#PasDoc-Constants">Constantes</a></div><div class="one_section"><a class="section" href="#PasDoc-Variables">Variáveis</a></div></div>
+<span id="PasDoc-Description"></span><h2 class="description">Descrição</h2>
+&nbsp;<span id="PasDoc-Uses"></span><h2 class="uses">Uses</h2>
+<ul class="useslist"><li>SysUtils</li><li>Classes</li></ul><h2 class="overview">Visão Geral</h2>
+<span id="PasDoc-Classes"></span><h3 class="cio">Classes, Interfaces, Objetos e Registros</h3>
+<table class="classestable wide_list">
+<tr class="listheader">
+<th class="itemname">Nome</th>
+<th class="itemdesc">Descrição</th>
+</tr>
+<tr class="list">
+<td class="itemname">Classe&nbsp;<a class="bold" href="fpTemplate.TTemplateParser.html"><code>TTemplateParser</code></a></td>
+<td class="itemdesc">&nbsp;</td>
+</tr>
+<tr class="list2">
+<td class="itemname">Classe&nbsp;<a class="bold" href="fpTemplate.TFPCustomTemplate.html"><code>TFPCustomTemplate</code></a></td>
+<td class="itemdesc">&nbsp;</td>
+</tr>
+<tr class="list">
+<td class="itemname">Classe&nbsp;<a class="bold" href="fpTemplate.TFPTemplate.html"><code>TFPTemplate</code></a></td>
+<td class="itemdesc">&nbsp;</td>
+</tr>
+<tr class="list2">
+<td class="itemname">Classe&nbsp;<a class="bold" href="fpTemplate.ETemplateParser.html"><code>ETemplateParser</code></a></td>
+<td class="itemdesc">&nbsp;</td>
+</tr>
+</table>
+<span id="PasDoc-Types"></span><h3 class="summary">Tipos</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="itemcode"><code><strong><a href="fpTemplate.html#TParseDelimiter">TParseDelimiter</a></strong> = String[<a href="fpTemplate.html#MaxDelimLength">MaxDelimLength</a>];</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><strong><a href="fpTemplate.html#TGetParamEvent">TGetParamEvent</a></strong> = Procedure(Sender : TObject; Const ParamName : String; Out AValue : String) Of Object;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><strong><a href="fpTemplate.html#TReplaceTagEvent">TReplaceTagEvent</a></strong> = Procedure(Sender : TObject; Const TagString : String; TagParams:TStringList; Out ReplaceText : String) Of Object;</code></td>
+</tr>
+</table>
+<span id="PasDoc-Constants"></span><h3 class="summary">Constantes</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="itemcode"><code><strong><a href="fpTemplate.html#DefaultParseDepth">DefaultParseDepth</a></strong> = 100;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><strong><a href="fpTemplate.html#MaxDelimLength">MaxDelimLength</a></strong>    = 5;</code></td>
+</tr>
+</table>
+<span id="PasDoc-Variables"></span><h3 class="summary">Variáveis</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="itemcode"><code><strong><a href="fpTemplate.html#DefaultStartDelimiter">DefaultStartDelimiter</a></strong>: <a href="fpTemplate.html#TParseDelimiter">TParseDelimiter</a> = '{';</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><strong><a href="fpTemplate.html#DefaultEndDelimiter">DefaultEndDelimiter</a></strong>: <a href="fpTemplate.html#TParseDelimiter">TParseDelimiter</a> = '}';</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><strong><a href="fpTemplate.html#DefaultParamStartDelimiter">DefaultParamStartDelimiter</a></strong>: <a href="fpTemplate.html#TParseDelimiter">TParseDelimiter</a> = '[-';</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><strong><a href="fpTemplate.html#DefaultParamEndDelimiter">DefaultParamEndDelimiter</a></strong>: <a href="fpTemplate.html#TParseDelimiter">TParseDelimiter</a> = '-]';</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><strong><a href="fpTemplate.html#DefaultParamValueSeparator">DefaultParamValueSeparator</a></strong>: <a href="fpTemplate.html#TParseDelimiter">TParseDelimiter</a> = '=';</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><strong><a href="fpTemplate.html#MaxParseDepth">MaxParseDepth</a></strong>: Integer = <a href="fpTemplate.html#DefaultParseDepth">DefaultParseDepth</a>;</code></td>
+</tr>
+</table>
+<h2 class="description">Descrição</h2>
+<h3 class="detail">Tipos</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="TParseDelimiter"></span><code><strong>TParseDelimiter</strong> = String[<a href="fpTemplate.html#MaxDelimLength">MaxDelimLength</a>];</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="TGetParamEvent"></span><code><strong>TGetParamEvent</strong> = Procedure(Sender : TObject; Const ParamName : String; Out AValue : String) Of Object;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="TReplaceTagEvent"></span><code><strong>TReplaceTagEvent</strong> = Procedure(Sender : TObject; Const TagString : String; TagParams:TStringList; Out ReplaceText : String) Of Object;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<h3 class="detail">Constantes</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="DefaultParseDepth"></span><code><strong>DefaultParseDepth</strong> = 100;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="MaxDelimLength"></span><code><strong>MaxDelimLength</strong>    = 5;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<h3 class="detail">Variáveis</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="DefaultStartDelimiter"></span><code><strong>DefaultStartDelimiter</strong>: <a href="fpTemplate.html#TParseDelimiter">TParseDelimiter</a> = '{';</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="DefaultEndDelimiter"></span><code><strong>DefaultEndDelimiter</strong>: <a href="fpTemplate.html#TParseDelimiter">TParseDelimiter</a> = '}';</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="DefaultParamStartDelimiter"></span><code><strong>DefaultParamStartDelimiter</strong>: <a href="fpTemplate.html#TParseDelimiter">TParseDelimiter</a> = '[-';</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="DefaultParamEndDelimiter"></span><code><strong>DefaultParamEndDelimiter</strong>: <a href="fpTemplate.html#TParseDelimiter">TParseDelimiter</a> = '-]';</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="DefaultParamValueSeparator"></span><code><strong>DefaultParamValueSeparator</strong>: <a href="fpTemplate.html#TParseDelimiter">TParseDelimiter</a> = '=';</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="MaxParseDepth"></span><code><strong>MaxParseDepth</strong>: Integer = <a href="fpTemplate.html#DefaultParseDepth">DefaultParseDepth</a>;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<hr><span class="appinfo"><em>Gerado por <a href="https://pasdoc.github.io/">PasDoc 0.16.0</a>. </em>
+</span>
+</div></div></body></html>

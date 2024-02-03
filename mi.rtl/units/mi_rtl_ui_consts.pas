@@ -2,7 +2,7 @@ unit mi_rtl_ui_consts;
 {:< A unit **@name** implementa a classe TUiConsts.
 
     - **VERSÃO**
-      - Alpha - 0.8.0
+      - Alpha - Alpha - 0.9.0
 
     - **CÓDIGO FONTE**:
       - @html(<a href="../units/mi_ui_consts.pas">mi_ui_consts.pas</a>)

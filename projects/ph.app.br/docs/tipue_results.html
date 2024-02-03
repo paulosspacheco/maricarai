@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="pt-br">
+
+<head>
+  <meta charset="utf-8">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Pesquisa palavras ou frase no site</title>
+  <meta name="author" content="Paulo Pacheco" />  
+  <meta name="createDate" content="13/11/2020" />
+  <meta name="createDateUpdate" content="05/05/2023" />
+  <meta name="description" content="Página de pesquisa do site http://pssp.app.br " />
+  <meta name="keywords" content="html, javascript, css, Delphi, Lazarus, jardinagem, marcenaria, eletricidade, mecânica, curiosidades, saúde" />
+
+  <link type="text/css" href="/css/topnav.css" rel="stylesheet"/>        
+  <link type="text/css" href="/css/defaultthemeMarkdown.css"  rel="stylesheet"/>
+
+  <script type="application/x-javascript" src="/js/generic.js"></script>
+  <script type="application/x-javascript" src="/js/tgeneric.js"></script>
+
+  <script>document.addEventListener("DOMContentLoaded", function() {includeHTML();}                );</script>
+  <script>document.addEventListener("DOMContentLoaded", function() {FixHeader(window, "myHeader");});</script>
+  <script>document.addEventListener("DOMContentLoaded", function() {toggleTree();}                 );</script>   
+
+  <script src="js/tipuesearch/jquery.min.js"></script>
+  <script src="js/tipuesearch/tipuesearch_set.js"></script>
+  <script src="tipuesearch_content.js"></script>
+  <!-- <link rel="stylesheet" href="js/tipuesearch/tipuesearch.css"> -->
+  <script src="js/tipuesearch/tipuesearch.js"></script>
+
+</head>
+
+<body onmouseover="generic.display()">
+  <main>
+    <!-- Menu de opções -->
+    <div class="header" id="myHeader">
+      <div class="navbar" w3-include-html="/menu.inc"> </div>
+      <div class="title">
+        <script>
+          document.write(document.title);
+        </script>
+      </div>    
+    </div>
+     
+ 
+    <article id="article">
+
+      <!-- Conteúdo da página <div class="col-12"> -->
+      <div class="col-12">
+        <B>Qual a palavra ou frase?</B>
+        <!-- <div style="padding-top: 36px;"> -->
+
+        <form>
+          <!-- <div class="tipue_search_group"> -->
+          <div class="search-input">
+            <input type="text" name="q" id="tipue_search_input" pattern=".{3,}" title="Número de caracteres mínimos para pesquisa: 3 caracteres. Pesquisa parcial deve estar entre aspas." required><button type="submit" class="tipue_search_button">
+              <div class="tipue_search_icon">&#9906;</div>
+            </button>
+          </div>
+        </form>
+
+        <div id="tipue_search_content"></div>
+        <!-- </div> -->
+
+        <script>
+          $(document).ready(function() {
+            $('#tipue_search_input').tipuesearch();
+          });
+        </script>
+        <button onclick="history.back()">🔙</button>
+
+    </article>
+
+
+
+    <!-- RODAPÉ DA PÁGINA  -->
+    <div class="footer">   <script>   PrintFooter(document);   </script> </div>
+
+  </main>
+
+
+
+
+</body>
+
+</html>

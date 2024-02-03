@@ -2,7 +2,7 @@ unit mi.rtl.MiStringlistbase;
 {:< -A unit **@name** implementa a classe TStringListBase do pacote mi.rtl.
 
     - **VERSÃO**:
-      - Alpha - Alpha - 0.8.0
+      - Alpha - Alpha - 0.9.0
 
     - **CÓDIGO FONTE**:
       - @html(<a href="../units/mi.rtl.MiStringListBase.pas">mi.rtl.MiStringListBase.pas</a>)
@@ -28,40 +28,49 @@ uses
   Classes, SysUtils
   ,mi.rtl.Consts;
 
-  {: A a **@name*** é usada para indexar uma lista de objetos ondes os mesmos são excluídos ao destruir a lista
-
-     - **POR QUE?**
-       - Para converter caracteres com acento para caracteres sem acento e seu equivalente em html.
-         - class Function String_Asc_GUI_to_Asc_Ingles(Const S: String): String;
-         - class Function String_Asc_GUI_to_Asc_HTML(Const S: String): String;
-
-       - Para converter a lista de strings em lista PSItem;
-         - function TStringListBase.PListSItem: TConsts.PSItem;
-         - function TStringListBase.CloneSItems(const Items: TConsts.PSItem): TConsts.PSItem;
-  }
   Type
 
     { TStringListBase }
+    {: A a **@name*** é usada para indexar uma lista de objetos ondes
+       os mesmos são excluídos ao destruir a lista
 
+       - **POR QUE?**
+         - Para converter caracteres com acento para caracteres sem acento
+           e seu equivalente em html.
+           - class Function String_Asc_GUI_to_Asc_Ingles(Const S: String): String;
+           - class Function String_Asc_GUI_to_Asc_HTML(Const S: String): String;
+
+         - Para converter a lista de strings em lista PSItem;
+           - function TStringListBase.PListSItem: TConsts.PSItem;
+           - function TStringListBase.CloneSItems(const Items: TConsts.PSItem): TConsts.PSItem;
+    }
     TStringListBase = Class(TStringList) //https://wiki.freepascal.org/TListBox#Assignment_of_a_StringList
-
+                       public procedure SaveToFile(const FileName: string);Override;
                        {: O Método **@name** receber um string no formato name=value separado por ponto e vígula.
 
                           - **PARÂMETRO**
                             - aTags := Contém a string de pares de valores para a lista de strings
                               - Exemplo:
-                                - aListStr := 'name1="value1";name2="value2"; ...  ;nameN="valueN"';
+                                - aTags := 'name1="value1";name2="value2"; ...  ;nameN="valueN"';
 
                        }
                        public Procedure AddTag(Const aTags:String);Virtual;
+                       class procedure testTags1;
+
+                       {: O Método **@name** receber um string no formato name=value separado por vígula.
+
+                          - **PARÂMETRO**
+                            - aTags := Contém a string de pares de valores para a lista de strings
+                              - Exemplo:
+                                - aTagValues := "value1","value2",..,"valueN"';
+                       }
                        public Procedure AddTagValue(Const aTagValues:String);Virtual;
+                       class procedure testTags2;
 
                        {: O constructor **@name** receber um string no formato name=value
                           separado por ponto e vígula e cria a lista de name e value.
                         }
                         public constructor Create(Const aTags:String);overload;virtual;
-                        class procedure testTags1;
-                        class procedure testTags2;
 
                         public constructor Create(ALimit: longint;AOrdem:Boolean {:< - Se True insere em ordem alfabética}
                                                   );overload;virtual;
@@ -83,6 +92,7 @@ uses
 
                         Public
                          Function ClearKey: Boolean;//<  Posiciona no inicio do bloco de registro do tipo default
+                         procedure Clear; override;
                          Property KeyMaster : String Read _KeyMaster Write SetKeyMaster;  //<  Usada criar relacionamento mestre detalhe.
 
                          {:  Redefini porque a instância anterior não funciona com caractere #254}
@@ -208,7 +218,7 @@ end;
     OkEof      := False;
   end;
 
-        function TStringListBase.ClearKey: Boolean;
+  function TStringListBase.ClearKey: Boolean;
   //<  Posiciona no inicio do bloco de registro do tipo default
 
     Function ClearKeyLocal : Boolean;
@@ -228,6 +238,8 @@ end;
       //posiciona no primeiro;
       Result := True;
       Index_Currente := 0;
+
+
       If Count-1 >= 0
       Then Begin
              Nr := PtrInt(Objects[Index_Currente]);
@@ -244,6 +256,24 @@ end;
     end;
 
   end;
+
+procedure TStringListBase.Clear;
+begin
+  inherited Clear;
+  ClearKey;
+end;
+
+procedure TStringListBase.SaveToFile(const FileName: string);
+begin
+  if DirectoryExists(ExtractFileDir(FileName))
+  then inherited SaveToFile(FileName)
+  else begin
+         if ForceDirectories(ExtractFileDir(FileName))
+         then inherited SaveToFile(FileName)
+         else raise Exception.Create('Não posso criar a pasta: '+ExtractFileDir(FileName));
+       end;
+
+end;
 
   procedure TStringListBase.AddTag(const aTags: String);
     var
@@ -272,6 +302,7 @@ end;
                            end
                       else s := s+aTags[i];
                     end;
+
               '[',
               ']',
               ^M,
@@ -312,7 +343,7 @@ end;
                       okAspa := not okAspa;
                       //s := s+aTagValues[i];
                     end;
-
+//            ';'
               ',' : Begin
                       if not okAspa
                       Then begin
@@ -350,8 +381,6 @@ end;
     AddTag(aTags);
   end;
 
-
-
   class procedure TStringListBase.testTags1;
      var
        i : integer;
@@ -382,7 +411,7 @@ end;
         T : TStringListBase;
     begin
       t := TStringListBase.Create();
-      t.AddTagValue('"value1";"value2";"valueN  por ter um ;"');
+      t.AddTagValue('"value1","value2","valueN  por ter um ;"');
 
       for i := 0 to t.Count-1 do
       begin
@@ -405,14 +434,14 @@ end;
     SetCapacity(ALimit);
   end;
 
-        procedure TStringListBase.SetKeyMaster(w_KeyMaster: String);
+  procedure TStringListBase.SetKeyMaster(w_KeyMaster: String);
   {< Deve executar goBof}
   Begin
     _KeyMaster  := UpperCase(w_KeyMaster) ;
     ClearKey;
   end;
 
-        function TStringListBase.NextKey: Boolean;
+  function TStringListBase.NextKey: Boolean;
   //<  Posiciona no proximo registro do tipo default
 
   Begin

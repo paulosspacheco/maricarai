@@ -1,0 +1,8 @@
+object __form_main__: T__form_main__
+  Left = 407
+  Height = 240
+  Top = 250
+  Width = 320
+  Caption = '__form_main__'
+  OnCreate = FormCreate
+end

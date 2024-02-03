@@ -3,7 +3,7 @@ unit uMi_ui_Label_lcl;
    os campo tipo TDmxFieldRec.fldEnum=0 com o componente TLabel do Lazarus.
 
    - **VERSÂO**
-     - Alpha - 0.8.0
+     - Alpha - 0.9.0
 
    - **CÓDIGO FONTE**:
      - @html(<a href="../units/umi_ui_label_lcl.pas">uMi_ui_Label_lcl.pas</a>)
@@ -66,8 +66,6 @@ type
       }
       public property DmxFieldRec: pDmxFieldRec Read _pDmxFieldRec   Write  SeTDmxFieldRec;
     {$ENDREGION}
-
-
 
     {$REGION ' # Propriedade DmxScroller_Form_Lcl_attributes '}
       private var _DmxScroller_Form_Lcl_attributes : TDmxScroller_Form_Lcl_attributes;

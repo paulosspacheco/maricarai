@@ -130,14 +130,14 @@ Type
 
                    ```pascal
 
-                       <html>
+                       <html lang="pt-BR">
 
-                       <body>
+                       <bodY>
                          DateTime in format "MM/DD hh:mm:ss":
                          <b>
                            <!--# DATETIME [-FORMAT=MM/DD hh:mm:ss-] #-->
                          </b>
-                       </body>
+                        </body>
                        </html>
                    ```
 
@@ -238,9 +238,9 @@ Type
 
              ```pascal
 
-               <html>
+               <html lang="pt-BR">
 
-               <body>
+               <bodY>
                  DateTime in format "MM/DD hh:mm:ss":
                  <b>
                    <!--# DATETIME [-FORMAT=MM/DD hh:mm:ss-] #-->
@@ -291,7 +291,7 @@ Type
                      </td>
                    </tr>
                  </table>
-               </body>
+                </body>
 
                </html>
 
@@ -511,11 +511,11 @@ function TBasePageProducer.GetHTMLContent: AnsiString;
 {< NortSoft
    Retorna O código HTML implementados em:
      1 - TvDialogs.TButton      Retorna o código Html associado ao botão
-     2 - ViEditor.TDmxEditor    Retorna o codigo Html associado ao Dmx
+     2 - ViEditor.TDmxEditor    Retorna o código Html associado ao Dmx
      3 - ViEditor.TLIsDialog   Retorna a lista html
      4 - tvDMXBUF.TDmxEditBuf;  Retorna o formulário em forma de gride
      5 - View.TWindow           Retorna todos os códigos html dentro da windows
-     6 - TvDialogs.TDialog      Retorna o formulário completo <html><head> </head> <body> </body></html
+     6 - TvDialogs.TDialog      Retorna o formulário completo <html lang="pt-BR"><head> </head> <bodY>  </body></html
 }
 Begin
   If OnHTMLTag

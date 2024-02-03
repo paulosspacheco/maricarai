@@ -14,7 +14,8 @@ uses
   uMi_Ui_DbComboBox_lcl, uMI_ui_DbEdit_LCL, umi_ui_dblookupComboBox_lcl, 
   uMI_ui_DbRadioGroup_Lcl, uMi_ui_Label_lcl, uMi_ui_maskedit_lcl, 
   uMi_ui_Dmxscroller_form_lcl, umi_ui_dmxscroller_form_lcl_ds, 
-  umi_ui_InputBox_lcl, LazarusPackageIntf;
+  umi_ui_msgbox_lcl, MI_UI_InputBox_lcl_u, uMi_ui_Application_lcl, 
+  LazarusPackageIntf;
 
 implementation
 

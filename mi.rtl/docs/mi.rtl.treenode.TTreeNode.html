@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<title>mi.rtl.treenode: Classe TTreeNode</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="generator" content="PasDoc 0.16.0">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<link rel="stylesheet" type="text/css" href="tipuesearch/tipuesearch.css">
+
+<link rel="StyleSheet" type="text/css" href="pasdoc.css">
+</head>
+<body>
+<div class="container"><div class="navigation">
+<ul><li><a href="AllUnits.html">Units</a></li><li><a href="ClassHierarchy.html">Hierarquia de Classes</a></li><li><a href="AllClasses.html">Classes, Interfaces, Objetos e Registros</a></li><li><a href="AllTypes.html">Tipos</a></li><li><a href="AllVariables.html">Variáveis</a></li><li><a href="AllConstants.html">Constantes</a></li><li><a href="AllFunctions.html">Funções e Procedimentos</a></li><li><a href="AllIdentifiers.html">Identificadores</a></li><li><form class="search-form" action="tipue_results.html"><div class="search-input"><input type="text" name="q" id="tipue_search_input" pattern=".{3,}" title="At least 3 characters" required><div class="search-button"><input type="button" id="tipue_search_button" onclick="this.form.submit();"></div></div></form>
+<div style="clear: both"></div>
+</li></ul></div><div class="content">
+<span id="TTreeNode"></span><h1 class="cio">Classe TTreeNode</h1>
+<div class="sections">
+<div class="one_section"><a class="section" href="#PasDoc-Description">Descrição</a></div><div class="one_section"><a class="section" href="#PasDoc-Hierarchy">Hierarquia</a></div><div class="one_section"><a class="section" href="#PasDoc-Fields">Campos</a></div><div class="one_section"><a class="section" href="#PasDoc-Methods">Métodos</a></div><div class="one_section"><a class="section" href="#PasDoc-Properties">Propriedades</a></div></div>
+<span id="PasDoc-Description"></span><h2 class="unit">Unit</h2>
+<p class="unitlink">
+<a href="mi.rtl.treenode.html">mi.rtl.treenode</a></p>
+<h2 class="declaration">Declaração</h2>
+<p class="declaration">
+<code>type TTreeNode = class(TComponent)</code></p>
+<h2 class="description">Descrição</h2>
+<p>
+</p>
+
+<ul class="paragraph_spacing">
+  <li><p>A classe <strong><code>TTreeNode</code></strong> implementa a classe <strong><code>TTreeNode</code></strong> do pacote <strong><a class="normal" href="mi.rtl.html">mi.rtl</a></strong>.
+
+<p></p>
+
+<ul class="paragraph_spacing">
+  <li><p><strong>NOTA</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>A classe <strong><code>TTreeNode</code></strong> é usado para criar arvores de strings a partir da string no formato /path1/path2/path2/file.html.</p></li>
+  <li><p>O método <a class="normal" href="mi.rtl.treenode.TTreeNode.html#AddChild">AddChild</a> ( aFileName ) divide o nome das subpastas e o nome do arquivo e adiciona na arvore.</p></li>
+</ul>
+
+<p></p></li>
+  <li><p><strong>EXEMPLOS DE USO DA CLASSE: <code>TTreeNode</code></strong>: -
+
+<p></p>
+
+<pre class="longcode">
+
+<span class="pascal_comment">//Teste da classe TTreeNode</span>
+<span class="pascal_keyword">program</span> project1;
+<span class="pascal_keyword">uses</span>
+  mi.RTL.treenode;
+<span class="pascal_keyword">begin</span>
+  TTreeNode.Test1;
+  TTreeNode.Test2;
+  TTreeNode.Test3;
+<span class="pascal_keyword">end</span>.</pre>
+
+<p></p></li>
+  <li><p><strong>NOTAS</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Esta unit foi testada nas plataformas: win32, win64 e linux.</p></li>
+</ul>
+
+<p></p></li>
+  <li><p><strong>VERSÃO</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Alpha - Alpha - 0.9.0</p></li>
+</ul>
+
+<p></p></li>
+  <li><p><strong>HISTÓRICO</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Criado por: Paulo Sérgio da Silva Pacheco e-mail: paulosspacheco@yahoo.com.br</p></li>
+  <li><p><strong>06/11/2023</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>16:00 a 17:20 Criar a unit mi.rtl.treenode.pas</p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p></li>
+  <li><p><strong>07/11/2023</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Criar métodos </p>
+
+<ul class="paragraph_spacing">
+  <li><p><a class="normal" href="mi.rtl.treenode.TTreeNode.html#AddChild">AddChild</a></p></li>
+  <li><p>AddChildList</p></li>
+  <li><p><a class="normal" href="mi.rtl.treenode.TTreeNode.html#TreeToStringList">TreeToStringList</a></p></li>
+  <li><p><a class="normal" href="mi.rtl.treenode.TTreeNode.html#TreeToStringListHtml">TreeToStringListHtml</a></p></li>
+  <li><p><a class="normal" href="mi.rtl.treenode.TTreeNode.html#Test1">Test1</a>;</p></li>
+  <li><p><a class="normal" href="mi.rtl.treenode.TTreeNode.html#Test2">Test2</a>;</p></li>
+  <li><p><a class="normal" href="mi.rtl.treenode.TTreeNode.html#Test3">Test3</a>;</p></li>
+</ul>
+
+<p></p></li>
+  <li><p>Documentação da classe;</p></li>
+</ul>
+
+<p></p></li>
+  <li><p><strong>08/11/2023</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Criar método <a class="normal" href="mi.rtl.treenode.TTreeNode.html#GetNodeLevel">GetNodeLevel</a></p></li>
+  <li><p>Ao lista a pasta informa o nível da arvore.</p></li>
+</ul>
+
+<p></p></li>
+  <li><p><strong>09/11/2023</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Idetifiquei um erro no código html gerado no método <a class="normal" href="mi.rtl.treenode.TTreeNode.html#TreeToStringListHtml">TreeToStringListHtml</a> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>O problema está na construção da arvore com o método <a class="normal" href="mi.rtl.treenode.TTreeNode.html#AddChild">AddChild</a>().</p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p></li>
+  <li><p><strong>10/11/2023</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Corrigir a construção do método <a class="normal" href="mi.rtl.treenode.TTreeNode.html#AddChild">AddChild</a>(). -</p></li>
+</ul>
+
+<p></p></li>
+  <li><p><strong>CÓDIGO FONTE</strong>: </p>
+
+<ul class="paragraph_spacing">
+  <li><p><a href="../units/mi.rtl.treenode.pas">mi.rtl.treenode.pas</a></p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p>
+<span id="PasDoc-Hierarchy"></span><h2 class="hierarchy">Hierarquia</h2>
+<ul class="hierarchy"><li class="ancestor">TObject</li>
+<li class="ancestor">TPersistent</li>
+<li class="ancestor">TComponent</li>
+<li class="thisitem">TTreeNode</li></ul><h2 class="overview">Visão Geral</h2>
+<span id="PasDoc-Fields"></span><h3 class="summary">Campos</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code><strong><a href="mi.rtl.treenode.TTreeNode.html#fFilePath">fFilePath</a></strong>: string;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code><strong><a href="mi.rtl.treenode.TTreeNode.html#fTitle">fTitle</a></strong>: string;</code></td>
+</tr>
+</table>
+<span id="PasDoc-Methods"></span><h3 class="summary">Métodos</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>Function <strong><a href="mi.rtl.treenode.TTreeNode.html#GetFirstChild">GetFirstChild</a></strong>:<a href="mi.rtl.treenode.TTreeNode.html">TTreeNode</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="mi.rtl.treenode.TTreeNode.html#GetNextChild">GetNextChild</a></strong>(AValue: <a href="mi.rtl.treenode.TTreeNode.html">TTreeNode</a>): <a href="mi.rtl.treenode.TTreeNode.html">TTreeNode</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="mi.rtl.treenode.TTreeNode.html#GetNodeLevel">GetNodeLevel</a></strong>():Integer;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="mi.rtl.treenode.TTreeNode.html#AddChild">AddChild</a></strong>(ParentNode: TComponent; const aName,aFilePath: string; IsSheet: Boolean):<a href="mi.rtl.treenode.TTreeNode.html">TTreeNode</a>; overload;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="mi.rtl.treenode.TTreeNode.html#AddChild">AddChild</a></strong>(ParentNode: TComponent; const aName,aFilePath: string; IsSheet: Boolean;aTitle:String):<a href="mi.rtl.treenode.TTreeNode.html">TTreeNode</a>; overload;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="mi.rtl.treenode.TTreeNode.html#AddChild">AddChild</a></strong>(aTreeNode:<a href="mi.rtl.treenode.TTreeNode.html">TTreeNode</a>;aFileName:String):<a href="mi.rtl.treenode.TTreeNode.html">TTreeNode</a>; overload;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>constructor <strong><a href="mi.rtl.treenode.TTreeNode.html#Create">Create</a></strong>(AOwner: TComponent); override;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>destructor <strong><a href="mi.rtl.treenode.TTreeNode.html#Destroy">Destroy</a></strong>; override;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="mi.rtl.treenode.TTreeNode.html#conststr">conststr</a></strong>(i: Longint; str: String): String;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>Procedure <strong><a href="mi.rtl.treenode.TTreeNode.html#TreeToStringList">TreeToStringList</a></strong>(TreeNode: <a href="mi.rtl.treenode.TTreeNode.html">TTreeNode</a>; Var S: TStringList); virtual;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>Procedure <strong><a href="mi.rtl.treenode.TTreeNode.html#TreeToStringListHtml">TreeToStringListHtml</a></strong>(TreeNode: <a href="mi.rtl.treenode.TTreeNode.html">TTreeNode</a>; Var S: TStringList); virtual;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>class procedure <strong><a href="mi.rtl.treenode.TTreeNode.html#Test1">Test1</a></strong>;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>class procedure <strong><a href="mi.rtl.treenode.TTreeNode.html#Test2">Test2</a></strong>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>class procedure <strong><a href="mi.rtl.treenode.TTreeNode.html#Test3">Test3</a></strong>;</code></td>
+</tr>
+</table>
+<span id="PasDoc-Properties"></span><h3 class="summary">Propriedades</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="mi.rtl.treenode.TTreeNode.html#IsSheet">IsSheet</a></strong>: Boolean read FIsSheet write FIsSheet;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="mi.rtl.treenode.TTreeNode.html#TreeNodes">TreeNodes</a></strong>: <a href="mi.rtl.treenode.TTreeNodes.html">TTreeNodes</a> read FTreeNodes;</code></td>
+</tr>
+</table>
+<h2 class="description">Descrição</h2>
+<h3 class="detail">Campos</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="fFilePath"></span><code><strong>fFilePath</strong>: string;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="fTitle"></span><code><strong>fTitle</strong>: string;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<h3 class="detail">Métodos</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="GetFirstChild"></span><code>Function <strong>GetFirstChild</strong>:<a href="mi.rtl.treenode.TTreeNode.html">TTreeNode</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+o método <strong><code>GetFirstChild</code></strong> retorna o primeiro item</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="GetNextChild"></span><code>function <strong>GetNextChild</strong>(AValue: <a href="mi.rtl.treenode.TTreeNode.html">TTreeNode</a>): <a href="mi.rtl.treenode.TTreeNode.html">TTreeNode</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+o método <strong><code>GetNextChild</code></strong> retorna próximo item</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="GetNodeLevel"></span><code>function <strong>GetNodeLevel</strong>():Integer;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+o método <strong><code>GetNodeLevel</code></strong> retorna o nível atual do nó</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="AddChild"></span><code>function <strong>AddChild</strong>(ParentNode: TComponent; const aName,aFilePath: string; IsSheet: Boolean):<a href="mi.rtl.treenode.TTreeNode.html">TTreeNode</a>; overload;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+o método <strong><code>AddChild</code></strong> adiciona um item na arvore.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="AddChild"></span><code>function <strong>AddChild</strong>(ParentNode: TComponent; const aName,aFilePath: string; IsSheet: Boolean;aTitle:String):<a href="mi.rtl.treenode.TTreeNode.html">TTreeNode</a>; overload;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="AddChild"></span><code>function <strong>AddChild</strong>(aTreeNode:<a href="mi.rtl.treenode.TTreeNode.html">TTreeNode</a>;aFileName:String):<a href="mi.rtl.treenode.TTreeNode.html">TTreeNode</a>; overload;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Create"></span><code>constructor <strong>Create</strong>(AOwner: TComponent); override;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+O contructor <strong><code>Create</code></strong> inicializa os atributos <strong>FIsSheet</strong> e <strong>FTreeNodes</strong></p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Destroy"></span><code>destructor <strong>Destroy</strong>; override;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+O destructor <strong><code>Destroy</code></strong> destroi os componentes filhos e o atributos <strong>FTreeNodes</strong></p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="conststr"></span><code>function <strong>conststr</strong>(i: Longint; str: String): String;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="TreeToStringList"></span><code>Procedure <strong>TreeToStringList</strong>(TreeNode: <a href="mi.rtl.treenode.TTreeNode.html">TTreeNode</a>; Var S: TStringList); virtual;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+O método <strong><code>TreeToStringList</code></strong> retorna uma lista de strings indentada</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="TreeToStringListHtml"></span><code>Procedure <strong>TreeToStringListHtml</strong>(TreeNode: <a href="mi.rtl.treenode.TTreeNode.html">TTreeNode</a>; Var S: TStringList); virtual;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+O método <strong><code>TreeToStringListHtml</code></strong> código html com a lista de strings indentada</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Test1"></span><code>class procedure <strong>Test1</strong>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+A classe método <strong><code>Test1</code></strong> mostra o uso dos métodos <strong><a class="normal" href="mi.rtl.treenode.TTreeNode.html#AddChild">AddChild</a></strong> e <strong><a class="normal" href="mi.rtl.treenode.TTreeNode.html#TreeToStringList">TreeToStringList</a></strong>
+
+<p></p>
+
+<pre class="longcode">
+<span class="pascal_comment">// Teste1:</span>
+
+<span class="pascal_keyword">class</span> <span class="pascal_keyword">procedure</span> TTreeNode.Test1;
+<span class="pascal_keyword">var</span>
+  Root: TTreeNode;
+  List : TStringList;
+  S : <span class="pascal_keyword">string</span>;
+
+<span class="pascal_keyword">begin</span>
+  writeLn(<span class="pascal_string">'TTreeNode.Test1'</span>);
+  writeLn(<span class="pascal_string">'Inicio: ==============='</span>);
+
+  Root := TTreeNode.Create(<span class="pascal_keyword">nil</span>);
+  <span class="pascal_keyword">with</span> Root <span class="pascal_keyword">do</span>
+  <span class="pascal_keyword">begin</span>
+    Root.<span class="pascal_keyword">Name</span> := <span class="pascal_string">'Root'</span>;
+    Root.IsSheet:=False;
+    List := TStringList.Create;
+
+    <span class="pascal_comment">// Adicione os caminhos de diretórios e folhas da árvore manualmente</span>
+    <span class="pascal_comment">// ...</span>
+
+    <span class="pascal_comment">// Adicione o arquivo '/home/documentos/test1.pas' com pastas no nome</span>
+    AddChild(Root,<span class="pascal_string">'/home/documentos/test1.pas'</span>);
+    AddChild(Root,<span class="pascal_string">'/home/documentos/test2.pas'</span>);
+    AddChild(Root,<span class="pascal_string">'test1.pas'</span>);
+    AddChild(Root,<span class="pascal_string">'/home/test1.pas'</span>);
+
+    <span class="pascal_comment">// Exiba a árvore de diretórios</span>
+    WriteLn(<span class="pascal_string">'Árvore de diretórios:'</span>);
+    Root.TreeToStringList(Root,<span class="pascal_string">'   '</span>,List);
+    <span class="pascal_keyword">for</span> s <span class="pascal_keyword">in</span> List <span class="pascal_keyword">do</span>
+      writeLn(s);
+
+    List.Free;
+
+  <span class="pascal_keyword">end</span>;
+  Root.Free;
+<span class="pascal_comment">//  ReadLn;</span>
+  writeLn(<span class="pascal_string">'Fim: ==============='</span>);
+
+<span class="pascal_keyword">end</span>;</pre>
+
+<p></p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Test2"></span><code>class procedure <strong>Test2</strong>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+A classe método <strong><code>Test2</code></strong> mostra o uso dos métodos <strong><a class="normal" href="mi.rtl.treenode.TTreeNode.html#AddChild">AddChild</a></strong> , <strong><a class="normal" href="mi.rtl.treenode.TTreeNode.html#TreeToStringList">TreeToStringList</a></strong> e <strong><a class="normal" href="mi.rtl.treenode.TTreeNode.html#TreeToStringListHtml">TreeToStringListHTML</a></strong>
+
+<p></p>
+
+<pre class="longcode">
+<span class="pascal_comment">// Teste2:</span>
+  <span class="pascal_keyword">class</span> <span class="pascal_keyword">procedure</span> TTreeNode.Test2;
+  <span class="pascal_keyword">var</span>
+    Root: TTreeNode;
+    List : TStringList;
+    S : <span class="pascal_keyword">string</span>;
+
+
+  <span class="pascal_keyword">begin</span>
+    writeLn(<span class="pascal_string">'TTreeNode.Test2'</span>);
+    writeLn(<span class="pascal_string">'Inicio: ==============='</span>);
+
+    Root := TTreeNode.Create(<span class="pascal_keyword">nil</span>);
+    <span class="pascal_keyword">with</span> Root <span class="pascal_keyword">do</span>
+    <span class="pascal_keyword">begin</span>
+      Root.<span class="pascal_keyword">Name</span> := <span class="pascal_string">'Root'</span>;
+      Root.IsSheet:=False;
+      List := TStringList.Create;
+
+      <span class="pascal_comment">// Adicione os caminhos de diretórios e folhas da árvore manualmente</span>
+      <span class="pascal_comment">// ...</span>
+
+      <span class="pascal_comment">// Adicione o arquivo '/home/documentos/test1.pas' com pastas no nome</span>
+      AddChild(Root,<span class="pascal_string">'/home/documentos/test1.pas'</span>);
+      AddChild(Root,<span class="pascal_string">'/home/documentos/test2.pas'</span>);
+      AddChild(Root,<span class="pascal_string">'test1root.pas'</span>);
+      AddChild(Root,<span class="pascal_string">'/home/test1.pas'</span>);
+      AddChild(Root,<span class="pascal_string">'/home/test2.pas'</span>);
+      AddChild(Root,<span class="pascal_string">'/home/download/test2.pas'</span>);
+
+      <span class="pascal_comment">// Exiba a árvore de diretórios</span>
+      WriteLn(<span class="pascal_string">'Árvore de diretórios:'</span>);
+
+      writeLn(<span class="pascal_string">'Imprimindo list de strings: '</span>);
+      List.Clear;
+      Root.TreeToStringList(Root,<span class="pascal_string">'   '</span>,List);
+      <span class="pascal_keyword">for</span> s <span class="pascal_keyword">in</span> List <span class="pascal_keyword">do</span>
+        writeLn(s);
+
+
+      writeLn(<span class="pascal_string">'Imprimindo código HTML: '</span>);
+      List.Clear;
+      Root.TreeToStringListHTML(Root,<span class="pascal_string">'  '</span>,List);
+      <span class="pascal_keyword">for</span> s <span class="pascal_keyword">in</span> List <span class="pascal_keyword">do</span>
+        writeLn(s);
+
+      List.Free;
+
+    <span class="pascal_keyword">end</span>;
+    Root.Free;
+  <span class="pascal_comment">//  ReadLn;</span>
+  writeLn(<span class="pascal_string">'Fim: ==============='</span>);
+  <span class="pascal_keyword">end</span>;</pre>
+
+<p></p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Test3"></span><code>class procedure <strong>Test3</strong>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+A classe método <strong><code>Test3</code></strong> mostra o uso dos métodos <strong>AddChildList</strong> e <strong><a class="normal" href="mi.rtl.treenode.TTreeNode.html#TreeToStringList">TreeToStringList</a></strong>
+
+<p></p>
+
+<pre class="longcode">
+<span class="pascal_comment">// Teste3:</span>
+
+<span class="pascal_keyword">class</span> <span class="pascal_keyword">procedure</span> TTreeNode.Test3;
+<span class="pascal_keyword">var</span>
+  Root: TTreeNode;
+  List  : TStringList;
+  Files : TStringList;
+  S : <span class="pascal_keyword">string</span>;
+
+
+<span class="pascal_keyword">begin</span>
+  writeLn(<span class="pascal_string">'TTreeNode.Test3'</span>);
+  writeLn(<span class="pascal_string">'Inicio: ==============='</span>);
+
+  Root := TTreeNode.Create(<span class="pascal_keyword">nil</span>);
+  <span class="pascal_keyword">with</span> Root <span class="pascal_keyword">do</span>
+  <span class="pascal_keyword">begin</span>
+    Root.<span class="pascal_keyword">Name</span> := <span class="pascal_string">'Root'</span>;
+    Root.IsSheet:=False;
+    List := TStringList.Create;
+
+    Files := TStringList.Create;
+      Files.add(<span class="pascal_string">'/home/documentos/test1.pas'</span>);
+      Files.Add(<span class="pascal_string">'/home/documentos/test2.pas'</span>);
+      Files.Add(<span class="pascal_string">'test1root.pas'</span>);
+      Files.Add(<span class="pascal_string">'/home/test1.pas'</span>);
+      Files.Add(<span class="pascal_string">'/home/test2.pas'</span>);
+      Files.Add(<span class="pascal_string">'/home/download/test2.pas'</span>);
+    Root.AddChildList(Files);
+
+    <span class="pascal_comment">// Exiba a árvore de diretórios</span>
+    WriteLn(<span class="pascal_string">'Árvore de diretórios:'</span>);
+    Root.TreeToStringList(Root,<span class="pascal_string">'   '</span>,List);
+    <span class="pascal_keyword">for</span> s <span class="pascal_keyword">in</span> List <span class="pascal_keyword">do</span>
+      writeLn(s);
+
+    <span class="pascal_comment">//writeLn('Imprimindo código HTML: ');</span>
+    <span class="pascal_comment">//List.Clear;</span>
+    <span class="pascal_comment">//Root.TreeToStringListHTML(Root,'  ',List);</span>
+    <span class="pascal_comment">//for s in List do</span>
+    <span class="pascal_comment">//  writeLn(s);</span>
+
+    List.Free;
+    Files.free;
+
+  <span class="pascal_keyword">end</span>;
+  Root.Free;
+  writeLn(<span class="pascal_string">'Fim: ==============='</span>);
+<span class="pascal_keyword">end</span>;</pre>
+
+<p></p>
+</td></tr>
+</table>
+<h3 class="detail">Propriedades</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="IsSheet"></span><code>property <strong>IsSheet</strong>: Boolean read FIsSheet write FIsSheet;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+A proriedade <strong><code>IsSheet</code></strong> retorna true se o item corrente é arquivo e false se o item corrente for pasta.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="TreeNodes"></span><code>property <strong>TreeNodes</strong>: <a href="mi.rtl.treenode.TTreeNodes.html">TTreeNodes</a> read FTreeNodes;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+A proriedade <strong><code>TreeNodes</code></strong> retorna a lista de items da pasta corrente</p>
+</td></tr>
+</table>
+<hr><span class="appinfo"><em>Gerado por <a href="https://pasdoc.github.io/">PasDoc 0.16.0</a>. </em>
+</span>
+</div></div></body></html>

@@ -11,7 +11,7 @@
 </head>
 <body>
 <div class="container"><div class="navigation">
-<ul><li><a href="AllUnits.html">Units</a></li><li><a href="ClassHierarchy.html">Hierarquia de Classes</a></li><li><a href="AllClasses.html">Classes, Interfaces, Objetos e Registros</a></li><li><a href="AllTypes.html">Tipos</a></li><li><a href="AllVariables.html">Variáveis</a></li><li><a href="AllConstants.html">Constantes</a></li><li><a href="AllFunctions.html">Funções e Procedimentos</a></li><li><a href="AllIdentifiers.html">Identificadores</a></li><li><form class="search-form" action="tipue_results.html"><div class="search-input"><input type="text" name="q" id="tipue_search_input" pattern=".{1,}" title="At least 1 characters" required><div class="search-button"><input type="button" id="tipue_search_button" onclick="this.form.submit();"></div></div></form>
+<ul><li><a href="AllUnits.html">Units</a></li><li><a href="ClassHierarchy.html">Hierarquia de Classes</a></li><li><a href="AllClasses.html">Classes, Interfaces, Objetos e Registros</a></li><li><a href="AllTypes.html">Tipos</a></li><li><a href="AllVariables.html">Variáveis</a></li><li><a href="AllConstants.html">Constantes</a></li><li><a href="AllFunctions.html">Funções e Procedimentos</a></li><li><a href="AllIdentifiers.html">Identificadores</a></li><li><form class="search-form" action="tipue_results.html"><div class="search-input"><input type="text" name="q" id="tipue_search_input" pattern=".{3,}" title="At least 3 characters" required><div class="search-button"><input type="button" id="tipue_search_button" onclick="this.form.submit();"></div></div></form>
 <div style="clear: both"></div>
 </li></ul></div><div class="content">
 <span id="TTypes"></span><h1 class="cio">Classe TTypes</h1>
@@ -25,7 +25,7 @@
 <code>type TTypes = class(TComponent)</code></p>
 <h2 class="description">Descrição</h2>
 <p>
-A classe <strong><code>TTypes</code></strong> declara todos os tipos globais do pacote MarIcarai</p>
+A classe <strong><code>TTypes</code></strong> declara todos os tipos globais do pacote <a class="normal" href="mi.rtl.html">Mi.RTL</a></p>
 <span id="PasDoc-Hierarchy"></span><h2 class="hierarchy">Hierarquia</h2>
 <ul class="hierarchy"><li class="ancestor">TObject</li>
 <li class="ancestor">TPersistent</li>
@@ -282,7 +282,7 @@ A classe <strong><code>TTypes</code></strong> declara todos os tipos globais do 
 </tr>
 <tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
-<td class="itemcode"><code><strong><a href="mi.rtl.Types.TTypes.html#TAnsiCharSet">TAnsiCharSet</a></strong> = SET Of AnsiChar;</code></td>
+<td class="itemcode"><code><strong><a href="mi.rtl.Types.TTypes.html#TAnsiCharSet">TAnsiCharSet</a></strong> = Set Of AnsiChar;</code></td>
 </tr>
 <tr class="list2">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
@@ -338,23 +338,31 @@ A classe <strong><code>TTypes</code></strong> declara todos os tipos globais do 
 </tr>
 <tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
-<td class="itemcode"><code><strong><a href="mi.rtl.Types.TTypes.html#TCluster">TCluster</a></strong> = Byte;</code></td>
+<td class="itemcode"><code><strong><a href="mi.rtl.Types.TTypes.html#TCharSet">TCharSet</a></strong>     = Set Of <a href="mi.rtl.Types.TTypes.html#Char">Char</a>;</code></td>
 </tr>
 <tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code><strong><a href="mi.rtl.Types.TTypes.html#TCluster">TCluster</a></strong> = Byte;</code></td>
+</tr>
+<tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
 <td class="itemcode"><code><strong><a href="mi.rtl.Types.TTypes.html#TConnectorType">TConnectorType</a></strong> = (...);</code></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
 <td class="itemcode"><code><strong><a href="mi.rtl.Types.TTypes.html#TConvertIdioma">TConvertIdioma</a></strong> = Function (S: AnsiString): AnsiString;</code></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
 <td class="itemcode"><code><strong><a href="mi.rtl.Types.TTypes.html#TDriveType">TDriveType</a></strong> = (...);</code></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
 <td class="itemcode"><code><strong><a href="mi.rtl.Types.TTypes.html#TEnumMemory">TEnumMemory</a></strong> = (...);</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><code><strong><a href="mi.rtl.Types.TTypes.html#TEnum_HelpCtx_StrCurrentCommand_Topic_Content_run">TEnum_HelpCtx_StrCurrentCommand_Topic_Content_run</a></strong> = (...);</code></td>
 </tr>
 <tr class="list2">
 <td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
@@ -362,7 +370,15 @@ A classe <strong><code>TTypes</code></strong> declara todos os tipos globais do 
 </tr>
 <tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code><strong><a href="mi.rtl.Types.TTypes.html#TFileRec">TFileRec</a></strong> = System.FileRec;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
 <td class="itemcode"><code><strong><a href="mi.rtl.Types.TTypes.html#THandle">THandle</a></strong> = System.THandle;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><code><strong><a href="mi.rtl.Types.TTypes.html#THTMLTagEvent">THTMLTagEvent</a></strong> = procedure (Sender: TObject; const TagString: string; TagParams: TStrings; var ReplaceText: string) of object;</code></td>
 </tr>
 <tr class="list2">
 <td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
@@ -405,6 +421,14 @@ A classe <strong><code>TTypes</code></strong> declara todos os tipos globais do 
 <td class="itemcode"><code><strong><a href="mi.rtl.Types.TTypes.html#tstring">tstring</a></strong>            = String[255];</code></td>
 </tr>
 <tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><code><strong><a href="mi.rtl.Types.TTypes.html#TTag">TTag</a></strong> = (...);</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code><strong><a href="mi.rtl.Types.TTypes.html#TTextRec">TTextRec</a></strong> = System.TextRec;</code></td>
+</tr>
+<tr class="list2">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
 <td class="itemcode"><code><strong><a href="mi.rtl.Types.TTypes.html#TWordArray">TWordArray</a></strong> = ARRAY [0..<a href="mi.rtl.Types.TTypes.html#MAX_ARRAY_WORD">MAX_ARRAY_WORD</a>-1] Of <a href="mi.rtl.Types.TTypes.html#Word">Word</a>;</code></td>
 </tr>
@@ -433,7 +457,7 @@ A classe <strong><code>TTypes</code></strong> declara todos os tipos globais do 
 </tr>
 <tr class="list2">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
-<td class="itemcode"><code>nested const <strong><a href="mi.rtl.Types.TTypes.html#MAX_ARRAY_BYTE">MAX_ARRAY_BYTE</a></strong>   = <a href="mi.rtl.Types.TTypes.html#MAX_BYTE">MAX_BYTE</a> div sizeof(byte);</code></td>
+<td class="itemcode"><code>nested const <strong><a href="mi.rtl.Types.TTypes.html#MAX_ARRAY_BYTE">MAX_ARRAY_BYTE</a></strong>   = <a href="mi.rtl.Types.TTypes.html#MAX_BYTE">MAX_BYTE</a> <a href="int65math.html#div">div</a> sizeof(byte);</code></td>
 </tr>
 <tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
@@ -441,7 +465,7 @@ A classe <strong><code>TTypes</code></strong> declara todos os tipos globais do 
 </tr>
 <tr class="list2">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
-<td class="itemcode"><code>nested const <strong><a href="mi.rtl.Types.TTypes.html#MAX_ARRAY_INT">MAX_ARRAY_INT</a></strong>    = <a href="mi.rtl.Types.TTypes.html#MAX_INT">MAX_INT</a> div sizeof(<a href="mi.rtl.Types.TTypes.html#Integer">integer</a>);</code></td>
+<td class="itemcode"><code>nested const <strong><a href="mi.rtl.Types.TTypes.html#MAX_ARRAY_INT">MAX_ARRAY_INT</a></strong>    = <a href="mi.rtl.Types.TTypes.html#MAX_INT">MAX_INT</a> <a href="int65math.html#div">div</a> sizeof(<a href="mi.rtl.Types.TTypes.html#Integer">integer</a>);</code></td>
 </tr>
 <tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
@@ -449,7 +473,7 @@ A classe <strong><code>TTypes</code></strong> declara todos os tipos globais do 
 </tr>
 <tr class="list2">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
-<td class="itemcode"><code>nested const <strong><a href="mi.rtl.Types.TTypes.html#MAX_ARRAY_SMALL_INT">MAX_ARRAY_SMALL_INT</a></strong>  = <a href="mi.rtl.Types.TTypes.html#MAX_SMALL_INT">MAX_SMALL_INT</a> div sizeof(SmallInt);</code></td>
+<td class="itemcode"><code>nested const <strong><a href="mi.rtl.Types.TTypes.html#MAX_ARRAY_SMALL_INT">MAX_ARRAY_SMALL_INT</a></strong>  = <a href="mi.rtl.Types.TTypes.html#MAX_SMALL_INT">MAX_SMALL_INT</a> <a href="int65math.html#div">div</a> sizeof(SmallInt);</code></td>
 </tr>
 <tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
@@ -457,7 +481,7 @@ A classe <strong><code>TTypes</code></strong> declara todos os tipos globais do 
 </tr>
 <tr class="list2">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
-<td class="itemcode"><code>nested const <strong><a href="mi.rtl.Types.TTypes.html#MAX_ARRAY_LONG_INT">MAX_ARRAY_LONG_INT</a></strong>  = <a href="mi.rtl.Types.TTypes.html#MAX_LONG_INT">MAX_LONG_INT</a> div sizeof(<a href="mi.rtl.Types.TTypes.html#LongInt">Longint</a>);</code></td>
+<td class="itemcode"><code>nested const <strong><a href="mi.rtl.Types.TTypes.html#MAX_ARRAY_LONG_INT">MAX_ARRAY_LONG_INT</a></strong>  = <a href="mi.rtl.Types.TTypes.html#MAX_LONG_INT">MAX_LONG_INT</a> <a href="int65math.html#div">div</a> sizeof(<a href="mi.rtl.Types.TTypes.html#LongInt">Longint</a>);</code></td>
 </tr>
 <tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
@@ -465,7 +489,7 @@ A classe <strong><code>TTypes</code></strong> declara todos os tipos globais do 
 </tr>
 <tr class="list2">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
-<td class="itemcode"><code>nested const <strong><a href="mi.rtl.Types.TTypes.html#MAX_ARRAY_WORD">MAX_ARRAY_WORD</a></strong>  = <a href="mi.rtl.Types.TTypes.html#MAX_WORD">MAX_WORD</a> div sizeof(<a href="mi.rtl.Types.TTypes.html#Word">word</a>);</code></td>
+<td class="itemcode"><code>nested const <strong><a href="mi.rtl.Types.TTypes.html#MAX_ARRAY_WORD">MAX_ARRAY_WORD</a></strong>  = <a href="mi.rtl.Types.TTypes.html#MAX_WORD">MAX_WORD</a> <a href="int65math.html#div">div</a> sizeof(<a href="mi.rtl.Types.TTypes.html#Word">word</a>);</code></td>
 </tr>
 <tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
@@ -473,7 +497,7 @@ A classe <strong><code>TTypes</code></strong> declara todos os tipos globais do 
 </tr>
 <tr class="list2">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
-<td class="itemcode"><code>nested const <strong><a href="mi.rtl.Types.TTypes.html#MAX_ARRAY_SMALL_WORD">MAX_ARRAY_SMALL_WORD</a></strong>  = <a href="mi.rtl.Types.TTypes.html#MAX_SMALL_WORD">MAX_SMALL_WORD</a> div sizeof(system.word);</code></td>
+<td class="itemcode"><code>nested const <strong><a href="mi.rtl.Types.TTypes.html#MAX_ARRAY_SMALL_WORD">MAX_ARRAY_SMALL_WORD</a></strong>  = <a href="mi.rtl.Types.TTypes.html#MAX_SMALL_WORD">MAX_SMALL_WORD</a> <a href="int65math.html#div">div</a> sizeof(system.word);</code></td>
 </tr>
 <tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
@@ -481,7 +505,7 @@ A classe <strong><code>TTypes</code></strong> declara todos os tipos globais do 
 </tr>
 <tr class="list2">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
-<td class="itemcode"><code>nested const <strong><a href="mi.rtl.Types.TTypes.html#MAX_ARRAY_LONG_WORD">MAX_ARRAY_LONG_WORD</a></strong>  = <a href="mi.rtl.Types.TTypes.html#MAX_LONG_WORD">MAX_LONG_WORD</a> div sizeof(<a href="mi.rtl.Types.TTypes.html#LongWord">LongWord</a>);</code></td>
+<td class="itemcode"><code>nested const <strong><a href="mi.rtl.Types.TTypes.html#MAX_ARRAY_LONG_WORD">MAX_ARRAY_LONG_WORD</a></strong>  = <a href="mi.rtl.Types.TTypes.html#MAX_LONG_WORD">MAX_LONG_WORD</a> <a href="int65math.html#div">div</a> sizeof(<a href="mi.rtl.Types.TTypes.html#LongWord">LongWord</a>);</code></td>
 </tr>
 <tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
@@ -489,7 +513,7 @@ A classe <strong><code>TTypes</code></strong> declara todos os tipos globais do 
 </tr>
 <tr class="list2">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
-<td class="itemcode"><code>nested const <strong><a href="mi.rtl.Types.TTypes.html#MAX_ARRAY_PTR">MAX_ARRAY_PTR</a></strong>      = <a href="mi.rtl.Types.TTypes.html#MAX_POINTER">MAX_POINTER</a>  div sizeof(Pointer);</code></td>
+<td class="itemcode"><code>nested const <strong><a href="mi.rtl.Types.TTypes.html#MAX_ARRAY_PTR">MAX_ARRAY_PTR</a></strong>      = <a href="mi.rtl.Types.TTypes.html#MAX_POINTER">MAX_POINTER</a>  <a href="int65math.html#div">div</a> sizeof(Pointer);</code></td>
 </tr>
 <tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
@@ -974,7 +998,7 @@ Define os tipos usados no Turbo Vision e nao declarados em QDialogs</p>
 <table class="detail wide_list">
 <tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
-<td class="itemcode"><span id="TAnsiCharSet"></span><code><strong>TAnsiCharSet</strong> = SET Of AnsiChar;</code></td>
+<td class="itemcode"><span id="TAnsiCharSet"></span><code><strong>TAnsiCharSet</strong> = Set Of AnsiChar;</code></td>
 </tr>
 <tr><td colspan="2">
 <p>
@@ -1085,6 +1109,16 @@ AnsiCharacter set</p>
 <tr><td colspan="2">
 <p>
 O tipo <strong><code>TArray_Of_Char</code></strong> é uma tabela de equivalência de caractere sem acentos quando os mesmos tiverem acentos.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="TCharSet"></span><code><strong>TCharSet</strong>     = Set Of <a href="mi.rtl.Types.TTypes.html#Char">Char</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+AnsiCharacter set</p>
 </td></tr>
 </table>
 <table class="detail wide_list">
@@ -1227,6 +1261,107 @@ O tipo <strong><code>TConvertIdioma</code></strong> é usada para passar como pa
 <table class="detail wide_list">
 <tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><span id="TEnum_HelpCtx_StrCurrentCommand_Topic_Content_run"></span><code><strong>TEnum_HelpCtx_StrCurrentCommand_Topic_Content_run</strong> = (...);</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+O tipo enumerado <strong><code>TEnum_HelpCtx_StrCurrentCommand_Topic_Content_run</code></strong> é usado para gera documentação, baseado no conteúdo do campo selecionado.</p>
+<h6 class="description_section">Valores</h6>
+<ul>
+<li>
+<span id="HelpCtx_StrCurrentCommand_Topic_Content_run_Parameter_Indefinido">HelpCtx_StrCurrentCommand_Topic_Content_run_Parameter_Indefinido</span>: Quando a tecla F1 é pressionada, o sistema executa com o browser o arquivo do topico cujo o nome é: </p>
+
+<ul class="paragraph_spacing">
+  <li><p><strong>GetHelpCtx_Path + HelpCtx_StrCurrentCommand+'.htm'+'#'+HelpCtx_StrCurrentCommand_Topic</strong></p></li>
+  <li><p><strong>NOTAS:</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Indica ao sistema, que o conteúdo do campo selecionado deve ser ignorado ao criar o arquivo de documento.</p></li>
+  <li><p>Caso o campo selecionado executar o método TDmxEditor.EditViewHelpCtx() com a opção <a class="normal" href="mi_rtl_ui_interfaces.html#HelpCtx_StrCurrentCommand_Topic_Content_run_Parameter_File">HelpCtx_StrCurrentCommand_Topic_Content_run_Parameter_File</a>, então todos os campos devem imprimir o valor corrente no documento criado.</p></li>
+  <li><p>Caso o campo selecionado executar o método TDmxEditor.EditViewHelpCtx() com a opção <a class="normal" href="mi_rtl_ui_interfaces.html#HelpCtx_StrCurrentCommand_Topic_Content_run_Parameter_File">HelpCtx_StrCurrentCommand_Topic_Content_run_Parameter_File</a>, então todos os campos devem imprimir o valor corrente no documento criado.</p></li>
+  <li><p>Caso o arquivo não exista, o sistema gera abaixo da Documentação do nome do campo selecionado, as seguintes informções: </p>
+
+<ul class="paragraph_spacing">
+  <li><p>A lista de valores possiveis para o campos, caso o tipo seja enumerado (InputListBox, InputComoBox, InputSelect, InputChequeButton, InputRadioButton).</p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></li>
+<li>
+<span id="HelpCtx_StrCurrentCommand_Topic_Content_run_Parameter_indicator">HelpCtx_StrCurrentCommand_Topic_Content_run_Parameter_indicator</span>: Quando a tecla F1 é pressionada, o sistema executa com o browser o arquivo do topico cujo o nome é: </p>
+
+<ul class="paragraph_spacing">
+  <li><p><strong>GetHelpCtx_Path + HelpCtx_StrCurrentCommand+'.htm'+'#'+HelpCtx_StrCurrentCommand_Topic+'_'+HelpCtx_StrCurrentCommand_Topic_Content</strong></p></li>
+  <li><p><strong>NOTAS</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Caso o arquivo não exista, o sistema gera abaixo da Documentação do nome do campo selecionado, as seguintes informções: </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Conteudo do campo Selecionado com o rótulo Valor Corrente.</p></li>
+  <li><p>A lista de valores possíveis para os campos, caso o tipo seja enumerado (InputListBox, InputComoBox, InputSelect, InputChequeButton, InputRadioButton). ou lista o valor do campo selecionado de todos os registros do arquivo mais o conteudo dos campos vinculados ao compo corrente.</p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></li>
+<li>
+<span id="HelpCtx_StrCurrentCommand_Topic_Content_run_Parameter_File">HelpCtx_StrCurrentCommand_Topic_Content_run_Parameter_File</span>: Quando a tecla F1 é pressionada, o sistema executa com o browser o arquivo do topico cujo o nome é: </p>
+
+<ul class="paragraph_spacing">
+  <li><p><strong>GetHelpCtx_Path + HelpCtx_StrCurrentCommand+'<em>'+HelpCtx_StrCurrentCommand_Topic+'</em>'HelpCtx_StrCurrentCommand_Topic_Content+'.htm'</strong></p></li>
+  <li><p><strong>NOTAS 1</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Para cada campo o conteúdo do campo é criado um arquivo .html.</p></li>
+</ul>
+
+<p></p></li>
+  <li><p><strong>NOTAS 2</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Caso o arquivo não exista, o sistema gera abaixo da Documentação do nome do campo selecionado, as seguintes informções: </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Conteudo do campo Selecionado com o rótulo Valor Corrente.</p></li>
+  <li><p>A lista de valores possiveis para o campos, caso o tipo seja enumerado (InputListBox, InputComoBox, InputSelect, InputChequeButton, InputRadioButton). ou lista o valor do campo selecionado de todos os registros do arquivo mais o conteudo dos campos vinculados ao compo corrente.</p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p></li>
+  <li><p><strong>NOTAS 3</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Caso o arquivo não existe, o sistema criar um arquivo com o nome do conteúdo do campo selecionado, com objetivo de documentar o registro, baseado no conteúdo do campo. </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Obs: Criei esta opção para documentar as naturezas de operação (CFOP).</p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></li>
+</ul>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
 <td class="itemcode"><span id="TFileMode"></span><code><strong>TFileMode</strong> = (...);</code></td>
 </tr>
 <tr><td colspan="2">
@@ -1276,6 +1411,14 @@ O tipo <strong><code>TConvertIdioma</code></strong> é usada para passar como pa
 <table class="detail wide_list">
 <tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="TFileRec"></span><code><strong>TFileRec</strong> = System.FileRec;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
 <td class="itemcode"><span id="THandle"></span><code><strong>THandle</strong> = System.THandle;</code></td>
 </tr>
 <tr><td colspan="2">
@@ -1288,6 +1431,14 @@ O tipo <strong><code>TConvertIdioma</code></strong> é usada para passar como pa
 
 <p></p>
 </td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><span id="THTMLTagEvent"></span><code><strong>THTMLTagEvent</strong> = procedure (Sender: TObject; const TagString: string; TagParams: TStrings; var ReplaceText: string) of object;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
 </table>
 <table class="detail wide_list">
 <tr class="list">
@@ -1399,6 +1550,47 @@ O tipo <strong><code>TOnProcedure</code></strong> é usado quando se precisa de 
 </table>
 <table class="detail wide_list">
 <tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><span id="TTag"></span><code><strong>TTag</strong> = (...);</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+O tipo <strong><code>TTag</code></strong> usado em THTMLTagEven indicando o tipo de tag. </p>
+
+<ul class="paragraph_spacing">
+  <li><p><strong>NOTAS:</strong> -</p></li>
+</ul>
+
+<p></p>
+<h6 class="description_section">Valores</h6>
+<ul>
+<li>
+<span id="Tgcustom">Tgcustom</span></li>
+<li>
+<span id="tgLink">tgLink</span></li>
+<li>
+<span id="tgImage">tgImage</span></li>
+<li>
+<span id="tgTable">tgTable</span></li>
+<li>
+<span id="tgImageMap">tgImageMap</span></li>
+<li>
+<span id="tgObject">tgObject</span></li>
+<li>
+<span id="tgEmbed">tgEmbed</span></li>
+</ul>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="TTextRec"></span><code><strong>TTextRec</strong> = System.TextRec;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
 <td class="itemcode"><span id="TWordArray"></span><code><strong>TWordArray</strong> = ARRAY [0..<a href="mi.rtl.Types.TTypes.html#MAX_ARRAY_WORD">MAX_ARRAY_WORD</a>-1] Of <a href="mi.rtl.Types.TTypes.html#Word">Word</a>;</code></td>
 </tr>
@@ -1461,7 +1653,7 @@ O tipo <strong><code>TOnProcedure</code></strong> é usado quando se precisa de 
 <table class="detail wide_list">
 <tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
-<td class="itemcode"><span id="MAX_ARRAY_BYTE"></span><code>nested const <strong>MAX_ARRAY_BYTE</strong>   = <a href="mi.rtl.Types.TTypes.html#MAX_BYTE">MAX_BYTE</a> div sizeof(byte);</code></td>
+<td class="itemcode"><span id="MAX_ARRAY_BYTE"></span><code>nested const <strong>MAX_ARRAY_BYTE</strong>   = <a href="mi.rtl.Types.TTypes.html#MAX_BYTE">MAX_BYTE</a> <a href="int65math.html#div">div</a> sizeof(byte);</code></td>
 </tr>
 <tr><td colspan="2">
 &nbsp;</td></tr>
@@ -1477,7 +1669,7 @@ O tipo <strong><code>TOnProcedure</code></strong> é usado quando se precisa de 
 <table class="detail wide_list">
 <tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
-<td class="itemcode"><span id="MAX_ARRAY_INT"></span><code>nested const <strong>MAX_ARRAY_INT</strong>    = <a href="mi.rtl.Types.TTypes.html#MAX_INT">MAX_INT</a> div sizeof(<a href="mi.rtl.Types.TTypes.html#Integer">integer</a>);</code></td>
+<td class="itemcode"><span id="MAX_ARRAY_INT"></span><code>nested const <strong>MAX_ARRAY_INT</strong>    = <a href="mi.rtl.Types.TTypes.html#MAX_INT">MAX_INT</a> <a href="int65math.html#div">div</a> sizeof(<a href="mi.rtl.Types.TTypes.html#Integer">integer</a>);</code></td>
 </tr>
 <tr><td colspan="2">
 &nbsp;</td></tr>
@@ -1493,7 +1685,7 @@ O tipo <strong><code>TOnProcedure</code></strong> é usado quando se precisa de 
 <table class="detail wide_list">
 <tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
-<td class="itemcode"><span id="MAX_ARRAY_SMALL_INT"></span><code>nested const <strong>MAX_ARRAY_SMALL_INT</strong>  = <a href="mi.rtl.Types.TTypes.html#MAX_SMALL_INT">MAX_SMALL_INT</a> div sizeof(SmallInt);</code></td>
+<td class="itemcode"><span id="MAX_ARRAY_SMALL_INT"></span><code>nested const <strong>MAX_ARRAY_SMALL_INT</strong>  = <a href="mi.rtl.Types.TTypes.html#MAX_SMALL_INT">MAX_SMALL_INT</a> <a href="int65math.html#div">div</a> sizeof(SmallInt);</code></td>
 </tr>
 <tr><td colspan="2">
 &nbsp;</td></tr>
@@ -1509,7 +1701,7 @@ O tipo <strong><code>TOnProcedure</code></strong> é usado quando se precisa de 
 <table class="detail wide_list">
 <tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
-<td class="itemcode"><span id="MAX_ARRAY_LONG_INT"></span><code>nested const <strong>MAX_ARRAY_LONG_INT</strong>  = <a href="mi.rtl.Types.TTypes.html#MAX_LONG_INT">MAX_LONG_INT</a> div sizeof(<a href="mi.rtl.Types.TTypes.html#LongInt">Longint</a>);</code></td>
+<td class="itemcode"><span id="MAX_ARRAY_LONG_INT"></span><code>nested const <strong>MAX_ARRAY_LONG_INT</strong>  = <a href="mi.rtl.Types.TTypes.html#MAX_LONG_INT">MAX_LONG_INT</a> <a href="int65math.html#div">div</a> sizeof(<a href="mi.rtl.Types.TTypes.html#LongInt">Longint</a>);</code></td>
 </tr>
 <tr><td colspan="2">
 &nbsp;</td></tr>
@@ -1525,7 +1717,7 @@ O tipo <strong><code>TOnProcedure</code></strong> é usado quando se precisa de 
 <table class="detail wide_list">
 <tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
-<td class="itemcode"><span id="MAX_ARRAY_WORD"></span><code>nested const <strong>MAX_ARRAY_WORD</strong>  = <a href="mi.rtl.Types.TTypes.html#MAX_WORD">MAX_WORD</a> div sizeof(<a href="mi.rtl.Types.TTypes.html#Word">word</a>);</code></td>
+<td class="itemcode"><span id="MAX_ARRAY_WORD"></span><code>nested const <strong>MAX_ARRAY_WORD</strong>  = <a href="mi.rtl.Types.TTypes.html#MAX_WORD">MAX_WORD</a> <a href="int65math.html#div">div</a> sizeof(<a href="mi.rtl.Types.TTypes.html#Word">word</a>);</code></td>
 </tr>
 <tr><td colspan="2">
 &nbsp;</td></tr>
@@ -1541,7 +1733,7 @@ O tipo <strong><code>TOnProcedure</code></strong> é usado quando se precisa de 
 <table class="detail wide_list">
 <tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
-<td class="itemcode"><span id="MAX_ARRAY_SMALL_WORD"></span><code>nested const <strong>MAX_ARRAY_SMALL_WORD</strong>  = <a href="mi.rtl.Types.TTypes.html#MAX_SMALL_WORD">MAX_SMALL_WORD</a> div sizeof(system.word);</code></td>
+<td class="itemcode"><span id="MAX_ARRAY_SMALL_WORD"></span><code>nested const <strong>MAX_ARRAY_SMALL_WORD</strong>  = <a href="mi.rtl.Types.TTypes.html#MAX_SMALL_WORD">MAX_SMALL_WORD</a> <a href="int65math.html#div">div</a> sizeof(system.word);</code></td>
 </tr>
 <tr><td colspan="2">
 &nbsp;</td></tr>
@@ -1557,7 +1749,7 @@ O tipo <strong><code>TOnProcedure</code></strong> é usado quando se precisa de 
 <table class="detail wide_list">
 <tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
-<td class="itemcode"><span id="MAX_ARRAY_LONG_WORD"></span><code>nested const <strong>MAX_ARRAY_LONG_WORD</strong>  = <a href="mi.rtl.Types.TTypes.html#MAX_LONG_WORD">MAX_LONG_WORD</a> div sizeof(<a href="mi.rtl.Types.TTypes.html#LongWord">LongWord</a>);</code></td>
+<td class="itemcode"><span id="MAX_ARRAY_LONG_WORD"></span><code>nested const <strong>MAX_ARRAY_LONG_WORD</strong>  = <a href="mi.rtl.Types.TTypes.html#MAX_LONG_WORD">MAX_LONG_WORD</a> <a href="int65math.html#div">div</a> sizeof(<a href="mi.rtl.Types.TTypes.html#LongWord">LongWord</a>);</code></td>
 </tr>
 <tr><td colspan="2">
 &nbsp;</td></tr>
@@ -1575,7 +1767,7 @@ O ideal seria memAvail, porém esta função não é multiplataforma;</p>
 <table class="detail wide_list">
 <tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
-<td class="itemcode"><span id="MAX_ARRAY_PTR"></span><code>nested const <strong>MAX_ARRAY_PTR</strong>      = <a href="mi.rtl.Types.TTypes.html#MAX_POINTER">MAX_POINTER</a>  div sizeof(Pointer);</code></td>
+<td class="itemcode"><span id="MAX_ARRAY_PTR"></span><code>nested const <strong>MAX_ARRAY_PTR</strong>      = <a href="mi.rtl.Types.TTypes.html#MAX_POINTER">MAX_POINTER</a>  <a href="int65math.html#div">div</a> sizeof(Pointer);</code></td>
 </tr>
 <tr><td colspan="2">
 &nbsp;</td></tr>

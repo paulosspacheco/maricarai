@@ -27,12 +27,11 @@ interface
      ,SysUtils
      ,Dos
      ,crt
-
      ,strings
      ,Memory
        ,mi.rtl.types
        ,mi.rtl.objects.consts.MI_MsgBox
-       , mi.rtl.Consts.StrError
+       ,mi.rtl.Consts.StrError
        ,mi.rtl.files
        ,mi.rtl.objects.Methods.Exception
        ,mi.rtl.objects.methods.StreamBase.Stream
@@ -352,7 +351,7 @@ interface
       const NoDuplicates = 0;
       const Duplicates = 1;
 
-      {: A constante **#name** é usado para guardar o número de chaves do Indice}
+      {: A constante **@name** é usado para guardar o número de chaves do Indice}
       const FileHeaderSize   = sizeof(TsImagemHeader);
       const MinDataRecSize   = FileHeaderSize;
       Const ItemOverhead = {9;}  SizeOf(TaItem) - Sizeof(TaKeyStr  {=TaItem.Key}) + 1;
@@ -471,7 +470,7 @@ interface
       public class Procedure Create;
       public class Procedure Destroy; // Essa classe é inicializada em Tb__Access
 
-      public class function FExisteCodigo (Var IxF:IndexFile; Const Codigo:tString):Boolean;
+      public class function FExisteCodigo (Var IxF:IndexFile; Const codigo:tString):Boolean;
 
 
       public class Procedure CreateTAccess;
@@ -742,7 +741,7 @@ interface
                        Public Procedure ListaTabelas;
                        Public procedure Insert(Item: Pointer); Override;
                        Public procedure FreeItem(Item: Pointer); Override;
-                       Public Function FOkCodigo (NomeIxF:PathStr;Const Codigo:tString):Boolean;
+                       Public Function FOkCodigo (NomeIxF:PathStr;Const codigo:tString):Boolean;
                        Public Procedure FlushIndexs;
                        Public Procedure FlushAllFiles;
                        Public Function OpenAllFiles:Boolean;
@@ -1491,15 +1490,15 @@ begin
 end;}
 
 
-class function TTb_access. FExisteCodigo (Var IxF:IndexFile;Const Codigo:tString):Boolean;
+class function TTb_access. FExisteCodigo (Var IxF:IndexFile;Const codigo:tString):Boolean;
 Var NRec    : Longint;
     WCodigo : tString;
 Begin
   If Is_TFileOpen(IxF.dataF.F) Then
   Begin
-    WCodigo := UpperCase(Codigo);
+    WCodigo := UpperCase(codigo);
     SearchKey(IxF,NRec,WCodigo);
-    FExisteCodigo := ok And (Codigo=Copy(WCodigo,1,Byte(Codigo[0])));
+    FExisteCodigo := ok And (codigo=Copy(WCodigo,1,Byte(codigo[0])));
   End
   Else
     FExisteCodigo := False;
@@ -1816,7 +1815,7 @@ End;
 
 
 
-{: Retorna o codigo do error se houver
+{: Retorna o código do error se houver
 }
 class function TTb_access.GetTempDir(Const env:tString;Var path:PathStr):SmallInt;
    var Dir: DirStr;

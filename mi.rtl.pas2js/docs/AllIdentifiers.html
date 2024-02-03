@@ -1,0 +1,3454 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<title>Todos os Identificadores</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="generator" content="PasDoc 0.16.0">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<link rel="stylesheet" type="text/css" href="tipuesearch/tipuesearch.css">
+
+<link rel="StyleSheet" type="text/css" href="pasdoc.css">
+</head>
+<body>
+<div class="container"><div class="navigation">
+<ul><li><a href="AllUnits.html">Units</a></li><li><a href="ClassHierarchy.html">Hierarquia de Classes</a></li><li><a href="AllClasses.html">Classes, Interfaces, Objetos e Registros</a></li><li><a href="AllTypes.html">Tipos</a></li><li><a href="AllVariables.html">Variáveis</a></li><li><a href="AllConstants.html">Constantes</a></li><li><a href="AllFunctions.html">Funções e Procedimentos</a></li><li><a href="AllIdentifiers.html">Identificadores</a></li><li><form class="search-form" action="tipue_results.html"><div class="search-input"><input type="text" name="q" id="tipue_search_input" pattern=".{3,}" title="At least 3 characters" required><div class="search-button"><input type="button" id="tipue_search_button" onclick="this.form.submit();"></div></div></form>
+<div style="clear: both"></div>
+</li></ul></div><div class="content">
+<h1 class="allitems">Todos os Identificadores</h1>
+<table class="itemstable wide_list">
+<tr class="listheader">
+<th class="itemname">Nome</th>
+<th class="itemunit">Unit</th>
+<th class="itemdesc">Descrição</th>
+</tr>
+<tr class="list">
+<td class="itemname"><a class="bold" href="mi_rtl_ui_dmxscroller_form.html#accDelimiter">accDelimiter</a></td>
+<td class="itemunit"><a class="bold" href="mi_rtl_ui_dmxscroller_form.html">mi_rtl_ui_dmxscroller_form</a></td>
+<td class="itemdesc"><p>A constante <strong><code>accDelimiter</code></strong> informa que o campo é delimitador de campos no Template.</p></td>
+</tr>
+<tr class="list2">
+<td class="itemname"><a class="bold" href="mi_rtl_ui_dmxscroller_form.html#accHidden">accHidden</a></td>
+<td class="itemunit"><a class="bold" href="mi_rtl_ui_dmxscroller_form.html">mi_rtl_ui_dmxscroller_form</a></td>
+<td class="itemdesc"><p>A constante <strong><code>accHidden</code></strong> (Const <code>accHidden</code> = 2;) é um mapa de bits usado para identificar o bit do campo <a class="normal" href="mi_rtl_ui_Dmxscroller.TDmxFieldRec.html#access">TDmxFieldRec.access</a> que informa se o mesmo é invisível.
+
+<p></p>
+
+<ul class="paragraph_spacing">
+  <li><p><strong>EXEMPLO</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Como usar o mapa de bits <code>accHidden</code> para saber se o campo está invisível.
+
+<p></p>
+
+<pre class="longcode">
+
+<span class="pascal_keyword">with</span> pDmxFieldRec&circ; <span class="pascal_keyword">do</span>
+  <span class="pascal_keyword">If</span> (access <span class="pascal_keyword">and</span> accHidden &lt;&gt; <span class="pascal_numeric">0</span>)
+  <span class="pascal_keyword">then</span> <span class="pascal_keyword">begin</span>
+         ShowMessage(Format(<span class="pascal_string">'O campo %s está invisível'</span>),[CharFieldName]); 
+       <span class="pascal_keyword">end</span>;</pre>
+
+<p></p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p></td>
+</tr>
+<tr class="list">
+<td class="itemname"><a class="bold" href="mi_rtl_ui_Dmxscroller.html#AccNormal">AccNormal</a></td>
+<td class="itemunit"><a class="bold" href="mi_rtl_ui_Dmxscroller.html">mi_rtl_ui_Dmxscroller</a></td>
+<td class="itemdesc"><p>&nbsp;</p></td>
+</tr>
+<tr class="list2">
+<td class="itemname"><a class="bold" href="mi_rtl_ui_dmxscroller_form.html#AccNormal">AccNormal</a></td>
+<td class="itemunit"><a class="bold" href="mi_rtl_ui_dmxscroller_form.html">mi_rtl_ui_dmxscroller_form</a></td>
+<td class="itemdesc"><p>A constante <strong><code>AccNormal</code></strong> (Const <code>AccNormal</code> = 0;) é um mapa de bits usado para identificar o bit do campo <a class="normal" href="mi_rtl_ui_Dmxscroller.TDmxFieldRec.html#access">TDmxFieldRec.access</a> que informa se que o campo pode ser editado.
+
+<p></p>
+
+<ul class="paragraph_spacing">
+  <li><p><strong>EXEMPLO</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Como usar o mapa de bits <code>accNormal</code> para saber se o campo pode ser editado.
+
+<p></p>
+
+<pre class="longcode">
+
+<span class="pascal_keyword">with</span> pDmxFieldRec&circ; <span class="pascal_keyword">do</span>
+  <span class="pascal_keyword">If</span> (access <span class="pascal_keyword">and</span> accNormal &lt;&gt; <span class="pascal_numeric">0</span>) 
+  <span class="pascal_keyword">then</span> <span class="pascal_keyword">begin</span>
+         ShowMessage(Format(<span class="pascal_string">'O campo %s pode ser editado'</span>),[FieldName]);
+       <span class="pascal_keyword">end</span>;</pre>
+
+<p></p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p></td>
+</tr>
+<tr class="list">
+<td class="itemname"><a class="bold" href="mi_rtl_ui_dmxscroller_form.html#accReadOnly">accReadOnly</a></td>
+<td class="itemunit"><a class="bold" href="mi_rtl_ui_dmxscroller_form.html">mi_rtl_ui_dmxscroller_form</a></td>
+<td class="itemdesc"><p>A constante <strong><code>accReadOnly</code></strong> (Const ReadOnly = 1;) é um mapa de bits usado para identificar o bit do campo <a class="normal" href="mi_rtl_ui_Dmxscroller.TDmxFieldRec.html#access">TDmxFieldRec.access</a> que informa se o campo é somente para leitura. </p>
+
+<ul class="paragraph_spacing">
+  <li><p><strong>EXEMPLO</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Como usar o mapa de bits ReadOnly para saber se o campo não pode ser editado. </p>
+
+<pre class="longcode">
+<span class="pascal_keyword">with</span> pDmxFieldRec&circ; <span class="pascal_keyword">do</span>
+  <span class="pascal_keyword">If</span> (access <span class="pascal_keyword">and</span> ReadOnly &lt;&gt; <span class="pascal_numeric">0</span>)
+  <span class="pascal_keyword">then</span> <span class="pascal_keyword">begin</span>
+         ShowMessage(Format(<span class="pascal_string">'O campo %s não pode ser editado'</span>),[FieldName]);
+       <span class="pascal_keyword">end</span>;</pre>
+
+<p></p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p></td>
+</tr>
+<tr class="list2">
+<td class="itemname"><a class="bold" href="mi_rtl_ui_dmxscroller_form.html#accSkip">accSkip</a></td>
+<td class="itemunit"><a class="bold" href="mi_rtl_ui_dmxscroller_form.html">mi_rtl_ui_dmxscroller_form</a></td>
+<td class="itemdesc"><p>A constante <strong><code>accSkip</code></strong> (Const <code>accSkip</code> = 4;) é um mapa de bits usado para identificar o bit do campo <a class="normal" href="mi_rtl_ui_Dmxscroller.TDmxFieldRec.html#access">TDmxFieldRec.access</a> que informa se o campo pode receber o focus. </p>
+
+<ul class="paragraph_spacing">
+  <li><p><strong>EXEMPLO</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Como usar o mapa de bits <code>accSkip</code> para saber se o campo não pode receber o focus. </p>
+
+<pre class="longcode">
+<span class="pascal_keyword">with</span> pDmxFieldRec&circ; <span class="pascal_keyword">do</span>
+  <span class="pascal_keyword">If</span> (access <span class="pascal_keyword">and</span> accSkip &lt;&gt; <span class="pascal_numeric">0</span>)
+  <span class="pascal_keyword">then</span> <span class="pascal_keyword">begin</span>
+         ShowMessage(Format(<span class="pascal_string">'O campo %s não pode receber o focus'</span>),[FieldName]);
+       <span class="pascal_keyword">end</span>;</pre>
+
+<p></p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p></td>
+</tr>
+<tr class="list">
+<td class="itemname"><a class="bold" href="mi.rtl.Objects.Methods.Paramexecucao.Application.html#application">application</a></td>
+<td class="itemunit"><a class="bold" href="mi.rtl.Objects.Methods.Paramexecucao.Application.html">mi.rtl.Objects.Methods.Paramexecucao.Application</a></td>
+<td class="itemdesc"><p>&nbsp;</p></td>
+</tr>
+<tr class="list2">
+<td class="itemname"><a class="bold" href="Classes_C.html#ArraysToJSONValue">ArraysToJSONValue</a></td>
+<td class="itemunit"><a class="bold" href="Classes_C.html">Classes_C</a></td>
+<td class="itemdesc"><p>&nbsp;</p></td>
+</tr>
+<tr class="list">
+<td class="itemname"><a class="bold" href="mi_rtl_ui_dmxscroller_form.html#CharExecAction">CharExecAction</a></td>
+<td class="itemunit"><a class="bold" href="mi_rtl_ui_dmxscroller_form.html">mi_rtl_ui_dmxscroller_form</a></td>
+<td class="itemdesc"><p>A contante <strong><code>CharExecAction</code></strong> é usado para associar ao campo atual uma classe <strong>TAction</strong>.
+
+<p></p>
+
+<ul class="paragraph_spacing">
+  <li><p><strong>NOTA</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>O interpretador de Templates associa a ação do Template ao corrente campo.</p></li>
+</ul>
+
+<p></p></li>
+  <li><p><strong>EXEMPLO DE USO DE AÇÕES NO TEMPLATE</strong> </p>
+
+<ol class="paragraph_spacing">
+  <li value="1"><p>Se o atributo <strong>Fieldnum</strong> do campo for diferente de zero, então o <strong>rótulo</strong> do botão associado a ação será o caracteres 🔍 e a ação pode atualizar o buffer do campo. </p>
+
+<ul class="paragraph_spacing">
+  <li><p>No exemplo a seguir um rótulo e um campo de cliente:
+
+<p></p>
+
+<pre class="longcode">
+
+NewSItem(<span class="pascal_string">'&tilde;Cliente:&tilde;'</span>+<span class="pascal_string">'\LLLLL'</span>+CharExecAction+CreateExecAction(Action_pesquisa)</pre>
+
+<p></p></li>
+</ul>
+
+<p></p></li>
+  <li value="2"><p>Se o atributo <strong>Fieldnum</strong> do campo for igual a zero, então a rótulo do botão será o rótulo do campo. </p>
+
+<ul class="paragraph_spacing">
+  <li><p>No exemplo a seguir um rótulo de novo cliente (icons 🆕) e um botão ok (icons 🆗)
+
+<p></p>
+
+<pre class="longcode">
+
+NewSItem(<span class="pascal_string">'&tilde; 🆕 &amp;Novo cliente:&tilde;'</span>+CharExecAction+CreateExecAction(Action_Novo)+
+         <span class="pascal_string">'&tilde;   &tilde;&tilde; 🆗 &tilde;'</span>+CharExecAction+CreateExecAction(Action_Ok)</pre>
+
+<p></p></li>
+</ul>
+
+<p></p></li>
+</ol>
+
+<p></p></li>
+</ul>
+
+<p></p></td>
+</tr>
+<tr class="list2">
+<td class="itemname"><a class="bold" href="mi_rtl_ui_dmxscroller_form.html#CharFieldName">CharFieldName</a></td>
+<td class="itemunit"><a class="bold" href="mi_rtl_ui_dmxscroller_form.html">mi_rtl_ui_dmxscroller_form</a></td>
+<td class="itemdesc"><p>A constante <strong><code>CharFieldName</code></strong> usada para informar o nome do campo informado antes deste caractere.
+
+<p></p>
+
+<ul class="paragraph_spacing">
+  <li><p><strong>EXEMPLO</strong>
+
+<p></p>
+
+<pre class="longcode">
+
+<span class="pascal_keyword">Const</span>
+  idade := <span class="pascal_string">'\BB'</span>+CharFieldName+<span class="pascal_string">'idade'</span></pre>
+
+<p></p></li>
+</ul>
+
+<p></p></td>
+</tr>
+<tr class="list">
+<td class="itemname"><a class="bold" href="mi_rtl_ui_dmxscroller_form.html#CharHint">CharHint</a></td>
+<td class="itemunit"><a class="bold" href="mi_rtl_ui_dmxscroller_form.html">mi_rtl_ui_dmxscroller_form</a></td>
+<td class="itemdesc"><p>A constante <strong><code>CharHint</code></strong> é usado para documentar o campo e indica que todo o texto até o próximo caractere de controle será o conteúdo do campo HelpCtx_Hint.
+
+<p></p>
+
+<ul class="paragraph_spacing">
+  <li><p><strong>EXEMPLO</strong>
+
+<p></p>
+
+<pre class="longcode">
+
+<span class="pascal_keyword">Resourcestring</span>
+
+ tmp_Alunos_Idade = <span class="pascal_string">'\BB'</span>+ChFN+<span class="pascal_string">'idade'</span>+CharUpperlimit+<span class="pascal_string">#64</span>+
+                     CharHint+<span class="pascal_string">'A idade do aluno. Valores válidos 1 a 64'</span>+
+                     CharHintPorque+<span class="pascal_string">'Este campo é necessário para que se agrupe o alunos baseado em sua faixa etária'</span>+
+                     CharHintOnde+<span class="pascal_string">'Ele será usado pelo coordenador ao classificar a turma'</span>;
+
+
+ tmp_Alunos_Matricula = \IIII<span class="pascal_string">'+ChFN+'</span>matricula<span class="pascal_string">'+CharHint+'</span>A matricula <span class="pascal_keyword">do</span> aluno é um campo sequencial e calculado ao incluir o registro<span class="pascal_string">';
+
+ tmp_Alunos = '</span>&tilde;     Idade:&tilde;%s<span class="pascal_string">'+lf+
+              '</span>&tilde; Matricula:&tilde;%s</pre>
+
+<p></p></li>
+</ul>
+
+<p></p></td>
+</tr>
+<tr class="list2">
+<td class="itemname"><a class="bold" href="mi_rtl_ui_dmxscroller_form.html#CharHintOnde">CharHintOnde</a></td>
+<td class="itemunit"><a class="bold" href="mi_rtl_ui_dmxscroller_form.html">mi_rtl_ui_dmxscroller_form</a></td>
+<td class="itemdesc"><p>A contante <strong><code>CharHintOnde</code></strong> informa que todo texto até o próximo delimitador contém informações para o campo HelpCtx_Onde</p></td>
+</tr>
+<tr class="list">
+<td class="itemname"><a class="bold" href="mi_rtl_ui_dmxscroller_form.html#CharHintPorque">CharHintPorque</a></td>
+<td class="itemunit"><a class="bold" href="mi_rtl_ui_dmxscroller_form.html">mi_rtl_ui_dmxscroller_form</a></td>
+<td class="itemdesc"><p>A contante <strong><code>CharHintPorque</code></strong> informa que todo texto até o próximo delimitador contém informações para o campo HelpCtx_Porque</p></td>
+</tr>
+<tr class="list2">
+<td class="itemname"><a class="bold" href="mi_rtl_ui_dmxscroller_form.html#CharShowPassword">CharShowPassword</a></td>
+<td class="itemunit"><a class="bold" href="mi_rtl_ui_dmxscroller_form.html">mi_rtl_ui_dmxscroller_form</a></td>
+<td class="itemdesc"><p>A constante <strong><code>CharShowPassword</code></strong> informa para controle que os caracteres não devem ser visualizado.
+
+<p></p>
+
+<ul class="paragraph_spacing">
+  <li><p><strong>NOTA</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Usados no campos tipo senha.</p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p></td>
+</tr>
+<tr class="list">
+<td class="itemname"><a class="bold" href="mi_rtl_ui_dmxscroller_form.html#CharShowPasswordChar">CharShowPasswordChar</a></td>
+<td class="itemunit"><a class="bold" href="mi_rtl_ui_dmxscroller_form.html">mi_rtl_ui_dmxscroller_form</a></td>
+<td class="itemdesc"><p>A constante <strong><code>CharShowPasswordChar</code></strong> ...</p></td>
+</tr>
+<tr class="list2">
+<td class="itemname"><a class="bold" href="mi_rtl_ui_dmxscroller_form.html#CharUpperlimit">CharUpperlimit</a></td>
+<td class="itemunit"><a class="bold" href="mi_rtl_ui_dmxscroller_form.html">mi_rtl_ui_dmxscroller_form</a></td>
+<td class="itemdesc"><p>A constante <strong><code>CharUpperlimit</code></strong> (<code>CharUpperlimit</code>=&circ;U) permite informar um limite superior para campos do tipo byte.
+
+<p></p>
+
+<ul class="paragraph_spacing">
+  <li><p>O gerador de formulário deve usar o conteúdo do campo pDmxFieldRec.Upperlimit para criticar se o valor do campo está na faixa entre 1 e pDmxFieldRec.Upperlimit.</p></li>
+  <li><p>O valor zero significa que o campo está nulo.</p></li>
+  <li><p><strong>EXEMPLO</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Um campo onde o seu conteúdo não ultrapasse um byte, pode ser informado no Template da seguinte forma:
+
+<p></p>
+
+<pre class="longcode">
+
+<span class="pascal_keyword">Const</span>
+  idade := <span class="pascal_string">'\BBB+CharUpperlimit+#130+CharHint+'</span>Não existe humanos com a idade superior a <span class="pascal_numeric">130</span> anos.</pre>
+
+<p></p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p></td>
+</tr>
+<tr class="list">
+<td class="itemname"><a class="bold" href="mi_rtl_ui_dmxscroller_form.html#ChFN">ChFN</a></td>
+<td class="itemunit"><a class="bold" href="mi_rtl_ui_dmxscroller_form.html">mi_rtl_ui_dmxscroller_form</a></td>
+<td class="itemdesc"><p>A constante <strong><code>ChFN</code></strong> é igual a <a class="normal" href="mi_rtl_ui_dmxscroller_form.html#CharFieldName">CharFieldName</a>. Foi criada para facilitar seu uso.</p></td>
+</tr>
+<tr class="list2">
+<td class="itemname"><a class="bold" href="Classes_C.html#CloneComponent">CloneComponent</a></td>
+<td class="itemunit"><a class="bold" href="Classes_C.html">Classes_C</a></td>
+<td class="itemdesc"><p>&nbsp;</p></td>
+</tr>
+<tr class="list">
+<td class="itemname"><a class="bold" href="u_criate_index_stork.html#CrateIndexStork">CrateIndexStork</a></td>
+<td class="itemunit"><a class="bold" href="u_criate_index_stork.html">u_criate_index_stork</a></td>
+<td class="itemdesc"><p>&nbsp;</p></td>
+</tr>
+<tr class="list2">
+<td class="itemname"><a class="bold" href="fpTemplate.html#DefaultEndDelimiter">DefaultEndDelimiter</a></td>
+<td class="itemunit"><a class="bold" href="fpTemplate.html">fpTemplate</a></td>
+<td class="itemdesc"><p>&nbsp;</p></td>
+</tr>
+<tr class="list">
+<td class="itemname"><a class="bold" href="fpTemplate.html#DefaultParamEndDelimiter">DefaultParamEndDelimiter</a></td>
+<td class="itemunit"><a class="bold" href="fpTemplate.html">fpTemplate</a></td>
+<td class="itemdesc"><p>&nbsp;</p></td>
+</tr>
+<tr class="list2">
+<td class="itemname"><a class="bold" href="fpTemplate.html#DefaultParamStartDelimiter">DefaultParamStartDelimiter</a></td>
+<td class="itemunit"><a class="bold" href="fpTemplate.html">fpTemplate</a></td>
+<td class="itemdesc"><p>&nbsp;</p></td>
+</tr>
+<tr class="list">
+<td class="itemname"><a class="bold" href="fpTemplate.html#DefaultParamValueSeparator">DefaultParamValueSeparator</a></td>
+<td class="itemunit"><a class="bold" href="fpTemplate.html">fpTemplate</a></td>
+<td class="itemdesc"><p>&nbsp;</p></td>
+</tr>
+<tr class="list2">
+<td class="itemname"><a class="bold" href="fpTemplate.html#DefaultParseDepth">DefaultParseDepth</a></td>
+<td class="itemunit"><a class="bold" href="fpTemplate.html">fpTemplate</a></td>
+<td class="itemdesc"><p>&nbsp;</p></td>
+</tr>
+<tr class="list">
+<td class="itemname"><a class="bold" href="fpTemplate.html#DefaultStartDelimiter">DefaultStartDelimiter</a></td>
+<td class="itemunit"><a class="bold" href="fpTemplate.html">fpTemplate</a></td>
+<td class="itemdesc"><p>&nbsp;</p></td>
+</tr>
+<tr class="list2">
+<td class="itemname"><a class="bold" href="Classes_C.html#DISCARD">DISCARD</a></td>
+<td class="itemunit"><a class="bold" href="Classes_C.html">Classes_C</a></td>
+<td class="itemdesc"><p>&nbsp;</p></td>
+</tr>
+<tr class="list">
+<td class="itemname"><a class="bold" href="mi.rtl.objects.types.DummyClass.html">DummyClass</a></td>
+<td class="itemunit"><a class="bold" href="mi.rtl.objects.types.html">mi.rtl.objects.types</a></td>
+<td class="itemdesc"><p></p>
+
+<ul class="paragraph_spacing">
+  <li><p>Internal Class</p></li>
+</ul>
+
+<p></p></td>
+</tr>
+<tr class="list2">
+<td class="itemname"><a class="bold" href="mi.rtl.objects.types.DummyClass.TStrIndexRec.html">DummyClass.TStrIndexRec</a></td>
+<td class="itemunit"><a class="bold" href="mi.rtl.objects.types.html">mi.rtl.objects.types</a></td>
+<td class="itemdesc"><p>&nbsp;</p></td>
+</tr>
+<tr class="list">
+<td class="itemname"><a class="bold" href="mi.rtl.objects.types.DummyClass.TypeData.html">DummyClass.TypeData</a></td>
+<td class="itemunit"><a class="bold" href="mi.rtl.objects.types.html">mi.rtl.objects.types</a></td>
+<td class="itemdesc"><p>&nbsp;</p></td>
+</tr>
+<tr class="list2">
+<td class="itemname"><a class="bold" href="fpTemplate.ETemplateParser.html">ETemplateParser</a></td>
+<td class="itemunit"><a class="bold" href="fpTemplate.html">fpTemplate</a></td>
+<td class="itemdesc"><p>&nbsp;</p></td>
+</tr>
+<tr class="list">
+<td class="itemname"><a class="bold" href="mi.rtl.Objects.Methods.Db.Tb_Access.html#FilesOpens">FilesOpens</a></td>
+<td class="itemunit"><a class="bold" href="mi.rtl.Objects.Methods.Db.Tb_Access.html">mi.rtl.Objects.Methods.Db.Tb_Access</a></td>
+<td class="itemdesc"><p>&nbsp;</p></td>
+</tr>
+<tr class="list2">
+<td class="itemname"><a class="bold" href="mi_rtl_ui_dmxscroller_form.html#fldAnsiChar">fldAnsiChar</a></td>
+<td class="itemunit"><a class="bold" href="mi_rtl_ui_dmxscroller_form.html">mi_rtl_ui_dmxscroller_form</a></td>
+<td class="itemdesc"><p>A constante <strong><code>fldAnsiChar</code></strong> (Const <code>fldAnsiChar</code> = 'C') usado na máscara do Template, informa ao componente <strong><a class="normal" href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html">TUiDmxScroller</a></strong> que a sequência de caracteres 'C' após o caractere <strong>&quot;\&quot;</strong> representa no buffer do formulário um tipo AnsiString que só aceita caractere maiúsculo.
+
+<p></p>
+
+<ul class="paragraph_spacing">
+  <li><p><strong>EXEMPLO</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Representação de um AnsiString de 10 dígitos em um buffer de 11 bytes onde o ultimo byte contém o caractere #0 informando o fim da string;
+
+<p></p>
+
+<pre class="longcode">
+
+<span class="pascal_keyword">Const</span>
+  Nome := <span class="pascal_string">'\CCCCCCCCCC'</span>; <span class="pascal_comment">//PAULO SÉRG</span></pre>
+
+<p></p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p></td>
+</tr>
+<tr class="list">
+<td class="itemname"><a class="bold" href="mi_rtl_ui_dmxscroller_form.html#fldAnsiCharNUM">fldAnsiCharNUM</a></td>
+<td class="itemunit"><a class="bold" href="mi_rtl_ui_dmxscroller_form.html">mi_rtl_ui_dmxscroller_form</a></td>
+<td class="itemdesc"><p>A constante <strong><code>fldAnsiCharNUM</code></strong> (Const <a class="normal" href="mi_rtl_ui_dmxscroller_form.html#fldAnsiChar">fldAnsiChar</a> = '0') usado na máscara do Template, informa ao componente <strong><a class="normal" href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html">TUiDmxScroller</a></strong> que a sequência de caracteres '0' após o caractere <strong>&quot;\&quot;</strong> representa no buffer do formulário um tipo AnsiString que só aceita caractere numérico ['0'..'9']] .
+
+<p></p>
+
+<ul class="paragraph_spacing">
+  <li><p><strong>EXEMPLO</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Representação de um AnsiString de 11 dígitos em um buffer de 12 bytes onde o ultimo byte contém o caractere #0 informando o fim da string;
+
+<p></p>
+
+<pre class="longcode">
+
+<span class="pascal_keyword">Const</span>
+
+  telefone := <span class="pascal_string">'\(00) 0 0000-0000'</span> <span class="pascal_comment">//85 9 9702 4498</span></pre>
+
+<p></p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p></td>
+</tr>
+<tr class="list2">
+<td class="itemname"><a class="bold" href="mi_rtl_ui_dmxscroller_form.html#fldAnsiCharVAL">fldAnsiCharVAL</a></td>
+<td class="itemunit"><a class="bold" href="mi_rtl_ui_dmxscroller_form.html">mi_rtl_ui_dmxscroller_form</a></td>
+<td class="itemdesc"><p>A constante <strong><code>fldAnsiCharVAL</code></strong> (Const <a class="normal" href="mi_rtl_ui_dmxscroller_form.html#fldAnsiChar">fldAnsiChar</a> = '0') usado na máscara do Template, informa ao componente <strong><a class="normal" href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html">TUiDmxScroller</a></strong> que a sequência de caracteres '0' após o caractere <strong>&quot;\&quot;</strong> representa no buffer do formulário um tipo AnsiString que só aceita caractere numérico ['0'..'9']] com formatação dbase.
+
+<p></p>
+
+<ul class="paragraph_spacing">
+  <li><p><strong>EXEMPLO</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Representação de um AnsiString de 11 dígitos em um buffer de 12 bytes onde o ultimo byte contém o caractere #0 informando o fim da string;
+
+<p></p>
+
+<pre class="longcode">
+
+<span class="pascal_keyword">Const</span>
+
+  telefone := <span class="pascal_string">'\(NN) N NNNN-NNNN'</span> <span class="pascal_comment">//85 9 9702 4498</span></pre>
+
+<p></p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p></td>
+</tr>
+<tr class="list">
+<td class="itemname"><a class="bold" href="mi_rtl_ui_dmxscroller_form.html#fldAnsiChar_Minuscula">fldAnsiChar_Minuscula</a></td>
+<td class="itemunit"><a class="bold" href="mi_rtl_ui_dmxscroller_form.html">mi_rtl_ui_dmxscroller_form</a></td>
+<td class="itemdesc"><p>A constante <strong><code>fldAnsiChar_Minuscula</code></strong> (Const <a class="normal" href="mi_rtl_ui_dmxscroller_form.html#fldAnsiChar">fldAnsiChar</a> = 'c') usado na máscara do Template, informa ao componente <strong><a class="normal" href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html">TUiDmxScroller</a></strong> que a sequência de caracteres 'c' após o caractere <strong>&quot;\&quot;</strong> representa no buffer do formulário um tipo AnsiString que só aceita caractere minúsculo.
+
+<p></p>
+
+<ul class="paragraph_spacing">
+  <li><p><strong>EXEMPLO</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Representação de um AnsiString de 10 dígitos em um buffer de 11 bytes onde o ultimo byte contém o caractere #0 informando o fim da string;
+
+<p></p>
+
+<pre class="longcode">
+
+<span class="pascal_keyword">Const</span>
+  Nome := <span class="pascal_string">'\cccccccccc'</span>; <span class="pascal_comment">//paulo Sérg</span>
+  Nome := <span class="pascal_string">'\Cccccccccc'</span>; <span class="pascal_comment">//Paulo Sérg</span></pre>
+
+<p></p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p></td>
+</tr>
+<tr class="list2">
+<td class="itemname"><a class="bold" href="mi_rtl_ui_dmxscroller_form.html#fldAPPEND">fldAPPEND</a></td>
+<td class="itemunit"><a class="bold" href="mi_rtl_ui_dmxscroller_form.html">mi_rtl_ui_dmxscroller_form</a></td>
+<td class="itemdesc"><p>A constante <strong><code>fldAPPEND</code></strong> é usada para concatenar duas listas do tipo <a class="normal" href="mi_rtl_ui_Dmxscroller.html#PSItem">PSItem</a>.
+
+<p></p>
+
+<ul class="paragraph_spacing">
+  <li><p>A constante <strong><code>fldAPPEND</code></strong> é necessário porque DmxScroller trabalha com string curta e a mesma tem um tamanho de 255 caracteres, onde o tamanho está na posição 0.</p></li>
+  <li><p>Como usar a constante <strong><code>fldAPPEND</code></strong>:
+
+<p></p>
+
+<ul class="paragraph_spacing">
+  <li><p>A função <strong>CreateAppendFields</strong> retorna a constante <strong><code>fldAPPEND</code></strong> mais o endereço da string a ser concatenada.
+
+<p></p>
+
+<ul class="paragraph_spacing">
+  <li><p><strong>EXEMPLO</strong>
+
+<p></p>
+
+<pre class="longcode">
+
+<span class="pascal_keyword">procedure</span> Template : ShortString;
+  <span class="pascal_keyword">Var</span>
+    S1,s2,Template : TString;
+<span class="pascal_keyword">begin</span>
+  S1 := <span class="pascal_string">'&tilde;Nome do Aluno....:&tilde;\ssssssssssssssssssssssssssssssssss'</span>;
+  s2 := <span class="pascal_string">'&tilde;Endereço do aluno:&tilde;\sssssssssssssssssssssssss'</span>;
+  result := S1+CreateAppendFields(s2);
+<span class="pascal_keyword">end</span>;</pre>
+
+<p></p></li>
+  <li><p><strong>NOTA</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>A contante <strong><code>fldAPPEND</code></strong> foi criada porque o projeto inicial foi para turbo pascal e ambiente console.</p></li>
+  <li><p>A versão atual podemos usar AnsiString visto que o limite do mesmo é a memória.</p></li>
+  <li><p>Para usar AnsiString é necessário converter para <a class="normal" href="mi_rtl_ui_Dmxscroller.html#PSItem">PSitem</a> com a função: <strong>StringToSItem</strong>.
+
+<p></p>
+
+<ul class="paragraph_spacing">
+  <li><p><strong>EXEMPLO:</strong>
+
+<p></p>
+
+<pre class="longcode">
+
+<span class="pascal_keyword">function</span> TMI_UI_InputBox.DmxScroller_Form1GetTemplate(aNext: PSItem): PSItem;
+<span class="pascal_keyword">begin</span>
+  <span class="pascal_keyword">with</span> DmxScroller_Form1 <span class="pascal_keyword">do</span>
+  <span class="pascal_keyword">begin</span>
+    <span class="pascal_keyword">if</span> _Template  &lt;&gt; <span class="pascal_string">''</span>
+    <span class="pascal_keyword">then</span> Result := StringToSItem(_Template, <span class="pascal_numeric">80</span>);
+
+<span class="pascal_comment">//    Result := StringToSItem(_Template, 40,TObjectsTypes.TAlinhamento.Alinhamento_Esquerda)</span>
+<span class="pascal_comment">//    Result := StringToSItem(_Template, 40,TObjectsTypes.TAlinhamento.Alinhamento_Central)</span>
+<span class="pascal_comment">//    Result := StringToSItem(_Template, 40,TObjectsTypes.TAlinhamento.Alinhamento_Direita)</span>
+<span class="pascal_comment">//    Result := StringToSItem(_Template, 80,TObjectsTypes.TAlinhamento.Alinhamento_Justificado)</span>
+
+    <span class="pascal_keyword">else</span> result := <span class="pascal_keyword">nil</span>;
+  <span class="pascal_keyword">end</span>;
+<span class="pascal_keyword">end</span>;</pre>
+
+<p></p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p></td>
+</tr>
+<tr class="list">
+<td class="itemname"><a class="bold" href="mi_rtl_ui_dmxscroller_form.html#fldBLOb">fldBLOb</a></td>
+<td class="itemunit"><a class="bold" href="mi_rtl_ui_dmxscroller_form.html">mi_rtl_ui_dmxscroller_form</a></td>
+<td class="itemdesc"><p>A constante <strong><code>fldBLOb</code></strong> indica que o campo é não formatado podendo ser um Record, porém a edição do mesmo será feito por outros meios.
+
+<p></p>
+
+<ul class="paragraph_spacing">
+  <li><p><strong>NOTA</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Para informar ao buffer do registro que o campo é <strong><code>fldBLOb</code></strong>, a função <strong>CreateBlobField</strong> é necessário.</p></li>
+  <li><p>A <strong>class function <a class="normal" href="mi_rtl_ui_methods.TUiMethods.html#CreateBlobField">TUiMethods.CreateBlobField</a>(Len: integer; AccMode,Default: byte) : DmxIDstr;</strong> reserva espaço para o mesmo.</p></li>
+  <li><p>Pendência: Preciso criar um exemplo de uso deste tipo de informação.</p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p></td>
+</tr>
+<tr class="list2">
+<td class="itemname"><a class="bold" href="mi_rtl_ui_dmxscroller_form.html#fldBoolean">fldBoolean</a></td>
+<td class="itemunit"><a class="bold" href="mi_rtl_ui_dmxscroller_form.html">mi_rtl_ui_dmxscroller_form</a></td>
+<td class="itemdesc"><p>A constante <strong><code>fldBoolean</code></strong> (<code>fldBoolean</code> = 'X') indica que o campo é do tipo byte e só pode ter dois valores.
+
+<p></p>
+
+<ul class="paragraph_spacing">
+  <li><p><strong>NOTA</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Valores possíveis: </p>
+
+<ul class="paragraph_spacing">
+  <li><p>0 - False; não</p></li>
+  <li><p>1 = True; sim</p></li>
+</ul>
+
+<p></p></li>
+  <li><p>A forma de editá-los deve ser com o componente checkbox.</p></li>
+</ul>
+
+<p></p></li>
+  <li><p><strong>EXEMPLO</strong>
+
+<p></p>
+
+<pre class="longcode">
+
+<span class="pascal_keyword">Resourcestring</span>
+  tmp_Aceita = <span class="pascal_string">'\[X]'</span>+ChFN+<span class="pascal_string">'Aceita_contrato'</span>+CharHint+<span class="pascal_string">'Aceita os termos do contrato?'</span>;
+  Template = tmp_Aceita+<span class="pascal_string">'&tilde;Aceita os termos do contrato&tilde;'</span>;</pre>
+
+<p></p></li>
+</ul>
+
+<p></p></td>
+</tr>
+<tr class="list">
+<td class="itemname"><a class="bold" href="mi_rtl_ui_dmxscroller_form.html#fldBYTE">fldBYTE</a></td>
+<td class="itemunit"><a class="bold" href="mi_rtl_ui_dmxscroller_form.html">mi_rtl_ui_dmxscroller_form</a></td>
+<td class="itemdesc"><p>A constante <strong><code>fldBYTE</code></strong> (Const <code>fldBYTE</code> = 'B') usado na máscara do Template, informa ao componente <strong><a class="normal" href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html">TUiDmxScroller</a></strong> que a sequência de caracteres 'B' após o caractere <strong>&quot;\&quot;</strong> representa no buffer do formulário um tipo byte.
+
+<p></p>
+
+<ul class="paragraph_spacing">
+  <li><p><strong>EXEMPLO</strong>
+
+<p></p>
+
+<pre class="longcode">
+
+<span class="pascal_keyword">Const</span>
+   idade := <span class="pascal_string">'\BB'</span> <span class="pascal_comment">//Os dois dígitos estarão em um buffer de 1 byte;</span></pre>
+
+<p></p></li>
+</ul>
+
+<p></p></td>
+</tr>
+<tr class="list2">
+<td class="itemname"><a class="bold" href="mi_rtl_ui_dmxscroller_form.html#fldCONTRACTION">fldCONTRACTION</a></td>
+<td class="itemunit"><a class="bold" href="mi_rtl_ui_dmxscroller_form.html">mi_rtl_ui_dmxscroller_form</a></td>
+<td class="itemdesc"><p>A constante <strong><code>fldCONTRACTION</code></strong> ...</p></td>
+</tr>
+<tr class="list">
+<td class="itemname"><a class="bold" href="mi_rtl_ui_dmxscroller_form.html#fldData">fldData</a></td>
+<td class="itemunit"><a class="bold" href="mi_rtl_ui_dmxscroller_form.html">mi_rtl_ui_dmxscroller_form</a></td>
+<td class="itemdesc"><p>A constante <strong><code>fldData</code></strong> ...</p></td>
+</tr>
+<tr class="list2">
+<td class="itemname"><a class="bold" href="mi_rtl_ui_dmxscroller_form.html#FldDateTimeDos">FldDateTimeDos</a></td>
+<td class="itemunit"><a class="bold" href="mi_rtl_ui_dmxscroller_form.html">mi_rtl_ui_dmxscroller_form</a></td>
+<td class="itemdesc"><p>A constante <strong><code>FldDateTimeDos</code></strong> ...</p></td>
+</tr>
+<tr class="list">
+<td class="itemname"><a class="bold" href="mi_rtl_ui_dmxscroller_form.html#fldENUM">fldENUM</a></td>
+<td class="itemunit"><a class="bold" href="mi_rtl_ui_dmxscroller_form.html">mi_rtl_ui_dmxscroller_form</a></td>
+<td class="itemdesc"><p>A constante <strong><code>fldENUM</code></strong> (<code>fldENUM</code>=&circ;E) é um campo do tipo byte(0..255) que contém uma lista de string que são selecionadas por um componente tipo ComboBox.
+
+<p></p>
+
+<ul class="paragraph_spacing">
+  <li><p><strong>EXEMPLO</strong>
+
+<p></p>
+
+<pre class="longcode">
+
+  <span class="pascal_keyword">Const</span> tmpMidia : PSitem = <span class="pascal_keyword">nil</span>;
+<span class="pascal_keyword">begin</span>
+  tmpMidia := CreateEnumField(TRUE, accNormal, <span class="pascal_numeric">0</span>,
+                              NewSItem(<span class="pascal_string">' indefinido '</span>,
+                              NewSItem(<span class="pascal_string">' PenDriver  '</span>,
+                              NewSItem(<span class="pascal_string">' SSD        '</span>,
+                              <span class="pascal_keyword">nil</span>))))+CharFieldName+<span class="pascal_string">'Midia;
+
+  Template = NewSItem('</span>&tilde;  Eu uso &tilde;<span class="pascal_string">'+ tmpMidia + '</span>&tilde; em meu computador.&tilde;</pre>
+
+<p></p></li>
+</ul>
+
+<p></p></td>
+</tr>
+<tr class="list2">
+<td class="itemname"><a class="bold" href="mi_rtl_ui_dmxscroller_form.html#fldExtended">fldExtended</a></td>
+<td class="itemunit"><a class="bold" href="mi_rtl_ui_dmxscroller_form.html">mi_rtl_ui_dmxscroller_form</a></td>
+<td class="itemdesc"><p>A constante <strong><code>fldExtended</code></strong> (<code>fldExtended</code>='E') usado na máscara do Template, informa ao componente <strong><a class="normal" href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html">TUiDmxScroller</a></strong> que a sequência de caracteres 'E' após o caractere <strong>&quot;\&quot;</strong> representa no buffer do formulário um tipo Extended.
+
+<p></p>
+
+<ul class="paragraph_spacing">
+  <li><p><strong>EXEMPLO</strong>
+
+<p></p>
+
+<pre class="longcode">
+
+<span class="pascal_keyword">Const</span>
+   Valor := <span class="pascal_string">'\EEE,EEE,EEE,EEE,EE'</span> <span class="pascal_comment">//Todos os números editados nesta</span>
+                                  <span class="pascal_comment">//mascara, estarão em um buffer de 10 bytes;</span></pre>
+
+<p></p></li>
+</ul>
+
+<p></p></td>
+</tr>
+<tr class="list">
+<td class="itemname"><a class="bold" href="mi_rtl_ui_dmxscroller_form.html#fldHexValue">fldHexValue</a></td>
+<td class="itemunit"><a class="bold" href="mi_rtl_ui_dmxscroller_form.html">mi_rtl_ui_dmxscroller_form</a></td>
+<td class="itemdesc"><p>A constante <strong><code>fldHexValue</code></strong> ...</p></td>
+</tr>
+<tr class="list2">
+<td class="itemname"><a class="bold" href="mi_rtl_ui_dmxscroller_form.html#fldLData">fldLData</a></td>
+<td class="itemunit"><a class="bold" href="mi_rtl_ui_dmxscroller_form.html">mi_rtl_ui_dmxscroller_form</a></td>
+<td class="itemdesc"><p>A constante <strong><code>fldLData</code></strong> ...</p></td>
+</tr>
+<tr class="list">
+<td class="itemname"><a class="bold" href="mi_rtl_ui_dmxscroller_form.html#fldLHora">fldLHora</a></td>
+<td class="itemunit"><a class="bold" href="mi_rtl_ui_dmxscroller_form.html">mi_rtl_ui_dmxscroller_form</a></td>
+<td class="itemdesc"><p>A constante <strong><code>fldLHora</code></strong> ...</p></td>
+</tr>
+<tr class="list2">
+<td class="itemname"><a class="bold" href="mi_rtl_ui_dmxscroller_form.html#fldLONGINT">fldLONGINT</a></td>
+<td class="itemunit"><a class="bold" href="mi_rtl_ui_dmxscroller_form.html">mi_rtl_ui_dmxscroller_form</a></td>
+<td class="itemdesc"><p>A constante <strong><code>fldLONGINT</code></strong> ...</p></td>
+</tr>
+<tr class="list">
+<td class="itemname"><a class="bold" href="mi_rtl_ui_dmxscroller_form.html#FldMemo">FldMemo</a></td>
+<td class="itemunit"><a class="bold" href="mi_rtl_ui_dmxscroller_form.html">mi_rtl_ui_dmxscroller_form</a></td>
+<td class="itemdesc"><p>A constante <strong><code>FldMemo</code></strong> ...</p></td>
+</tr>
+<tr class="list2">
+<td class="itemname"><a class="bold" href="mi_rtl_ui_dmxscroller_form.html#FldOperador">FldOperador</a></td>
+<td class="itemunit"><a class="bold" href="mi_rtl_ui_dmxscroller_form.html">mi_rtl_ui_dmxscroller_form</a></td>
+<td class="itemdesc"><p>A constante <strong><code>FldOperador</code></strong> ...</p></td>
+</tr>
+<tr class="list">
+<td class="itemname"><a class="bold" href="mi_rtl_ui_dmxscroller_form.html#FldRadioButton">FldRadioButton</a></td>
+<td class="itemunit"><a class="bold" href="mi_rtl_ui_dmxscroller_form.html">mi_rtl_ui_dmxscroller_form</a></td>
+<td class="itemdesc"><p>A constante <strong><code>FldRadioButton</code></strong> ...</p></td>
+</tr>
+<tr class="list2">
+<td class="itemname"><a class="bold" href="mi_rtl_ui_dmxscroller_form.html#fldReal4">fldReal4</a></td>
+<td class="itemunit"><a class="bold" href="mi_rtl_ui_dmxscroller_form.html">mi_rtl_ui_dmxscroller_form</a></td>
+<td class="itemdesc"><p>A constante <strong><code>fldReal4</code></strong> ...</p></td>
+</tr>
+<tr class="list">
+<td class="itemname"><a class="bold" href="mi_rtl_ui_dmxscroller_form.html#fldReal4P">fldReal4P</a></td>
+<td class="itemunit"><a class="bold" href="mi_rtl_ui_dmxscroller_form.html">mi_rtl_ui_dmxscroller_form</a></td>
+<td class="itemdesc"><p>A constante <strong><code>fldReal4P</code></strong> ...</p></td>
+</tr>
+<tr class="list2">
+<td class="itemname"><a class="bold" href="mi_rtl_ui_dmxscroller_form.html#fldReal4Positivo">fldReal4Positivo</a></td>
+<td class="itemunit"><a class="bold" href="mi_rtl_ui_dmxscroller_form.html">mi_rtl_ui_dmxscroller_form</a></td>
+<td class="itemdesc"><p>A constante <strong><code>fldReal4Positivo</code></strong> ...</p></td>
+</tr>
+<tr class="list">
+<td class="itemname"><a class="bold" href="mi_rtl_ui_dmxscroller_form.html#fldReal4PPositivo">fldReal4PPositivo</a></td>
+<td class="itemunit"><a class="bold" href="mi_rtl_ui_dmxscroller_form.html">mi_rtl_ui_dmxscroller_form</a></td>
+<td class="itemdesc"><p>A constante <strong><code>fldReal4PPositivo</code></strong> ...</p></td>
+</tr>
+<tr class="list2">
+<td class="itemname"><a class="bold" href="mi_rtl_ui_dmxscroller_form.html#fldRealNum">fldRealNum</a></td>
+<td class="itemunit"><a class="bold" href="mi_rtl_ui_dmxscroller_form.html">mi_rtl_ui_dmxscroller_form</a></td>
+<td class="itemdesc"><p>A constante <strong><code>fldRealNum</code></strong> ...</p></td>
+</tr>
+<tr class="list">
+<td class="itemname"><a class="bold" href="mi_rtl_ui_dmxscroller_form.html#fldRealNum_Positivo">fldRealNum_Positivo</a></td>
+<td class="itemunit"><a class="bold" href="mi_rtl_ui_dmxscroller_form.html">mi_rtl_ui_dmxscroller_form</a></td>
+<td class="itemdesc"><p>A constante <strong><code>fldRealNum_Positivo</code></strong> ...</p></td>
+</tr>
+<tr class="list2">
+<td class="itemname"><a class="bold" href="mi_rtl_ui_dmxscroller_form.html#FldSData">FldSData</a></td>
+<td class="itemunit"><a class="bold" href="mi_rtl_ui_dmxscroller_form.html">mi_rtl_ui_dmxscroller_form</a></td>
+<td class="itemdesc"><p>A constante <strong><code>FldSData</code></strong> ...</p></td>
+</tr>
+<tr class="list">
+<td class="itemname"><a class="bold" href="mi_rtl_ui_dmxscroller_form.html#FldSDateTimeDos">FldSDateTimeDos</a></td>
+<td class="itemunit"><a class="bold" href="mi_rtl_ui_dmxscroller_form.html">mi_rtl_ui_dmxscroller_form</a></td>
+<td class="itemdesc"><p>A constante <strong><code>FldSDateTimeDos</code></strong> ...</p></td>
+</tr>
+<tr class="list2">
+<td class="itemname"><a class="bold" href="mi_rtl_ui_dmxscroller_form.html#FldSHora">FldSHora</a></td>
+<td class="itemunit"><a class="bold" href="mi_rtl_ui_dmxscroller_form.html">mi_rtl_ui_dmxscroller_form</a></td>
+<td class="itemdesc"><p>A constante <strong><code>FldSHora</code></strong> ...</p></td>
+</tr>
+<tr class="list">
+<td class="itemname"><a class="bold" href="mi_rtl_ui_dmxscroller_form.html#fldSHORTINT">fldSHORTINT</a></td>
+<td class="itemunit"><a class="bold" href="mi_rtl_ui_dmxscroller_form.html">mi_rtl_ui_dmxscroller_form</a></td>
+<td class="itemdesc"><p>A constante <strong><code>fldSHORTINT</code></strong> ...</p></td>
+</tr>
+<tr class="list2">
+<td class="itemname"><a class="bold" href="mi_rtl_ui_dmxscroller_form.html#fldSItems">fldSItems</a></td>
+<td class="itemunit"><a class="bold" href="mi_rtl_ui_dmxscroller_form.html">mi_rtl_ui_dmxscroller_form</a></td>
+<td class="itemdesc"><p>A constante <strong><code>fldSItems</code></strong> ...</p></td>
+</tr>
+<tr class="list">
+<td class="itemname"><a class="bold" href="mi_rtl_ui_dmxscroller_form.html#fldSmallInt">fldSmallInt</a></td>
+<td class="itemunit"><a class="bold" href="mi_rtl_ui_dmxscroller_form.html">mi_rtl_ui_dmxscroller_form</a></td>
+<td class="itemdesc"><p>A constante <strong><code>fldSmallInt</code></strong> ...</p></td>
+</tr>
+<tr class="list2">
+<td class="itemname"><a class="bold" href="mi_rtl_ui_dmxscroller_form.html#fldSmallWORD">fldSmallWORD</a></td>
+<td class="itemunit"><a class="bold" href="mi_rtl_ui_dmxscroller_form.html">mi_rtl_ui_dmxscroller_form</a></td>
+<td class="itemdesc"><p>A constante <strong><code>fldSmallWORD</code></strong> ...</p></td>
+</tr>
+<tr class="list">
+<td class="itemname"><a class="bold" href="mi_rtl_ui_dmxscroller_form.html#fldSTR">fldSTR</a></td>
+<td class="itemunit"><a class="bold" href="mi_rtl_ui_dmxscroller_form.html">mi_rtl_ui_dmxscroller_form</a></td>
+<td class="itemdesc"><p>A constante <strong><code>fldSTR</code></strong> (Const <code>fldStr</code> = 'S') usado na máscara do Template, informa ao componente <strong><a class="normal" href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html">TUiDmxScroller</a></strong> que a sequência de caracteres 'S' após o caractere <strong>&quot;\&quot;</strong> representa no buffer do formulário um tipo ShortString que só aceita caractere maiúsculo.
+
+<p></p>
+
+<ul class="paragraph_spacing">
+  <li><p><strong>EXEMPLO</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Representação de um string de 10 dígitos em um buffer de 11 bytes onde o byte zero contém o tamanho da string;
+
+<p></p>
+
+<pre class="longcode">
+
+<span class="pascal_keyword">Const</span>
+  Nome := <span class="pascal_string">'\SSSSSSSSSS'</span>  <span class="pascal_comment">//PAULO SÉRG</span></pre>
+
+<p></p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p></td>
+</tr>
+<tr class="list2">
+<td class="itemname"><a class="bold" href="mi_rtl_ui_dmxscroller_form.html#fldSTRNUM">fldSTRNUM</a></td>
+<td class="itemunit"><a class="bold" href="mi_rtl_ui_dmxscroller_form.html">mi_rtl_ui_dmxscroller_form</a></td>
+<td class="itemdesc"><p>A constante <strong><code>fldSTRNUM</code></strong> (Const <code>fldSTRNUM</code> = '#') usado na máscara do Template, informa ao componente <strong><a class="normal" href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html">TUiDmxScroller</a></strong> que a sequência de caracteres '#' após o caractere <strong>&quot;\&quot;</strong> representa no buffer do formulário um tipo ShortString que só aceita caractere numérico.
+
+<p></p>
+
+<ul class="paragraph_spacing">
+  <li><p><strong>EXEMPLO</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Representação de um string de 11 dígitos em um buffer de 12 bytes onde o byte zero contém o tamanho da string;
+
+<p></p>
+
+<pre class="longcode">
+
+<span class="pascal_keyword">Const</span>
+  telefone := <span class="pascal_string">'\(##) # ####-####'</span> <span class="pascal_comment">//85 9 9702 4498</span></pre>
+
+<p></p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p></td>
+</tr>
+<tr class="list">
+<td class="itemname"><a class="bold" href="mi_rtl_ui_dmxscroller_form.html#fldSTR_Minuscula">fldSTR_Minuscula</a></td>
+<td class="itemunit"><a class="bold" href="mi_rtl_ui_dmxscroller_form.html">mi_rtl_ui_dmxscroller_form</a></td>
+<td class="itemdesc"><p>A constante <strong><code>fldSTR_Minuscula</code></strong> (Const <code>fldSTR_Minuscula</code> = 's') usado na máscara do Template, informa ao componente <strong><a class="normal" href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html">TUiDmxScroller</a></strong> que a sequência de caracteres 's' após o caractere <strong>&quot;\&quot;</strong> representa no buffer do formulário um tipo ShortString que só aceita caractere minúscula.
+
+<p></p>
+
+<ul class="paragraph_spacing">
+  <li><p><strong>EXEMPLO</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Representação de um string de 10 dígitos em um buffer de 11 bytes onde o byte zero contém o tamanho da string;
+
+<p></p>
+
+<pre class="longcode">
+
+<span class="pascal_keyword">Const</span>
+  Nome := <span class="pascal_string">'\ssssssssss'</span> <span class="pascal_comment">//paulo sérg</span>
+  Nome := <span class="pascal_string">'\Ssssssssss'</span> <span class="pascal_comment">//Paulo sérg</span></pre>
+
+<p></p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p></td>
+</tr>
+<tr class="list2">
+<td class="itemname"><a class="bold" href="mi_rtl_ui_dmxscroller_form.html#fldZEROMOD">fldZEROMOD</a></td>
+<td class="itemunit"><a class="bold" href="mi_rtl_ui_dmxscroller_form.html">mi_rtl_ui_dmxscroller_form</a></td>
+<td class="itemdesc"><p>A constante <strong><code>fldZEROMOD</code></strong> ...</p></td>
+</tr>
+<tr class="list">
+<td class="itemname"><a class="bold" href="mi_rtl_ui_dmxscroller_form.html#fld_LData">fld_LData</a></td>
+<td class="itemunit"><a class="bold" href="mi_rtl_ui_dmxscroller_form.html">mi_rtl_ui_dmxscroller_form</a></td>
+<td class="itemdesc"><p>A constante <strong><code>fld_LData</code></strong> é do tipo TDateTime e guarda a data compactada 'dd/dd/dd'</p></td>
+</tr>
+<tr class="list2">
+<td class="itemname"><a class="bold" href="mi_rtl_ui_dmxscroller_form.html#fld_LHora">fld_LHora</a></td>
+<td class="itemunit"><a class="bold" href="mi_rtl_ui_dmxscroller_form.html">mi_rtl_ui_dmxscroller_form</a></td>
+<td class="itemdesc"><p>A constante <strong><code>fld_LHora</code></strong> é do tipo TDateTime e guarda a hora compactada ##:##:##</p></td>
+</tr>
+<tr class="list">
+<td class="itemname"><a class="bold" href="Unit1.html#Form1">Form1</a></td>
+<td class="itemunit"><a class="bold" href="Unit1.html">Unit1</a></td>
+<td class="itemdesc"><p>&nbsp;</p></td>
+</tr>
+<tr class="list2">
+<td class="itemname"><a class="bold" href="mi.rtl.objects.methods.pageproducer.test.html#Form_pageproducer_test">Form_pageproducer_test</a></td>
+<td class="itemunit"><a class="bold" href="mi.rtl.objects.methods.pageproducer.test.html">mi.rtl.objects.methods.pageproducer.test</a></td>
+<td class="itemdesc"><p>&nbsp;</p></td>
+</tr>
+<tr class="list">
+<td class="itemname"><a class="bold" href="webModule1.html#FPWebModule1">FPWebModule1</a></td>
+<td class="itemunit"><a class="bold" href="webModule1.html">webModule1</a></td>
+<td class="itemdesc"><p>&nbsp;</p></td>
+</tr>
+<tr class="list2">
+<td class="itemname"><a class="bold" href="webmodule2.html#FPWebModule2">FPWebModule2</a></td>
+<td class="itemunit"><a class="bold" href="webmodule2.html">webmodule2</a></td>
+<td class="itemdesc"><p>&nbsp;</p></td>
+</tr>
+<tr class="list">
+<td class="itemname"><a class="bold" href="mi_rtl_ui_interfaces.html#IIInputText">IIInputText</a></td>
+<td class="itemunit"><a class="bold" href="mi_rtl_ui_interfaces.html">mi_rtl_ui_interfaces</a></td>
+<td class="itemdesc"><p>&nbsp;</p></td>
+</tr>
+<tr class="list2">
+<td class="itemname"><a class="bold" href="mi_rtl_ui_interfaces.html#IITable">IITable</a></td>
+<td class="itemunit"><a class="bold" href="mi_rtl_ui_interfaces.html">mi_rtl_ui_interfaces</a></td>
+<td class="itemdesc"><p>&nbsp;</p></td>
+</tr>
+<tr class="list">
+<td class="itemname"><a class="bold" href="Classes_C.html#IsValidPtr">IsValidPtr</a></td>
+<td class="itemunit"><a class="bold" href="Classes_C.html">Classes_C</a></td>
+<td class="itemdesc"><p>&nbsp;</p></td>
+</tr>
+<tr class="list2">
+<td class="itemname"><a class="bold" href="Classes_C.html#JSONObjectToStrJSon">JSONObjectToStrJSon</a></td>
+<td class="itemunit"><a class="bold" href="Classes_C.html">Classes_C</a></td>
+<td class="itemdesc"><p>&nbsp;</p></td>
+</tr>
+<tr class="list">
+<td class="itemname"><a class="bold" href="mi_rtl_ui_Dmxscroller.html#LF">LF</a></td>
+<td class="itemunit"><a class="bold" href="mi_rtl_ui_Dmxscroller.html">mi_rtl_ui_Dmxscroller</a></td>
+<td class="itemdesc"><p>&nbsp;</p></td>
+</tr>
+<tr class="list2">
+<td class="itemname"><a class="bold" href="fpTemplate.html#MaxDelimLength">MaxDelimLength</a></td>
+<td class="itemunit"><a class="bold" href="fpTemplate.html">fpTemplate</a></td>
+<td class="itemdesc"><p>&nbsp;</p></td>
+</tr>
+<tr class="list">
+<td class="itemname"><a class="bold" href="fpTemplate.html#MaxParseDepth">MaxParseDepth</a></td>
+<td class="itemunit"><a class="bold" href="fpTemplate.html">fpTemplate</a></td>
+<td class="itemdesc"><p>&nbsp;</p></td>
+</tr>
+<tr class="list2">
+<td class="itemname"><a class="bold" href="Classes_C.html#Message">Message</a></td>
+<td class="itemunit"><a class="bold" href="Classes_C.html">Classes_C</a></td>
+<td class="itemdesc"><p>&nbsp;</p></td>
+</tr>
+<tr class="list">
+<td class="itemname"><a class="bold" href="mi_rtl_ui_custom_application.html#Mi_ui_Custom_Application">Mi_ui_Custom_Application</a></td>
+<td class="itemunit"><a class="bold" href="mi_rtl_ui_custom_application.html">mi_rtl_ui_custom_application</a></td>
+<td class="itemdesc"><p>A função <strong><code>Mi_ui_Custom_Application</code></strong> retorna a ultima instância de <strong><a class="normal" href="mi_rtl_ui_custom_application.TMI_ui_Custom_Application.html">TMI_ui_Custom_Application</a></strong> criada no sistema</p></td>
+</tr>
+<tr class="list2">
+<td class="itemname"><a class="bold" href="mi_ui_mi_msgbox_dm.html#Mi_ui_mi_msgBox">Mi_ui_mi_msgBox</a></td>
+<td class="itemunit"><a class="bold" href="mi_ui_mi_msgbox_dm.html">mi_ui_mi_msgbox_dm</a></td>
+<td class="itemdesc"><p>&nbsp;</p></td>
+</tr>
+<tr class="list">
+<td class="itemname"><a class="bold" href="mi_rtl_ui_Dmxscroller.html#pDmxFieldRec">pDmxFieldRec</a></td>
+<td class="itemunit"><a class="bold" href="mi_rtl_ui_Dmxscroller.html">mi_rtl_ui_Dmxscroller</a></td>
+<td class="itemdesc"><p>O tipo <strong><code>pDmxFieldRec</code></strong> aponta para o campo do tipo <a class="normal" href="mi_rtl_ui_Dmxscroller.TDmxFieldRec.html">TDmxFieldRec</a></p></td>
+</tr>
+<tr class="list2">
+<td class="itemname"><a class="bold" href="mi_rtl_ui_dmxscroller_form.html#pDmxFieldRec">pDmxFieldRec</a></td>
+<td class="itemunit"><a class="bold" href="mi_rtl_ui_dmxscroller_form.html">mi_rtl_ui_dmxscroller_form</a></td>
+<td class="itemdesc"><p>&nbsp;</p></td>
+</tr>
+<tr class="list">
+<td class="itemname"><a class="bold" href="mi_rtl_ui_Dmxscroller.html#PSItem">PSItem</a></td>
+<td class="itemunit"><a class="bold" href="mi_rtl_ui_Dmxscroller.html">mi_rtl_ui_Dmxscroller</a></td>
+<td class="itemdesc"><p>&nbsp;</p></td>
+</tr>
+<tr class="list2">
+<td class="itemname"><a class="bold" href="mi_rtl_ui_Dmxscroller.html#ptString">ptString</a></td>
+<td class="itemunit"><a class="bold" href="mi_rtl_ui_Dmxscroller.html">mi_rtl_ui_Dmxscroller</a></td>
+<td class="itemdesc"><p>&nbsp;</p></td>
+</tr>
+<tr class="list">
+<td class="itemname"><a class="bold" href="mi_rtl_ui_Dmxscroller.html#PValue">PValue</a></td>
+<td class="itemunit"><a class="bold" href="mi_rtl_ui_Dmxscroller.html">mi_rtl_ui_Dmxscroller</a></td>
+<td class="itemdesc"><p>&nbsp;</p></td>
+</tr>
+<tr class="list2">
+<td class="itemname"><a class="bold" href="mi.rtl.Objects.Consts.ProgressDlg_If.html#Register">Register</a></td>
+<td class="itemunit"><a class="bold" href="mi.rtl.Objects.Consts.ProgressDlg_If.html">mi.rtl.Objects.Consts.ProgressDlg_If</a></td>
+<td class="itemdesc"><p>&nbsp;</p></td>
+</tr>
+<tr class="list">
+<td class="itemname"><a class="bold" href="mi.rtl.objects.methods.pageproducer.html#register">register</a></td>
+<td class="itemunit"><a class="bold" href="mi.rtl.objects.methods.pageproducer.html">mi.rtl.objects.methods.pageproducer</a></td>
+<td class="itemdesc"><p>&nbsp;</p></td>
+</tr>
+<tr class="list2">
+<td class="itemname"><a class="bold" href="mi.rtl.Objectss.html#register">register</a></td>
+<td class="itemunit"><a class="bold" href="mi.rtl.Objectss.html">mi.rtl.Objectss</a></td>
+<td class="itemdesc"><p>&nbsp;</p></td>
+</tr>
+<tr class="list">
+<td class="itemname"><a class="bold" href="mi_rtl_ui_dmxscroller_form.html#Register">Register</a></td>
+<td class="itemunit"><a class="bold" href="mi_rtl_ui_dmxscroller_form.html">mi_rtl_ui_dmxscroller_form</a></td>
+<td class="itemdesc"><p>&nbsp;</p></td>
+</tr>
+<tr class="list2">
+<td class="itemname"><a class="bold" href="mi.rtl.Consts.html#SCmCadastraImpressoraLocal">SCmCadastraImpressoraLocal</a></td>
+<td class="itemunit"><a class="bold" href="mi.rtl.Consts.html">mi.rtl.Consts</a></td>
+<td class="itemdesc"><p>&nbsp;</p></td>
+</tr>
+<tr class="list">
+<td class="itemname"><a class="bold" href="mi.rtl.Consts.html#SCmCadastraImpressoraRede">SCmCadastraImpressoraRede</a></td>
+<td class="itemunit"><a class="bold" href="mi.rtl.Consts.html">mi.rtl.Consts</a></td>
+<td class="itemdesc"><p>&nbsp;</p></td>
+</tr>
+<tr class="list2">
+<td class="itemname"><a class="bold" href="mi.rtl.Consts.html#SCmCommit">SCmCommit</a></td>
+<td class="itemunit"><a class="bold" href="mi.rtl.Consts.html">mi.rtl.Consts</a></td>
+<td class="itemdesc"><p>&nbsp;</p></td>
+</tr>
+<tr class="list">
+<td class="itemname"><a class="bold" href="mi.rtl.Consts.html#SCmCopyTo">SCmCopyTo</a></td>
+<td class="itemunit"><a class="bold" href="mi.rtl.Consts.html">mi.rtl.Consts</a></td>
+<td class="itemdesc"><p>&nbsp;</p></td>
+</tr>
+<tr class="list2">
+<td class="itemname"><a class="bold" href="mi.rtl.Consts.html#ScmCores">ScmCores</a></td>
+<td class="itemunit"><a class="bold" href="mi.rtl.Consts.html">mi.rtl.Consts</a></td>
+<td class="itemdesc"><p>&nbsp;</p></td>
+</tr>
+<tr class="list">
+<td class="itemname"><a class="bold" href="mi.rtl.Consts.html#SCmCreate_Shortcut">SCmCreate_Shortcut</a></td>
+<td class="itemunit"><a class="bold" href="mi.rtl.Consts.html">mi.rtl.Consts</a></td>
+<td class="itemdesc"><p>&nbsp;</p></td>
+</tr>
+<tr class="list2">
+<td class="itemname"><a class="bold" href="mi.rtl.Consts.html#SCmDbAddRec">SCmDbAddRec</a></td>
+<td class="itemunit"><a class="bold" href="mi.rtl.Consts.html">mi.rtl.Consts</a></td>
+<td class="itemdesc"><p>&nbsp;</p></td>
+</tr>
+<tr class="list">
+<td class="itemname"><a class="bold" href="mi.rtl.Consts.html#SCmDbDeleteRec">SCmDbDeleteRec</a></td>
+<td class="itemunit"><a class="bold" href="mi.rtl.Consts.html">mi.rtl.Consts</a></td>
+<td class="itemdesc"><p>&nbsp;</p></td>
+</tr>
+<tr class="list2">
+<td class="itemname"><a class="bold" href="mi.rtl.Consts.html#SCmDbDoAfterDelete">SCmDbDoAfterDelete</a></td>
+<td class="itemunit"><a class="bold" href="mi.rtl.Consts.html">mi.rtl.Consts</a></td>
+<td class="itemdesc"><p>&nbsp;</p></td>
+</tr>
+<tr class="list">
+<td class="itemname"><a class="bold" href="mi.rtl.Consts.html#SCmDbDoAfterInsert">SCmDbDoAfterInsert</a></td>
+<td class="itemunit"><a class="bold" href="mi.rtl.Consts.html">mi.rtl.Consts</a></td>
+<td class="itemdesc"><p>&nbsp;</p></td>
+</tr>
+<tr class="list2">
+<td class="itemname"><a class="bold" href="mi.rtl.Consts.html#SCmDbDoAfterPost">SCmDbDoAfterPost</a></td>
+<td class="itemunit"><a class="bold" href="mi.rtl.Consts.html">mi.rtl.Consts</a></td>
+<td class="itemdesc"><p>&nbsp;</p></td>
+</tr>
+<tr class="list">
+<td class="itemname"><a class="bold" href="mi.rtl.Consts.html#SCmDbDoBeforeDelete">SCmDbDoBeforeDelete</a></td>
+<td class="itemunit"><a class="bold" href="mi.rtl.Consts.html">mi.rtl.Consts</a></td>
+<td class="itemdesc"><p>&nbsp;</p></td>
+</tr>
+<tr class="list2">
+<td class="itemname"><a class="bold" href="mi.rtl.Consts.html#SCmDbDoBeforeInsert">SCmDbDoBeforeInsert</a></td>
+<td class="itemunit"><a class="bold" href="mi.rtl.Consts.html">mi.rtl.Consts</a></td>
+<td class="itemdesc"><p>&nbsp;</p></td>
+</tr>
+<tr class="list">
+<td class="itemname"><a class="bold" href="mi.rtl.Consts.html#SCmDbDoBeforePost">SCmDbDoBeforePost</a></td>
+<td class="itemunit"><a class="bold" href="mi.rtl.Consts.html">mi.rtl.Consts</a></td>
+<td class="itemdesc"><p>&nbsp;</p></td>
+</tr>
+<tr class="list2">
+<td class="itemname"><a class="bold" href="mi.rtl.Consts.html#SCmDbFindRec">SCmDbFindRec</a></td>
+<td class="itemunit"><a class="bold" href="mi.rtl.Consts.html">mi.rtl.Consts</a></td>
+<td class="itemdesc"><p>&nbsp;</p></td>
+</tr>
+<tr class="list">
+<td class="itemname"><a class="bold" href="mi.rtl.Consts.html#SCmDbGetRec">SCmDbGetRec</a></td>
+<td class="itemunit"><a class="bold" href="mi.rtl.Consts.html">mi.rtl.Consts</a></td>
+<td class="itemdesc"><p>&nbsp;</p></td>
+</tr>
+<tr class="list2">
+<td class="itemname"><a class="bold" href="mi.rtl.Consts.html#SCmDbGoBof">SCmDbGoBof</a></td>
+<td class="itemunit"><a class="bold" href="mi.rtl.Consts.html">mi.rtl.Consts</a></td>
+<td class="itemdesc"><p>&nbsp;</p></td>
+</tr>
+<tr class="list">
+<td class="itemname"><a class="bold" href="mi.rtl.Consts.html#SCmDbGoEof">SCmDbGoEof</a></td>
+<td class="itemunit"><a class="bold" href="mi.rtl.Consts.html">mi.rtl.Consts</a></td>
+<td class="itemdesc"><p>&nbsp;</p></td>
+</tr>
+<tr class="list2">
+<td class="itemname"><a class="bold" href="mi.rtl.Consts.html#SCmDbLabel_DoubleClick">SCmDbLabel_DoubleClick</a></td>
+<td class="itemunit"><a class="bold" href="mi.rtl.Consts.html">mi.rtl.Consts</a></td>
+<td class="itemdesc"><p>&nbsp;</p></td>
+</tr>
+<tr class="list">
+<td class="itemname"><a class="bold" href="mi.rtl.Consts.html#SCmDbLocaliza">SCmDbLocaliza</a></td>
+<td class="itemunit"><a class="bold" href="mi.rtl.Consts.html">mi.rtl.Consts</a></td>
+<td class="itemdesc"><p>&nbsp;</p></td>
+</tr>
+<tr class="list2">
+<td class="itemname"><a class="bold" href="mi.rtl.Consts.html#SCmDbNextRec">SCmDbNextRec</a></td>
+<td class="itemunit"><a class="bold" href="mi.rtl.Consts.html">mi.rtl.Consts</a></td>
+<td class="itemdesc"><p>&nbsp;</p></td>
+</tr>
+<tr class="list">
+<td class="itemname"><a class="bold" href="mi.rtl.Consts.html#SCmDbNextRecValid">SCmDbNextRecValid</a></td>
+<td class="itemunit"><a class="bold" href="mi.rtl.Consts.html">mi.rtl.Consts</a></td>
+<td class="itemdesc"><p>&nbsp;</p></td>
+</tr>
+<tr class="list2">
+<td class="itemname"><a class="bold" href="mi.rtl.Consts.html#SCmDbOnEnter">SCmDbOnEnter</a></td>
+<td class="itemunit"><a class="bold" href="mi.rtl.Consts.html">mi.rtl.Consts</a></td>
+<td class="itemdesc"><p>&nbsp;</p></td>
+</tr>
+<tr class="list">
+<td class="itemname"><a class="bold" href="mi.rtl.Consts.html#SCmDbOnExit">SCmDbOnExit</a></td>
+<td class="itemunit"><a class="bold" href="mi.rtl.Consts.html">mi.rtl.Consts</a></td>
+<td class="itemdesc"><p>&nbsp;</p></td>
+</tr>
+<tr class="list2">
+<td class="itemname"><a class="bold" href="mi.rtl.Consts.html#SCmDbOrdemCressante">SCmDbOrdemCressante</a></td>
+<td class="itemunit"><a class="bold" href="mi.rtl.Consts.html">mi.rtl.Consts</a></td>
+<td class="itemdesc"><p>&nbsp;</p></td>
+</tr>
+<tr class="list">
+<td class="itemname"><a class="bold" href="mi.rtl.Consts.html#SCmDbOrdemDecrescente">SCmDbOrdemDecrescente</a></td>
+<td class="itemunit"><a class="bold" href="mi.rtl.Consts.html">mi.rtl.Consts</a></td>
+<td class="itemdesc"><p>&nbsp;</p></td>
+</tr>
+<tr class="list2">
+<td class="itemname"><a class="bold" href="mi.rtl.Consts.html#SCmDbPack">SCmDbPack</a></td>
+<td class="itemunit"><a class="bold" href="mi.rtl.Consts.html">mi.rtl.Consts</a></td>
+<td class="itemdesc"><p>&nbsp;</p></td>
+</tr>
+<tr class="list">
+<td class="itemname"><a class="bold" href="mi.rtl.Consts.html#SCmDbPrevRec">SCmDbPrevRec</a></td>
+<td class="itemunit"><a class="bold" href="mi.rtl.Consts.html">mi.rtl.Consts</a></td>
+<td class="itemdesc"><p>&nbsp;</p></td>
+</tr>
+<tr class="list2">
+<td class="itemname"><a class="bold" href="mi.rtl.Consts.html#SCmDbPrevRecValid">SCmDbPrevRecValid</a></td>
+<td class="itemunit"><a class="bold" href="mi.rtl.Consts.html">mi.rtl.Consts</a></td>
+<td class="itemdesc"><p>&nbsp;</p></td>
+</tr>
+<tr class="list">
+<td class="itemname"><a class="bold" href="mi.rtl.Consts.html#SCmDbPutRec">SCmDbPutRec</a></td>
+<td class="itemunit"><a class="bold" href="mi.rtl.Consts.html">mi.rtl.Consts</a></td>
+<td class="itemdesc"><p>&nbsp;</p></td>
+</tr>
+<tr class="list2">
+<td class="itemname"><a class="bold" href="mi.rtl.Consts.html#SCmDbSearchKey">SCmDbSearchKey</a></td>
+<td class="itemunit"><a class="bold" href="mi.rtl.Consts.html">mi.rtl.Consts</a></td>
+<td class="itemdesc"><p>&nbsp;</p></td>
+</tr>
+<tr class="list">
+<td class="itemname"><a class="bold" href="mi.rtl.Consts.html#SCmDbSearchRec">SCmDbSearchRec</a></td>
+<td class="itemunit"><a class="bold" href="mi.rtl.Consts.html">mi.rtl.Consts</a></td>
+<td class="itemdesc"><p>&nbsp;</p></td>
+</tr>
+<tr class="list2">
+<td class="itemname"><a class="bold" href="mi.rtl.Consts.html#SCmDbSearchTop">SCmDbSearchTop</a></td>
+<td class="itemunit"><a class="bold" href="mi.rtl.Consts.html">mi.rtl.Consts</a></td>
+<td class="itemdesc"><p>&nbsp;</p></td>
+</tr>
+<tr class="list">
+<td class="itemname"><a class="bold" href="mi.rtl.Consts.html#SCmDbSelecColunaAtual">SCmDbSelecColunaAtual</a></td>
+<td class="itemunit"><a class="bold" href="mi.rtl.Consts.html">mi.rtl.Consts</a></td>
+<td class="itemdesc"><p>&nbsp;</p></td>
+</tr>
+<tr class="list2">
+<td class="itemname"><a class="bold" href="mi.rtl.Consts.html#SCmDbSelecionaIndice">SCmDbSelecionaIndice</a></td>
+<td class="itemunit"><a class="bold" href="mi.rtl.Consts.html">mi.rtl.Consts</a></td>
+<td class="itemdesc"><p>&nbsp;</p></td>
+</tr>
+<tr class="list">
+<td class="itemname"><a class="bold" href="mi.rtl.Consts.html#SCmDbUpdateRec">SCmDbUpdateRec</a></td>
+<td class="itemunit"><a class="bold" href="mi.rtl.Consts.html">mi.rtl.Consts</a></td>
+<td class="itemdesc"><p>&nbsp;</p></td>
+</tr>
+<tr class="list2">
+<td class="itemname"><a class="bold" href="mi.rtl.Consts.html#SCmDbUsedRecs_Valid">SCmDbUsedRecs_Valid</a></td>
+<td class="itemunit"><a class="bold" href="mi.rtl.Consts.html">mi.rtl.Consts</a></td>
+<td class="itemdesc"><p>&nbsp;</p></td>
+</tr>
+<tr class="list">
+<td class="itemname"><a class="bold" href="mi.rtl.Consts.html#ScmDbView_DoubleClick">ScmDbView_DoubleClick</a></td>
+<td class="itemunit"><a class="bold" href="mi.rtl.Consts.html">mi.rtl.Consts</a></td>
+<td class="itemdesc"><p>&nbsp;</p></td>
+</tr>
+<tr class="list2">
+<td class="itemname"><a class="bold" href="mi.rtl.Consts.html#ScmEditaCores">ScmEditaCores</a></td>
+<td class="itemunit"><a class="bold" href="mi.rtl.Consts.html">mi.rtl.Consts</a></td>
+<td class="itemdesc"><p>&nbsp;</p></td>
+</tr>
+<tr class="list">
+<td class="itemname"><a class="bold" href="mi.rtl.Consts.html#SCmEditDlg">SCmEditDlg</a></td>
+<td class="itemunit"><a class="bold" href="mi.rtl.Consts.html">mi.rtl.Consts</a></td>
+<td class="itemdesc"><p>&nbsp;</p></td>
+</tr>
+<tr class="list2">
+<td class="itemname"><a class="bold" href="mi.rtl.Consts.html#SCmEvaluateRecord">SCmEvaluateRecord</a></td>
+<td class="itemunit"><a class="bold" href="mi.rtl.Consts.html">mi.rtl.Consts</a></td>
+<td class="itemdesc"><p>&nbsp;</p></td>
+</tr>
+<tr class="list">
+<td class="itemname"><a class="bold" href="mi.rtl.Consts.html#SCmExecComboBox">SCmExecComboBox</a></td>
+<td class="itemunit"><a class="bold" href="mi.rtl.Consts.html">mi.rtl.Consts</a></td>
+<td class="itemdesc"><p>Usado para acessar a visao associada ao campo. Usado para visualizar CamposEnumerado e lista de forma geral</p></td>
+</tr>
+<tr class="list2">
+<td class="itemname"><a class="bold" href="mi.rtl.Consts.html#SCmExecCommand">SCmExecCommand</a></td>
+<td class="itemunit"><a class="bold" href="mi.rtl.Consts.html">mi.rtl.Consts</a></td>
+<td class="itemdesc"><p>O comando vinculado ao campo focado e disparado para apliication.HanleEvent() se</p></td>
+</tr>
+<tr class="list">
+<td class="itemname"><a class="bold" href="mi.rtl.Consts.html#SCmExecEndProc">SCmExecEndProc</a></td>
+<td class="itemunit"><a class="bold" href="mi.rtl.Consts.html">mi.rtl.Consts</a></td>
+<td class="itemdesc"><p>Usado para acessar a pesquisa associado ao campo</p></td>
+</tr>
+<tr class="list2">
+<td class="itemname"><a class="bold" href="mi.rtl.Consts.html#SCmExport">SCmExport</a></td>
+<td class="itemunit"><a class="bold" href="mi.rtl.Consts.html">mi.rtl.Consts</a></td>
+<td class="itemdesc"><p>Exporta a consulta seleciona para varios formatos de arquivos a serem implementados</p></td>
+</tr>
+<tr class="list">
+<td class="itemname"><a class="bold" href="mi.rtl.Consts.html#SCmExport_Stru">SCmExport_Stru</a></td>
+<td class="itemunit"><a class="bold" href="mi.rtl.Consts.html">mi.rtl.Consts</a></td>
+<td class="itemdesc"><p>Exporta a estrutura das consultas para o arquivo Schema.ini</p></td>
+</tr>
+<tr class="list2">
+<td class="itemname"><a class="bold" href="mi.rtl.Consts.html#SCmF7">SCmF7</a></td>
+<td class="itemunit"><a class="bold" href="mi.rtl.Consts.html">mi.rtl.Consts</a></td>
+<td class="itemdesc"><p>&nbsp;</p></td>
+</tr>
+<tr class="list">
+<td class="itemname"><a class="bold" href="mi.rtl.Consts.html#ScmHomePage">ScmHomePage</a></td>
+<td class="itemunit"><a class="bold" href="mi.rtl.Consts.html">mi.rtl.Consts</a></td>
+<td class="itemdesc"><p>&nbsp;</p></td>
+</tr>
+<tr class="list2">
+<td class="itemname"><a class="bold" href="mi.rtl.Consts.html#SCmImport">SCmImport</a></td>
+<td class="itemunit"><a class="bold" href="mi.rtl.Consts.html">mi.rtl.Consts</a></td>
+<td class="itemdesc"><p>&nbsp;</p></td>
+</tr>
+<tr class="list">
+<td class="itemname"><a class="bold" href="mi.rtl.Consts.html#SCmInfoSystem">SCmInfoSystem</a></td>
+<td class="itemunit"><a class="bold" href="mi.rtl.Consts.html">mi.rtl.Consts</a></td>
+<td class="itemdesc"><p>&nbsp;</p></td>
+</tr>
+<tr class="list2">
+<td class="itemname"><a class="bold" href="mi.rtl.Consts.html#SCmMouseDownmbRightButton">SCmMouseDownmbRightButton</a></td>
+<td class="itemunit"><a class="bold" href="mi.rtl.Consts.html">mi.rtl.Consts</a></td>
+<td class="itemdesc"><p>&nbsp;</p></td>
+</tr>
+<tr class="list">
+<td class="itemname"><a class="bold" href="mi.rtl.Consts.html#ScmMyCancel">ScmMyCancel</a></td>
+<td class="itemunit"><a class="bold" href="mi.rtl.Consts.html">mi.rtl.Consts</a></td>
+<td class="itemdesc"><p>&nbsp;</p></td>
+</tr>
+<tr class="list2">
+<td class="itemname"><a class="bold" href="mi.rtl.Consts.html#ScmMyOK">ScmMyOK</a></td>
+<td class="itemunit"><a class="bold" href="mi.rtl.Consts.html">mi.rtl.Consts</a></td>
+<td class="itemdesc"><p>&nbsp;</p></td>
+</tr>
+<tr class="list">
+<td class="itemname"><a class="bold" href="mi.rtl.Consts.html#SCmNewRecord">SCmNewRecord</a></td>
+<td class="itemunit"><a class="bold" href="mi.rtl.Consts.html">mi.rtl.Consts</a></td>
+<td class="itemdesc"><p>&nbsp;</p></td>
+</tr>
+<tr class="list2">
+<td class="itemname"><a class="bold" href="mi.rtl.Consts.html#SCmOkEscrevaParametrosDosRelatorios">SCmOkEscrevaParametrosDosRelatorios</a></td>
+<td class="itemunit"><a class="bold" href="mi.rtl.Consts.html">mi.rtl.Consts</a></td>
+<td class="itemdesc"><p>&nbsp;</p></td>
+</tr>
+<tr class="list">
+<td class="itemname"><a class="bold" href="mi.rtl.Consts.html#SCmOnCalcRecord_All">SCmOnCalcRecord_All</a></td>
+<td class="itemunit"><a class="bold" href="mi.rtl.Consts.html">mi.rtl.Consts</a></td>
+<td class="itemdesc"><p>&nbsp;</p></td>
+</tr>
+<tr class="list2">
+<td class="itemname"><a class="bold" href="mi.rtl.Consts.html#ScmPrint">ScmPrint</a></td>
+<td class="itemunit"><a class="bold" href="mi.rtl.Consts.html">mi.rtl.Consts</a></td>
+<td class="itemdesc"><p>&nbsp;</p></td>
+</tr>
+<tr class="list">
+<td class="itemname"><a class="bold" href="mi.rtl.Consts.html#ScmPrintSemFormatar">ScmPrintSemFormatar</a></td>
+<td class="itemunit"><a class="bold" href="mi.rtl.Consts.html">mi.rtl.Consts</a></td>
+<td class="itemdesc"><p>&nbsp;</p></td>
+</tr>
+<tr class="list2">
+<td class="itemname"><a class="bold" href="mi.rtl.Consts.html#SCmProcess">SCmProcess</a></td>
+<td class="itemunit"><a class="bold" href="mi.rtl.Consts.html">mi.rtl.Consts</a></td>
+<td class="itemdesc"><p>&nbsp;</p></td>
+</tr>
+<tr class="list">
+<td class="itemname"><a class="bold" href="mi.rtl.Consts.html#SCmQuitInterno">SCmQuitInterno</a></td>
+<td class="itemunit"><a class="bold" href="mi.rtl.Consts.html">mi.rtl.Consts</a></td>
+<td class="itemdesc"><p>&nbsp;</p></td>
+</tr>
+<tr class="list2">
+<td class="itemname"><a class="bold" href="mi.rtl.Consts.html#SCmRegistroValido">SCmRegistroValido</a></td>
+<td class="itemunit"><a class="bold" href="mi.rtl.Consts.html">mi.rtl.Consts</a></td>
+<td class="itemdesc"><p>&nbsp;</p></td>
+</tr>
+<tr class="list">
+<td class="itemname"><a class="bold" href="mi.rtl.Consts.html#SCmReindex">SCmReindex</a></td>
+<td class="itemunit"><a class="bold" href="mi.rtl.Consts.html">mi.rtl.Consts</a></td>
+<td class="itemdesc"><p>&nbsp;</p></td>
+</tr>
+<tr class="list2">
+<td class="itemname"><a class="bold" href="mi.rtl.Consts.html#SCmRollback">SCmRollback</a></td>
+<td class="itemunit"><a class="bold" href="mi.rtl.Consts.html">mi.rtl.Consts</a></td>
+<td class="itemdesc"><p>&nbsp;</p></td>
+</tr>
+<tr class="list">
+<td class="itemname"><a class="bold" href="mi.rtl.Consts.html#ScmSalvaCores">ScmSalvaCores</a></td>
+<td class="itemunit"><a class="bold" href="mi.rtl.Consts.html">mi.rtl.Consts</a></td>
+<td class="itemdesc"><p>&nbsp;</p></td>
+</tr>
+<tr class="list2">
+<td class="itemname"><a class="bold" href="mi.rtl.Consts.html#SCmSetAppending">SCmSetAppending</a></td>
+<td class="itemunit"><a class="bold" href="mi.rtl.Consts.html">mi.rtl.Consts</a></td>
+<td class="itemdesc"><p>&nbsp;</p></td>
+</tr>
+<tr class="list">
+<td class="itemname"><a class="bold" href="mi.rtl.Consts.html#SCmSobre">SCmSobre</a></td>
+<td class="itemunit"><a class="bold" href="mi.rtl.Consts.html">mi.rtl.Consts</a></td>
+<td class="itemdesc"><p>&nbsp;</p></td>
+</tr>
+<tr class="list2">
+<td class="itemname"><a class="bold" href="mi.rtl.Consts.html#SCmStartTransaction">SCmStartTransaction</a></td>
+<td class="itemunit"><a class="bold" href="mi.rtl.Consts.html">mi.rtl.Consts</a></td>
+<td class="itemdesc"><p>&nbsp;</p></td>
+</tr>
+<tr class="list">
+<td class="itemname"><a class="bold" href="mi.rtl.Consts.html#SCmTb_SelectRefCruzadaResume">SCmTb_SelectRefCruzadaResume</a></td>
+<td class="itemunit"><a class="bold" href="mi.rtl.Consts.html">mi.rtl.Consts</a></td>
+<td class="itemdesc"><p>&nbsp;</p></td>
+</tr>
+<tr class="list2">
+<td class="itemname"><a class="bold" href="mi.rtl.Consts.html#SCmTb_SelectResume">SCmTb_SelectResume</a></td>
+<td class="itemunit"><a class="bold" href="mi.rtl.Consts.html">mi.rtl.Consts</a></td>
+<td class="itemdesc"><p>&nbsp;</p></td>
+</tr>
+<tr class="list">
+<td class="itemname"><a class="bold" href="mi.rtl.Consts.html#SCmTb_SelectSelect">SCmTb_SelectSelect</a></td>
+<td class="itemunit"><a class="bold" href="mi.rtl.Consts.html">mi.rtl.Consts</a></td>
+<td class="itemdesc"><p>&nbsp;</p></td>
+</tr>
+<tr class="list2">
+<td class="itemname"><a class="bold" href="mi.rtl.Consts.html#SCmTime">SCmTime</a></td>
+<td class="itemunit"><a class="bold" href="mi.rtl.Consts.html">mi.rtl.Consts</a></td>
+<td class="itemdesc"><p>&nbsp;</p></td>
+</tr>
+<tr class="list">
+<td class="itemname"><a class="bold" href="mi.rtl.Consts.html#SCmVisualizar">SCmVisualizar</a></td>
+<td class="itemunit"><a class="bold" href="mi.rtl.Consts.html">mi.rtl.Consts</a></td>
+<td class="itemdesc"><p>&nbsp;</p></td>
+</tr>
+<tr class="list2">
+<td class="itemname"><a class="bold" href="mi.rtl.Consts.html#SCmZeroizeRecord">SCmZeroizeRecord</a></td>
+<td class="itemunit"><a class="bold" href="mi.rtl.Consts.html">mi.rtl.Consts</a></td>
+<td class="itemdesc"><p>&nbsp;</p></td>
+</tr>
+<tr class="list">
+<td class="itemname"><a class="bold" href="mi.rtl.Consts.html#sErr201">sErr201</a></td>
+<td class="itemunit"><a class="bold" href="mi.rtl.Consts.html">mi.rtl.Consts</a></td>
+<td class="itemdesc"><p>&nbsp;</p></td>
+</tr>
+<tr class="list2">
+<td class="itemname"><a class="bold" href="mi.rtl.Objects.Methods.Paramexecucao.Application.html#Setapplication">Setapplication</a></td>
+<td class="itemunit"><a class="bold" href="mi.rtl.Objects.Methods.Paramexecucao.Application.html">mi.rtl.Objects.Methods.Paramexecucao.Application</a></td>
+<td class="itemdesc"><p>&nbsp;</p></td>
+</tr>
+<tr class="list">
+<td class="itemname"><a class="bold" href="mi_rtl_ui_custom_application.html#Set_Mi_ui_Custom_Application">Set_Mi_ui_Custom_Application</a></td>
+<td class="itemunit"><a class="bold" href="mi_rtl_ui_custom_application.html">mi_rtl_ui_custom_application</a></td>
+<td class="itemdesc"><p>A função <strong><code>Set_Mi_ui_Custom_Application</code></strong> seta a ultima instância de <strong><a class="normal" href="mi_rtl_ui_custom_application.TMI_ui_Custom_Application.html">TMI_ui_Custom_Application</a></strong> criada no sistema e retorna aplicação selecionada anteriormente.</p></td>
+</tr>
+<tr class="list2">
+<td class="itemname"><a class="bold" href="mi.rtl.Consts.html#SLivreCmVisualisa">SLivreCmVisualisa</a></td>
+<td class="itemunit"><a class="bold" href="mi.rtl.Consts.html">mi.rtl.Consts</a></td>
+<td class="itemdesc"><p>&nbsp;</p></td>
+</tr>
+<tr class="list">
+<td class="itemname"><a class="bold" href="mi_rtl_ui_Dmxscroller.html#SmallWord">SmallWord</a></td>
+<td class="itemunit"><a class="bold" href="mi_rtl_ui_Dmxscroller.html">mi_rtl_ui_Dmxscroller</a></td>
+<td class="itemdesc"><p>&nbsp;</p></td>
+</tr>
+<tr class="list2">
+<td class="itemname"><a class="bold" href="mi_rtl_ui_dmxscroller_form.html#SmallWord">SmallWord</a></td>
+<td class="itemunit"><a class="bold" href="mi_rtl_ui_dmxscroller_form.html">mi_rtl_ui_dmxscroller_form</a></td>
+<td class="itemdesc"><p>&nbsp;</p></td>
+</tr>
+<tr class="list">
+<td class="itemname"><a class="bold" href="Classes_C.html#StrJSonToArrays">StrJSonToArrays</a></td>
+<td class="itemunit"><a class="bold" href="Classes_C.html">Classes_C</a></td>
+<td class="itemdesc"><p>&nbsp;</p></td>
+</tr>
+<tr class="list2">
+<td class="itemname"><a class="bold" href="Classes_C.html#StrJSonToJSONObject">StrJSonToJSONObject</a></td>
+<td class="itemunit"><a class="bold" href="Classes_C.html">Classes_C</a></td>
+<td class="itemdesc"><p>&nbsp;</p></td>
+</tr>
+<tr class="list">
+<td class="itemname"><a class="bold" href="mi.rtl.objects.methods.pageproducer.html#Tag_html_tgImage">Tag_html_tgImage</a></td>
+<td class="itemunit"><a class="bold" href="mi.rtl.objects.methods.pageproducer.html">mi.rtl.objects.methods.pageproducer</a></td>
+<td class="itemdesc"><p>&nbsp;</p></td>
+</tr>
+<tr class="list2">
+<td class="itemname"><a class="bold" href="mi.rtl.objects.methods.pageproducer.html#Tag_html_tgImageMap">Tag_html_tgImageMap</a></td>
+<td class="itemunit"><a class="bold" href="mi.rtl.objects.methods.pageproducer.html">mi.rtl.objects.methods.pageproducer</a></td>
+<td class="itemdesc"><p>&nbsp;</p></td>
+</tr>
+<tr class="list">
+<td class="itemname"><a class="bold" href="mi.rtl.objects.methods.pageproducer.html#Tag_html_tgTable">Tag_html_tgTable</a></td>
+<td class="itemunit"><a class="bold" href="mi.rtl.objects.methods.pageproducer.html">mi.rtl.objects.methods.pageproducer</a></td>
+<td class="itemdesc"><p>O recurso <strong><code>Tag_html_tgTable</code></strong> é usado para criar tabela em um arquivo de modelo.
+
+<p></p>
+
+<ul class="paragraph_spacing">
+  <li><p><strong>PARÂMETROS</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>TagName=[] : Nome da tag </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Deve ser informado na <strong>tag</strong>;</p></li>
+</ul>
+
+<p></p></li>
+  <li><p>Alias : Título da tabela </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Deve ser informado na <strong>tag</strong>;</p></li>
+</ul>
+
+<p></p></li>
+  <li><p>Header : Lista os rótulos do título da tabela </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Deve ser informado na <strong>tag</strong>;</p></li>
+</ul>
+
+<p></p></li>
+  <li><p>widths : Lista as larguras das colunas e alinhamentos onde o : indica se o alinhamento usando as regras do markdown. </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Deve ser informado na <strong>tag</strong>;</p></li>
+</ul>
+
+<p></p></li>
+  <li><p>OneRow=[] : Matriz do conteúdo com todas as linhas e colunas da tabela, onde o número de colunas deve coincidir o número de elementos do Header e número de elementos do widths e o número de elementos do Footer. </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Deve ser informado na <strong>tag</strong>;</p></li>
+</ul>
+
+<p></p></li>
+  <li><p>NotFound : String com uma mensagem de erro se existir. </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Deve ser informado na <strong>tag</strong>;</p></li>
+</ul>
+
+<p></p></li>
+  <li><p>Footer : Lista as somas impressas no rodapé da tabela, podendo ser omitida; </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Deve ser informado na <strong>tag</strong>;</p></li>
+</ul>
+
+<p></p></li>
+  <li><p>Template : Template de uma tabela onde os parâmetros acima serão inseridos. </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Deve ser informado na <strong>tag</strong>;</p></li>
+  <li><p><strong>Notas</strong>: </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Parâmetros obrigatórios do template: </p>
+
+<ul class="paragraph_spacing">
+  <li><p>id=&quot;table&quot;, onde o nome table deve ser um elemento .css no heard da página. </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Deve ser informado na <strong>tag</strong>;</p></li>
+</ul>
+
+<p></p></li>
+  <li><p>id=&quot;theadTagName&quot;, onde a palavra tagName deve ter o mesmo nome do parâmetro tagName[] acima; </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Deve ser informado na <strong>tag</strong>;</p></li>
+</ul>
+
+<p></p></li>
+  <li><p>id=&quot;tbodyTagName&quot;, onde a palavra tagName deve ter o mesmo nome do parâmetro tagName[] acima; </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Deve ser informado na <strong>tag</strong>;</p></li>
+</ul>
+
+<p></p></li>
+  <li><p>id=&quot;tfootTagName&quot;, onde a palavra tagName deve ter o mesmo nome do parâmetro tagName[] acima; </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Deve ser informado na <strong>tag</strong>;</p></li>
+</ul>
+
+<p></p></li>
+  <li><p>colspan=&quot;4&quot;, onde 4 deve ser substituído pelo número de colunas a ser mesclada para formar a barra de títulos; </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Deve ser informado na <strong>tag</strong>;</p></li>
+</ul>
+
+<p></p></li>
+  <li><p>&tilde;Alias : Indica a posição onde o título deve ser inserido; </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Deve ser informado na <strong>tag</strong>;</p></li>
+</ul>
+
+<p></p></li>
+  <li><p>&tilde;HeaderCols : Indica a posição onde a lista de rótulos deve ser inserida; </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Deve ser informado na <strong>tag</strong>;</p></li>
+</ul>
+
+<p></p></li>
+  <li><p>&tilde;OneRowCols : Indica a posição onde a matriz de linhas e colunas deve ser inserida; </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Deve ser informado na <strong>tag</strong>;</p></li>
+</ul>
+
+<p></p></li>
+  <li><p>&tilde;FooterCols : Indica a posição onde a lista Footer deve ser inserida; </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Deve ser informado na <strong>tag</strong>;</p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p></li>
+  <li><p><strong>Exemplo de uso</strong>:
+
+<p></p>
+
+<pre class="longcode">
+&lt;!--<span class="pascal_string">#</span> tgTable [- ALUNOS=[Alias=&quot;Cadastro de Alunos&quot;;
+                         Header=&quot;Column1:      &quot;,&quot;:Column2:     &quot;,&quot;:Column3      &quot;,&quot;:Column4    &quot;;
+                         widths=&quot;<span class="pascal_numeric">300</span>px&quot;         ,&quot;<span class="pascal_numeric">250</span>px&quot;         ,&quot;<span class="pascal_numeric">150</span>px&quot;         ,&quot;<span class="pascal_numeric">180</span>px&quot;;
+                         OneRow=[&quot;<span class="pascal_numeric">1</span> Paulo Sérgio&quot;,&quot;Marcos Pacheco&quot;,&quot;George Bruno  &quot;,&quot;George Bruno&quot;,/,
+                                 &quot;<span class="pascal_numeric">2</span> José Carlos&quot; ,&quot;Antônio       &quot;,&quot;Paulo Henrique&quot;,&quot;George Bruno&quot;,/,
+                                ];
+                         Footer=&quot;soma Columm1&quot;,&quot;soma Columm2&quot;,&quot;soma Columm3&quot;,&quot;soma Columm4&quot;;
+                         NotFound=&quot;Mensagem em caso de erro&quot;;
+                         template=&quot;&lt;Table id=&quot;table&quot;&gt;
+
+                                    &lt;thead id=&quot;theadAlunos&quot;&gt;
+                                      &lt;tr&gt;&lt;th colspan=&quot;<span class="pascal_numeric">4</span>&quot;&gt; &lt;p  style=&quot;text-align: center&quot;&gt;  &tilde;Alias  &lt;/p&gt; &lt;/th&gt;  &lt;/tr&gt;
+                                      &lt;tr&gt;&tilde;HeaderCols&lt;/tr&gt;
+                                    &lt;/thead&gt;
+
+                                    &lt;tbody id=&quot;tbodyAlunos&quot;&gt;
+                                      &tilde;OneRowCols
+                                    &lt;/tbody&gt;
+
+                                    &lt;tfoot id=&quot;tfootAlunos&quot;&gt;
+                                      &tilde;FooterCols
+                                    &lt;/tfoot&gt;
+                                   &lt;/Table&gt;&quot;
+                        ]
+              -]
+<span class="pascal_string">#</span>--></pre>
+
+<p></p></li>
+</ul>
+
+<p></p></li>
+  <li><p><strong>NOTAS</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>As palavras que começam com o sinal <strong>&tilde;</strong> são substituídas no evento <strong>OnHTMLTag_tgTable</strong> pelos dados informados na própria <strong>tag</strong>, porém em caso de omissão do dado, o programa pode inserir uma varável específica.</p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p></td>
+</tr>
+<tr class="list2">
+<td class="itemname"><a class="bold" href="mi.rtl.objects.methods.db.tb__access_test.TAluno.html">TAluno</a></td>
+<td class="itemunit"><a class="bold" href="mi.rtl.objects.methods.db.tb__access_test.html">mi.rtl.objects.methods.db.tb__access_test</a></td>
+<td class="itemdesc"><p>A class <strong><code>TAluno</code></strong> desmonstra o uso da classe <a class="normal" href="mi.rtl.Objectss.TObjectss.html#Ttb__access">TObjectss.Ttb__access</a></p></td>
+</tr>
+<tr class="list">
+<td class="itemname"><a class="bold" href="mi.rtl.objects.methods.db.tb__access_test.TAluno.TRegAluno.html">TAluno.TRegAluno</a></td>
+<td class="itemunit"><a class="bold" href="mi.rtl.objects.methods.db.tb__access_test.html">mi.rtl.objects.methods.db.tb__access_test</a></td>
+<td class="itemdesc"><p>&nbsp;</p></td>
+</tr>
+<tr class="list2">
+<td class="itemname"><a class="bold" href="mi.rtl.Objects.Methods.Paramexecucao.Application.TApplication.html">TApplication</a></td>
+<td class="itemunit"><a class="bold" href="mi.rtl.Objects.Methods.Paramexecucao.Application.html">mi.rtl.Objects.Methods.Paramexecucao.Application</a></td>
+<td class="itemdesc"><p>&nbsp;</p></td>
+</tr>
+<tr class="list">
+<td class="itemname"><a class="bold" href="mi.rtl.ApplicationAbstract.TApplicationAbstract.html">TApplicationAbstract</a></td>
+<td class="itemunit"><a class="bold" href="mi.rtl.ApplicationAbstract.html">mi.rtl.ApplicationAbstract</a></td>
+<td class="itemdesc"><p>&nbsp;</p></td>
+</tr>
+<tr class="list2">
+<td class="itemname"><a class="bold" href="mi.rtl.Objects.Methods.Paramexecucao.Application.TApplicationConsts.html">TApplicationConsts</a></td>
+<td class="itemunit"><a class="bold" href="mi.rtl.Objects.Methods.Paramexecucao.Application.html">mi.rtl.Objects.Methods.Paramexecucao.Application</a></td>
+<td class="itemdesc"><p>&nbsp;</p></td>
+</tr>
+<tr class="list">
+<td class="itemname"><a class="bold" href="mi.rtl.Objects.Methods.Paramexecucao.Application.TApplication_type.html">TApplication_type</a></td>
+<td class="itemunit"><a class="bold" href="mi.rtl.Objects.Methods.Paramexecucao.Application.html">mi.rtl.Objects.Methods.Paramexecucao.Application</a></td>
+<td class="itemdesc"><p>A class <em><code>TApplication_type</code></em>* é usada para capsular todas as variáveis globais do projeto e gerenciar o ciclo de vida do aplicativo</p></td>
+</tr>
+<tr class="list2">
+<td class="itemname"><a class="bold" href="mi.rtl.objects.methods.pageproducer.TBasePageProducer.html">TBasePageProducer</a></td>
+<td class="itemunit"><a class="bold" href="mi.rtl.objects.methods.pageproducer.html">mi.rtl.objects.methods.pageproducer</a></td>
+<td class="itemdesc"><p>A classe <strong><code>TBasePageProducer</code></strong> permite criar documentos baseados em modelos, podendo ser html ou não.
+
+<p></p>
+
+<ul class="paragraph_spacing">
+  <li><p><strong>NOTA</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Tentei manter o mesmo comportamento do TPageProduce do Delphi, porém faz mais porque está documentado com exemplos de uso.</p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p></td>
+</tr>
+<tr class="list">
+<td class="itemname"><a class="bold" href="mi.rtl.objects.methods.StreamBase.Stream.MemoryStream.BufferMemory.TBufferMemory.html">TBufferMemory</a></td>
+<td class="itemunit"><a class="bold" href="mi.rtl.objects.methods.StreamBase.Stream.MemoryStream.BufferMemory.html">mi.rtl.objects.methods.StreamBase.Stream.MemoryStream.BufferMemory</a></td>
+<td class="itemdesc"><p></p>
+
+<ul class="paragraph_spacing">
+  <li><p>A class <code>TBufferMemory</code> cria um <strong>array of record</strong> em memória usando os métodos os <a class="normal" href="mi.rtl.objects.methods.StreamBase.Stream.MemoryStream.BufferMemory.TBufferMemory.html#Seek">seek</a>, <a class="normal" href="mi.rtl.Objects.Methods.StreamBase.Stream.TStream.html#PutRec">PutREc</a>, <a class="normal" href="mi.rtl.Objects.Methods.StreamBase.Stream.TStream.html#GetRec">GetRec</a>
+
+<p></p>
+
+<ul class="paragraph_spacing">
+  <li><p><strong>NOTA</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Uso a classe <code>TBufferMemory</code> para criar arquivos em memória no banco de dados <strong>Tb_Access.pas</strong></p></li>
+</ul>
+
+<p></p></li>
+  <li><p><strong>EXEMPLO</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Exemplo de como gravar um registro <strong>sem header em memória</strong>.
+
+<p></p>
+
+<pre class="longcode">
+
+<span class="pascal_keyword">Procedure</span> TMi_Rtl_Tests.Test_TBufferMemory_sem_header;
+  <span class="pascal_keyword">type</span>
+   TAluno = <span class="pascal_keyword">record</span>
+              Id : integer;
+              nome : <span class="pascal_keyword">string</span>[<span class="pascal_numeric">35</span>];
+            <span class="pascal_keyword">end</span>;
+
+  <span class="pascal_keyword">var</span>
+   FileMemory_Alunos : TObjectss.TBufferMemory;
+   Aluno          : TAluno;
+
+   nr : longint;
+   n  : longint;
+
+<span class="pascal_keyword">begin</span>
+  <span class="pascal_keyword">with</span> TObjectss <span class="pascal_keyword">do</span>
+  <span class="pascal_keyword">try</span>
+    FileMemory_Alunos := TObjectss.TBufferMemory.Create(sizeof(aluno));
+    <span class="pascal_keyword">with</span> aluno,FileMemory_Alunos <span class="pascal_keyword">do</span>
+    <span class="pascal_keyword">begin</span>
+      <span class="pascal_keyword">if</span> status = StOk <span class="pascal_keyword">then</span>
+      <span class="pascal_keyword">begin</span>
+        n := <span class="pascal_numeric">1</span>;
+        Id:= n;
+        nome:= <span class="pascal_string">'Paulo Sérgio'</span>;
+        PutRec(id,aluno);
+      <span class="pascal_keyword">end</span>;
+
+      <span class="pascal_keyword">if</span> status = StOk <span class="pascal_keyword">then</span>
+      <span class="pascal_keyword">begin</span>
+        inc(n);
+        Id:= n;
+        nome:= <span class="pascal_string">'George Bruno'</span>;
+        PutRec(id,aluno);
+      <span class="pascal_keyword">end</span>;
+
+      <span class="pascal_keyword">if</span> status = StOk <span class="pascal_keyword">then</span>
+      <span class="pascal_keyword">begin</span>
+        <span class="pascal_keyword">for</span> nr := <span class="pascal_numeric">1</span> <span class="pascal_keyword">to</span> n <span class="pascal_keyword">do</span>
+        <span class="pascal_keyword">begin</span>
+          GetRec(nr,aluno);
+          <span class="pascal_keyword">if</span> status = StOk
+          <span class="pascal_keyword">then</span> SysMessageBox(<span class="pascal_string">'Nr ='</span>+intToStr(nr)+
+                             <span class="pascal_string">'; id ='</span>+intToStr(Aluno.id)+
+                             <span class="pascal_string">'; Aluno ='</span>+Aluno.nome
+                             ,<span class="pascal_string">'Test_FileStream_sem_header'</span>,false)
+          <span class="pascal_keyword">else</span> break;
+        <span class="pascal_keyword">end</span>;
+      <span class="pascal_keyword">end</span>;
+
+    <span class="pascal_keyword">end</span>;
+
+  <span class="pascal_keyword">finally</span>
+    FileMemory_Alunos.Destroy;
+  <span class="pascal_keyword">end</span>;
+
+<span class="pascal_keyword">end</span>;</pre>
+
+<p></p></li>
+  <li><p>Exemplo de como gravar um registro <strong>com header em memória</strong>.
+
+<p></p>
+
+<pre class="longcode">
+
+<span class="pascal_keyword">Procedure</span> Test_TBufferMemory_com_header;
+  <span class="pascal_keyword">type</span>
+    TAluno = <span class="pascal_keyword">record</span>
+               Id : integer;
+               nome : <span class="pascal_keyword">string</span>[<span class="pascal_numeric">35</span>];
+             <span class="pascal_keyword">end</span>;
+  <span class="pascal_keyword">type</span>
+    THeadAlunos = <span class="pascal_keyword">record</span>
+                    TotalDeAlunos:longint;
+                  <span class="pascal_keyword">end</span>;
+
+  <span class="pascal_keyword">var</span>
+    TBufferMemory_Alunos : TObjectss.TBufferMemory;
+    HeadAlunos : THeadAlunos;
+    Aluno             : TAluno;
+    nr : longint;
+    n  : longint;
+
+<span class="pascal_keyword">begin</span>
+  <span class="pascal_keyword">with</span> TObjectss <span class="pascal_keyword">do</span>
+  <span class="pascal_keyword">try</span>
+    TBufferMemory_Alunos := TBufferMemory.Create(sizeof(HeadAlunos),sizeof(aluno));
+
+    <span class="pascal_keyword">with</span> aluno,TBufferMemory_Alunos <span class="pascal_keyword">do</span>
+    <span class="pascal_keyword">if</span> status = StOk <span class="pascal_keyword">then</span>
+    <span class="pascal_keyword">begin</span>
+      HeadAlunos.TotalDeAlunos:= <span class="pascal_numeric">0</span>;
+      PutRecBase(HeadAlunos); <span class="pascal_comment">// Grava o header</span>
+
+      <span class="pascal_keyword">if</span> status = StOk <span class="pascal_keyword">then</span>
+      <span class="pascal_keyword">begin</span>
+        inc(HeadAlunos.TotalDeAlunos);
+        Id:= HeadAlunos.TotalDeAlunos;
+        nome:= <span class="pascal_string">'Paulo Sérgio da Silva Pacheco'</span>;
+        PutRec(id,aluno);
+        <span class="pascal_keyword">if</span> status = StOk
+        <span class="pascal_keyword">then</span> PutRecBase(HeadAlunos); <span class="pascal_comment">// Grava o header</span>
+      <span class="pascal_keyword">end</span>;
+
+
+      <span class="pascal_keyword">if</span> status = StOk <span class="pascal_keyword">then</span>
+      <span class="pascal_keyword">begin</span>
+        inc(HeadAlunos.TotalDeAlunos);
+        Id:= HeadAlunos.TotalDeAlunos;
+        nome:= <span class="pascal_string">'George Bruno Melo Pacheco'</span>;
+
+        PutRec(id,aluno);
+        <span class="pascal_keyword">if</span> status = StOk
+        <span class="pascal_keyword">then</span> PutRecBase(HeadAlunos); <span class="pascal_comment">// Grava o header</span>
+      <span class="pascal_keyword">end</span>;
+
+      <span class="pascal_keyword">if</span> status = StOk <span class="pascal_keyword">then</span>
+      <span class="pascal_keyword">begin</span>
+        GetRecBase(n);
+        <span class="pascal_keyword">if</span> status = StOk
+        <span class="pascal_keyword">then</span>
+        <span class="pascal_keyword">begin</span>
+          <span class="pascal_comment">//Imprime o número de elemntos adicionado ao stream</span>
+          SysMessageBox(<span class="pascal_string">'Número de registros: '</span>+intToStr(n)
+                         ,
+                         <span class="pascal_string">'Test_FileStream_sem_header'</span>,false);
+
+          <span class="pascal_comment">// Ler e imprime os registros.</span>
+          <span class="pascal_keyword">for</span> nr := <span class="pascal_numeric">1</span> <span class="pascal_keyword">to</span> n <span class="pascal_keyword">do</span>
+          <span class="pascal_keyword">begin</span>
+              GetRec(nr,aluno);
+              <span class="pascal_keyword">if</span> status = StOk
+              <span class="pascal_keyword">then</span> SysMessageBox(<span class="pascal_string">'Nr ='</span>+intToStr(nr)+
+                                 <span class="pascal_string">'; id ='</span>+intToStr(Aluno.id)+
+                                 <span class="pascal_string">'; Aluno ='</span>+Aluno.nome
+                                 ,
+                                 <span class="pascal_string">'Test_FileStream_sem_header'</span>,false)
+              <span class="pascal_keyword">else</span> Break;
+          <span class="pascal_keyword">end</span>;
+
+          <span class="pascal_keyword">if</span> status &lt;&gt; StOk
+          <span class="pascal_keyword">then</span> SysMessageBox(errorMessage(errorInfo)
+                             ,
+                             <span class="pascal_string">'Test_FileStream_sem_header'</span>,false)
+
+        <span class="pascal_keyword">end</span>;
+      <span class="pascal_keyword">end</span>;
+
+      <span class="pascal_keyword">if</span> status &lt;&gt; StOk
+      <span class="pascal_keyword">then</span> SysMessageBox(errorMessage(errorInfo)
+                         ,
+                         <span class="pascal_string">'Test_FileStream_sem_header'</span>,false)
+
+    <span class="pascal_keyword">end</span>;
+
+  <span class="pascal_keyword">finally</span>
+    TBufferMemory_Alunos.Destroy;
+  <span class="pascal_keyword">end</span>;
+
+<span class="pascal_keyword">end</span>;</pre>
+
+<p></p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p></td>
+</tr>
+<tr class="list2">
+<td class="itemname"><a class="bold" href="Classes_C.TClass.html">TClass</a></td>
+<td class="itemunit"><a class="bold" href="Classes_C.html">Classes_C</a></td>
+<td class="itemdesc"><p>&nbsp;</p></td>
+</tr>
+<tr class="list">
+<td class="itemname"><a class="bold" href="mi.rtl.Class_Of_Char.TClass_Of_Char.html">TClass_Of_Char</a></td>
+<td class="itemunit"><a class="bold" href="mi.rtl.Class_Of_Char.html">mi.rtl.Class_Of_Char</a></td>
+<td class="itemdesc"><p>A class <strong><code>TClass_Of_Char</code></strong> é usada na tabela de caracter para conversão das letras com acentos</p></td>
+</tr>
+<tr class="list2">
+<td class="itemname"><a class="bold" href="mi.rtl.Objects.Methods.Collection.TCollection.html">TCollection</a></td>
+<td class="itemunit"><a class="bold" href="mi.rtl.Objects.Methods.Collection.html">mi.rtl.Objects.Methods.Collection</a></td>
+<td class="itemdesc"><p></p>
+
+<ul class="paragraph_spacing">
+  <li><p>A class <strong><code>TCollection</code></strong> implementa coleções no pacote <strong><a class="normal" href="mi.rtl.html">mi.rtl</a></strong>.</p></li>
+</ul>
+
+<p></p></td>
+</tr>
+<tr class="list">
+<td class="itemname"><a class="bold" href="mi.rtl.Objects.Methods.Collection.Sortedcollection.Stringcollection.Collectionstring.TCollectionString.html">TCollectionString</a></td>
+<td class="itemunit"><a class="bold" href="mi.rtl.Objects.Methods.Collection.Sortedcollection.Stringcollection.Collectionstring.html">mi.rtl.Objects.Methods.Collection.Sortedcollection.Stringcollection.Collectionstring</a></td>
+<td class="itemdesc"><p>omit if <a class="normal" href="mi.rtl.Objects.Methods.Collection.Sortedcollection.Stringcollection.Collectionstring.TCollectionString.TListBoxRec.html">TListBoxRec</a> is defined else where</p></td>
+</tr>
+<tr class="list2">
+<td class="itemname"><a class="bold" href="mi.rtl.Objects.Methods.Collection.Sortedcollection.Stringcollection.Collectionstring.TCollectionString.TListBoxRec.html">TCollectionString.TListBoxRec</a></td>
+<td class="itemunit"><a class="bold" href="mi.rtl.Objects.Methods.Collection.Sortedcollection.Stringcollection.Collectionstring.html">mi.rtl.Objects.Methods.Collection.Sortedcollection.Stringcollection.Collectionstring</a></td>
+<td class="itemdesc"><p>&nbsp;</p></td>
+</tr>
+<tr class="list">
+<td class="itemname"><a class="bold" href="mi.rtl.Consts.TConsts.html">TConsts</a></td>
+<td class="itemunit"><a class="bold" href="mi.rtl.Consts.html">mi.rtl.Consts</a></td>
+<td class="itemdesc"><p>A classe <strong><code>TConsts</code></strong> declara todas as constantes globais do pacote <a class="normal" href="mi.rtl.html">Mi.RTL</a></p></td>
+</tr>
+<tr class="list2">
+<td class="itemname"><a class="bold" href="mi.rtl.Objects.Methods.Db.Tb_Access.TDataFile.html">TDataFile</a></td>
+<td class="itemunit"><a class="bold" href="mi.rtl.Objects.Methods.Db.Tb_Access.html">mi.rtl.Objects.Methods.Db.Tb_Access</a></td>
+<td class="itemdesc"><p>A classe <strong><code>TDataFile</code></strong> é usada para acessar arquivos em disco <strong><a class="normal" href="mi.rtl.Objects.Methods.Db.Tb_Access.TTb_Access.html">TTb_Access</a></strong></p></td>
+</tr>
+<tr class="list">
+<td class="itemname"><a class="bold" href="mi.rtl.objects.Methods.dates.TDates.html">TDates</a></td>
+<td class="itemunit"><a class="bold" href="mi.rtl.objects.Methods.dates.html">mi.rtl.objects.Methods.dates</a></td>
+<td class="itemdesc"><p></p>
+
+<ul class="paragraph_spacing">
+  <li><p>A classe <strong><code>TDates</code></strong> contém todas os métodos necessários para acessar data no formato de 3 bytes.
+
+<p></p>
+
+<ul class="paragraph_spacing">
+  <li><p>NOTA** </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Formato de data e hora tratado por essa classe: </p>
+
+<ul class="paragraph_spacing">
+  <li><p>type <a class="normal" href="mi.rtl.objects.Methods.dates.TDates.TypeData.html">TypeData</a> = Record dia:byte;mes:Byte;ano : byte; End;</p></li>
+  <li><p>type <a class="normal" href="mi.rtl.objects.Methods.dates.TDates.TipoHora.html">TipoHora</a> = record H,M,S,S100 : Word; end;</p></li>
+  <li><p>Type TData_e_Hora_Compactada = Longint;</p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p></td>
+</tr>
+<tr class="list2">
+<td class="itemname"><a class="bold" href="mi_rtl_ui_Dmxscroller.html#TDates">TDates</a></td>
+<td class="itemunit"><a class="bold" href="mi_rtl_ui_Dmxscroller.html">mi_rtl_ui_Dmxscroller</a></td>
+<td class="itemdesc"><p>&nbsp;</p></td>
+</tr>
+<tr class="list">
+<td class="itemname"><a class="bold" href="mi.rtl.objects.Methods.dates.TDates.TipoHora.html">TDates.TipoHora</a></td>
+<td class="itemunit"><a class="bold" href="mi.rtl.objects.Methods.dates.html">mi.rtl.objects.Methods.dates</a></td>
+<td class="itemdesc"><p>&nbsp;</p></td>
+</tr>
+<tr class="list2">
+<td class="itemname"><a class="bold" href="mi.rtl.objects.Methods.dates.TDates.TVarGetDate.html">TDates.TVarGetDate</a></td>
+<td class="itemunit"><a class="bold" href="mi.rtl.objects.Methods.dates.html">mi.rtl.objects.Methods.dates</a></td>
+<td class="itemdesc"><p>&nbsp;</p></td>
+</tr>
+<tr class="list">
+<td class="itemname"><a class="bold" href="mi.rtl.objects.Methods.dates.TDates.TVarGetTime.html">TDates.TVarGetTime</a></td>
+<td class="itemunit"><a class="bold" href="mi.rtl.objects.Methods.dates.html">mi.rtl.objects.Methods.dates</a></td>
+<td class="itemdesc"><p>&nbsp;</p></td>
+</tr>
+<tr class="list2">
+<td class="itemname"><a class="bold" href="mi.rtl.objects.Methods.dates.TDates.TypeData.html">TDates.TypeData</a></td>
+<td class="itemunit"><a class="bold" href="mi.rtl.objects.Methods.dates.html">mi.rtl.objects.Methods.dates</a></td>
+<td class="itemdesc"><p>&nbsp;</p></td>
+</tr>
+<tr class="list">
+<td class="itemname"><a class="bold" href="mi.ui.dialogs.TDialogs.html">TDialogs</a></td>
+<td class="itemunit"><a class="bold" href="mi.ui.dialogs.html">mi.ui.dialogs</a></td>
+<td class="itemdesc"><p>&nbsp;</p></td>
+</tr>
+<tr class="list2">
+<td class="itemname"><a class="bold" href="mi_rtl_ui_Dmxscroller.TDmxFieldRec.html">TDmxFieldRec</a></td>
+<td class="itemunit"><a class="bold" href="mi_rtl_ui_Dmxscroller.html">mi_rtl_ui_Dmxscroller</a></td>
+<td class="itemdesc"><p>O registro <strong><code>TDmxFieldRec</code></strong> é usado para guardar as informações passadas pelos Templates das strings.
+
+<p></p>
+
+<ul class="paragraph_spacing">
+  <li><p><strong>REFERÊNCIA</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>[Estrutura record e object]<a href="https://wiki.freepascal.org/Record">https://wiki.freepascal.org/Record</a></p></li>
+</ul>
+
+<p></p></li>
+  <li><p>A aparência padrão dessas visualizações geralmente é orientada por coluna/linha, com exceção de exibições do tipo formulário e campos únicos.</p></li>
+  <li><p>Você declara uma estrutura de registro para o procedimento de inicialização do <strong>tvDMX</strong> em um modelo string – que também determina o formato de exibição. (Você verá mais tarde como o <strong>tvDMX</strong> pode ser usado para trabalhar com formulários ou editores de campo.)</p></li>
+  <li><p><strong>EXEMPLO</strong>
+
+<p></p>
+
+<ul class="paragraph_spacing">
+  <li><p>O <a class="normal" href="mi_rtl_ui_Dmxscroller.TDmxFieldRec.html#Template">Template</a> '\ sssssssss`sssssssssss \ iiii \ rrr.rr' representa o registro: </p>
+
+<ul class="paragraph_spacing">
+  <li><p><strong>CÓDIGO PASCAL</strong>
+
+<p></p>
+
+<pre class="longcode">
+
+<span class="pascal_keyword">type</span>
+
+  TRecord = <span class="pascal_keyword">Record</span>
+              nome : <span class="pascal_keyword">String</span> [<span class="pascal_numeric">20</span>];
+              Ano  : Integer;
+              Valor : Real;
+            <span class="pascal_keyword">end</span>;</pre>
+
+<p></p></li>
+  <li><p><strong>NOTA:</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>A letra ( <strong>s</strong> ) minúsculo aceita qualquer número e letras maiúsculas e minúsculas;</p></li>
+  <li><p>A letra ( <strong>i</strong> ) representa um número inteiro com 2 bytes com edição em 4 posições (0 a 9999);</p></li>
+  <li><p>A letra ( <strong>r</strong> ) representa um número real com 8 bytes com edição em 5 posições (0 a 999.99)</p></li>
+  <li><p>O símbolo ( <strong>`</strong> ) crase é usado para informar que a parte do texto depois deste sinal deve ser omitida da visão.</p></li>
+  <li><p>A símbolo ( <strong>' \ '</strong> ) barra invertida deve ser usada como delimitador de campo e é exibida como um espaço em branco.</p></li>
+  <li><p>O símbolo ( <strong>&tilde;</strong> ) til deve ser usado para separar rótulos dos campos de dados.</p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p></li>
+  <li><p><strong>ATENÇÃO</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>O registro <strong><code>TDmxFieldRec</code></strong> não pode ser <strong>class</strong> e nem conter <strong>métodos virtuais</strong>, porque este registro e alocado com as funções <strong>new</strong> e <strong>dispose</strong>.</p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p></td>
+</tr>
+<tr class="list">
+<td class="itemname"><a class="bold" href="mi_rtl_ui_dmxscroller_form.html#TDmxFieldRec">TDmxFieldRec</a></td>
+<td class="itemunit"><a class="bold" href="mi_rtl_ui_dmxscroller_form.html">mi_rtl_ui_dmxscroller_form</a></td>
+<td class="itemdesc"><p>&nbsp;</p></td>
+</tr>
+<tr class="list2">
+<td class="itemname"><a class="bold" href="mi_rtl_ui_dmxscroller_form.TDmxScroller_Form.html">TDmxScroller_Form</a></td>
+<td class="itemunit"><a class="bold" href="mi_rtl_ui_dmxscroller_form.html">mi_rtl_ui_dmxscroller_form</a></td>
+<td class="itemdesc"><p>A classe <strong><code>TDmxScroller_Form</code></strong> implementa a construção de formulários usando uma lista de Templates do tipo TDmxScroller</p></td>
+</tr>
+<tr class="list">
+<td class="itemname"><a class="bold" href="mi_rtl_ui_dmxscroller_form.TDmxScroller_Form_Atributos.html">TDmxScroller_Form_Atributos</a></td>
+<td class="itemunit"><a class="bold" href="mi_rtl_ui_dmxscroller_form.html">mi_rtl_ui_dmxscroller_form</a></td>
+<td class="itemdesc"><p>&nbsp;</p></td>
+</tr>
+<tr class="list2">
+<td class="itemname"><a class="bold" href="mi_rtl_ui_Dmxscroller_sql.TDmxScroller_sql_Atributos.html">TDmxScroller_sql_Atributos</a></td>
+<td class="itemunit"><a class="bold" href="mi_rtl_ui_Dmxscroller_sql.html">mi_rtl_ui_Dmxscroller_sql</a></td>
+<td class="itemdesc"><p>A class <strong><code>TDmxScroller_sql_Atributos</code></strong> contém os atributos da class TDmxScroller_sql</p></td>
+</tr>
+<tr class="list">
+<td class="itemname"><a class="bold" href="mi.rtl.objects.methods.pageproducer.html#Template_html_tglink">Template_html_tglink</a></td>
+<td class="itemunit"><a class="bold" href="mi.rtl.objects.methods.pageproducer.html">mi.rtl.objects.methods.pageproducer</a></td>
+<td class="itemdesc"><p>O recurso <strong><code>Template_html_tglink</code></strong> é usado como template para o componente <em><a class="normal" href="mi.rtl.objects.methods.pageproducer.TBasePageProducer.html">TBasePageProducer</a></em> com a finalidade de produzir links variáveis.
+
+<p></p>
+
+<ul class="paragraph_spacing">
+  <li><p>O evento <strong>OnHTMLTag_tgLink</strong> deve ser usado para preencher as varáveis do template.</p></li>
+  <li><p><strong>PARÂMETROS</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>TagName = Nome do template. </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Deve ser informado no template</p></li>
+</ul>
+
+<p></p></li>
+  <li><p>&tilde;url = Endereço do link </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Deve ser informado no evento <strong>OnHTMLTag_tgLink</strong></p></li>
+</ul>
+
+<p></p></li>
+  <li><p>&tilde;target = Destino onde a página deve ser aberta, se vazio abre na aba atual. </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Deve ser informado no evento <strong>OnHTMLTag_tgLink</strong></p></li>
+</ul>
+
+<p></p></li>
+  <li><p>&tilde;title = Documentação do link </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Deve ser informado no evento <strong>OnHTMLTag_tgLink</strong></p></li>
+</ul>
+
+<p></p></li>
+  <li><p>&tilde;text = Descrição do link </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Deve ser informado no evento <strong>OnHTMLTag_tgLink</strong></p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p></li>
+  <li><p><strong>Exemplo de uso</strong>:
+
+<p></p>
+
+<pre class="longcode">
+
+&lt;!--<span class="pascal_string">#</span> tgLink [-  PsspAppBr=[a href=&quot;&tilde;url&quot; target=&quot;&tilde;target&quot; title=&quot;&tilde;title&quot;] &tilde;text [/a]  -] <span class="pascal_string">#</span>--&gt;
+
+&lt;!--<span class="pascal_string">#</span> tgCustom [- ListFilesText=Arquivo:-&quot;&tilde;ListFilesText&quot; -] <span class="pascal_string">#</span>--></pre>
+
+<p></p></li>
+</ul>
+
+<p></p></td>
+</tr>
+<tr class="list2">
+<td class="itemname"><a class="bold" href="mi_rtl_ui_Dmxscroller.html#TEndProc">TEndProc</a></td>
+<td class="itemunit"><a class="bold" href="mi_rtl_ui_Dmxscroller.html">mi_rtl_ui_Dmxscroller</a></td>
+<td class="itemdesc"><p>O tipo <strong><code>TEndProc</code></strong> é usado para fazer pesquisa genérica no banco de dados quando a tecla F7 é pressionada.</p></td>
+</tr>
+<tr class="list">
+<td class="itemname"><a class="bold" href="mi_rtl_ui_interfaces.html#TEnum_HelpCtx_StrCurrentCommand_Topic_Content_run">TEnum_HelpCtx_StrCurrentCommand_Topic_Content_run</a></td>
+<td class="itemunit"><a class="bold" href="mi_rtl_ui_interfaces.html">mi_rtl_ui_interfaces</a></td>
+<td class="itemdesc"><p>&nbsp;</p></td>
+</tr>
+<tr class="list2">
+<td class="itemname"><a class="bold" href="mi.rtl.Objects.Methods.Exception.TException.html">TException</a></td>
+<td class="itemunit"><a class="bold" href="mi.rtl.Objects.Methods.Exception.html">mi.rtl.Objects.Methods.Exception</a></td>
+<td class="itemdesc"><p></p>
+
+<ul class="paragraph_spacing">
+  <li><p>A classe <strong><code>TException</code></strong> é usada com a palavra reservada <strong>raise</strong> para mostrar o erro, sua localização e em seguida salva no dispositivo definido em <strong>TObjectss.Logs.LogType</strong>.
+
+<p></p>
+
+<ul class="paragraph_spacing">
+  <li><p><strong>NOTA</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>LogType = TLogType = (ltSystem,ltFile,ltStdOut,ltStdErr); </p>
+
+<ul class="paragraph_spacing">
+  <li><p>ltSystem = Arquivo definido pelo sistema operacional;</p></li>
+  <li><p>ltFile = Arquivo definido pela aplicação;</p></li>
+  <li><p>ltStdOut,ltStdErr = Terminal do sistema operacional.</p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p></li>
+  <li><p><strong>EXEMPLO DE USO</strong>:
+
+<p></p>
+
+<pre class="longcode">
+
+<span class="pascal_keyword">procedure</span> TMi_Rtl_Tests.Action_test_TExceptionExecute(Sender: TObject);
+<span class="pascal_keyword">begin</span>
+  <span class="pascal_keyword">with</span> TMI_ui_types <span class="pascal_keyword">do</span> <span class="pascal_keyword">begin</span>
+    logs.EnableWriteIdentificao := true;
+    <span class="pascal_keyword">try</span>
+      <span class="pascal_keyword">raise</span> TException.Create(<span class="pascal_numeric">5</span>);
+    <span class="pascal_keyword">except</span>
+    <span class="pascal_keyword">end</span>;
+
+    <span class="pascal_keyword">try</span>
+      <span class="pascal_keyword">raise</span> TException.Create(<span class="pascal_string">'Acesso ao arquivo negado'</span>);
+    <span class="pascal_keyword">except</span>
+    <span class="pascal_keyword">end</span>;
+
+    <span class="pascal_keyword">try</span>
+      <span class="pascal_keyword">raise</span> TException.Create(Self, <span class="pascal_string">'Action_test_TExceptionExecute'</span>,<span class="pascal_string">'aFileName'</span>,<span class="pascal_string">'AFieldName'</span>,<span class="pascal_numeric">5</span>);
+    <span class="pascal_keyword">except</span>
+    <span class="pascal_keyword">end</span>;
+
+    <span class="pascal_keyword">try</span>
+      <span class="pascal_keyword">raise</span> TException.Create(Self, <span class="pascal_string">'Action_test_TExceptionExecute'</span>,<span class="pascal_string">'aFileName'</span>,<span class="pascal_string">'AFieldName'</span>,<span class="pascal_string">'Acesso ao arquivo negado'</span>);
+    <span class="pascal_keyword">except</span>
+    <span class="pascal_keyword">end</span>;
+
+
+    <span class="pascal_keyword">try</span>
+      <span class="pascal_keyword">raise</span> TException.Create(Self, <span class="pascal_string">'Action_test_TExceptionExecute'</span>,<span class="pascal_numeric">5</span>);
+    <span class="pascal_keyword">except</span>
+    <span class="pascal_keyword">end</span>;
+
+    <span class="pascal_keyword">try</span>
+      <span class="pascal_keyword">raise</span> TException.Create(Self, <span class="pascal_string">'Action_test_TExceptionExecute'</span>,<span class="pascal_string">'Acesso ao arquivo negado'</span>);
+    <span class="pascal_keyword">except</span>
+    <span class="pascal_keyword">end</span>;
+
+
+<span class="pascal_comment">// Os exemplos abaixo são mantidos para manter a compatibilidade com o passado.</span>
+
+
+     <span class="pascal_keyword">try</span>
+       <span class="pascal_keyword">raise</span> TException.Create4(<span class="pascal_string">'aModule'</span>, <span class="pascal_string">'aUnit'</span>, <span class="pascal_string">'Procedure_or_Function'</span>,   <span class="pascal_string">'ParamResult'</span>);
+     <span class="pascal_keyword">except</span>
+     <span class="pascal_keyword">end</span>;
+
+     <span class="pascal_keyword">try</span>
+       <span class="pascal_keyword">raise</span> TException.Create4(<span class="pascal_string">'aModule'</span>, <span class="pascal_string">'aUnit'</span>, <span class="pascal_string">'Procedure_or_Function'</span>,   <span class="pascal_numeric">5</span>);
+     <span class="pascal_keyword">except</span>
+     <span class="pascal_keyword">end</span>;
+
+     <span class="pascal_keyword">try</span>
+       <span class="pascal_keyword">raise</span> TException.Create5(<span class="pascal_string">'aModule'</span>, <span class="pascal_string">'aUnit'</span>,<span class="pascal_string">'ObjectName'</span>, <span class="pascal_string">'aMethodName'</span>,   <span class="pascal_string">'aMsgError'</span>);
+     <span class="pascal_keyword">except</span>
+     <span class="pascal_keyword">end</span>;
+
+     <span class="pascal_keyword">try</span>
+       <span class="pascal_keyword">raise</span> TException.Create5(<span class="pascal_string">'aModule'</span>, <span class="pascal_string">'aUnit'</span>,<span class="pascal_string">'ObjectName'</span>, <span class="pascal_string">'aMethodName'</span>,   <span class="pascal_numeric">5</span>);
+     <span class="pascal_keyword">except</span>
+     <span class="pascal_keyword">end</span>;
+
+     <span class="pascal_keyword">try</span>
+       <span class="pascal_keyword">raise</span> TException.Create6(<span class="pascal_string">'aModule'</span>, <span class="pascal_string">'ObjectName'</span>, <span class="pascal_string">'aMethodName'</span>,<span class="pascal_string">'aFileName'</span>,<span class="pascal_string">'AFieldName'</span>, <span class="pascal_numeric">5</span>);
+     <span class="pascal_keyword">except</span>
+     <span class="pascal_keyword">end</span>;
+
+     <span class="pascal_keyword">try</span>
+       <span class="pascal_keyword">raise</span> TException.Create7(<span class="pascal_string">'aModule'</span>, <span class="pascal_string">'aUnit'</span>,<span class="pascal_string">'ObjectName'</span>, <span class="pascal_string">'aMethodName'</span>,<span class="pascal_string">'aFileName'</span>,<span class="pascal_string">'AFieldName'</span>,  <span class="pascal_numeric">5</span>);
+     <span class="pascal_keyword">except</span>
+     <span class="pascal_keyword">end</span>;
+
+     <span class="pascal_keyword">try</span>
+       <span class="pascal_keyword">raise</span> TException.Create7(<span class="pascal_string">'aModule'</span>, <span class="pascal_string">'aUnit'</span>,<span class="pascal_string">'ObjectName'</span>, <span class="pascal_string">'aMethodName'</span>,<span class="pascal_string">'aFileName'</span>,<span class="pascal_string">'AFieldName'</span>,  <span class="pascal_string">'ParamResult'</span>);
+     <span class="pascal_keyword">except</span>
+     <span class="pascal_keyword">end</span>;
+
+     <span class="pascal_keyword">try</span>
+       <span class="pascal_keyword">raise</span> TException.Create8(<span class="pascal_string">'aModule'</span>, <span class="pascal_string">'aUnit'</span>,<span class="pascal_string">'ObjectName'</span>, <span class="pascal_string">'aMethodName'</span>,<span class="pascal_string">'aFileName'</span>,<span class="pascal_string">'AFieldName'</span>,  <span class="pascal_string">'aMessage'</span>,<span class="pascal_string">'aProcedure_or_Function'</span>);
+     <span class="pascal_keyword">except</span>
+     <span class="pascal_keyword">end</span>;
+   <span class="pascal_keyword">end</span>;
+<span class="pascal_keyword">end</span>;</pre>
+
+<p></p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p></td>
+</tr>
+<tr class="list">
+<td class="itemname"><a class="bold" href="mi.rtl.files.TFiles.html">TFiles</a></td>
+<td class="itemunit"><a class="bold" href="mi.rtl.files.html">mi.rtl.files</a></td>
+<td class="itemdesc"><p></p>
+
+<ul class="paragraph_spacing">
+  <li><p>A classe <strong><code>TFiles</code></strong> contém as classes métodos para acessar o sistema operacional usada no acesso a arquivos.
+
+<p></p>
+
+<ul class="paragraph_spacing">
+  <li><p>REFERẼNCIAS </p>
+
+<ul class="paragraph_spacing">
+  <li><p>[Como criar aplicativo multi-plataforma](<a href="https://wiki.freepascal.org/Multiplatform_Programming_Guide">https://wiki.freepascal.org/Multiplatform_Programming_Guide</a>)</p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p></td>
+</tr>
+<tr class="list2">
+<td class="itemname"><a class="bold" href="mi.rtl.Objects.Consts.Logs.TFilesLogs.html">TFilesLogs</a></td>
+<td class="itemunit"><a class="bold" href="mi.rtl.Objects.Consts.Logs.html">mi.rtl.Objects.Consts.Logs</a></td>
+<td class="itemdesc"><p></p>
+
+<ul class="paragraph_spacing">
+  <li><p>A classe <strong><code>TFilesLogs</code></strong> é usada para registrar no arquivo <strong>ParamStr(0)</strong>+'.log' as mensagens de <strong>Erros</strong>, <strong>Atenções</strong> e <strong>avisos</strong> do sistema.
+
+<p></p>
+
+<ul class="paragraph_spacing">
+  <li><p><strong>NOTA</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>A classe <a class="normal" href="mi.rtl.Objectss.TObjectss.html">TObjectss</a> implementa a constante global <strong>const TObjectss.Logs : <code>TFilesLogs</code> = nil;</strong> que é inicializado em <strong>mi.rtl.objectss.Initialization</strong> e destruído em <strong>mi.rtl.objectss.finalization</strong></p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p></td>
+</tr>
+<tr class="list">
+<td class="itemname"><a class="bold" href="mi.rtl.Objects.Methods.Db.Tb_Access.TFilesOpens.html">TFilesOpens</a></td>
+<td class="itemunit"><a class="bold" href="mi.rtl.Objects.Methods.Db.Tb_Access.html">mi.rtl.Objects.Methods.Db.Tb_Access</a></td>
+<td class="itemdesc"><p></p>
+
+<ul class="paragraph_spacing">
+  <li><p><a class="normal" href="mi.rtl.Objects.Methods.Db.Tb_Access.html#FilesOpens">FilesOpens</a> é uma coleção que mantém todos os arquivos abertos <a class="normal" href="mi.rtl.Objects.Methods.Collection.TCollection.html#At">at</a>é o momento com objetivo de fecha-los nos casos exceção.</p></li>
+</ul>
+
+<p></p></td>
+</tr>
+<tr class="list2">
+<td class="itemname"><a class="bold" href="mi.rtl.Objects.Methods.Collection.FilesStreams.TFilesStreams.html">TFilesStreams</a></td>
+<td class="itemunit"><a class="bold" href="mi.rtl.Objects.Methods.Collection.FilesStreams.html">mi.rtl.Objects.Methods.Collection.FilesStreams</a></td>
+<td class="itemdesc"><p></p>
+
+<ul class="paragraph_spacing">
+  <li><p>A classe <strong><code>TFilesStreams</code></strong> é usada para armazenar todos os arquivos abertos pelo sistema para poder fecha-los caso o programa aborte inesperadamente.
+
+<p></p>
+
+<ul class="paragraph_spacing">
+  <li><p>EXEMPLO DE USO
+
+<p></p>
+
+<pre class="longcode">
+
+<span class="pascal_keyword">procedure</span> TMi_Rtl_Tests.TabSheet_TFilesStreamsEnter(Sender: TObject);
+  <span class="pascal_keyword">var</span>
+   i,L : integer;
+   s:AnsiString;
+
+<span class="pascal_keyword">begin</span>
+  filesStreams.DeleteAll;
+  StringGrid1.Clear;
+
+  filesStreams.Mask := edit2.Text;
+  StringGrid1.RowCount := filesStreams.Count+<span class="pascal_numeric">1</span>;
+
+  LabelCount2.Caption := Format(<span class="pascal_string">'FilesStreams.Count %d'</span>,[filesStreams.Count]);
+  LabelCount2.Show;
+  L := <span class="pascal_numeric">0</span>;
+  StringGrid1.Cells[<span class="pascal_numeric">0</span>,l] := <span class="pascal_string">'Seq'</span>;
+  StringGrid1.Cells[<span class="pascal_numeric">1</span>,l] := <span class="pascal_string">'FileName'</span>;
+  StringGrid1.Cells[<span class="pascal_numeric">2</span>,l] := <span class="pascal_string">'FileSize'</span>;
+  inc(l);
+  <span class="pascal_keyword">if</span> filesStreams.Count &gt; <span class="pascal_numeric">0</span>
+  <span class="pascal_keyword">then</span> <span class="pascal_keyword">begin</span>
+          <span class="pascal_keyword">for</span> i := <span class="pascal_numeric">0</span> <span class="pascal_keyword">to</span> filesStreams.Count-<span class="pascal_numeric">1</span> <span class="pascal_keyword">do</span>
+          <span class="pascal_keyword">with</span> filesStreams.FileByNum(i) <span class="pascal_keyword">do</span>
+          <span class="pascal_keyword">begin</span>
+            StringGrid1.Cells[<span class="pascal_numeric">0</span>,l] := Format(<span class="pascal_string">'%d'</span>,[l]);
+            StringGrid1.Cells[<span class="pascal_numeric">1</span>,l] := FileName;
+            s := Format(<span class="pascal_string">'%d'</span>,[FileSize(FileName)]);
+            StringGrid1.Cells[<span class="pascal_numeric">2</span>,l] := s ;
+            inc(L);
+          <span class="pascal_keyword">end</span>;
+       <span class="pascal_keyword">end</span>;
+
+<span class="pascal_keyword">end</span>;
+
+<span class="pascal_keyword">procedure</span> TMi_Rtl_Tests.Edit2Change(Sender: TObject);
+<span class="pascal_keyword">begin</span>
+  TabSheet_TFilesStreamsEnter(Self);
+<span class="pascal_keyword">end</span>;</pre>
+
+<p></p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p></td>
+</tr>
+<tr class="list">
+<td class="itemname"><a class="bold" href="mi.rtl.Objects.Methods.StreamBase.Stream.FileStream.TFileStream.html">TFileStream</a></td>
+<td class="itemunit"><a class="bold" href="mi.rtl.Objects.Methods.StreamBase.Stream.FileStream.html">mi.rtl.Objects.Methods.StreamBase.Stream.FileStream</a></td>
+<td class="itemdesc"><p>&nbsp;</p></td>
+</tr>
+<tr class="list2">
+<td class="itemname"><a class="bold" href="mi_rtl_ui_Dmxscroller.TFldEnum_Lookup.html">TFldEnum_Lookup</a></td>
+<td class="itemunit"><a class="bold" href="mi_rtl_ui_Dmxscroller.html">mi_rtl_ui_Dmxscroller</a></td>
+<td class="itemdesc"><p>A classe <strong><code>TFldEnum_Lookup</code></strong> é usada para implementar campo ComboBox quando TDmxScroller estiver TDataSource &lt;&gt; nil porque o Lazarus espera em campos ComboBox um string e não o índice da lista de strings.</p></td>
+</tr>
+<tr class="list">
+<td class="itemname"><a class="bold" href="Unit1.TForm1.html">TForm1</a></td>
+<td class="itemunit"><a class="bold" href="Unit1.html">Unit1</a></td>
+<td class="itemdesc"><p>&nbsp;</p></td>
+</tr>
+<tr class="list2">
+<td class="itemname"><a class="bold" href="mi.rtl.objects.methods.pageproducer.test.TForm_pageproducer_test.html">TForm_pageproducer_test</a></td>
+<td class="itemunit"><a class="bold" href="mi.rtl.objects.methods.pageproducer.test.html">mi.rtl.objects.methods.pageproducer.test</a></td>
+<td class="itemdesc"><p>&nbsp;</p></td>
+</tr>
+<tr class="list">
+<td class="itemname"><a class="bold" href="fpTemplate.TFPCustomTemplate.html">TFPCustomTemplate</a></td>
+<td class="itemunit"><a class="bold" href="fpTemplate.html">fpTemplate</a></td>
+<td class="itemdesc"><p>&nbsp;</p></td>
+</tr>
+<tr class="list2">
+<td class="itemname"><a class="bold" href="fpTemplate.TFPTemplate.html">TFPTemplate</a></td>
+<td class="itemunit"><a class="bold" href="fpTemplate.html">fpTemplate</a></td>
+<td class="itemdesc"><p>&nbsp;</p></td>
+</tr>
+<tr class="list">
+<td class="itemname"><a class="bold" href="webModule1.TFPWebModule1.html">TFPWebModule1</a></td>
+<td class="itemunit"><a class="bold" href="webModule1.html">webModule1</a></td>
+<td class="itemdesc"><p>&nbsp;</p></td>
+</tr>
+<tr class="list2">
+<td class="itemname"><a class="bold" href="webmodule2.TFPWebModule2.html">TFPWebModule2</a></td>
+<td class="itemunit"><a class="bold" href="webmodule2.html">webmodule2</a></td>
+<td class="itemdesc"><p>&nbsp;</p></td>
+</tr>
+<tr class="list">
+<td class="itemname"><a class="bold" href="fpTemplate.html#TGetParamEvent">TGetParamEvent</a></td>
+<td class="itemunit"><a class="bold" href="fpTemplate.html">fpTemplate</a></td>
+<td class="itemdesc"><p>&nbsp;</p></td>
+</tr>
+<tr class="list2">
+<td class="itemname"><a class="bold" href="mi.rtl.Objects.Methods.html#THTMLTagEvent">THTMLTagEvent</a></td>
+<td class="itemunit"><a class="bold" href="mi.rtl.Objects.Methods.html">mi.rtl.Objects.Methods</a></td>
+<td class="itemdesc"><p>&nbsp;</p></td>
+</tr>
+<tr class="list">
+<td class="itemname"><a class="bold" href="u_criate_index_stork.TIndex_stork.html">TIndex_stork</a></td>
+<td class="itemunit"><a class="bold" href="u_criate_index_stork.html">u_criate_index_stork</a></td>
+<td class="itemdesc"><p>A classe <strong><code>TIndex_stork</code></strong> tem como objetivo criar o arquivo de configuração <strong>index_stork.toml</strong> que programa rust <strong>stork</strong> usa para crie o meta-dados <strong>index_stork.st</strong> para o programa javascript <strong>stork.js</strong>.
+
+<p></p>
+
+<ul class="paragraph_spacing">
+  <li><p>Template usado: </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Nome do arquivo de templates: </p>
+
+<ul class="paragraph_spacing">
+  <li><p>'./templates/stork/index_stork.toml'</p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p> </p>
+
+<pre class="longcode">
+
+[input]
+base_directory = &quot;&quot;
+url_prefix = &quot;&quot;
+files = [
+
+  &lt;!--<span class="pascal_string">#</span> file_path <span class="pascal_string">#</span>-->
+
+]</pre>
+
+<p></p></li>
+</ul>
+
+<p></p></td>
+</tr>
+<tr class="list2">
+<td class="itemname"><a class="bold" href="Classes_C.TJSON_BaseObject.html">TJSON_BaseObject</a></td>
+<td class="itemunit"><a class="bold" href="Classes_C.html">Classes_C</a></td>
+<td class="itemdesc"><p>&nbsp;</p></td>
+</tr>
+<tr class="list">
+<td class="itemname"><a class="bold" href="mi.rtl.Objects.Methods.StreamBase.Stream.MemoryStream.TMemoryStream.html">TMemoryStream</a></td>
+<td class="itemunit"><a class="bold" href="mi.rtl.Objects.Methods.StreamBase.Stream.MemoryStream.html">mi.rtl.Objects.Methods.StreamBase.Stream.MemoryStream</a></td>
+<td class="itemdesc"><p></p>
+
+<ul class="paragraph_spacing">
+  <li><p>A classe <code>TMemoryStream</code> é usada para gerenciar um fluxo de dados em memória.
+
+<p></p>
+
+<ul class="paragraph_spacing">
+  <li><p><strong>NOTA</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Todas as alterações aqui devem ser completamente transparentes para os códigos existentes. Basicamente, os blocos de memória não precisam ser segmentos de base mas isso significa que nossa lista se torna blocos de memória em vez de segmentos. O stream também se expandirá como os outros streams padrão</p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p></td>
+</tr>
+<tr class="list2">
+<td class="itemname"><a class="bold" href="mi.rtl.miStringlist.TMiStringList.html">TMiStringList</a></td>
+<td class="itemunit"><a class="bold" href="mi.rtl.miStringlist.html">mi.rtl.miStringlist</a></td>
+<td class="itemdesc"><p>A class <strong><code>TMiStringList</code></strong> implementa a navegação como se tivesse navegando em arquivos usando os métodos <a class="normal" href="mi.rtl.MiStringlistbase.TStringListBase.html#NextKey">NextKey</a>,<a class="normal" href="mi.rtl.miStringlist.TMiStringList.html#PrevKey">Prevkey</a> etc...
+
+<p></p>
+
+<ul class="paragraph_spacing">
+  <li><p><strong>NOTA</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Usando quando quero manter uma lista de registros ordenada.</p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p></td>
+</tr>
+<tr class="list">
+<td class="itemname"><a class="bold" href="mi_rtl_ui_custom_application.TMI_ui_Custom_Application.html">TMI_ui_Custom_Application</a></td>
+<td class="itemunit"><a class="bold" href="mi_rtl_ui_custom_application.html">mi_rtl_ui_custom_application</a></td>
+<td class="itemdesc"><p>&nbsp;</p></td>
+</tr>
+<tr class="list2">
+<td class="itemname"><a class="bold" href="mi_ui_mi_msgbox_dm.TMi_ui_mi_msgBox.html">TMi_ui_mi_msgBox</a></td>
+<td class="itemunit"><a class="bold" href="mi_ui_mi_msgbox_dm.html">mi_ui_mi_msgbox_dm</a></td>
+<td class="itemdesc"><p><code>TMi_ui_mi_msgBox</code>
+
+<p></p>
+
+<ul class="paragraph_spacing">
+  <li><p>EXEMPLO
+
+<p></p>
+
+<pre class="longcode">
+
+<span class="pascal_keyword">Var</span>
+  S : <span class="pascal_keyword">String</span>[<span class="pascal_numeric">10</span>] = <span class="pascal_string">''</span>;
+<span class="pascal_keyword">begin</span>
+   <span class="pascal_keyword">if</span> MI_MsgBox.InputBox(<span class="pascal_string">'InputBox Test'</span>,<span class="pascal_string">'Gual a sua indade? '</span>,s,<span class="pascal_string">'ssssssssss'</span>) = Mrok
+   <span class="pascal_keyword">then</span> ShowMessage(<span class="pascal_string">'Sua idade é: '</span>s);</pre>
+
+<p></p></li>
+</ul>
+
+<p></p></td>
+</tr>
+<tr class="list">
+<td class="itemname"><a class="bold" href="Classes_C.TNSComponent.html">TNSComponent</a></td>
+<td class="itemunit"><a class="bold" href="Classes_C.html">Classes_C</a></td>
+<td class="itemdesc"><p>&nbsp;</p></td>
+</tr>
+<tr class="list2">
+<td class="itemname"><a class="bold" href="mi.rtl.Objects.Consts.TObjectsConsts.html">TObjectsConsts</a></td>
+<td class="itemunit"><a class="bold" href="mi.rtl.Objects.Consts.html">mi.rtl.Objects.Consts</a></td>
+<td class="itemdesc"><p></p>
+
+<ul class="paragraph_spacing">
+  <li><p>A class <strong><code>TObjectsConsts</code></strong> usada para separar as contantes da unit <strong>TObjects</strong> do pacote <strong><a class="normal" href="mi.rtl.html">mi.rtl</a></strong>.</p></li>
+</ul>
+
+<p></p></td>
+</tr>
+<tr class="list">
+<td class="itemname"><a class="bold" href="mi.rtl.Objects.Methods.TObjectsMethods.html">TObjectsMethods</a></td>
+<td class="itemunit"><a class="bold" href="mi.rtl.Objects.Methods.html">mi.rtl.Objects.Methods</a></td>
+<td class="itemdesc"><p></p>
+
+<ul class="paragraph_spacing">
+  <li><p>A classe <strong><code>TObjectsMethods</code></strong> implementa os método de classe comum a todas as classes de TObjects do pacote <strong><a class="normal" href="mi.rtl.html">mi.rtl</a></strong>.</p></li>
+</ul>
+
+<p></p></td>
+</tr>
+<tr class="list2">
+<td class="itemname"><a class="bold" href="mi.rtl.Objectss.TObjectss.html">TObjectss</a></td>
+<td class="itemunit"><a class="bold" href="mi.rtl.Objectss.html">mi.rtl.Objectss</a></td>
+<td class="itemdesc"><p>A classe <strong><code>TObjectss</code></strong> é a base de todas as classes do pacote <strong><a class="normal" href="mi.rtl.html">mi.rtl</a></strong>.
+
+<p></p>
+
+<ul class="paragraph_spacing">
+  <li><p><strong>EXEMPLO DE USO</strong>
+
+<p></p>
+
+<pre class="longcode"></pre>
+
+<p></p></li>
+</ul>
+
+<p></p>
+
+<ul class="paragraph_spacing">
+  <li><p><strong>HISTÓRICO</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Criado por: Paulo Sérgio da Silva Pacheco e-mail: paulosspacheco@yahoo.com.br </p>
+
+<ul class="paragraph_spacing">
+  <li><p><strong>19/11/2021</strong> 21:25 a 23:15 Criar a classe <strong><a class="normal" href="mi.rtl.Objectss.TObjectss.html#TStream">TStream</a></strong></p></li>
+  <li><p><strong>20/11/2021</strong> 09:10 a ??: Criar a classe <strong>TObjects</strong></p></li>
+  <li><p><strong>23/11/2021</strong> 21:50 a 22:00 Declarar as classes TFileSream e TFileMemory em <code>TObjectss</code></p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p></td>
+</tr>
+<tr class="list">
+<td class="itemname"><a class="bold" href="mi.rtl.Objectss.TObjectss.TListBoxRec.html">TObjectss.TListBoxRec</a></td>
+<td class="itemunit"><a class="bold" href="mi.rtl.Objectss.html">mi.rtl.Objectss</a></td>
+<td class="itemdesc"><p>&nbsp;</p></td>
+</tr>
+<tr class="list2">
+<td class="itemname"><a class="bold" href="mi.rtl.Objects.Methods.System.TObjectsSystem.html">TObjectsSystem</a></td>
+<td class="itemunit"><a class="bold" href="mi.rtl.Objects.Methods.System.html">mi.rtl.Objects.Methods.System</a></td>
+<td class="itemdesc"><p>&nbsp;</p></td>
+</tr>
+<tr class="list">
+<td class="itemname"><a class="bold" href="mi_rtl_ui_Dmxscroller.html#TOnAddTemplate">TOnAddTemplate</a></td>
+<td class="itemunit"><a class="bold" href="mi_rtl_ui_Dmxscroller.html">mi_rtl_ui_Dmxscroller</a></td>
+<td class="itemdesc"><p>O tipo <code>TOnAddTemplate</code> é usado para criar modelos de formulários dinamicamente usando o método add
+
+<p></p>
+
+<ul class="paragraph_spacing">
+  <li><p><strong>EXEMPLO</strong>
+
+<p></p>
+
+<pre class="longcode">
+
+<span class="pascal_keyword">Procedure</span> AddTemplate(<span class="pascal_keyword">const</span> aUiDmxScroller:TUiDmxScroller);
+<span class="pascal_keyword">begin</span>
+  <span class="pascal_keyword">with</span> aUiDmxScroller <span class="pascal_keyword">do</span>
+  <span class="pascal_keyword">begin</span>
+    add(<span class="pascal_string">'&tilde;EXEMPLO DE TEMPLATE&tilde;'</span>);
+    add(<span class="pascal_string">''</span>);
+    add(<span class="pascal_string">'&tilde;Alfanumérico maiúscula com 15 posições:&tilde;\SSSSSSSSSSSSSSS'</span>);
+    add(<span class="pascal_string">'&tilde;Alfanumérico maiúscula e minuscula com 30 posições:&tilde;'</span>);
+    add(<span class="pascal_string">'&tilde;&tilde;\ssssssssssssssssssssssssssssssssssssss'</span>);
+    add(<span class="pascal_string">'&tilde;Alfanumérico com a primeira letra maiúscula:&tilde;\Sssssssssssssss'</span>);
+    add(<span class="pascal_string">'&tilde;Valor double.......:&tilde;\RRR,RRR.RR'</span>);
+    add(<span class="pascal_string">'&tilde;Valor SmalInt......:&tilde;\II,III'</span>);
+    add(<span class="pascal_string">'&tilde;Valor Byte.........:&tilde;\BBB'</span>);
+    add(<span class="pascal_string">'&tilde;Valor Smallword....:&tilde;\WW,WWW'</span>);
+    add(<span class="pascal_string">'&tilde;Sexo...............:&tilde;'</span>+ CreateEnumField(TRUE, accNormal, <span class="pascal_numeric">0</span>,
+                                  NewSItem(<span class="pascal_string">' indefinido '</span>,
+                                  NewSItem(<span class="pascal_string">' Masculino'</span>,
+                                  NewSItem(<span class="pascal_string">' Feminino'</span>,
+                                          <span class="pascal_keyword">nil</span>)))));
+    add(<span class="pascal_string">'&tilde;Estado Civil              &tilde;\KA Indefinido  '</span>+chFN+<span class="pascal_string">'Sexo'</span>);
+    add(<span class="pascal_string">'&tilde;&tilde;\X Casado?                \KA Masculino    '</span>);
+    add(<span class="pascal_string">'&tilde;&tilde;\X Pretende se divorciar? \KA Feminino     '</span>);
+    add(<span class="pascal_string">'&tilde;&tilde;\X Tens filhos?          '</span>);
+    add(<span class="pascal_string">''</span>);
+  <span class="pascal_keyword">end</span>;
+<span class="pascal_keyword">end</span>;
+
+<span class="pascal_keyword">procedure</span> TForm1.DmxScroller_Form1AddTemplate(<span class="pascal_keyword">const</span> aUiDmxScroller: TUiDmxScroller);
+<span class="pascal_keyword">begin</span>
+  AddTemplate(aUiDmxScroller);
+<span class="pascal_keyword">end</span>;</pre>
+
+<p></p></li>
+</ul>
+
+<p></p></td>
+</tr>
+<tr class="list2">
+<td class="itemname"><a class="bold" href="mi_rtl_ui_Dmxscroller.html#TOnCloseQuery">TOnCloseQuery</a></td>
+<td class="itemunit"><a class="bold" href="mi_rtl_ui_Dmxscroller.html">mi_rtl_ui_Dmxscroller</a></td>
+<td class="itemdesc"><p>O tipo <strong><code>TOnCloseQuery</code></strong> é usado para implementar evento OnCloseQuery da classe <a class="normal" href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html">TUiDmxScroller</a>
+
+<p></p>
+
+<ul class="paragraph_spacing">
+  <li><p><strong>NOTA* </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Este evento é disparado antes de desativar a classe **<a class="normal" href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html">TUiDmxScroller</a></p></li>
+</ul>
+
+<p></strong>. </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Obs: Se o parâmetro <strong>CanClose</strong> for <strong>false</strong>, então a classe <strong><a class="normal" href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html">TUiDmxScroller</a></strong> não é desativado.</p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p></td>
+</tr>
+<tr class="list">
+<td class="itemname"><a class="bold" href="mi_rtl_ui_Dmxscroller.html#TOnEnter">TOnEnter</a></td>
+<td class="itemunit"><a class="bold" href="mi_rtl_ui_Dmxscroller.html">mi_rtl_ui_Dmxscroller</a></td>
+<td class="itemdesc"><p>O tipo <strong><code>TOnEnter</code></strong> é usado para implementar evento onEnter da classe <a class="normal" href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html">TUiDmxScroller</a></p></td>
+</tr>
+<tr class="list2">
+<td class="itemname"><a class="bold" href="mi_rtl_ui_Dmxscroller.html#TOnEnterField">TOnEnterField</a></td>
+<td class="itemunit"><a class="bold" href="mi_rtl_ui_Dmxscroller.html">mi_rtl_ui_Dmxscroller</a></td>
+<td class="itemdesc"><p>O tipo <strong><code>TOnEnterField</code></strong> é usado no evento OnEnterField</p></td>
+</tr>
+<tr class="list">
+<td class="itemname"><a class="bold" href="mi_rtl_ui_Dmxscroller.html#TOnExit">TOnExit</a></td>
+<td class="itemunit"><a class="bold" href="mi_rtl_ui_Dmxscroller.html">mi_rtl_ui_Dmxscroller</a></td>
+<td class="itemdesc"><p>O tipo <strong><code>TOnExit</code></strong> é usado para implementar evento onExit da classe <a class="normal" href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html">TUiDmxScroller</a></p></td>
+</tr>
+<tr class="list2">
+<td class="itemname"><a class="bold" href="mi_rtl_ui_Dmxscroller.html#TOnExitField">TOnExitField</a></td>
+<td class="itemunit"><a class="bold" href="mi_rtl_ui_Dmxscroller.html">mi_rtl_ui_Dmxscroller</a></td>
+<td class="itemdesc"><p>O tipo <strong><code>TOnExitField</code></strong> é usado no evento OnExitField</p></td>
+</tr>
+<tr class="list">
+<td class="itemname"><a class="bold" href="mi_rtl_ui_Dmxscroller.html#TOnGetTemplate">TOnGetTemplate</a></td>
+<td class="itemunit"><a class="bold" href="mi_rtl_ui_Dmxscroller.html">mi_rtl_ui_Dmxscroller</a></td>
+<td class="itemdesc"><p>Usado para criar modelos de formulários dinamicamente usando como parâmetro listas de PSItems.</p></td>
+</tr>
+<tr class="list2">
+<td class="itemname"><a class="bold" href="mi_rtl_ui_Dmxscroller.html#TOnNewRecord">TOnNewRecord</a></td>
+<td class="itemunit"><a class="bold" href="mi_rtl_ui_Dmxscroller.html">mi_rtl_ui_Dmxscroller</a></td>
+<td class="itemdesc"><p>O tipo <strong><code>TOnNewRecord</code></strong> é usado para implementar evento onNewRecord da classe <a class="normal" href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html">TUiDmxScroller</a></p></td>
+</tr>
+<tr class="list">
+<td class="itemname"><a class="bold" href="mi_rtl_ui_custom_application.html#TOnValidUser">TOnValidUser</a></td>
+<td class="itemunit"><a class="bold" href="mi_rtl_ui_custom_application.html">mi_rtl_ui_custom_application</a></td>
+<td class="itemdesc"><p>O tipo <strong><code>TOnValidUser</code></strong> é usado no evento OnValidUser</p></td>
+</tr>
+<tr class="list2">
+<td class="itemname"><a class="bold" href="mi_rtl_ui_types.TOverflow.html">TOverflow</a></td>
+<td class="itemunit"><a class="bold" href="mi_rtl_ui_types.html">mi_rtl_ui_types</a></td>
+<td class="itemdesc"><p>Coordenada X do contato superior esquerdo.</p></td>
+</tr>
+<tr class="list">
+<td class="itemname"><a class="bold" href="mi.rtl.objects.methods.pageproducer.TPageProducer.html">TPageProducer</a></td>
+<td class="itemunit"><a class="bold" href="mi.rtl.objects.methods.pageproducer.html">mi.rtl.objects.methods.pageproducer</a></td>
+<td class="itemdesc"><p>A classe <strong><code>TPageProducer</code></strong> usada para produzir documento html, usando modelos html ou outro formato de texto qualquer.</p></td>
+</tr>
+<tr class="list2">
+<td class="itemname"><a class="bold" href="mi.rtl.Objects.Methods.Paramexecucao.TParamExecucao.html">TParamExecucao</a></td>
+<td class="itemunit"><a class="bold" href="mi.rtl.Objects.Methods.Paramexecucao.html">mi.rtl.Objects.Methods.Paramexecucao</a></td>
+<td class="itemdesc"><p>&nbsp;</p></td>
+</tr>
+<tr class="list">
+<td class="itemname"><a class="bold" href="mi.rtl.Objects.Methods.Paramexecucao.TParamExecucao_consts.html">TParamExecucao_consts</a></td>
+<td class="itemunit"><a class="bold" href="mi.rtl.Objects.Methods.Paramexecucao.html">mi.rtl.Objects.Methods.Paramexecucao</a></td>
+<td class="itemdesc"><p>&nbsp;</p></td>
+</tr>
+<tr class="list2">
+<td class="itemname"><a class="bold" href="mi.rtl.Objects.Methods.Paramexecucao.TParamExecucao_types.html">TParamExecucao_types</a></td>
+<td class="itemunit"><a class="bold" href="mi.rtl.Objects.Methods.Paramexecucao.html">mi.rtl.Objects.Methods.Paramexecucao</a></td>
+<td class="itemdesc"><p>&nbsp;</p></td>
+</tr>
+<tr class="list">
+<td class="itemname"><a class="bold" href="mi.rtl.Objects.Methods.Paramexecucao.TParamExecucao_types.TIdentificacao.html">TParamExecucao_types.TIdentificacao</a></td>
+<td class="itemunit"><a class="bold" href="mi.rtl.Objects.Methods.Paramexecucao.html">mi.rtl.Objects.Methods.Paramexecucao</a></td>
+<td class="itemdesc"><p>&nbsp;</p></td>
+</tr>
+<tr class="list2">
+<td class="itemname"><a class="bold" href="mi.rtl.Objects.Methods.Paramexecucao.TParamExecucao_types.TNomeDeArquivosGenericos.html">TParamExecucao_types.TNomeDeArquivosGenericos</a></td>
+<td class="itemunit"><a class="bold" href="mi.rtl.Objects.Methods.Paramexecucao.html">mi.rtl.Objects.Methods.Paramexecucao</a></td>
+<td class="itemdesc"><p>&nbsp;</p></td>
+</tr>
+<tr class="list">
+<td class="itemname"><a class="bold" href="fpTemplate.html#TParseDelimiter">TParseDelimiter</a></td>
+<td class="itemunit"><a class="bold" href="fpTemplate.html">fpTemplate</a></td>
+<td class="itemdesc"><p>&nbsp;</p></td>
+</tr>
+<tr class="list2">
+<td class="itemname"><a class="bold" href="mi.rtl.Objects.Consts.ProgressDlg_If.TProgressDlg_If.html">TProgressDlg_If</a></td>
+<td class="itemunit"><a class="bold" href="mi.rtl.Objects.Consts.ProgressDlg_If.html">mi.rtl.Objects.Consts.ProgressDlg_If</a></td>
+<td class="itemdesc"><p></p>
+
+<ul class="paragraph_spacing">
+  <li><p>A classe <strong><code>TProgressDlg_If</code></strong> é uma classe abstrata para comunicação com o usuário cujo a implementação deve ser feita nas plataformas: LCL, HTML e JavaScript.
+
+<p></p>
+
+<ul class="paragraph_spacing">
+  <li><p><strong>NOTA</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Só cria o dialogo se a posição chegar no <a class="normal" href="mi.rtl.Objects.Consts.ProgressDlg_If.TProgressDlg_If.html#Delta">delta</a>.</p></li>
+</ul>
+
+<p></p></li>
+  <li><p>Exemplo do uso de <code>TProgressDlg_If</code>
+
+<p></p>
+
+<pre class="longcode">
+
+<span class="pascal_keyword">Var</span>
+  ProgressDlg_If : TProgressDlg_If;
+<span class="pascal_keyword">Begin</span>
+  ProgressDlg_If := TProgressDlg_If.Create(<span class="pascal_string">'Pesquisando registro'</span>,Alias,<span class="pascal_numeric">20</span>);
+
+  <span class="pascal_keyword">Repeat</span>
+    ProgressDlg_If.IncPosition;
+  <span class="pascal_keyword">Until</span> <span class="pascal_keyword">Not</span> next;
+
+  ProgressDlg_If.Free;
+<span class="pascal_keyword">end</span>.</pre>
+
+<p></p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p></td>
+</tr>
+<tr class="list">
+<td class="itemname"><a class="bold" href="mi.rtl.Objects.Consts.ProgressDlg_If.html#TProgressDlg_If_Class">TProgressDlg_If_Class</a></td>
+<td class="itemunit"><a class="bold" href="mi.rtl.Objects.Consts.ProgressDlg_If.html">mi.rtl.Objects.Consts.ProgressDlg_If</a></td>
+<td class="itemdesc"><p>&nbsp;</p></td>
+</tr>
+<tr class="list2">
+<td class="itemname"><a class="bold" href="fpTemplate.html#TReplaceTagEvent">TReplaceTagEvent</a></td>
+<td class="itemunit"><a class="bold" href="fpTemplate.html">fpTemplate</a></td>
+<td class="itemdesc"><p>&nbsp;</p></td>
+</tr>
+<tr class="list">
+<td class="itemname"><a class="bold" href="mi.rtl.Objects.Methods.Paramexecucao.TR_ParamExecucao_Local.html">TR_ParamExecucao_Local</a></td>
+<td class="itemunit"><a class="bold" href="mi.rtl.Objects.Methods.Paramexecucao.html">mi.rtl.Objects.Methods.Paramexecucao</a></td>
+<td class="itemdesc"><p>&nbsp;</p></td>
+</tr>
+<tr class="list2">
+<td class="itemname"><a class="bold" href="mi.rtl.Objects.Methods.Collection.SortedCollection.TSortedCollection.html">TSortedCollection</a></td>
+<td class="itemunit"><a class="bold" href="mi.rtl.Objects.Methods.Collection.SortedCollection.html">mi.rtl.Objects.Methods.Collection.SortedCollection</a></td>
+<td class="itemdesc"><p></p>
+
+<ul class="paragraph_spacing">
+  <li><p>A class <strong><code>TSortedCollection</code></strong> implementa coleções ordenadas de objetos.
+
+<p></p>
+
+<ul class="paragraph_spacing">
+  <li><p>EXEMPLO DE USO
+
+<p></p>
+
+<pre class="longcode">
+
+???</pre>
+
+<p></p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p></td>
+</tr>
+<tr class="list">
+<td class="itemname"><a class="bold" href="mi.rtl.Objects.Methods.Collection.SortedCollection.StrCollection.TStrCollection.html">TStrCollection</a></td>
+<td class="itemunit"><a class="bold" href="mi.rtl.Objects.Methods.Collection.SortedCollection.StrCollection.html">mi.rtl.Objects.Methods.Collection.SortedCollection.StrCollection</a></td>
+<td class="itemdesc"><p>A classe <strong><code>TStrCollection</code></strong> implementa uma coleção de <strong>AnsiString</strong></p></td>
+</tr>
+<tr class="list2">
+<td class="itemname"><a class="bold" href="mi.rtl.Objects.Methods.StreamBase.Stream.TStream.html">TStream</a></td>
+<td class="itemunit"><a class="bold" href="mi.rtl.Objects.Methods.StreamBase.Stream.html">mi.rtl.Objects.Methods.StreamBase.Stream</a></td>
+<td class="itemdesc"><p></p>
+
+<ul class="paragraph_spacing">
+  <li><p>A class <strong><code>TStream</code></strong> é a classe base da classes <strong>_TStream</strong> do pacote <strong><a class="normal" href="mi.rtl.html">mi.rtl</a></strong>.</p></li>
+</ul>
+
+<p></p></td>
+</tr>
+<tr class="list">
+<td class="itemname"><a class="bold" href="mi.rtl.Objects.Methods.StreamBase.TStreamBase.html">TStreamBase</a></td>
+<td class="itemunit"><a class="bold" href="mi.rtl.Objects.Methods.StreamBase.html">mi.rtl.Objects.Methods.StreamBase</a></td>
+<td class="itemdesc"><p></p>
+
+<ul class="paragraph_spacing">
+  <li><p>A class <strong><code>TStreamBase</code></strong> é uma classe abstrata para implementação de streams.</p></li>
+</ul>
+
+<p></p></td>
+</tr>
+<tr class="list2">
+<td class="itemname"><a class="bold" href="mi.rtl.Consts.StrError.TStrError.html">TStrError</a></td>
+<td class="itemunit"><a class="bold" href="mi.rtl.Consts.StrError.html">mi.rtl.Consts.StrError</a></td>
+<td class="itemdesc"><p>A classe <strong><code>TStrError</code></strong> é usada para produzir texto informativo sobre o local onde o erro ocorreu.</p></td>
+</tr>
+<tr class="list">
+<td class="itemname"><a class="bold" href="mi_rtl_ui_Dmxscroller.html#tString">tString</a></td>
+<td class="itemunit"><a class="bold" href="mi_rtl_ui_Dmxscroller.html">mi_rtl_ui_Dmxscroller</a></td>
+<td class="itemdesc"><p>&nbsp;</p></td>
+</tr>
+<tr class="list2">
+<td class="itemname"><a class="bold" href="mi.rtl.Objects.Methods.Collection.SortedCollection.StringCollection.TStringCollection.html">TStringCollection</a></td>
+<td class="itemunit"><a class="bold" href="mi.rtl.Objects.Methods.Collection.SortedCollection.StringCollection.html">mi.rtl.Objects.Methods.Collection.SortedCollection.StringCollection</a></td>
+<td class="itemdesc"><p>A classe <strong><code>TStringCollection</code></strong> implementa uma coleção de <strong>AnsiString</strong></p></td>
+</tr>
+<tr class="list">
+<td class="itemname"><a class="bold" href="mi.rtl.Objects.Methods.Collection.Sortedcollection.Stringcollection.Collectionstring.html#TStringCollection">TStringCollection</a></td>
+<td class="itemunit"><a class="bold" href="mi.rtl.Objects.Methods.Collection.Sortedcollection.Stringcollection.Collectionstring.html">mi.rtl.Objects.Methods.Collection.Sortedcollection.Stringcollection.Collectionstring</a></td>
+<td class="itemdesc"><p>&nbsp;</p></td>
+</tr>
+<tr class="list2">
+<td class="itemname"><a class="bold" href="mi.rtl.MiStringlistbase.TStringListBase.html">TStringListBase</a></td>
+<td class="itemunit"><a class="bold" href="mi.rtl.MiStringlistbase.html">mi.rtl.MiStringlistbase</a></td>
+<td class="itemdesc"><p>&nbsp;</p></td>
+</tr>
+<tr class="list">
+<td class="itemname"><a class="bold" href="mi.rtl.Objects.Methods.Db.Tb_Access.TTb_Access.html">TTb_Access</a></td>
+<td class="itemunit"><a class="bold" href="mi.rtl.Objects.Methods.Db.Tb_Access.html">mi.rtl.Objects.Methods.Db.Tb_Access</a></td>
+<td class="itemdesc"><p>&nbsp;</p></td>
+</tr>
+<tr class="list2">
+<td class="itemname"><a class="bold" href="mi.rtl.Objects.Methods.Db.Tb_Access.TTb_Access_consts.html">TTb_Access_consts</a></td>
+<td class="itemunit"><a class="bold" href="mi.rtl.Objects.Methods.Db.Tb_Access.html">mi.rtl.Objects.Methods.Db.Tb_Access</a></td>
+<td class="itemdesc"><p>A classe <strong><code>TTb_Access_consts</code></strong> é usada para declarar todas as constantes da classe <strong><a class="normal" href="mi.rtl.Objects.Methods.Db.Tb_Access.TTb_Access.html">TTb_Access</a></strong></p></td>
+</tr>
+<tr class="list">
+<td class="itemname"><a class="bold" href="mi.rtl.Objects.Methods.Db.Tb_Access.TTb_Access_types.html">TTb_Access_types</a></td>
+<td class="itemunit"><a class="bold" href="mi.rtl.Objects.Methods.Db.Tb_Access.html">mi.rtl.Objects.Methods.Db.Tb_Access</a></td>
+<td class="itemdesc"><p>A classe <strong><code>TTb_Access_types</code></strong> é usada para declarar todos os types da classe <strong><a class="normal" href="mi.rtl.Objects.Methods.Db.Tb_Access.TTb_Access.html">TTb_Access</a></strong></p></td>
+</tr>
+<tr class="list2">
+<td class="itemname"><a class="bold" href="mi.rtl.Objects.Methods.Db.Tb_Access.TTb_Access_types.DataFile.html">TTb_Access_types.DataFile</a></td>
+<td class="itemunit"><a class="bold" href="mi.rtl.Objects.Methods.Db.Tb_Access.html">mi.rtl.Objects.Methods.Db.Tb_Access</a></td>
+<td class="itemdesc"><p>Obs: Se transformar este registro em objeto deve alterar tudo que se refere a <code>dataFile</code></p></td>
+</tr>
+<tr class="list">
+<td class="itemname"><a class="bold" href="mi.rtl.Objects.Methods.Db.Tb_Access.TTb_Access_types.IndexFile.html">TTb_Access_types.IndexFile</a></td>
+<td class="itemunit"><a class="bold" href="mi.rtl.Objects.Methods.Db.Tb_Access.html">mi.rtl.Objects.Methods.Db.Tb_Access</a></td>
+<td class="itemdesc"><p>&nbsp;</p></td>
+</tr>
+<tr class="list2">
+<td class="itemname"><a class="bold" href="mi.rtl.Objects.Methods.Db.Tb_Access.TTb_Access_types.TaItem.html">TTb_Access_types.TaItem</a></td>
+<td class="itemunit"><a class="bold" href="mi.rtl.Objects.Methods.Db.Tb_Access.html">mi.rtl.Objects.Methods.Db.Tb_Access</a></td>
+<td class="itemdesc"><p>&nbsp;</p></td>
+</tr>
+<tr class="list">
+<td class="itemname"><a class="bold" href="mi.rtl.Objects.Methods.Db.Tb_Access.TTb_Access_types.TaPage.html">TTb_Access_types.TaPage</a></td>
+<td class="itemunit"><a class="bold" href="mi.rtl.Objects.Methods.Db.Tb_Access.html">mi.rtl.Objects.Methods.Db.Tb_Access</a></td>
+<td class="itemdesc"><p>&nbsp;</p></td>
+</tr>
+<tr class="list2">
+<td class="itemname"><a class="bold" href="mi.rtl.Objects.Methods.Db.Tb_Access.TTb_Access_types.TaRecordBuffer.html">TTb_Access_types.TaRecordBuffer</a></td>
+<td class="itemunit"><a class="bold" href="mi.rtl.Objects.Methods.Db.Tb_Access.html">mi.rtl.Objects.Methods.Db.Tb_Access</a></td>
+<td class="itemdesc"><p>Tipo registro do arquivo de transação</p></td>
+</tr>
+<tr class="list">
+<td class="itemname"><a class="bold" href="mi.rtl.Objects.Methods.Db.Tb_Access.TTb_Access_types.TaSearchStep.html">TTb_Access_types.TaSearchStep</a></td>
+<td class="itemunit"><a class="bold" href="mi.rtl.Objects.Methods.Db.Tb_Access.html">mi.rtl.Objects.Methods.Db.Tb_Access</a></td>
+<td class="itemdesc"><p>&nbsp;</p></td>
+</tr>
+<tr class="list2">
+<td class="itemname"><a class="bold" href="mi.rtl.Objects.Methods.Db.Tb_Access.TTb_Access_types.TaStackRec.html">TTb_Access_types.TaStackRec</a></td>
+<td class="itemunit"><a class="bold" href="mi.rtl.Objects.Methods.Db.Tb_Access.html">mi.rtl.Objects.Methods.Db.Tb_Access</a></td>
+<td class="itemdesc"><p>Tamanho maximo do registro.</p></td>
+</tr>
+<tr class="list">
+<td class="itemname"><a class="bold" href="mi.rtl.Objects.Methods.Db.Tb_Access.TTb_Access_types.TErroDOS.html">TTb_Access_types.TErroDOS</a></td>
+<td class="itemunit"><a class="bold" href="mi.rtl.Objects.Methods.Db.Tb_Access.html">mi.rtl.Objects.Methods.Db.Tb_Access</a></td>
+<td class="itemdesc"><p>&nbsp;</p></td>
+</tr>
+<tr class="list2">
+<td class="itemname"><a class="bold" href="mi.rtl.Objects.Methods.Db.Tb_Access.TTb_Access_types.TsImagemHeader.html">TTb_Access_types.TsImagemHeader</a></td>
+<td class="itemunit"><a class="bold" href="mi.rtl.Objects.Methods.Db.Tb_Access.html">mi.rtl.Objects.Methods.Db.Tb_Access</a></td>
+<td class="itemdesc"><p>Usado p/ guarda o header logo que abrir o arquivo para evitar que em ambiente de rede o header fique maluco</p></td>
+</tr>
+<tr class="list">
+<td class="itemname"><a class="bold" href="mi.rtl.Objects.Methods.Db.Tb_Access.TTb_Access_types.TypeHeaderRecord.html">TTb_Access_types.TypeHeaderRecord</a></td>
+<td class="itemunit"><a class="bold" href="mi.rtl.Objects.Methods.Db.Tb_Access.html">mi.rtl.Objects.Methods.Db.Tb_Access</a></td>
+<td class="itemdesc"><p>Os 5 primeiros bytes do registro é guardar o número do pŕoximo registro livre</p></td>
+</tr>
+<tr class="list2">
+<td class="itemname"><a class="bold" href="mi.rtl.Objects.Methods.Db.Tb_Access.TTb_Access_types.TypeHeaderRecordItem.html">TTb_Access_types.TypeHeaderRecordItem</a></td>
+<td class="itemunit"><a class="bold" href="mi.rtl.Objects.Methods.Db.Tb_Access.html">mi.rtl.Objects.Methods.Db.Tb_Access</a></td>
+<td class="itemdesc"><p>Usado para arquivos Relationships</p></td>
+</tr>
+<tr class="list">
+<td class="itemname"><a class="bold" href="mi.rtl.Objects.Methods.Db.Tb_Access.TTb_Access_types.TypeHeaderRecordMaster.html">TTb_Access_types.TypeHeaderRecordMaster</a></td>
+<td class="itemunit"><a class="bold" href="mi.rtl.Objects.Methods.Db.Tb_Access.html">mi.rtl.Objects.Methods.Db.Tb_Access</a></td>
+<td class="itemdesc"><p>Usado para arquivos Relationships</p></td>
+</tr>
+<tr class="list2">
+<td class="itemname"><a class="bold" href="mi.rtl.Objects.Methods.Db.Tb_Access.TTb_Access_types.TypeHeaderRecordNovo.html">TTb_Access_types.TypeHeaderRecordNovo</a></td>
+<td class="itemunit"><a class="bold" href="mi.rtl.Objects.Methods.Db.Tb_Access.html">mi.rtl.Objects.Methods.Db.Tb_Access</a></td>
+<td class="itemdesc"><p>Usado no início de cada registro por isso o registro deve herdar</p></td>
+</tr>
+<tr class="list">
+<td class="itemname"><a class="bold" href="mi.rtl.Objects.Methods.Db.Tb__Access.TTb__Access.html">TTb__Access</a></td>
+<td class="itemunit"><a class="bold" href="mi.rtl.Objects.Methods.Db.Tb__Access.html">mi.rtl.Objects.Methods.Db.Tb__Access</a></td>
+<td class="itemdesc"><p>&nbsp;</p></td>
+</tr>
+<tr class="list2">
+<td class="itemname"><a class="bold" href="mi.rtl.Objects.Methods.Db.Tb__Access.TTb__Access_consts.html">TTb__Access_consts</a></td>
+<td class="itemunit"><a class="bold" href="mi.rtl.Objects.Methods.Db.Tb__Access.html">mi.rtl.Objects.Methods.Db.Tb__Access</a></td>
+<td class="itemdesc"><p>&nbsp;</p></td>
+</tr>
+<tr class="list">
+<td class="itemname"><a class="bold" href="mi.rtl.Objects.Methods.Db.Tb__Access.TTb__Access_types.html">TTb__Access_types</a></td>
+<td class="itemunit"><a class="bold" href="mi.rtl.Objects.Methods.Db.Tb__Access.html">mi.rtl.Objects.Methods.Db.Tb__Access</a></td>
+<td class="itemdesc"><p>&nbsp;</p></td>
+</tr>
+<tr class="list2">
+<td class="itemname"><a class="bold" href="mi.rtl.Objects.Methods.Db.Tb__Access.TTb__Access_types.TipoPonteiroBD.html">TTb__Access_types.TipoPonteiroBD</a></td>
+<td class="itemunit"><a class="bold" href="mi.rtl.Objects.Methods.Db.Tb__Access.html">mi.rtl.Objects.Methods.Db.Tb__Access</a></td>
+<td class="itemdesc"><p>&nbsp;</p></td>
+</tr>
+<tr class="list">
+<td class="itemname"><a class="bold" href="mi.rtl.Objects.Methods.Db.Tb__Access.TTb__Access_types.TMI_DataFile.html">TTb__Access_types.TMI_DataFile</a></td>
+<td class="itemunit"><a class="bold" href="mi.rtl.Objects.Methods.Db.Tb__Access.html">mi.rtl.Objects.Methods.Db.Tb__Access</a></td>
+<td class="itemdesc"><p>&nbsp;</p></td>
+</tr>
+<tr class="list2">
+<td class="itemname"><a class="bold" href="mi.rtl.Objects.Methods.Db.Tb__Access.TTb__Access_types.TMI_IndexFile.html">TTb__Access_types.TMI_IndexFile</a></td>
+<td class="itemunit"><a class="bold" href="mi.rtl.Objects.Methods.Db.Tb__Access.html">mi.rtl.Objects.Methods.Db.Tb__Access</a></td>
+<td class="itemdesc"><p>&nbsp;</p></td>
+</tr>
+<tr class="list">
+<td class="itemname"><a class="bold" href="mi.rtl.Objects.Methods.Db.Tb___Access.TTb___Access.html">TTb___Access</a></td>
+<td class="itemunit"><a class="bold" href="mi.rtl.Objects.Methods.Db.Tb___Access.html">mi.rtl.Objects.Methods.Db.Tb___Access</a></td>
+<td class="itemdesc"><p>&nbsp;</p></td>
+</tr>
+<tr class="list2">
+<td class="itemname"><a class="bold" href="mi.rtl.Objects.Methods.Db.Tb___Access.TTb___Access_consts.html">TTb___Access_consts</a></td>
+<td class="itemunit"><a class="bold" href="mi.rtl.Objects.Methods.Db.Tb___Access.html">mi.rtl.Objects.Methods.Db.Tb___Access</a></td>
+<td class="itemdesc"><p>&nbsp;</p></td>
+</tr>
+<tr class="list">
+<td class="itemname"><a class="bold" href="mi.rtl.Objects.Methods.Db.Tb___Access.TTb___Access_types.html">TTb___Access_types</a></td>
+<td class="itemunit"><a class="bold" href="mi.rtl.Objects.Methods.Db.Tb___Access.html">mi.rtl.Objects.Methods.Db.Tb___Access</a></td>
+<td class="itemdesc"><p>&nbsp;</p></td>
+</tr>
+<tr class="list2">
+<td class="itemname"><a class="bold" href="fpTemplate.TTemplateParser.html">TTemplateParser</a></td>
+<td class="itemunit"><a class="bold" href="fpTemplate.html">fpTemplate</a></td>
+<td class="itemdesc"><p>&nbsp;</p></td>
+</tr>
+<tr class="list">
+<td class="itemname"><a class="bold" href="mi.rtl.Types.TTypes.html">TTypes</a></td>
+<td class="itemunit"><a class="bold" href="mi.rtl.Types.html">mi.rtl.Types</a></td>
+<td class="itemdesc"><p>A classe <strong><code>TTypes</code></strong> declara todos os tipos globais do pacote <a class="normal" href="mi.rtl.html">Mi.RTL</a></p></td>
+</tr>
+<tr class="list2">
+<td class="itemname"><a class="bold" href="mi.rtl.Types.TTypes.LongRec.html">TTypes.LongRec</a></td>
+<td class="itemunit"><a class="bold" href="mi.rtl.Types.html">mi.rtl.Types</a></td>
+<td class="itemdesc"><p>&nbsp;</p></td>
+</tr>
+<tr class="list">
+<td class="itemname"><a class="bold" href="mi.rtl.Types.TTypes.TEvent.html">TTypes.TEvent</a></td>
+<td class="itemunit"><a class="bold" href="mi.rtl.Types.html">mi.rtl.Types</a></td>
+<td class="itemdesc"><p></p>
+
+<ul class="paragraph_spacing">
+  <li><p>O tipo <strong><code>TEvent</code></strong> é usado enviar mensagem para uma classe inserida em um grupo de classes.</p></li>
+</ul>
+
+<p></p></td>
+</tr>
+<tr class="list2">
+<td class="itemname"><a class="bold" href="mi.rtl.Types.TTypes.TIdentification.html">TTypes.TIdentification</a></td>
+<td class="itemunit"><a class="bold" href="mi.rtl.Types.html">mi.rtl.Types</a></td>
+<td class="itemdesc"><p>&nbsp;</p></td>
+</tr>
+<tr class="list">
+<td class="itemname"><a class="bold" href="mi.rtl.Types.TTypes.TipoOfsSeg.html">TTypes.TipoOfsSeg</a></td>
+<td class="itemunit"><a class="bold" href="mi.rtl.Types.html">mi.rtl.Types</a></td>
+<td class="itemdesc"><p>&nbsp;</p></td>
+</tr>
+<tr class="list2">
+<td class="itemname"><a class="bold" href="mi.rtl.Types.TTypes.TMsg.html">TTypes.TMsg</a></td>
+<td class="itemunit"><a class="bold" href="mi.rtl.Types.html">mi.rtl.Types</a></td>
+<td class="itemdesc"><p>O tipo <code>TMsg</code> é usado para transmitir mensagem para o windows</p></td>
+</tr>
+<tr class="list">
+<td class="itemname"><a class="bold" href="mi.rtl.Types.TTypes.TObjectList.html">TTypes.TObjectList</a></td>
+<td class="itemunit"><a class="bold" href="mi.rtl.Types.html">mi.rtl.Types</a></td>
+<td class="itemdesc"><p>&nbsp;</p></td>
+</tr>
+<tr class="list2">
+<td class="itemname"><a class="bold" href="mi.rtl.Types.TTypes.TPoint.html">TTypes.TPoint</a></td>
+<td class="itemunit"><a class="bold" href="mi.rtl.Types.html">mi.rtl.Types</a></td>
+<td class="itemdesc"><p>O registro <code>TPoint</code> é usado para guardar as coordenadas da tela. Usado no turbo vision</p></td>
+</tr>
+<tr class="list">
+<td class="itemname"><a class="bold" href="mi.rtl.Types.TTypes.TPointer.html">TTypes.TPointer</a></td>
+<td class="itemunit"><a class="bold" href="mi.rtl.Types.html">mi.rtl.Types</a></td>
+<td class="itemdesc"><p></p>
+
+<ul class="paragraph_spacing">
+  <li><p>A classe <strong><code>TPointer</code></strong> é usada para alocar memória no heap.
+
+<p></p>
+
+<ul class="paragraph_spacing">
+  <li><p><strong>NOTA</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>A função <strong>SysTVGetSrcBuf</strong> usa para ler a memória de vídeo do console.</p></li>
+  <li><p>O Método <strong>TTypes.TPointer.Get_Mem</strong> ignora alocação de memória <a class="normal" href="mi.rtl.Types.TTypes.html#Real">real</a> porque não sei como fazer nas plataformas diferentes do Windows.</p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p></td>
+</tr>
+<tr class="list2">
+<td class="itemname"><a class="bold" href="mi.rtl.Types.TTypes.TRect.html">TTypes.TRect</a></td>
+<td class="itemunit"><a class="bold" href="mi.rtl.Types.html">mi.rtl.Types</a></td>
+<td class="itemdesc"><p></p>
+
+<ul class="paragraph_spacing">
+  <li><p><code>TRect</code> Class - RECTANGLE Class</p></li>
+</ul>
+
+<p></p></td>
+</tr>
+<tr class="list">
+<td class="itemname"><a class="bold" href="mi.rtl.Types.TTypes.TReg_Of_Char.html">TTypes.TReg_Of_Char</a></td>
+<td class="itemunit"><a class="bold" href="mi.rtl.Types.html">mi.rtl.Types</a></td>
+<td class="itemdesc"><p>O tipo <strong><code>TReg_Of_Char</code></strong> é usado para calcular os caracteres equivalentes sem acentos quando os mesmos tiverem acentos</p></td>
+</tr>
+<tr class="list2">
+<td class="itemname"><a class="bold" href="mi.rtl.Types.TTypes.TSItem.html">TTypes.TSItem</a></td>
+<td class="itemunit"><a class="bold" href="mi.rtl.Types.html">mi.rtl.Types</a></td>
+<td class="itemdesc"><p></p>
+
+<ul class="paragraph_spacing">
+  <li><p>Difine os tipos usados no Turbo Vision e não declarados em QDialogs</p></li>
+</ul>
+
+<p></p></td>
+</tr>
+<tr class="list">
+<td class="itemname"><a class="bold" href="mi.rtl.Types.TTypes.TStr255.html">TTypes.TStr255</a></td>
+<td class="itemunit"><a class="bold" href="mi.rtl.Types.html">mi.rtl.Types</a></td>
+<td class="itemdesc"><p></p>
+
+<ul class="paragraph_spacing">
+  <li><p>O tipo <code>TStr255</code> é usado para chamadas das API do windows</p></li>
+</ul>
+
+<p></p></td>
+</tr>
+<tr class="list2">
+<td class="itemname"><a class="bold" href="mi.rtl.Types.TTypes.TWebMsg.html">TTypes.TWebMsg</a></td>
+<td class="itemunit"><a class="bold" href="mi.rtl.Types.html">mi.rtl.Types</a></td>
+<td class="itemdesc"><p></p>
+
+<ul class="paragraph_spacing">
+  <li><p>Registro usado para enviar mensagem entre classes</p></li>
+</ul>
+
+<p></p></td>
+</tr>
+<tr class="list">
+<td class="itemname"><a class="bold" href="mi.rtl.Types.TTypes.WordRec.html">TTypes.WordRec</a></td>
+<td class="itemunit"><a class="bold" href="mi.rtl.Types.html">mi.rtl.Types</a></td>
+<td class="itemdesc"><p><strong></strong><strong></strong><strong></strong><strong></strong><strong></strong><strong></strong><strong></strong><strong></strong><strong></strong><strong></strong><strong></strong><strong></strong><strong></strong><strong></strong><strong></strong><strong></strong><strong></strong><strong></strong>*</p></td>
+</tr>
+<tr class="list2">
+<td class="itemname"><a class="bold" href="mi.rtl.Types.TTypes._TStr255.html">TTypes._TStr255</a></td>
+<td class="itemunit"><a class="bold" href="mi.rtl.Types.html">mi.rtl.Types</a></td>
+<td class="itemdesc"><p></p>
+
+<ul class="paragraph_spacing">
+  <li><p>O tipo <code>_TStr255</code> é usado para acessar o tipo AnsiChar de 255 caracteres</p></li>
+</ul>
+
+<p></p></td>
+</tr>
+<tr class="list">
+<td class="itemname"><a class="bold" href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html">TUiDmxScroller</a></td>
+<td class="itemunit"><a class="bold" href="mi_rtl_ui_Dmxscroller.html">mi_rtl_ui_Dmxscroller</a></td>
+<td class="itemdesc"><p>A classe <strong><code>TUiDmxScroller</code></strong> tem como objetivo criar um formulário baseado em uma lista do tipo ShortString.
+
+<p></p>
+
+<ul class="paragraph_spacing">
+  <li><p><strong>NOTAS</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>O método <a class="normal" href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html#CreateStruct">createStruct</a> criar uma lista de campo tipo <a class="normal" href="mi_rtl_ui_Dmxscroller.TDmxFieldRec.html">TDmxFieldRec</a> com todas as informações necessárias para criar uma tabela ou um formulário.</p></li>
+  <li><p>O formulário é criado com apena uma linha.</p></li>
+</ul>
+
+<p></p></li>
+  <li><p><strong>EXEMPLO</strong>: </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Template := '&tilde;Nome&tilde;\SSSSSSSSSSSSSSSSSSSS &tilde;Idade:&tilde;\BB' </p>
+
+<ul class="paragraph_spacing">
+  <li><p>A classe cria a lista de campos: </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Label1: Nome</p></li>
+  <li><p>Field1: campo ShortString com 20 posições maiúsculas</p></li>
+  <li><p>Label2: Idade</p></li>
+  <li><p>Field2: Campo byte com duas posições</p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p></td>
+</tr>
+<tr class="list2">
+<td class="itemname"><a class="bold" href="mi_rtl_ui_DmxScroller_Buttons.TUiDmxScroller_Buttons.html">TUiDmxScroller_Buttons</a></td>
+<td class="itemunit"><a class="bold" href="mi_rtl_ui_DmxScroller_Buttons.html">mi_rtl_ui_DmxScroller_Buttons</a></td>
+<td class="itemdesc"><p>A classe <strong><code>TUiDmxScroller_Buttons</code></strong> tem como objetivo registrar os dados necessários para criar os botões de navegação e edição de uma tabela quando TDataSource for &lt;&gt; nil.
+
+<p></p>
+
+<ul class="paragraph_spacing">
+  <li><p><strong>EXEMPLO USO</strong>
+
+<p></p>
+
+<pre class="longcode"></pre>
+
+<p></p></li>
+</ul>
+
+<p></p></td>
+</tr>
+<tr class="list">
+<td class="itemname"><a class="bold" href="mi_rtl_ui_Dmxscroller_sql.TUiDmxScroller_sql.html">TUiDmxScroller_sql</a></td>
+<td class="itemunit"><a class="bold" href="mi_rtl_ui_Dmxscroller_sql.html">mi_rtl_ui_Dmxscroller_sql</a></td>
+<td class="itemdesc"><p>A classe <strong><code>TUiDmxScroller_sql</code></strong> implementa o acesso ao banco de dados usando o atributo <strong><a class="normal" href="mi_rtl_ui_Dmxscroller_sql.TDmxScroller_sql_Atributos.html#CustomBufDataset">CustomBufDataset</a></strong>
+
+<p></p>
+
+<ul class="paragraph_spacing">
+  <li><p><strong>NOTA</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>O atributo <strong><a class="normal" href="mi_rtl_ui_Dmxscroller_sql.TDmxScroller_sql_Atributos.html#CustomBufDataset">CustomBufDataset</a></strong> pode ser <strong>TBufDataset</strong> não conectado a banco de dados sql e <strong>TCustomSQLQuery</strong> conectado ao banco de dados SQL.</p></li>
+</ul>
+
+<p></p></li>
+  <li><p><strong>REFERÊNCIA</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>[Working_With_TSQLQuery](<a href="https://wiki.freepascal.org/Working_With_TSQLQuery">https://wiki.freepascal.org/Working_With_TSQLQuery</a>)</p></li>
+  <li><p>[Parameters_in_TSQLQuery](<a href="https://wiki.freepascal.org/Working_With_TSQLQuery#Parameters_in_TSQLQuery.SQL">https://wiki.freepascal.org/Working_With_TSQLQuery#Parameters_in_TSQLQuery.SQL</a>)</p></li>
+  <li><p>[sql-basico](<a href="https://www.devmedia.com.br/sql-basico/28877">https://www.devmedia.com.br/sql-basico/28877</a>)</p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p></td>
+</tr>
+<tr class="list2">
+<td class="itemname"><a class="bold" href="mi_rtl_ui_methods.TUiMethods.html">TUiMethods</a></td>
+<td class="itemunit"><a class="bold" href="mi_rtl_ui_methods.html">mi_rtl_ui_methods</a></td>
+<td class="itemdesc"><p>&nbsp;</p></td>
+</tr>
+<tr class="list">
+<td class="itemname"><a class="bold" href="mi_rtl_ui_types.TUiTypes.html">TUiTypes</a></td>
+<td class="itemunit"><a class="bold" href="mi_rtl_ui_types.html">mi_rtl_ui_types</a></td>
+<td class="itemdesc"><p>A class <strong><code>TUiTypes</code></strong> concentra todos os tipo do pacote mi.ui.</p></td>
+</tr>
+<tr class="list2">
+<td class="itemname"><a class="bold" href="mi_rtl_ui_types.TUiTypes.TRCommand.html">TUiTypes.TRCommand</a></td>
+<td class="itemunit"><a class="bold" href="mi_rtl_ui_types.html">mi_rtl_ui_types</a></td>
+<td class="itemdesc"><p>&nbsp;</p></td>
+</tr>
+<tr class="list">
+<td class="itemname"><a class="bold" href="mi_rtl_ui_types.TUiTypes.TStrSQL.html">TUiTypes.TStrSQL</a></td>
+<td class="itemunit"><a class="bold" href="mi_rtl_ui_types.html">mi_rtl_ui_types</a></td>
+<td class="itemdesc"><p>O record <strong><code>TStrSQL</code></strong> é usado para padronizar os comandos sql independente do banco de dados.
+
+<p></p>
+
+<ul class="paragraph_spacing">
+  <li><p>Os geradores de código não usa string diretamente e sim a variável que contém o comando, isso é necessário porque os bancos de dados não são padronizados.
+
+<p></p>
+
+<ul class="paragraph_spacing">
+  <li><p>Exemplo: </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Comando para criar um campo Integer com 4 bytes com chave primária e autoincremental: </p>
+
+<ul class="paragraph_spacing">
+  <li><p>SqLite = Integer PRIMARY KEY <a class="normal" href="mi_rtl_ui_types.TUiTypes.TStrSQL.html#AutoIncrement">AUTOINCREMENT</a></p></li>
+  <li><p>PostgreSQL = SERIAL PRIMARY KEY</p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p></li>
+  <li><p><strong>REFERẼNCIA</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>[Planilha com sintaxe dos banco de dados aceitos](<a href="https://docs.google.com/spreadsheets/d/16jchX4-1KfGUn7c0Qp_GD7YVEbZ0Yh49OjkKYXo0WCE/edit#gid=0">https://docs.google.com/spreadsheets/d/16jchX4-1KfGUn7c0Qp_GD7YVEbZ0Yh49OjkKYXo0WCE/edit#gid=0</a>)</p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p></td>
+</tr>
+<tr class="list2">
+<td class="itemname"><a class="bold" href="mi_rtl_ui_types.TUiTypes.TValue.html">TUiTypes.TValue</a></td>
+<td class="itemunit"><a class="bold" href="mi_rtl_ui_types.html">mi_rtl_ui_types</a></td>
+<td class="itemdesc"><p>&nbsp;</p></td>
+</tr>
+<tr class="list">
+<td class="itemname"><a class="bold" href="mi_rtl_ui_types.TUiTypes.TViRect.html">TUiTypes.TViRect</a></td>
+<td class="itemunit"><a class="bold" href="mi_rtl_ui_types.html">mi_rtl_ui_types</a></td>
+<td class="itemdesc"><p>O registro <strong><code>TViRect</code></strong> usado para calcular retângulo baseado em uma origem e seu visinho na direção de <a class="normal" href="mi_rtl_ui_types.TUiTypes.html#TDirection">TDirection</a>
+
+<p></p>
+
+<ul class="paragraph_spacing">
+  <li><p><strong>NOTA</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Exemplo de uso está na unit : mi.rtl.objects.methods.ui.Dmxscroller.test;</p></li>
+  <li><p>O Exemplo foi criado para executar modo console.</p></li>
+  <li><p>Para testar no modo console veja o projeto rtl/TestTviRect</p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p></td>
+</tr>
+<tr class="list2">
+<td class="itemname"><a class="bold" href="mi.rtl.Objects.Methods.Collection.SortedCollection.StrCollection.TUnSortedStrCollection.html">TUnSortedStrCollection</a></td>
+<td class="itemunit"><a class="bold" href="mi.rtl.Objects.Methods.Collection.SortedCollection.StrCollection.html">mi.rtl.Objects.Methods.Collection.SortedCollection.StrCollection</a></td>
+<td class="itemdesc"><p>A classe <strong><code>TUnSortedStrCollection</code></strong> implementa uma coleção de <strong>AnsiString</strong> na ordem original de inserção das AnsiStrings</p></td>
+</tr>
+<tr class="list">
+<td class="itemname"><a class="bold" href="mi.rtl.Objects.Methods.Collection.SortedCollection.StringCollection.TUnSortedStringCollection.html">TUnSortedStringCollection</a></td>
+<td class="itemunit"><a class="bold" href="mi.rtl.Objects.Methods.Collection.SortedCollection.StringCollection.html">mi.rtl.Objects.Methods.Collection.SortedCollection.StringCollection</a></td>
+<td class="itemdesc"><p>A classe <strong><code>TUnSortedStringCollection</code></strong> implementa uma coleção de <strong>Shortstring</strong> na ordem original de inserção dos ShortStrings</p></td>
+</tr>
+<tr class="list2">
+<td class="itemname"><a class="bold" href="mi_rtl_ui_Dmxscroller.html#TValue">TValue</a></td>
+<td class="itemunit"><a class="bold" href="mi_rtl_ui_Dmxscroller.html">mi_rtl_ui_Dmxscroller</a></td>
+<td class="itemdesc"><p>&nbsp;</p></td>
+</tr>
+<tr class="list">
+<td class="itemname"><a class="bold" href="mi_rtl_ui_dmxscroller_form.html#TypeDate">TypeDate</a></td>
+<td class="itemunit"><a class="bold" href="mi_rtl_ui_dmxscroller_form.html">mi_rtl_ui_dmxscroller_form</a></td>
+<td class="itemdesc"><p>A constante <strong><code>TypeDate</code></strong> ...</p></td>
+</tr>
+<tr class="list2">
+<td class="itemname"><a class="bold" href="mi_rtl_ui_dmxscroller_form.html#TypeHora">TypeHora</a></td>
+<td class="itemunit"><a class="bold" href="mi_rtl_ui_dmxscroller_form.html">mi_rtl_ui_dmxscroller_form</a></td>
+<td class="itemdesc"><p>A constante <strong><code>TypeHora</code></strong> ...</p></td>
+</tr>
+<tr class="list">
+<td class="itemname"><a class="bold" href="mi_rtl_ui_dmxscroller_form.html#TypeMemo">TypeMemo</a></td>
+<td class="itemunit"><a class="bold" href="mi_rtl_ui_dmxscroller_form.html">mi_rtl_ui_dmxscroller_form</a></td>
+<td class="itemdesc"><p>A constante <strong><code>TypeMemo</code></strong> ...</p></td>
+</tr>
+<tr class="list2">
+<td class="itemname"><a class="bold" href="mi.ui.dialogs.html#_Dialogs">_Dialogs</a></td>
+<td class="itemunit"><a class="bold" href="mi.ui.dialogs.html">mi.ui.dialogs</a></td>
+<td class="itemdesc"><p>&nbsp;</p></td>
+</tr>
+<tr class="list">
+<td class="itemname"><a class="bold" href="mi_rtl_ui_dmxscroller_form.html#_TypeDate">_TypeDate</a></td>
+<td class="itemunit"><a class="bold" href="mi_rtl_ui_dmxscroller_form.html">mi_rtl_ui_dmxscroller_form</a></td>
+<td class="itemdesc"><p>A constante <strong><code>_TypeDate</code></strong> ...</p></td>
+</tr>
+</table>
+<hr><span class="appinfo"><em>Gerado por <a href="https://pasdoc.github.io/">PasDoc 0.16.0</a>. </em>
+</span>
+</div></div></body></html>

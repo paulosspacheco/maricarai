@@ -27,12 +27,27 @@
           <Mode Name="x86_64-win64"/>
         </BuildModes>
       </Target>
-      <Target FileName="mi.rtl/examples/test_num_version/test_num_version.lpi">
+      <Target FileName="mi.rtl/examples/svr_http/httpproject1.lpi">
         <BuildModes>
           <Mode Name="Default"/>
         </BuildModes>
       </Target>
-      <Target FileName="mi.rtl/examples/stork/create_config_stork.lpi">
+      <Target FileName="mi.rtl/examples/svrhttp-2.3.0/svr_http_listrecords.lpi">
+        <BuildModes>
+          <Mode Name="Default"/>
+        </BuildModes>
+      </Target>
+      <Target FileName="mi.rtl/examples/stork/create_index_stork.lpi">
+        <BuildModes>
+          <Mode Name="Default"/>
+        </BuildModes>
+      </Target>
+      <Target FileName="mi.rtl/examples/tipuesearch/tipuesearch.lpi">
+        <BuildModes>
+          <Mode Name="Default"/>
+        </BuildModes>
+      </Target>
+      <Target FileName="mi.rtl/examples/create_tipuesearch/create_tipuesearch.lpi">
         <BuildModes>
           <Mode Name="Default"/>
         </BuildModes>

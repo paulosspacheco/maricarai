@@ -1,0 +1,240 @@
+object Form1: TForm1
+  Left = 574
+  Height = 533
+  Top = 250
+  Width = 743
+  Caption = 'Form1'
+  ClientHeight = 533
+  ClientWidth = 743
+  object Button1Create_table_usuarios: TButton
+    Left = 16
+    Height = 25
+    Hint = 'Conecta-se ao banco de dados e cria tabela de usuários se não existir'
+    Top = 48
+    Width = 176
+    Caption = 'Create table usuários'
+    ParentShowHint = False
+    ShowHint = True
+    TabOrder = 0
+    OnClick = Button1Create_table_usuariosClick
+  end
+  object Button2sqlPQConection: TButton
+    Left = 16
+    Height = 25
+    Hint = 'Cria o banco de dados postgres  maricarai em 45.160.125.12'
+    Top = 8
+    Width = 211
+    Caption = 'CreateDB - sqlPQConection'
+    ParentShowHint = False
+    ShowHint = True
+    TabOrder = 1
+    OnClick = Button2sqlPQConectionClick
+  end
+  object DBGrid1: TDBGrid
+    Left = 0
+    Height = 164
+    Top = 172
+    Width = 743
+    Align = alBottom
+    Anchors = [akTop, akLeft, akRight, akBottom]
+    AutoFillColumns = True
+    Color = clWindow
+    Columns = <>
+    DataSource = DataSource1
+    TabOrder = 2
+  end
+  object DBNavigator1: TDBNavigator
+    Left = 0
+    Height = 25
+    Top = 147
+    Width = 743
+    Align = alBottom
+    Anchors = [akTop, akLeft, akRight, akBottom]
+    BevelOuter = bvNone
+    ChildSizing.EnlargeHorizontal = crsScaleChilds
+    ChildSizing.EnlargeVertical = crsScaleChilds
+    ChildSizing.ShrinkHorizontal = crsScaleChilds
+    ChildSizing.ShrinkVertical = crsScaleChilds
+    ChildSizing.Layout = cclLeftToRightThenTopToBottom
+    ChildSizing.ControlsPerLine = 100
+    ClientHeight = 25
+    ClientWidth = 743
+    DataSource = DataSource1
+    Options = []
+    TabOrder = 3
+  end
+  object ButtonUpdateTSQLQuary: TButton
+    Left = 16
+    Height = 25
+    Top = 80
+    Width = 115
+    Caption = 'Enviar'
+    TabOrder = 4
+    OnClick = ButtonUpdateTSQLQuaryClick
+  end
+  object DBNavigator2: TDBNavigator
+    Left = 0
+    Height = 25
+    Top = 336
+    Width = 743
+    Align = alBottom
+    Anchors = [akTop, akLeft, akRight, akBottom]
+    BevelOuter = bvNone
+    ChildSizing.EnlargeHorizontal = crsScaleChilds
+    ChildSizing.EnlargeVertical = crsScaleChilds
+    ChildSizing.ShrinkHorizontal = crsScaleChilds
+    ChildSizing.ShrinkVertical = crsScaleChilds
+    ChildSizing.Layout = cclLeftToRightThenTopToBottom
+    ChildSizing.ControlsPerLine = 100
+    ClientHeight = 25
+    ClientWidth = 743
+    DataSource = DataSource2
+    Options = []
+    TabOrder = 5
+  end
+  object DBGrid2: TDBGrid
+    Left = 0
+    Height = 172
+    Top = 361
+    Width = 743
+    Align = alBottom
+    Anchors = [akTop, akLeft, akRight, akBottom]
+    Color = clWindow
+    Columns = <>
+    DataSource = DataSource2
+    TabOrder = 6
+  end
+  object SQLConnector1: TSQLConnector
+    Connected = False
+    LoginPrompt = False
+    DatabaseName = 'maricarai'
+    KeepConnection = False
+    Password = 'masterkey'
+    Transaction = SQLTransaction1
+    UserName = 'postgres'
+    HostName = '45.160.125.12'
+    ConnectorType = 'PostgreSQL'
+    Left = 224
+    Top = 192
+  end
+  object SQLTransaction1: TSQLTransaction
+    Active = False
+    Database = SQLConnector1
+    Left = 320
+    Top = 192
+  end
+  object SQLQuery1: TSQLQuery
+    PacketRecords = -1
+    IndexName = 'DEFAULT_ORDER'
+    MaxIndexesCount = 4
+    FieldDefs = <    
+      item
+        Name = 'estado'
+        DataType = ftString
+        Precision = -1
+        Size = 3
+      end    
+      item
+        Name = 'cidade'
+        DataType = ftString
+        Precision = -1
+        Size = 26
+      end>
+    Database = SQLConnector1
+    Transaction = SQLTransaction1
+    SQL.Strings = (
+      'select * from cidades'
+    )
+    Options = [sqoKeepOpenOnCommit, sqoAutoApplyUpdates, sqoAutoCommit, sqoCancelUpdatesOnRefresh, sqoRefreshUsingSelect]
+    Params = <>
+    Macros = <>
+    Left = 136
+    Top = 192
+  end
+  object DataSource1: TDataSource
+    DataSet = SQLQuery1
+    Left = 48
+    Top = 192
+  end
+  object SQLQuery2: TSQLQuery
+    PacketRecords = -1
+    IndexName = 'DEFAULT_ORDER'
+    MaxIndexesCount = 4
+    FieldDefs = <    
+      item
+        Name = 'matricula'
+        DataType = ftInteger
+        Precision = -1
+      end    
+      item
+        Name = 'nome'
+        DataType = ftString
+        Precision = -1
+        Size = 28
+      end    
+      item
+        Name = 'endereco'
+        DataType = ftString
+        Precision = -1
+        Size = 32
+      end    
+      item
+        Name = 'pontodereferencia'
+        DataType = ftString
+        Precision = -1
+        Size = 26
+      end    
+      item
+        Name = 'cep'
+        DataType = ftString
+        Precision = -1
+        Size = 9
+      end    
+      item
+        Name = 'estado'
+        DataType = ftString
+        Precision = -1
+        Size = 3
+      end    
+      item
+        Name = 'cidade'
+        DataType = ftString
+        Precision = -1
+        Size = 26
+      end>
+    Database = SQLConnector2
+    Transaction = SQLTransaction2
+    SQL.Strings = (
+      'select * from alunos'
+    )
+    Options = [sqoKeepOpenOnCommit, sqoAutoApplyUpdates, sqoAutoCommit, sqoCancelUpdatesOnRefresh]
+    Params = <>
+    Macros = <>
+    Left = 424
+    Top = 408
+  end
+  object SQLConnector2: TSQLConnector
+    Connected = False
+    LoginPrompt = False
+    DatabaseName = 'maricarai'
+    KeepConnection = False
+    Password = 'masterkey'
+    Transaction = SQLTransaction2
+    UserName = 'postgres'
+    HostName = '45.160.125.12'
+    ConnectorType = 'PostgreSQL'
+    Left = 200
+    Top = 400
+  end
+  object SQLTransaction2: TSQLTransaction
+    Active = False
+    Database = SQLConnector2
+    Left = 304
+    Top = 408
+  end
+  object DataSource2: TDataSource
+    DataSet = SQLQuery2
+    Left = 536
+    Top = 408
+  end
+end

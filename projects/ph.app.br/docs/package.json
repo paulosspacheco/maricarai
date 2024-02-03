@@ -1,0 +1,11 @@
+{
+  "name": "docs",
+  "version": "1.0.0",
+  "description": "Documentação do projeto assistente virtual",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Paulo Henrique",
+  "license": "ISC"
+}

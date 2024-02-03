@@ -1,0 +1,739 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<title>simplehtmltreeparser: Classe TTreeParser</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="generator" content="PasDoc 0.16.0">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<link rel="stylesheet" type="text/css" href="tipuesearch/tipuesearch.css">
+
+<link rel="StyleSheet" type="text/css" href="pasdoc.css">
+</head>
+<body>
+<div class="container"><div class="navigation">
+<ul><li><a href="AllUnits.html">Units</a></li><li><a href="ClassHierarchy.html">Hierarquia de Classes</a></li><li><a href="AllClasses.html">Classes, Interfaces, Objetos e Registros</a></li><li><a href="AllTypes.html">Tipos</a></li><li><a href="AllVariables.html">Variáveis</a></li><li><a href="AllConstants.html">Constantes</a></li><li><a href="AllFunctions.html">Funções e Procedimentos</a></li><li><a href="AllIdentifiers.html">Identificadores</a></li><li><form class="search-form" action="tipue_results.html"><div class="search-input"><input type="text" name="q" id="tipue_search_input" pattern=".{3,}" title="At least 3 characters" required><div class="search-button"><input type="button" id="tipue_search_button" onclick="this.form.submit();"></div></div></form>
+<div style="clear: both"></div>
+</li></ul></div><div class="content">
+<span id="TTreeParser"></span><h1 class="cio">Classe TTreeParser</h1>
+<div class="sections">
+<div class="one_section"><a class="section" href="#PasDoc-Description">Descrição</a></div><div class="one_section"><a class="section" href="#PasDoc-Hierarchy">Hierarquia</a></div><div class="one_section"><a class="section" href="#PasDoc-Fields">Campos</a></div><div class="one_section"><a class="section" href="#PasDoc-Methods">Métodos</a></div><div class="one_section"><a class="section" href="#PasDoc-Properties">Propriedades</a></div></div>
+<span id="PasDoc-Description"></span><h2 class="unit">Unit</h2>
+<p class="unitlink">
+<a href="simplehtmltreeparser.html">simplehtmltreeparser</a></p>
+<h2 class="declaration">Declaração</h2>
+<p class="declaration">
+<code>type TTreeParser = class(TObject)</code></p>
+<h2 class="description">Descrição</h2>
+<p>
+This parses an HTML/SGML/XML file to a tree like structure.</p>
+<p>
+ To use it, you have to call <code><a class="normal" href="simplehtmltreeparser.TTreeParser.html#parseTree">parseTree</a></code> with a string containing the document. Afterwards you can call <code><a class="normal" href="simplehtmltreeparser.TTreeParser.html#getLastTree">getLastTree</a></code> to get the document root node.<br>
+
+<p>The data structure is like a stream of annotated tokens with back links (so you can traverse it like a tree).<br> If <a class="normal" href="simplehtmltreeparser.TTreeParser.html#TargetEncoding">TargetEncoding</a> is not CP_NONE, the parsed data is automatically converted to that encoding. (the initial encoding is detected depending on the unicode BOM, the xml-declaration, the content-type header, the http-equiv meta tag <a class="normal" href="int65math.html#and">and</a> invalid characters.) You can change the class used for the elements in the tree with the field <a class="normal" href="simplehtmltreeparser.TTreeParser.html#treeNodeClass">treeNodeClass</a>.</p>
+<span id="PasDoc-Hierarchy"></span><h2 class="hierarchy">Hierarquia</h2>
+<ul class="hierarchy"><li class="ancestor">TObject</li>
+<li class="thisitem">TTreeParser</li></ul><h2 class="overview">Visão Geral</h2>
+<span id="PasDoc-Fields"></span><h3 class="summary">Campos</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code><strong><a href="simplehtmltreeparser.TTreeParser.html#FAutoDetectHTMLEncoding">FAutoDetectHTMLEncoding</a></strong>: boolean;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code><strong><a href="simplehtmltreeparser.TTreeParser.html#FReadProcessingInstructions">FReadProcessingInstructions</a></strong>: boolean;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code><strong><a href="simplehtmltreeparser.TTreeParser.html#FTreeBuilder">FTreeBuilder</a></strong>: <a href="simplehtmltreeparser.TTreeBuilder.html">TTreeBuilder</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code><strong><a href="simplehtmltreeparser.TTreeParser.html#FAutoCloseTag">FAutoCloseTag</a></strong>: boolean;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code><strong><a href="simplehtmltreeparser.TTreeParser.html#FCurrentFile">FCurrentFile</a></strong>: RawByteString;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code><strong><a href="simplehtmltreeparser.TTreeParser.html#FParsingModel">FParsingModel</a></strong>: <a href="simplehtmltreeparser.html#TParsingModel">TParsingModel</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code><strong><a href="simplehtmltreeparser.TTreeParser.html#FTrimText">FTrimText</a></strong>: boolean;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code><strong><a href="simplehtmltreeparser.TTreeParser.html#FReadComments">FReadComments</a></strong>: boolean;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code><strong><a href="simplehtmltreeparser.TTreeParser.html#FTrees">FTrees</a></strong>: TFPList;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code><strong><a href="simplehtmltreeparser.TTreeParser.html#FNCNameCache">FNCNameCache</a></strong>: TXQHashmapStrStr;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code><strong><a href="simplehtmltreeparser.TTreeParser.html#FRepairMissingStartTags">FRepairMissingStartTags</a></strong>: boolean;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code><strong><a href="simplehtmltreeparser.TTreeParser.html#FRepairMissingEndTags">FRepairMissingEndTags</a></strong>: boolean;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code><strong><a href="simplehtmltreeparser.TTreeParser.html#FLineSpaceNormalizationIncludes85_2028">FLineSpaceNormalizationIncludes85_2028</a></strong>: boolean;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code><strong><a href="simplehtmltreeparser.TTreeParser.html#FEncodingInputCertain">FEncodingInputCertain</a></strong>: TSystemCodePage;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code><strong><a href="simplehtmltreeparser.TTreeParser.html#FEncodingCurrent">FEncodingCurrent</a></strong>: TSystemCodePage;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code><strong><a href="simplehtmltreeparser.TTreeParser.html#FEncodingMeta">FEncodingMeta</a></strong>: TSystemCodePage;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code><strong><a href="simplehtmltreeparser.TTreeParser.html#FReparseWithChangedEncoding">FReparseWithChangedEncoding</a></strong>: boolean;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code><strong><a href="simplehtmltreeparser.TTreeParser.html#treeNodeClass">treeNodeClass</a></strong>: <a href="simplehtmltreeparser.html#TTreeNodeClass">TTreeNodeClass</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code><strong><a href="simplehtmltreeparser.TTreeParser.html#globalNamespaces">globalNamespaces</a></strong>: <a href="xquery.namespaces.TNamespaceList.html">TNamespaceList</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code><strong><a href="simplehtmltreeparser.TTreeParser.html#allowTextAtRootLevel">allowTextAtRootLevel</a></strong>: boolean;</code></td>
+</tr>
+</table>
+<span id="PasDoc-Methods"></span><h3 class="summary">Métodos</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="simplehtmltreeparser.TTreeParser.html#abortIfEncodingMismatch">abortIfEncodingMismatch</a></strong>: <a href="simplehtmlparser.html#TParsingResult">TParsingResult</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="simplehtmltreeparser.TTreeParser.html#parseRawText">parseRawText</a></strong>(t: pchar; len: SizeInt): string;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>procedure <strong><a href="simplehtmltreeparser.TTreeParser.html#parseQName">parseQName</a></strong>(t: pchar; len: sizeint; out prefixLen: sizeint; out hash: <a href="simplehtmltreeparser.html#TNodeNameHash">TNodeNameHash</a>; out tag: string);</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="simplehtmltreeparser.TTreeParser.html#parseCDATA">parseCDATA</a></strong>(t: pchar; len: SizeInt): string;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="simplehtmltreeparser.TTreeParser.html#parseTextAttribute">parseTextAttribute</a></strong>(t: pchar; len: SizeInt): string;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="simplehtmltreeparser.TTreeParser.html#appendTreeNode">appendTreeNode</a></strong>(typ:<a href="simplehtmltreeparser.html#TTreeNodeType">TTreeNodeType</a>; s: string; offset: SizeInt):<a href="simplehtmltreeparser.TTreeNode.html">TTreeNode</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>procedure <strong><a href="simplehtmltreeparser.TTreeParser.html#autoCloseLastTag">autoCloseLastTag</a></strong>();</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="simplehtmltreeparser.TTreeParser.html#autoCloseTill">autoCloseTill</a></strong>(const ctag: string): <a href="simplehtmltreeparser.TTreeNode.html">TTreeNode</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="simplehtmltreeparser.TTreeParser.html#prependTag">prependTag</a></strong>(const tag: string): <a href="simplehtmltreeparser.TTreeNode.html">TTreeNode</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>procedure <strong><a href="simplehtmltreeparser.TTreeParser.html#doRepairMissingStartTags">doRepairMissingStartTags</a></strong>(const tag: string);</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="simplehtmltreeparser.TTreeParser.html#enterXMLTag">enterXMLTag</a></strong>(tagName: pchar; tagNameLen: SizeInt; properties: <a href="simplehtmlparser.html#THTMLProperties">THTMLProperties</a>):<a href="simplehtmlparser.html#TParsingResult">TParsingResult</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="simplehtmltreeparser.TTreeParser.html#enterHTMLTag">enterHTMLTag</a></strong>(tagName: pchar; tagNameLen: SizeInt; properties: <a href="simplehtmlparser.html#THTMLProperties">THTMLProperties</a>):<a href="simplehtmlparser.html#TParsingResult">TParsingResult</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="simplehtmltreeparser.TTreeParser.html#enterTagCommon">enterTagCommon</a></strong>(hash: <a href="simplehtmltreeparser.html#TNodeNameHash">TNodeNameHash</a>; const tag: string; prefix: pchar; prefixLen: sizeint; const properties: <a href="simplehtmlparser.html#THTMLProperties">THTMLProperties</a>): <a href="simplehtmltreeparser.TTreeNode.html">TTreeNode</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="simplehtmltreeparser.TTreeParser.html#leaveXMLTag">leaveXMLTag</a></strong>(tagName: pchar; tagNameLen: SizeInt):<a href="simplehtmlparser.html#TParsingResult">TParsingResult</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="simplehtmltreeparser.TTreeParser.html#leaveHTMLTag">leaveHTMLTag</a></strong>(tagName: pchar; tagNameLen: SizeInt):<a href="simplehtmlparser.html#TParsingResult">TParsingResult</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="simplehtmltreeparser.TTreeParser.html#leaveTagCommon">leaveTagCommon</a></strong>(tagName: pchar; tagNameLen: SizeInt): <a href="simplehtmltreeparser.TTreeNode.html">TTreeNode</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>procedure <strong><a href="simplehtmltreeparser.TTreeParser.html#leaveTagNoOpenTagCheck">leaveTagNoOpenTagCheck</a></strong>(tagName: pchar; tagNameLen: SizeInt);</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="simplehtmltreeparser.TTreeParser.html#readText">readText</a></strong>(text: pchar; textLen: SizeInt; tf: <a href="simplehtmlparser.html#TTextFlags">TTextFlags</a>):<a href="simplehtmlparser.html#TParsingResult">TParsingResult</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="simplehtmltreeparser.TTreeParser.html#readComment">readComment</a></strong>(text: pchar; textLen: SizeInt):<a href="simplehtmlparser.html#TParsingResult">TParsingResult</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="simplehtmltreeparser.TTreeParser.html#readProcessingInstruction">readProcessingInstruction</a></strong>(text: pchar; textLen: SizeInt; unusedParameter: <a href="simplehtmlparser.html#TTextFlags">TTextFlags</a>): <a href="simplehtmlparser.html#TParsingResult">TParsingResult</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>constructor <strong><a href="simplehtmltreeparser.TTreeParser.html#Create">Create</a></strong>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>destructor <strong><a href="simplehtmltreeparser.TTreeParser.html#destroy">destroy</a></strong>; override;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>procedure <strong><a href="simplehtmltreeparser.TTreeParser.html#clearTrees">clearTrees</a></strong>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="simplehtmltreeparser.TTreeParser.html#parseTree">parseTree</a></strong>(html: string; uri: string = ''; contentType: string = ''): <a href="simplehtmltreeparser.TTreeDocument.html">TTreeDocument</a>; virtual;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="simplehtmltreeparser.TTreeParser.html#parseTreeFromFile">parseTreeFromFile</a></strong>(filename: string): <a href="simplehtmltreeparser.TTreeDocument.html">TTreeDocument</a>; virtual;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="simplehtmltreeparser.TTreeParser.html#getLastTree">getLastTree</a></strong>: <a href="simplehtmltreeparser.TTreeDocument.html">TTreeDocument</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>procedure <strong><a href="simplehtmltreeparser.TTreeParser.html#addTree">addTree</a></strong>(t: <a href="simplehtmltreeparser.TTreeDocument.html">TTreeDocument</a>);</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>procedure <strong><a href="simplehtmltreeparser.TTreeParser.html#removeEmptyTextNodes">removeEmptyTextNodes</a></strong>(const whenTrimmed: boolean);</code></td>
+</tr>
+</table>
+<span id="PasDoc-Properties"></span><h3 class="summary">Propriedades</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><code>property <strong><a href="simplehtmltreeparser.TTreeParser.html#parsingModel">parsingModel</a></strong>: <a href="simplehtmltreeparser.html#TParsingModel">TParsingModel</a> read <a href="simplehtmltreeparser.TTreeParser.html#FParsingModel">FParsingModel</a> write <a href="simplehtmltreeparser.TTreeParser.html#FParsingModel">FParsingModel</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><code>property <strong><a href="simplehtmltreeparser.TTreeParser.html#repairMissingStartTags">repairMissingStartTags</a></strong>: boolean read <a href="simplehtmltreeparser.TTreeParser.html#FRepairMissingStartTags">FrepairMissingStartTags</a> write <a href="simplehtmltreeparser.TTreeParser.html#FRepairMissingStartTags">FrepairMissingStartTags</a> ;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><code>property <strong><a href="simplehtmltreeparser.TTreeParser.html#repairMissingEndTags">repairMissingEndTags</a></strong>: boolean read <a href="simplehtmltreeparser.TTreeParser.html#FRepairMissingEndTags">FRepairMissingEndTags</a>  write <a href="simplehtmltreeparser.TTreeParser.html#FRepairMissingEndTags">FRepairMissingEndTags</a> ;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><code>property <strong><a href="simplehtmltreeparser.TTreeParser.html#trimText">trimText</a></strong>: boolean read <a href="simplehtmltreeparser.TTreeParser.html#FTrimText">FTrimText</a> write <a href="simplehtmltreeparser.TTreeParser.html#FTrimText">FTrimText</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><code>property <strong><a href="simplehtmltreeparser.TTreeParser.html#readComments">readComments</a></strong>: boolean read <a href="simplehtmltreeparser.TTreeParser.html#FReadComments">FReadComments</a> write <a href="simplehtmltreeparser.TTreeParser.html#FReadComments">FReadComments</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><code>property <strong><a href="simplehtmltreeparser.TTreeParser.html#readProcessingInstructions">readProcessingInstructions</a></strong>: boolean read <a href="simplehtmltreeparser.TTreeParser.html#FReadProcessingInstructions">FReadProcessingInstructions</a> write <a href="simplehtmltreeparser.TTreeParser.html#FReadProcessingInstructions">FReadProcessingInstructions</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><code>property <strong><a href="simplehtmltreeparser.TTreeParser.html#autoDetectHTMLEncoding">autoDetectHTMLEncoding</a></strong>: boolean read <a href="simplehtmltreeparser.TTreeParser.html#FAutoDetectHTMLEncoding">FAutoDetectHTMLEncoding</a> write <a href="simplehtmltreeparser.TTreeParser.html#FAutoDetectHTMLEncoding">fautoDetectHTMLEncoding</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><code>property <strong><a href="simplehtmltreeparser.TTreeParser.html#TargetEncoding">TargetEncoding</a></strong>: TSystemCodePage read FEncodingTarget write FEncodingTarget;</code></td>
+</tr>
+</table>
+<h2 class="description">Descrição</h2>
+<h3 class="detail">Campos</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="FAutoDetectHTMLEncoding"></span><code><strong>FAutoDetectHTMLEncoding</strong>: boolean;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="FReadProcessingInstructions"></span><code><strong>FReadProcessingInstructions</strong>: boolean;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="FTreeBuilder"></span><code><strong>FTreeBuilder</strong>: <a href="simplehtmltreeparser.TTreeBuilder.html">TTreeBuilder</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="FAutoCloseTag"></span><code><strong>FAutoCloseTag</strong>: boolean;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="FCurrentFile"></span><code><strong>FCurrentFile</strong>: RawByteString;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="FParsingModel"></span><code><strong>FParsingModel</strong>: <a href="simplehtmltreeparser.html#TParsingModel">TParsingModel</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="FTrimText"></span><code><strong>FTrimText</strong>: boolean;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="FReadComments"></span><code><strong>FReadComments</strong>: boolean;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="FTrees"></span><code><strong>FTrees</strong>: TFPList;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="FNCNameCache"></span><code><strong>FNCNameCache</strong>: TXQHashmapStrStr;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="FRepairMissingStartTags"></span><code><strong>FRepairMissingStartTags</strong>: boolean;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="FRepairMissingEndTags"></span><code><strong>FRepairMissingEndTags</strong>: boolean;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="FLineSpaceNormalizationIncludes85_2028"></span><code><strong>FLineSpaceNormalizationIncludes85_2028</strong>: boolean;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="FEncodingInputCertain"></span><code><strong>FEncodingInputCertain</strong>: TSystemCodePage;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="FEncodingCurrent"></span><code><strong>FEncodingCurrent</strong>: TSystemCodePage;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="FEncodingMeta"></span><code><strong>FEncodingMeta</strong>: TSystemCodePage;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="FReparseWithChangedEncoding"></span><code><strong>FReparseWithChangedEncoding</strong>: boolean;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="treeNodeClass"></span><code><strong>treeNodeClass</strong>: <a href="simplehtmltreeparser.html#TTreeNodeClass">TTreeNodeClass</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+Class of the tree nodes. You can subclass <a class="normal" href="simplehtmltreeparser.TTreeNode.html">TTreeNode</a> if you need to store additional data at every node</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="globalNamespaces"></span><code><strong>globalNamespaces</strong>: <a href="xquery.namespaces.TNamespaceList.html">TNamespaceList</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="allowTextAtRootLevel"></span><code><strong>allowTextAtRootLevel</strong>: boolean;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<h3 class="detail">Métodos</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="abortIfEncodingMismatch"></span><code>function <strong>abortIfEncodingMismatch</strong>: <a href="simplehtmlparser.html#TParsingResult">TParsingResult</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="parseRawText"></span><code>function <strong>parseRawText</strong>(t: pchar; len: SizeInt): string;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="parseQName"></span><code>procedure <strong>parseQName</strong>(t: pchar; len: sizeint; out prefixLen: sizeint; out hash: <a href="simplehtmltreeparser.html#TNodeNameHash">TNodeNameHash</a>; out tag: string);</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="parseCDATA"></span><code>function <strong>parseCDATA</strong>(t: pchar; len: SizeInt): string;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="parseTextAttribute"></span><code>function <strong>parseTextAttribute</strong>(t: pchar; len: SizeInt): string;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="appendTreeNode"></span><code>function <strong>appendTreeNode</strong>(typ:<a href="simplehtmltreeparser.html#TTreeNodeType">TTreeNodeType</a>; s: string; offset: SizeInt):<a href="simplehtmltreeparser.TTreeNode.html">TTreeNode</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="autoCloseLastTag"></span><code>procedure <strong>autoCloseLastTag</strong>();</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="autoCloseTill"></span><code>function <strong>autoCloseTill</strong>(const ctag: string): <a href="simplehtmltreeparser.TTreeNode.html">TTreeNode</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="prependTag"></span><code>function <strong>prependTag</strong>(const tag: string): <a href="simplehtmltreeparser.TTreeNode.html">TTreeNode</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="doRepairMissingStartTags"></span><code>procedure <strong>doRepairMissingStartTags</strong>(const tag: string);</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="enterXMLTag"></span><code>function <strong>enterXMLTag</strong>(tagName: pchar; tagNameLen: SizeInt; properties: <a href="simplehtmlparser.html#THTMLProperties">THTMLProperties</a>):<a href="simplehtmlparser.html#TParsingResult">TParsingResult</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="enterHTMLTag"></span><code>function <strong>enterHTMLTag</strong>(tagName: pchar; tagNameLen: SizeInt; properties: <a href="simplehtmlparser.html#THTMLProperties">THTMLProperties</a>):<a href="simplehtmlparser.html#TParsingResult">TParsingResult</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="enterTagCommon"></span><code>function <strong>enterTagCommon</strong>(hash: <a href="simplehtmltreeparser.html#TNodeNameHash">TNodeNameHash</a>; const tag: string; prefix: pchar; prefixLen: sizeint; const properties: <a href="simplehtmlparser.html#THTMLProperties">THTMLProperties</a>): <a href="simplehtmltreeparser.TTreeNode.html">TTreeNode</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="leaveXMLTag"></span><code>function <strong>leaveXMLTag</strong>(tagName: pchar; tagNameLen: SizeInt):<a href="simplehtmlparser.html#TParsingResult">TParsingResult</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="leaveHTMLTag"></span><code>function <strong>leaveHTMLTag</strong>(tagName: pchar; tagNameLen: SizeInt):<a href="simplehtmlparser.html#TParsingResult">TParsingResult</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="leaveTagCommon"></span><code>function <strong>leaveTagCommon</strong>(tagName: pchar; tagNameLen: SizeInt): <a href="simplehtmltreeparser.TTreeNode.html">TTreeNode</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="leaveTagNoOpenTagCheck"></span><code>procedure <strong>leaveTagNoOpenTagCheck</strong>(tagName: pchar; tagNameLen: SizeInt);</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="readText"></span><code>function <strong>readText</strong>(text: pchar; textLen: SizeInt; tf: <a href="simplehtmlparser.html#TTextFlags">TTextFlags</a>):<a href="simplehtmlparser.html#TParsingResult">TParsingResult</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="readComment"></span><code>function <strong>readComment</strong>(text: pchar; textLen: SizeInt):<a href="simplehtmlparser.html#TParsingResult">TParsingResult</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="readProcessingInstruction"></span><code>function <strong>readProcessingInstruction</strong>(text: pchar; textLen: SizeInt; unusedParameter: <a href="simplehtmlparser.html#TTextFlags">TTextFlags</a>): <a href="simplehtmlparser.html#TParsingResult">TParsingResult</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Create"></span><code>constructor <strong>Create</strong>;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="destroy"></span><code>destructor <strong>destroy</strong>; override;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="clearTrees"></span><code>procedure <strong>clearTrees</strong>;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="parseTree"></span><code>function <strong>parseTree</strong>(html: string; uri: string = ''; contentType: string = ''): <a href="simplehtmltreeparser.TTreeDocument.html">TTreeDocument</a>; virtual;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+Creates a new tree from an HTML document contained in html. <br> contentType is used to detect the encoding</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="parseTreeFromFile"></span><code>function <strong>parseTreeFromFile</strong>(filename: string): <a href="simplehtmltreeparser.TTreeDocument.html">TTreeDocument</a>; virtual;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="getLastTree"></span><code>function <strong>getLastTree</strong>: <a href="simplehtmltreeparser.TTreeDocument.html">TTreeDocument</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+Returns the last created tree</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="addTree"></span><code>procedure <strong>addTree</strong>(t: <a href="simplehtmltreeparser.TTreeDocument.html">TTreeDocument</a>);</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="removeEmptyTextNodes"></span><code>procedure <strong>removeEmptyTextNodes</strong>(const whenTrimmed: boolean);</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<h3 class="detail">Propriedades</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><span id="parsingModel"></span><code>property <strong>parsingModel</strong>: <a href="simplehtmltreeparser.html#TParsingModel">TParsingModel</a> read <a href="simplehtmltreeparser.TTreeParser.html#FParsingModel">FParsingModel</a> write <a href="simplehtmltreeparser.TTreeParser.html#FParsingModel">FParsingModel</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+Parsing model, see <a class="normal" href="simplehtmltreeparser.html#TParsingModel">TParsingModel</a></p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><span id="repairMissingStartTags"></span><code>property <strong>repairMissingStartTags</strong>: boolean read <a href="simplehtmltreeparser.TTreeParser.html#FRepairMissingStartTags">FrepairMissingStartTags</a> write <a href="simplehtmltreeparser.TTreeParser.html#FRepairMissingStartTags">FrepairMissingStartTags</a> ;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><span id="repairMissingEndTags"></span><code>property <strong>repairMissingEndTags</strong>: boolean read <a href="simplehtmltreeparser.TTreeParser.html#FRepairMissingEndTags">FRepairMissingEndTags</a>  write <a href="simplehtmltreeparser.TTreeParser.html#FRepairMissingEndTags">FRepairMissingEndTags</a> ;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><span id="trimText"></span><code>property <strong>trimText</strong>: boolean read <a href="simplehtmltreeparser.TTreeParser.html#FTrimText">FTrimText</a> write <a href="simplehtmltreeparser.TTreeParser.html#FTrimText">FTrimText</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+If this is true (default is false), white space is removed from text nodes</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><span id="readComments"></span><code>property <strong>readComments</strong>: boolean read <a href="simplehtmltreeparser.TTreeParser.html#FReadComments">FReadComments</a> write <a href="simplehtmltreeparser.TTreeParser.html#FReadComments">FReadComments</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+If this is true (default is false) comments are included in the generated tree</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><span id="readProcessingInstructions"></span><code>property <strong>readProcessingInstructions</strong>: boolean read <a href="simplehtmltreeparser.TTreeParser.html#FReadProcessingInstructions">FReadProcessingInstructions</a> write <a href="simplehtmltreeparser.TTreeParser.html#FReadProcessingInstructions">FReadProcessingInstructions</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+If this is true (default is false) processing instructions are included in the generated tree</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><span id="autoDetectHTMLEncoding"></span><code>property <strong>autoDetectHTMLEncoding</strong>: boolean read <a href="simplehtmltreeparser.TTreeParser.html#FAutoDetectHTMLEncoding">FAutoDetectHTMLEncoding</a> write <a href="simplehtmltreeparser.TTreeParser.html#FAutoDetectHTMLEncoding">fautoDetectHTMLEncoding</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+Determines if the encoding should be automatically detected (default true)</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><span id="TargetEncoding"></span><code>property <strong>TargetEncoding</strong>: TSystemCodePage read FEncodingTarget write FEncodingTarget;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<hr><span class="appinfo"><em>Gerado por <a href="https://pasdoc.github.io/">PasDoc 0.16.0</a>. </em>
+</span>
+</div></div></body></html>

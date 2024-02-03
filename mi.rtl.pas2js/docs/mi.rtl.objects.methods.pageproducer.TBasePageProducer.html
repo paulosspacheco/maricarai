@@ -1,0 +1,1778 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<title>mi.rtl.objects.methods.pageproducer: Classe TBasePageProducer</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="generator" content="PasDoc 0.16.0">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<link rel="stylesheet" type="text/css" href="tipuesearch/tipuesearch.css">
+
+<link rel="StyleSheet" type="text/css" href="pasdoc.css">
+</head>
+<body>
+<div class="container"><div class="navigation">
+<ul><li><a href="AllUnits.html">Units</a></li><li><a href="ClassHierarchy.html">Hierarquia de Classes</a></li><li><a href="AllClasses.html">Classes, Interfaces, Objetos e Registros</a></li><li><a href="AllTypes.html">Tipos</a></li><li><a href="AllVariables.html">Variáveis</a></li><li><a href="AllConstants.html">Constantes</a></li><li><a href="AllFunctions.html">Funções e Procedimentos</a></li><li><a href="AllIdentifiers.html">Identificadores</a></li><li><form class="search-form" action="tipue_results.html"><div class="search-input"><input type="text" name="q" id="tipue_search_input" pattern=".{3,}" title="At least 3 characters" required><div class="search-button"><input type="button" id="tipue_search_button" onclick="this.form.submit();"></div></div></form>
+<div style="clear: both"></div>
+</li></ul></div><div class="content">
+<span id="TBasePageProducer"></span><h1 class="cio">Classe TBasePageProducer</h1>
+<div class="sections">
+<div class="one_section"><a class="section" href="#PasDoc-Description">Descrição</a></div><div class="one_section"><a class="section" href="#PasDoc-Hierarchy">Hierarquia</a></div><div class="one_section">Campos</div><div class="one_section"><a class="section" href="#PasDoc-Methods">Métodos</a></div><div class="one_section"><a class="section" href="#PasDoc-Properties">Propriedades</a></div></div>
+<span id="PasDoc-Description"></span><h2 class="unit">Unit</h2>
+<p class="unitlink">
+<a href="mi.rtl.objects.methods.pageproducer.html">mi.rtl.objects.methods.pageproducer</a></p>
+<h2 class="declaration">Declaração</h2>
+<p class="declaration">
+<code>type TBasePageProducer = class(<a class="normal" href="mi.rtl.Objects.Methods.TObjectsMethods.html">TObjectsMethods</a>)</code></p>
+<h2 class="description">Descrição</h2>
+<p>
+A classe <strong><code>TBasePageProducer</code></strong> permite criar documentos baseados em modelos, podendo ser html ou não.
+
+<p></p>
+
+<ul class="paragraph_spacing">
+  <li><p><strong>NOTA</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Tentei manter o mesmo comportamento do TPageProduce do Delphi, porém faz mais porque está documentado com exemplos de uso.</p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p>
+<span id="PasDoc-Hierarchy"></span><h2 class="hierarchy">Hierarquia</h2>
+<ul class="hierarchy"><li class="ancestor">TObjectsTypes</li>
+<li class="ancestor"><a class="normal" href="mi.rtl.Objects.Consts.TObjectsConsts.html">TObjectsConsts</a></li>
+<li class="ancestor"><a class="normal" href="mi.rtl.Objects.Methods.TObjectsMethods.html">TObjectsMethods</a></li>
+<li class="thisitem">TBasePageProducer</li></ul><h2 class="overview">Visão Geral</h2>
+<span id="PasDoc-Methods"></span><h3 class="summary">Métodos</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>constructor <strong><a href="mi.rtl.objects.methods.pageproducer.TBasePageProducer.html#create">create</a></strong>(aOwner:TComponent); override;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>destructor <strong><a href="mi.rtl.objects.methods.pageproducer.TBasePageProducer.html#destroy">destroy</a></strong>; override;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>class function <strong><a href="mi.rtl.objects.methods.pageproducer.TBasePageProducer.html#ListFilesText">ListFilesText</a></strong>(const aTagName, atemplate,aPath,aMask :String) : string;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>class function <strong><a href="mi.rtl.objects.methods.pageproducer.TBasePageProducer.html#StringReplaceTgImage">StringReplaceTgImage</a></strong>(const aTemplate, aSrc, aAlt, aTitle, aFigcaption: String): string;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>class function <strong><a href="mi.rtl.objects.methods.pageproducer.TBasePageProducer.html#StringReplaceTgLink">StringReplaceTgLink</a></strong>( const aAlias, atemplate, aURL, atarget, aTitle, aText:String):string;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>class function <strong><a href="mi.rtl.objects.methods.pageproducer.TBasePageProducer.html#StringReplaceTgTable">StringReplaceTgTable</a></strong>( Const aAlias : string; Const aHeaderCols : string; Const aOneRowCols : string; Const aFooterCols : string; Const aNotFound : string; Const aTypeTable:String; Const aTemplate :String ):string;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>procedure <strong><a href="mi.rtl.objects.methods.pageproducer.TBasePageProducer.html#DoOnHTMLTag_tgCustom">DoOnHTMLTag_tgCustom</a></strong>(Sender: TObject; const TagString: String;TagParams: TStringList; var ReplaceText: String); Virtual;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>procedure <strong><a href="mi.rtl.objects.methods.pageproducer.TBasePageProducer.html#DoOnHTMLTag_tgLink">DoOnHTMLTag_tgLink</a></strong>(Sender: TObject; const TagString: String;TagParams: TStringList; var ReplaceText: String); Virtual;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>procedure <strong><a href="mi.rtl.objects.methods.pageproducer.TBasePageProducer.html#DoOnHTMLTag_tgImage">DoOnHTMLTag_tgImage</a></strong>(Sender: TObject; const TagString: String;TagParams: TStringList; var ReplaceText: String); Virtual;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>procedure <strong><a href="mi.rtl.objects.methods.pageproducer.TBasePageProducer.html#DoOnHTMLTag_tgTable">DoOnHTMLTag_tgTable</a></strong>(Sender: TObject; const TagString: String;TagParams: TStringList; var ReplaceText: String); Virtual;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>procedure <strong><a href="mi.rtl.objects.methods.pageproducer.TBasePageProducer.html#DoOnHTMLTag_tgImageMap">DoOnHTMLTag_tgImageMap</a></strong>(Sender: TObject; const TagString: String;TagParams: TStringList; var ReplaceText: String); Virtual;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>procedure <strong><a href="mi.rtl.objects.methods.pageproducer.TBasePageProducer.html#DoOnHTMLTag_tgObject">DoOnHTMLTag_tgObject</a></strong>(Sender: TObject; const TagString: String;TagParams: TStringList; var ReplaceText: String); Virtual;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>procedure <strong><a href="mi.rtl.objects.methods.pageproducer.TBasePageProducer.html#DoOnHTMLTag_tgEmbed">DoOnHTMLTag_tgEmbed</a></strong>(Sender: TObject; const TagString: String;TagParams: TStringList; var ReplaceText: String); Virtual;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>procedure <strong><a href="mi.rtl.objects.methods.pageproducer.TBasePageProducer.html#DoOnHTMLTag_tgVideo">DoOnHTMLTag_tgVideo</a></strong>(Sender: TObject; const TagString: String;TagParams: TStringList; var ReplaceText: String); Virtual;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>procedure <strong><a href="mi.rtl.objects.methods.pageproducer.TBasePageProducer.html#DoOnHTMLTag_tgAudio">DoOnHTMLTag_tgAudio</a></strong>(Sender: TObject; const TagString: String;TagParams: TStringList; var ReplaceText: String); Virtual;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>procedure <strong><a href="mi.rtl.objects.methods.pageproducer.TBasePageProducer.html#DoOnHTMLTag_Undefined">DoOnHTMLTag_Undefined</a></strong>(Sender: TObject; const TagString: String; TagParams: TStringList; out ReplaceText: String); virtual;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>procedure <strong><a href="mi.rtl.objects.methods.pageproducer.TBasePageProducer.html#DoReplaceTag_Default">DoReplaceTag_Default</a></strong>(Sender: TObject; const TagString: String;TagParams: TStringList; Out ReplaceText: String); virtual;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>Function <strong><a href="mi.rtl.objects.methods.pageproducer.TBasePageProducer.html#GetHTMLContent">GetHTMLContent</a></strong>: AnsiString; Virtual;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>Procedure <strong><a href="mi.rtl.objects.methods.pageproducer.TBasePageProducer.html#SetHTMLFile">SetHTMLFile</a></strong>(Const aHTMLFile: TFileName ); Overload; Virtual;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>Function <strong><a href="mi.rtl.objects.methods.pageproducer.TBasePageProducer.html#GetHTMLFile">GetHTMLFile</a></strong>: TFileName; Virtual;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>Function <strong><a href="mi.rtl.objects.methods.pageproducer.TBasePageProducer.html#SaveHTMLContentToFile">SaveHTMLContentToFile</a></strong>(FileNameDest:AnsiString):Integer; overload; Virtual;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>Function <strong><a href="mi.rtl.objects.methods.pageproducer.TBasePageProducer.html#SaveHTMLContentToFile">SaveHTMLContentToFile</a></strong>:Integer; overload; Virtual;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>Class procedure <strong><a href="mi.rtl.objects.methods.pageproducer.TBasePageProducer.html#delete_quotes_from_ends">delete_quotes_from_ends</a></strong>(var s:string);</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>Class Function <strong><a href="mi.rtl.objects.methods.pageproducer.TBasePageProducer.html#delete_two_points_from_extremes">delete_two_points_from_extremes</a></strong>( s:string):String;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="mi.rtl.objects.methods.pageproducer.TBasePageProducer.html#GetHtmlTable">GetHtmlTable</a></strong>(atgTable: String;aNameTable,aTypeTable:String):String; virtual;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="mi.rtl.objects.methods.pageproducer.TBasePageProducer.html#GetHtmlImageMap">GetHtmlImageMap</a></strong>(atgImageMap : string;aimg_map:String):String; Virtual;</code></td>
+</tr>
+</table>
+<span id="PasDoc-Properties"></span><h3 class="summary">Propriedades</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="mi.rtl.objects.methods.pageproducer.TBasePageProducer.html#ID_Dinamic">ID_Dinamic</a></strong> : AnsiString Read GetID_Dinamic;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="mi.rtl.objects.methods.pageproducer.TBasePageProducer.html#OnHTMLTag_tgcustom">OnHTMLTag_tgcustom</a></strong> : <a href="mi.rtl.Objects.Methods.html#THTMLTagEvent">THTMLTagEvent</a> Read _OnHTMLTag_tgcustom write _OnHTMLTag_tgcustom ;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="mi.rtl.objects.methods.pageproducer.TBasePageProducer.html#OnHTMLTag_tgLink">OnHTMLTag_tgLink</a></strong> : <a href="mi.rtl.Objects.Methods.html#THTMLTagEvent">THTMLTagEvent</a> Read _OnHTMLTag_tgLink write _OnHTMLTag_tgLink ;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="mi.rtl.objects.methods.pageproducer.TBasePageProducer.html#OnHTMLTag_tgImage">OnHTMLTag_tgImage</a></strong> : <a href="mi.rtl.Objects.Methods.html#THTMLTagEvent">THTMLTagEvent</a> Read _OnHTMLTag_tgImage write _OnHTMLTag_tgImage ;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="mi.rtl.objects.methods.pageproducer.TBasePageProducer.html#OnHTMLTag_tgTable">OnHTMLTag_tgTable</a></strong> : <a href="mi.rtl.Objects.Methods.html#THTMLTagEvent">THTMLTagEvent</a> Read _OnHTMLTag_tgTable write _OnHTMLTag_tgTable ;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="mi.rtl.objects.methods.pageproducer.TBasePageProducer.html#OnHTMLTag_tgImageMap">OnHTMLTag_tgImageMap</a></strong> : <a href="mi.rtl.Objects.Methods.html#THTMLTagEvent">THTMLTagEvent</a> Read _OnHTMLTag_tgImageMap write _OnHTMLTag_tgImageMap ;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="mi.rtl.objects.methods.pageproducer.TBasePageProducer.html#OnHTMLTag_tgObject">OnHTMLTag_tgObject</a></strong> : <a href="mi.rtl.Objects.Methods.html#THTMLTagEvent">THTMLTagEvent</a> Read _OnHTMLTag_tgObject write _OnHTMLTag_tgObject ;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="mi.rtl.objects.methods.pageproducer.TBasePageProducer.html#OnHTMLTag_tgEmbed">OnHTMLTag_tgEmbed</a></strong> : <a href="mi.rtl.Objects.Methods.html#THTMLTagEvent">THTMLTagEvent</a> Read _OnHTMLTag_tgEmbed write _OnHTMLTag_tgEmbed ;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="mi.rtl.objects.methods.pageproducer.TBasePageProducer.html#OnHTMLTag_tgVideo">OnHTMLTag_tgVideo</a></strong> : <a href="mi.rtl.Objects.Methods.html#THTMLTagEvent">THTMLTagEvent</a> Read _OnHTMLTag_tgVideo write _OnHTMLTag_tgVideo ;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="mi.rtl.objects.methods.pageproducer.TBasePageProducer.html#OnHTMLTag_tgAudio">OnHTMLTag_tgAudio</a></strong> : <a href="mi.rtl.Objects.Methods.html#THTMLTagEvent">THTMLTagEvent</a> Read _OnHTMLTag_tgAudio write _OnHTMLTag_tgAudio ;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="mi.rtl.objects.methods.pageproducer.TBasePageProducer.html#OnHTMLTag_Undefined">OnHTMLTag_Undefined</a></strong> : <a href="mi.rtl.Objects.Methods.html#THTMLTagEvent">THTMLTagEvent</a> Read _OnHTMLTag_Undefined write _OnHTMLTag_Undefined ;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="mi.rtl.objects.methods.pageproducer.TBasePageProducer.html#HTMLContent">HTMLContent</a></strong> : AnsiString Read <a href="mi.rtl.objects.methods.pageproducer.TBasePageProducer.html#GetHTMLContent">GetHTMLContent</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="mi.rtl.objects.methods.pageproducer.TBasePageProducer.html#OnHTMLTag">OnHTMLTag</a></strong>  : Boolean Read _OnHTMLTag Write SetOnHTMLTag;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="mi.rtl.objects.methods.pageproducer.TBasePageProducer.html#HTMLDoc">HTMLDoc</a></strong>  : String Read GetHTMLDoc Write SetHTMLDoc;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="mi.rtl.objects.methods.pageproducer.TBasePageProducer.html#HTMLFile">HTMLFile</a></strong> : TFileName read <a href="mi.rtl.objects.methods.pageproducer.TBasePageProducer.html#GetHTMLFile">GetHTMLFile</a> Write <a href="mi.rtl.objects.methods.pageproducer.TBasePageProducer.html#SetHTMLFile">SetHTMLFile</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="mi.rtl.objects.methods.pageproducer.TBasePageProducer.html#HTMLFileResult">HTMLFileResult</a></strong> : TFileName read _HTMLFileResult Write _HTMLFileResult;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="mi.rtl.objects.methods.pageproducer.TBasePageProducer.html#StartDelimiter">StartDelimiter</a></strong> : <a href="fpTemplate.html#TParseDelimiter">TParseDelimiter</a> read _StartDelimiter write _StartDelimiter;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="mi.rtl.objects.methods.pageproducer.TBasePageProducer.html#EndDelimiter">EndDelimiter</a></strong> : <a href="fpTemplate.html#TParseDelimiter">TParseDelimiter</a> read _EndDelimiter write _EndDelimiter;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="mi.rtl.objects.methods.pageproducer.TBasePageProducer.html#ParamStartDelimiter">ParamStartDelimiter</a></strong> : <a href="fpTemplate.html#TParseDelimiter">TParseDelimiter</a> read _ParamStartDelimiter write _ParamStartDelimiter;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="mi.rtl.objects.methods.pageproducer.TBasePageProducer.html#ParamEndDelimiter">ParamEndDelimiter</a></strong> : <a href="fpTemplate.html#TParseDelimiter">TParseDelimiter</a> read _ParamEndDelimiter write _ParamEndDelimiter;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="mi.rtl.objects.methods.pageproducer.TBasePageProducer.html#ParamValueSeparator">ParamValueSeparator</a></strong> : <a href="fpTemplate.html#TParseDelimiter">TParseDelimiter</a> read _ParamValueSeparator write _ParamValueSeparator;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="mi.rtl.objects.methods.pageproducer.TBasePageProducer.html#AllowTagParams">AllowTagParams</a></strong> : Boolean read _AllowTagParams write _AllowTagParams;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="mi.rtl.objects.methods.pageproducer.TBasePageProducer.html#FPTemplate">FPTemplate</a></strong> : <a href="fpTemplate.TFPTemplate.html">TFPTemplate</a> read _FPTemplate write SetFPTemplate;</code></td>
+</tr>
+</table>
+<h2 class="description">Descrição</h2>
+<h3 class="detail">Métodos</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="create"></span><code>constructor <strong>create</strong>(aOwner:TComponent); override;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+O constructor <strong><code>create</code></strong> inicializa os parâmetros padrões da classe e instancia a classe <a class="normal" href="mi.rtl.objects.methods.pageproducer.TBasePageProducer.html#FPTemplate">FPTemplate</a>.
+
+<p></p>
+
+<ul class="paragraph_spacing">
+  <li><p>Parâmetro usado aqui: </p>
+
+<ul class="paragraph_spacing">
+  <li><p><a class="normal" href="mi.rtl.Consts.TConsts.html#DefaultStartDelimiter">TConsts.DefaultStartDelimiter</a>;</p></li>
+  <li><p><a class="normal" href="mi.rtl.Consts.TConsts.html#DefaultEndDelimiter">TConsts.DefaultEndDelimiter</a>;</p></li>
+  <li><p><a class="normal" href="mi.rtl.Consts.TConsts.html#DefaultParamStartDelimiter">TConsts.DefaultParamStartDelimiter</a>;</p></li>
+  <li><p><a class="normal" href="mi.rtl.Consts.TConsts.html#DefaultParamValueSeparator">TConsts.DefaultParamValueSeparator</a>;</p></li>
+  <li><p><a class="normal" href="mi.rtl.Consts.TConsts.html#DefaultParamEndDelimiter">TConsts.DefaultParamEndDelimiter</a>;</p></li>
+  <li><p><a class="normal" href="mi.rtl.Consts.TConsts.html#DefaultAllowTagParams">TConsts.DefaultAllowTagParams</a>;</p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="destroy"></span><code>destructor <strong>destroy</strong>; override;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+O Destructor <strong><code>destroy</code></strong> <code>destroy</code> a classe <strong><a class="normal" href="mi.rtl.objects.methods.pageproducer.TBasePageProducer.html">TBasePageProducer</a></strong> e livra da memória o atributo <a class="normal" href="mi.rtl.objects.methods.pageproducer.TBasePageProducer.html#FPTemplate">FPTemplate</a> criado em constructor.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="ListFilesText"></span><code>class function <strong>ListFilesText</strong>(const aTagName, atemplate,aPath,aMask :String) : string;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+O método <strong><code>ListFilesText</code></strong> retorna uma string com o nome de todos os arquivos com a extensão passada por a aMask.
+
+<p></p>
+
+<ul class="paragraph_spacing">
+  <li><p><strong>PARÂMETROS</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>aTagName </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Nome da tag</p></li>
+</ul>
+
+<p></p></li>
+  <li><p>atemplate </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Modelo onde cada nome de arquivo deve ser inserido
+
+<p></p>
+
+<pre class="longcode">
+
+&lt;!--<span class="pascal_string">#</span> tgCustom [- ListFilesText=Arquivo:
+                                -&quot;&tilde;ListFilesText&quot; -]
+<span class="pascal_string">#</span>--></pre>
+
+<p></p></li>
+</ul>
+
+<p></p></li>
+  <li><p>aPath </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Nome do diretório</p></li>
+</ul>
+
+<p></p></li>
+  <li><p>aMask </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Filtro de pesquisa. </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Ex: *.html</p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p></li>
+  <li><p><strong>EXEMPLO</strong>
+
+<p></p>
+
+<pre class="longcode">
+
+<span class="pascal_keyword">procedure</span> TForm_pageproducer_test.PageProducer1HTMLTag_tgCustom(
+         Sender: TObject; <span class="pascal_keyword">const</span> TagString: <span class="pascal_keyword">string</span>; TagParams: TStrings;  <span class="pascal_keyword">var</span> ReplaceText: <span class="pascal_keyword">string</span>);
+
+  <span class="pascal_keyword">var</span>
+    s1 : <span class="pascal_keyword">string</span>;
+<span class="pascal_keyword">begin</span>
+  s1 := TagParams.Values[<span class="pascal_string">'ListFilesText'</span>];
+  <span class="pascal_keyword">if</span> s1 &lt;&gt; <span class="pascal_string">''</span>
+  <span class="pascal_keyword">Then</span> <span class="pascal_keyword">begin</span> <span class="pascal_comment">//Retorna a lista de links.</span>
+         ReplaceText:=TPageProducer.ListFilesText(<span class="pascal_string">'ListFilesText'</span>,s1,<span class="pascal_string">''</span>,<span class="pascal_string">'*'</span>);
+       <span class="pascal_keyword">end</span>;
+<span class="pascal_keyword">end</span>;</pre>
+
+<p></p></li>
+  <li><p><strong>NOTA</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>O parâmetro <strong>atemplate</strong> pode conter qualquer formato em cada linha, visto que o modelo passado por <strong>atemplate</strong> é inserido o nome do arquivo no lugar de aTagName.</p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="StringReplaceTgImage"></span><code>class function <strong>StringReplaceTgImage</strong>(const aTemplate, aSrc, aAlt, aTitle, aFigcaption: String): string;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+A classe método <strong><code>StringReplaceTgImage</code></strong> recebe um template tipo image e retorna o mesmo preenchido com o conteúdo os parâmetros: aSrc, aAlt, aTitle, aFigcaption.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="StringReplaceTgLink"></span><code>class function <strong>StringReplaceTgLink</strong>( const aAlias, atemplate, aURL, atarget, aTitle, aText:String):string;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+</p>
+
+<ul class="paragraph_spacing">
+  <li><p>O método <strong><code>StringReplaceTgLink</code></strong> é usado para preencher templates html <strong>tgLink</strong> usado nos templates do componente <em><a class="normal" href="mi.rtl.objects.methods.pageproducer.TPageProducer.html">TPageProducer</a></em>.
+
+<p></p>
+
+<ul class="paragraph_spacing">
+  <li><p>PARÂMETROS </p>
+
+<ul class="paragraph_spacing">
+  <li><p>aAlias = Apelido do template</p></li>
+  <li><p>atemplate = &lt;!&ndash;# tgLink [- %s=[a href=&quot;&tilde;url&quot; target=&quot;_blank&quot; title=&quot;&tilde;title&quot;] &tilde;text [/a] -] #&ndash;&gt;</p></li>
+  <li><p>aURL = Endereço do link</p></li>
+  <li><p>atarget = Destino onde a página deve ser aberta, se vazio abre na aba atual.</p></li>
+  <li><p>aTitle = Documentação do link</p></li>
+  <li><p>aText = Descrição do link</p></li>
+</ul>
+
+<p></p></li>
+  <li><p>ATRIBUTOS DO TEMPLATE </p>
+
+<ul class="paragraph_spacing">
+  <li><p>&tilde;<a class="normal" href="mi.rtl.Objects.Methods.TObjectsMethods.html#Alias">alias</a> = Apelido do template;</p></li>
+  <li><p>&tilde;url = Endereço do link</p></li>
+  <li><p>&tilde;target = Destino onde a página deve ser aberta, se vazio abre na aba atual.</p></li>
+  <li><p>&tilde;title = Documentação do link</p></li>
+  <li><p>&tilde;text = Descrição do link</p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="StringReplaceTgTable"></span><code>class function <strong>StringReplaceTgTable</strong>( Const aAlias : string; Const aHeaderCols : string; Const aOneRowCols : string; Const aFooterCols : string; Const aNotFound : string; Const aTypeTable:String; Const aTemplate :String ):string;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+A classe método <strong><code>StringReplaceTgTable</code></strong> é usado para preencher um template passado por template dentro de um template.html para criar tabelas html usado na tag <strong>tbTable</strong>.
+
+<p></p>
+
+<ul class="paragraph_spacing">
+  <li><p><strong>EXEMPLOS</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Template esperado no evento <strong><a class="normal" href="mi.rtl.objects.methods.pageproducer.TBasePageProducer.html#OnHTMLTag_tgTable">OnHTMLTag_tgTable</a></strong></p></li>
+</ul>
+
+<p> </p>
+
+<pre class="longcode">
+
+&lt;!--<span class="pascal_string">#</span> tgTable [- ALUNOS=[title=&quot;Cadastro de Alunos:&quot;;
+                        Header=&quot;Column1:      &quot;,&quot;:Column2:     &quot;,&quot;:Column3      &quot;,&quot;:Column4    &quot;;
+                        OneRow=[&quot;<span class="pascal_numeric">1</span> Paulo Sérgio&quot;,&quot;Marcos Pacheco&quot;,&quot;George Bruno  &quot;,&quot;George Bruno&quot;,/,
+                                &quot;<span class="pascal_numeric">2</span> José Carlos&quot; ,&quot;Antônio       &quot;,&quot;Paulo Henrique&quot;,&quot;George Bruno&quot;,/,
+                               ];
+                        FooterCols=&quot;soma Columm1&quot;,&quot;soma Columm2&quot;,&quot;soma Columm3&quot;,&quot;soma Columm4&quot;;
+                        NOTFOUND=&quot;Mensagem em caso de erro&quot;;
+                        template=&quot;&lt;Table id=&quot;table&quot;&gt;
+                                    &lt;thead&gt;
+                                      &lt;tr&gt;&tilde;Alias&lt;/tr&gt; &lt;br&gt;
+                                      &lt;tr&gt;
+                                        &tilde;HeaderCols &lt;br&gt;
+                                      &lt;tr&gt;
+                                    &lt;/thead&gt;
+
+                                    &lt;tbody&gt;
+                                      &tilde;OneRowCols &lt;br&gt;
+                                    &lt;/tbody&gt;
+
+                                    &lt;tfoot&gt;
+                                     &tilde;FooterCols &lt;br&gt;
+                                    &lt;/tfoot&gt;
+
+                                 &lt;/Table&gt;&quot;
+                       ]
+              -]
+<span class="pascal_string">#</span>--></pre>
+
+<p></p></li>
+</ul>
+
+<p></p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="DoOnHTMLTag_tgCustom"></span><code>procedure <strong>DoOnHTMLTag_tgCustom</strong>(Sender: TObject; const TagString: String;TagParams: TStringList; var ReplaceText: String); Virtual;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+O método <strong><code>DoOnHTMLTag_tgCustom</code></strong> Executa o evento <a class="normal" href="mi.rtl.objects.methods.pageproducer.TBasePageProducer.html#OnHTMLTag_tgcustom">OnHTMLTag_tgCustom</a> se o mesmo for assinalado visualmente ou não pelo usuário para preencher as tags do tipo tgCustom.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="DoOnHTMLTag_tgLink"></span><code>procedure <strong>DoOnHTMLTag_tgLink</strong>(Sender: TObject; const TagString: String;TagParams: TStringList; var ReplaceText: String); Virtual;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+O método <strong><code>DoOnHTMLTag_tgLink</code></strong> Executa o evento <a class="normal" href="mi.rtl.objects.methods.pageproducer.TBasePageProducer.html#OnHTMLTag_tgLink">OnHTMLTag_tgLink</a> se o mesmo for assinalado visualmente ou não pelo usuário para preencher as tags do tipo tgLink.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="DoOnHTMLTag_tgImage"></span><code>procedure <strong>DoOnHTMLTag_tgImage</strong>(Sender: TObject; const TagString: String;TagParams: TStringList; var ReplaceText: String); Virtual;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+O método <strong><code>DoOnHTMLTag_tgImage</code></strong> Executa o evento <a class="normal" href="mi.rtl.objects.methods.pageproducer.TBasePageProducer.html#OnHTMLTag_tgImage">OnHTMLTag_tgImage</a> se o mesmo for assinalado visualmente ou não pelo usuário para preencher as tags do tipo tgImage.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="DoOnHTMLTag_tgTable"></span><code>procedure <strong>DoOnHTMLTag_tgTable</strong>(Sender: TObject; const TagString: String;TagParams: TStringList; var ReplaceText: String); Virtual;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+O método <strong><code>DoOnHTMLTag_tgTable</code></strong> Executa o evento <a class="normal" href="mi.rtl.objects.methods.pageproducer.TBasePageProducer.html#OnHTMLTag_tgTable">OnHTMLTag_tgTable</a> se o mesmo for assinalado visualmente ou não pelo usuário para preencher as tags do tipo tgTable.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="DoOnHTMLTag_tgImageMap"></span><code>procedure <strong>DoOnHTMLTag_tgImageMap</strong>(Sender: TObject; const TagString: String;TagParams: TStringList; var ReplaceText: String); Virtual;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+O método <strong><code>DoOnHTMLTag_tgImageMap</code></strong> Executa o evento <a class="normal" href="mi.rtl.objects.methods.pageproducer.TBasePageProducer.html#OnHTMLTag_tgImageMap">OnHTMLTag_tgImageMap</a> se o mesmo for assinalado visualmente ou não pelo usuário para preencher as tags do tipo tgImageMap.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="DoOnHTMLTag_tgObject"></span><code>procedure <strong>DoOnHTMLTag_tgObject</strong>(Sender: TObject; const TagString: String;TagParams: TStringList; var ReplaceText: String); Virtual;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+O método <strong><code>DoOnHTMLTag_tgObject</code></strong> Executa o evento <a class="normal" href="mi.rtl.objects.methods.pageproducer.TBasePageProducer.html#OnHTMLTag_tgObject">OnHTMLTag_tgObject</a> se o mesmo for assinalado visualmente ou não pelo usuário para preencher as tags do tipo tgObject.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="DoOnHTMLTag_tgEmbed"></span><code>procedure <strong>DoOnHTMLTag_tgEmbed</strong>(Sender: TObject; const TagString: String;TagParams: TStringList; var ReplaceText: String); Virtual;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+O método <strong><code>DoOnHTMLTag_tgEmbed</code></strong> Executa o evento <a class="normal" href="mi.rtl.objects.methods.pageproducer.TBasePageProducer.html#OnHTMLTag_tgEmbed">OnHTMLTag_tgEmbed</a> se o mesmo for assinalado visualmente ou não pelo usuário para preencher as tags do tipo tgEmbed.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="DoOnHTMLTag_tgVideo"></span><code>procedure <strong>DoOnHTMLTag_tgVideo</strong>(Sender: TObject; const TagString: String;TagParams: TStringList; var ReplaceText: String); Virtual;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+O método <strong><code>DoOnHTMLTag_tgVideo</code></strong> Executa o evento <a class="normal" href="mi.rtl.objects.methods.pageproducer.TBasePageProducer.html#OnHTMLTag_tgVideo">OnHTMLTag_tgVideo</a> se o mesmo for assinalado visualmente ou não pelo usuário para preencher as tags do tipo tgVideo.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="DoOnHTMLTag_tgAudio"></span><code>procedure <strong>DoOnHTMLTag_tgAudio</strong>(Sender: TObject; const TagString: String;TagParams: TStringList; var ReplaceText: String); Virtual;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+O método <strong><code>DoOnHTMLTag_tgAudio</code></strong> Executa o evento <a class="normal" href="mi.rtl.objects.methods.pageproducer.TBasePageProducer.html#OnHTMLTag_tgAudio">OnHTMLTag_tgAudio</a> se o mesmo for assinalado visualmente ou não pelo usuário para preencher as tags do tipo tgAudio.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="DoOnHTMLTag_Undefined"></span><code>procedure <strong>DoOnHTMLTag_Undefined</strong>(Sender: TObject; const TagString: String; TagParams: TStringList; out ReplaceText: String); virtual;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+O método <strong><code>DoOnHTMLTag_Undefined</code></strong> Executa o evento <a class="normal" href="mi.rtl.objects.methods.pageproducer.TBasePageProducer.html#OnHTMLTag_Undefined">OnHTMLTag_Undefined</a> se o mesmo for assinalado visualmente ou não pelo usuário para preencher as tags personalizadas sem uso da tah tbCustom.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="DoReplaceTag_Default"></span><code>procedure <strong>DoReplaceTag_Default</strong>(Sender: TObject; const TagString: String;TagParams: TStringList; Out ReplaceText: String); virtual;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+O método <code>DoReplaceTag_Default</code></p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="GetHTMLContent"></span><code>Function <strong>GetHTMLContent</strong>: AnsiString; Virtual;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+O método <strong><code>GetHTMLContent</code></strong> retorna para a propriedade <strong><a class="normal" href="mi.rtl.objects.methods.pageproducer.TBasePageProducer.html#HTMLContent">HTMLContent</a></strong> o documento processado pela método FPTemplate.GetContent.
+
+<p></p>
+
+<ul class="paragraph_spacing">
+  <li><p><strong>NOTA</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Só processa o template se a propriedade <strong><a class="normal" href="mi.rtl.objects.methods.pageproducer.TBasePageProducer.html#OnHTMLTag">OnHTMLTag</a></strong> for igual a <strong>true</strong>.</p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="SetHTMLFile"></span><code>Procedure <strong>SetHTMLFile</strong>(Const aHTMLFile: TFileName ); Overload; Virtual;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="GetHTMLFile"></span><code>Function <strong>GetHTMLFile</strong>: TFileName; Virtual;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+A propriedade <strong><code>GetHTMLFile</code></strong> contém o nome do arquivo do template.
+
+<p></p>
+
+<ul class="paragraph_spacing">
+  <li><p><strong>Nota:</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>O arquivo deve estar na pasta de templates.</p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="SaveHTMLContentToFile"></span><code>Function <strong>SaveHTMLContentToFile</strong>(FileNameDest:AnsiString):Integer; overload; Virtual;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+O método <strong><code>SaveHTMLContentToFile</code></strong> salva no arquivo <strong>FileNameDest</strong> o conteúdo da propriedade <a class="normal" href="mi.rtl.objects.methods.pageproducer.TBasePageProducer.html#HTMLContent">HTMLContent</a>.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="SaveHTMLContentToFile"></span><code>Function <strong>SaveHTMLContentToFile</strong>:Integer; overload; Virtual;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+O método <strong><code>SaveHTMLContentToFile</code></strong> salva no arquivo <strong><a class="normal" href="mi.rtl.objects.methods.pageproducer.TBasePageProducer.html#HTMLFileResult">htmlFileResult</a></strong> o conteúdo da propriedade <a class="normal" href="mi.rtl.objects.methods.pageproducer.TBasePageProducer.html#HTMLContent">HTMLContent</a>.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="delete_quotes_from_ends"></span><code>Class procedure <strong>delete_quotes_from_ends</strong>(var s:string);</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="delete_two_points_from_extremes"></span><code>Class Function <strong>delete_two_points_from_extremes</strong>( s:string):String;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="GetHtmlTable"></span><code>function <strong>GetHtmlTable</strong>(atgTable: String;aNameTable,aTypeTable:String):String; virtual;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+A propriedade <strong><code>GetHtmlTable</code></strong> recebe uma tag do tipo tgTable e retorna uma tabela preenchida com os parâmetros passado.
+
+<p></p>
+
+<ul class="paragraph_spacing">
+  <li><p><strong>PARÂMETROS</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>atgTable: String; </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Recebe uma tag no padrão abaixo:
+
+<p></p>
+
+<pre class="longcode">
+
+&lt;!--<span class="pascal_string">#</span> tgTable [- ALUNOS=[Alias=&quot;Cadastro de Alunos&quot;;
+                         Header=&quot;Column1:      &quot;,&quot;:Column2:     &quot;,&quot;:Column3      &quot;,&quot;:Column4    &quot;;
+                         widths=&quot;<span class="pascal_numeric">300</span>px&quot;         ,&quot;<span class="pascal_numeric">250</span>px&quot;         ,&quot;<span class="pascal_numeric">150</span>px&quot;         ,&quot;<span class="pascal_numeric">180</span>px&quot;;
+                         OneRow=[&quot;<span class="pascal_numeric">1</span> Paulo Sérgio&quot;,&quot;Marcos Pacheco&quot;,&quot;George Bruno  &quot;,&quot;George Bruno&quot;,/,
+                                 &quot;<span class="pascal_numeric">2</span> José Carlos&quot; ,&quot;Antônio       &quot;,&quot;Paulo Henrique&quot;,&quot;George Bruno&quot;,/,
+                                ];
+                         Footer=&quot;soma Columm1&quot;,&quot;soma Columm2&quot;,&quot;soma Columm3&quot;,&quot;soma Columm4&quot;;
+                         NotFound=&quot;Mensagem em caso de erro&quot;;
+                         template=&quot;&lt;Table id=&quot;table&quot;&gt;
+                                       &lt;thead id=&quot;theadAlunos&quot;&gt;
+                                          &lt;tr&gt;&lt;th colspan=&quot;<span class="pascal_numeric">4</span>&quot;&gt; &lt;p  style=&quot;text-align: center&quot;&gt;  &tilde;Alias  &lt;/p&gt; &lt;/th&gt;  &lt;/tr&gt;
+                                          &lt;tr&gt;&tilde;HeaderCols&lt;/tr&gt;
+                                       &lt;/thead&gt;
+                                       &lt;tbody id=&quot;tbodyAlunos&quot;&gt;
+                                          &tilde;OneRowCols
+                                       &lt;/tbody&gt;
+                                       &lt;tfoot id=&quot;tfootAlunos&quot;&gt;
+                                          &tilde;FooterCols
+                                       &lt;/tfoot&gt;
+                                   &lt;/Table&gt;&quot;
+                        ]
+              -]
+   <span class="pascal_string">#</span>--></pre>
+
+<p></p></li>
+</ul>
+
+<p></p></li>
+  <li><p>aNameTable: String; </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Nome da tabela usado no parâmetro, no exemplo acima a tag ALUNOS.</p></li>
+</ul>
+
+<p></p></li>
+  <li><p>aTypeTable: String</p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="GetHtmlImageMap"></span><code>function <strong>GetHtmlImageMap</strong>(atgImageMap : string;aimg_map:String):String; Virtual;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+A propriedade <strong><code>GetHtmlImageMap</code></strong> recebe uma tag do tipo tgImageMap e retorna uma tabela preenchida com os parâmetros passado.
+
+<p></p>
+
+<ul class="paragraph_spacing">
+  <li><p><strong>TAG EXEMPLO:</strong></p></li>
+  <li><p><strong>PARÂMETROS</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>atgImageMap: String; </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Recebe uma tag igual a essa: </p>
+
+<pre class="longcode">
+&lt;!--<span class="pascal_string">#</span> tgImageMap [- img_map=[src=&quot;<span class="pascal_float">.</span>/img/img_map.jpg&quot;;
+                             Alt=&quot;Imagem teste de imagens clicáveis&quot;;
+                             useMap=&quot;img_map&quot;;
+                             oneRowArea=&quot;[&quot;target&quot; , &quot;alt_rect&quot;   , &quot;title_rect&quot;   , &quot;href_rect.html&quot;   , &quot;<span class="pascal_numeric">19</span>,53,<span class="pascal_numeric">66</span>,107&quot;, &quot;rect&quot;,
+                                          &quot;target&quot; , &quot;alt_circle&quot; , &quot;title_circle&quot; , &quot;href_circle.html&quot; , &quot;<span class="pascal_numeric">126</span>,85,<span class="pascal_numeric">34</span>&quot;,&quot;circle&quot;,
+                                          &quot;target&quot; , &quot;alt_poly&quot;   , &quot;title_poly&quot;   , &quot;href_poly.html&quot;   , &quot;<span class="pascal_numeric">202</span>,54,<span class="pascal_numeric">266</span>,52,<span class="pascal_numeric">265</span>,98,<span class="pascal_numeric">247</span>,93,<span class="pascal_numeric">233</span>,97,<span class="pascal_numeric">222</span>,101,<span class="pascal_numeric">207</span>,103,<span class="pascal_numeric">198</span>,98&quot;,&quot;poly&quot;
+                                         ]&quot;;
+                              templateOneRowArea=&quot;&lt;area target=&quot;&tilde;target&quot; alt=&quot;&tilde;alt&quot; title=&quot;&tilde;title&quot; href=&quot;&tilde;href&quot; coords=&quot;&tilde;coords&quot; shape=&quot;&tilde;shape&quot;&gt;&quot;;
+                              templateImageMap=&quot;&lt;img src=&quot;&tilde;src&quot; Alt=&quot;&tilde;alt&quot; usemap=&quot;<span class="pascal_string">#&tilde;useMap&quot;</span>&gt;
+                                                 &lt;map <span class="pascal_keyword">name</span>=&quot;&tilde;useMap&quot; Alt=&quot;&tilde;Alt&quot;&gt;
+                                                    &lt;area shape=&quot;<span class="pascal_keyword">default</span>&quot; nohref /&gt;
+                                                    &tilde;oneRowArea
+                                                 &lt;/map&gt;&quot;
+                            ]
+                 -]
+<span class="pascal_string">#</span>--></pre>
+
+<p></p></li>
+</ul>
+
+<p></p></li>
+  <li><p>aNameImageMap </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Nome do mapa de imagem.</p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p>
+</td></tr>
+</table>
+<h3 class="detail">Propriedades</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="ID_Dinamic"></span><code>property <strong>ID_Dinamic</strong> : AnsiString Read GetID_Dinamic;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+</p>
+
+<ul class="paragraph_spacing">
+  <li><p>A propriedade <strong><code>ID_Dinamic</code></strong> retorno um string com um registro tipo <a href="https://www.freepascal.org/docs-html/rtl/system/tguid.html">**TGuid**</a> para representar a classe.</p></li>
+</ul>
+
+<p></p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="OnHTMLTag_tgcustom"></span><code>property <strong>OnHTMLTag_tgcustom</strong> : <a href="mi.rtl.Objects.Methods.html#THTMLTagEvent">THTMLTagEvent</a> Read _OnHTMLTag_tgcustom write _OnHTMLTag_tgcustom ;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+</p>
+
+<ul class="paragraph_spacing">
+  <li><p>O evento <strong><code>OnHTMLTag_tgcustom</code></strong> retorna em <em>ReplaceText</em> o código preenchido passado por <em>TagString</em> e <em>TagParams</em>.
+
+<p></p>
+
+<ul class="paragraph_spacing">
+  <li><p><strong>DESCRIÇÃO</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>A propriedade <strong><code>OnHTMLTag_tgcustom</code></strong> foi criado para processar todo template criado pelo usuário e que não tem relação com nome de tags html.</p></li>
+</ul>
+
+<p></p></li>
+  <li><p><strong>EXEMPLO DE TEMPLATE CUSTOMIZADO</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>A Tag &lt;# tgCustom [- <a class="normal" href="mi.rtl.objects.methods.pageproducer.TBasePageProducer.html#ListFilesText">ListFilesText</a>=Arquivo:-&quot;&tilde;<a class="normal" href="mi.rtl.objects.methods.pageproducer.TBasePageProducer.html#ListFilesText">ListFilesText</a>&quot; -]#&gt; informa ao componente TPageProduce que deve executar o método <a class="normal" href="mi.rtl.objects.methods.pageproducer.TBasePageProducer.html#ListFilesText">ListFilesText</a>, porém o resultado deve ser uma lista de textos com nome dos arquivos da pasta atual e de suas subpastas. </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Formato de saída: </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Arquivo: </p>
+
+<ul class="paragraph_spacing">
+  <li><p>xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</p></li>
+</ul>
+
+<p></p></li>
+  <li><p>Arquivo: </p>
+
+<ul class="paragraph_spacing">
+  <li><p>xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p> </p>
+
+<pre class="longcode">
+
+&lt;!--<span class="pascal_string">#</span> tgCustom [- ListFilesText=
+                  Arquivo:
+                    -&quot;&tilde;ListFilesText&quot; -]
+<span class="pascal_string">#</span>--></pre>
+
+<p></p></li>
+  <li><p>O método <em><code>OnHTMLTag_tgcustom</code></em> retorna no parâmetro em <strong>ReplaceText</strong> a lista de texto.
+
+<p></p>
+
+<pre class="longcode">
+
+<span class="pascal_keyword">procedure</span> TForm_pageproducer_test.PageProducer1HTMLTag_tgCustom(
+          Sender: TObject; <span class="pascal_keyword">const</span> TagString: <span class="pascal_keyword">string</span>; TagParams: TStrings;  <span class="pascal_keyword">var</span> ReplaceText: <span class="pascal_keyword">string</span>);
+
+
+<span class="pascal_keyword">var</span>
+  s1 : <span class="pascal_keyword">string</span>;
+<span class="pascal_keyword">begin</span>
+  <span class="pascal_keyword">if</span> AnsiCompareText(TagString, <span class="pascal_string">'tgCustom'</span>) = <span class="pascal_numeric">0</span> <span class="pascal_keyword">then</span>
+  <span class="pascal_keyword">begin</span>
+    s1 := TagParams.Values[<span class="pascal_string">'ListFilesText'</span>];
+    <span class="pascal_keyword">if</span> s1 &lt;&gt; <span class="pascal_string">''</span>
+    <span class="pascal_keyword">Then</span> <span class="pascal_keyword">begin</span> <span class="pascal_comment">//Retorna a lista de links.</span>
+           ReplaceText:=TPageProducer.ListFilesText(<span class="pascal_string">'ListFilesText'</span>,s1,<span class="pascal_string">''</span>,<span class="pascal_string">'*'</span>);
+         <span class="pascal_keyword">end</span>;
+  <span class="pascal_keyword">end</span>
+  <span class="pascal_keyword">else</span> ReplaceText:=<span class="pascal_string">'A tag &lt;'</span>+TagString+<span class="pascal_string">'&gt;Não conhecida'</span>;
+<span class="pascal_keyword">end</span>;</pre>
+
+<p></p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="OnHTMLTag_tgLink"></span><code>property <strong>OnHTMLTag_tgLink</strong> : <a href="mi.rtl.Objects.Methods.html#THTMLTagEvent">THTMLTagEvent</a> Read _OnHTMLTag_tgLink write _OnHTMLTag_tgLink ;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+</p>
+
+<ul class="paragraph_spacing">
+  <li><p>O evento <strong><code>OnHTMLTag_tgLink</code></strong> retorna em <em>ReplaceText</em> o código preenchido passado por <em>TagString</em> e <em>TagParams</em>, onde <em>TagString</em>, contém a tag <em>tgLink</em> e <em>TagParams</em> contém o template de um link html com os atributos hRef, target, title, text.
+
+<p></p>
+
+<ul class="paragraph_spacing">
+  <li><p><strong>DESCRIÇÃO</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>O método <strong><code>OnHTMLTag_tgLink</code></strong> foi criado para processar todos os templates referentes a links cuja a tag seja <em>tgLink</em> dentro do arquivo de templates.html</p></li>
+</ul>
+
+<p></p></li>
+  <li><p><strong>EXEMPLO DE TEMPLATE </strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>O template abaixo dentro de TPageProduce.FileName, informa para o evento <em><code>OnHTMLTag_tgLink</code></em> que os parâmetros BlogPsspAppBr e PsspAppBr deve ser preenchido com um link. A função <em>FindFilesAll</em> deve retornar um código html com uma lista de links de todos os nomes de arquivos dentro da pasta corrente e subpastas.
+
+<p></p>
+
+<pre class="longcode">
+&lt;!-- Arquivo: template.html --&gt;
+
+&lt;html lang=&quot;pt-BR&quot;&gt;
+  &lt;head&gt;
+      &lt;meta charset=&quot;UTF-<span class="pascal_numeric">8</span>&quot;&gt;
+      &lt;title&gt;Teste <span class="pascal_keyword">do</span> componente mi.rtl.Objects.Methods.TPageProduce&lt;/title&gt;
+
+      &lt;meta <span class="pascal_keyword">name</span>=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=<span class="pascal_float">1.0</span>&quot;/&gt;
+
+  &lt;/head&gt;
+
+&lt;bodY&gt;&lt;main&gt;
+  &lt;h3&gt; Meu Blog &lt;/h3&gt;
+
+  &lt;p&gt; A tag abaixo deve ser preenchida com o endereço: http:<span class="pascal_comment">//www.pssp.app.br</span>
+       onde o destino da visualização é uma nova aba <span class="pascal_keyword">do</span> browser&lt;p&gt;
+  &lt;!--<span class="pascal_string">#</span> tgLink [- BlogPsspAppBr=[a href=&quot;&tilde;url&quot; target=&quot;_blank&quot; title=&quot;&tilde;title&quot;] &tilde;text [/a]  -] <span class="pascal_string">#</span>--&gt;
+
+  &lt;p&gt; A tag abaixo deve ser preenchida com o endereço: http:<span class="pascal_comment">//www.pssp.app.br</span>
+       onde o destino da visualização é uma variável definida no ato da produção
+       da página&lt;/p&gt;
+  &lt;!--<span class="pascal_string">#</span> tgLink [-     PsspAppBr=[a href=&quot;&tilde;url&quot; target=&quot;&tilde;target&quot; title=&quot;&tilde;title&quot;] &tilde;text [/a]  -] <span class="pascal_string">#</span>--&gt;
+
+  &lt;br&gt;
+
+  &lt;h3&gt; Link com a lista de arquivos <span class="pascal_float">.</span>html da pasta corrente&lt;/h3&gt;
+  &lt;!--<span class="pascal_string">#</span> tgLink [- FindFilesAll=[a href=&quot;&tilde;url&quot; target=&quot;_blank&quot; title=&quot;&tilde;title&quot;] &tilde;text [/a]  -] <span class="pascal_string">#</span>--&gt;
+  &lt;br&gt;
+&lt;/main&gt; &lt;/body&gt;
+&lt;/html></pre>
+
+<p></p></li>
+  <li><p>O método <em><code>OnHTMLTag_tgLink</code></em> retorna no parâmetro em <strong>ReplaceText</strong> o template acima preenchido.
+
+<p></p>
+
+<pre class="longcode">
+
+<span class="pascal_keyword">procedure</span> TFPWebModule.@<span class="pascal_keyword">name</span>(Sender: TObject; <span class="pascal_keyword">const</span> TagString:  <span class="pascal_keyword">String</span>; TagParams: TStringList; <span class="pascal_keyword">Out</span> ReplaceText: <span class="pascal_keyword">String</span>);<span class="pascal_keyword">override</span>;
+<span class="pascal_keyword">begin</span>
+  s1 := TagParams.Values[<span class="pascal_string">'BlogPsspAppBr'</span>];
+  ReplaceText := TObjectss.StringReplaceTgLink(<span class="pascal_string">'BlogPsspAppBr'</span>,
+                                                s1,
+                                                <span class="pascal_string">'http://www.pssp.app.br'</span>,
+                                                <span class="pascal_string">''</span>, <span class="pascal_comment">// Mantém o destino definido no ptemplate</span>
+                                                <span class="pascal_string">'Blog do Paulo Sérgio da Silva Pacheco'</span>,
+                                                <span class="pascal_string">'http://www.pssp.app.br  ➚'</span>);
+
+  s1 := TagParams.Values[<span class="pascal_string">'PsspAppBr'</span>];
+  <span class="pascal_keyword">if</span> s1 &lt;&gt; <span class="pascal_string">''</span>
+  <span class="pascal_keyword">then</span> ReplaceText := TObjectss.StringReplaceTgLink(<span class="pascal_string">'PsspAppBr'</span>,
+                                                    s1,
+                                                    <span class="pascal_string">'http://www.pssp.app.br'</span>,
+                                                    <span class="pascal_string">'_self'</span>, <span class="pascal_comment">//Abre o documento na mesma aba</span>
+                                                    <span class="pascal_string">'Blog do Paulo Pacheco'</span>,
+                                                    <span class="pascal_string">'http://www.pssp.app.br'</span>)
+  <span class="pascal_keyword">else</span> <span class="pascal_keyword">begin</span>
+         s1 := TagParams.Values[<span class="pascal_string">'FindFilesAll'</span>];
+         <span class="pascal_keyword">if</span> s1 &lt;&gt; <span class="pascal_string">''</span>
+         <span class="pascal_keyword">Then</span> <span class="pascal_keyword">begin</span> <span class="pascal_comment">//Retorna a lista de links.</span>
+                ReplaceText:=ListFilesURLs(s1);
+              <span class="pascal_keyword">end</span>;
+       <span class="pascal_keyword">end</span>;
+<span class="pascal_keyword">end</span>;</pre>
+
+<p></p></li>
+  <li><p>Notas: </p>
+
+<ul class="paragraph_spacing">
+  <li><p>A ação padrão de <code>OnHTMLTag_tgLink</code> é executar o evento <em><code>OnHTMLTag_tgLink</code></em>, porém é possível ser redefinido para ter outro tipo de comportamento conforme preferência da aplicação que o utiliza.</p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="OnHTMLTag_tgImage"></span><code>property <strong>OnHTMLTag_tgImage</strong> : <a href="mi.rtl.Objects.Methods.html#THTMLTagEvent">THTMLTagEvent</a> Read _OnHTMLTag_tgImage write _OnHTMLTag_tgImage ;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+O evento <strong><code>OnHTMLTag_tgImage</code></strong> retorna em <em>ReplaceText</em> o código preenchido passado por <em>TagString</em> e <em>TagParams</em>, onde <em>TagString</em>, contém a tag <em>tgImage</em> e <em>TagParams</em> contém o template de um link html para imagem com os atributos Src, Alt, aTitle e text.
+
+<p></p>
+
+<ul class="paragraph_spacing">
+  <li><p><strong>DESCRIÇÃO</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>O método <strong><code>OnHTMLTag_tgImage</code></strong> foi criado para processar todos os templates referentes a img cuja a tag seja <em>tgimage</em> dentro do arquivo de templates.html</p></li>
+</ul>
+
+<p></p></li>
+  <li><p><strong>ATRIBUTOS:</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p><strong>src</strong> : Especifica o caminho para a imagem; </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Value : URL.</p></li>
+</ul>
+
+<p></p></li>
+  <li><p><strong>Alt</strong> : Especifica um texto alternativo para uma imagem; </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Value : Text.</p></li>
+</ul>
+
+<p></p></li>
+  <li><p><strong>usemap</strong> : Associa na tag &lt;img&gt; ao nome do mapa de imagem definido na tag &lt;map&gt; &lt;/map&gt;. lado do cliente;
+
+<p></p>
+
+<ul class="paragraph_spacing">
+  <li><p>Value : Nome da tag mapa </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Ex..: #image_tag Obs: Deve ter o símbolo cancela (#) para indicar que a imagem está na mesma página;</p></li>
+</ul>
+
+<p></p></li>
+  <li><p>Exemplo: <em>&lt;img src=&quot;form_instalar_pacotes.jpeg&quot; usemap=&quot;#image-map&quot;&gt;</em></p></li>
+</ul>
+
+<p></p></li>
+  <li><p><strong>height</strong> : Especifica a altura de uma imagem; </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Value : pixels.</p></li>
+</ul>
+
+<p></p></li>
+  <li><p><strong>width</strong> : Especifica a largura de uma imagem; </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Value : pixels.</p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p></li>
+  <li><p><strong>EXEMPLO DE TAG DE IMAGEM</strong>
+
+<p></p>
+
+<pre class="longcode">
+&lt;!-- Arquivo: template.html
+     Code template: mi_HTMLTag_tgImage_template
+--&gt;
+
+&lt;!--<span class="pascal_string">#</span> tgImage [- NomeDaFigura=[ &lt;figure&gt;
+                                   &lt;img src=&quot;&tilde;src&quot;
+                                        alt=&quot;&tilde;alt&quot;
+                                        title=&quot;&tilde;title&quot;
+                                        style=&quot;width:<span class="pascal_numeric">10</span>%&quot;&gt;
+                                   &lt;figcaption&gt;&tilde;figcaption&lt;/figcaption&gt;
+                                &lt;/figure&gt;
+                              ]
+              -]
+<span class="pascal_string">#</span>--></pre>
+
+<p>
+
+<p></p>
+
+<pre class="longcode">
+&lt;!-- EVENTO USADO PARA PREENCHER O TEMPLATE
+
+     Code Template: mi_HTMLTag_tgImage_Event
+--&gt;
+
+<span class="pascal_keyword">procedure</span> TForm_pageproducer_test.PageProducer1HTMLTag_tgImage(Sender: TObject;
+  <span class="pascal_keyword">const</span> TagString: <span class="pascal_keyword">string</span>; TagParams: TStrings; <span class="pascal_keyword">var</span> ReplaceText: <span class="pascal_keyword">string</span>);
+<span class="pascal_keyword">var</span>
+  s1 : <span class="pascal_keyword">string</span>;
+<span class="pascal_keyword">begin</span>
+  s1 := TagParams.Values[<span class="pascal_string">'NomeDaFigura'</span>];
+  <span class="pascal_keyword">if</span> s1 &lt;&gt; <span class="pascal_string">''</span>
+  <span class="pascal_keyword">Then</span> <span class="pascal_keyword">begin</span> <span class="pascal_comment">//Retorna a tag com a figura</span>
+         ReplaceText:= TPageProducer.StringReplaceTgImage(s1,<span class="pascal_string">'./img/brasao.png'</span>,<span class="pascal_string">'Pachecos'</span>,<span class="pascal_string">'Hint da imagem'</span>,<span class="pascal_string">'Brasão da Família Pacheco'</span>);
+
+       <span class="pascal_keyword">end</span>;
+<span class="pascal_keyword">end</span>;</pre>
+
+<p></p></li>
+</ul>
+
+<p></p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="OnHTMLTag_tgTable"></span><code>property <strong>OnHTMLTag_tgTable</strong> : <a href="mi.rtl.Objects.Methods.html#THTMLTagEvent">THTMLTagEvent</a> Read _OnHTMLTag_tgTable write _OnHTMLTag_tgTable ;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+O método <strong><code>OnHTMLTag_tgTable</code></strong> retorna em <em>ReplaceText</em> o código preenchido passado por <em>TagString</em> e <em>TagParams</em>.
+
+<p></p>
+
+<ul class="paragraph_spacing">
+  <li><p>O evento <strong><code>OnHTMLTag_tgTable</code></strong> é usado para tratar especificamente criação de tabelas.</p></li>
+  <li><p><strong>EXEMPLO DE TAG</strong>
+
+<p></p>
+
+<pre class="longcode">
+
+&lt;!-- Arquivo.<span class="pascal_numeric"></span>.....: template.html
+     Code template: mi_HTMLTag_tgtable_template
+--&gt;
+
+&lt;!-- Adicionar a linha abaixo em header <span class="pascal_keyword">do</span> documento--&gt;
+&lt;link <span class="pascal_keyword">type</span>=&quot;text/css&quot; href=&quot;<span class="pascal_float">.</span>/css/<span class="pascal_hex">$</span>Param(NomeDaTabela)<span class="pascal_float">.</span>css&quot; rel=&quot;stylesheet&quot; /&gt;
+
+&lt;!-- Tag para criar uma tabela no estilo <span class="pascal_hex">$</span>Param(table)
+  &lt;!--<span class="pascal_string">#</span> tgTable [- <span class="pascal_hex">$</span>Param(NomeDaTabela)=
+                   [ Alias=&quot;<span class="pascal_hex">$</span>Param(Alias_da_tabela)&quot;;
+                     Header=&quot;<span class="pascal_hex">$</span>Param(Column1):&quot;,&quot;:<span class="pascal_hex">$</span>Param(Column2):&quot;,&quot;:<span class="pascal_hex">$</span>Param(Column3)&quot;,&quot;:<span class="pascal_hex">$</span>Param(Column4)&quot;;
+                     widths=&quot;<span class="pascal_hex">$</span>Param(<span class="pascal_numeric">300</span>px)&quot;,&quot;<span class="pascal_hex">$</span>Param(<span class="pascal_numeric">250</span>px)&quot;,&quot;<span class="pascal_hex">$</span>Param(<span class="pascal_numeric">150</span>px)&quot;,&quot;<span class="pascal_hex">$</span>Param(<span class="pascal_numeric">180</span>px)&quot;;
+                     OneRow=[&quot;<span class="pascal_hex">$</span>Param(a11)&quot;,&quot;<span class="pascal_hex">$</span>Param(a12)&quot;,&quot;<span class="pascal_hex">$</span>Param(a13)  &quot;,&quot;<span class="pascal_hex">$</span>Param(a14)&quot;,/,
+                             &quot;<span class="pascal_hex">$</span>Param(a21)&quot; ,&quot;<span class="pascal_hex">$</span>Param(a22)&quot;,&quot;<span class="pascal_hex">$</span>Param(a23)&quot;,&quot;<span class="pascal_hex">$</span>Param(a24)&quot;,/,
+                             &lt;!-- Adicione aqui ,mais linhas semelhantes a linha acima e apague esse comentário--&gt;
+                            ];
+                     Footer=&quot;<span class="pascal_hex">$</span>Param(soma Columm1)&quot;,&quot;<span class="pascal_hex">$</span>Param(soma Columm2)&quot;,&quot;<span class="pascal_hex">$</span>Param(soma Columm3)&quot;,&quot;<span class="pascal_hex">$</span>Param(soma Columm4)&quot;;
+                     NotFound=&quot;<span class="pascal_hex">$</span>Param(Mensagem em caso de erro)&quot;;
+                     template=&quot;&lt;Table id=&quot;<span class="pascal_hex">$</span>Param(table)&quot;&gt;
+                                   &lt;thead id=&quot;thead$Param(NomeDaTabela)&quot;&gt;
+                                      &lt;tr&gt;&lt;th colspan=&quot;<span class="pascal_hex">$</span>Param(<span class="pascal_numeric">4</span>)&quot;&gt; &lt;p  style=&quot;text-align: center&quot;&gt; &tilde;Alias  &lt;/p&gt; &lt;/th&gt;  &lt;/tr&gt;
+                                      &lt;tr&gt;&tilde;HeaderCols&lt;/tr&gt;
+                                   &lt;/thead&gt;
+                                   &lt;tbody id=&quot;tbody$Param(NomeDaTabela)&quot;&gt;
+                                      &tilde;OneRowCols
+                                   &lt;/tbody&gt;
+                                   &lt;tfoot id=&quot;tfoot$Param(NomeDaTabela)&quot;&gt;
+                                      &tilde;FooterCols
+                                   &lt;/tfoot&gt;
+                               &lt;/Table&gt;&quot;
+                   ]
+                -]
+  <span class="pascal_string">#</span>--></pre>
+
+<p>
+
+<p></p>
+
+<ul class="paragraph_spacing">
+  <li><p><strong>PARÂMETROS ESPERADOS EM TAGPARAMS</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p><strong><a class="normal" href="mi.rtl.Objects.Methods.TObjectsMethods.html#Alias">Alias</a></strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Descrição da tabela que deve fica na primeira linha do header da tabela.</p></li>
+</ul>
+
+<p></p></li>
+  <li><p><strong>Header</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Em <strong>Header</strong> se informa o título das colunas e através de <strong>:</strong> se informa o alinhamento da coluna, podendo ser a esquerda <strong>:Column1</strong>, ou a direita <strong>Column2:</strong> ou ao centro <strong>:Column3:</strong> ou usar padrão da tabela como na <strong>Column4</strong></p></li>
+</ul>
+
+<p></p></li>
+  <li><p><strong>Widths</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Em <strong>width</strong> se informa a largura de cada coluna;</p></li>
+</ul>
+
+<p></p></li>
+  <li><p><strong>OneRow</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Em <strong>OneRow</strong> se informa o conteúdo das linhas onde a colunas deve estar entre aspa(&quot;) e separado por vírgula(,) e o fim da linha se usa a barra (/) sem as aspa (&quot;).</p></li>
+</ul>
+
+<p></p></li>
+  <li><p><strong>Footer</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>O parâmetro <strong>Footer</strong> usado para separar a ultima linha da tabela quando a mesma contem conteúdo de soma da coluna.</p></li>
+</ul>
+
+<p></p></li>
+  <li><p><strong>NotFound</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>O parâmetro <strong>NotFound</strong> é usado para dar uma mensagem quando não existe registro para inserir em <strong>OneRow</strong>.</p></li>
+</ul>
+
+<p></p></li>
+  <li><p><strong>Template</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>O parâmetro <strong>Template</strong> deve conter o <strong>html</strong> usado para criar a tabela.</p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p></li>
+  <li><p><strong>EXEMPLO DE CÓDIGO A TAG ACIMA</strong>
+
+<p></p>
+
+<pre class="longcode">
+
+<span class="pascal_comment">//Code template: mi_HTMLTag_tgtable_event</span>
+
+<span class="pascal_keyword">procedure</span> TForm_pageproducer_test.<span class="pascal_hex">$</span>Param(NomeDoObjeto)HTMLTag_tgTable(Sender: TObject;
+             <span class="pascal_keyword">const</span> TagString: <span class="pascal_keyword">string</span>; TagParams: TStrings; <span class="pascal_keyword">var</span> ReplaceText: <span class="pascal_keyword">string</span>);
+  <span class="pascal_keyword">Var</span>
+    s1 : <span class="pascal_keyword">string</span>=<span class="pascal_string">''</span>;
+<span class="pascal_keyword">begin</span>
+
+  s1 := TagParams.Values[<span class="pascal_string">'$Param(NomeDaTabela)'</span>];
+  <span class="pascal_keyword">if</span> s1 &lt;&gt; <span class="pascal_string">''</span> <span class="pascal_keyword">Then</span>
+  <span class="pascal_keyword">begin</span>
+
+    ReplaceText:= <span class="pascal_hex">$</span>Param(NomeDoObjeto)<span class="pascal_float">.</span>GetHtmlTable(TagParams,<span class="pascal_string">'$Param(NomeDaTabela)'</span>,<span class="pascal_string">'$Param(table)'</span>);
+    exit;
+  <span class="pascal_keyword">end</span>;<span class="pascal_comment">//$Param(NomeDaTabela)</span>
+
+<span class="pascal_keyword">end</span>;</pre>
+
+<p></p></li>
+  <li><p><a href=""#"">🔝</a></p></li>
+</ul>
+
+<p></p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="OnHTMLTag_tgImageMap"></span><code>property <strong>OnHTMLTag_tgImageMap</strong> : <a href="mi.rtl.Objects.Methods.html#THTMLTagEvent">THTMLTagEvent</a> Read _OnHTMLTag_tgImageMap write _OnHTMLTag_tgImageMap ;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+O método <strong><code>OnHTMLTag_tgImageMap</code></strong> retorna em <em>ReplaceText</em> o código preenchido passado por <em>TagString</em> e <em>TagParams</em>.
+
+<p></p>
+
+<ul class="paragraph_spacing">
+  <li><p>O evento <strong><code>OnHTMLTag_tgImageMap</code></strong> é usado para tratar especificamente mapa de imagem, com áreas clicáveis.</p></li>
+  <li><p><strong>&lt;map name=&quot;#Name_usemap&quot;&gt;&lt;/map&gt;</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p><strong>&lt;area&gt;</strong> : Tag usada para informar uma área dentro da imagem #Name_usemap; </p>
+
+<ul class="paragraph_spacing">
+  <li><p>atributos: </p>
+
+<ul class="paragraph_spacing">
+  <li><p><strong>Alt</strong> : Especifica um texto alternativo para a área da imagem; </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Value : Text.</p></li>
+</ul>
+
+<p></p></li>
+  <li><p><strong>Shape</strong> : A forma do ponto de acesso associado. As especificações para html 5 e HTML 4 definem os valores <strong>rect</strong> para região rectangular; <strong>circle</strong> para uma região circular e <strong>poli</strong> para um polígono determinado por toda região determinada pelas coordenadas. </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Value: </p>
+
+<ul class="paragraph_spacing">
+  <li><p>rect: Espera em Coords dois pontos: x1, y1 x2,y2;</p></li>
+  <li><p>circle: Espera em Coodes 2 pontos e o raio: x,y,r;</p></li>
+  <li><p>poly : Espera em Coodes n pares de pontos: x1,y1,x2,y2, x3,y3..xn,yn;</p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p></li>
+  <li><p><strong>Coords</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Value: </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Se shape = rect então o valor é dois pontos: x1, y1 x2,y2;</p></li>
+  <li><p>Se shape = circle então o valor é 2 pontos e o raio: x,y,r;</p></li>
+  <li><p>Se shape = poly então o valor é n pares de pontos: x1,y1,x2, y2,x3,y3..xn,yn;</p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p></li>
+  <li><p><strong>Notas</strong>: </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Entre as tags &lt;map&gt;&lt;/map&gt; é esperado uma lista de tag &lt;area&gt;.
+
+<p></p>
+
+<pre class="longcode">
+&lt;map <span class="pascal_keyword">name</span>=&quot;<span class="pascal_string">#Name_usemap&quot;</span>&gt;
+  &lt;area <span class="pascal_numeric"></span>... &gt;
+  &lt;area <span class="pascal_numeric"></span>... &gt;
+  &lt;area <span class="pascal_numeric"></span>... &gt;
+  &lt;area <span class="pascal_numeric"></span>... &gt;
+&lt;/map></pre>
+
+<p></p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p></li>
+  <li><p><strong>EXEMPLO DE TAG ESPERADO</strong>
+
+<p></p>
+
+<pre class="longcode">
+
+&lt;!-- Arquivo.<span class="pascal_numeric"></span>.....: template.html
+     Code template: mi_HTMLTag_tgImageMap_template
+
+     OneRowArea =
+--&gt;
+
+&lt;!-- Tag para uma imagem clicável --&gt;
+
+  &lt;!--<span class="pascal_string">#</span> tgImageMap [- <span class="pascal_hex">$</span>Param(NomeDaImagem)=[
+                         src=&quot;<span class="pascal_hex">$</span>Param(src)&quot;;
+                         alt=&quot;<span class="pascal_hex">$</span>Param(alt)&quot;;
+                         width=&quot;<span class="pascal_hex">$</span>Param(<span class="pascal_numeric">300</span>px)&quot;;
+                         height=&quot;<span class="pascal_hex">$</span>Param(<span class="pascal_numeric">400</span>PX)&quot;;
+                         OneRow=[&quot;rect&quot;,&quot;<span class="pascal_hex">$</span>Param(x1)&quot;,&quot;<span class="pascal_hex">$</span>Param(y1)&quot;,&quot;<span class="pascal_hex">$</span>Param(x2)&quot;,&quot;<span class="pascal_hex">$</span>Param(y2)&quot;,/,
+                                 &quot;circle&quot;,&quot;<span class="pascal_hex">$</span>Param(x1)&quot; ,&quot;<span class="pascal_hex">$</span>Param(y1)&quot;,&quot;<span class="pascal_hex">$</span>Param(r)&quot;,/,
+                                 &quot;poly&quot;,&quot;<span class="pascal_hex">$</span>Param(x1)&quot; ,&quot;<span class="pascal_hex">$</span>Param(y1)&quot;,&quot;<span class="pascal_hex">$</span>Param(x2)&quot; ,&quot;<span class="pascal_hex">$</span>Param(y2)&quot;<span class="pascal_hex">$</span>Param(xn)&quot; ,&quot;<span class="pascal_hex">$</span>Param(yn)&quot;,/,
+                                 &lt;!-- Adicione aqui ,mais linhas semelhantes a linha acima e apague esse comentário--&gt;
+                                ];
+                         templateOneRowArea =&lt;area shape=&quot;&tilde;shape&quot; alt=&quot;&tilde;alt&quot;  href=&quot;&tilde;href&quot; coords=&quot;&tilde;coords&quot;&gt;
+                         templateImageMap=&lt;img src=&quot;&tilde;src&quot;
+                                             alt=&quot;&tilde;alt&quot;
+                                             usemap=&quot;<span class="pascal_string">#&tilde;usemap&quot;</span>
+                                             width=&quot;&tilde;width&quot;
+                                             height=&quot;&tilde;height&quot;&gt;
+                                             &lt;map <span class="pascal_keyword">name</span>=&quot;&tilde;usemap&quot;&gt;
+                                                OneRowArea
+                                             &lt;/map&gt;
+
+                      ]
+                -]
+  <span class="pascal_string">#</span>--></pre>
+
+<p></p></li>
+</ul>
+
+<p></p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="OnHTMLTag_tgObject"></span><code>property <strong>OnHTMLTag_tgObject</strong> : <a href="mi.rtl.Objects.Methods.html#THTMLTagEvent">THTMLTagEvent</a> Read _OnHTMLTag_tgObject write _OnHTMLTag_tgObject ;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+A propriedade <strong><code>OnHTMLTag_tgObject</code></strong> ..</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="OnHTMLTag_tgEmbed"></span><code>property <strong>OnHTMLTag_tgEmbed</strong> : <a href="mi.rtl.Objects.Methods.html#THTMLTagEvent">THTMLTagEvent</a> Read _OnHTMLTag_tgEmbed write _OnHTMLTag_tgEmbed ;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="OnHTMLTag_tgVideo"></span><code>property <strong>OnHTMLTag_tgVideo</strong> : <a href="mi.rtl.Objects.Methods.html#THTMLTagEvent">THTMLTagEvent</a> Read _OnHTMLTag_tgVideo write _OnHTMLTag_tgVideo ;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="OnHTMLTag_tgAudio"></span><code>property <strong>OnHTMLTag_tgAudio</strong> : <a href="mi.rtl.Objects.Methods.html#THTMLTagEvent">THTMLTagEvent</a> Read _OnHTMLTag_tgAudio write _OnHTMLTag_tgAudio ;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="OnHTMLTag_Undefined"></span><code>property <strong>OnHTMLTag_Undefined</strong> : <a href="mi.rtl.Objects.Methods.html#THTMLTagEvent">THTMLTagEvent</a> Read _OnHTMLTag_Undefined write _OnHTMLTag_Undefined ;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+A propriedade <strong><code>OnHTMLTag_Undefined</code></strong> ..</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="HTMLContent"></span><code>property <strong>HTMLContent</strong> : AnsiString Read <a href="mi.rtl.objects.methods.pageproducer.TBasePageProducer.html#GetHTMLContent">GetHTMLContent</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+A propriedade <strong><code>HTMLContent</code></strong> retorna o template com as tags processadas.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="OnHTMLTag"></span><code>property <strong>OnHTMLTag</strong>  : Boolean Read _OnHTMLTag Write SetOnHTMLTag;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+A propriedade <strong><code>OnHTMLTag</code></strong> habilita e desabilita a produção de página html.
+
+<p></p>
+
+<ul class="paragraph_spacing">
+  <li><p><strong>NOTAS</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>True : Criar _FPTemplate</p></li>
+  <li><p>False : Livra da memória _FPTemplate</p></li>
+</ul>
+
+<p></p></li>
+  <li><p><strong>EXEMPLO</strong>
+
+<p></p>
+
+<pre class="longcode">
+
+<span class="pascal_keyword">procedure</span> TBasePageProducer.SetHTMLDoc(<span class="pascal_keyword">const</span> aHTMLDoc: <span class="pascal_keyword">String</span>);
+<span class="pascal_keyword">Begin</span>
+  _HTMLDoc := aHTMLDoc;
+
+  OnHTMLTag := true;
+  <span class="pascal_keyword">If</span> OnHTMLTag
+  <span class="pascal_keyword">Then</span> <span class="pascal_keyword">begin</span>
+         FPTemplate.Template := aHTMLDoc;
+
+       <span class="pascal_keyword">end</span>;
+
+<span class="pascal_keyword">end</span>;</pre>
+
+<p></p></li>
+</ul>
+
+<p></p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="HTMLDoc"></span><code>property <strong>HTMLDoc</strong>  : String Read GetHTMLDoc Write SetHTMLDoc;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+A propriedade <strong><code>HTMLDoc</code></strong> contém um string usado como template para produção de documentos.
+
+<p></p>
+
+<ul class="paragraph_spacing">
+  <li><p><strong>NOTA</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>A tag <strong><code>HTMLDoc</code></strong> deve ser usada quando temos modelos de template em memória e não precisa de arquivo. Ex: Um template pode estar no arquivo de recurso, tais como: <a class="normal" href="mi.rtl.objects.methods.pageproducer.html#Template_html_tglink">Template_html_tglink</a> e <a class="normal" href="mi.rtl.objects.methods.pageproducer.html#Tag_html_tgTable">Tag_html_tgTable</a>.</p></li>
+  <li><p>Quando <code>HTMLDoc</code> &lt;&gt; '' então não existe <a class="normal" href="mi.rtl.objects.methods.pageproducer.TBasePageProducer.html#HTMLFileResult">htmlFileResult</a> por não existir a propriedadehtmlFile.</p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="HTMLFile"></span><code>property <strong>HTMLFile</strong> : TFileName read <a href="mi.rtl.objects.methods.pageproducer.TBasePageProducer.html#GetHTMLFile">GetHTMLFile</a> Write <a href="mi.rtl.objects.methods.pageproducer.TBasePageProducer.html#SetHTMLFile">SetHTMLFile</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+A propriedade <strong><code>HTMLFile</code></strong> contém o nome do arquivo de template a ser usado para produzir a página</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="HTMLFileResult"></span><code>property <strong>HTMLFileResult</strong> : TFileName read _HTMLFileResult Write _HTMLFileResult;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+A propriedade <strong><code>HTMLFileResult</code></strong> contém o nome do arquivo resultado da chamada da propriedade <a class="normal" href="mi.rtl.objects.methods.pageproducer.TBasePageProducer.html#HTMLContent">HtmlContent</a>
+
+<p></p>
+
+<ul class="paragraph_spacing">
+  <li><p><strong>Nota:</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>O nome do arquivo será o nome do template com a extensão <strong>.html</strong> porém na pasta HTML.</p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="StartDelimiter"></span><code>property <strong>StartDelimiter</strong> : <a href="fpTemplate.html#TParseDelimiter">TParseDelimiter</a> read _StartDelimiter write _StartDelimiter;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+A propriedade <strong><code>StartDelimiter</code></strong> contém a marca inicial de tagParam.
+
+<p></p>
+
+<ul class="paragraph_spacing">
+  <li><p><strong>Nota:</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Padrão é <strong>&lt;!&ndash;#</strong></p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="EndDelimiter"></span><code>property <strong>EndDelimiter</strong> : <a href="fpTemplate.html#TParseDelimiter">TParseDelimiter</a> read _EndDelimiter write _EndDelimiter;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+A propriedade <strong><code>EndDelimiter</code></strong> contém a marca final de tagParam.
+
+<p></p>
+
+<ul class="paragraph_spacing">
+  <li><p><strong>Nota:</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Padrão é <strong>#&ndash;&gt;</strong></p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="ParamStartDelimiter"></span><code>property <strong>ParamStartDelimiter</strong> : <a href="fpTemplate.html#TParseDelimiter">TParseDelimiter</a> read _ParamStartDelimiter write _ParamStartDelimiter;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+A propriedade <strong><code>ParamStartDelimiter</code></strong> contém a marca inicial do parâmetro de tagParam.
+
+<p></p>
+
+<ul class="paragraph_spacing">
+  <li><p><strong>Nota:</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Padrão é <strong>[</strong></p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="ParamEndDelimiter"></span><code>property <strong>ParamEndDelimiter</strong> : <a href="fpTemplate.html#TParseDelimiter">TParseDelimiter</a> read _ParamEndDelimiter write _ParamEndDelimiter;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+A propriedade <strong><code>ParamEndDelimiter</code></strong> contém a marca final do parâmetro de tagParam.
+
+<p></p>
+
+<ul class="paragraph_spacing">
+  <li><p><strong>Nota:</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Padrão é <strong>]</strong></p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="ParamValueSeparator"></span><code>property <strong>ParamValueSeparator</strong> : <a href="fpTemplate.html#TParseDelimiter">TParseDelimiter</a> read _ParamValueSeparator write _ParamValueSeparator;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+A propriedade <strong><code>ParamValueSeparator</code></strong> contém a marca de separação entre o parâmetro e o valor dele de tagParam.
+
+<p></p>
+
+<ul class="paragraph_spacing">
+  <li><p><strong>Nota:</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Padrão é <strong>=</strong></p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="AllowTagParams"></span><code>property <strong>AllowTagParams</strong> : Boolean read _AllowTagParams write _AllowTagParams;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+A propriedade <strong><code>AllowTagParams</code></strong> informa se a tags tem modelo simples ou complexo. contendo parâmeros internos a tag.
+
+<p></p>
+
+<ul class="paragraph_spacing">
+  <li><p><strong>Nota</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Se <strong>true</strong> a tags de modelo com parâmetros é permitidos, o evento [FOnReplaceTag] é usado para todas as substituições de tags, caso seja <strong>false</strong>, o evento [FOnReplaceTag] não será executado.</p></li>
+  <li><p>O padrão é <strong>true</strong>.</p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="FPTemplate"></span><code>property <strong>FPTemplate</strong> : <a href="fpTemplate.TFPTemplate.html">TFPTemplate</a> read _FPTemplate write SetFPTemplate;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+A propriedade <strong><code>FPTemplate</code></strong> é o componente oficial do pacote fcl-web e tem como objetivo produzir documento usando &lt;#tag&gt;.
+
+<p></p>
+
+<ul class="paragraph_spacing">
+  <li><p>Veja o documento <strong>fpTemplate.txt</strong> convertido para html: </p>
+
+<ul class="paragraph_spacing">
+  <li><p><a href="./fcl-base/src/fptemplate.html" target="_blank">./fcl-base/src/fptemplate.html ➚</a></p></li>
+  <li><p><iframe width="100%" height="100%" src="./fcl-base/src/fptemplate.html" frameborder="0"          allowfullscreen></iframe></p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p>
+</td></tr>
+</table>
+<hr><span class="appinfo"><em>Gerado por <a href="https://pasdoc.github.io/">PasDoc 0.16.0</a>. </em>
+</span>
+</div></div></body></html>

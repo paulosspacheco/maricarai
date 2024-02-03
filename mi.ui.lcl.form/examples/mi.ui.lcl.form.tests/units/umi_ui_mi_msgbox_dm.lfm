@@ -1,7 +1,0 @@
-object Mi_ui_mi_msgBox: TMi_ui_mi_msgBox
-  OldCreateOrder = False
-  Height = 150
-  HorizontalOffset = 577
-  VerticalOffset = 249
-  Width = 150
-end

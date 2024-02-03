@@ -1,7 +1,7 @@
 unit mi.rtl.Objects.Consts.Mi_MsgBox;
 {:< - A Unit **@name** implementa a classe TMI_MsgBox.
     - **VERSÃO**
-      - Alpha - 0.8.0
+      - Alpha - Alpha - 0.9.0
 
     - **CÓDIGO FONTE**:
       - @html(<a href="../units/mi.rtl.objects.msgbox.pas">mi.rtl.objects.msgbox.pas</a>)
@@ -31,10 +31,26 @@ interface
     Type
       TMI_MsgBoxTypes =
       Class(TObjectsConsts)
+        {$REGION ' --->  Constantes '}
+          // Used for ModalResult
+          const mrNone     = System.UITypes.mrNone;
+          const mrOK       = System.UITypes.mrOK      ;
+          const mrCancel   = System.UITypes.mrCancel  ;
+          const mrAbort    = System.UITypes.mrAbort   ;
+          const mrRetry    = System.UITypes.mrRetry   ;
+          const mrIgnore   = System.UITypes.mrIgnore  ;
+          const mrYes      = System.UITypes.mrYes     ;
+          const mrNo       = System.UITypes.mrNo      ;
+          const mrAll      = System.UITypes.mrAll     ;
+          const mrNoToAll  = System.UITypes.mrNoToAll ;
+          const mrYesToAll = System.UITypes.mrYesToAll;
+          const mrClose    = System.UITypes.mrClose   ;
+          const mrLast     = System.UITypes.mrLast    ;
+          const MaxBufLength   = $ff00;
+        {$ENDREGION ' --->  Constantes '}
 
-        {$REGION ' --->  Tipos e constantes '}
+        {$REGION ' --->  Tipos'}
 
-          public type
             // Message dialog related
           public Type TMsgDlgType = System.UITypes.TMsgDlgType;
 
@@ -50,15 +66,11 @@ interface
           public Type TArray_MsgDlgBtn = array[0..2] of TMsgDlgBtn;
 
 
-        Type
-          TPanel_Lista_de_Botoes = (En_Panel_Lista_de_Botoes_Yes_No_Cancel,
-                                    En_Panel_Lista_de_Botoes_Yes_No,
-                                    En_Panel_Lista_de_Botoes_Ok_Cancel,
-                                    En_Panel_Lista_de_Botoes_Abort_Retry_Ignore
-                                   );
-        const
-          MaxBufLength   = $ff00;
-
+          public Type TPanel_Lista_de_Botoes = (En_Panel_Lista_de_Botoes_Yes_No_Cancel,
+                                                En_Panel_Lista_de_Botoes_Yes_No,
+                                                En_Panel_Lista_de_Botoes_Ok_Cancel,
+                                                En_Panel_Lista_de_Botoes_Abort_Retry_Ignore
+                                               );
         type
           PEditBuffer = ^TEditBuffer;
           TEditBuffer = array[0..MaxBufLength] of AnsiChar;
@@ -78,21 +90,28 @@ interface
     {$REGION ' --->  Tipos e function of object '}
         Type TMessageBox = Function (Const aMsg:AnsiString):TModalResult of object unimplemented;
 
-        {: - O type **@name** é um evento que deve ser implementada na plataforma onde for usada.        }
+        {: - O type **@name** é um evento que deve ser implementada na plataforma
+             onde for usada.        }
         Type TMessageBox_03 = Function (Const aMsg:AnsiString;
                                         DlgType: TMsgDlgType;
                                         Buttons: TMsgDlgButtons):TModalResult of Object unimplemented;
+
+        {: - O type **@name** é um evento que deve ser implementada na plataforma
+               onde for usada.        }
         Type TMessageBox_04   = function (aMsg: AnsiString;
                                           DlgType: TMsgDlgType;
                                           Buttons: TMsgDlgButtons;
                                           ButtonDefault: TMsgDlgBtn): TModalResult of object unimplemented;
 
+        {: - O type **@name** é um evento que deve ser implementada na plataforma
+             onde for usada.        }
         Type TMessageBox_04_PSItem   = function (aPSItem : TMI_MsgBoxTypes.PSItem;
                                                  DlgType : TMsgDlgType;
                                                  Buttons : TMsgDlgButtons;
                                                  ButtonDefault: TMsgDlgBtn): TModalResult of object unimplemented;
 
-
+        {: - O type **@name** é um evento que deve ser implementada na plataforma
+             onde for usada.        }
         Type TMessageBox_05   = function (ATitle: AnsiString;
                                           aMsg: AnsiString;
                                           DlgType: TMsgDlgType;
@@ -106,6 +125,8 @@ interface
         //                                               DlgType: TMsgDlgType;
         //                                               Buttons: TMsgDlgButtons):SmallInt of object unimplemented;
 
+        {: - O type **@name** é um evento que deve ser implementada na plataforma
+             onde for usada.        }
         Type TMessageBox_ListBoxRec_PSItem =
              Function (Atitulo: AnsiString;
                        APSItem:TMI_MsgBoxTypes.PSItem;
@@ -114,31 +135,50 @@ interface
                        Buttons: TMsgDlgButtons;
                        ButtonDefault: TMsgDlgBtn):TModalResult of object unimplemented;
 
-
-        Type TMessageBox_Strings = function (aTitulo:AnsiString;
+        {: - O type **@name** é um evento que deve ser implementada na plataforma
+             onde for usada.        }
+         Type TMessageBox_Strings = function (aTitulo:AnsiString;
                                               Msg: AnsiString;
                                               DlgType: TMsgDlgType;
                                               Buttons: TMsgDlgButtons
                                               ) : TModalResult of Object unimplemented;
-
+       {: - O type **@name** é um evento que deve ser implementada na plataforma
+            onde for usada.        }
         type TInputValue = function (const aTitle,
                                      aLabel: AnsiString;
                                      var aValue : Variant): TModalResult of object  unimplemented;
 
+        {: - O type **@name** é um evento que deve ser implementada na plataforma
+             onde for usada.        }
         type TInputBox = function (const aTitle,
                                          ALabel: AnsiString;
-                                         var Buff;
-                                         Template: AnsiString): TModalResult of object  unimplemented;
+                                   var Buff;
+                                   Template: AnsiString): TModalResult of object  unimplemented;
+
+        {: - O type **@name** é um evento que deve ser implementada na plataforma
+             onde for usada.        }
 
         type TInputPassword = function (const aTitle:AnsiString;
                                         var aPassword : AnsiString): TModalResult of object  unimplemented;
 
+        {: - O type **@name** é um evento que deve ser implementada na plataforma
+             onde for usada.        }
         Type THandleException = procedure (Sender: TObject) of object  unimplemented;
 
+        {: - O type **@name** é um evento que deve ser implementada na plataforma
+             onde for usada.        }
         type TShowHTML_02 = procedure (aTitle,aHTMLCode: AnsiString) of object  unimplemented;
 
+        {: - O type **@name** é um evento que deve ser implementada na plataforma
+             onde for usada.        }
         type TShowHTML_03 = procedure (aRect : TMI_MsgBoxTypes.TPoint; aTitle,aHTMLCode: AnsiString) of object unimplemented;
+
+        {: - O type **@name** é um evento que deve ser implementada na plataforma
+             onde for usada.        }
         type THideHTML = procedure () of object unimplemented;
+
+        {: - O type **@name** é um evento que deve ser implementada na plataforma
+             onde for usada.        }
         type TCloseHTML = procedure () of object unimplemented;
 
     {$ENDREGION ' --->  Tipos e function of object '}
@@ -188,7 +228,7 @@ interface
             'mrYes',
             'mrNo',
             'mrAll',
-            'mrNoToAll',
+            'mrN10:10oToAll',
             'mrYesToAll',
             'mrClose');
 
@@ -235,18 +275,21 @@ interface
         {$REGION ' ---> Property onMessageBox_03 : TMessageBox_03 '}
             strict Private Var _onMessageBox_03 : TMessageBox_03;
             Published property  onMessageBox_03: TMessageBox_03 Read _onMessageBox_03   Write  _onMessageBox_03;
-          {$ENDREGION}
+        {$ENDREGION}
+
         {: O método **@name** recebe 3 parâmetros criar um dialogo e retrona as opções escolhidas.}
         public function MessageBox(const aMsg: AnsiString;
                                    DlgType: TMsgDlgType;
                                    Buttons: TMsgDlgButtons): TModalResult;
 
         {$REGION ' ---> Property onMessageBox_04 : TMessageBox_04'}
-           Published strict Private Var _onMessageBox_04 : TMessageBox_04;
+          Published strict Private Var _onMessageBox_04 : TMessageBox_04;
+
            {: - A propriedade @name mostra uma mensage com o title customizado.
            }
            Published property  onMessageBox_04: TMessageBox_04 Read _onMessageBox_04 Write _onMessageBox_04;
         {$ENDREGION}
+
         public function MessageBox(Msg: AnsiString;
                                    DlgType: TMsgDlgType;
                                    Buttons: TMsgDlgButtons;
@@ -258,6 +301,7 @@ interface
           }
           Published property  onMessageBox_04_PSItem: TMessageBox_04_PSItem Read _MessageBox_04_PSItem Write _MessageBox_04_PSItem;
         {$ENDREGION}
+
         public function MessageBox(aPSItem : TMI_MsgBoxTypes.PSItem;
                                    DlgType: TMsgDlgType;
                                    Buttons: TMsgDlgButtons;
@@ -270,6 +314,7 @@ interface
            }
            Published property  onMessageBox_05: TMessageBox_05 Read _onMessageBox_05 Write _onMessageBox_05;
         {$ENDREGION}
+
         public function MessageBox(aTitle : AnsiString;
                                    Msg: AnsiString;
                                    DlgType: TMsgDlgType;
@@ -282,12 +327,14 @@ interface
              strict Private Var _onMessageBox : TMessageBox;
              Published property  onMessageBox: TMessageBox Read _onMessageBox   Write  _onMessageBox;
         {$ENDREGION}
+
         public Function MessageBox(Const aMsg:AnsiString):TModalResult;Overload;
 
         {$REGION ' ---> Property onMessageBox_ListBoxRec_PSItem : TMessageBox_ListBoxRec_PSItem '}
            strict Private Var _onMessageBox_ListBoxRec_PSItem : TMessageBox_ListBoxRec_PSItem;
            Published property  onMessageBox_ListBoxRec_PSItem: TMessageBox_ListBoxRec_PSItem Read _onMessageBox_ListBoxRec_PSItem   Write _onMessageBox_ListBoxRec_PSItem;
         {$ENDREGION}
+
         Public Function MessageBox_ListBoxRec_PSItem(Atitulo: AnsiString;
                                                      APSItem:PSItem;
                                                      itemSelection : longint;
@@ -306,6 +353,7 @@ interface
            }
            Published  property  onInputValue: TInputValue Read _onInputValue   Write  _onInputValue;
         {$ENDREGION}
+
         {: O método **@name** ler um valor na tela e retorna em **aValue** o valor e em result
            retorna **MrOk** ou **MrCancel**}
         Public function InputValue(const aTitle,

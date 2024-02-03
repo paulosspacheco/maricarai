@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+    <html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Bancos de dados do projeto</title>
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <meta name="description"   content="" />
+        <meta name="keywords" content="" />
+           
+        <link type="text/css" href="/css/topnav.css" rel="stylesheet"/>        
+        <link type="text/css" href="/css/defaultthemeMarkdown.css"  rel="stylesheet"/>
+
+        <script type="application/x-javascript" src="/js/generic.js"></script>
+        <script type="application/x-javascript" src="/js/tgeneric.js"></script>
+
+        <script>document.addEventListener("DOMContentLoaded", function() {includeHTML();}                );</script>
+        <script>document.addEventListener("DOMContentLoaded", function() {FixHeader(window, "myHeader");});</script>
+        <script>document.addEventListener("DOMContentLoaded", function() {toggleTree();}                 );</script>   
+
+
+    </head>
+    <body class="vscode-body vscode-dark">
+        <div class="header" id="myHeader">
+  <div class="navbar" w3-include-html="/menu.inc"> </div>
+</div>
+<div class="title"><script> document.write(document.title);</script></div>  
+<main>
+<!-- markdownlint-disable-next-line -->
+<span id="topo"><span>
+<!-- <h1 id="bancos-de-dados-do-projeto">Bancos de dados do projeto</h1> -->
+<h2 id="requisitos-das-tabelas">Requisitos das tabelas</h2>
+<ol>
+<li>
+<p>Medicos</p>
+<ol>
+<li>Id</li>
+<li>Nome</li>
+<li>Telefone</li>
+<li>Telefone_da_secretaria</li>
+<li>Login</li>
+<li>Senha</li>
+</ol>
+</li>
+<li>
+<p>Serviço_de_agendas</p>
+<ol>
+<li>id</li>
+<li>Nome</li>
+<li>Login</li>
+<li>Senha</li>
+</ol>
+</li>
+<li>
+<p>Convênios</p>
+<ol>
+<li>Id</li>
+<li>Nome</li>
+<li>Login</li>
+<li>Senha</li>
+</ol>
+</li>
+<li>
+<p>clientes</p>
+<ol>
+<li>Id;</li>
+<li>Nome;</li>
+<li>Telefone_WhatsApp;</li>
+<li>e-mail</li>
+<li>Login</li>
+<li>senha</li>
+<li>Id_Convenio</li>
+</ol>
+</li>
+<li>
+<p>Integração</p>
+<ol>
+<li>id</li>
+<li>endereço_do_site</li>
+<li>login</li>
+<li>senha</li>
+<li>status // Usado para saber o se o site está conectado</li>
+</ol>
+</li>
+<li>
+<p>Expediente_do_medico_data</p>
+<ol>
+<li>id</li>
+<li>Data</li>
+</ol>
+</li>
+<li>
+<p>Expediente_do_medico_horas</p>
+<ol>
+<li>Id_Expediente_do_medico_Data</li>
+<li>Hora_inicial</li>
+<li>Hora_final</li>
+</ol>
+</li>
+<li>
+<p>Disponibilidade_do_Paciente</p>
+<ol>
+<li>Id</li>
+<li>Data</li>
+<li>Hora</li>
+</ol>
+</li>
+<li>
+<p>Agenda</p>
+<ol>
+<li>Id</li>
+<li>Id_Medico</li>
+<li>Id_Cliente</li>
+<li>Data</li>
+<li>Hora</li>
+<li>Id_Convenio</li>
+<li>Natureza_da_Interação</li>
+<li>Observações</li>
+</ol>
+</li>
+</ol>
+<h2 id="script-sql-para-criar-as-tabelas-com-base-nos-requisitos-fornecidos">Script SQL para criar as tabelas com base nos requisitos fornecidos:</h2>
+<ol>
+<li>
+<p>Script sql</p>
+<pre><code class="hljs language-sql">
+    <span class="hljs-comment">-- Tabela Medicos</span>
+    <span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">TABLE</span> Medicos (
+        <span class="hljs-keyword">Id</span> <span class="hljs-built_in">SERIAL</span> PRIMARY <span class="hljs-keyword">KEY</span>,
+        Nome <span class="hljs-built_in">VARCHAR</span>(<span class="hljs-number">255</span>) <span class="hljs-keyword">NOT</span> <span class="hljs-literal">NULL</span>,
+        Telefone <span class="hljs-built_in">VARCHAR</span>(<span class="hljs-number">15</span>),
+        Telefone_da_secretaria <span class="hljs-built_in">VARCHAR</span>(<span class="hljs-number">15</span>),
+        Login <span class="hljs-built_in">VARCHAR</span>(<span class="hljs-number">50</span>) <span class="hljs-keyword">UNIQUE</span> <span class="hljs-keyword">NOT</span> <span class="hljs-literal">NULL</span>,
+        Senha <span class="hljs-built_in">VARCHAR</span>(<span class="hljs-number">50</span>) <span class="hljs-keyword">NOT</span> <span class="hljs-literal">NULL</span>
+    );
+
+    <span class="hljs-comment">-- Tabela Serviço_de_agendas</span>
+    <span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">TABLE</span> Servico_de_agendas (
+        <span class="hljs-keyword">Id</span> <span class="hljs-built_in">SERIAL</span> PRIMARY <span class="hljs-keyword">KEY</span>,
+        Nome <span class="hljs-built_in">VARCHAR</span>(<span class="hljs-number">255</span>) <span class="hljs-keyword">NOT</span> <span class="hljs-literal">NULL</span>,
+        Login <span class="hljs-built_in">VARCHAR</span>(<span class="hljs-number">50</span>) <span class="hljs-keyword">UNIQUE</span> <span class="hljs-keyword">NOT</span> <span class="hljs-literal">NULL</span>,
+        Senha <span class="hljs-built_in">VARCHAR</span>(<span class="hljs-number">50</span>) <span class="hljs-keyword">NOT</span> <span class="hljs-literal">NULL</span>
+    );
+
+    <span class="hljs-comment">-- Tabela Convênios</span>
+    <span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">TABLE</span> Convenios (
+        <span class="hljs-keyword">Id</span> <span class="hljs-built_in">SERIAL</span> PRIMARY <span class="hljs-keyword">KEY</span>,
+        Nome <span class="hljs-built_in">VARCHAR</span>(<span class="hljs-number">255</span>) <span class="hljs-keyword">NOT</span> <span class="hljs-literal">NULL</span>,
+        Login <span class="hljs-built_in">VARCHAR</span>(<span class="hljs-number">50</span>) <span class="hljs-keyword">UNIQUE</span> <span class="hljs-keyword">NOT</span> <span class="hljs-literal">NULL</span>,
+        Senha <span class="hljs-built_in">VARCHAR</span>(<span class="hljs-number">50</span>) <span class="hljs-keyword">NOT</span> <span class="hljs-literal">NULL</span>
+    );
+
+    <span class="hljs-comment">-- Tabela Clientes</span>
+    <span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">TABLE</span> Clientes (
+        <span class="hljs-keyword">Id</span> <span class="hljs-built_in">SERIAL</span> PRIMARY <span class="hljs-keyword">KEY</span>,
+        Nome <span class="hljs-built_in">VARCHAR</span>(<span class="hljs-number">255</span>) <span class="hljs-keyword">NOT</span> <span class="hljs-literal">NULL</span>,
+        Telefone_WhatsApp <span class="hljs-built_in">VARCHAR</span>(<span class="hljs-number">15</span>),
+        Email <span class="hljs-built_in">VARCHAR</span>(<span class="hljs-number">255</span>),
+        Login <span class="hljs-built_in">VARCHAR</span>(<span class="hljs-number">50</span>) <span class="hljs-keyword">UNIQUE</span> <span class="hljs-keyword">NOT</span> <span class="hljs-literal">NULL</span>,
+        Senha <span class="hljs-built_in">VARCHAR</span>(<span class="hljs-number">50</span>) <span class="hljs-keyword">NOT</span> <span class="hljs-literal">NULL</span>,
+        Id_Convenio <span class="hljs-built_in">INTEGER</span> <span class="hljs-keyword">REFERENCES</span> Convenios(<span class="hljs-keyword">Id</span>)
+    );
+
+    <span class="hljs-comment">-- Tabela Integração</span>
+    <span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">TABLE</span> Integracao (
+        <span class="hljs-keyword">Id</span> <span class="hljs-built_in">SERIAL</span> PRIMARY <span class="hljs-keyword">KEY</span>,
+        Endereco_do_site <span class="hljs-built_in">VARCHAR</span>(<span class="hljs-number">255</span>) <span class="hljs-keyword">NOT</span> <span class="hljs-literal">NULL</span>,
+        Login <span class="hljs-built_in">VARCHAR</span>(<span class="hljs-number">50</span>) <span class="hljs-keyword">UNIQUE</span> <span class="hljs-keyword">NOT</span> <span class="hljs-literal">NULL</span>,
+        Senha <span class="hljs-built_in">VARCHAR</span>(<span class="hljs-number">50</span>) <span class="hljs-keyword">NOT</span> <span class="hljs-literal">NULL</span>,
+        <span class="hljs-keyword">Status</span> <span class="hljs-built_in">BOOLEAN</span> <span class="hljs-keyword">NOT</span> <span class="hljs-literal">NULL</span>
+    );
+
+    <span class="hljs-comment">-- Tabela Expediente_do_medico_data</span>
+    <span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">TABLE</span> Expediente_do_medico_data (
+        <span class="hljs-keyword">Id</span> <span class="hljs-built_in">SERIAL</span> PRIMARY <span class="hljs-keyword">KEY</span>,
+        <span class="hljs-keyword">Data</span> <span class="hljs-built_in">DATE</span> <span class="hljs-keyword">NOT</span> <span class="hljs-literal">NULL</span>
+    );
+
+    <span class="hljs-comment">-- Tabela Expediente_do_medico_horas</span>
+    <span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">TABLE</span> Expediente_do_medico_horas (
+        Id_Expediente_do_medico_Data <span class="hljs-built_in">INTEGER</span> <span class="hljs-keyword">REFERENCES</span> Expediente_do_medico_data(<span class="hljs-keyword">Id</span>),
+        Hora_inicial <span class="hljs-built_in">TIME</span> <span class="hljs-keyword">NOT</span> <span class="hljs-literal">NULL</span>,
+        Hora_final <span class="hljs-built_in">TIME</span> <span class="hljs-keyword">NOT</span> <span class="hljs-literal">NULL</span>
+    );
+
+    <span class="hljs-comment">-- Tabela Disponibilidade_do_Paciente</span>
+    <span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">TABLE</span> Disponibilidade_do_Paciente (
+        <span class="hljs-keyword">Id</span> <span class="hljs-built_in">SERIAL</span> PRIMARY <span class="hljs-keyword">KEY</span>,
+        <span class="hljs-keyword">Data</span> <span class="hljs-built_in">DATE</span> <span class="hljs-keyword">NOT</span> <span class="hljs-literal">NULL</span>,
+        Hora <span class="hljs-built_in">TIME</span> <span class="hljs-keyword">NOT</span> <span class="hljs-literal">NULL</span>
+    );
+
+    <span class="hljs-comment">-- Tabela Agenda</span>
+    <span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">TABLE</span> Agenda (
+        <span class="hljs-keyword">Id</span> <span class="hljs-built_in">SERIAL</span> PRIMARY <span class="hljs-keyword">KEY</span>,
+        Id_Medico <span class="hljs-built_in">INTEGER</span> <span class="hljs-keyword">REFERENCES</span> Medicos(<span class="hljs-keyword">Id</span>),
+        Id_Cliente <span class="hljs-built_in">INTEGER</span> <span class="hljs-keyword">REFERENCES</span> Clientes(<span class="hljs-keyword">Id</span>),
+        <span class="hljs-keyword">Data</span> <span class="hljs-built_in">DATE</span> <span class="hljs-keyword">NOT</span> <span class="hljs-literal">NULL</span>,
+        Hora <span class="hljs-built_in">TIME</span> <span class="hljs-keyword">NOT</span> <span class="hljs-literal">NULL</span>,
+        Id_Convenio <span class="hljs-built_in">INTEGER</span> <span class="hljs-keyword">REFERENCES</span> Convenios(<span class="hljs-keyword">Id</span>),
+        Natureza_da_Interacao <span class="hljs-built_in">VARCHAR</span>(<span class="hljs-number">255</span>),
+        Observacoes <span class="hljs-built_in">TEXT</span>
+    );
+
+</code></pre>
+</li>
+</ol>
+<h2 id="programa-básico-em-python-para-realizar-operações-crud-create-read-update-delete-na-tabela-de-médicos">Programa básico em Python para realizar operações CRUD (Create, Read, Update, Delete) na tabela de Médicos</h2>
+<ol>
+<li>
+<p>Instalação de pacotes:</p>
+<pre><code class="hljs language-bash">
+    mkdir NodeSequelize
+    <span class="hljs-built_in">cd</span> NodeSequelize
+
+</code></pre>
+</li>
+<li>
+<p>Programa para incluir, alterar, consultar e excluir cliente:</p>
+<pre><code class="hljs language-python">
+<span class="hljs-keyword">import</span> psycopg2
+<span class="hljs-keyword">from</span> psycopg2 <span class="hljs-keyword">import</span> sql
+
+<span class="hljs-comment"># Função para conectar ao banco de dados</span>
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">conectar</span><span class="hljs-params">()</span>:</span>
+    <span class="hljs-keyword">return</span> psycopg2.connect(
+        dbname=<span class="hljs-string">"seu_banco_de_dados"</span>,
+        user=<span class="hljs-string">"seu_usuario"</span>,
+        password=<span class="hljs-string">"sua_senha"</span>,
+        host=<span class="hljs-string">"localhost"</span>
+    )
+
+<span class="hljs-comment"># Função para criar a tabela Medicos</span>
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">criar_tabela_medicos</span><span class="hljs-params">(conexao)</span>:</span>
+    <span class="hljs-keyword">with</span> conexao.cursor() <span class="hljs-keyword">as</span> cursor:
+        cursor.execute(<span class="hljs-string">"""
+            CREATE TABLE IF NOT EXISTS Medicos (
+                Id SERIAL PRIMARY KEY,
+                Nome VARCHAR(255) NOT NULL,
+                Telefone VARCHAR(15),
+                Telefone_da_secretaria VARCHAR(15),
+                Login VARCHAR(50) UNIQUE NOT NULL,
+                Senha VARCHAR(50) NOT NULL
+            );
+        """</span>)
+    conexao.commit()
+
+<span class="hljs-comment"># Função para inserir um novo médico</span>
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">inserir_medico</span><span class="hljs-params">(conexao, nome, telefone, telefone_secretaria, login, senha)</span>:</span>
+    <span class="hljs-keyword">with</span> conexao.cursor() <span class="hljs-keyword">as</span> cursor:
+        cursor.execute(<span class="hljs-string">"""
+            INSERT INTO Medicos (Nome, Telefone, Telefone_da_secretaria, Login, Senha)
+            VALUES (%s, %s, %s, %s, %s) RETURNING Id;
+        """</span>, (nome, telefone, telefone_secretaria, login, senha))
+        medico_id = cursor.fetchone()[<span class="hljs-number">0</span>]
+    conexao.commit()
+    <span class="hljs-keyword">return</span> medico_id
+
+<span class="hljs-comment"># Função para buscar todos os médicos</span>
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">buscar_medicos</span><span class="hljs-params">(conexao)</span>:</span>
+    <span class="hljs-keyword">with</span> conexao.cursor() <span class="hljs-keyword">as</span> cursor:
+        cursor.execute(<span class="hljs-string">"SELECT * FROM Medicos;"</span>)
+        medicos = cursor.fetchall()
+    <span class="hljs-keyword">return</span> medicos
+
+<span class="hljs-comment"># Função para buscar um médico por ID</span>
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">buscar_medico_por_id</span><span class="hljs-params">(conexao, medico_id)</span>:</span>
+    <span class="hljs-keyword">with</span> conexao.cursor() <span class="hljs-keyword">as</span> cursor:
+        cursor.execute(<span class="hljs-string">"SELECT * FROM Medicos WHERE Id = %s;"</span>, (medico_id,))
+        medico = cursor.fetchone()
+    <span class="hljs-keyword">return</span> medico
+
+<span class="hljs-comment"># Função para atualizar os dados de um médico</span>
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">atualizar_medico</span><span class="hljs-params">(conexao, medico_id, nome, telefone, telefone_secretaria, login, senha)</span>:</span>
+    <span class="hljs-keyword">with</span> conexao.cursor() <span class="hljs-keyword">as</span> cursor:
+        cursor.execute(<span class="hljs-string">"""
+            UPDATE Medicos
+            SET Nome = %s, Telefone = %s, Telefone_da_secretaria = %s, Login = %s, Senha = %s
+            WHERE Id = %s;
+        """</span>, (nome, telefone, telefone_secretaria, login, senha, medico_id))
+    conexao.commit()
+
+<span class="hljs-comment"># Função para excluir um médico por ID</span>
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">excluir_medico</span><span class="hljs-params">(conexao, medico_id)</span>:</span>
+    <span class="hljs-keyword">with</span> conexao.cursor() <span class="hljs-keyword">as</span> cursor:
+        cursor.execute(<span class="hljs-string">"DELETE FROM Medicos WHERE Id = %s;"</span>, (medico_id,))
+    conexao.commit()
+
+<span class="hljs-comment"># Exemplo de uso</span>
+conexao = conectar()
+criar_tabela_medicos(conexao)
+
+<span class="hljs-comment"># Inserir um novo médico</span>
+medico_id = inserir_medico(conexao, <span class="hljs-string">"Dr. Smith"</span>, <span class="hljs-string">"123456789"</span>, <span class="hljs-string">"987654321"</span>, <span class="hljs-string">"dr_smith"</span>, <span class="hljs-string">"senha123"</span>)
+
+<span class="hljs-comment"># Buscar todos os médicos</span>
+todos_medicos = buscar_medicos(conexao)
+print(<span class="hljs-string">"Todos os médicos:"</span>, todos_medicos)
+
+<span class="hljs-comment"># Buscar um médico por ID</span>
+medico_encontrado = buscar_medico_por_id(conexao, medico_id)
+print(<span class="hljs-string">"Médico encontrado:"</span>, medico_encontrado)
+
+<span class="hljs-comment"># Atualizar os dados do médico</span>
+atualizar_medico(conexao, medico_id, <span class="hljs-string">"Dr. Smith Atualizado"</span>, <span class="hljs-string">"111111111"</span>, <span class="hljs-string">"222222222"</span>, <span class="hljs-string">"dr_smith"</span>, <span class="hljs-string">"nova_senha"</span>)
+
+<span class="hljs-comment"># Buscar novamente o médico por ID</span>
+medico_atualizado = buscar_medico_por_id(conexao, medico_id)
+print(<span class="hljs-string">"Médico atualizado:"</span>, medico_atualizado)
+
+<span class="hljs-comment"># Excluir o médico</span>
+excluir_medico(conexao, medico_id)
+
+<span class="hljs-comment"># Buscar todos os médicos após exclusão</span>
+todos_medicos_apos_exclusao = buscar_medicos(conexao)
+print(<span class="hljs-string">"Todos os médicos após exclusão:"</span>, todos_medicos_apos_exclusao)
+
+<span class="hljs-comment"># Fechar a conexão</span>
+conexao.close()
+
+
+</code></pre>
+</li>
+</ol>
+<!-- markdownlint-disable-next-line -->
+</main>
+<p><a href="#topo" title="Retorna ao topo">🔝🔝</a></p>
+
+        
+        
+    </body>
+    </html>

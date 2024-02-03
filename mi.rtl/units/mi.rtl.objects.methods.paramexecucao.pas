@@ -259,7 +259,7 @@ uses
                                  wPassword{3}:tString;
                                  wModulo{4}:SmallInt;
                                  wCommand{5} : SmallInt);Overload;
-          public procedure Check_Se_Comando_autorizado;
+          public function Check_Se_Comando_autorizado:Boolean;
 
 
           Function Get_Password_do_Comando(aModulo: Byte; aComando : SmallInt):tString;
@@ -649,8 +649,10 @@ Var
     Command := wCommand;
   end;
 
-  Procedure TParamExecucao.Check_Se_Comando_autorizado;
+
+  function TParamExecucao.Check_Se_Comando_autorizado:Boolean;
   Begin
+    result := true;
       If ParamCount = 3 // ParamStr(1) = Modulo e ParamStr(2) = Commando e ParamStr(3) = tString para ser enviado ao buffer do teclado
       Then Begin
              exit;
@@ -662,7 +664,8 @@ Var
                       Then admin_Logado := 0
                       Else If ParamStr(2) = '1'
                            Then admin_Logado := 1
-                           Else Raise Exception.Create('Parâmetro inválido. Não posso continua!.');
+                           Else Result := false;
+                           //Else Raise Exception.Create('Parâmetro inválido. Não posso continua!.');
                   end;
            End;
   end;
@@ -732,14 +735,12 @@ Var
     GetDataSistOp(_DataAtual,'/');
   }
 
-    If IsConsole
-    Then Check_Se_Comando_autorizado;
-
+    //If IsConsole
+    //Then Check_Se_Comando_autorizado;
 
 //    Identificacao.Filial  := 1;
 //    Identificacao.Usuario := 1;
 //    Identificacao.Password   := Password_admin;
-
 
 
     Case ParamCount of

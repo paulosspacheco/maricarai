@@ -1,0 +1,63 @@
+object MI_UI_InputBox_lcl: TMI_UI_InputBox_lcl
+  Left = 462
+  Height = 165
+  Top = 250
+  Width = 353
+  Caption = 'MI_UI_InputBox_lcl'
+  ClientHeight = 165
+  ClientWidth = 353
+  OnCloseQuery = FormCloseQuery
+  Position = poDesktopCenter
+  object ButtonPanel1: TButtonPanel
+    Left = 6
+    Height = 44
+    Top = 115
+    Width = 341
+    OKButton.Name = 'OKButton'
+    OKButton.DefaultCaption = True
+    HelpButton.Name = 'HelpButton'
+    HelpButton.DefaultCaption = True
+    CloseButton.Name = 'CloseButton'
+    CloseButton.DefaultCaption = True
+    CancelButton.Name = 'CancelButton'
+    CancelButton.DefaultCaption = True
+    TabOrder = 0
+    ShowButtons = [pbOK, pbCancel]
+  end
+  object Mi_ScrollBox_LCL1: TMi_ScrollBox_LCL
+    Left = 0
+    Height = 116
+    Top = 0
+    Width = 353
+    Align = alTop
+    Anchors = [akTop, akLeft, akRight, akBottom]
+    AutoScroll = False
+    Font.Height = -13
+    Font.Name = 'Courier New'
+    Font.Style = [fsBold]
+    ParentFont = False
+    TabOrder = 1
+    TabStop = True
+  end
+  object ActionList1: TActionList
+    Left = 264
+    Top = 8
+    object Action_OkButton: TAction
+      Caption = 'Ok'
+    end
+    object Action_CancelButton: TAction
+      Caption = 'Cancela'
+    end
+    object Action_CloseButton: TAction
+      Caption = 'Fechar'
+    end
+    object Action_HelpButton: TAction
+      Caption = 'Ajuda'
+    end
+  end
+  object MI_UI_InputBox1: TMI_UI_InputBox
+    onInputBox = MI_UI_InputBox1InputBox
+    Left = 176
+    Top = 40
+  end
+end

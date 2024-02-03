@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<title>mi.rtl.Objects.Consts.Mi_MsgBox: Classe TMI_MsgBox</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="generator" content="PasDoc 0.16.0">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<link rel="stylesheet" type="text/css" href="tipuesearch/tipuesearch.css">
+
+<link rel="StyleSheet" type="text/css" href="pasdoc.css">
+</head>
+<body>
+<div class="container"><div class="navigation">
+<ul><li><a href="AllUnits.html">Units</a></li><li><a href="ClassHierarchy.html">Hierarquia de Classes</a></li><li><a href="AllClasses.html">Classes, Interfaces, Objetos e Registros</a></li><li><a href="AllTypes.html">Tipos</a></li><li><a href="AllVariables.html">Variáveis</a></li><li><a href="AllConstants.html">Constantes</a></li><li><a href="AllFunctions.html">Funções e Procedimentos</a></li><li><a href="AllIdentifiers.html">Identificadores</a></li><li><form class="search-form" action="tipue_results.html"><div class="search-input"><input type="text" name="q" id="tipue_search_input" pattern=".{3,}" title="At least 3 characters" required><div class="search-button"><input type="button" id="tipue_search_button" onclick="this.form.submit();"></div></div></form>
+<div style="clear: both"></div>
+</li></ul></div><div class="content">
+<span id="TMI_MsgBox"></span><h1 class="cio">Classe TMI_MsgBox</h1>
+<div class="sections">
+<div class="one_section"><a class="section" href="#PasDoc-Description">Descrição</a></div><div class="one_section"><a class="section" href="#PasDoc-Hierarchy">Hierarquia</a></div><div class="one_section">Campos</div><div class="one_section"><a class="section" href="#PasDoc-Methods">Métodos</a></div><div class="one_section"><a class="section" href="#PasDoc-Properties">Propriedades</a></div></div>
+<span id="PasDoc-Description"></span><h2 class="unit">Unit</h2>
+<p class="unitlink">
+<a href="mi.rtl.Objects.Consts.Mi_MsgBox.html">mi.rtl.Objects.Consts.Mi_MsgBox</a></p>
+<h2 class="declaration">Declaração</h2>
+<p class="declaration">
+<code>type TMI_MsgBox = class(<a class="normal" href="mi.rtl.Objects.Consts.Mi_MsgBox.TMI_MsgBoxConsts.html">TMI_MsgBoxConsts</a>)</code></p>
+<h2 class="description">Descrição</h2>
+<div class="nodescription">No description available, ancestor TMI_MsgBoxConsts description follows</div><p>
+A classe <strong><code>TMI_MsgBoxConsts</code></strong> reune todas as contates utilizadas na classe <a class="normal" href="mi.rtl.Objects.Consts.Mi_MsgBox.TMI_MsgBox.html">TMI_MsgBox</a>.</p>
+<span id="PasDoc-Hierarchy"></span><h2 class="hierarchy">Hierarquia</h2>
+<ul class="hierarchy"><li class="ancestor">TObjectsTypes</li>
+<li class="ancestor"><a class="normal" href="mi.rtl.Objects.Consts.TObjectsConsts.html">TObjectsConsts</a></li>
+<li class="ancestor"><a class="normal" href="mi.rtl.Objects.Consts.Mi_MsgBox.TMI_MsgBoxTypes.html">TMI_MsgBoxTypes</a></li>
+<li class="ancestor"><a class="normal" href="mi.rtl.Objects.Consts.Mi_MsgBox.TMI_MsgBoxConsts.html">TMI_MsgBoxConsts</a></li>
+<li class="thisitem">TMI_MsgBox</li></ul><h2 class="overview">Visão Geral</h2>
+<span id="PasDoc-Methods"></span><h3 class="summary">Métodos</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>procedure <strong><a href="mi.rtl.Objects.Consts.Mi_MsgBox.TMI_MsgBox.html#ShowMessage">ShowMessage</a></strong>(Msg:AnsiString); Overload;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="mi.rtl.Objects.Consts.Mi_MsgBox.TMI_MsgBox.html#MessageBox">MessageBox</a></strong>(const aMsg: AnsiString; DlgType: <a href="mi.rtl.Objects.Consts.Mi_MsgBox.TMI_MsgBoxTypes.html#TMsgDlgType">TMsgDlgType</a>; Buttons: <a href="mi.rtl.Objects.Consts.Mi_MsgBox.TMI_MsgBoxTypes.html#TMsgDlgButtons">TMsgDlgButtons</a>): <a href="mi.rtl.ui.dmxscroller.inputbox.html#TModalResult">TModalResult</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="mi.rtl.Objects.Consts.Mi_MsgBox.TMI_MsgBox.html#MessageBox">MessageBox</a></strong>(Msg: AnsiString; DlgType: <a href="mi.rtl.Objects.Consts.Mi_MsgBox.TMI_MsgBoxTypes.html#TMsgDlgType">TMsgDlgType</a>; Buttons: <a href="mi.rtl.Objects.Consts.Mi_MsgBox.TMI_MsgBoxTypes.html#TMsgDlgButtons">TMsgDlgButtons</a>; ButtonDefault: <a href="mi.rtl.Objects.Consts.Mi_MsgBox.TMI_MsgBoxTypes.html#TMsgDlgBtn">TMsgDlgBtn</a>):<a href="mi.rtl.ui.dmxscroller.inputbox.html#TModalResult">TModalResult</a> ; Overload;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="mi.rtl.Objects.Consts.Mi_MsgBox.TMI_MsgBox.html#MessageBox">MessageBox</a></strong>(aPSItem : TMI_MsgBoxTypes.PSItem; DlgType: <a href="mi.rtl.Objects.Consts.Mi_MsgBox.TMI_MsgBoxTypes.html#TMsgDlgType">TMsgDlgType</a>; Buttons: <a href="mi.rtl.Objects.Consts.Mi_MsgBox.TMI_MsgBoxTypes.html#TMsgDlgButtons">TMsgDlgButtons</a>; ButtonDefault: <a href="mi.rtl.Objects.Consts.Mi_MsgBox.TMI_MsgBoxTypes.html#TMsgDlgBtn">TMsgDlgBtn</a>):<a href="mi.rtl.ui.dmxscroller.inputbox.html#TModalResult">TModalResult</a> ; Overload;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="mi.rtl.Objects.Consts.Mi_MsgBox.TMI_MsgBox.html#MessageBox">MessageBox</a></strong>(aTitle : AnsiString; Msg: AnsiString; DlgType: <a href="mi.rtl.Objects.Consts.Mi_MsgBox.TMI_MsgBoxTypes.html#TMsgDlgType">TMsgDlgType</a>; Buttons: <a href="mi.rtl.Objects.Consts.Mi_MsgBox.TMI_MsgBoxTypes.html#TMsgDlgButtons">TMsgDlgButtons</a>; ButtonDefault: <a href="mi.rtl.Objects.Consts.Mi_MsgBox.TMI_MsgBoxTypes.html#TMsgDlgBtn">TMsgDlgBtn</a>):<a href="mi.rtl.ui.dmxscroller.inputbox.html#TModalResult">TModalResult</a> ; Overload;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>Function <strong><a href="mi.rtl.Objects.Consts.Mi_MsgBox.TMI_MsgBox.html#MessageBox">MessageBox</a></strong>(Const aMsg:AnsiString):<a href="mi.rtl.ui.dmxscroller.inputbox.html#TModalResult">TModalResult</a>; Overload;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>Function <strong><a href="mi.rtl.Objects.Consts.Mi_MsgBox.TMI_MsgBox.html#MessageBox_ListBoxRec_PSItem">MessageBox_ListBoxRec_PSItem</a></strong>(Atitulo: AnsiString; APSItem:<a href="mi_rtl_ui_Dmxscroller.html#PSItem">PSItem</a>; itemSelection : longint; DlgType: <a href="mi.rtl.Objects.Consts.Mi_MsgBox.TMI_MsgBoxTypes.html#TMsgDlgType">TMsgDlgType</a>; Buttons: <a href="mi.rtl.Objects.Consts.Mi_MsgBox.TMI_MsgBoxTypes.html#TMsgDlgButtons">TMsgDlgButtons</a>; ButtonDefault: <a href="mi.rtl.Objects.Consts.Mi_MsgBox.TMI_MsgBoxTypes.html#TMsgDlgBtn">TMsgDlgBtn</a>):<a href="mi.rtl.ui.dmxscroller.inputbox.html#TModalResult">TModalResult</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="mi.rtl.Objects.Consts.Mi_MsgBox.TMI_MsgBox.html#InputValue">InputValue</a></strong>(const aTitle, aLabel: AnsiString; var aValue : Variant ): <a href="mi.rtl.ui.dmxscroller.inputbox.html#TModalResult">TModalResult</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="mi.rtl.Objects.Consts.Mi_MsgBox.TMI_MsgBox.html#InputBox">InputBox</a></strong>(const aTitle, aLabel: AnsiString; var Buff; Template: AnsiString ): <a href="mi.rtl.ui.dmxscroller.inputbox.html#TModalResult">TModalResult</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="mi.rtl.Objects.Consts.Mi_MsgBox.TMI_MsgBox.html#InputPassword">InputPassword</a></strong>(const aTitle:AnsiString;var aPassword : AnsiString): <a href="mi.rtl.ui.dmxscroller.inputbox.html#TModalResult">TModalResult</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>procedure <strong><a href="mi.rtl.Objects.Consts.Mi_MsgBox.TMI_MsgBox.html#HandleException">HandleException</a></strong>(Sender: TObject);</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>procedure <strong><a href="mi.rtl.Objects.Consts.Mi_MsgBox.TMI_MsgBox.html#ShowHTML">ShowHTML</a></strong>(aTitle,aHTMLCode: AnsiString); Overload;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>procedure <strong><a href="mi.rtl.Objects.Consts.Mi_MsgBox.TMI_MsgBox.html#ShowHTML">ShowHTML</a></strong>(aRect : TPoint;aTitle,aHTMLCode: AnsiString); Overload;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>procedure <strong><a href="mi.rtl.Objects.Consts.Mi_MsgBox.TMI_MsgBox.html#HideHTML">HideHTML</a></strong>();</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>procedure <strong><a href="mi.rtl.Objects.Consts.Mi_MsgBox.TMI_MsgBox.html#CloseHTML">CloseHTML</a></strong>();</code></td>
+</tr>
+</table>
+<span id="PasDoc-Properties"></span><h3 class="summary">Propriedades</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><code>property <strong><a href="mi.rtl.Objects.Consts.Mi_MsgBox.TMI_MsgBox.html#onMessageBox_03">onMessageBox_03</a></strong>: <a href="mi.rtl.Objects.Consts.Mi_MsgBox.html#TMessageBox_03">TMessageBox_03</a> Read _onMessageBox_03   Write  _onMessageBox_03;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><code>property <strong><a href="mi.rtl.Objects.Consts.Mi_MsgBox.TMI_MsgBox.html#onMessageBox_04">onMessageBox_04</a></strong>: <a href="mi.rtl.Objects.Consts.Mi_MsgBox.html#TMessageBox_04">TMessageBox_04</a> Read _onMessageBox_04 Write _onMessageBox_04;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><code>property <strong><a href="mi.rtl.Objects.Consts.Mi_MsgBox.TMI_MsgBox.html#onMessageBox_04_PSItem">onMessageBox_04_PSItem</a></strong>: <a href="mi.rtl.Objects.Consts.Mi_MsgBox.html#TMessageBox_04_PSItem">TMessageBox_04_PSItem</a> Read _MessageBox_04_PSItem Write _MessageBox_04_PSItem;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><code>property <strong><a href="mi.rtl.Objects.Consts.Mi_MsgBox.TMI_MsgBox.html#onMessageBox_05">onMessageBox_05</a></strong>: <a href="mi.rtl.Objects.Consts.Mi_MsgBox.html#TMessageBox_05">TMessageBox_05</a> Read _onMessageBox_05 Write _onMessageBox_05;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><code>property <strong><a href="mi.rtl.Objects.Consts.Mi_MsgBox.TMI_MsgBox.html#onMessageBox">onMessageBox</a></strong>: <a href="mi.rtl.Objects.Consts.Mi_MsgBox.html#TMessageBox">TMessageBox</a> Read _onMessageBox   Write  _onMessageBox;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><code>property <strong><a href="mi.rtl.Objects.Consts.Mi_MsgBox.TMI_MsgBox.html#onMessageBox_ListBoxRec_PSItem">onMessageBox_ListBoxRec_PSItem</a></strong>: <a href="mi.rtl.Objects.Consts.Mi_MsgBox.html#TMessageBox_ListBoxRec_PSItem">TMessageBox_ListBoxRec_PSItem</a> Read _onMessageBox_ListBoxRec_PSItem   Write _onMessageBox_ListBoxRec_PSItem;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><code>property <strong><a href="mi.rtl.Objects.Consts.Mi_MsgBox.TMI_MsgBox.html#onInputValue">onInputValue</a></strong>: <a href="mi.rtl.Objects.Consts.Mi_MsgBox.html#TInputValue">TInputValue</a> Read _onInputValue   Write  _onInputValue;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><code>property <strong><a href="mi.rtl.Objects.Consts.Mi_MsgBox.TMI_MsgBox.html#onInputBox">onInputBox</a></strong>: <a href="mi.rtl.Objects.Consts.Mi_MsgBox.html#TInputBox">TInputBox</a> Read _onInputBox   Write  _onInputBox;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><code>property <strong><a href="mi.rtl.Objects.Consts.Mi_MsgBox.TMI_MsgBox.html#onInputPassword">onInputPassword</a></strong>: <a href="mi.rtl.Objects.Consts.Mi_MsgBox.html#TInputPassword">TInputPassword</a> Read _onInputPassword   Write  _onInputPassword;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><code>property <strong><a href="mi.rtl.Objects.Consts.Mi_MsgBox.TMI_MsgBox.html#OnHandleException">OnHandleException</a></strong>: <a href="mi.rtl.Objects.Consts.Mi_MsgBox.html#THandleException">THandleException</a> Read _OnHandleException   Write  _OnHandleException;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><code>property <strong><a href="mi.rtl.Objects.Consts.Mi_MsgBox.TMI_MsgBox.html#OnShowHTML_02">OnShowHTML_02</a></strong>: <a href="mi.rtl.Objects.Consts.Mi_MsgBox.html#TShowHTML_02">TShowHTML_02</a> Read _OnShowHTML_02 Write  _OnShowHTML_02;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><code>property <strong><a href="mi.rtl.Objects.Consts.Mi_MsgBox.TMI_MsgBox.html#OnShowHTML_03">OnShowHTML_03</a></strong>: <a href="mi.rtl.Objects.Consts.Mi_MsgBox.html#TShowHTML_03">TShowHTML_03</a> Read _OnShowHTML_03 Write  _OnShowHTML_03;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><code>property <strong><a href="mi.rtl.Objects.Consts.Mi_MsgBox.TMI_MsgBox.html#OnHideHTML">OnHideHTML</a></strong>: <a href="mi.rtl.Objects.Consts.Mi_MsgBox.html#THideHTML">THideHTML</a> Read _OnHideHTML Write  _OnHideHTML;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><code>property <strong><a href="mi.rtl.Objects.Consts.Mi_MsgBox.TMI_MsgBox.html#OnCloseHTML">OnCloseHTML</a></strong>: <a href="mi.rtl.Objects.Consts.Mi_MsgBox.html#TCloseHTML">TCloseHTML</a> Read _OnCloseHTML Write  _OnCloseHTML;</code></td>
+</tr>
+</table>
+<h2 class="description">Descrição</h2>
+<h3 class="detail">Métodos</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="ShowMessage"></span><code>procedure <strong>ShowMessage</strong>(Msg:AnsiString); Overload;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="MessageBox"></span><code>function <strong>MessageBox</strong>(const aMsg: AnsiString; DlgType: <a href="mi.rtl.Objects.Consts.Mi_MsgBox.TMI_MsgBoxTypes.html#TMsgDlgType">TMsgDlgType</a>; Buttons: <a href="mi.rtl.Objects.Consts.Mi_MsgBox.TMI_MsgBoxTypes.html#TMsgDlgButtons">TMsgDlgButtons</a>): <a href="mi.rtl.ui.dmxscroller.inputbox.html#TModalResult">TModalResult</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+O método <strong><code>MessageBox</code></strong> recebe 3 parâmetros criar um dialogo e retrona as opções escolhidas.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="MessageBox"></span><code>function <strong>MessageBox</strong>(Msg: AnsiString; DlgType: <a href="mi.rtl.Objects.Consts.Mi_MsgBox.TMI_MsgBoxTypes.html#TMsgDlgType">TMsgDlgType</a>; Buttons: <a href="mi.rtl.Objects.Consts.Mi_MsgBox.TMI_MsgBoxTypes.html#TMsgDlgButtons">TMsgDlgButtons</a>; ButtonDefault: <a href="mi.rtl.Objects.Consts.Mi_MsgBox.TMI_MsgBoxTypes.html#TMsgDlgBtn">TMsgDlgBtn</a>):<a href="mi.rtl.ui.dmxscroller.inputbox.html#TModalResult">TModalResult</a> ; Overload;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="MessageBox"></span><code>function <strong>MessageBox</strong>(aPSItem : TMI_MsgBoxTypes.PSItem; DlgType: <a href="mi.rtl.Objects.Consts.Mi_MsgBox.TMI_MsgBoxTypes.html#TMsgDlgType">TMsgDlgType</a>; Buttons: <a href="mi.rtl.Objects.Consts.Mi_MsgBox.TMI_MsgBoxTypes.html#TMsgDlgButtons">TMsgDlgButtons</a>; ButtonDefault: <a href="mi.rtl.Objects.Consts.Mi_MsgBox.TMI_MsgBoxTypes.html#TMsgDlgBtn">TMsgDlgBtn</a>):<a href="mi.rtl.ui.dmxscroller.inputbox.html#TModalResult">TModalResult</a> ; Overload;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="MessageBox"></span><code>function <strong>MessageBox</strong>(aTitle : AnsiString; Msg: AnsiString; DlgType: <a href="mi.rtl.Objects.Consts.Mi_MsgBox.TMI_MsgBoxTypes.html#TMsgDlgType">TMsgDlgType</a>; Buttons: <a href="mi.rtl.Objects.Consts.Mi_MsgBox.TMI_MsgBoxTypes.html#TMsgDlgButtons">TMsgDlgButtons</a>; ButtonDefault: <a href="mi.rtl.Objects.Consts.Mi_MsgBox.TMI_MsgBoxTypes.html#TMsgDlgBtn">TMsgDlgBtn</a>):<a href="mi.rtl.ui.dmxscroller.inputbox.html#TModalResult">TModalResult</a> ; Overload;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="MessageBox"></span><code>Function <strong>MessageBox</strong>(Const aMsg:AnsiString):<a href="mi.rtl.ui.dmxscroller.inputbox.html#TModalResult">TModalResult</a>; Overload;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="MessageBox_ListBoxRec_PSItem"></span><code>Function <strong>MessageBox_ListBoxRec_PSItem</strong>(Atitulo: AnsiString; APSItem:<a href="mi_rtl_ui_Dmxscroller.html#PSItem">PSItem</a>; itemSelection : longint; DlgType: <a href="mi.rtl.Objects.Consts.Mi_MsgBox.TMI_MsgBoxTypes.html#TMsgDlgType">TMsgDlgType</a>; Buttons: <a href="mi.rtl.Objects.Consts.Mi_MsgBox.TMI_MsgBoxTypes.html#TMsgDlgButtons">TMsgDlgButtons</a>; ButtonDefault: <a href="mi.rtl.Objects.Consts.Mi_MsgBox.TMI_MsgBoxTypes.html#TMsgDlgBtn">TMsgDlgBtn</a>):<a href="mi.rtl.ui.dmxscroller.inputbox.html#TModalResult">TModalResult</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="InputValue"></span><code>function <strong>InputValue</strong>(const aTitle, aLabel: AnsiString; var aValue : Variant ): <a href="mi.rtl.ui.dmxscroller.inputbox.html#TModalResult">TModalResult</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+O método <strong><code>InputValue</code></strong> ler um valor na tela e retorna em <strong>aValue</strong> o valor e em result retorna <strong><a class="normal" href="mi.rtl.Objects.Consts.Mi_MsgBox.TMI_MsgBoxConsts.html#mrOK">MrOk</a></strong> ou <strong><a class="normal" href="mi.rtl.Objects.Consts.Mi_MsgBox.TMI_MsgBoxConsts.html#mrCancel">MrCancel</a></strong></p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="InputBox"></span><code>function <strong>InputBox</strong>(const aTitle, aLabel: AnsiString; var Buff; Template: AnsiString ): <a href="mi.rtl.ui.dmxscroller.inputbox.html#TModalResult">TModalResult</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="InputPassword"></span><code>function <strong>InputPassword</strong>(const aTitle:AnsiString;var aPassword : AnsiString): <a href="mi.rtl.ui.dmxscroller.inputbox.html#TModalResult">TModalResult</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="HandleException"></span><code>procedure <strong>HandleException</strong>(Sender: TObject);</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="ShowHTML"></span><code>procedure <strong>ShowHTML</strong>(aTitle,aHTMLCode: AnsiString); Overload;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="ShowHTML"></span><code>procedure <strong>ShowHTML</strong>(aRect : TPoint;aTitle,aHTMLCode: AnsiString); Overload;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="HideHTML"></span><code>procedure <strong>HideHTML</strong>();</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="CloseHTML"></span><code>procedure <strong>CloseHTML</strong>();</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<h3 class="detail">Propriedades</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><span id="onMessageBox_03"></span><code>property <strong>onMessageBox_03</strong>: <a href="mi.rtl.Objects.Consts.Mi_MsgBox.html#TMessageBox_03">TMessageBox_03</a> Read _onMessageBox_03   Write  _onMessageBox_03;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><span id="onMessageBox_04"></span><code>property <strong>onMessageBox_04</strong>: <a href="mi.rtl.Objects.Consts.Mi_MsgBox.html#TMessageBox_04">TMessageBox_04</a> Read _onMessageBox_04 Write _onMessageBox_04;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+</p>
+
+<ul class="paragraph_spacing">
+  <li><p>A propriedade <code>onMessageBox_04</code> mostra uma mensage com o title customizado.</p></li>
+</ul>
+
+<p></p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><span id="onMessageBox_04_PSItem"></span><code>property <strong>onMessageBox_04_PSItem</strong>: <a href="mi.rtl.Objects.Consts.Mi_MsgBox.html#TMessageBox_04_PSItem">TMessageBox_04_PSItem</a> Read _MessageBox_04_PSItem Write _MessageBox_04_PSItem;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+</p>
+
+<ul class="paragraph_spacing">
+  <li><p>A propriedade <code>onMessageBox_04_PSItem</code> mostra uma mensage com o title customizado.</p></li>
+</ul>
+
+<p></p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><span id="onMessageBox_05"></span><code>property <strong>onMessageBox_05</strong>: <a href="mi.rtl.Objects.Consts.Mi_MsgBox.html#TMessageBox_05">TMessageBox_05</a> Read _onMessageBox_05 Write _onMessageBox_05;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+</p>
+
+<ul class="paragraph_spacing">
+  <li><p>A propriedade <code>onMessageBox_05</code> mostra uma mensage com o title customizado.</p></li>
+</ul>
+
+<p></p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><span id="onMessageBox"></span><code>property <strong>onMessageBox</strong>: <a href="mi.rtl.Objects.Consts.Mi_MsgBox.html#TMessageBox">TMessageBox</a> Read _onMessageBox   Write  _onMessageBox;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><span id="onMessageBox_ListBoxRec_PSItem"></span><code>property <strong>onMessageBox_ListBoxRec_PSItem</strong>: <a href="mi.rtl.Objects.Consts.Mi_MsgBox.html#TMessageBox_ListBoxRec_PSItem">TMessageBox_ListBoxRec_PSItem</a> Read _onMessageBox_ListBoxRec_PSItem   Write _onMessageBox_ListBoxRec_PSItem;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><span id="onInputValue"></span><code>property <strong>onInputValue</strong>: <a href="mi.rtl.Objects.Consts.Mi_MsgBox.html#TInputValue">TInputValue</a> Read _onInputValue   Write  _onInputValue;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+O evento <strong><code>onInputValue</code></strong> ler um valor na tela e retorna em <strong>aValue</strong> o valor e em result retona <strong><a class="normal" href="mi.rtl.Objects.Consts.Mi_MsgBox.TMI_MsgBoxConsts.html#mrOK">MrOk</a></strong> ou <strong><a class="normal" href="mi.rtl.Objects.Consts.Mi_MsgBox.TMI_MsgBoxConsts.html#mrCancel">MrCancel</a></strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p><strong>Nota</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Essa propriedade deve ser implementada na plataforma selecionada. Ou seja: LCL, Android, html etc...</p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><span id="onInputBox"></span><code>property <strong>onInputBox</strong>: <a href="mi.rtl.Objects.Consts.Mi_MsgBox.html#TInputBox">TInputBox</a> Read _onInputBox   Write  _onInputBox;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><span id="onInputPassword"></span><code>property <strong>onInputPassword</strong>: <a href="mi.rtl.Objects.Consts.Mi_MsgBox.html#TInputPassword">TInputPassword</a> Read _onInputPassword   Write  _onInputPassword;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><span id="OnHandleException"></span><code>property <strong>OnHandleException</strong>: <a href="mi.rtl.Objects.Consts.Mi_MsgBox.html#THandleException">THandleException</a> Read _OnHandleException   Write  _OnHandleException;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+</p>
+
+<ul class="paragraph_spacing">
+  <li><p>Propriedade <code>OnHandleException</code> : <a class="normal" href="mi.rtl.Objects.Consts.Mi_MsgBox.html#THandleException">THandleException</a> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Objetivo: </p>
+
+<ul class="paragraph_spacing">
+  <li><p>This is the exception handler which is called if an exception is raised while the component is being stream in or streamed out. In most cases this should be implemented useing the <a class="normal" href="mi.rtl.Objects.Methods.Paramexecucao.Application.html#application">application</a> exception handler as follows.</p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><span id="OnShowHTML_02"></span><code>property <strong>OnShowHTML_02</strong>: <a href="mi.rtl.Objects.Consts.Mi_MsgBox.html#TShowHTML_02">TShowHTML_02</a> Read _OnShowHTML_02 Write  _OnShowHTML_02;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+</p>
+
+<ul class="paragraph_spacing">
+  <li><p>Propriedade <code>OnShowHTML_02</code> : <a class="normal" href="mi.rtl.Objects.Consts.Mi_MsgBox.html#TShowHTML_02">TShowHTML_02</a> visualizar código html</p></li>
+</ul>
+
+<p></p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><span id="OnShowHTML_03"></span><code>property <strong>OnShowHTML_03</strong>: <a href="mi.rtl.Objects.Consts.Mi_MsgBox.html#TShowHTML_03">TShowHTML_03</a> Read _OnShowHTML_03 Write  _OnShowHTML_03;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><span id="OnHideHTML"></span><code>property <strong>OnHideHTML</strong>: <a href="mi.rtl.Objects.Consts.Mi_MsgBox.html#THideHTML">THideHTML</a> Read _OnHideHTML Write  _OnHideHTML;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+</p>
+
+<ul class="paragraph_spacing">
+  <li><p>Propriedade <code>OnHideHTML</code> : <a class="normal" href="mi.rtl.Objects.Consts.Mi_MsgBox.html#THideHTML">THideHTML</a> tornar invisível o browser corrente</p></li>
+</ul>
+
+<p></p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><span id="OnCloseHTML"></span><code>property <strong>OnCloseHTML</strong>: <a href="mi.rtl.Objects.Consts.Mi_MsgBox.html#TCloseHTML">TCloseHTML</a> Read _OnCloseHTML Write  _OnCloseHTML;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+-Propriedade <code>OnCloseHTML</code> : <a class="normal" href="mi.rtl.Objects.Consts.Mi_MsgBox.html#TCloseHTML">TCloseHTML</a> destroy a janela do browser corrente</p>
+</td></tr>
+</table>
+<hr><span class="appinfo"><em>Gerado por <a href="https://pasdoc.github.io/">PasDoc 0.16.0</a>. </em>
+</span>
+</div></div></body></html>

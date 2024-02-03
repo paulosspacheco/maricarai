@@ -7,7 +7,7 @@ unit mi.rtl.Objects.Methods.Collection.Sortedcollection.Stringcollection.Collect
         -  Essa classe foi criada para transformar Lista PSItem eem TCollection de strings;
 
       - **VERSÃO**
-        - Alpha - 0.8.0
+        - Alpha - Alpha - 0.9.0
 
       - **CÓDIGO FONTE**:
         - @html(<a href="../units/mi.rtl.objects.tcollection.tsortedcollection.tstringcollection.pas">mi.rtl.objects.tcollection.tsortedcollection.tstringcollection.pas</a>)
@@ -313,7 +313,7 @@ implementation
       n_brancos_iniciais := 0;
 
 
-      //Troca o  espaco pelo codigo html do espaco.
+      //Troca o  espaco pelo código html do espaco.
       while (LENGTH(S) > 0) AND (S[1] = ' ')  do
       begin
         system.delete(S,1,1);
@@ -324,7 +324,7 @@ implementation
       For j := 1 to n_brancos_iniciais do
         S := '&nbsp;' + S;
 
-      //Troca o  espaco pelo codigo html do espaco.
+      //Troca o  espaco pelo código html do espaco.
   {   Desativei por que desta forma o texto não aceita código HTML
        PosSpace := Pos(' ', S);
       while PosSpace <> 0  do
@@ -603,7 +603,7 @@ implementation
       Then Begin
              S := '';
              {
-               esta faltando o codigo??????????????????? fazer depois
+               esta faltando o código??????????????????? fazer depois
              }
 
              J := 1;

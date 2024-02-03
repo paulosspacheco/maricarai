@@ -1,0 +1,25 @@
+[input]
+base_directory = ""
+url_prefix = ""
+files = [
+
+{  path = "./create_index_stork.html",  url = "./create_index_stork.html", title = "create_index_stork.html"},
+{  path = "./docs/ClassHierarchy.html",  url = "./docs/ClassHierarchy.html", title = "ClassHierarchy.html"},
+{  path = "./docs/AllUnits.html",  url = "./docs/AllUnits.html", title = "AllUnits.html"},
+{  path = "./docs/create_config_stork.html",  url = "./docs/create_config_stork.html", title = "create_config_stork.html"},
+{  path = "./docs/create_index_stork.html",  url = "./docs/create_index_stork.html", title = "create_index_stork.html"},
+{  path = "./docs/AllClasses.html",  url = "./docs/AllClasses.html", title = "AllClasses.html"},
+{  path = "./docs/AllTypes.html",  url = "./docs/AllTypes.html", title = "AllTypes.html"},
+{  path = "./docs/legend.html",  url = "./docs/legend.html", title = "legend.html"},
+{  path = "./docs/AllIdentifiers.html",  url = "./docs/AllIdentifiers.html", title = "AllIdentifiers.html"},
+{  path = "./docs/AllVariables.html",  url = "./docs/AllVariables.html", title = "AllVariables.html"},
+{  path = "./docs/index.html",  url = "./docs/index.html", title = "index.html"},
+{  path = "./docs/tipue_results.html",  url = "./docs/tipue_results.html", title = "tipue_results.html"},
+{  path = "./docs/Unit1.html",  url = "./docs/Unit1.html", title = "Unit1.html"},
+{  path = "./docs/AllConstants.html",  url = "./docs/AllConstants.html", title = "AllConstants.html"},
+{  path = "./docs/AllFunctions.html",  url = "./docs/AllFunctions.html", title = "AllFunctions.html"},
+
+
+]
+
+

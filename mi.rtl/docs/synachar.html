@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<title>synachar</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="generator" content="PasDoc 0.16.0">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<link rel="stylesheet" type="text/css" href="tipuesearch/tipuesearch.css">
+
+<link rel="StyleSheet" type="text/css" href="pasdoc.css">
+</head>
+<body>
+<div class="container"><div class="navigation">
+<ul><li><a href="AllUnits.html">Units</a></li><li><a href="ClassHierarchy.html">Hierarquia de Classes</a></li><li><a href="AllClasses.html">Classes, Interfaces, Objetos e Registros</a></li><li><a href="AllTypes.html">Tipos</a></li><li><a href="AllVariables.html">Variáveis</a></li><li><a href="AllConstants.html">Constantes</a></li><li><a href="AllFunctions.html">Funções e Procedimentos</a></li><li><a href="AllIdentifiers.html">Identificadores</a></li><li><form class="search-form" action="tipue_results.html"><div class="search-input"><input type="text" name="q" id="tipue_search_input" pattern=".{3,}" title="At least 3 characters" required><div class="search-button"><input type="button" id="tipue_search_button" onclick="this.form.submit();"></div></div></form>
+<div style="clear: both"></div>
+</li></ul></div><div class="content">
+<h1 class="unit">Unit synachar</h1>
+<div class="sections">
+<div class="one_section"><a class="section" href="#PasDoc-Description">Descrição</a></div><div class="one_section"><a class="section" href="#PasDoc-Uses">Uses</a></div><div class="one_section">Classes, Interfaces, Objetos e Registros</div><div class="one_section"><a class="section" href="#PasDoc-FuncsProcs">Funções e Procedimentos</a></div><div class="one_section"><a class="section" href="#PasDoc-Types">Tipos</a></div><div class="one_section"><a class="section" href="#PasDoc-Constants">Constantes</a></div><div class="one_section"><a class="section" href="#PasDoc-Variables">Variáveis</a></div></div>
+<span id="PasDoc-Description"></span><h2 class="description">Descrição</h2>
+&nbsp;<span id="PasDoc-Uses"></span><h2 class="uses">Uses</h2>
+<ul class="useslist"><li>Libc</li><li>SysUtils</li><li><a href="synautil.html">synautil</a></li><li><a href="synacode.html">synacode</a></li><li><a href="synaicnv.html">synaicnv</a></li><li><a href="synafpc.html">synafpc</a></li></ul><h2 class="overview">Visão Geral</h2>
+<span id="PasDoc-FuncsProcs"></span><h3 class="summary">Funções e Procedimentos</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="itemcode"><code>function <strong><a href="synachar.html#CharsetConversion">CharsetConversion</a></strong>(const Value: AnsiString; CharFrom: <a href="synachar.html#TMimeChar">TMimeChar</a>; CharTo: <a href="synachar.html#TMimeChar">TMimeChar</a>): AnsiString;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code>function <strong><a href="synachar.html#CharsetConversionEx">CharsetConversionEx</a></strong>(const Value: AnsiString; CharFrom: <a href="synachar.html#TMimeChar">TMimeChar</a>; CharTo: <a href="synachar.html#TMimeChar">TMimeChar</a>; const TransformTable: array of Word): AnsiString;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code>function <strong><a href="synachar.html#CharsetConversionTrans">CharsetConversionTrans</a></strong>(Value: AnsiString; CharFrom: <a href="synachar.html#TMimeChar">TMimeChar</a>; CharTo: <a href="synachar.html#TMimeChar">TMimeChar</a>; const TransformTable: array of Word; Translit: Boolean): AnsiString;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code>function <strong><a href="synachar.html#GetCurCP">GetCurCP</a></strong>: <a href="synachar.html#TMimeChar">TMimeChar</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code>function <strong><a href="synachar.html#GetCurOEMCP">GetCurOEMCP</a></strong>: <a href="synachar.html#TMimeChar">TMimeChar</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code>function <strong><a href="synachar.html#GetCPFromID">GetCPFromID</a></strong>(Value: AnsiString): <a href="synachar.html#TMimeChar">TMimeChar</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code>function <strong><a href="synachar.html#GetIDFromCP">GetIDFromCP</a></strong>(Value: <a href="synachar.html#TMimeChar">TMimeChar</a>): AnsiString;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code>function <strong><a href="synachar.html#NeedCharsetConversion">NeedCharsetConversion</a></strong>(const Value: AnsiString): Boolean;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code>function <strong><a href="synachar.html#IdealCharsetCoding">IdealCharsetCoding</a></strong>(const Value: AnsiString; CharFrom: <a href="synachar.html#TMimeChar">TMimeChar</a>; CharTo: <a href="synachar.html#TMimeSetChar">TMimeSetChar</a>): <a href="synachar.html#TMimeChar">TMimeChar</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code>function <strong><a href="synachar.html#GetBOM">GetBOM</a></strong>(Value: <a href="synachar.html#TMimeChar">TMimeChar</a>): AnsiString;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code>function <strong><a href="synachar.html#StringToWide">StringToWide</a></strong>(const Value: AnsiString): WideString;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code>function <strong><a href="synachar.html#WideToString">WideToString</a></strong>(const Value: WideString): AnsiString;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code>function <strong><a href="synachar.html#GetIconvIDFromCP">GetIconvIDFromCP</a></strong>(Value: <a href="synachar.html#TMimeChar">TMimeChar</a>): AnsiString;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code>function <strong><a href="synachar.html#GetCPFromIconvID">GetCPFromIconvID</a></strong>(Value: AnsiString): <a href="synachar.html#TMimeChar">TMimeChar</a>;</code></td>
+</tr>
+</table>
+<span id="PasDoc-Types"></span><h3 class="summary">Tipos</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="itemcode"><code><strong><a href="synachar.html#TMimeChar">TMimeChar</a></strong> = (...);</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><strong><a href="synachar.html#TMimeSetChar">TMimeSetChar</a></strong> = set of <a href="synachar.html#TMimeChar">TMimeChar</a>;</code></td>
+</tr>
+</table>
+<span id="PasDoc-Constants"></span><h3 class="summary">Constantes</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="itemcode"><code><strong><a href="synachar.html#IconvOnlyChars">IconvOnlyChars</a></strong>: set of <a href="synachar.html#TMimeChar">TMimeChar</a> = [<a href="synachar.html#UTF_16">UTF_16</a>, <a href="synachar.html#UTF_16LE">UTF_16LE</a>, <a href="synachar.html#UTF_32">UTF_32</a>, <a href="synachar.html#UTF_32LE">UTF_32LE</a>,
+    <a href="synachar.html#C99">C99</a>, <a href="synachar.html#JAVA">JAVA</a>, <a href="synachar.html#ISO_8859_16">ISO_8859_16</a>, <a href="synachar.html#KOI8_U">KOI8_U</a>, <a href="synachar.html#KOI8_RU">KOI8_RU</a>, <a href="synachar.html#CP862">CP862</a>, <a href="synachar.html#CP866">CP866</a>, <a href="synachar.html#MAC">MAC</a>, <a href="synachar.html#MACCE">MACCE</a>, <a href="synachar.html#MACICE">MACICE</a>,
+    <a href="synachar.html#MACCRO">MACCRO</a>, <a href="synachar.html#MACRO">MACRO</a>, <a href="synachar.html#MACCYR">MACCYR</a>, <a href="synachar.html#MACUK">MACUK</a>, <a href="synachar.html#MACGR">MACGR</a>, <a href="synachar.html#MACTU">MACTU</a>, <a href="synachar.html#MACHEB">MACHEB</a>, <a href="synachar.html#MACAR">MACAR</a>, <a href="synachar.html#MACTH">MACTH</a>, <a href="synachar.html#ROMAN8">ROMAN8</a>,
+    <a href="synachar.html#NEXTSTEP">NEXTSTEP</a>, <a href="synachar.html#ARMASCII">ARMASCII</a>, <a href="synachar.html#GEORGIAN_AC">GEORGIAN_AC</a>, <a href="synachar.html#GEORGIAN_PS">GEORGIAN_PS</a>, <a href="synachar.html#KOI8_T">KOI8_T</a>, <a href="synachar.html#MULELAO">MULELAO</a>, <a href="synachar.html#CP1133">CP1133</a>,
+    <a href="synachar.html#TIS620">TIS620</a>, <a href="synachar.html#CP874">CP874</a>, <a href="synachar.html#VISCII">VISCII</a>, <a href="synachar.html#TCVN">TCVN</a>, <a href="synachar.html#ISO_IR_14">ISO_IR_14</a>, <a href="synachar.html#JIS_X0201">JIS_X0201</a>, <a href="synachar.html#JIS_X0208">JIS_X0208</a>, <a href="synachar.html#JIS_X0212">JIS_X0212</a>,
+    <a href="synachar.html#GB1988_80">GB1988_80</a>, <a href="synachar.html#GB2312_80">GB2312_80</a>, <a href="synachar.html#ISO_IR_165">ISO_IR_165</a>, <a href="synachar.html#ISO_IR_149">ISO_IR_149</a>, <a href="synachar.html#EUC_JP">EUC_JP</a>, <a href="synachar.html#SHIFT_JIS">SHIFT_JIS</a>, <a href="synachar.html#CP932">CP932</a>,
+    <a href="synachar.html#ISO_2022_JP">ISO_2022_JP</a>, <a href="synachar.html#ISO_2022_JP1">ISO_2022_JP1</a>, <a href="synachar.html#ISO_2022_JP2">ISO_2022_JP2</a>, <a href="synachar.html#GB2312">GB2312</a>, <a href="synachar.html#CP936">CP936</a>, <a href="synachar.html#GB18030">GB18030</a>,
+    <a href="synachar.html#ISO_2022_CN">ISO_2022_CN</a>, <a href="synachar.html#ISO_2022_CNE">ISO_2022_CNE</a>, <a href="synachar.html#HZ">HZ</a>, <a href="synachar.html#EUC_TW">EUC_TW</a>, <a href="synachar.html#BIG5">BIG5</a>, <a href="synachar.html#CP950">CP950</a>, <a href="synachar.html#BIG5_HKSCS">BIG5_HKSCS</a>, <a href="synachar.html#EUC_KR">EUC_KR</a>,
+    <a href="synachar.html#CP949">CP949</a>, <a href="synachar.html#CP1361">CP1361</a>, <a href="synachar.html#ISO_2022_KR">ISO_2022_KR</a>, <a href="synachar.html#CP737">CP737</a>, <a href="synachar.html#CP775">CP775</a>, <a href="synachar.html#CP853">CP853</a>, <a href="synachar.html#CP855">CP855</a>, <a href="synachar.html#CP857">CP857</a>, <a href="synachar.html#CP858">CP858</a>,
+    <a href="synachar.html#CP860">CP860</a>, <a href="synachar.html#CP861">CP861</a>, <a href="synachar.html#CP863">CP863</a>, <a href="synachar.html#CP864">CP864</a>, <a href="synachar.html#CP865">CP865</a>, <a href="synachar.html#CP869">CP869</a>, <a href="synachar.html#CP1125">CP1125</a>];</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><strong><a href="synachar.html#NoIconvChars">NoIconvChars</a></strong>: set of <a href="synachar.html#TMimeChar">TMimeChar</a> = [<a href="synachar.html#CP895">CP895</a>, <a href="synachar.html#UTF_7mod">UTF_7mod</a>];</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><strong><a href="synachar.html#Replace_None">Replace_None</a></strong>: array[0..0] of Word =
+    (0);</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><strong><a href="synachar.html#Replace_Czech">Replace_Czech</a></strong>: array[0..59] of Word =
+    (
+      $00E1, $0061,
+      $010D, $0063,
+      $010F, $0064,
+      $010E, $0044,
+      $00E9, $0065,
+      $011B, $0065,
+      $00ED, $0069,
+      $0148, $006E,
+      $00F3, $006F,
+      $0159, $0072,
+      $0161, $0073,
+      $0165, $0074,
+      $00FA, $0075,
+      $016F, $0075,
+      $00FD, $0079,
+      $017E, $007A,
+      $00C1, $0041,
+      $010C, $0043,
+      $00C9, $0045,
+      $011A, $0045,
+      $00CD, $0049,
+      $0147, $004E,
+      $00D3, $004F,
+      $0158, $0052,
+      $0160, $0053,
+      $0164, $0054,
+      $00DA, $0055,
+      $016E, $0055,
+      $00DD, $0059,
+      $017D, $005A
+    );</code></td>
+</tr>
+</table>
+<span id="PasDoc-Variables"></span><h3 class="summary">Variáveis</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="itemcode"><code><strong><a href="synachar.html#DisableIconv">DisableIconv</a></strong>: Boolean = False;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><strong><a href="synachar.html#IdealCharsets">IdealCharsets</a></strong>: <a href="synachar.html#TMimeSetChar">TMimeSetChar</a> =
+    [<a href="synachar.html#ISO_8859_1">ISO_8859_1</a>, <a href="synachar.html#ISO_8859_2">ISO_8859_2</a>, <a href="synachar.html#ISO_8859_3">ISO_8859_3</a>, <a href="synachar.html#ISO_8859_4">ISO_8859_4</a>, <a href="synachar.html#ISO_8859_5">ISO_8859_5</a>,
+    <a href="synachar.html#ISO_8859_6">ISO_8859_6</a>, <a href="synachar.html#ISO_8859_7">ISO_8859_7</a>, <a href="synachar.html#ISO_8859_8">ISO_8859_8</a>, <a href="synachar.html#ISO_8859_9">ISO_8859_9</a>, <a href="synachar.html#ISO_8859_10">ISO_8859_10</a>,
+    <a href="synachar.html#KOI8_R">KOI8_R</a>, <a href="synachar.html#KOI8_U">KOI8_U</a>
+     
+    , <a href="synachar.html#GB2312">GB2312</a>, <a href="synachar.html#EUC_KR">EUC_KR</a>, <a href="synachar.html#ISO_2022_JP">ISO_2022_JP</a>, <a href="synachar.html#EUC_TW">EUC_TW</a>
+    
+    ];</code></td>
+</tr>
+</table>
+<h2 class="description">Descrição</h2>
+<h3 class="detail">Funções e Procedimentos</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="CharsetConversion"></span><code>function <strong>CharsetConversion</strong>(const Value: AnsiString; CharFrom: <a href="synachar.html#TMimeChar">TMimeChar</a>; CharTo: <a href="synachar.html#TMimeChar">TMimeChar</a>): AnsiString;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+Convert Value from one charset to another. See: <a class="normal" href="synachar.html#CharsetConversionEx">CharsetConversionEx</a></p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="CharsetConversionEx"></span><code>function <strong>CharsetConversionEx</strong>(const Value: AnsiString; CharFrom: <a href="synachar.html#TMimeChar">TMimeChar</a>; CharTo: <a href="synachar.html#TMimeChar">TMimeChar</a>; const TransformTable: array of Word): AnsiString;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+Convert Value from one charset to another with additional character conversion. see: <a class="normal" href="synachar.html#Replace_None">Replace_None</a> <a class="normal" href="int65math.html#and">and</a> <a class="normal" href="synachar.html#Replace_Czech">Replace_Czech</a></p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="CharsetConversionTrans"></span><code>function <strong>CharsetConversionTrans</strong>(Value: AnsiString; CharFrom: <a href="synachar.html#TMimeChar">TMimeChar</a>; CharTo: <a href="synachar.html#TMimeChar">TMimeChar</a>; const TransformTable: array of Word; Translit: Boolean): AnsiString;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+Convert Value from one charset to another with additional character conversion. This funtion is similar to <a class="normal" href="synachar.html#CharsetConversionEx">CharsetConversionEx</a>, but you can disable transliteration of unconvertible characters.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="GetCurCP"></span><code>function <strong>GetCurCP</strong>: <a href="synachar.html#TMimeChar">TMimeChar</a>;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+Returns charset used by operating system.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="GetCurOEMCP"></span><code>function <strong>GetCurOEMCP</strong>: <a href="synachar.html#TMimeChar">TMimeChar</a>;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+Returns charset used by operating system as OEM charset. (in Windows DOS box, for example)</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="GetCPFromID"></span><code>function <strong>GetCPFromID</strong>(Value: AnsiString): <a href="synachar.html#TMimeChar">TMimeChar</a>;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+Converting string with charset name to <a class="normal" href="synachar.html#TMimeChar">TMimeChar</a>.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="GetIDFromCP"></span><code>function <strong>GetIDFromCP</strong>(Value: <a href="synachar.html#TMimeChar">TMimeChar</a>): AnsiString;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+Converting <a class="normal" href="synachar.html#TMimeChar">TMimeChar</a> to string with name of charset.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="NeedCharsetConversion"></span><code>function <strong>NeedCharsetConversion</strong>(const Value: AnsiString): Boolean;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+return <code>True</code> when value need to be converted. (It is not 7-bit ASCII)</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="IdealCharsetCoding"></span><code>function <strong>IdealCharsetCoding</strong>(const Value: AnsiString; CharFrom: <a href="synachar.html#TMimeChar">TMimeChar</a>; CharTo: <a href="synachar.html#TMimeSetChar">TMimeSetChar</a>): <a href="synachar.html#TMimeChar">TMimeChar</a>;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+Finding best target charset from set of TMimeChars with minimal count of unconvertible characters.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="GetBOM"></span><code>function <strong>GetBOM</strong>(Value: <a href="synachar.html#TMimeChar">TMimeChar</a>): AnsiString;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+Return BOM (Byte Order Mark) for given unicode charset.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="StringToWide"></span><code>function <strong>StringToWide</strong>(const Value: AnsiString): WideString;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+Convert binary string with unicode content to WideString.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="WideToString"></span><code>function <strong>WideToString</strong>(const Value: WideString): AnsiString;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+Convert WideString to binary string with unicode content.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="GetIconvIDFromCP"></span><code>function <strong>GetIconvIDFromCP</strong>(Value: <a href="synachar.html#TMimeChar">TMimeChar</a>): AnsiString;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="GetCPFromIconvID"></span><code>function <strong>GetCPFromIconvID</strong>(Value: AnsiString): <a href="synachar.html#TMimeChar">TMimeChar</a>;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<h3 class="detail">Tipos</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="TMimeChar"></span><code><strong>TMimeChar</strong> = (...);</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+Type with all supported charsets.</p>
+<h6 class="description_section">Valores</h6>
+<ul>
+<li>
+<span id="ISO_8859_1">ISO_8859_1</span></li>
+<li>
+<span id="ISO_8859_2">ISO_8859_2</span></li>
+<li>
+<span id="ISO_8859_3">ISO_8859_3</span></li>
+<li>
+<span id="ISO_8859_4">ISO_8859_4</span></li>
+<li>
+<span id="ISO_8859_5">ISO_8859_5</span></li>
+<li>
+<span id="ISO_8859_6">ISO_8859_6</span></li>
+<li>
+<span id="ISO_8859_7">ISO_8859_7</span></li>
+<li>
+<span id="ISO_8859_8">ISO_8859_8</span></li>
+<li>
+<span id="ISO_8859_9">ISO_8859_9</span></li>
+<li>
+<span id="ISO_8859_10">ISO_8859_10</span></li>
+<li>
+<span id="ISO_8859_13">ISO_8859_13</span></li>
+<li>
+<span id="ISO_8859_14">ISO_8859_14</span></li>
+<li>
+<span id="ISO_8859_15">ISO_8859_15</span></li>
+<li>
+<span id="CP1250">CP1250</span></li>
+<li>
+<span id="CP1251">CP1251</span></li>
+<li>
+<span id="CP1252">CP1252</span></li>
+<li>
+<span id="CP1253">CP1253</span></li>
+<li>
+<span id="CP1254">CP1254</span></li>
+<li>
+<span id="CP1255">CP1255</span></li>
+<li>
+<span id="CP1256">CP1256</span></li>
+<li>
+<span id="CP1257">CP1257</span></li>
+<li>
+<span id="CP1258">CP1258</span></li>
+<li>
+<span id="KOI8_R">KOI8_R</span></li>
+<li>
+<span id="CP895">CP895</span></li>
+<li>
+<span id="CP852">CP852</span></li>
+<li>
+<span id="UCS_2">UCS_2</span></li>
+<li>
+<span id="UCS_4">UCS_4</span></li>
+<li>
+<span id="UTF_8">UTF_8</span></li>
+<li>
+<span id="UTF_7">UTF_7</span></li>
+<li>
+<span id="UTF_7mod">UTF_7mod</span></li>
+<li>
+<span id="UCS_2LE">UCS_2LE</span></li>
+<li>
+<span id="UCS_4LE">UCS_4LE</span></li>
+<li>
+<span id="UTF_16">UTF_16</span></li>
+<li>
+<span id="UTF_16LE">UTF_16LE</span></li>
+<li>
+<span id="UTF_32">UTF_32</span></li>
+<li>
+<span id="UTF_32LE">UTF_32LE</span></li>
+<li>
+<span id="C99">C99</span></li>
+<li>
+<span id="JAVA">JAVA</span></li>
+<li>
+<span id="ISO_8859_16">ISO_8859_16</span></li>
+<li>
+<span id="KOI8_U">KOI8_U</span></li>
+<li>
+<span id="KOI8_RU">KOI8_RU</span></li>
+<li>
+<span id="CP862">CP862</span></li>
+<li>
+<span id="CP866">CP866</span></li>
+<li>
+<span id="MAC">MAC</span></li>
+<li>
+<span id="MACCE">MACCE</span></li>
+<li>
+<span id="MACICE">MACICE</span></li>
+<li>
+<span id="MACCRO">MACCRO</span></li>
+<li>
+<span id="MACRO">MACRO</span></li>
+<li>
+<span id="MACCYR">MACCYR</span></li>
+<li>
+<span id="MACUK">MACUK</span></li>
+<li>
+<span id="MACGR">MACGR</span></li>
+<li>
+<span id="MACTU">MACTU</span></li>
+<li>
+<span id="MACHEB">MACHEB</span></li>
+<li>
+<span id="MACAR">MACAR</span></li>
+<li>
+<span id="MACTH">MACTH</span></li>
+<li>
+<span id="ROMAN8">ROMAN8</span></li>
+<li>
+<span id="NEXTSTEP">NEXTSTEP</span></li>
+<li>
+<span id="ARMASCII">ARMASCII</span></li>
+<li>
+<span id="GEORGIAN_AC">GEORGIAN_AC</span></li>
+<li>
+<span id="GEORGIAN_PS">GEORGIAN_PS</span></li>
+<li>
+<span id="KOI8_T">KOI8_T</span></li>
+<li>
+<span id="MULELAO">MULELAO</span></li>
+<li>
+<span id="CP1133">CP1133</span></li>
+<li>
+<span id="TIS620">TIS620</span></li>
+<li>
+<span id="CP874">CP874</span></li>
+<li>
+<span id="VISCII">VISCII</span></li>
+<li>
+<span id="TCVN">TCVN</span></li>
+<li>
+<span id="ISO_IR_14">ISO_IR_14</span></li>
+<li>
+<span id="JIS_X0201">JIS_X0201</span></li>
+<li>
+<span id="JIS_X0208">JIS_X0208</span></li>
+<li>
+<span id="JIS_X0212">JIS_X0212</span></li>
+<li>
+<span id="GB1988_80">GB1988_80</span></li>
+<li>
+<span id="GB2312_80">GB2312_80</span></li>
+<li>
+<span id="ISO_IR_165">ISO_IR_165</span></li>
+<li>
+<span id="ISO_IR_149">ISO_IR_149</span></li>
+<li>
+<span id="EUC_JP">EUC_JP</span></li>
+<li>
+<span id="SHIFT_JIS">SHIFT_JIS</span></li>
+<li>
+<span id="CP932">CP932</span></li>
+<li>
+<span id="ISO_2022_JP">ISO_2022_JP</span></li>
+<li>
+<span id="ISO_2022_JP1">ISO_2022_JP1</span></li>
+<li>
+<span id="ISO_2022_JP2">ISO_2022_JP2</span></li>
+<li>
+<span id="GB2312">GB2312</span></li>
+<li>
+<span id="CP936">CP936</span></li>
+<li>
+<span id="GB18030">GB18030</span></li>
+<li>
+<span id="ISO_2022_CN">ISO_2022_CN</span></li>
+<li>
+<span id="ISO_2022_CNE">ISO_2022_CNE</span></li>
+<li>
+<span id="HZ">HZ</span></li>
+<li>
+<span id="EUC_TW">EUC_TW</span></li>
+<li>
+<span id="BIG5">BIG5</span></li>
+<li>
+<span id="CP950">CP950</span></li>
+<li>
+<span id="BIG5_HKSCS">BIG5_HKSCS</span></li>
+<li>
+<span id="EUC_KR">EUC_KR</span></li>
+<li>
+<span id="CP949">CP949</span></li>
+<li>
+<span id="CP1361">CP1361</span></li>
+<li>
+<span id="ISO_2022_KR">ISO_2022_KR</span></li>
+<li>
+<span id="CP737">CP737</span></li>
+<li>
+<span id="CP775">CP775</span></li>
+<li>
+<span id="CP853">CP853</span></li>
+<li>
+<span id="CP855">CP855</span></li>
+<li>
+<span id="CP857">CP857</span></li>
+<li>
+<span id="CP858">CP858</span></li>
+<li>
+<span id="CP860">CP860</span></li>
+<li>
+<span id="CP861">CP861</span></li>
+<li>
+<span id="CP863">CP863</span></li>
+<li>
+<span id="CP864">CP864</span></li>
+<li>
+<span id="CP865">CP865</span></li>
+<li>
+<span id="CP869">CP869</span></li>
+<li>
+<span id="CP1125">CP1125</span></li>
+</ul>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="TMimeSetChar"></span><code><strong>TMimeSetChar</strong> = set of <a href="synachar.html#TMimeChar">TMimeChar</a>;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+Set of any charsets.</p>
+</td></tr>
+</table>
+<h3 class="detail">Constantes</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="IconvOnlyChars"></span><code><strong>IconvOnlyChars</strong>: set of <a href="synachar.html#TMimeChar">TMimeChar</a> = [<a href="synachar.html#UTF_16">UTF_16</a>, <a href="synachar.html#UTF_16LE">UTF_16LE</a>, <a href="synachar.html#UTF_32">UTF_32</a>, <a href="synachar.html#UTF_32LE">UTF_32LE</a>,
+    <a href="synachar.html#C99">C99</a>, <a href="synachar.html#JAVA">JAVA</a>, <a href="synachar.html#ISO_8859_16">ISO_8859_16</a>, <a href="synachar.html#KOI8_U">KOI8_U</a>, <a href="synachar.html#KOI8_RU">KOI8_RU</a>, <a href="synachar.html#CP862">CP862</a>, <a href="synachar.html#CP866">CP866</a>, <a href="synachar.html#MAC">MAC</a>, <a href="synachar.html#MACCE">MACCE</a>, <a href="synachar.html#MACICE">MACICE</a>,
+    <a href="synachar.html#MACCRO">MACCRO</a>, <a href="synachar.html#MACRO">MACRO</a>, <a href="synachar.html#MACCYR">MACCYR</a>, <a href="synachar.html#MACUK">MACUK</a>, <a href="synachar.html#MACGR">MACGR</a>, <a href="synachar.html#MACTU">MACTU</a>, <a href="synachar.html#MACHEB">MACHEB</a>, <a href="synachar.html#MACAR">MACAR</a>, <a href="synachar.html#MACTH">MACTH</a>, <a href="synachar.html#ROMAN8">ROMAN8</a>,
+    <a href="synachar.html#NEXTSTEP">NEXTSTEP</a>, <a href="synachar.html#ARMASCII">ARMASCII</a>, <a href="synachar.html#GEORGIAN_AC">GEORGIAN_AC</a>, <a href="synachar.html#GEORGIAN_PS">GEORGIAN_PS</a>, <a href="synachar.html#KOI8_T">KOI8_T</a>, <a href="synachar.html#MULELAO">MULELAO</a>, <a href="synachar.html#CP1133">CP1133</a>,
+    <a href="synachar.html#TIS620">TIS620</a>, <a href="synachar.html#CP874">CP874</a>, <a href="synachar.html#VISCII">VISCII</a>, <a href="synachar.html#TCVN">TCVN</a>, <a href="synachar.html#ISO_IR_14">ISO_IR_14</a>, <a href="synachar.html#JIS_X0201">JIS_X0201</a>, <a href="synachar.html#JIS_X0208">JIS_X0208</a>, <a href="synachar.html#JIS_X0212">JIS_X0212</a>,
+    <a href="synachar.html#GB1988_80">GB1988_80</a>, <a href="synachar.html#GB2312_80">GB2312_80</a>, <a href="synachar.html#ISO_IR_165">ISO_IR_165</a>, <a href="synachar.html#ISO_IR_149">ISO_IR_149</a>, <a href="synachar.html#EUC_JP">EUC_JP</a>, <a href="synachar.html#SHIFT_JIS">SHIFT_JIS</a>, <a href="synachar.html#CP932">CP932</a>,
+    <a href="synachar.html#ISO_2022_JP">ISO_2022_JP</a>, <a href="synachar.html#ISO_2022_JP1">ISO_2022_JP1</a>, <a href="synachar.html#ISO_2022_JP2">ISO_2022_JP2</a>, <a href="synachar.html#GB2312">GB2312</a>, <a href="synachar.html#CP936">CP936</a>, <a href="synachar.html#GB18030">GB18030</a>,
+    <a href="synachar.html#ISO_2022_CN">ISO_2022_CN</a>, <a href="synachar.html#ISO_2022_CNE">ISO_2022_CNE</a>, <a href="synachar.html#HZ">HZ</a>, <a href="synachar.html#EUC_TW">EUC_TW</a>, <a href="synachar.html#BIG5">BIG5</a>, <a href="synachar.html#CP950">CP950</a>, <a href="synachar.html#BIG5_HKSCS">BIG5_HKSCS</a>, <a href="synachar.html#EUC_KR">EUC_KR</a>,
+    <a href="synachar.html#CP949">CP949</a>, <a href="synachar.html#CP1361">CP1361</a>, <a href="synachar.html#ISO_2022_KR">ISO_2022_KR</a>, <a href="synachar.html#CP737">CP737</a>, <a href="synachar.html#CP775">CP775</a>, <a href="synachar.html#CP853">CP853</a>, <a href="synachar.html#CP855">CP855</a>, <a href="synachar.html#CP857">CP857</a>, <a href="synachar.html#CP858">CP858</a>,
+    <a href="synachar.html#CP860">CP860</a>, <a href="synachar.html#CP861">CP861</a>, <a href="synachar.html#CP863">CP863</a>, <a href="synachar.html#CP864">CP864</a>, <a href="synachar.html#CP865">CP865</a>, <a href="synachar.html#CP869">CP869</a>, <a href="synachar.html#CP1125">CP1125</a>];</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+Set of charsets supported by Iconv library only.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="NoIconvChars"></span><code><strong>NoIconvChars</strong>: set of <a href="synachar.html#TMimeChar">TMimeChar</a> = [<a href="synachar.html#CP895">CP895</a>, <a href="synachar.html#UTF_7mod">UTF_7mod</a>];</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+Set of charsets supported by internal routines only.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="Replace_None"></span><code><strong>Replace_None</strong>: array[0..0] of Word =
+    (0);</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+null character replace table. (Usable for disable charater replacing.)</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="Replace_Czech"></span><code><strong>Replace_Czech</strong>: array[0..59] of Word =
+    (
+      $00E1, $0061,
+      $010D, $0063,
+      $010F, $0064,
+      $010E, $0044,
+      $00E9, $0065,
+      $011B, $0065,
+      $00ED, $0069,
+      $0148, $006E,
+      $00F3, $006F,
+      $0159, $0072,
+      $0161, $0073,
+      $0165, $0074,
+      $00FA, $0075,
+      $016F, $0075,
+      $00FD, $0079,
+      $017E, $007A,
+      $00C1, $0041,
+      $010C, $0043,
+      $00C9, $0045,
+      $011A, $0045,
+      $00CD, $0049,
+      $0147, $004E,
+      $00D3, $004F,
+      $0158, $0052,
+      $0160, $0053,
+      $0164, $0054,
+      $00DA, $0055,
+      $016E, $0055,
+      $00DD, $0059,
+      $017D, $005A
+    );</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+Character replace table for remove Czech diakritics.</p>
+</td></tr>
+</table>
+<h3 class="detail">Variáveis</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="DisableIconv"></span><code><strong>DisableIconv</strong>: Boolean = False;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+By this you can generally disable/enable Iconv support.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="IdealCharsets"></span><code><strong>IdealCharsets</strong>: <a href="synachar.html#TMimeSetChar">TMimeSetChar</a> =
+    [<a href="synachar.html#ISO_8859_1">ISO_8859_1</a>, <a href="synachar.html#ISO_8859_2">ISO_8859_2</a>, <a href="synachar.html#ISO_8859_3">ISO_8859_3</a>, <a href="synachar.html#ISO_8859_4">ISO_8859_4</a>, <a href="synachar.html#ISO_8859_5">ISO_8859_5</a>,
+    <a href="synachar.html#ISO_8859_6">ISO_8859_6</a>, <a href="synachar.html#ISO_8859_7">ISO_8859_7</a>, <a href="synachar.html#ISO_8859_8">ISO_8859_8</a>, <a href="synachar.html#ISO_8859_9">ISO_8859_9</a>, <a href="synachar.html#ISO_8859_10">ISO_8859_10</a>,
+    <a href="synachar.html#KOI8_R">KOI8_R</a>, <a href="synachar.html#KOI8_U">KOI8_U</a>
+     
+    , <a href="synachar.html#GB2312">GB2312</a>, <a href="synachar.html#EUC_KR">EUC_KR</a>, <a href="synachar.html#ISO_2022_JP">ISO_2022_JP</a>, <a href="synachar.html#EUC_TW">EUC_TW</a>
+    
+    ];</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+Default set of charsets for <a class="normal" href="synachar.html#IdealCharsetCoding">IdealCharsetCoding</a> function.</p>
+</td></tr>
+</table>
+<hr><span class="appinfo"><em>Gerado por <a href="https://pasdoc.github.io/">PasDoc 0.16.0</a>. </em>
+</span>
+</div></div></body></html>

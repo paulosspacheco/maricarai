@@ -1,0 +1,8 @@
+object FormDock: TFormDock
+  Left = 519
+  Height = 240
+  Top = 250
+  Width = 320
+  Caption = 'FormDock'
+  LCLVersion = '3.1.0.0'
+end

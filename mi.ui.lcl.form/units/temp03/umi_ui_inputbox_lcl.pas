@@ -3,7 +3,7 @@ unit umi_ui_InputBox_lcl;
     formulário baseado em Template PSITem.
 
     - **VERSÃO**
-      - Alpha - 0.8.0
+      - Alpha - 0.9.0
 
     - **CÓDIGO FONTE**:
       - @html(<a href="../units/umi_ui_inputbox_lcl.pas">uMi_ui_InputBox_lcl.pas</a>)

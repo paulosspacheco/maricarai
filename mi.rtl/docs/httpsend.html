@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<title>httpsend</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="generator" content="PasDoc 0.16.0">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<link rel="stylesheet" type="text/css" href="tipuesearch/tipuesearch.css">
+
+<link rel="StyleSheet" type="text/css" href="pasdoc.css">
+</head>
+<body>
+<div class="container"><div class="navigation">
+<ul><li><a href="AllUnits.html">Units</a></li><li><a href="ClassHierarchy.html">Hierarquia de Classes</a></li><li><a href="AllClasses.html">Classes, Interfaces, Objetos e Registros</a></li><li><a href="AllTypes.html">Tipos</a></li><li><a href="AllVariables.html">Variáveis</a></li><li><a href="AllConstants.html">Constantes</a></li><li><a href="AllFunctions.html">Funções e Procedimentos</a></li><li><a href="AllIdentifiers.html">Identificadores</a></li><li><form class="search-form" action="tipue_results.html"><div class="search-input"><input type="text" name="q" id="tipue_search_input" pattern=".{3,}" title="At least 3 characters" required><div class="search-button"><input type="button" id="tipue_search_button" onclick="this.form.submit();"></div></div></form>
+<div style="clear: both"></div>
+</li></ul></div><div class="content">
+<h1 class="unit">Unit httpsend</h1>
+<div class="sections">
+<div class="one_section"><a class="section" href="#PasDoc-Description">Descrição</a></div><div class="one_section"><a class="section" href="#PasDoc-Uses">Uses</a></div><div class="one_section"><a class="section" href="#PasDoc-Classes">Classes, Interfaces, Objetos e Registros</a></div><div class="one_section"><a class="section" href="#PasDoc-FuncsProcs">Funções e Procedimentos</a></div><div class="one_section"><a class="section" href="#PasDoc-Types">Tipos</a></div><div class="one_section"><a class="section" href="#PasDoc-Constants">Constantes</a></div><div class="one_section">Variáveis</div></div>
+<span id="PasDoc-Description"></span><h2 class="description">Descrição</h2>
+&nbsp;<span id="PasDoc-Uses"></span><h2 class="uses">Uses</h2>
+<ul class="useslist"><li>SysUtils</li><li>Classes</li><li><a href="blcksock.html">blcksock</a></li><li><a href="synautil.html">synautil</a></li><li><a href="synaip.html">synaip</a></li><li><a href="synacode.html">synacode</a></li><li>synsock</li></ul><h2 class="overview">Visão Geral</h2>
+<span id="PasDoc-Classes"></span><h3 class="cio">Classes, Interfaces, Objetos e Registros</h3>
+<table class="classestable wide_list">
+<tr class="listheader">
+<th class="itemname">Nome</th>
+<th class="itemdesc">Descrição</th>
+</tr>
+<tr class="list">
+<td class="itemname">Classe&nbsp;<a class="bold" href="httpsend.THTTPSend.html"><code>THTTPSend</code></a></td>
+<td class="itemdesc">&nbsp;</td>
+</tr>
+</table>
+<span id="PasDoc-FuncsProcs"></span><h3 class="summary">Funções e Procedimentos</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="itemcode"><code>function <strong><a href="httpsend.html#HttpGetText">HttpGetText</a></strong>(const URL: string; const Response: TStrings): Boolean;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code>function <strong><a href="httpsend.html#HttpGetBinary">HttpGetBinary</a></strong>(const URL: string; const Response: <a href="mi.rtl.Objects.Methods.StreamBase.Stream.TStream.html">TStream</a>): Boolean;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code>function <strong><a href="httpsend.html#HttpPostBinary">HttpPostBinary</a></strong>(const URL: string; const Data: <a href="mi.rtl.Objects.Methods.StreamBase.Stream.TStream.html">TStream</a>): Boolean;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code>function <strong><a href="httpsend.html#HttpPostURL">HttpPostURL</a></strong>(const URL, URLData: string; const Data: <a href="mi.rtl.Objects.Methods.StreamBase.Stream.TStream.html">TStream</a>): Boolean;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code>function <strong><a href="httpsend.html#HttpPostFile">HttpPostFile</a></strong>(const URL, FieldName, FileName: string; const Data: <a href="mi.rtl.Objects.Methods.StreamBase.Stream.TStream.html">TStream</a>; const ResultData: TStrings): Boolean;</code></td>
+</tr>
+</table>
+<span id="PasDoc-Types"></span><h3 class="summary">Tipos</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="itemcode"><code><strong><a href="httpsend.html#TTransferEncoding">TTransferEncoding</a></strong> = (...);</code></td>
+</tr>
+</table>
+<span id="PasDoc-Constants"></span><h3 class="summary">Constantes</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="itemcode"><code><strong><a href="httpsend.html#cHttpProtocol">cHttpProtocol</a></strong> = '80';</code></td>
+</tr>
+</table>
+<h2 class="description">Descrição</h2>
+<h3 class="detail">Funções e Procedimentos</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="HttpGetText"></span><code>function <strong>HttpGetText</strong>(const URL: string; const Response: TStrings): Boolean;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+A very useful function, <a class="normal" href="int65math.html#and">and</a> example of use can be found in the <a class="normal" href="httpsend.THTTPSend.html">THTTPSend</a> object. It implements the GET method of the HTTP protocol. This function sends the GET method for URL document to an HTTP server. Returned document is in the &quot;Response&quot; stringlist (without any headers). Returns boolean TRUE if all went well.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="HttpGetBinary"></span><code>function <strong>HttpGetBinary</strong>(const URL: string; const Response: <a href="mi.rtl.Objects.Methods.StreamBase.Stream.TStream.html">TStream</a>): Boolean;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+A very useful function, <a class="normal" href="int65math.html#and">and</a> example of use can be found in the <a class="normal" href="httpsend.THTTPSend.html">THTTPSend</a> object. It implements the GET method of the HTTP protocol. This function sends the GET method for URL document to an HTTP server. Returned document is in the &quot;Response&quot; stream. Returns boolean TRUE if all went well.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="HttpPostBinary"></span><code>function <strong>HttpPostBinary</strong>(const URL: string; const Data: <a href="mi.rtl.Objects.Methods.StreamBase.Stream.TStream.html">TStream</a>): Boolean;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+A very useful function, <a class="normal" href="int65math.html#and">and</a> example of use can be found in the <a class="normal" href="httpsend.THTTPSend.html">THTTPSend</a> object. It implements the POST method of the HTTP protocol. This function sends the SEND method for a URL document to an HTTP server. The document to be sent is located in the &quot;Data&quot; stream. The returned document is in the &quot;Data&quot; stream. Returns boolean TRUE if all went well.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="HttpPostURL"></span><code>function <strong>HttpPostURL</strong>(const URL, URLData: string; const Data: <a href="mi.rtl.Objects.Methods.StreamBase.Stream.TStream.html">TStream</a>): Boolean;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+A very useful function, <a class="normal" href="int65math.html#and">and</a> example of use can be found in the <a class="normal" href="httpsend.THTTPSend.html">THTTPSend</a> object. It implements the POST method of the HTTP protocol. This function is good for POSTing form data. It sends the POST method for a URL document to an HTTP server. You must prepare the form data in the same manner as you would the URL data, <a class="normal" href="int65math.html#and">and</a> pass this prepared data to &quot;URLdata&quot;. The following is a sample of how the data would appear: 'name=Lukas&amp;field1=some%20data'. The information in the field must be encoded by the <a class="normal" href="synacode.html#EncodeURLElement">EncodeURLElement</a> function. The returned document is in the &quot;Data&quot; stream. Returns boolean TRUE if all went well.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="HttpPostFile"></span><code>function <strong>HttpPostFile</strong>(const URL, FieldName, FileName: string; const Data: <a href="mi.rtl.Objects.Methods.StreamBase.Stream.TStream.html">TStream</a>; const ResultData: TStrings): Boolean;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+A very useful function, <a class="normal" href="int65math.html#and">and</a> example of use can be found in the <a class="normal" href="httpsend.THTTPSend.html">THTTPSend</a> object. It implements the POST method of the HTTP protocol. This function sends the POST method for a URL document to an HTTP server. This function simulates posting of file by HTML form using the 'multipart/form-data' method. The posted file is in the DATA stream. Its name is Filename string. Fieldname is for the name of the form field with the file. (simulates HTML INPUT FILE) The returned document is in the ResultData Stringlist. Returns boolean TRUE if all went well.</p>
+</td></tr>
+</table>
+<h3 class="detail">Tipos</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="TTransferEncoding"></span><code><strong>TTransferEncoding</strong> = (...);</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+These encoding types are used internally by the <a class="normal" href="httpsend.THTTPSend.html">THTTPSend</a> object to identify the transfer data types.</p>
+<h6 class="description_section">Valores</h6>
+<ul>
+<li>
+<span id="TE_UNKNOWN">TE_UNKNOWN</span></li>
+<li>
+<span id="TE_IDENTITY">TE_IDENTITY</span></li>
+<li>
+<span id="TE_CHUNKED">TE_CHUNKED</span></li>
+</ul>
+</td></tr>
+</table>
+<h3 class="detail">Constantes</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="cHttpProtocol"></span><code><strong>cHttpProtocol</strong> = '80';</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<hr><span class="appinfo"><em>Gerado por <a href="https://pasdoc.github.io/">PasDoc 0.16.0</a>. </em>
+</span>
+</div></div></body></html>

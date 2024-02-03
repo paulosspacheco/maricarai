@@ -46,7 +46,7 @@
          2. <text onclick="goBack()">[🔙]</text>
 
       2. <span id="id_pre_requisitos"></span>**Pre-requisitos:**
-         1. Linguagem Pascal versão delphi.
+         1. Linguagem Pascal versão Delphi.
          2. Conhecimento das units do free pascal.
 
          3. <text onclick="goBack()">[🔙]</text>

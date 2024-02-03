@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+    <html>
+    <head>
+        <meta charset="UTF-8">
+        <title>project&period;ph&period;app&period;br</title>
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <meta name="description"   content="" />
+        <meta name="keywords" content="" />
+           
+        <link type="text/css" href="/css/topnav.css" rel="stylesheet"/>        
+        <link type="text/css" href="/css/defaultthemeMarkdown.css"  rel="stylesheet"/>
+
+        <script type="application/x-javascript" src="/js/generic.js"></script>
+        <script type="application/x-javascript" src="/js/tgeneric.js"></script>
+
+        <script>document.addEventListener("DOMContentLoaded", function() {includeHTML();}                );</script>
+        <script>document.addEventListener("DOMContentLoaded", function() {FixHeader(window, "myHeader");});</script>
+        <script>document.addEventListener("DOMContentLoaded", function() {toggleTree();}                 );</script>   
+
+
+    </head>
+    <body class="vscode-body vscode-dark">
+        <div class="header" id="myHeader">
+  <div class="navbar" w3-include-html="/menu.inc"> </div>
+</div>
+<div class="title"><script> document.write(document.title);</script></div>  
+<main>
+<!-- markdownlint-disable-next-line -->
+<span id="topo"><span>
+<!-- <h1 id="projectphappbr"><a href="http://project.ph.app.br">project.ph.app.br</a></h1> -->
+<ol>
+<li><strong>Objetivo do projeto:</strong>
+<ol>
+<li>Desenvolver uma secretária virtual para médicos, utilizando a <em>Assistant API da OpenAI</em> e outras ferramentas, as etapas podem ser sistematizadas da seguinte forma, com as respectivas tecnologias e abordagens:
+<ol>
+<li>
+<p><strong>Desenvolvimento do Sistema de Interação Inicial:</strong></p>
+<ol>
+<li>Utilize a <em>Assistant API da OpenAI</em> para desenvolver um sistema de coleta de informações como <em>nome</em>, <em>telefone</em> e <em>e-mail</em> na primeira interação com o paciente.</li>
+<li>Armazenar essas informações em um banco de dados seguro.
+<ol>
+<li>Para isso, pode-se utilizar bancos de dados como <em>MySQL</em>, <em>PostgreSQL</em> ou soluções baseadas em nuvem como <em>Firebase</em> ou <em>AWS RDS</em>.</li>
+</ol>
+</li>
+</ol>
+</li>
+<li>
+<p><strong>Integração com Google Calendar para Agendamento de Consultas:</strong></p>
+<ol>
+<li>Desenvolva uma funcionalidade que interage com a <em>API do Google Calendar</em> para agendar, remarcar e cancelar consultas. A secretária deve ser capaz de acessar a agenda do médico e sugerir o primeiro horário disponível a partir do dia seguinte.</li>
+</ol>
+</li>
+<li>
+<p><strong>Processo de Negociação de Horários:</strong></p>
+<ol>
+<li>Implementar um sistema de <em>diálogo interativo</em> usando a <em>Assistant API da OpenAI</em> para negociar horários com os pacientes. O sistema deve ser capaz de <em>entender e responder a preferências de dia</em> e <em>período fornecidas pelo paciente</em>.</li>
+</ol>
+</li>
+<li>
+<p><strong>Registro de Interações no <em>Google Sheets</em>:</strong></p>
+<ol>
+<li>Use a API do Google Sheets para registrar todas as interações com os pacientes. As informações registradas devem incluir o <em>nome do paciente</em>, a <em>natureza da interação</em> (agendamento, remarcação, cancelamento) e detalhes pertinentes.</li>
+</ol>
+</li>
+<li>
+<p><strong>Notificações de Erros via WhatsApp:</strong></p>
+<ol>
+<li>Integrar com a <em>API do WhatsApp</em> para enviar notificações ao médico em caso de erros. Esta integração pode ser realizada utilizando ferramentas como <em><a href="https://pages.twilio.com/twilio-brand-sales-pt-2?utm_source=google&amp;utm_medium=cpc&amp;utm_term=twilio&amp;utm_campaign=G_S_LATAM_Brand_Twilio_Portuguese&amp;cq_plac=&amp;cq_net=g&amp;cq_pos=&amp;cq_med=&amp;cq_plt=gp&amp;gad_source=1&amp;gclid=CjwKCAiA1MCrBhAoEiwAC2d64aUepLoXIiFacBNN8HXlhQt0sspZNLmP8FVjK0_29bvqlJefamaV5BoCsBAQAvD_BwE">Twilio</a></em> ou plataformas semelhantes que oferecem <em>integração com o WhatsApp</em>.s</li>
+</ol>
+</li>
+<li>
+<p><strong>Confirmação de Consultas:</strong></p>
+<ol>
+<li>Utilize a <em>API do WhatsApp</em> para enviar confirmações de consultas.</li>
+<li>Implementar a <em>API de voz da OpenAI</em> para fazer <em>chamadas de voz automatizadas</em> para <em>confirmação de consultas</em>.</li>
+</ol>
+</li>
+<li>
+<p><strong>Banco de Dados de Informações Adicionais:</strong></p>
+<ol>
+<li>Criar um <em>banco de dados adicional</em> para armazenar informações sobre <em>convênios</em>, <em>preços de consultas</em> e <em>hospitais onde o médico atende</em>.</li>
+</ol>
+</li>
+<li>
+<p>Testes e Validação:</p>
+<ol>
+<li>Realizar <em>testes abrangentes</em> para garantir o funcionamento adequado de todas as funcionalidades.</li>
+</ol>
+</li>
+<li>
+<p><strong>Documentação e Treinamento:</strong></p>
+<ol>
+<li>Preparar <em>documentação detalhada</em> e <em>oferecer treinamento</em> para o <em>médico</em> e a <em>equipe</em> sobre o uso da <em>secretária virtual</em>.</li>
+</ol>
+</li>
+<li>
+<p><strong>Manutenção e Atualização Contínua:</strong></p>
+<ol>
+<li>Criar um <em>plano de manutenção</em> e <em>atualização</em> para manter a segurança, eficiência e compatibilidade do sistema.</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+<!-- markdownlint-disable-next-line -->
+</main>
+<p><a href="#topo" title="Retorna ao topo">🔝🔝</a></p>
+
+        
+        
+    </body>
+    </html>

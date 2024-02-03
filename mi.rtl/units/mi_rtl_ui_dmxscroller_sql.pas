@@ -2,7 +2,7 @@ Unit mi_rtl_ui_Dmxscroller_sql;
 {:< A unit **@name** implementa a classe TUiDmxScroller_sql.
 
   - **VERSÃO**
-    - Alpha - 0.8.0
+    - Alpha - Alpha - 0.9.0
 
   - **CÓDIGO FONTE**:
     - @html(<a href="../units/mi_ui_Dmxscroller_sql.pas">mi_ui_Dmxscroller_sql.pas</a>)
@@ -581,7 +581,7 @@ Begin
        then begin
               if (tableName <> '')
               then begin
-                     CustomBufDataset                              := (DataSource.DataSet as TSQLQuery);
+                     CustomBufDataset := (DataSource.DataSet as TSQLQuery);
                      if not Assigned((DataSource.DataSet as TSQLQuery).DataBase)
                      then (DataSource.DataSet as TSQLQuery).DataBase    := Mi_ui_custom_application.SQLConnector;
 

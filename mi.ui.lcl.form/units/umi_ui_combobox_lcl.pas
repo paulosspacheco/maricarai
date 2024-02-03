@@ -3,7 +3,7 @@ unit uMi_ui_ComboBox_lcl;
    componente TComboBox do Lazarus.
 
    - **VERSÃO**
-     - Alpha - 0.8.0
+     - Alpha - 0.9.0
 
    - **CÓDIGO FONTE**:
      - @html(<a href="../units/mi_ui_ComboBox_lcl.pas">mi_ui_ComboBox_LCL.pas</a>)
@@ -196,6 +196,7 @@ procedure TMI_ComboBox_LCL.SeTDmxFieldRec(apDmxFieldRec: pDmxFieldRec);
   Var
     SItems,P:PSItem;
     //aTemplate: TDmxScroller_Form_Lcl_attributes.tString;
+
 begin
   try
     _pDmxFieldRec := apDmxFieldRec;
@@ -262,6 +263,13 @@ begin
              end;
         P := P.next;
       end;
+
+      if DmxFieldRec.ListComboBox_Default > Items.Count-1
+      then begin
+             //Procurar em que situação DmxFieldRec.ListComboBox_Default é maior
+             //que Items.Count-1
+             DmxFieldRec.ListComboBox_Default := 0;
+          end;
 
       Self.ItemIndex := DmxFieldRec.ListComboBox_Default;
       self.Value     := Items[Self.ItemIndex];

@@ -11,7 +11,7 @@
 </head>
 <body>
 <div class="container"><div class="navigation">
-<ul><li><a href="AllUnits.html">Units</a></li><li><a href="ClassHierarchy.html">Hierarquia de Classes</a></li><li><a href="AllClasses.html">Classes, Interfaces, Objetos e Registros</a></li><li><a href="AllTypes.html">Tipos</a></li><li><a href="AllVariables.html">Variáveis</a></li><li><a href="AllConstants.html">Constantes</a></li><li><a href="AllFunctions.html">Funções e Procedimentos</a></li><li><a href="AllIdentifiers.html">Identificadores</a></li><li><form class="search-form" action="tipue_results.html"><div class="search-input"><input type="text" name="q" id="tipue_search_input" pattern=".{1,}" title="At least 1 characters" required><div class="search-button"><input type="button" id="tipue_search_button" onclick="this.form.submit();"></div></div></form>
+<ul><li><a href="AllUnits.html">Units</a></li><li><a href="ClassHierarchy.html">Hierarquia de Classes</a></li><li><a href="AllClasses.html">Classes, Interfaces, Objetos e Registros</a></li><li><a href="AllTypes.html">Tipos</a></li><li><a href="AllVariables.html">Variáveis</a></li><li><a href="AllConstants.html">Constantes</a></li><li><a href="AllFunctions.html">Funções e Procedimentos</a></li><li><a href="AllIdentifiers.html">Identificadores</a></li><li><form class="search-form" action="tipue_results.html"><div class="search-input"><input type="text" name="q" id="tipue_search_input" pattern=".{3,}" title="At least 3 characters" required><div class="search-button"><input type="button" id="tipue_search_button" onclick="this.form.submit();"></div></div></form>
 <div style="clear: both"></div>
 </li></ul></div><div class="content">
 <span id="TFiles"></span><h1 class="cio">Classe TFiles</h1>
@@ -24,8 +24,28 @@
 <p class="declaration">
 <code>type TFiles = class(<a class="normal" href="mi.rtl.Consts.TConsts.html">TConsts</a>)</code></p>
 <h2 class="description">Descrição</h2>
-<div class="nodescription">No description available, ancestor TConsts description follows</div><p>
-A classe <strong><code>TConsts</code></strong> declara todas as constantes globais do pacote MarIcarai</p>
+<p>
+</p>
+
+<ul class="paragraph_spacing">
+  <li><p>A classe <strong><code>TFiles</code></strong> contém as classes métodos para acessar o sistema operacional usada no acesso a arquivos.
+
+<p></p>
+
+<ul class="paragraph_spacing">
+  <li><p>REFERẼNCIAS </p>
+
+<ul class="paragraph_spacing">
+  <li><p>[Como criar aplicativo multi-plataforma](<a href="https://wiki.freepascal.org/Multiplatform_Programming_Guide">https://wiki.freepascal.org/Multiplatform_Programming_Guide</a>)</p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p>
 <span id="PasDoc-Hierarchy"></span><h2 class="hierarchy">Hierarquia</h2>
 <ul class="hierarchy"><li class="ancestor">TObject</li>
 <li class="ancestor">TPersistent</li>
@@ -42,6 +62,14 @@ A classe <strong><code>TConsts</code></strong> declara todas as constantes globa
 </table>
 <span id="PasDoc-Methods"></span><h3 class="summary">Métodos</h3>
 <table class="summary wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>class function <strong><a href="mi.rtl.files.TFiles.html#IsFileOpen">IsFileOpen</a></strong>(VAR F:Text):BOOLEAN ; overload;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>class function <strong><a href="mi.rtl.files.TFiles.html#IsFileOpen">IsFileOpen</a></strong>(VAR F:File):BOOLEAN ; overload;</code></td>
+</tr>
 <tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
 <td class="itemcode"><code>Class Function <strong><a href="mi.rtl.files.TFiles.html#AppVersionInfo">AppVersionInfo</a></strong>: TAppVersionInfo;</code></td>
@@ -164,7 +192,15 @@ A classe <strong><code>TConsts</code></strong> declara todas as constantes globa
 </tr>
 <tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
-<td class="itemcode"><code>Class function <strong><a href="mi.rtl.files.TFiles.html#DuplicateHandle">DuplicateHandle</a></strong>(hSourceHandle: <a href="mi.rtl.Types.TTypes.html#THandle">THandle</a>;Var lpTargeTHandle: <a href="mi.rtl.Types.TTypes.html#THandle">THandle</a>) : <a href="mi.rtl.Types.TTypes.html#LongInt">Longint</a>;</code></td>
+<td class="itemcode"><code>Class function <strong><a href="mi.rtl.files.TFiles.html#DuplicateHandle">DuplicateHandle</a></strong>(var hSource: File;Var lpTarge: File) : <a href="mi.rtl.Types.TTypes.html#LongInt">Longint</a>; overload;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>Class function <strong><a href="mi.rtl.files.TFiles.html#DuplicateHandle">DuplicateHandle</a></strong>(var hSource: Text;Var lpTarge: Text) : <a href="mi.rtl.Types.TTypes.html#LongInt">Longint</a>; overload;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>Class function <strong><a href="mi.rtl.files.TFiles.html#DuplicateHandle">DuplicateHandle</a></strong>(hSourceHandle: <a href="mi.rtl.Types.TTypes.html#THandle">THandle</a>;Var lpTargeTHandle: <a href="mi.rtl.Types.TTypes.html#THandle">THandle</a>) : <a href="mi.rtl.Types.TTypes.html#LongInt">Longint</a>; overload;</code></td>
 </tr>
 <tr class="list2">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
@@ -184,7 +220,7 @@ A classe <strong><code>TConsts</code></strong> declara todas as constantes globa
 </tr>
 <tr class="list2">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
-<td class="itemcode"><code>class procedure <strong><a href="mi.rtl.files.TFiles.html#FindFilesAll">FindFilesAll</a></strong>(Mask : AnsiString; FileAttrs : Cardinal; var List : TStringList);</code></td>
+<td class="itemcode"><code>class procedure <strong><a href="mi.rtl.files.TFiles.html#FindFilesAll">FindFilesAll</a></strong>(aPath,Mask : AnsiString; FileAttrs : Cardinal;aRelative:Boolean; var List : TStringList);</code></td>
 </tr>
 <tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
@@ -226,6 +262,26 @@ A classe <strong><code>TConsts</code></strong> declara todas as constantes globa
 &nbsp;</td></tr>
 </table>
 <h3 class="detail">Métodos</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="IsFileOpen"></span><code>class function <strong>IsFileOpen</strong>(VAR F:Text):BOOLEAN ; overload;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+O método <code>IsFileOpen</code> retorna true se o arquivo F estiver aberto e false caso contrário</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="IsFileOpen"></span><code>class function <strong>IsFileOpen</strong>(VAR F:File):BOOLEAN ; overload;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+O método <code>IsFileOpen</code> retorna true se o arquivo F estiver aberto e false caso contrário</p>
+</td></tr>
+</table>
 <table class="detail wide_list">
 <tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
@@ -1065,7 +1121,7 @@ O função <strong><code>FileSizes</code></strong> retorna em aFileSize a soma d
   <li><p><strong>NOTA</strong> </p>
 
 <ul class="paragraph_spacing">
-  <li><p>Se houver error retorna o código do error em <a class="normal" href="mi.rtl.files.TFiles.html#FileSize">FileSize</a></p></li>
+  <li><p>Se houver <a class="normal" href="slogsend.html#Error">error</a> retorna o código do <a class="normal" href="slogsend.html#Error">error</a> em <a class="normal" href="mi.rtl.files.TFiles.html#FileSize">FileSize</a></p></li>
 </ul>
 
 <p></p></li>
@@ -1549,7 +1605,39 @@ A classe function <strong><code>GetTempDir</code></strong> retorna o diretório 
 <table class="detail wide_list">
 <tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
-<td class="itemcode"><span id="DuplicateHandle"></span><code>Class function <strong>DuplicateHandle</strong>(hSourceHandle: <a href="mi.rtl.Types.TTypes.html#THandle">THandle</a>;Var lpTargeTHandle: <a href="mi.rtl.Types.TTypes.html#THandle">THandle</a>) : <a href="mi.rtl.Types.TTypes.html#LongInt">Longint</a>;</code></td>
+<td class="itemcode"><span id="DuplicateHandle"></span><code>Class function <strong>DuplicateHandle</strong>(var hSource: File;Var lpTarge: File) : <a href="mi.rtl.Types.TTypes.html#LongInt">Longint</a>; overload;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+</p>
+
+<ul class="paragraph_spacing">
+  <li><p>A classe método <code>DuplicateHandle</code> duplica o handle do arquivo no windows e linux.</p></li>
+</ul>
+
+<p></p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="DuplicateHandle"></span><code>Class function <strong>DuplicateHandle</strong>(var hSource: Text;Var lpTarge: Text) : <a href="mi.rtl.Types.TTypes.html#LongInt">Longint</a>; overload;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+</p>
+
+<ul class="paragraph_spacing">
+  <li><p>A classe método <code>DuplicateHandle</code> duplica o handle do arquivo no windows e linux.</p></li>
+</ul>
+
+<p></p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="DuplicateHandle"></span><code>Class function <strong>DuplicateHandle</strong>(hSourceHandle: <a href="mi.rtl.Types.TTypes.html#THandle">THandle</a>;Var lpTargeTHandle: <a href="mi.rtl.Types.TTypes.html#THandle">THandle</a>) : <a href="mi.rtl.Types.TTypes.html#LongInt">Longint</a>; overload;</code></td>
 </tr>
 <tr><td colspan="2">
 <p>
@@ -1802,7 +1890,7 @@ A classe function <strong><code>FileFlushBuffers</code></strong> descarrega o bu
 <table class="detail wide_list">
 <tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
-<td class="itemcode"><span id="FindFilesAll"></span><code>class procedure <strong>FindFilesAll</strong>(Mask : AnsiString; FileAttrs : Cardinal; var List : TStringList);</code></td>
+<td class="itemcode"><span id="FindFilesAll"></span><code>class procedure <strong>FindFilesAll</strong>(aPath,Mask : AnsiString; FileAttrs : Cardinal;aRelative:Boolean; var List : TStringList);</code></td>
 </tr>
 <tr><td colspan="2">
 <p>
@@ -1838,13 +1926,13 @@ views/
 
 <pre class="longcode">
 
-find ./ -iname *.ejs
+find <span class="pascal_float">.</span>/ -iname *<span class="pascal_float">.</span>ejs
 
-&gt; ./pages/<span class="pascal_keyword">index</span>.ejs
-&gt; ./pages/about.ejs
-&gt; ./partials/head.ejs
-&gt; ./partials/header.ejs
-&gt; ./partials/footer.ejs</pre>
+&gt; <span class="pascal_float">.</span>/pages/<span class="pascal_keyword">index</span>.ejs
+&gt; <span class="pascal_float">.</span>/pages/about.ejs
+&gt; <span class="pascal_float">.</span>/partials/head.ejs
+&gt; <span class="pascal_float">.</span>/partials/header.ejs
+&gt; <span class="pascal_float">.</span>/partials/footer.ejs</pre>
 
 <p></p></li>
 </ul>
@@ -1898,9 +1986,9 @@ find ./ -iname *.ejs
   <span class="pascal_keyword">then</span> FileAttrs := FileAttrs <span class="pascal_keyword">or</span> faDirectory;
 
   <span class="pascal_keyword">with</span> TObjectss <span class="pascal_keyword">do</span>
-<span class="pascal_comment">//    FindFiles(Edit1.Text,FileAttrs ,ListFiles );</span>
-    FindFilesAll(Edit1.Text,FileAttrs ,ListFiles );
-<span class="pascal_comment">//  FindFilesAll(GetCurrentDir,FileAttrs ,ListFiles );</span>
+   FindFilesAll(GetCurrentDir,*<span class="pascal_float">.</span>html,FileAttrs ,ListFiles );
+   <span class="pascal_comment">// Quando o path não informado, FindFileAll seleciona todos os arquivos apartir da pasta atual.</span>
+   FindFilesAll(<span class="pascal_string">''</span>,*<span class="pascal_float">.</span>html,FileAttrs ,ListFiles );
 
   LabelCount.Caption := Format(<span class="pascal_string">'ListFiles.Count %d'</span>,[ListFiles.Count]);
   LabelCount.Show;
@@ -1997,7 +2085,7 @@ Retorna o numero de arquivos abertos no sistema operacional
   <li><p><strong>NOTA</strong> </p>
 
 <ul class="paragraph_spacing">
-  <li><p>TaStaus : Retorna o número do error se ouver</p></li>
+  <li><p>TaStaus : Retorna o número do <a class="normal" href="slogsend.html#Error">error</a> se ouver</p></li>
 </ul>
 
 <p></p></li>

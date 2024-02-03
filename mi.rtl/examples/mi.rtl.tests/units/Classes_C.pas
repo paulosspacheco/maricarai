@@ -1677,11 +1677,11 @@ Function TNSComponent.GetHTMLContent : AnsiString;
 {< NortSoft
    Retorna O c�digo HTML implementados em:
      1 - TvDialogs.TButton      Retorna o c�digo Html associado ao bot�o
-     2 - ViEditor.TDmxEditor    Retorna o codigo Html associado ao Dmx
+     2 - ViEditor.TDmxEditor    Retorna o código Html associado ao Dmx
      3 - ViEditor.TLIsDialog   Retorna a lista html
      4 - tvDMXBUF.TDmxEditBuf;  Retorna o formul�rio em forma de gride
      5 - View.TWindow           Retorna todos os c�digos html dentro da windows
-     6 - TvDialogs.TDialog      Retorna o formul�rio completo <html><head> </head> <body> </body></html
+     6 - TvDialogs.TDialog      Retorna o formul�rio completo <html lang="pt-BR"><head> </head> <bodY>  </body></html
 }
 Begin
   If OnHTMLTag

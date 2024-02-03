@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-    <html>
+    <html dir="ltr" lang="pt-br">
     <head>
         <meta charset="UTF-8">
         <title></title>
@@ -147,6 +147,12 @@ hue-6-2: #e6c07b
 }
 </style>
         <style>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <!-- CSS markdown  -->
+        <link type="text/css" href="/css/defaultthemeMarkdown.css"  rel="stylesheet"/>
+            
+        <!-- CSS da página /index.html -->
+        <link type="text/css" href="/css/defaulttheme.css" rel="stylesheet"/>
 
 </style>
     </head>
@@ -161,7 +167,7 @@ página html, semelhante a unit HTTPProd do Delphi.</p>
 <li>
 <p><strong>VERSÃO</strong></p>
 <ul>
-<li>Alpha - Alpha - 0.8.0</li>
+<li>Alpha - Alpha - 0.9.0</li>
 </ul>
 </li>
 <li>
@@ -189,6 +195,49 @@ página html, semelhante a unit HTTPProd do Delphi.</p>
 <li>13:30 a 17:30: Documento da unit</li>
 </ul>
 </li>
+<li>
+<p><strong>10/08/2023</strong></p>
+<ul>
+<li>08:10 a 12:00: Implementar componente TPageProducer</li>
+</ul>
+</li>
+<li>
+<p><strong>16/08/2023</strong></p>
+<ul>
+<li>08:00 a 12:00: T12 Criar o componente TPageProducer.
+A procedure create_css_table() deve criar
+o arquivo na pasta template/css</li>
+<li>13:20 a 17:25: T12 Criar o componente TPageProducer.GetHtmlTable</li>
+</ul>
+</li>
+<li>
+<p><strong>16/08/2023</strong></p>
+<ul>
+<li>08:00 a 12:00 T12 Documentar componente TPageProducer</li>
+<li>13:30 a 17:30 T12 Documentar componente TPageProducer</li>
+</ul>
+</li>
+<li>
+<p><strong>17/08/2023</strong></p>
+<ul>
+<li>08:00 a 11:56 T12 Documentar componente TPageProducer</li>
+<li>13:30 a 17:17 T12 Documentar componente TPageProducer</li>
+</ul>
+</li>
+<li>
+<p><strong>18/08/2023</strong></p>
+<ul>
+<li>09:55 a 12:00 T12 Documentar componente TPageProducer</li>
+<li>14:23 a 17:15 T12 Documentar componente TPageProducer</li>
+</ul>
+</li>
+<li>
+<p><strong>25/08/2023</strong></p>
+<ul>
+<li>09:35 a 12:00 T12 Documentar componente TPageProducer</li>
+<li>14:23 a 17:15 T12 Documentar componente TPageProducer</li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -196,7 +245,7 @@ página html, semelhante a unit HTTPProd do Delphi.</p>
 <li>
 <p><strong>CÓDIGO FONTE</strong>:</p>
 <ul>
-<li>@html(<a href="../units/mi.rtl.objects.pas">mi.rtl.objects.pas</a>)</li>
+<li>@html(&lt;a href=&quot;../units/mi.rtl.objects.methods.pageproducer.pas</a>)</li>
 </ul>
 </li>
 </ul>
@@ -206,367 +255,1402 @@ página html, semelhante a unit HTTPProd do Delphi.</p>
 {$ENDIF}</p>
 <p>interface</p>
 <p>uses
-Classes, SysUtils,FPTemplate
+Classes, SysUtils,StrUtils,FPTemplate
+,mi.rtl.Consts
 ,mi.rtl.Objects.Methods
+,mi.rtl.miStringlist
 ,mi.rtl.Objects.Methods.Paramexecucao.Application</p>
 <p>;</p>
 <p>Type</p>
-<p>{ TBasePageProducer }</p>
-<p>TBasePageProducer = class(TObjectsMethods)
-public</p>
-<pre><code class="hljs">  Type
-
-    {: O tipo **@name** usado em THTMLTagEven indicando o tipo de tag.
-       - **NOTAS:**
-         -  
-    }
-    TTag = (Tgcustom, tgLink, tgImage, tgTable, tgImageMap, tgObject, tgEmbed);
-
-  Type
-    {: O tipo **@name** usado para preencher modelos pre-fabricados de códigos para preencher com varáveis.}
-    THTMLTagEvent = TReplaceTagEvent;
-    //THTMLTagEvent = procedure (Sender: TObject; Tag: TTag; const TagString: string;  TagParams: TStrings; var ReplaceText: string) of object;
-
-  public constructor create(aOwner:TComponent);override;
-  public destructor destroy; override;
-
-  {$REGION '---&gt;Construção da propriedade Alias'}
-    Private  _Alias    : AnsiString;
-    Published  Property Alias : AnsiString Read _Alias Write _Alias;
-  {$ENDREGION}
-
-  protected Function GetHTMLContent : AnsiString;Virtual;
-  Public Property HTMLContent : AnsiString Read GetHTMLContent;// write SetHTMLContent;
-
-  {$REGION '---&gt; Construção da propriedade OnHTMLTag'}
-    Private  var _OnHTMLTag    : Boolean;
-    Private Procedure SetOnHTMLTag(const aOnHTMLTag    : Boolean);
-    Public Property OnHTMLTag  : Boolean Read _OnHTMLTag Write SetOnHTMLTag;
-  {$ENDREGION}
-
-  {$REGION '---&gt; Construção da propriedade HTMLDoc'}
-    private var _HTMLDoc: TStrings;
-    Private Procedure SetHTMLDoc(Const aHTMLDoc: tStrings);
-    Private Function GetHTMLDoc: tStrings;
-    Public Property HTMLDoc  : tStrings Read GetHTMLDoc Write SetHTMLDoc;
-  {$ENDREGION}
-
-  {$REGION '---&gt; Construção da propriedade HTMLFile'}
-    Protected Procedure SetHTMLFile(Const aHTMLFile: TFileName );Overload;Virtual;
-    Protected Private Function GetHTMLFile : TFileName;Virtual;
-    Public Property HTMLFile : TFileName read GetHTMLFile Write SetHTMLFile;
-    Public Procedure SetHTMLFile();Overload;Virtual;//&lt; Deve se definido em cada objeto herdado.
-  {$ENDREGION}
-
-    Public Function  SaveHTMLContentToFile(FileNameDest:AnsiString):Integer;overload ;Virtual;
-    Public Function  SaveHTMLContentToFile:Integer;overload ;Virtual;
-
-  {$REGION '---&gt; Construção da propriedade FPTemplate'}
-    Private _FPTemplate : TFPTemplate;
-    Public Property FPTemplate : TFPTemplate read _FPTemplate write _FPTemplate;
-  {$ENDREGION}
-
-  {: O método **@name** é executado por - *@link(DoReplaceTag)*.
-
-     - **DESCRIÇÃO**
-
-       - O manipulador de eventos *DoOnHTMLTag* deve retornar os comandos HTML
-         convertidos no parâmetro *ReplaceText*. O valor retornado pode conter tags
-         HTML transparentes para outro produtor de página converter.
-         - Por exemplo:
-           - Um produtor de página pode ter um modelo que representa o formato
-             do HTTP final da resposta. Ele pode ler a solicitação HTTP e, para cada
-             seção da solicitação, montar um conjunto de Tags transparentes
-             em HTML com parâmetros baseados na solicitação.
-
-           - Outro produtor de página pode pegar o conteúdo do produtor da
-             primeira página e interpretá-los os parâmetros.
-
-
-     - **PARÂMETROS**
-       - **TagParams**:*TStringList*
-         - O parâmetro *TagParams* fornece a parte do parâmetro da tag do template.
-           - Cada string no objeto *tStrings* tem a forma *ParamName*=*Value*.
-           - Use as propriedades *Names* e *Values* do objeto *tStrings* para analisar esses parâmetros.
-
-       - **TagString**:String*
-         - Nome da tag no template.
-           - Exemplo de template para preencher a data e hora no formato: *MM/DD hh:mm:ss*:
-
-               ```pascal
-
-                   &lt;html&gt;
-                   &lt;body&gt;
-
-                        DateTime in format &quot;MM/DD hh:mm:ss&quot;: &lt;b&gt;&lt;!--#DATETIME [-FORMAT=MM/DD hh:mm:ss-]#--&gt;&lt;/b&gt;
-                        &lt;br&gt;
-
-                   &lt;/body&gt;
-                   &lt;/html&gt;
-
-               ```
-
-                - **NOTAS**
-                  - **TagString** = *DATETIME*
-                  - **Parâmetro** = *FORMAT=MM/DD hh:mm:ss*
-                    
-
-               - **TagParams**: *FORMAT*
-                 ```pascal
-
-                    [- FORMAT=MM/DD hh:mm:ss -]
-
-                 ```
-
-           - Exemplo de template para criar código html *&lt;pre&gt;* **lista de arquivos da pasta atual e subpastas** &lt;/pre&gt;:
-
-               ```pascal
-
-                   &lt;html&gt;
-                   &lt;body&gt;
-
-                        &lt;h1&gt; Teste do componente PageProducer &lt;/h1&gt;
-                        
-                        &lt;pre&gt;
-                            &lt;!--# tgCustom [- ListFilesText=
-                                                          Arquivo:
-                                                            -&quot;~FileName&quot; -] #--&gt;
-                        &lt;/pre&gt;
-
-                   &lt;/body&gt;
-                   &lt;/html&gt;
-
-               ```
-           - Exemplo de template para criar código html de um link de nome BlogPsspPappBr:
-
-               ```pascal
-
-                   &lt;html&gt;
-                   &lt;body&gt;
-
-                        &lt;h3&gt; Meu Blog &lt;/h3&gt;
-                        &lt;!--# tgLink [- BlogPsspPappBr=[a href=&quot;~url&quot; target=&quot;~target&quot; title=&quot;~title&quot;] ~text [/a]  -] #--&gt;
-
-                   &lt;/body&gt;
-                   &lt;/html&gt;
-
-
-               ```
-
-
-           - Exemplo de template para criar código html que lista de links usando o nome dos arquivos da pasta atual e subpastas:
-
-               ```pascal
-
-                   &lt;html&gt;
-                   &lt;body&gt;                         
-                      &lt;!--# tgLink [- FindFilesAll=[a href=&quot;~url&quot; target=&quot;_blank&quot; title=&quot;~title&quot;] ~text [/a]  -] #--&gt;
-                   &lt;/body&gt;
-                   &lt;/html&gt;
-
-
-               ```
-
-             - **NOTAS**
-               - **TagString** : *DATETIME*:
-
-                 ```pascal
-
-                    &lt;!--# DATETIME #--&gt;
-
-                 ```
-
-               - **TagParams**: *FORMAT*
-                 ```pascal
-
-                    [- FORMAT=MM/DD hh:mm:ss -]
-
-                 ```
-
-       - **ReplaceText** : *String*
-           - Retorna o template preenchido para a classe que o executou.
-             - Exemplo:
-
-               ```pascal
-
-                   procedure TFPWebModule2.func1callReplaceTag(Sender: TObject; const TagString:                      String; TagParams: TStringList; Out ReplaceText: String);
-                   begin
-                     if AnsiCompareText(TagString, 'DATETIME') = 0 then
-                     begin
-                       ReplaceText := FormatDateTime(TagParams.Values['FORMAT'], Now);
-                     end;
-                   end;
-
-               ```
-
-       - **aTag** : *TTag*
-         - Usado para executar métodos produtores de código baseado em templates.
-           - *aTag* = *tgCustom*:
-             - Executa o método virtual @link(DoOnHTMLTag_tgCustom):
-               - O método @link(DoOnHTMLTag_tgCustom) deve processar os parâmetros *Name*=*Values* de
-                 **TagParams** definido pelo método que o executadou. @link(DoOnHTMLTag_tgCustom Veja mais):
-               - **Exemplo**:
-                 -
-
-           - *atag* = *tgTable*
-               - Executa a procedure virtual @link(DoOnHTMLTag_tgTable) para que seja preenchido
-                 os seguintes parâmetros:
-                 - HEADER
-                 - ONEROW
-                 - NOTFOUND
-                 - FOOTER
-
-
-             - Os métodos que serão executados depende do parâmetro **aTag**:
-               - **aTag** = *tgLink*
-                 - DoOnHTMLTag_tgLink
-                   - Parâmetros esperados:
-                     - href
-                     - name
-                     - type
-                     - label
-                     - Exemplo:
-
-                       ```pascal
-
-                          [- &lt;a href=&quot;#link&quot; name=&quot;name&quot; type=&quot;text/html&quot;&gt;label=Descrição do Link&lt;/a&gt; -]
-
-                       ```
-               - **aTag** = *tgImage*
-                 - DoOnHTMLTag_tgImage
-                   - Parâmetros esperados:
-                     - src=Nome do arquivo de imagem
-                     - alt = Mensagem a ser mostrada caso a imagem não exista.
-                     - title = Help
-                     - Exemplo:
-
-                       ```pascal
-
-                          &lt;img src=&quot;images/image01.jpg&quot;
-                               alt=&quot;Imagem de vários repositórios e o servidor&quot;
-                               title=&quot;Esta imagem mostra de forma visual como funciona as cópias dos arquivos.&quot;&gt;
-
-                       ```
-
-               - **atag** = *tgImageMap*
-                 - DoOnHTMLTag_tgImageMap
-
-               - **atag** = *tgObject*
-                 - DoOnHTMLTag_tgObject
-
-               - **atag** = *tgEmbed*
-                 - DoOnHTMLTag_tgEmbed
-
-               - **atag** = *tgCustom*
-                 - DoOnHTMLTag_tgCustom
-
-     - **EXEMPLO**
+<p>{ TBasePageProducer }
+{: A classe <strong>@name</strong> permite criar documentos baseados em modelos,
+podendo ser html ou não.</p>
+<pre><code class="hljs"> - **NOTA**
+   - Tentei manter o mesmo comportamento do TPageProduce do Delphi, porém faz mais porque
+     está documentado com exemplos de uso.
+</code></pre>
+<p>}
+TBasePageProducer = class(TObjectsMethods)</p>
+<pre><code class="hljs">{: O constructor **@name** inicializa os parâmetros padrões da classe e
+   instancia a classe FPTemplate.
+
+   - Parâmetro usado aqui:
+     - TConsts.DefaultStartDelimiter;
+     - TConsts.DefaultEndDelimiter;
+     - TConsts.DefaultParamStartDelimiter;
+     - TConsts.DefaultParamValueSeparator;
+     - TConsts.DefaultParamEndDelimiter;
+     - TConsts.DefaultAllowTagParams;
+}
+public constructor create(aOwner:TComponent);override;
+
+{: O Destructor **@name** destroy a classe **TBasePageProducer** e livra da memória o atributo FPTemplate criado
+   em constructor.
+}
+public destructor destroy; override;
+
+{$REGION '---&gt; Construção da propriedade ID_Dinamic'}
+  Private _ID_Dinamic   : AnsiString; //
+  private Function GetID_Dinamic:AnsiString;
+
+  {: - A propriedade **@name** retorno um string com um registro tipo
+     [**TGuid**](https://www.freepascal.org/docs-html/rtl/system/tguid.html) para
+     representar a classe.
+  }
+  Public  Property ID_Dinamic : AnsiString Read GetID_Dinamic;
+{$ENDREGION}
+
+{: O método **@name** retorna uma string com o nome de todos os arquivos
+   com a extensão passada por a aMask.
+
+   - **PARÂMETROS**
+     - aTagName
+       - Nome da tag
+     - atemplate
+       - Modelo onde cada nome de arquivo deve ser inserido
 
          ```pascal
 
-           &lt;html&gt;
+            &lt;!--# tgCustom [- ListFilesText=Arquivo:
+                                            -&quot;~ListFilesText&quot; -]
+            #--&gt;
 
-           &lt;body&gt;
-             DateTime in format &quot;MM/DD hh:mm:ss&quot;:
-             &lt;b&gt;
-               &lt;!--# DATETIME [-FORMAT=MM/DD hh:mm:ss-] #--&gt;
-             &lt;/b&gt;
+          ```
+     - aPath
+       - Nome do diretório
 
-             &lt;br&gt;
+     - aMask
+       - Filtro de pesquisa.
+         - Ex: *.html
 
-             List of records:
-             &lt;table class=&quot;beautify1&quot;&gt;
-               &lt;tr class=&quot;beautify2&quot;&gt;
-                 &lt;td class=&quot;beautify3&quot;&gt;
+   - **EXEMPLO**
 
-                   &lt;!--# tgTable
+     ```pascal
 
-                     [-Header=
-                       &lt;table bordercolorlight=&quot;#6699CC&quot; bordercolordark=&quot;#E1E1E1&quot; class=&quot;Label&quot;&gt;
-                         &lt;tr class=&quot;Label&quot; align=center bgcolor=&quot;#6699CC&quot;&gt;
-                           &lt;th&gt;
-                             &lt;font color=&quot;white&quot;&gt;~Column1&lt;/font&gt;
-                           &lt;/th&gt;
-                           &lt;th&gt;
-                             &lt;font color=&quot;white&quot;&gt;~Column2&lt;/font&gt;
-                           &lt;/th&gt;
-                         &lt;/tr&gt;
-                     -]
+        procedure TForm_pageproducer_test.PageProducer1HTMLTag_tgCustom(
+                 Sender: TObject; const TagString: string; TagParams: TStrings;  var ReplaceText: string);
 
-                     [- OneRow =
-                       &lt;tr bgcolor=&quot;#F2F2F2&quot; class=&quot;Label3&quot; align=&quot;center&quot;&gt;
-                         &lt;td&gt;~Column1Value&lt;/td&gt;
-                         &lt;td&gt;~Column2value&lt;/td&gt;
-                       &lt;/tr&gt;
-                     -]
-                     .
-                     .snip, and so on more parameters if needed
-                     .
-                     [- NotFound=
-                       &lt;tr class=&quot;Error&quot;&gt;
-                         &lt;td&gt;There are no entries found.&lt;/td&gt;
-                       &lt;/tr&gt;
-                     -]
+          var
+            s1 : string;
+        begin
+          s1 := TagParams.Values['ListFilesText'];
+          if s1 &lt;&gt; ''
+          Then begin //Retorna a lista de links.
+                 ReplaceText:=TPageProducer.ListFilesText('ListFilesText',s1,'','*');
+               end;
+        end;
 
-                     [-Footer=
-                       &lt;/table&gt;
-                     -]
+      ```
 
-                   #--&gt;
+   - **NOTA**
+     - O parâmetro **atemplate** pode conter qualquer formato em cada
+       linha, visto que o modelo passado por **atemplate** é inserido
+       o nome do arquivo no lugar de aTagName.
+}
+class function ListFilesText(const aTagName, atemplate,aPath,aMask :String) : string;
 
-                 &lt;/td&gt;
-               &lt;/tr&gt;
-             &lt;/table&gt;
-           &lt;/body&gt;
+{$REGION '---&gt; Construção da propriedade OnHTMLTag_tgcustom'}
+  Private _OnHTMLTag_tgcustom : THTMLTagEvent;
 
-           &lt;/html&gt;
+  {: - O evento **@name** retorna em *ReplaceText* o código preenchido passado por
+       *TagString* e *TagParams*.
+
+     - **DESCRIÇÃO**
+       - A propriedade **@name** foi criado para processar todo template
+         criado pelo usuário e que não tem relação com nome de tags html.
+
+     - **EXEMPLO DE TEMPLATE CUSTOMIZADO**
+       - A Tag &lt;# tgCustom [- ListFilesText=Arquivo:-&quot;~ListFilesText&quot; -]#&gt;
+         informa ao componente TPageProduce que deve executar o método
+         ListFilesText, porém o resultado deve ser uma lista de textos com
+         nome dos arquivos da pasta atual e de suas subpastas.
+         - Formato de saída:
+           - Arquivo:
+               - xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+           - Arquivo:
+               - xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+
+         ```pascal
+
+            &lt;!--# tgCustom [- ListFilesText=
+                              Arquivo:
+                                -&quot;~ListFilesText&quot; -]
+            #--&gt;
+         ```
+
+       - O método *@name* retorna no parâmetro em **ReplaceText** a lista de texto.
+
+         ```pascal
+
+           procedure TForm_pageproducer_test.PageProducer1HTMLTag_tgCustom(
+                     Sender: TObject; const TagString: string; TagParams: TStrings;  var ReplaceText: string);
+
+
+           var
+             s1 : string;
+           begin
+             if AnsiCompareText(TagString, 'tgCustom') = 0 then
+             begin
+               s1 := TagParams.Values['ListFilesText'];
+               if s1 &lt;&gt; ''
+               Then begin //Retorna a lista de links.
+                      ReplaceText:=TPageProducer.ListFilesText('ListFilesText',s1,'','*');
+                    end;
+             end
+             else ReplaceText:='A tag &lt;'+TagString+'&gt;Não conhecida';
+           end;
+
+
+         ```
+  }
+  Public Property OnHTMLTag_tgcustom : THTMLTagEvent Read _OnHTMLTag_tgcustom write _OnHTMLTag_tgcustom ;
+{$ENDREGION}
+
+{$REGION '---&gt; Construção da propriedade OnHTMLTag_tgLink'}
+  Private _OnHTMLTag_tgLink : THTMLTagEvent;
+
+  {: - O evento **@name** retorna em *ReplaceText* o código preenchido passado
+       por *TagString* e *TagParams*, onde *TagString*, contém a tag *tgLink*
+       e *TagParams* contém o template de um link html com os atributos hRef,
+       target, title, text.
+
+     - **DESCRIÇÃO**
+       - O método **@name** foi criado para processar todos os templates
+         referentes a links cuja a tag seja *tgLink* dentro do arquivo de
+         templates.html
+
+     - **EXEMPLO DE TEMPLATE **
+       - O template abaixo dentro de TPageProduce.FileName, informa para o evento *@name*
+         que os parâmetros BlogPsspAppBr e PsspAppBr deve ser preenchido com um link. A 
+         função *FindFilesAll* deve retornar um código html com uma lista de links de
+         todos os nomes de arquivos dentro da pasta corrente e subpastas.
+
+         ```pascal
+             &lt;!-- Arquivo: template.html --&gt;
+
+             &lt;html lang=&quot;pt-BR&quot;&gt;
+               &lt;head&gt;
+                   &lt;meta charset=&quot;UTF-8&quot;&gt;
+                   &lt;title&gt;Teste do componente mi.rtl.Objects.Methods.TPageProduce&lt;/title&gt;
+
+                   &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;/&gt;
+
+               &lt;/head&gt;
+
+             &lt;body&gt;
+               &lt;h3&gt; Meu Blog &lt;/h3&gt;
+
+               &lt;p&gt; A tag abaixo deve ser preenchida com o endereço: http://www.pssp.app.br
+                    onde o destino da visualização é uma nova aba do browser&lt;p&gt;
+               &lt;!--# tgLink [- BlogPsspAppBr=[a href=&quot;~url&quot; target=&quot;_blank&quot; title=&quot;~title&quot;] ~text [/a]  -] #--&gt;
+
+               &lt;p&gt; A tag abaixo deve ser preenchida com o endereço: http://www.pssp.app.br
+                    onde o destino da visualização é uma variável definida no ato da produção
+                    da página&lt;/p&gt;
+               &lt;!--# tgLink [-     PsspAppBr=[a href=&quot;~url&quot; target=&quot;~target&quot; title=&quot;~title&quot;] ~text [/a]  -] #--&gt;
+
+               &lt;br&gt;
+
+               &lt;h3&gt; Link com a lista de arquivos .html da pasta corrente&lt;/h3&gt;
+               &lt;!--# tgLink [- FindFilesAll=[a href=&quot;~url&quot; target=&quot;_blank&quot; title=&quot;~title&quot;] ~text [/a]  -] #--&gt;
+               &lt;br&gt;
+             &lt;/body&gt;
+             &lt;/html&gt;
 
          ```
 
+       - O método *@name* retorna no parâmetro em **ReplaceText** o template acima preenchido.
+
+         ```pascal
+
+             procedure TFPWebModule.@name(Sender: TObject; const TagString:  String; TagParams: TStringList; Out ReplaceText: String);override;
+             begin
+               s1 := TagParams.Values['BlogPsspAppBr'];
+               ReplaceText := TObjectss.StringReplaceTgLink('BlogPsspAppBr',
+                                                             s1,
+                                                             'http://www.pssp.app.br',
+                                                             '', // Mantém o destino definido no ptemplate
+                                                             'Blog do Paulo Sérgio da Silva Pacheco',
+                                                             'http://www.pssp.app.br  ➚');
+
+               s1 := TagParams.Values['PsspAppBr'];
+               if s1 &lt;&gt; ''
+               then ReplaceText := TObjectss.StringReplaceTgLink('PsspAppBr',
+                                                                 s1,
+                                                                 'http://www.pssp.app.br',
+                                                                 '_self', //Abre o documento na mesma aba
+                                                                 'Blog do Paulo Pacheco',
+                                                                 'http://www.pssp.app.br')
+               else begin
+                      s1 := TagParams.Values['FindFilesAll'];
+                      if s1 &lt;&gt; ''
+                      Then begin //Retorna a lista de links.
+                             ReplaceText:=ListFilesURLs(s1);
+                           end;
+                    end;
+             end;
+
+         ```
+
+       - Notas:
+         - A ação padrão de @name é executar o evento *OnHTMLTag_tgLink*, porém
+           é possível ser redefinido para ter outro tipo de comportamento
+           conforme preferência da aplicação que o utiliza.
+  }
+  Public Property OnHTMLTag_tgLink : THTMLTagEvent Read _OnHTMLTag_tgLink write _OnHTMLTag_tgLink ;
+{$ENDREGION}
+
+{$REGION '---&gt; Construção da propriedade OnHTMLTag_tgImage'}
+  Private _OnHTMLTag_tgImage : THTMLTagEvent;
+
+  {: A classe método **@name** recebe um template tipo image e retorna o mesmo
+     preenchido com o conteúdo os parâmetros: aSrc, aAlt, aTitle, aFigcaption.
+  }
+  public class function StringReplaceTgImage(const aTemplate, aSrc, aAlt, aTitle, aFigcaption: String): string;
+
+  {: O evento **@name** retorna em *ReplaceText* o código preenchido passado
+     por *TagString* e *TagParams*, onde *TagString*, contém a tag *tgImage*
+     e *TagParams* contém o template de um link html para imagem com os
+     atributos Src, Alt, aTitle e text.
+
+     - **DESCRIÇÃO**
+       - O método **@name** foi criado para processar todos os templates
+         referentes a img cuja a tag seja *tgimage* dentro do arquivo de
+         templates.html
+
+     - **ATRIBUTOS:**
+       - **src** : Especifica o caminho para a imagem;
+         - Value : URL.
+
+       - **Alt** : Especifica um texto alternativo para uma imagem;
+         - Value : Text.
+
+       - **usemap** : Associa na tag &lt;img&gt; ao nome do mapa de imagem definido
+                       na tag &lt;map&gt; &lt;/map&gt;.
+                       lado do cliente;
+
+         - Value : Nome da tag mapa
+           - Ex..: #image_tag Obs: Deve ter o símbolo cancela (#) para indicar
+                   que a imagem está na mesma página;
+
+         - Exemplo: *&lt;img src=&quot;form_instalar_pacotes.jpeg&quot; usemap=&quot;#image-map&quot;&gt;*
+
+       - **height** : Especifica a altura de uma imagem;
+         - Value : pixels.
+
+       - **width** : Especifica a largura de uma imagem;
+         - Value : pixels.
+
+
+     - **EXEMPLO DE TAG DE IMAGEM**
+
+       ```pascal
+            &lt;!-- Arquivo: template.html
+                 Code template: mi_HTMLTag_tgImage_template
+            --&gt;
+
+            &lt;!--# tgImage [- NomeDaFigura=[ &lt;figure&gt;
+                                               &lt;img src=&quot;~src&quot;
+                                                    alt=&quot;~alt&quot;
+                                                    title=&quot;~title&quot;
+                                                    style=&quot;width:10%&quot;&gt;
+                                               &lt;figcaption&gt;~figcaption&lt;/figcaption&gt;
+                                            &lt;/figure&gt;
+                                          ]
+                          -]
+            #--&gt;
+
+       ```
+
+       ```pascal
+            &lt;!-- EVENTO USADO PARA PREENCHER O TEMPLATE
+
+                 Code Template: mi_HTMLTag_tgImage_Event
+            --&gt;
+
+            procedure TForm_pageproducer_test.PageProducer1HTMLTag_tgImage(Sender: TObject;
+              const TagString: string; TagParams: TStrings; var ReplaceText: string);
+            var
+              s1 : string;
+            begin
+              s1 := TagParams.Values['NomeDaFigura'];
+              if s1 &lt;&gt; ''
+              Then begin //Retorna a tag com a figura
+                     ReplaceText:= TPageProducer.StringReplaceTgImage(s1,'./img/brasao.png','Pachecos','Hint da imagem','Brasão da Família Pacheco');
+
+                   end;
+            end;
+
+
+       ```
+  }
+  Public Property OnHTMLTag_tgImage : THTMLTagEvent Read _OnHTMLTag_tgImage write _OnHTMLTag_tgImage ;
+
+{$ENDREGION}
+
+{$REGION '---&gt; Construção da propriedade OnHTMLTag_tgTable'}
+
+  Private _OnHTMLTag_tgTable : THTMLTagEvent;
+
+  {: O método **@name**  retorna em *ReplaceText* o código preenchido passado
+     por *TagString* e *TagParams*.
+
+     - O evento **@name** é usado para tratar especificamente criação de tabelas.
+
+     - **EXEMPLO DE TAG**
+
+       ```pascal
+
+        &lt;!-- Arquivo......: template.html
+             Code template: mi_HTMLTag_tgtable_template
+        --&gt;
+
+        &lt;!-- Adicionar a linha abaixo em header do documento--&gt;
+        &lt;link type=&quot;text/css&quot; href=&quot;./css/$Param(NomeDaTabela).css&quot; rel=&quot;stylesheet&quot; /&gt;
+
+        &lt;!-- Tag para criar uma tabela no estilo $Param(table)
+          &lt;!--# tgTable [- $Param(NomeDaTabela)=
+                           [ Alias=&quot;$Param(Alias_da_tabela)&quot;;
+                             Header=&quot;$Param(Column1):&quot;,&quot;:$Param(Column2):&quot;,&quot;:$Param(Column3)&quot;,&quot;:$Param(Column4)&quot;;
+                             widths=&quot;$Param(300px)&quot;,&quot;$Param(250px)&quot;,&quot;$Param(150px)&quot;,&quot;$Param(180px)&quot;;
+                             OneRow=[&quot;$Param(a11)&quot;,&quot;$Param(a12)&quot;,&quot;$Param(a13)  &quot;,&quot;$Param(a14)&quot;,/,
+                                     &quot;$Param(a21)&quot; ,&quot;$Param(a22)&quot;,&quot;$Param(a23)&quot;,&quot;$Param(a24)&quot;,/,
+                                     &lt;!-- Adicione aqui ,mais linhas semelhantes a linha acima e apague esse comentário--&gt;
+                                    ];
+                             Footer=&quot;$Param(soma Columm1)&quot;,&quot;$Param(soma Columm2)&quot;,&quot;$Param(soma Columm3)&quot;,&quot;$Param(soma Columm4)&quot;;
+                             NotFound=&quot;$Param(Mensagem em caso de erro)&quot;;
+                             template=&quot;&lt;Table id=&quot;$Param(table)&quot;&gt;
+                                           &lt;thead id=&quot;thead$Param(NomeDaTabela)&quot;&gt;
+                                              &lt;tr&gt;&lt;th colspan=&quot;$Param(4)&quot;&gt; &lt;p  style=&quot;text-align: center&quot;&gt; ~Alias  &lt;/p&gt; &lt;/th&gt;  &lt;/tr&gt;
+                                              &lt;tr&gt;~HeaderCols&lt;/tr&gt;
+                                           &lt;/thead&gt;
+                                           &lt;tbody id=&quot;tbody$Param(NomeDaTabela)&quot;&gt;
+                                              ~OneRowCols
+                                           &lt;/tbody&gt;
+                                           &lt;tfoot id=&quot;tfoot$Param(NomeDaTabela)&quot;&gt;
+                                              ~FooterCols
+                                           &lt;/tfoot&gt;
+                                       &lt;/Table&gt;&quot;
+                           ]
+                        -]
+          #--&gt;
+
+       ```
+
+       - **PARÂMETROS ESPERADOS EM  TAGPARAMS**
+         - **Alias**
+           - Descrição da tabela que deve fica na primeira linha do header
+             da tabela.
+
+         - **Header**
+           - Em **Header** se informa o título das colunas e através de **:** se
+             informa o alinhamento da coluna, podendo ser a esquerda **:Column1**,
+             ou a direita **Column2:** ou  ao centro **:Column3:** ou usar padrão
+             da tabela como na **Column4**
+
+         - **Widths**
+           - Em **width** se informa a largura de cada coluna;
+
+         - **OneRow**
+           - Em **OneRow** se informa o conteúdo das linhas onde a colunas
+             deve estar entre aspa(&quot;) e separado por vírgula(,) e o fim da
+             linha se usa a barra (/) sem as aspa (&quot;).
+
+         - **Footer**
+           - O parâmetro **Footer** usado para separar a ultima linha da
+             tabela quando a mesma contem conteúdo de soma da coluna.
+
+         - **NotFound**
+           - O parâmetro **NotFound** é usado para dar uma mensagem quando
+             não existe registro para inserir em **OneRow**.
+
+         - **Template**
+           - O parâmetro **Template** deve conter o **html** usado para criar
+             a tabela.
+
+
+     - **EXEMPLO DE CÓDIGO A TAG ACIMA**
+
+       ```pascal
+
+         //Code template: mi_HTMLTag_tgtable_event
+
+         procedure TForm_pageproducer_test.$Param(NomeDoObjeto)HTMLTag_tgTable(Sender: TObject;
+                      const TagString: string; TagParams: TStrings; var ReplaceText: string);
+           Var
+             s1 : string='';
+         begin
+
+           s1 := TagParams.Values['$Param(NomeDaTabela)'];
+           if s1 &lt;&gt; '' Then
+           begin
+
+             ReplaceText:= $Param(NomeDoObjeto).GetHtmlTable(TagParams,'$Param(NomeDaTabela)','$Param(table)');
+             exit;
+           end;//$Param(NomeDaTabela)
+
+         end;
+
+       ```
+
      - @url(&quot;#&quot; 🔝)
+  }
+  Public Property OnHTMLTag_tgTable : THTMLTagEvent Read _OnHTMLTag_tgTable write _OnHTMLTag_tgTable ;
+{$ENDREGION}
+
+{$REGION '---&gt; Construção da propriedade OnHTMLTag_tgImageMap'}
+  Private _OnHTMLTag_tgImageMap : THTMLTagEvent;
+
+  {: O método **@name**  retorna em *ReplaceText* o código preenchido passado
+     por *TagString* e *TagParams*.
+
+     - O evento **@name** é usado para tratar especificamente mapa de imagem,
+       com áreas clicáveis.
+
+     - **&lt;map name=&quot;#Name_usemap&quot;&gt;&lt;/map&gt;**
+       - **&lt;area&gt;** : Tag usada para informar uma área dentro da imagem
+                      #Name_usemap;
+         - atributos:
+           - **Alt** : Especifica um texto alternativo para a área da imagem;
+             - Value : Text.
+
+           - **Shape** : A forma do ponto de acesso associado. As especificações
+                     para html 5 e HTML 4 definem os valores **rect** para
+                     região rectangular; **circle** para uma região circular
+                     e **poli** para um polígono determinado por toda região
+                     determinada pelas coordenadas.
+             - Value:
+               - rect: Espera em Coords dois pontos: x1, y1 x2,y2;
+               - circle: Espera em Coodes 2 pontos e o raio: x,y,r;
+               - poly : Espera em Coodes n pares de pontos: x1,y1,x2,y2,
+                        x3,y3..xn,yn;
+           - **Coords**
+             - Value:
+               - Se shape = rect então o valor é dois pontos: x1, y1 x2,y2;
+               - Se shape = circle então o valor é 2 pontos e o raio: x,y,r;
+               - Se shape = poly então o valor é n pares de pontos: x1,y1,x2,
+                            y2,x3,y3..xn,yn;
+
+
+       - **Notas**:
+         - Entre as tags &lt;map&gt;&lt;/map&gt; é esperado uma lista de tag &lt;area&gt;.
+
+           ```pascal
+              &lt;map name=&quot;#Name_usemap&quot;&gt;
+                &lt;area ... &gt;
+                &lt;area ... &gt;
+                &lt;area ... &gt;
+                &lt;area ... &gt;
+              &lt;/map&gt;
+           ```
+
+     - **EXEMPLO DE TAG ESPERADO**
+
+         ```pascal
+
+          &lt;!-- Arquivo......: template.html
+               Code template: mi_HTMLTag_tgImageMap_template
+
+               OneRowArea =
+          --&gt;
+
+          &lt;!-- Tag para uma imagem clicável --&gt;
+
+            &lt;!--# tgImageMap [- $Param(NomeDaImagem)=[
+                                   src=&quot;$Param(src)&quot;;
+                                   alt=&quot;$Param(alt)&quot;;
+                                   width=&quot;$Param(300px)&quot;;
+                                   height=&quot;$Param(400PX)&quot;;
+                                   OneRow=[&quot;rect&quot;,&quot;$Param(x1)&quot;,&quot;$Param(y1)&quot;,&quot;$Param(x2)&quot;,&quot;$Param(y2)&quot;,/,
+                                           &quot;circle&quot;,&quot;$Param(x1)&quot; ,&quot;$Param(y1)&quot;,&quot;$Param(r)&quot;,/,
+                                           &quot;poly&quot;,&quot;$Param(x1)&quot; ,&quot;$Param(y1)&quot;,&quot;$Param(x2)&quot; ,&quot;$Param(y2)&quot;$Param(xn)&quot; ,&quot;$Param(yn)&quot;,/,
+                                           &lt;!-- Adicione aqui ,mais linhas semelhantes a linha acima e apague esse comentário--&gt;
+                                          ];
+                                   templateOneRowArea =&lt;area shape=&quot;~shape&quot; alt=&quot;~alt&quot;  href=&quot;~href&quot; coords=&quot;~coords&quot;&gt;
+                                   templateImageMap=&lt;img src=&quot;~src&quot;
+                                                       alt=&quot;~alt&quot;
+                                                       usemap=&quot;#~usemap&quot;
+                                                       width=&quot;~width&quot;
+                                                       height=&quot;~height&quot;&gt;
+                                                       &lt;map name=&quot;~usemap&quot;&gt;
+                                                          OneRowArea
+                                                       &lt;/map&gt;
+
+                                ]
+                          -]
+            #--&gt;
+
+         ```
 
   }
-  Public  procedure DoOnHTMLTag (Sender : TObject;
-                                 aTag :TTag;
-                                 Const TagString : String;
-                                 TagParams:TStringList;
-                                 Out ReplaceText : String);
+  Public Property OnHTMLTag_tgImageMap : THTMLTagEvent Read _OnHTMLTag_tgImageMap write _OnHTMLTag_tgImageMap ;
+{$ENDREGION}
 
-  {: O método @name é passado para *@link(FPTemplate.OnReplaceTag)* com objetivo de executar
-     os produtor código da classe.
-
-     - NOTA
-       - O método FPTemplate.OnReplaceTag pode ser definido para que possa customizar
-         essa classe
+{$REGION '---&gt; Construção da propriedade OnHTMLTag_tgObject'}
+  Private _OnHTMLTag_tgObject : THTMLTagEvent;
+  {: A propriedade **@name** ..
 
   }
-  private procedure DoReplaceTag_Default(Sender: TObject;  const TagString: String;TagParams: TStringList; Out ReplaceText: String);
+  Public Property OnHTMLTag_tgObject : THTMLTagEvent Read _OnHTMLTag_tgObject write _OnHTMLTag_tgObject ;
+{$ENDREGION}
+
+{$REGION '---&gt; Construção da propriedade OnHTMLTag_tgEmbed'}
+  Private _OnHTMLTag_tgEmbed : THTMLTagEvent;
+  Public Property OnHTMLTag_tgEmbed : THTMLTagEvent Read _OnHTMLTag_tgEmbed write _OnHTMLTag_tgEmbed ;
+{$ENDREGION}
+
+{$REGION '---&gt; Construção da propriedade OnHTMLTag_tgVideo'}
+  Private _OnHTMLTag_tgVideo : THTMLTagEvent;
+  Public Property OnHTMLTag_tgVideo : THTMLTagEvent Read _OnHTMLTag_tgVideo write _OnHTMLTag_tgVideo ;
+{$ENDREGION}
+
+{$REGION '---&gt; Construção da propriedade OnHTMLTag_tgAudio'}
+  Private _OnHTMLTag_tgAudio : THTMLTagEvent;
+  Public Property OnHTMLTag_tgAudio : THTMLTagEvent Read _OnHTMLTag_tgAudio write _OnHTMLTag_tgAudio ;
+{$ENDREGION}
+
+{$REGION '---&gt; Construção da propriedade OnHTMLTag_Undefined'}
+  Private _OnHTMLTag_Undefined : THTMLTagEvent;
+  {: A propriedade **@name** ..
+
+  }
+  Public Property OnHTMLTag_Undefined : THTMLTagEvent Read _OnHTMLTag_Undefined write _OnHTMLTag_Undefined ;
+{$ENDREGION}
+
+{: - O método **@name** é usado para preencher templates html **tgLink** usado nos templates do componente *TPageProducer*.
+
+   - PARÂMETROS
+     - aAlias     = Apelido do template
+     - atemplate  = &lt;!--# tgLink [- %s=[a href=&quot;~url&quot; target=&quot;_blank&quot; title=&quot;~title&quot;] ~text [/a]  -] #--&gt;
+     - aURL       = Endereço do link
+     - atarget    = Destino onde a página deve ser aberta, se vazio abre na aba atual.
+     - aTitle     = Documentação do link
+     - aText      = Descrição do link
+
+   - ATRIBUTOS DO TEMPLATE
+     - ~alias     = Apelido do template;
+     - ~url       = Endereço do link
+     - ~target    = Destino onde a página deve ser aberta, se vazio abre na aba atual.
+     - ~title     = Documentação do link
+     - ~text      = Descrição do link
+}
+public class function StringReplaceTgLink(
+                        const aAlias,
+                              atemplate,
+                              aURL,
+                              atarget,
+                              aTitle,
+                              aText:String):string;
+
+{: A classe método **@name** é usado para preencher um template passado
+   por template dentro de um template.html para criar tabelas html
+   usado na tag **tbTable**.
+
+   - **EXEMPLOS**
+     - Template esperado no evento **OnHTMLTag_tgTable**
+
+     ```pascal
+
+       &lt;!--# tgTable [- ALUNOS=[title=&quot;Cadastro de Alunos:&quot;;
+                               Header=&quot;Column1:      &quot;,&quot;:Column2:     &quot;,&quot;:Column3      &quot;,&quot;:Column4    &quot;;
+                               OneRow=[&quot;1 Paulo Sérgio&quot;,&quot;Marcos Pacheco&quot;,&quot;George Bruno  &quot;,&quot;George Bruno&quot;,/,
+                                       &quot;2 José Carlos&quot; ,&quot;Antônio       &quot;,&quot;Paulo Henrique&quot;,&quot;George Bruno&quot;,/,
+                                      ];
+                               FooterCols=&quot;soma Columm1&quot;,&quot;soma Columm2&quot;,&quot;soma Columm3&quot;,&quot;soma Columm4&quot;;
+                               NOTFOUND=&quot;Mensagem em caso de erro&quot;;
+                               template=&quot;&lt;Table id=&quot;table&quot;&gt;
+                                           &lt;thead&gt;
+                                             &lt;tr&gt;~Alias&lt;/tr&gt; &lt;br&gt;
+                                             &lt;tr&gt;
+                                               ~HeaderCols &lt;br&gt;
+                                             &lt;tr&gt;
+                                           &lt;/thead&gt;
+
+                                           &lt;tbody&gt;
+                                             ~OneRowCols &lt;br&gt;
+                                           &lt;/tbody&gt;
+
+                                           &lt;tfoot&gt;
+                                            ~FooterCols &lt;br&gt;
+                                           &lt;/tfoot&gt;
+
+                                        &lt;/Table&gt;&quot;
+                              ]
+                     -]
+       #--&gt;
+
+
+     ```
+
+}
+public class function StringReplaceTgTable(
+                   Const aAlias  : string; //=&quot;Teste de tabelas&quot;;
+                   Const aHeaderCols : string; //=&quot;Column1&quot;,&quot;Column2&quot;,...&quot;;
+                   Const aOneRowCols : string; //=&quot;Value1&quot;,&quot;Value2&quot;,...;
+                   Const aFooterCols : string; //=&quot;soma_value1&quot;,&quot;soma_value2&quot;,...;
+                   Const aNotFound : string;//=&quot;Mensagem em caso de erro&quot;
+                   Const aTypeTable:String; // miTable ou table
+                   Const aTemplate :String  //&lt;table&gt;......&lt;/table&gt;
+               ):string;
+
+{: O método **@name** Executa o evento OnHTMLTag_tgCustom se o mesmo for
+   assinalado visualmente ou não pelo usuário para preencher as tags do tipo
+   tgCustom.}
+protected procedure DoOnHTMLTag_tgCustom  (Sender: TObject; const TagString: String;TagParams: TStringList; var ReplaceText: String);Virtual;
+
+{: O método **@name** Executa o evento OnHTMLTag_tgLink se o mesmo for
+   assinalado visualmente ou não pelo usuário para preencher as tags do tipo tgLink.}
+protected procedure DoOnHTMLTag_tgLink    (Sender: TObject; const TagString: String;TagParams: TStringList; var ReplaceText: String);Virtual;
+
+{: O método **@name** Executa o evento OnHTMLTag_tgImage se o mesmo for
+   assinalado visualmente ou não pelo usuário para preencher as tags do tipo
+   tgImage.}
+protected procedure DoOnHTMLTag_tgImage   (Sender: TObject; const TagString: String;TagParams: TStringList; var ReplaceText: String);Virtual;
+
+{: O método **@name** Executa o evento OnHTMLTag_tgTable se o mesmo for
+   assinalado visualmente ou não pelo usuário para preencher as tags do tipo
+   tgTable.}
+protected procedure DoOnHTMLTag_tgTable   (Sender: TObject; const TagString: String;TagParams: TStringList; var ReplaceText: String);Virtual;
+
+{: O método **@name** Executa o evento OnHTMLTag_tgImageMap se o mesmo for
+   assinalado visualmente ou não pelo usuário para preencher as tags do tipo
+   tgImageMap.}
+protected procedure DoOnHTMLTag_tgImageMap(Sender: TObject; const TagString: String;TagParams: TStringList; var ReplaceText: String);Virtual;
+
+{: O método **@name** Executa o evento OnHTMLTag_tgObject se o mesmo for
+   assinalado visualmente ou não pelo usuário para preencher as tags do tipo
+   tgObject.}
+protected procedure DoOnHTMLTag_tgObject  (Sender: TObject; const TagString: String;TagParams: TStringList; var ReplaceText: String);Virtual;
+
+{: O método **@name** Executa o evento OnHTMLTag_tgEmbed se o mesmo for
+   assinalado visualmente ou não pelo usuário para preencher as tags do tipo
+   tgEmbed.}
+protected procedure DoOnHTMLTag_tgEmbed   (Sender: TObject; const TagString: String;TagParams: TStringList; var ReplaceText: String);Virtual;
+
+{: O método **@name** Executa o evento OnHTMLTag_tgVideo se o mesmo for
+   assinalado visualmente ou não pelo usuário para preencher as tags do tipo
+   tgVideo.}
+protected procedure DoOnHTMLTag_tgVideo   (Sender: TObject; const TagString: String;TagParams: TStringList; var ReplaceText: String);Virtual;
+
+{: O método **@name** Executa o evento OnHTMLTag_tgAudio se o mesmo for
+   assinalado visualmente ou não pelo usuário para preencher as tags do tipo
+   tgAudio.}
+protected procedure DoOnHTMLTag_tgAudio   (Sender: TObject; const TagString: String;TagParams: TStringList; var ReplaceText: String);Virtual;
+
+{: O método **@name** Executa o evento OnHTMLTag_Undefined se o mesmo for
+   assinalado visualmente ou não pelo usuário para preencher as tags
+   personalizadas sem uso da tah tbCustom.}
+protected procedure DoOnHTMLTag_Undefined  (Sender: TObject; const TagString: String; TagParams: TStringList; out ReplaceText: String);virtual;
+
+{: O método @name
+}
+protected procedure DoReplaceTag_Default(Sender: TObject; const TagString: String;TagParams: TStringList; Out ReplaceText: String);virtual;
+
+{: O método **@name** retorna para a propriedade **HTMLContent** o documento
+   processado pela método FPTemplate.GetContent.
+
+   - **NOTA**
+     - Só processa o template se a propriedade **OnHTMLTag** for igual a **true**.
+}
+protected Function GetHTMLContent : AnsiString;Virtual;
+
+{: A propriedade **@name** retorna o template com as tags processadas.
+}
+Public Property HTMLContent : AnsiString Read GetHTMLContent;// write SetHTMLContent;
+
+{$REGION '---&gt; Construção da propriedade OnHTMLTag'}
+  Private  var _OnHTMLTag : Boolean;
+  Private Procedure SetOnHTMLTag(const aOnHTMLTag    : Boolean);
+  {: A propriedade **@name** habilita e desabilita a produção de página
+     html.
+
+     - **NOTAS**
+       - True  : Criar _FPTemplate
+       - False : Livra da memória _FPTemplate
+
+     - **EXEMPLO**
+
+        ```pascal
+
+          procedure TBasePageProducer.SetHTMLDoc(const aHTMLDoc: String);
+          Begin
+            _HTMLDoc := aHTMLDoc;
+
+            OnHTMLTag := true;
+            If OnHTMLTag
+            Then begin
+                   FPTemplate.Template := aHTMLDoc;
+
+                 end;
+
+          end;
+
+        ```
+  }
+  Public Property OnHTMLTag  : Boolean Read _OnHTMLTag Write SetOnHTMLTag;
+{$ENDREGION}
+
+{$REGION '---&gt; Construção da propriedade HTMLDoc'}
+  private var _HTMLDoc: String;
+  Private Procedure SetHTMLDoc(Const aHTMLDoc: String);
+  Private Function GetHTMLDoc: String;
+
+  {: A propriedade **@name** contém um string usado como template para
+  produção de documentos.
+
+     - **NOTA**
+       - A tag **@name** deve ser usada quando temos modelos de template
+         em memória e não precisa de arquivo. Ex: Um template pode estar
+         no arquivo de recurso, tais como: Template_html_tglink e Tag_html_tgTable.
+
+       - Quando HTMLDoc &lt;&gt; '' então não existe htmlFileResult por não existir a
+         propriedadehtmlFile.
+  }
+  Public Property HTMLDoc  : String Read GetHTMLDoc Write SetHTMLDoc;
+{$ENDREGION}
+
+{$REGION '---&gt; Construção da propriedade HTMLFile'}
+  Protected Procedure SetHTMLFile(Const aHTMLFile: TFileName );Overload;Virtual;
+
+  {: A propriedade **@name** contém o nome do arquivo do template.
+
+     - **Nota:**
+       - O arquivo deve estar na pasta de templates.
+  }
+  Protected Function GetHTMLFile : TFileName;Virtual;
+
+  {: A propriedade **@name** contém o nome do arquivo de template a ser usado
+     para produzir a página}
+  Public Property HTMLFile : TFileName read GetHTMLFile Write SetHTMLFile;
+{$ENDREGION}
+
+{$REGION '---&gt; Construção da propriedade HTMLFileResult'}
+  private _HTMLFileResult: Tfilename;
+
+  {: A propriedade **@name** contém o nome do arquivo resultado da chamada
+     da propriedade HtmlContent
+
+     - **Nota:**
+       - O nome do arquivo será o nome do template com a extensão **.html**
+         porém na pasta HTML.
+  }
+  Public Property HTMLFileResult : TFileName read _HTMLFileResult Write _HTMLFileResult;
+
+{$ENDREGION}
+
+{: O método **@name** salva no arquivo **FileNameDest** o conteúdo da
+   propriedade HTMLContent.
+}
+Public Function  SaveHTMLContentToFile(FileNameDest:AnsiString):Integer;overload ;Virtual;
+
+{: O método **@name** salva no arquivo **htmlFileResult** o conteúdo da
+   propriedade HTMLContent.
+}
+Public Function  SaveHTMLContentToFile:Integer;overload ;Virtual;
+
+{$REGION '---&gt; Construção da propriedade StartDelimiter'}
+  Private _StartDelimiter : TParseDelimiter;
+  {: A propriedade **@name** contém a marca inicial de tagParam.
+
+     - **Nota:**
+       - Padrão é **&lt;!--#**
+  }
+  Public Property StartDelimiter : TParseDelimiter read _StartDelimiter write _StartDelimiter;
+{$ENDREGION}
+
+{$REGION '---&gt; Construção da propriedade EndDelimiter'}
+  Private _EndDelimiter : TParseDelimiter;
+  {: A propriedade **@name** contém a marca final de tagParam.
+
+     - **Nota:**
+       - Padrão é **#--&gt;**
+  }
+  Public Property EndDelimiter : TParseDelimiter read _EndDelimiter write _EndDelimiter;
+{$ENDREGION}
+
+{$REGION '---&gt; Construção da propriedade FParamStartDelimiter'}
+  Private _ParamStartDelimiter : TParseDelimiter;
+
+  {: A propriedade **@name** contém a marca inicial do parâmetro de tagParam.
+
+     - **Nota:**
+       - Padrão é **[**
+  }
+  Public Property ParamStartDelimiter : TParseDelimiter read _ParamStartDelimiter write _ParamStartDelimiter;
+{$ENDREGION}
+
+{$REGION '---&gt; Construção da propriedade FParamEndDelimiter'}
+  Private _ParamEndDelimiter : TParseDelimiter;
+  {: A propriedade **@name** contém a marca final do parâmetro de tagParam.
+
+     - **Nota:**
+       - Padrão é **]**
+  }
+  Public Property ParamEndDelimiter : TParseDelimiter read _ParamEndDelimiter write _ParamEndDelimiter;
+{$ENDREGION}
+
+{$REGION '---&gt; Construção da propriedade FParamValueSeparator'}
+  Private _ParamValueSeparator : TParseDelimiter;
+  {: A propriedade **@name** contém a marca de separação entre o parâmetro e o valor dele de tagParam.
+
+     - **Nota:**
+       - Padrão é **=**
+  }
+  Public Property ParamValueSeparator : TParseDelimiter read _ParamValueSeparator write _ParamValueSeparator;
+{$ENDREGION}
+
+{$REGION '---&gt; Construção da propriedade _AllowTagParams'}
+  Private _AllowTagParams : Boolean;
+  {: A propriedade **@name** informa se a tags tem modelo simples ou complexo.
+     contendo parâmeros internos a tag.
+
+     - **Nota**
+       - Se **true** a tags de modelo com parâmetros é permitidos, o evento
+         [FOnReplaceTag] é usado para todas as substituições de tags, caso
+         seja **false**, o evento [FOnReplaceTag] não será executado.
+       - O padrão é **true**.
+  }
+  Public Property AllowTagParams : Boolean read _AllowTagParams write _AllowTagParams;
+{$ENDREGION}
+
+{$REGION '---&gt; Construção da propriedade FPTemplate'}
+
+  Private _FPTemplate : TFPTemplate;
+  private procedure SetFPTemplate(const a_FPTemplate : TFPTemplate);
+
+  {: A propriedade **@name** é o componente oficial do pacote fcl-web e tem
+     como objetivo produzir documento usando &lt;#tag&gt;.
+
+     - Veja o documento **fpTemplate.txt** convertido para html:
+       - @html(&lt;a href=&quot;./fcl-base/src/fptemplate.html&quot; target=&quot;_blank&quot;&gt;./fcl-base/src/fptemplate.html ➚&lt;/a&gt;)
+       - @html(&lt;iframe width=&quot;100%&quot; height=&quot;100%&quot; src=&quot;./fcl-base/src/fptemplate.html&quot; frameborder=&quot;0&quot;          allowfullscreen&gt;&lt;/iframe&gt;)
+  }
+  Public Property FPTemplate : TFPTemplate read _FPTemplate write SetFPTemplate;
+{$ENDREGION}
+
+Class procedure delete_quotes_from_ends(var s:string);
+
+Class Function delete_two_points_from_extremes( s:string):String;
+
+{: A propriedade **@name** recebe uma tag do tipo tgTable e retorna uma
+   tabela preenchida com os parâmetros passado.
+
+   - **PARÂMETROS**
+     - atgTable: String;
+       - Recebe uma tag no padrão abaixo:
+
+         ```pascal
+
+           &lt;!--# tgTable [- ALUNOS=[Alias=&quot;Cadastro de Alunos&quot;;
+                                    Header=&quot;Column1:      &quot;,&quot;:Column2:     &quot;,&quot;:Column3      &quot;,&quot;:Column4    &quot;;
+                                    widths=&quot;300px&quot;         ,&quot;250px&quot;         ,&quot;150px&quot;         ,&quot;180px&quot;;
+                                    OneRow=[&quot;1 Paulo Sérgio&quot;,&quot;Marcos Pacheco&quot;,&quot;George Bruno  &quot;,&quot;George Bruno&quot;,/,
+                                            &quot;2 José Carlos&quot; ,&quot;Antônio       &quot;,&quot;Paulo Henrique&quot;,&quot;George Bruno&quot;,/,
+                                           ];
+                                    Footer=&quot;soma Columm1&quot;,&quot;soma Columm2&quot;,&quot;soma Columm3&quot;,&quot;soma Columm4&quot;;
+                                    NotFound=&quot;Mensagem em caso de erro&quot;;
+                                    template=&quot;&lt;Table id=&quot;table&quot;&gt;
+                                                  &lt;thead id=&quot;theadAlunos&quot;&gt;
+                                                     &lt;tr&gt;&lt;th colspan=&quot;4&quot;&gt; &lt;p  style=&quot;text-align: center&quot;&gt;  ~Alias  &lt;/p&gt; &lt;/th&gt;  &lt;/tr&gt;
+                                                     &lt;tr&gt;~HeaderCols&lt;/tr&gt;
+                                                  &lt;/thead&gt;
+                                                  &lt;tbody id=&quot;tbodyAlunos&quot;&gt;
+                                                     ~OneRowCols
+                                                  &lt;/tbody&gt;
+                                                  &lt;tfoot id=&quot;tfootAlunos&quot;&gt;
+                                                     ~FooterCols
+                                                  &lt;/tfoot&gt;
+                                              &lt;/Table&gt;&quot;
+                                   ]
+                         -]
+              #--&gt;
+         ```
+     - aNameTable: String;
+       - Nome da tabela usado no parâmetro, no exemplo acima a tag ALUNOS.
+
+     - aTypeTable: String
+
+}
+function GetHtmlTable(atgTable: String;aNameTable,aTypeTable:String):String;virtual;
+
+{: A propriedade **@name** recebe uma tag do tipo tgImageMap e retorna uma
+   tabela preenchida com os parâmetros passado.
+
+   - **TAG EXEMPLO:**
+
+
+
+   - **PARÂMETROS**
+     - atgImageMap: String;
+       - Recebe uma tag igual a essa:
+         ```pascal
+           &lt;!--# tgImageMap [- img_map=[src=&quot;./img/img_map.jpg&quot;;
+                                        Alt=&quot;Imagem teste de imagens clicáveis&quot;;
+                                        useMap=&quot;img_map&quot;;
+                                        oneRowArea=&quot;[&quot;target&quot; , &quot;alt_rect&quot;   , &quot;title_rect&quot;   , &quot;href_rect.html&quot;   , &quot;19,53,66,107&quot;, &quot;rect&quot;,
+                                                     &quot;target&quot; , &quot;alt_circle&quot; , &quot;title_circle&quot; , &quot;href_circle.html&quot; , &quot;126,85,34&quot;,&quot;circle&quot;,
+                                                     &quot;target&quot; , &quot;alt_poly&quot;   , &quot;title_poly&quot;   , &quot;href_poly.html&quot;   , &quot;202,54,266,52,265,98,247,93,233,97,222,101,207,103,198,98&quot;,&quot;poly&quot;
+                                                    ]&quot;;
+                                         templateOneRowArea=&quot;&lt;area target=&quot;~target&quot; alt=&quot;~alt&quot; title=&quot;~title&quot; href=&quot;~href&quot; coords=&quot;~coords&quot; shape=&quot;~shape&quot;&gt;&quot;;
+                                         templateImageMap=&quot;&lt;img src=&quot;~src&quot; Alt=&quot;~alt&quot; usemap=&quot;#~useMap&quot;&gt;
+                                                            &lt;map name=&quot;~useMap&quot; Alt=&quot;~Alt&quot;&gt;
+                                                               &lt;area shape=&quot;default&quot; nohref /&gt;
+                                                               ~oneRowArea
+                                                            &lt;/map&gt;&quot;
+                                       ]
+                            -]
+           #--&gt;
+
+         ```
+     - aNameImageMap
+       - Nome do mapa de imagem.
+
+
+
+}
+function GetHtmlImageMap(atgImageMap : string;aimg_map:String):String;Virtual;
+</code></pre>
+<p>end;</p>
+<p>type
+{: A classe <strong>@name</strong> usada para produzir documento html, usando modelos html
+ou outro formato de texto qualquer.
+}
+TPageProducer = class(TBasePageProducer)</p>
+<pre><code class="hljs">{: Veja implementação TBasePageProducer.HTMLFile
+}
+Published Property HTMLFile;
+
+{: Veja implementação TBasePageProducer.HTMLFileResult
+}
+Published Property HTMLFileResult;
+
+{: Veja implementação TBasePageProducer.StartDelimiter.
+}
+Published Property StartDelimiter;
+
+{: Veja implementação TBasePageProducer.EndDelimiter.
+}
+Published Property EndDelimiter;
+
+{: Veja implementação TBasePageProducer.ParamStartDelimiter.
+}
+Published Property ParamStartDelimiter;
+
+{: Veja implementação TBasePageProducer.ParamEndDelimiter.
+}
+Published Property ParamEndDelimiter;
+
+{: Veja implementação TBasePageProducer.ParamValueSeparator.
+}
+Published Property ParamValueSeparator;
+
+{: Veja implementação TBasePageProducer.HTMLDoc.
+}
+Published Property HTMLDoc;
+
+{: Veja implementação TBasePageProducer.AllowTagParams.
+}
+published Property AllowTagParams;
+
+{: Veja implementação TBasePageProducer.OnHTMLTag_tgCustom
+}
+Published Property OnHTMLTag_tgCustom;
+
+{: Veja implementação TBasePageProducer.OnHTMLTag_tgLink
+}
+Published Property OnHTMLTag_tgLink;
+
+{: Veja implementação TBasePageProducer.OnHTMLTag_tgImage
+}
+Published Property OnHTMLTag_tgImage;
+
+{: Veja implementação TBasePageProducer.OnHTMLTag_tgTable
+}
+Published Property OnHTMLTag_tgTable;
+
+{: Veja implementação TBasePageProducer.OnHTMLTag_tgImageMap
+}
+Published Property OnHTMLTag_tgImageMap;
+
+{: Veja implementação TBasePageProducer.OnHTMLTag_tgObject
+}
+Published Property OnHTMLTag_tgObject;
+
+{: Veja implementação TBasePageProducer.OnHTMLTag_tgEmbed
+}
+Published Property OnHTMLTag_tgEmbed;
+
+{: Veja implementação TBasePageProducer.OnHTMLTag_tgVideo
+}
+Published Property OnHTMLTag_tgVideo;
+
+{: Veja implementação TBasePageProducer.OnHTMLTag_tgAudio
+}
+Published Property OnHTMLTag_tgAudio;
+
+{: Veja implementação TBasePageProducer.OnHTMLTag_Undefined
+}
+Published Property OnHTMLTag_Undefined;
 </code></pre>
 <p>end;</p>
 <p>Resourcestring</p>
-<p>{: O recurso <strong>@name</strong> deve ser usado nos templates para o componente <em>TBasePageProducer</em>.</p>
-<pre><code class="hljs"> - PARÂMETROS
-   - %s      = Alias ou Nome do template;
-   - ~url    = Endereço do link
-   - ~target = Destino onde a página deve ser aberta, se vazio abre na aba atual.
-   - ~title  = Documentação do link
-   - ~text   = Descrição do link
+<p>{: O recurso <strong>@name</strong> é usado como template para o componente <em>TBasePageProducer</em> com
+a finalidade de produzir links variáveis.</p>
+<pre><code class="hljs"> - O evento **OnHTMLTag_tgLink** deve ser usado para preencher as varáveis do
+   template.
 
- - Exemplo de uso:
+ - **PARÂMETROS**
+   - TagName = Nome do template.
+     - Deve ser informado no template
+
+   - ~url    = Endereço do link
+     - Deve ser informado no evento **OnHTMLTag_tgLink**
+
+   - ~target = Destino onde a página deve ser aberta, se vazio abre na aba atual.
+     - Deve ser informado no evento **OnHTMLTag_tgLink**
+
+   - ~title  = Documentação do link
+     - Deve ser informado no evento **OnHTMLTag_tgLink**
+
+   - ~text   = Descrição do link
+     - Deve ser informado no evento **OnHTMLTag_tgLink**
+
+ - **Exemplo de uso**:
 
    ```pascal
 
+      &lt;!--# tgLink [-  PsspAppBr=[a href=&quot;~url&quot; target=&quot;~target&quot; title=&quot;~title&quot;] ~text [/a]  -] #--&gt;
 
+      &lt;!--# tgCustom [- ListFilesText=Arquivo:-&quot;~ListFilesText&quot; -] #--&gt;
 
    ```
 </code></pre>
 <p>}
-Template_html_tglink = '<!--# tgLink [- %s=[a href="~url" target="~target" title="~title"] ~text [/a]  -] #-->';</p>
+Template_html_tglink = '<!--# tgLink [- TagName=[a href="~url" target="_blank" title="~title"] ~text [/a]  -] #-->';</p>
+<p>{: O recurso <strong>@name</strong> é usado para criar tabela em um arquivo de modelo.</p>
+<pre><code class="hljs"> - **PARÂMETROS**
+   - TagName=[] : Nome da tag
+     - Deve ser informado na **tag**;
+
+   - Alias : Título da tabela
+     - Deve ser informado na **tag**;
+
+   - Header : Lista os rótulos do título da tabela
+     - Deve ser informado na **tag**;
+
+   - widths : Lista as larguras das colunas e alinhamentos onde o : indica
+              se o alinhamento usando as regras do markdown.
+     - Deve ser informado na **tag**;
+
+   - OneRow=[] : Matriz do conteúdo com todas as linhas e colunas da tabela,
+                 onde o número de colunas deve coincidir  o número de elementos 
+                 do Header e número de elementos do widths e o número de elementos
+                 do Footer.
+     - Deve ser informado na **tag**;
+
+   - NotFound : String com uma mensagem de erro se existir.
+     - Deve ser informado na **tag**;
+
+   - Footer   : Lista as somas impressas no rodapé da tabela, podendo ser
+                omitida;
+     - Deve ser informado na **tag**;
+
+   - Template : Template de uma tabela onde os parâmetros acima serão
+                inseridos.
+     - Deve ser informado na **tag**;
+
+     - **Notas**:
+       - Parâmetros obrigatórios do template:
+         - id=&quot;table&quot;, onde o nome table deve ser um elemento .css no heard
+           da página.
+           - Deve ser informado na **tag**;
+
+         - id=&quot;theadTagName&quot;, onde a palavra tagName deve ter o mesmo nome
+           do parâmetro tagName[] acima;
+           - Deve ser informado na **tag**;
+
+         - id=&quot;tbodyTagName&quot;, onde a palavra tagName deve ter o mesmo nome
+           do parâmetro tagName[] acima;
+           - Deve ser informado na **tag**;
+
+         - id=&quot;tfootTagName&quot;, onde a palavra tagName deve ter o mesmo nome
+           do parâmetro tagName[] acima;
+           - Deve ser informado na **tag**;
+
+         - colspan=&quot;4&quot;, onde 4 deve ser substituído pelo número de colunas
+           a ser mesclada para formar a barra de títulos;
+           - Deve ser informado na **tag**;
+
+         - ~Alias : Indica a posição onde o título deve ser inserido;
+           - Deve ser informado na **tag**;
+
+         - ~HeaderCols : Indica a posição onde a lista de rótulos deve ser
+                         inserida;
+           - Deve ser informado na **tag**;
+
+         - ~OneRowCols : Indica a posição onde a matriz de linhas e colunas
+                         deve ser inserida;
+           - Deve ser informado na **tag**;
+
+         - ~FooterCols : Indica a posição onde a lista Footer deve ser inserida;
+           - Deve ser informado na **tag**;
+
+   - **Exemplo de uso**:
+
+     ```pascal
+         &lt;!--# tgTable [- ALUNOS=[Alias=&quot;Cadastro de Alunos&quot;;
+                                  Header=&quot;Column1:      &quot;,&quot;:Column2:     &quot;,&quot;:Column3      &quot;,&quot;:Column4    &quot;;
+                                  widths=&quot;300px&quot;         ,&quot;250px&quot;         ,&quot;150px&quot;         ,&quot;180px&quot;;
+                                  OneRow=[&quot;1 Paulo Sérgio&quot;,&quot;Marcos Pacheco&quot;,&quot;George Bruno  &quot;,&quot;George Bruno&quot;,/,
+                                          &quot;2 José Carlos&quot; ,&quot;Antônio       &quot;,&quot;Paulo Henrique&quot;,&quot;George Bruno&quot;,/,
+                                         ];
+                                  Footer=&quot;soma Columm1&quot;,&quot;soma Columm2&quot;,&quot;soma Columm3&quot;,&quot;soma Columm4&quot;;
+                                  NotFound=&quot;Mensagem em caso de erro&quot;;
+                                  template=&quot;&lt;Table id=&quot;table&quot;&gt;
+
+                                             &lt;thead id=&quot;theadAlunos&quot;&gt;
+                                               &lt;tr&gt;&lt;th colspan=&quot;4&quot;&gt; &lt;p  style=&quot;text-align: center&quot;&gt;  ~Alias  &lt;/p&gt; &lt;/th&gt;  &lt;/tr&gt;
+                                               &lt;tr&gt;~HeaderCols&lt;/tr&gt;
+                                             &lt;/thead&gt;
+
+                                             &lt;tbody id=&quot;tbodyAlunos&quot;&gt;
+                                               ~OneRowCols
+                                             &lt;/tbody&gt;
+
+                                             &lt;tfoot id=&quot;tfootAlunos&quot;&gt;
+                                               ~FooterCols
+                                             &lt;/tfoot&gt;
+                                            &lt;/Table&gt;&quot;
+                                 ]
+                       -]
+         #--&gt;
+
+     ```
+ - **NOTAS**
+   - As palavras que começam com o sinal **~** são substituídas no evento
+     **OnHTMLTag_tgTable** pelos dados informados na própria **tag**, porém
+     em caso de omissão do dado, o programa pode inserir uma varável específica.
+</code></pre>
+<p>}
+Tag_html_tgTable = ''+
+'<!--# tgTable [- TagName=[Alias="Titulo da tabela";'+TConsts.New_Line+
+    '                                 Header="Column1: ",":Column2:",":Column3",":Column4" ;'+TConsts.New_Line+
+    '                                 widths="300px"    ,"250px"    ,"150px"   ,"180px"    ;'+TConsts.New_Line+
+    '                                 OneRow=["   a11  ","    a12  ","  a13r  ","    a14 ",/,'+TConsts.New_Line+
+    '                                         "   a21  ","    a22  ","  a23r  ","    a24 ",/,'+TConsts.New_Line+
+    '                                        ];'+TConsts.New_Line+
+    '                                 Footer="soma Columm1","soma Columm2","soma Columm3","soma Columm4";'+TConsts.New_Line+
+    '                                 NotFound="Mensagem em caso de erro";'+TConsts.New_Line+
+    '                                 template="<Table id="table">'+TConsts.New_Line+
+    '                                               <thead id="theadTagName">'+TConsts.New_Line+
+    '                                                  <tr><th colspan="4"> <p  style="text-align: center">  ~Alias  </p> </th>  </tr>'+TConsts.New_Line+
+    '                                                  <tr>~HeaderCols</tr>'+TConsts.New_Line+
+    '                                               </thead>'+TConsts.New_Line+
+    '                                               <tbody id="tbodyTagName">'+TConsts.New_Line+
+    '                                                  ~OneRowCols'+TConsts.New_Line+
+    '                                               </tbody>'+TConsts.New_Line+
+    '                                               <tfoot id="tfootTagName">'+TConsts.New_Line+
+    '                                                  ~FooterCols'+TConsts.New_Line+
+    '                                               </tfoot>'+TConsts.New_Line+
+    '                                           </Table>"'+TConsts.New_Line+
+    '                                ]'+TConsts.New_Line+
+    '                      -]'+TConsts.New_Line+
+    '#-->'+TConsts.New_Line;</p>
+<p>Tag_html_tgImage = ''+
+'<!--# tgImage [- $Param(NomeDaFigura)=[<figure>'+TConsts.New_Line+
+    '                                        <img src="~src"'+TConsts.New_Line+
+    '                                             alt="~alt"'+TConsts.New_Line+
+    '                                             title="~title"'+TConsts.New_Line+
+    '                                             style="width:10%">'+TConsts.New_Line+
+    '                                        <figcaption>~figcaption</figcaption>'+TConsts.New_Line+
+    '                                       </figure>'+TConsts.New_Line+
+    '                                      ]'+TConsts.New_Line+
+    '              -]'+TConsts.New_Line+
+    '#-->'+TConsts.New_Line;</p>
+<p>Tag_html_tgImageMap = ''+
+'&lt;!--# tgImageMap [- $Param(NomeDaImagem)=[ src=&quot;./img/$Param(NomeDaImagem).jpg&quot;;'+TConsts.New_Line+
+'                                           usemap=&quot;$Param(NomeDaImagem)&quot;;'+TConsts.New_Line+
+'                                           OneRowArea=[&quot;$Param(rect)&quot;   , &quot;$Param(target)&quot; , &quot;$Param(alt_rect)&quot;   , &quot;$Param(title_rect)&quot;   , &quot;$Param(href_rect.html)&quot;   , &quot;$Param(y1),$Param(y1),$Param(x2),$Param(y2)&quot;,/,'+TConsts.New_Line+
+'                                                       &quot;$Param(circle)&quot; , &quot;$Param(target)&quot; , &quot;$Param(alt_circle)&quot; , &quot;$Param(title_circle)&quot; , &quot;$Param(href_circle.html)&quot; , &quot;$Param(x1),$Param(y1),$Param(raio)&quot;,/,'+TConsts.New_Line+
+'                                                       &quot;$Param(poly)&quot;   , &quot;$Param(target)&quot; , &quot;$Param(alt_poly)&quot;   , &quot;$Param(title_poly)&quot;   , &quot;$Param(href_poly.html)&quot;   , &quot;$Param(x1),$Param(y1),$Param(x2),$Param(y2),$Param(x3),$Param(y3),$Param(x4),$Param(y4)$Param(..),$Param(xn),$Param(yn)&quot;,/,'+TConsts.New_Line+
+'                                                       <!-- Adicione aqui ,mais linhas semelhantes a linha acima e apague esse comentário-->'+TConsts.New_Line+
+'                                                      ];'+TConsts.New_Line+
+'                                           templateOneRowArea=<area target="~target" alt="~alt" title="~title" href="~href" coords="~coords" shape="~shape">;'+TConsts.New_Line+
+'                                           templateImageMap=&quot;&lt; img src=&quot;~src&quot;'+TConsts.New_Line+
+'                                                               alt=&quot;~alt&quot;'+TConsts.New_Line+
+'                                                               usemap=&quot;#~usemap&quot;&gt;'+TConsts.New_Line+
+'                                                               <map name="~usemap">'+TConsts.New_Line+
+'                                                                  <area shape="default" nohref />'+TConsts.New_Line+
+'                                                                  ~OneRowArea'+TConsts.New_Line+
+'                                                               </map>&quot;'+TConsts.New_Line+
+'                                         ]'+TConsts.New_Line+
+'                 -]'+TConsts.New_Line+
+'#--&gt;'+TConsts.New_Line;</p>
 <p>procedure register;</p>
 <p>implementation</p>
 <p>procedure register;
-begin</p>
+begin
+RegisterComponents('Mi.Rtl', [TPageProducer]);
+end;</p>
+<p>constructor TBasePageProducer.create(aOwner:TComponent);
+begin
+inherited create(aOwner);
+_FPTemplate := TFPTemplate.Create;</p>
+<p>StartDelimiter      := DefaultStartDelimiter;
+EndDelimiter        := DefaultEndDelimiter;</p>
+<p>ParamStartDelimiter := DefaultParamStartDelimiter;
+ParamValueSeparator := DefaultParamValueSeparator;
+ParamEndDelimiter   := DefaultParamEndDelimiter;</p>
+<p>AllowTagParams      := DefaultAllowTagParams;
+FPTemplate.OnReplaceTag  := DoReplaceTag_Default;//DoOnHTMLTagEvent;
+end;</p>
+<p>destructor TBasePageProducer.destroy;
+begin
+freeAndnil(_FPTemplate);
+inherited destroy;
+end;</p>
+<p>function TBasePageProducer.GetID_Dinamic: AnsiString;
+begin
+if _ID_Dinamic = ''
+then _ID_Dinamic := _ID_Dinamic;</p>
+<p>result := _ID_Dinamic;
+end;</p>
+<p>class function TBasePageProducer.ListFilesText(const aTagName, atemplate, aPath,  aMask: String): string;
+var
+ListFiles : TStringList;
+i : Integer;
+begin
+ListFiles := TStringList.Create;
+try
+Result := New_Line;
+// Retorna todos os arquivos da pasta e subpastas
+FindFilesAll(aPath,aMask,faArchive,true ,ListFiles );
+For i := 0 to ListFiles.Count-1 do
+begin
+Result := result + StringReplace(atemplate,'~'+aTagName  , ListFiles.Strings[i]  , [rfReplaceAll]);
+end;
+finally
+FreeAndNil(ListFiles);
+end;
+end;</p>
+<p>class function TBasePageProducer.StringReplaceTgImage(const aTemplate, aSrc,
+aAlt, aTitle, aFigcaption: String): string;
+begin
+try
+result :=  atemplate;
+Result := StringReplace(Result, '~src'        , aSrc   , [rfReplaceAll]);
+Result := StringReplace(Result, '~alt'        , aAlt   , [rfReplaceAll]);
+Result := StringReplace(Result, '~title'      , aTitle , [rfReplaceAll]);
+Result := StringReplace(Result, '~figcaption' , aFigcaption , [rfReplaceAll]);
+Result := StringReplace(Result, '['           , ' ', [rfReplaceAll]);
+Result := StringReplace(Result, ']'           , ' ', [rfReplaceAll]);
+finally
+end;
+end;</p>
+<p>class function TBasePageProducer.StringReplaceTgLink(const aAlias,atemplate,aURL,atarget,aTitle,aText:String):string;
+begin
+result :=  atemplate;
+Result := StringReplace(Result, '~alias'  , aAlias  , [rfReplaceAll]);
+Result := StringReplace(Result, '~url'    , aURL    , [rfReplaceAll]);
+Result := StringReplace(Result, '~target' , atarget , [rfReplaceAll]);
+Result := StringReplace(Result, '~title'  , aTitle, [rfReplaceAll]);
+Result := StringReplace(Result, '~text'   , aText, [rfReplaceAll]);
+Result := StringReplace(Result, '['       , '&lt;', [rfReplaceAll]);
+Result := StringReplace(Result, ']'       , '&gt;', [rfReplaceAll]);
+end;</p>
+<p>class function TBasePageProducer.StringReplaceTgTable(
+const aAlias: string;
+const aHeaderCols: string; const aOneRowCols: string;
+const aFooterCols: string; const aNotFound: string;
+const aTypeTable: String; const aTemplate: String): string;
+begin
+result :=  atemplate;
+Result := StringReplace(Result, '~Alias'      , DeleteChars(aAlias,['&quot;']) , [rfReplaceAll]);
+Result := StringReplace(Result, '~HeaderCols' , aHeaderCols , [rfReplaceAll]);
+Result := StringReplace(Result, '~OneRowCols' , aOneRowCols , [rfReplaceAll]);
+Result := StringReplace(Result, '~FooterCols' , aFooterCols , [rfReplaceAll]);
+Result := StringReplace(Result, '~NotFound'   , aNotFound   , [rfReplaceAll]);
+Result := StringReplace(Result, '~TypeTable'  , aTypeTable  , [rfReplaceAll]);
+end;</p>
+<p>procedure TBasePageProducer.DoOnHTMLTag_tgCustom(Sender: TObject;const TagString: String; TagParams: TStringList; var ReplaceText: String);
+begin
+if Assigned(OnHTMLTag_tgCustom)
+then OnHTMLTag_tgCustom(Sender,TagString,TagParams,ReplaceText);
+end;</p>
+<p>procedure TBasePageProducer.DoOnHTMLTag_tgLink(Sender: TObject; const TagString: String; TagParams: TStringList; var ReplaceText: String);
+begin
+if Assigned(OnHTMLTag_tgLink)
+then OnHTMLTag_tgLink(Sender,TagString,TagParams,ReplaceText);
+end;</p>
+<p>procedure TBasePageProducer.DoOnHTMLTag_tgImage(Sender: TObject;  const TagString: String; TagParams: TStringList; var ReplaceText: String);
+begin
+if Assigned(OnHTMLTag_tgImage)
+then OnHTMLTag_tgImage(Sender,TagString,TagParams,ReplaceText);
+end;</p>
+<p>procedure TBasePageProducer.DoOnHTMLTag_tgTable   (Sender: TObject; const TagString: String;TagParams: TStringList; var ReplaceText: String);</p>
+<p>{Original:
+tgTable  = The TagString parameter is TABLE.
+The TagParams describe a desired tabular image.
+The event handler should return a sequence of HTML commands beginning with a
+<TABLE> tag and ending with a </TABLE> tag.</p>
+<p>tgTable = O parametro de TagString e TABELA.
+O TagParams descrevem uma imagem tabelar desejada.
+O manipulador de evento deveria devolver uma sucessão de comandos de HTML que comecam com um
+<TABLE> etiqueta e terminando com um </TABLE> etiqueta.</p>
+<p>TAG=&lt;#TABLE#&gt;
+}</p>
+<p>Begin
+if Assigned(OnHTMLTag_tgTable)
+then OnHTMLTag_tgTable(Sender,TagString,TagParams,ReplaceText);
+end;</p>
+<p>procedure TBasePageProducer.DoOnHTMLTag_tgImageMap(Sender: TObject; const TagString: String;TagParams: TStringList; var ReplaceText: String);
+Begin
+if Assigned(OnHTMLTag_tgImageMap)
+then OnHTMLTag_tgImageMap(Sender,TagString,TagParams,ReplaceText);
+end;</p>
+<p>procedure TBasePageProducer.DoOnHTMLTag_tgObject  (Sender: TObject; const TagString: String;TagParams: TStringList; var ReplaceText: String);
+Begin
+if Assigned(OnHTMLTag_tgObject)
+then OnHTMLTag_tgObject(Sender,TagString,TagParams,ReplaceText);</p>
 <p>end;</p>
+<p>procedure TBasePageProducer.DoOnHTMLTag_tgEmbed   (Sender: TObject; const TagString: String;TagParams: TStringList; var ReplaceText: String);
+Begin
+if Assigned(OnHTMLTag_tgEmbed)
+then OnHTMLTag_tgEmbed(Sender,TagString,TagParams,ReplaceText);
+end;</p>
+<p>procedure TBasePageProducer.DoOnHTMLTag_tgVideo(Sender: TObject;
+const TagString: String; TagParams: TStringList; var ReplaceText: String);
+begin
+if Assigned(OnHTMLTag_tgVideo)
+then _OnHTMLTag_tgVideo(Sender,TagString,TagParams,ReplaceText);
+end;</p>
+<p>procedure TBasePageProducer.DoOnHTMLTag_tgAudio(Sender: TObject;
+const TagString: String; TagParams: TStringList; var ReplaceText: String);
+begin
+if Assigned(OnHTMLTag_tgAudio)
+then OnHTMLTag_tgAudio(Sender,TagString,TagParams,ReplaceText);
+end;</p>
+<p>procedure TBasePageProducer.DoOnHTMLTag_Undefined(Sender: TObject;const TagString: String; TagParams: TStringList; out ReplaceText: String);
+begin
+if Assigned(OnHTMLTag_Undefined)
+then OnHTMLTag_Undefined(Sender,TagString,TagParams,ReplaceText);
+end;</p>
+<p>procedure TBasePageProducer.DoReplaceTag_Default(Sender: TObject;    const TagString: String; TagParams: TStringList; out ReplaceText: String);
+begin
+case AnsiIndexStr(UpperCase(TagString),
+['ALIAS','ID','TGCUSTOM','TGLINK','TGIMAGE','TGTABLE','TGIMAGEMAP','TGOBJECT','TGEMBED']) of
+0 : ReplaceText := Self.ALIAS;
+1 : ReplaceText := ID_Dinamic;
+2 : DoOnHTMLTag_tgCustom(Sender,TagString,TagParams,ReplaceText);
+3 : DoOnHTMLTag_tgLink(Sender,TagString,TagParams,ReplaceText);
+4 : DoOnHTMLTag_tgImage(Sender,TagString,TagParams,ReplaceText);
+5 : DoOnHTMLTag_tgTable(Sender,TagString,TagParams,ReplaceText);
+6 : DoOnHTMLTag_tgImageMap(Sender,TagString,TagParams,ReplaceText);
+7 : DoOnHTMLTag_tgObject(Sender,TagString,TagParams,ReplaceText);
+8 : DoOnHTMLTag_tgEmbed(Sender,TagString,TagParams,ReplaceText);
+else DoOnHTMLTag_Undefined(Sender,TagString,TagParams,ReplaceText);
+end;
+end;</p>
 <p>procedure TBasePageProducer.SetOnHTMLTag(const aOnHTMLTag: Boolean);
 Begin
 If aOnHTMLTag
@@ -574,22 +1658,16 @@ Then with TObjectsMethods do
 Begin
 //se tiver assinalado deve ser descartado
 If isValidPtr(_FPTemplate)
-Then Discard(TObject(_FPTemplate));</p>
-<p>//          Method.code := self.MethodAddress('DoOnHTMLTag');
-{          If Method.code &lt;&gt; nil
-Then Begin}
-If TFPTemplate=nil
+Then Discard(TObject(_FPTemplate));
+If FPTemplate=nil
 Then Begin
 FPTemplate := TFPTemplate.Create;
 <a href="//FPTemplate.StripParamQuotes">//FPTemplate.StripParamQuotes</a> := false; Não encontrei no fptemplate
-End;
-//                 Method.Data  := self;
-FPTemplate.OnReplaceTag := DoReplaceTag_Default;//DoOnHTMLTagEvent;
-_OnHTMLTag := True;
-{               End
-Else _OnHTMLTag := false;}
-End
-Else Begin
+End;</p>
+<pre><code class="hljs">     _OnHTMLTag := True;
+    End
+</code></pre>
+<p>Else Begin
 TObjectsMethods.Discard(TObject(_FPTemplate));
 _OnHTMLTag := false;
 End;
@@ -662,149 +1740,459 @@ PathDest := ExtractFileDir(FileNameDest);</p>
 <p>end;</p>
 <p>function TBasePageProducer.SaveHTMLContentToFile: Integer;
 Begin
-Result := -1;
+Result := SaveHTMLContentToFile(HTMLFileResult);
 End;</p>
-<p>procedure TBasePageProducer.SetHTMLDoc(const aHTMLDoc: tStrings);
+<p>procedure TBasePageProducer.SetFPTemplate(const a_FPTemplate: TFPTemplate);
+begin
+_FPTemplate := a_FPTemplate;
+if Assigned(_FPTemplate)
+then begin
+_FPTemplate.StartDelimiter := StartDelimiter;
+_FPTemplate.EndDelimiter   := EndDelimiter ;
+_FPTemplate.ParamStartDelimiter := ParamStartDelimiter;
+_FPTemplate.ParamEndDelimiter := ParamEndDelimiter;
+_FPTemplate.ParamValueSeparator := ParamValueSeparator;
+_FPTemplate.AllowTagParams      := AllowTagParams;
+_FPTemplate.StartDelimiter      := StartDelimiter;
+_FPTemplate.EndDelimiter        := EndDelimiter;
+_FPTemplate.OnReplaceTag        := DoReplaceTag_Default;//DoOnHTMLTagEvent;
+end;
+end;</p>
+<p>procedure TBasePageProducer.SetHTMLDoc(const aHTMLDoc: String);
 Begin
 _HTMLDoc := aHTMLDoc;</p>
 <p>OnHTMLTag := true;
 If OnHTMLTag
 Then begin
-{O componente fpTemplate não existe opção de template em memória.
-Para implementar HTMLDoc é necessário criar arquivo temporário.
-}
-<a href="//FPTemplate.HTMLDoc">//FPTemplate.HTMLDoc</a> := aHTMLDoc;</p>
+FPTemplate.Template := aHTMLDoc;</p>
 <pre><code class="hljs">   end;
 </code></pre>
 <p>end;</p>
-<p>procedure TBasePageProducer.SetHTMLFile;
-begin</p>
-<p>end;</p>
-<p>function TBasePageProducer.GetHTMLDoc: tStrings;
+<p>//procedure TBasePageProducer.SetHTMLFile;
+//begin
+//
+//
+//end;</p>
+<p>function TBasePageProducer.GetHTMLDoc: String;
 Begin
-{O componente fpTemplate não existe opção de template em memória.
-Para implementar HTMLDoc é necessário criar arquivo temporário.
-}
-//If OnHTMLTag
-//Then Result := TFPTemplate.HTMLDoc
-//Else Result := nil;
-end;</p>
-<p>constructor TBasePageProducer.create(aOwner:TComponent);
-begin
-inherited create(aOwner);</p>
-<p>_FPTemplate := TFPTemplate.Create;
-with FPTemplate do
-begin
-AllowTagParams := true;
-StartDelimiter := '<!--#';
-    EndDelimiter := '#-->';
-OnReplaceTag := DoReplaceTag;
-end;
-end;</p>
-<p>destructor TBasePageProducer.destroy;
-begin
-freeAndnil(_FPTemplate);
-inherited destroy;
+If OnHTMLTag
+Then Result := FPTemplate.Template
+Else Result := '';
 end;</p>
 <p>function TBasePageProducer.GetHTMLContent: AnsiString;
 {&lt; NortSoft
 Retorna O código HTML implementados em:
 1 - TvDialogs.TButton      Retorna o código Html associado ao botão
-2 - ViEditor.TDmxEditor    Retorna o codigo Html associado ao Dmx
+2 - ViEditor.TDmxEditor    Retorna o código Html associado ao Dmx
 3 - ViEditor.TLIsDialog   Retorna a lista html
 4 - tvDMXBUF.TDmxEditBuf;  Retorna o formulário em forma de gride
 5 - View.TWindow           Retorna todos os códigos html dentro da windows
-6 - TvDialogs.TDialog      Retorna o formulário completo <html><head> </head> <body> </body>&lt;/html
+6 - TvDialogs.TDialog      Retorna o formulário completo <html lang="pt-BR"><head> </head> <bodY>  </body>&lt;/html
 }
 Begin
 If OnHTMLTag
 Then Result := FPTemplate.GetContent
 Else Result := '';
 end;</p>
-<p>procedure TBasePageProducer.DoOnHTMLTag(Sender: TObject;  aTag :TTag; const TagString: String; TagParams: TStringList; out ReplaceText: String);</p>
-<p>{ Original:
-The TagString parameter is the tag name of the HTML-transparent tag.
-If the Tag parameter is tgCustom, TagString should be used to determine what conversion to perform.
-The TagParams parameter gives the parameter portion of the HTML-transparent tag.
-Each string in the tStrings object has the form ParamName=Value.
-Use the Names and Values properties of the tStrings object to parse these parameters.</p>
-<p>The DoOnHTMLTag event handler should return the converted HTML commands in the ReplaceText parameter.</p>
-<p>The returned value can contain HTML-transparent tags for another page producer to convert.</p>
-<p>For example, one page producer might have a template that represents the format of the final HTTP
-response. It could read the HTTP request and for each section in the request assemble a set of
-HTML-transparent tags with parameters based on the request.
-Another page producer might take the content of the first page producer, and interpret those
-parameters.
-}</p>
-<p>{</p>
-<p>Evento OnHTMLTag
-O componente TFPTemplate apresenta apenas um evento: o evento OnHTMLTag.
-É nesse evento que é definido o código HTML usado para substituir os tags
-transparentes lidos pelo TFPTemplate.
-O evento é chamado uma vez para cada tag transparente encontrado.</p>
-<pre><code class="hljs"> OnHTMLTag recebe vários parâmetros importantes. Veja quais são, no seguinte código básico do evento.
-
- Procedure TwebModule1.TFPTemplate1HTMLTag(Sender: Tobject; Tag: Ttag; const      TagString:String; TagParams: Tstring; var ReplaceText: String);
- Begin
-
- end;
-
- O parâmetro TagString recebe o nome do tag transparente. Para o tag transparente &lt;#data&gt; por exemplo,
- TagString seria “data”. O texto no parâmetro TagString deve ser verificado pelo programa, para determinar
- o código HTML a ser usado para a substituição do tag transparente.
-
- O parâmetro ReplaceText é passado por referência para o código do evento OnHTMLTag. É inicialmente um
- String vazio. Dentro do código para evento, ReplaceText deve receber um String com o código HTML
- usado para substituir o tag transparente.
-
- Em *TagParams* são armazenados os parâmetros do tag transparente. Os parâmetros são armazenados na forma
- *Nome*=*Valor* e podem ser acessados usando as propriedades *Names* e *Values*. Por exemplo, para o tag:
-
- &lt;#calendário ano=2023 mês=12&gt;
-
- Teríamos o seguinte:      
- TagParams.Names[0] = ‘ano’
- TagParams.Names[1] = ‘mês’
- TagParams.Values[‘ano’] = ‘2023’
- TagParams.Values[‘mês’] = ‘12’
-
- Caso o tag transparente não apresente parâmetros, os valores retornados para Values e Names
- serão tStrings vazios.
-</code></pre>
-<p>}
-Begin
-Case aTag of
-tgCustom   : DoOnHTMLTag_tgCustom  (Sender,TagString,TagParams, ReplaceText);
-tgLink     : DoOnHTMLTag_tgLink    (Sender,TagString,TagParams, ReplaceText);
-tgImage    : DoOnHTMLTag_tgImage   (Sender,TagString,TagParams, ReplaceText);
-tgTable    : DoOnHTMLTag_tgTable   (Sender,TagString,TagParams, ReplaceText);
-tgImageMap : DoOnHTMLTag_tgImageMap(Sender,TagString,TagParams, ReplaceText);
-tgObject   : DoOnHTMLTag_tgObject  (Sender,TagString,TagParams, ReplaceText);
-tgEmbed    : DoOnHTMLTag_tgEmbed   (Sender,TagString,TagParams, ReplaceText)
-else         DoReplaceTag(Sender,TagString,TagParams, ReplaceText)
-End;
+<p>class procedure TBasePageProducer.delete_quotes_from_ends(var s:string);
+begin
+//Remove aspa da posição 1;
+system.Delete(s,1,1);
+//Remove aspa da posição length(s);
+system.Delete(s,length(s),1);
 end;</p>
-<p>procedure TBasePageProducer.DoReplaceTag_Default(Sender: TObject; const TagString: String; TagParams: TStringList; out ReplaceText: String);
-begin</p>
-<p>if AnsiCompareText(TagString, 'tgCustom') = 0
-then DoOnHTMLTag_tgCustom(Sender,TagString,TagParams,ReplaceText)
-else  if AnsiCompareText(TagString, 'tgLink') = 0
-then DoOnHTMLTag_tgLink(Sender,TagString,TagParams,ReplaceText)
-else if AnsiCompareText(TagString, 'tgImage') = 0
-then DoOnHTMLTag_tgImage(Sender,TagString,TagParams,ReplaceText)
-else if AnsiCompareText(TagString, 'tgTable') = 0
-then DoOnHTMLTag_tgTable(Sender,TagString,TagParams,ReplaceText)
-else if AnsiCompareText(TagString, 'tgImageMap') = 0
-then DoOnHTMLTag_tgImageMap(Sender,TagString,TagParams,ReplaceText)
-else if AnsiCompareText(TagString, 'tgObject') = 0
-then DoOnHTMLTag_tgImageMap(Sender,TagString,TagParams,ReplaceText)
-else if AnsiCompareText(TagString, 'tgEmbed') = 0
-then DoOnHTMLTag_tgEmbed(Sender,TagString,TagParams,ReplaceText)
-else DoReplaceTag(Sender,TagString,TagParams,ReplaceText);
+<p>class function TBasePageProducer.delete_two_points_from_extremes(s: string
+): String;
+begin
+with TPageProducer do
+result := DelSpcED(s);</p>
+<p>//Remove pontos da posição 1;
+if result[1]= ':'
+then system.Delete(result,1,1);</p>
+<p>//Remove pontos da posição length(s);
+if pos(':',copy(Result,length(Result))) &lt;&gt; 0
+then system.Delete(Result,length(Result),1);
+end;</p>
+<p>function TBasePageProducer.GetHtmlTable(atgTable:string;aNameTable,aTypeTable:String):String;</p>
+<p>function GetAlignCol_Markdown(aRotulo:String):String;
+begin
+With TPageProducer do
+result := DelSpcED(aRotulo);</p>
+<pre><code class="hljs">if pos(':',result)&lt;&gt;0
+then begin
+       if pos(':',result)= 1
+       then begin
+              if pos(':',copy(result,2,Length(result)))&lt;&gt;0
+              then Result := 'Center'
+              else Result := 'Left';
+            end
+       else Result := 'Right';
+     end
+     else Result := 'Center';//Não informado o alinhamento.
+</code></pre>
+<p>end;</p>
+<p>(*: O método <strong>@name</strong> cria um arquivos .css para definir a largura
+e alinhamento de cada coluna da tabela</p>
+<pre><code class="hljs">  - Formato do arquivo a ser gerado é do tipo texto com os seguintes
+    linhas, dependendo do número de colunas da tabela passada pelo
+    template que está sendo processado no momento.
+
+      #thead1 th:nth-child(1) {  width: size1;text-align:Center;}
+      #thead1 th:nth-child(2) {  width: size2;text-align:Center;}
+..............................................
+      #thead1 th:nth-child(4) {  width: sizen;text-align:Center;}
+
+      #tbody1 td:nth-child(1) {  width: size1;text-align:Center;}
+      #tbody1 td:nth-child(2) {  width: size2;}
+..............................................
+      #tbody1 td:nth-child(4) {  width: sizen;text-align:Center;}
+
+      #tfoot1 td:nth-child(1) {  width: size1;text-align:Center;}
+      #tfoot1 td:nth-child(2) {  width: size2;text-align:Center;}
+..............................................
+      #tfoot1 td:nth-child(4) {  width: sizen;text-align:Center;}
+</code></pre>
+<p>*)
+Procedure create_Css_Cols_Table(aNameTable, aHeaderCols,aWidths:String);</p>
+<pre><code class="hljs">function StringReplaceTgCss(aNameTable:String;
+
+                            aCol : Integer;
+                            aSize:String;
+                            aAlign:String;
+                            const aTemplate: String):string;
+begin
+  result :=  atemplate;
+  Result := StringReplace(Result, '~NameTable' , aNameTable     , [rfReplaceAll]);
+  Result := StringReplace(Result, '~col'       , IntToStr(aCol) , [rfReplaceAll]);
+  Result := StringReplace(Result, '~size'      , aSize          , [rfReplaceAll]);
+  Result := StringReplace(Result, '~align'    , aAlign          , [rfReplaceAll]);
+
+end;
+
+
+Type
+  TTemplateCol = Record
+    thead : String;
+    tbody : string;
+    tfoot : string;
+  end;
+
+var
+  ListHeaderCols : TMiStringList;
+  ListWidthCols : TMiStringList;
+  FileCss       : TMiStringList;
+
+Var
+  T : TTemplateCol = (thead:'#thead~NameTable th:nth-child(~col) {width:~size;text-align:~align;}';
+                      tbody:'#tbody~NameTable td:nth-child(~col) {width:~size;text-align:~align;}';
+                      tfoot:'#tfoot~NameTable td:nth-child(~col) {width:~size;text-align:~align;}'
+                     );
+  i : integer;
+  s : string = '';
+  AlignCol : string = 'left';
+</code></pre>
+<p>begin
+//    With TObjectss do
+try
+ListHeaderCols := TMiStringList.Create;
+ListHeaderCols.AddTagValue(aHeaderCols);</p>
+<pre><code class="hljs">  ListWidthCols := TMiStringList.Create;
+  ListWidthCols.AddTagValue(aWidths);
+
+  FileCss :=  TMiStringList.Create;
+  FileCss.Clear;
+  for i := 0 to ListWidthCols.Count-1 do
+  begin
+    s := ListWidthCols.Strings[i];
+    with t do
+    begin
+      AlignCol := GetAlignCol_Markdown(ListHeaderCols.Strings[i]);
+      FileCss.Add(StringReplaceTgCss(aNameTable,
+                                     i+1,
+                                     s,
+                                     AlignCol,
+                                     thead));
+      FileCss.Add(StringReplaceTgCss(aNameTable,
+                                     i+1,
+                                     s,
+                                     AlignCol,
+                                     tbody));
+      FileCss.Add(StringReplaceTgCss(aNameTable,
+                                     i+1,
+                                     s,
+                                     AlignCol,
+                                     tfoot));
+
+    end;
+
+  end;
+
+  FileCss.SaveToFile(ExpandFileName(ExtractFileDir(HTMLFileResult)+'/css/'+aNameTable+'.css'));
+
+finally
+  Freeandnil(ListHeaderCols);
+  Freeandnil(ListWidthCols);
+  Freeandnil(FileCss);
+end;
+</code></pre>
+<p>end;</p>
+<p>Function GetTable(aAlias      : string; //=&quot;Teste de tabelas&quot;;
+aHeaderCols : string; //=&quot;Column1&quot;,&quot;Column2&quot;,...&quot;;
+aOneRowCols : string; //=&quot;Value1&quot;,&quot;Value2&quot;,...;
+aFooterCols : string; //=&quot;soma_value1&quot;,&quot;soma_value2&quot;,...;
+aNotFound : string;//=&quot;Mensagem em caso de erro&quot;
+aTypeTable:String; // miTable ou table
+aTemplate :String //<table>......</table>
+): string;
+var
+ListHeaderCols : TMiStringList;
+ListOneRowCols : TMiStringList;
+ListFooterCols : TMiStringList;</p>
+<pre><code class="hljs">  Function GetRowCols(aList:TMiStringList):String;
+    var
+      i : integer;
+      AchouBarra  : Boolean = true;
+  Begin
+</code></pre>
+<p>//        With TObjectss do
+begin
+Result := '';
+For i := 0 to aList.Count-1 do
+begin
+if AchouBarra and (aList.Strings[i] = '/')
+Then begin
+Result := Result + '</tr>'+New_Line;
+AchouBarra := false;
+end;</p>
+<pre><code class="hljs">        if (not AchouBarra) and (aList.Strings[i] = '/')
+        Then begin
+               Result := Result + '&lt;/tr&gt;'+New_Line;
+               Result := Result + '&lt;tr&gt;'+New_Line;
+               AchouBarra := true;
+             end;
+
+        if (aList.Strings[i] &lt;&gt; '/')
+        then begin
+               if ListHeaderCols&lt;&gt;aList
+               then begin
+                       Result := Result + '&lt;td&gt;';
+                       Result := Result + aList.Strings[i];
+                       Result := Result + '&lt;/td&gt;';
+                    end
+               else begin
+                       Result := Result + '&lt;th&gt;';
+                       Result := Result + delete_two_points_from_extremes(aList.Strings[i]);
+                       Result := Result + '&lt;/th&gt;';
+                    end;
+            end;
+      end;
+      if AchouBarra
+      Then begin
+             Result := Result + '&lt;/tr&gt;'+New_Line;;
+             AchouBarra := false;
+            end;
+    end;
+  end;
+</code></pre>
+<p>begin
+//    With TObjectss, TPageProducer do
+try</p>
+<pre><code class="hljs">  ListHeaderCols := TMiStringList.Create;
+  ListHeaderCols.AddTagValue(aHeaderCols);
+
+  ListOneRowCols := TMiStringList.Create;
+  ListOneRowCols.AddTagValue(aOneRowCols);
+
+  ListFooterCols := TMiStringList.Create;
+  ListFooterCols.AddTagValue(aFooterCols);
+
+  aHeaderCols := GetRowCols(ListHeaderCols);
+  aOneRowCols := GetRowCols(ListOneRowCols);
+  aFooterCols := GetRowCols(ListFooterCols);
+
+  delete_quotes_from_ends(aTemplate);
+  Result :=StringReplaceTgTable(aAlias,
+                                aHeaderCols,
+                                aOneRowCols,
+                                aFooterCols,
+                                aNotFound,
+                                aTypeTable,
+                                aTemplate);
+
+Finally
+  ListHeaderCols.Free;
+  ListOneRowCols.Free;
+  ListFooterCols.Free;
+end;
+</code></pre>
+<p>end;</p>
+<p>Var
+Params: TMiStringList;
+begin
+if aTgTable &lt;&gt; '' Then
+begin
+try
+Params := TMiStringList.Create;
+Params.AddTag(aTgTable);
+Result := GetTable( Params.Values['Alias'],
+Params.Values['Header'],
+Params.Values['OneRow'],
+Params.Values['Footer'],
+Params.Values['NotFound'],
+aTypeTable,
+Params.Values['Template']
+);
+create_Css_Cols_Table(aNameTable,Params.Values['Header'],Params.Values['widths']);
+finally
+Freeandnil(Params);
+end;
+end
+else Result := '';
+end;</p>
+<p>function TBasePageProducer.GetHtmlImageMap(aTgImageMap : string;aimg_map:String):String;</p>
+<p>Function GetImageMap(aSrc,    // Arquivo com a imagem
+aAlt,    // Nome da imagem caso a imagem não exista
+aUsemap, // Nome do mapa associado ao aqruivo de imagem
+aOneRowArea, //[&quot;Value1&quot;,&quot;Value2&quot;,...];
+atemplateOneRowArea, // Template da área de cada linha
+templateImageMap :String //<img> <Map>......</Map>
+): string;
+var
+ListOneRowArea : TMiStringList;</p>
+<pre><code class="hljs">  {: O método **@name** cria um arquivos das áreas clicáveis:
+
+     - Os elementos de área estão em uma lista;
+
+     - Exemplo:
+      ´´´html
+        &lt;area target=&quot;~target&quot; alt=&quot;~alt&quot; title=&quot;~title&quot; href=&quot;~href&quot; coords=&quot;~coords&quot; shape=&quot;~shape&quot;&gt;
+        &lt;area target=&quot;~target&quot; alt=&quot;~alt&quot; title=&quot;~title&quot; href=&quot;~href&quot; coords=&quot;~coords&quot; shape=&quot;~shape&quot;&gt;
+        &lt;area target=&quot;~target&quot; alt=&quot;~alt&quot; title=&quot;~title&quot; href=&quot;~href&quot; coords=&quot;~coords&quot; shape=&quot;~shape&quot;&gt;
+        &lt;area target=&quot;~target&quot; alt=&quot;~alt&quot; title=&quot;~title&quot; href=&quot;~href&quot; coords=&quot;~coords&quot; shape=&quot;~shape&quot;&gt;
+      ´´´
+  }
+  Function GetOneRowArea(aList:TMiStringList):String;
+
+    //aTemplate: &lt;area target=&quot;~target&quot; alt=&quot;~alt&quot; title=&quot;~title&quot; href=&quot;~href&quot; coords=&quot;~coords&quot; shape=&quot;~shape&quot;&gt;;
+    function StringReplaceTgArea(Const atarget, aAlt,aTitle,aHref,aCoords,aShape: String):String;
+    begin
+      result := atemplateOneRowArea;
+      Result := StringReplace(Result, '~target' , atarget    , [rfReplaceAll]);
+      Result := StringReplace(Result, '~alt'    , aAlt       , [rfReplaceAll]);
+      Result := StringReplace(Result, '~title'  , aTitle     , [rfReplaceAll]);
+      Result := StringReplace(Result, '~href'   , aHref      , [rfReplaceAll]);
+      Result := StringReplace(Result, '~coords' , aCoords    , [rfReplaceAll]);
+      Result := StringReplace(Result, '~shape'  , aShape     , [rfReplaceAll]);
+    end;
+
+    var
+      n   : integer;
+      Col : Integer = 5;
+      i : Integer = 0;
+  Begin
+    Result := '';
+    n := aList.Count -1;
+    while i &lt;= n do
+    begin
+      // Atualiza com o valores da lista que obrigatoriamente deve esta na nesta ordem
+      // atemplateOneRowArea= &lt;area target=&quot;~target&quot; alt=&quot;~alt&quot; title=&quot;~title&quot; href=&quot;~href&quot; coords=&quot;~coords&quot; shape=&quot;~shape&quot;&gt;;
+      // Algoritimo para pegar o e-nésimo elemento da lista
+      // a1,b1,c1,a2,b2,c2
+      // 0  1  2  3  4  5
+
+      // i = 0
+          // a1 = ai = i+0 = 2*0+0 = 0;
+          // a2 = ai = i+1 = 2*0+1 = 1;
+          // a3 = ai = i+2 = 2*0+2 = 2;
+
+      // i = i + 2+1
+          // a4 = ai = i+0 = 2*1+0 = 3;
+          // a5 = ai = i+1 = 2*1+1 = 4;
+          // a6 = ai = i+2 = 2*1+2 = 5;
+
+      //Generalizando
+         //Loop
+         // i =0
+         // target = ai = i+0;
+         // alt    = ai = i+1;
+         // title  = ai = i+2;
+         // href   = ai = i+3;
+         // coords = ai = i+4;
+         // shape  = ai = i+5;
+         // i:= i+5;
+
+      Result := Result + StringReplaceTgArea(aList.Strings[i+0],//atarget
+                                             aList.Strings[i+1],//aAlt
+                                             aList.Strings[i+2],//aTitle
+                                             aList.Strings[i+3],//aHref
+                                             aList.Strings[i+4],//aCoords
+                                             aList.Strings[i+col] //aShape
+                                             )+ New_Line;
+      inc(i,Col+1);
+    end;
+  end;
+
+  function StringReplaceTgImageMap():String;
+  begin
+   result :=  templateImageMap;
+   Result := StringReplace(Result, '~src'        , aSrc        , [rfReplaceAll]);
+   Result := StringReplace(Result, '~alt'        , aAlt        , [rfReplaceAll]);
+   Result := StringReplace(Result, '~useMap'     , aUsemap     , [rfReplaceAll]);
+   Result := StringReplace(Result, '~oneRowArea' , aOneRowArea , [rfReplaceAll]);
+  end;
+</code></pre>
+<p>begin
+try
+ListOneRowArea := TMiStringList.Create;
+//      ListOneRowArea.testTags2;
+ListOneRowArea.AddTagValue(aOneRowArea);
+aOneRowArea := GetOneRowArea(ListOneRowArea);</p>
+<pre><code class="hljs">  Result :=StringReplaceTgImageMap();
+
+Finally
+  ListOneRowArea.Free;
+end;
+</code></pre>
+<p>end;</p>
+<p>Var
+s1,s2,s3,s4,s5,s6 : string;
+Params: TMiStringList;
+begin
+if aTgImageMap &lt;&gt; '' Then
+begin
+try
+Params := TMiStringList.Create;
+Params.AddTag(aTgImageMap);</p>
+<pre><code class="hljs">  s1 := Params.Values['src'];
+  delete_quotes_from_ends(s1);
+
+  s2 := Params.Values['alt'];
+  delete_quotes_from_ends(s2);
+
+  s3 := Params.Values['useMap'];
+  delete_quotes_from_ends(s3);
+
+  s4 := Params.Values['oneRowArea'];
+  delete_quotes_from_ends(s4);
+
+  s5 := Params.Values['templateOneRowArea'];
+  delete_quotes_from_ends(s5);
+
+  s6 := Params.Values['templateImageMap'];
+  delete_quotes_from_ends(s6);
+
+  Result := GetImageMap( s1, s2,  s3, s4, s5,s6);
+
+finally
+  Freeandnil(Params);
+end;
+</code></pre>
+<p>end
+else Result := '';
 end;</p>
 <p>end.</p>
 
         <script async src="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.js"></script>
         
-    </body>
+     </body>
     </html>

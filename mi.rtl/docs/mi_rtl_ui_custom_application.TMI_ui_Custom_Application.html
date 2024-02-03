@@ -11,7 +11,7 @@
 </head>
 <body>
 <div class="container"><div class="navigation">
-<ul><li><a href="AllUnits.html">Units</a></li><li><a href="ClassHierarchy.html">Hierarquia de Classes</a></li><li><a href="AllClasses.html">Classes, Interfaces, Objetos e Registros</a></li><li><a href="AllTypes.html">Tipos</a></li><li><a href="AllVariables.html">Variáveis</a></li><li><a href="AllConstants.html">Constantes</a></li><li><a href="AllFunctions.html">Funções e Procedimentos</a></li><li><a href="AllIdentifiers.html">Identificadores</a></li><li><form class="search-form" action="tipue_results.html"><div class="search-input"><input type="text" name="q" id="tipue_search_input" pattern=".{1,}" title="At least 1 characters" required><div class="search-button"><input type="button" id="tipue_search_button" onclick="this.form.submit();"></div></div></form>
+<ul><li><a href="AllUnits.html">Units</a></li><li><a href="ClassHierarchy.html">Hierarquia de Classes</a></li><li><a href="AllClasses.html">Classes, Interfaces, Objetos e Registros</a></li><li><a href="AllTypes.html">Tipos</a></li><li><a href="AllVariables.html">Variáveis</a></li><li><a href="AllConstants.html">Constantes</a></li><li><a href="AllFunctions.html">Funções e Procedimentos</a></li><li><a href="AllIdentifiers.html">Identificadores</a></li><li><form class="search-form" action="tipue_results.html"><div class="search-input"><input type="text" name="q" id="tipue_search_input" pattern=".{3,}" title="At least 3 characters" required><div class="search-button"><input type="button" id="tipue_search_button" onclick="this.form.submit();"></div></div></form>
 <div style="clear: both"></div>
 </li></ul></div><div class="content">
 <span id="TMI_ui_Custom_Application"></span><h1 class="cio">Classe TMI_ui_Custom_Application</h1>
@@ -24,8 +24,24 @@
 <p class="declaration">
 <code>type TMI_ui_Custom_Application = class(<a class="normal" href="mi.rtl.Objects.Methods.Paramexecucao.Application.TApplication.html">TApplication</a>)</code></p>
 <h2 class="description">Descrição</h2>
-<div class="nodescription">No description available, ancestor TApplication description follows</div><div class="nodescription">No description available, ancestor TApplicationConsts description follows</div><div class="nodescription">No description available, ancestor TApplication_type description follows</div><p>
-A class <em><code>TApplication_type</code></em>* é usada para capsular todas as variáveis globais do projeto e gerenciar o ciclo de vida do aplicativo</p>
+<p>
+A classe <strong><code>TMI_ui_Custom_Application</code></strong> concentra as propriedades e formulários gerais necessários em qualquer aplicação.
+
+<p></p>
+
+<ul class="paragraph_spacing">
+  <li><p>Recursos globais: </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Propriedade <strong><a class="normal" href="mi_rtl_ui_custom_application.TMI_ui_Custom_Application.html#Get_Parameters">Get_Parameters</a></strong> cria um formulário de entrada de dados de configuração de acesso ao banco de dados e outros parâmetros;</p></li>
+  <li><p>Propriedade <strong><a class="normal" href="mi_rtl_ui_custom_application.TMI_ui_Custom_Application.html#SQLConnector">SQLConnector</a></strong> e <strong><a class="normal" href="mi_rtl_ui_custom_application.TMI_ui_Custom_Application.html#SQLTransaction">SQLTransaction</a></strong> e as propriedades relacionadas;</p></li>
+  <li><p>O evento <strong><a class="normal" href="mi_rtl_ui_custom_application.TMI_ui_Custom_Application.html#onValidUser">OnValidUser</a></strong> é usado para validar o nome do usuário e senha.</p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p>
 <span id="PasDoc-Hierarchy"></span><h2 class="hierarchy">Hierarquia</h2>
 <ul class="hierarchy"><li class="ancestor">TCustomApplication</li>
 <li class="ancestor"><a class="normal" href="mi.rtl.ApplicationAbstract.TApplicationAbstract.html">TApplicationAbstract</a></li>
@@ -37,25 +53,29 @@ A class <em><code>TApplication_type</code></em>* é usada para capsular todas as
 <table class="summary wide_list">
 <tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
-<td class="itemcode"><code><strong><a href="mi_rtl_ui_custom_application.TMI_ui_Custom_Application.html#BufDataSet1">BufDataSet1</a></strong>: TBufDataSet;</code></td>
+<td class="itemcode"><code><strong><a href="mi_rtl_ui_custom_application.TMI_ui_Custom_Application.html#MI_UI_InputBox">MI_UI_InputBox</a></strong>: <a href="mi.rtl.ui.dmxscroller.inputbox.TMI_UI_InputBox.html">TMI_UI_InputBox</a>;</code></td>
 </tr>
 <tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code><strong><a href="mi_rtl_ui_custom_application.TMI_ui_Custom_Application.html#BufDataSet1">BufDataSet1</a></strong>: TBufDataSet;</code></td>
+</tr>
+<tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
 <td class="itemcode"><code><strong><a href="mi_rtl_ui_custom_application.TMI_ui_Custom_Application.html#DataSource1">DataSource1</a></strong>: TDataSource;</code></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
 <td class="itemcode"><code>nested const <strong><a href="mi_rtl_ui_custom_application.TMI_ui_Custom_Application.html#OkCreateDataBase">OkCreateDataBase</a></strong> : boolean = false;</code></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
 <td class="itemcode"><code>nested const <strong><a href="mi_rtl_ui_custom_application.TMI_ui_Custom_Application.html#Const_ConnectorType">Const_ConnectorType</a></strong> : Array[TUiDmxScroller.TConnectorType] of AnsiString =('PostgreSQL','SqLite3');</code></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
 <td class="itemcode"><code>nested const <strong><a href="mi_rtl_ui_custom_application.TMI_ui_Custom_Application.html#FileName_Parameters">FileName_Parameters</a></strong> : AnsiString = '';</code></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
 <td class="itemcode"><code><strong><a href="mi_rtl_ui_custom_application.TMI_ui_Custom_Application.html#_Get_Parameters">_Get_Parameters</a></strong>: <a href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html">TUiDmxScroller</a>;</code></td>
 </tr>
@@ -168,6 +188,14 @@ A class <em><code>TApplication_type</code></em>* é usada para capsular todas as
 </table>
 <h2 class="description">Descrição</h2>
 <h3 class="detail">Campos</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="MI_UI_InputBox"></span><code><strong>MI_UI_InputBox</strong>: <a href="mi.rtl.ui.dmxscroller.inputbox.TMI_UI_InputBox.html">TMI_UI_InputBox</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
 <table class="detail wide_list">
 <tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>

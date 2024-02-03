@@ -3,7 +3,7 @@ unit umi_ui_checkbox_lcl;
    associado ao botão quando o botão for pressionado.
 
    - **VERSÃO**
-     - Alpha - 0.8.0
+     - Alpha - 0.9.0
 
    - **CÓDIGO FONTE**:
      - @html(<a href="../units/umi_checkBox_lcl.pas">uMI_CheckBox_LCL.pas</a>)

@@ -1,0 +1,31 @@
+object DM_Connections: TDM_Connections
+  OnCreate = DataModuleCreate
+  OldCreateOrder = False
+  Height = 160
+  HorizontalOffset = 616
+  VerticalOffset = 328
+  Width = 414
+  object SQLTransaction1: TSQLTransaction
+    Active = False
+    Database = SQLConnector1
+    Left = 336
+    Top = 32
+  end
+  object SQLConnector1: TSQLConnector
+    Connected = False
+    LoginPrompt = True
+    AfterConnect = SQLConnector1AfterConnect
+    AfterDisconnect = SQLConnector1AfterDisconnect
+    BeforeConnect = SQLConnector1BeforeConnect
+    BeforeDisconnect = SQLConnector1BeforeDisconnect
+    OnLogin = SQLConnector1Login
+    DatabaseName = 'assistente_virtual'
+    KeepConnection = False
+    Transaction = SQLTransaction1
+    HostName = '45.160.125.12'
+    OnLog = SQLConnector1Log
+    ConnectorType = 'PostgreSQL'
+    Left = 208
+    Top = 32
+  end
+end

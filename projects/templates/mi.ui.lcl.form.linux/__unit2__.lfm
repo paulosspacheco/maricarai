@@ -1,0 +1,45 @@
+object __DataModule1__: T__DataModule1__
+  OldCreateOrder = False
+  Height = 160
+  HorizontalOffset = 616
+  VerticalOffset = 328
+  Width = 414
+  object SQLTransaction1: TSQLTransaction
+    Active = False
+    Database = SQLConnector1
+    Left = 336
+    Top = 32
+  end
+  object SQLConnector1: TSQLConnector
+    Connected = False
+    LoginPrompt = True
+    OnLogin = SQLConnector1Login
+    DatabaseName = 'assistente_virtual'
+    KeepConnection = False
+    Transaction = SQLTransaction1
+    HostName = '45.160.125.12'
+    ConnectorType = 'PostgreSQL'
+    Left = 200
+    Top = 24
+  end
+  object ActionList1: TActionList
+    Images = ImageList1
+    Left = 344
+    Top = 96
+    object Action1: TAction
+      AutoCheck = True
+      Caption = 'Action1'
+      OnExecute = Action1Execute
+    end
+    object Action2: TAction
+      Caption = 'Action2'
+    end
+    object Action3: TAction
+      Caption = 'Action3'
+    end
+  end
+  object ImageList1: TImageList
+    Left = 272
+    Top = 96
+  end
+end

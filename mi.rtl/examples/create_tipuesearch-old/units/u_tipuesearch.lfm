@@ -1,0 +1,20 @@
+object DM_tipuesearch: TDM_tipuesearch
+  OnCreate = DataModuleCreate
+  OldCreateOrder = False
+  Height = 150
+  HorizontalOffset = 524
+  VerticalOffset = 239
+  Width = 150
+  object PageProducer1: TPageProducer
+    Alias = 'TPageProducer'
+    StartDelimiter = '<!--#'
+    EndDelimiter = '#-->'
+    ParamStartDelimiter = '[-'
+    ParamEndDelimiter = '-]'
+    ParamValueSeparator = '='
+    AllowTagParams = True
+    OnHTMLTag_Undefined = PageProducer1HTMLTag_Undefined
+    Left = 56
+    Top = 32
+  end
+end

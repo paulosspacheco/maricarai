@@ -2,7 +2,7 @@ unit mi.rtl.Consts.StrError;
 {:< -A unit **@name** implementa a classe TStrError do pacote mi.rtl.
 
     - **VERSÃO**:
-      - Alpha - 0.8.0
+      - Alpha - Alpha - 0.9.0
 
     - **CÓDIGO FONTE**:
       - @html(<a href="../units/mi.rtl.tstrerror.pas">mi.rtl.tStrError.pas</a>)
@@ -154,8 +154,8 @@ type
         99: Result := 'EADDRNOTAVAIL 99 Não foi possível acessar o endereço requisitado';
 
         {100 A 149 ERROS DE ENTRADA E SAIDA (I/O)}
-        100: Result := '100: Erro ao ler o disco';//EndOfFile no delphi
-        101: Result := '101: Erro ao gravar no disco';//DiskFull no delphi
+        100: Result := '100: Erro ao ler o disco';//EndOfFile no Delphi
+        101: Result := '101: Erro ao gravar no disco';//DiskFull no Delphi
         102: Result := '102: FileName não assinalado (falta ASSIGN) ';
         103: Result := '103: FileName fechado';
         104: Result := '104: O FileName fechado para entrada';
@@ -332,11 +332,11 @@ implementation
      // checar como se comporta https://wiki.lazarus.freepascal.org/RunError
     begin
       {$IFDEF Windows}
-        {$I ./units/include/windows/errormessage.inc}
+        {$I ./units/inc/windows/errormessage.inc}
       {$ENDIF}
 
       {$IFDEF linux}
-        {$I ./units/include/linux/errormessage.inc}
+        {$I ./units/inc/linux/errormessage.inc}
       {$ENDIF}
 
        //result := 'Desativada a função ErrorMessage porque o Lazarus não pesquisa as variáveis se a unit tiver include.';

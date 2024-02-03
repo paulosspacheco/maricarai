@@ -5,7 +5,7 @@ unit mi.rtl.Objects.Methods.StreamBase;
     - O Use da classe @name não deve ser instanciada antes de implementar os métodos abstratos;
 
   - **VERSÃO**
-    - Alpha - 0.8.0
+    - Alpha - Alpha - 0.9.0
 
   - **HISTÓRICO**
     - Criado por: Paulo Sérgio da Silva Pacheco e-mail: paulosspacheco@@yahoo.com.br
@@ -115,7 +115,7 @@ implementation
        End Else
   (*       {$IFDEF BP_VMTLink}                            { BP like VMT link }
              Get := LoadPtr(P^.Load)(Self, P^.VMTLink, Nil) { Call constructor }
-         {$ELSE}                                                     { FPC/DELPHI VMT link }
+         {$ELSE}                                                     { FPC/Delphi VMT link }
          *)
   //         Get := LoadPtr(P^.Load)(Self,Sw_Word(P^.VMTLink{^}), Nil) { Call constructor }
 
@@ -147,7 +147,7 @@ implementation
      If (B > 0) Then Begin
        GetMem(P, B + 1);                                { Allocate memory }
        If (P <> Nil) Then Begin                         { Check allocate okay }
-         {$IFDEF PPC_DELPHI3}                           { DELPHI 3 COMPILER }
+         {$IFDEF PPC_DELPHI3}                           { Delphi 3 COMPILER }
          SetLength(P^, B);                              { Hold new length }
          {$ELSE}
          P^[0] := Chr(B);                               { Hold new length }

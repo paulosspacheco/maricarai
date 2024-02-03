@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<title>_Unit_dm_mi_ui_mi_msgbox_: Classe T_dm_Mi_ui_mi_msgBox_</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="generator" content="PasDoc 0.16.0">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<link rel="stylesheet" type="text/css" href="tipuesearch/tipuesearch.css">
+
+<link rel="StyleSheet" type="text/css" href="pasdoc.css">
+</head>
+<body>
+<div class="container"><div class="navigation">
+<ul><li><a href="AllUnits.html">Units</a></li><li><a href="ClassHierarchy.html">Hierarquia de Classes</a></li><li><a href="AllClasses.html">Classes, Interfaces, Objetos e Registros</a></li><li><a href="AllTypes.html">Tipos</a></li><li><a href="AllVariables.html">Variáveis</a></li><li><a href="AllConstants.html">Constantes</a></li><li><a href="AllFunctions.html">Funções e Procedimentos</a></li><li><a href="AllIdentifiers.html">Identificadores</a></li><li><form class="search-form" action="tipue_results.html"><div class="search-input"><input type="text" name="q" id="tipue_search_input" pattern=".{3,}" title="At least 3 characters" required><div class="search-button"><input type="button" id="tipue_search_button" onclick="this.form.submit();"></div></div></form>
+<div style="clear: both"></div>
+</li></ul></div><div class="content">
+<span id="T_dm_Mi_ui_mi_msgBox_"></span><h1 class="cio">Classe T_dm_Mi_ui_mi_msgBox_</h1>
+<div class="sections">
+<div class="one_section"><a class="section" href="#PasDoc-Description">Descrição</a></div><div class="one_section"><a class="section" href="#PasDoc-Hierarchy">Hierarquia</a></div><div class="one_section"><a class="section" href="#PasDoc-Fields">Campos</a></div><div class="one_section"><a class="section" href="#PasDoc-Methods">Métodos</a></div><div class="one_section">Propriedades</div></div>
+<span id="PasDoc-Description"></span><h2 class="unit">Unit</h2>
+<p class="unitlink">
+<a href="_Unit_dm_mi_ui_mi_msgbox_.html">_Unit_dm_mi_ui_mi_msgbox_</a></p>
+<h2 class="declaration">Declaração</h2>
+<p class="declaration">
+<code>type T_dm_Mi_ui_mi_msgBox_ = class(TDataModule)</code></p>
+<h2 class="description">Descrição</h2>
+<p>
+<code>T_dm_Mi_ui_mi_msgBox_</code>
+
+<p></p>
+
+<ul class="paragraph_spacing">
+  <li><p>EXEMPLO DE USO:
+
+<p></p>
+
+<pre class="longcode">
+
+<span class="pascal_keyword">Program</span> test_MI_MsgBox
+<span class="pascal_keyword">Var</span>
+  S : <span class="pascal_keyword">String</span>[<span class="pascal_numeric">10</span>] = <span class="pascal_string">''</span>;
+<span class="pascal_keyword">begin</span>
+  <span class="pascal_keyword">if</span> MI_MsgBox.InputBox(<span class="pascal_string">'InputBox Test'</span>,<span class="pascal_string">'Gual a sua indade? '</span>,s,<span class="pascal_string">'ssssssssss'</span>) = Mrok
+  <span class="pascal_keyword">then</span> ShowMessage(<span class="pascal_string">'Sua idade é: '</span>s);
+
+
+<span class="pascal_keyword">end</span>.</pre>
+
+<p></p></li>
+</ul>
+
+<p></p>
+<span id="PasDoc-Hierarchy"></span><h2 class="hierarchy">Hierarquia</h2>
+<ul class="hierarchy"><li class="ancestor">TObject</li>
+<li class="ancestor">TPersistent</li>
+<li class="ancestor">TComponent</li>
+<li class="ancestor">TDataModule</li>
+<li class="thisitem">T_dm_Mi_ui_mi_msgBox_</li></ul><h2 class="overview">Visão Geral</h2>
+<span id="PasDoc-Fields"></span><h3 class="summary">Campos</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code><strong><a href="_Unit_dm_mi_ui_mi_msgbox_.T_dm_Mi_ui_mi_msgBox_.html#MI_MsgBox1">MI_MsgBox1</a></strong>: TMI_MsgBox;</code></td>
+</tr>
+</table>
+<span id="PasDoc-Methods"></span><h3 class="summary">Métodos</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="_Unit_dm_mi_ui_mi_msgbox_.T_dm_Mi_ui_mi_msgBox_.html#MI_MsgBox1InputBox">MI_MsgBox1InputBox</a></strong>(const aTitle, ALabel: AnsiString; var Buff; Template: AnsiString): TModalResult;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="_Unit_dm_mi_ui_mi_msgbox_.T_dm_Mi_ui_mi_msgBox_.html#MI_MsgBox1InputPassword">MI_MsgBox1InputPassword</a></strong>(const aTitle: AnsiString; var aPassword: AnsiString): TModalResult;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="_Unit_dm_mi_ui_mi_msgbox_.T_dm_Mi_ui_mi_msgBox_.html#MI_MsgBox1InputValue">MI_MsgBox1InputValue</a></strong>(const aTitle, aLabel: AnsiString; var aValue: Variant): TModalResult;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="_Unit_dm_mi_ui_mi_msgbox_.T_dm_Mi_ui_mi_msgBox_.html#MI_MsgBox1MessageBox">MI_MsgBox1MessageBox</a></strong>(const aMsg: AnsiString): TModalResult;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="_Unit_dm_mi_ui_mi_msgbox_.T_dm_Mi_ui_mi_msgBox_.html#MI_MsgBox1MessageBox_03">MI_MsgBox1MessageBox_03</a></strong>(const aMsg: AnsiString;DlgType: TMsgDlgType; Buttons: TMsgDlgButtons): TModalResult;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="_Unit_dm_mi_ui_mi_msgbox_.T_dm_Mi_ui_mi_msgBox_.html#MI_MsgBox1MessageBox_04">MI_MsgBox1MessageBox_04</a></strong>(aMsg: AnsiString; DlgType: TMsgDlgType; Buttons: TMsgDlgButtons; ButtonDefault: TMsgDlgBtn): TModalResult;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="_Unit_dm_mi_ui_mi_msgbox_.T_dm_Mi_ui_mi_msgBox_.html#MI_MsgBox1MessageBox_05">MI_MsgBox1MessageBox_05</a></strong>(ATitle: AnsiString; aMsg: AnsiString; DlgType: TMsgDlgType; Buttons: TMsgDlgButtons; ButtonDefault: TMsgDlgBtn ): TModalResult;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="_Unit_dm_mi_ui_mi_msgbox_.T_dm_Mi_ui_mi_msgBox_.html#MI_MsgBox1MessageBox_ListBoxRec_PSItem">MI_MsgBox1MessageBox_ListBoxRec_PSItem</a></strong>(Atitulo: AnsiString; APSItem: TMI_MsgBoxTypes.PSItem; itemSelection: longint; DlgType: TMsgDlgType; Buttons: TMsgDlgButtons; ButtonDefault: TMsgDlgBtn ): TModalResult;</code></td>
+</tr>
+</table>
+<h2 class="description">Descrição</h2>
+<h3 class="detail">Campos</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="MI_MsgBox1"></span><code><strong>MI_MsgBox1</strong>: TMI_MsgBox;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<h3 class="detail">Métodos</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="MI_MsgBox1InputBox"></span><code>function <strong>MI_MsgBox1InputBox</strong>(const aTitle, ALabel: AnsiString; var Buff; Template: AnsiString): TModalResult;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+</p>
+
+<ul class="paragraph_spacing">
+  <li><p>O evento <strong><code>MI_MsgBox1InputBox</code></strong> é executado pelo método TMI_MsgBox.InputBox</p></li>
+</ul>
+
+<p></p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="MI_MsgBox1InputPassword"></span><code>function <strong>MI_MsgBox1InputPassword</strong>(const aTitle: AnsiString; var aPassword: AnsiString): TModalResult;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+</p>
+
+<ul class="paragraph_spacing">
+  <li><p>O evento <strong><code>MI_MsgBox1InputPassword</code></strong> é executado pelo método TMI_MsgBox.InputPassword</p></li>
+</ul>
+
+<p></p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="MI_MsgBox1InputValue"></span><code>function <strong>MI_MsgBox1InputValue</strong>(const aTitle, aLabel: AnsiString; var aValue: Variant): TModalResult;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+</p>
+
+<ul class="paragraph_spacing">
+  <li><p>O evento <strong><code>MI_MsgBox1InputValue</code></strong> é executado pelo método TMI_MsgBox.InputValue</p></li>
+</ul>
+
+<p></p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="MI_MsgBox1MessageBox"></span><code>function <strong>MI_MsgBox1MessageBox</strong>(const aMsg: AnsiString): TModalResult;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+</p>
+
+<ul class="paragraph_spacing">
+  <li><p>O evento <strong><code>MI_MsgBox1MessageBox</code></strong> é executado pelo método TMI_MsgBox.MessageBox(const aMsg: AnsiString)</p></li>
+</ul>
+
+<p></p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="MI_MsgBox1MessageBox_03"></span><code>function <strong>MI_MsgBox1MessageBox_03</strong>(const aMsg: AnsiString;DlgType: TMsgDlgType; Buttons: TMsgDlgButtons): TModalResult;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+</p>
+
+<ul class="paragraph_spacing">
+  <li><p>O evento <strong><code>MI_MsgBox1MessageBox_03</code></strong> é executado pelo método TMI_MsgBox.MessageBox(const aMsg: AnsiString; DlgType: TMsgDlgType; Buttons: TMsgDlgButtons)</p></li>
+</ul>
+
+<p></p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="MI_MsgBox1MessageBox_04"></span><code>function <strong>MI_MsgBox1MessageBox_04</strong>(aMsg: AnsiString; DlgType: TMsgDlgType; Buttons: TMsgDlgButtons; ButtonDefault: TMsgDlgBtn): TModalResult;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+</p>
+
+<ul class="paragraph_spacing">
+  <li><p>O evento <strong><code>MI_MsgBox1MessageBox_04</code></strong> é executado pelo método TMI_MsgBox.MessageBox(aPSItem : TMI_MsgBoxTypes.PSItem; DlgType: TMsgDlgType; Buttons: TMsgDlgButtons; ButtonDefault: TMsgDlgBtn)</p></li>
+</ul>
+
+<p></p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="MI_MsgBox1MessageBox_05"></span><code>function <strong>MI_MsgBox1MessageBox_05</strong>(ATitle: AnsiString; aMsg: AnsiString; DlgType: TMsgDlgType; Buttons: TMsgDlgButtons; ButtonDefault: TMsgDlgBtn ): TModalResult;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+</p>
+
+<ul class="paragraph_spacing">
+  <li><p>O evento <strong><code>MI_MsgBox1MessageBox_05</code></strong> é executado pelo método TMI_MsgBox.MessageBox(aTitle : AnsiString; Msg: AnsiString; DlgType: TMsgDlgType; Buttons: TMsgDlgButtons; ButtonDefault: TMsgDlgBtn)</p></li>
+</ul>
+
+<p></p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="MI_MsgBox1MessageBox_ListBoxRec_PSItem"></span><code>function <strong>MI_MsgBox1MessageBox_ListBoxRec_PSItem</strong>(Atitulo: AnsiString; APSItem: TMI_MsgBoxTypes.PSItem; itemSelection: longint; DlgType: TMsgDlgType; Buttons: TMsgDlgButtons; ButtonDefault: TMsgDlgBtn ): TModalResult;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+</p>
+
+<ul class="paragraph_spacing">
+  <li><p>O evento <strong><code>MI_MsgBox1MessageBox_ListBoxRec_PSItem</code></strong> é executado pelo método TMI_MsgBox.MessageBox(aTitle : AnsiString; Msg: AnsiString; DlgType: TMsgDlgType; Buttons: TMsgDlgButtons; ButtonDefault: TMsgDlgBtn)</p></li>
+</ul>
+
+<p></p>
+</td></tr>
+</table>
+<hr><span class="appinfo"><em>Gerado por <a href="https://pasdoc.github.io/">PasDoc 0.16.0</a>. </em>
+</span>
+</div></div></body></html>

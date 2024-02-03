@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<title>slogsend: Classe TSyslogMessage</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="generator" content="PasDoc 0.16.0">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<link rel="stylesheet" type="text/css" href="tipuesearch/tipuesearch.css">
+
+<link rel="StyleSheet" type="text/css" href="pasdoc.css">
+</head>
+<body>
+<div class="container"><div class="navigation">
+<ul><li><a href="AllUnits.html">Units</a></li><li><a href="ClassHierarchy.html">Hierarquia de Classes</a></li><li><a href="AllClasses.html">Classes, Interfaces, Objetos e Registros</a></li><li><a href="AllTypes.html">Tipos</a></li><li><a href="AllVariables.html">Variáveis</a></li><li><a href="AllConstants.html">Constantes</a></li><li><a href="AllFunctions.html">Funções e Procedimentos</a></li><li><a href="AllIdentifiers.html">Identificadores</a></li><li><form class="search-form" action="tipue_results.html"><div class="search-input"><input type="text" name="q" id="tipue_search_input" pattern=".{3,}" title="At least 3 characters" required><div class="search-button"><input type="button" id="tipue_search_button" onclick="this.form.submit();"></div></div></form>
+<div style="clear: both"></div>
+</li></ul></div><div class="content">
+<span id="TSyslogMessage"></span><h1 class="cio">Classe TSyslogMessage</h1>
+<div class="sections">
+<div class="one_section"><a class="section" href="#PasDoc-Description">Descrição</a></div><div class="one_section"><a class="section" href="#PasDoc-Hierarchy">Hierarquia</a></div><div class="one_section">Campos</div><div class="one_section"><a class="section" href="#PasDoc-Methods">Métodos</a></div><div class="one_section"><a class="section" href="#PasDoc-Properties">Propriedades</a></div></div>
+<span id="PasDoc-Description"></span><h2 class="unit">Unit</h2>
+<p class="unitlink">
+<a href="slogsend.html">slogsend</a></p>
+<h2 class="declaration">Declaração</h2>
+<p class="declaration">
+<code>type TSyslogMessage = class(TObject)</code></p>
+<h2 class="description">Descrição</h2>
+<p>
+encoding or decoding of SYSLOG <a class="normal" href="Classes_C.html#Message">message</a></p>
+<span id="PasDoc-Hierarchy"></span><h2 class="hierarchy">Hierarquia</h2>
+<ul class="hierarchy"><li class="ancestor">TObject</li>
+<li class="thisitem">TSyslogMessage</li></ul><h2 class="overview">Visão Geral</h2>
+<span id="PasDoc-Methods"></span><h3 class="summary">Métodos</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>procedure <strong><a href="slogsend.TSyslogMessage.html#Clear">Clear</a></strong>;</code></td>
+</tr>
+</table>
+<span id="PasDoc-Properties"></span><h3 class="summary">Propriedades</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="slogsend.TSyslogMessage.html#Version">Version</a></strong>: <a href="slogsend.html#TSyslogVersion">TSyslogVersion</a> read FVersion write FVersion;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="slogsend.TSyslogMessage.html#Facility">Facility</a></strong>: Byte read FFacility write FFacility;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="slogsend.TSyslogMessage.html#Severity">Severity</a></strong>: <a href="slogsend.html#TSyslogSeverity">TSyslogSeverity</a> read FSeverity write FSeverity;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="slogsend.TSyslogMessage.html#DateTime">DateTime</a></strong>: TDateTime read FDateTime write FDateTime;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="slogsend.TSyslogMessage.html#Tag">Tag</a></strong>: String read FTag write FTag;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="slogsend.TSyslogMessage.html#AppName">AppName</a></strong>: String read FTag write FTag;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="slogsend.TSyslogMessage.html#ProcID">ProcID</a></strong>: String read FProcID write FProcID;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="slogsend.TSyslogMessage.html#MsgID">MsgID</a></strong>: String read FMsgID write FMsgID;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="slogsend.TSyslogMessage.html#LogMessage">LogMessage</a></strong>: String read FMessage write FMessage;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="slogsend.TSyslogMessage.html#LocalIP">LocalIP</a></strong>: String read FLocalIP write FLocalIP;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="slogsend.TSyslogMessage.html#PacketBuf">PacketBuf</a></strong>: AnsiString read GetPacketBuf write SetPacketBuf;</code></td>
+</tr>
+</table>
+<h2 class="description">Descrição</h2>
+<h3 class="detail">Métodos</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Clear"></span><code>procedure <strong>Clear</strong>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+Reset values to defaults</p>
+</td></tr>
+</table>
+<h3 class="detail">Propriedades</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Version"></span><code>property <strong>Version</strong>: <a href="slogsend.html#TSyslogVersion">TSyslogVersion</a> read FVersion write FVersion;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+Define packet format <code>version</code>.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Facility"></span><code>property <strong>Facility</strong>: Byte read FFacility write FFacility;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+Define facilicity of Syslog <a class="normal" href="Classes_C.html#Message">message</a>. For specify you may use predefined FCL_* constants. Default is &quot;<a class="normal" href="slogsend.html#FCL_Local0">FCL_Local0</a>&quot;.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Severity"></span><code>property <strong>Severity</strong>: <a href="slogsend.html#TSyslogSeverity">TSyslogSeverity</a> read FSeverity write FSeverity;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+Define possible priority of Syslog <a class="normal" href="Classes_C.html#Message">message</a>. Default is &quot;<a class="normal" href="slogsend.html#Debug">Debug</a>&quot;.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="DateTime"></span><code>property <strong>DateTime</strong>: TDateTime read FDateTime write FDateTime;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+date <a class="normal" href="int65math.html#and">and</a> time of Syslog <a class="normal" href="Classes_C.html#Message">message</a></p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Tag"></span><code>property <strong>Tag</strong>: String read FTag write FTag;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+This is used for identify <a class="normal" href="simpleinternet.html#process">process</a> of this <a class="normal" href="Classes_C.html#Message">message</a>. Default is filename of your executable file.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="AppName"></span><code>property <strong>AppName</strong>: String read FTag write FTag;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+alias to <a class="normal" href="slogsend.TSyslogMessage.html#Tag">Tag</a></p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="ProcID"></span><code>property <strong>ProcID</strong>: String read FProcID write FProcID;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+Identification of <a class="normal" href="bbdebugtools.html#logging">logging</a> <a class="normal" href="simpleinternet.html#process">process</a>, like handle of <a class="normal" href="simpleinternet.html#process">process</a>, transaction ID, etc.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="MsgID"></span><code>property <strong>MsgID</strong>: String read FMsgID write FMsgID;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+Identification of <a class="normal" href="Classes_C.html#Message">message</a> type category. Messages with same ID should have same semantic.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="LogMessage"></span><code>property <strong>LogMessage</strong>: String read FMessage write FMessage;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+Text of your <a class="normal" href="Classes_C.html#Message">message</a> for <a class="normal" href="bbdebugtools.html#log">log</a>.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="LocalIP"></span><code>property <strong>LocalIP</strong>: String read FLocalIP write FLocalIP;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+IP address of <a class="normal" href="Classes_C.html#Message">message</a> sender.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="PacketBuf"></span><code>property <strong>PacketBuf</strong>: AnsiString read GetPacketBuf write SetPacketBuf;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+This property holds encoded binary SYSLOG packet. Note: writing is deprecated <a class="normal" href="int65math.html#and">and</a> working for <a class="normal" href="slogsend.html#RFC3164">RFC3164</a> only.</p>
+</td></tr>
+</table>
+<hr><span class="appinfo"><em>Gerado por <a href="https://pasdoc.github.io/">PasDoc 0.16.0</a>. </em>
+</span>
+</div></div></body></html>

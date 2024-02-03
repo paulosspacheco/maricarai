@@ -1,1070 +1,189 @@
-rm ./mi.ui.lcl.form/examples/mi.ui.lcl.form.tests/bin/x86_64-linux/mi.ui.lcl.form.test.rtl.exe
-rm ./mi.ui.lcl.form/examples/mi.ui.lcl.form.tests/bin/x86_64-win64/mi.ui.lcl.form.test.rtl.exe
-rm ./mi.rtl/examples/mi.rtl.tests/bin/x86_64-linux/mi.rtl.tests.rtl.exe
-rm ./mi.rtl/examples/mi.rtl.tests/bin/x86_64-win64/mi.rtl.tests.rtl.exe
-rm ./mi.ui.lcl.form/examples/mi.ui.lcl.form.tests/lib/x86_64-linux/units/mi.ui.lcl.form.test.res
-rm ./mi.ui.lcl.form/examples/mi.ui.lcl.form.tests/lib/x86_64-win64/units/mi.ui.lcl.form.test.res
-rm ./mi.ui.lcl.form/examples/mi.ui.lcl.form.tests/bin/x86_64-win64/units/mi.ui.lcl.form.test.res
-rm ./mi.ui.lcl.form/examples/mi.ui.lcl.form.tests/mi.ui.lcl.form.test.res
-rm ./mi.ui.lcl.form/examples/mi.ui.lcl.form.AddTemplates/lib/x86_64-linux/units/mi.ui.lcl.form.addtemplates.res
-rm ./mi.ui.lcl.form/examples/mi.ui.lcl.form.AddTemplates/mi.ui.lcl.form.addtemplates.res
-rm ./mi.ui.lcl.form/temp/test/project1.res
-rm ./mi.rtl/examples/test_num_version/project1.res
-rm ./mi.rtl/examples/test_num_version/lib/x86_64-linux/project1.res
-rm ./mi.rtl/examples/test_num_version/test_num_version.res
-rm ./mi.rtl/examples/test_num_version/link5543.res
-rm ./mi.rtl/examples/mi.rtl.tests/lib/x86_64-linux/units/mi.rtl.tests.res
-rm ./mi.rtl/examples/mi.rtl.tests/lib/x86_64-win64/units/mi.rtl.tests.res
-rm ./mi.rtl/examples/mi.rtl.tests/lib/i386-win32/units/mi.rtl.tests.res
-rm ./mi.rtl/examples/mi.rtl.tests/bin/x86_64-linux/link3648.res
-rm ./mi.rtl/examples/mi.rtl.tests/bin/x86_64-linux/link3324.res
-rm ./mi.rtl/examples/mi.rtl.tests/mi.rtl.tests.res
-rm ./mi.rtl/units/horse/console/project1.res
-rm ./mi.rtl/units/lib/x86_64-linux/project1.res
-rm ./project1.res
-rm ./lib/x86_64-linux/project1.res
-rm ./Readme.res
-rm ./mi.ui.lcl.form/lib/x86_64-linux/mi.ui.lcl.form.compiled
-rm ./mi.ui.lcl.form/lib/x86_64-win64/mi.ui.lcl.form.compiled
-rm ./mi.ui.lcl.form/examples/mi.ui.lcl.form.tests/lib/x86_64-linux/units/mi.ui.lcl.form.test.compiled
-rm ./mi.ui.lcl.form/examples/mi.ui.lcl.form.tests/lib/x86_64-win64/units/mi.ui.lcl.form.test.compiled
-rm ./mi.ui.lcl.form/examples/mi.ui.lcl.form.tests/bin/x86_64-win64/units/mi.ui.lcl.form.test.compiled
-rm ./mi.ui.lcl.form/examples/mi.ui.lcl.form.AddTemplates/lib/x86_64-linux/units/mi.ui.lcl.form.addtemplates.compiled
-rm ./mi.ui.lcl.form/mi.ui.lcl.form.compiled
-rm ./mi.ui.lcl.form/Makefile.compiled
-rm ./mi.rtl/lib/x86_64-linux/units/mi.rtl.compiled
-rm ./mi.rtl/lib/x86_64-win64/units/mi.rtl.compiled
-rm ./mi.rtl/lib/i386-win32/units/mi.rtl.compiled
-rm ./mi.rtl/examples/stork/lib/x86_64-linux/create_config_stork.compiled
-rm ./mi.rtl/examples/test_num_version/lib/x86_64-linux/project1.compiled
-rm ./mi.rtl/examples/mi.rtl.tests/lib/x86_64-linux/units/mi.rtl.tests.compiled
-rm ./mi.rtl/examples/mi.rtl.tests/lib/x86_64-win64/units/mi.rtl.tests.compiled
-rm ./mi.rtl/examples/mi.rtl.tests/lib/i386-win32/units/mi.rtl.tests.compiled
-rm ./mi.rtl/units/horse/console/lib/x86_64-linux/project1.compiled
-rm ./mi.rtl/units/horse/console/lib/x86_64-linux/Console.compiled
-rm ./mi.rtl/Makefile.compiled
-rm ./lib/x86_64-linux/project1.compiled
-rm ./lib/x86_64-linux/mi.rtl.horse.compiled
-rm ./mi.ui.lcl.form/lib/x86_64-linux/mi.ui.lcl.form.ppu
-rm ./mi.ui.lcl.form/lib/x86_64-linux/umi_ui_checkbox_lcl.ppu
-rm ./mi.ui.lcl.form/lib/x86_64-linux/umi_ui_radiogroup_lcl.ppu
-rm ./mi.ui.lcl.form/lib/x86_64-linux/umi_ui_dblookupcombobox_lcl.ppu
-rm ./mi.ui.lcl.form/lib/x86_64-linux/umi_ui_maskedit_lcl.ppu
-rm ./mi.ui.lcl.form/lib/x86_64-linux/umi_ui_scrollbox_lcl.ppu
-rm ./mi.ui.lcl.form/lib/x86_64-linux/umi_ui_combobox_lcl.ppu
-rm ./mi.ui.lcl.form/lib/x86_64-linux/umi_ui_dbradiogroup_lcl.ppu
-rm ./mi.ui.lcl.form/lib/x86_64-linux/umi_ui_dbcombobox_lcl.ppu
-rm ./mi.ui.lcl.form/lib/x86_64-linux/umi_ui_dmxscroller_form_lcl_ds.ppu
-rm ./mi.ui.lcl.form/lib/x86_64-linux/umi_ui_dbcheckbox_lcl.ppu
-rm ./mi.ui.lcl.form/lib/x86_64-linux/umi_ui_button_lcl.ppu
-rm ./mi.ui.lcl.form/lib/x86_64-linux/umi_ui_label_lcl.ppu
-rm ./mi.ui.lcl.form/lib/x86_64-linux/umi_ui_dbedit_lcl.ppu
-rm ./mi.ui.lcl.form/lib/x86_64-linux/umi_ui_dmxscroller_form_lcl.ppu
-rm ./mi.ui.lcl.form/lib/x86_64-linux/umi_ui_inputbox_lcl.ppu
-rm ./mi.ui.lcl.form/lib/x86_64-linux/umi_ui_dmxscroller_form_lcl_attributes.ppu
-rm ./mi.ui.lcl.form/lib/x86_64-linux/umi_ui_bitbtn_lcl.ppu
-rm ./mi.ui.lcl.form/lib/x86_64-win64/mi.ui.lcl.form.ppu
-rm ./mi.ui.lcl.form/lib/x86_64-win64/umi_ui_checkbox_lcl.ppu
-rm ./mi.ui.lcl.form/lib/x86_64-win64/umi_ui_radiogroup_lcl.ppu
-rm ./mi.ui.lcl.form/lib/x86_64-win64/umi_ui_dblookupcombobox_lcl.ppu
-rm ./mi.ui.lcl.form/lib/x86_64-win64/umi_ui_maskedit_lcl.ppu
-rm ./mi.ui.lcl.form/lib/x86_64-win64/umi_ui_scrollbox_lcl.ppu
-rm ./mi.ui.lcl.form/lib/x86_64-win64/umi_ui_combobox_lcl.ppu
-rm ./mi.ui.lcl.form/lib/x86_64-win64/umi_ui_dbradiogroup_lcl.ppu
-rm ./mi.ui.lcl.form/lib/x86_64-win64/umi_ui_dbcombobox_lcl.ppu
-rm ./mi.ui.lcl.form/lib/x86_64-win64/umi_ui_dmxscroller_form_lcl_ds.ppu
-rm ./mi.ui.lcl.form/lib/x86_64-win64/umi_ui_dbcheckbox_lcl.ppu
-rm ./mi.ui.lcl.form/lib/x86_64-win64/umi_ui_button_lcl.ppu
-rm ./mi.ui.lcl.form/lib/x86_64-win64/umi_ui_label_lcl.ppu
-rm ./mi.ui.lcl.form/lib/x86_64-win64/umi_ui_dbedit_lcl.ppu
-rm ./mi.ui.lcl.form/lib/x86_64-win64/umi_ui_dmxscroller_form_lcl.ppu
-rm ./mi.ui.lcl.form/lib/x86_64-win64/umi_ui_inputbox_lcl.ppu
-rm ./mi.ui.lcl.form/lib/x86_64-win64/umi_ui_dmxscroller_form_lcl_attributes.ppu
-rm ./mi.ui.lcl.form/lib/x86_64-win64/umi_ui_bitbtn_lcl.ppu
-rm ./mi.ui.lcl.form/examples/mi.ui.lcl.form.tests/lib/x86_64-linux/units/umi_ui_dmxscroller_form_lcl_ds_test2_dm.ppu
-rm ./mi.ui.lcl.form/examples/mi.ui.lcl.form.tests/lib/x86_64-linux/units/udmxscroller_form_lcl_add_test.ppu
-rm ./mi.ui.lcl.form/examples/mi.ui.lcl.form.tests/lib/x86_64-linux/units/umi_ui_dmxscroller_form_lcl_ds_test2.ppu
-rm ./mi.ui.lcl.form/examples/mi.ui.lcl.form.tests/lib/x86_64-linux/units/umi_ui_dmxscroller_form_lcl_ds_test.ppu
-rm ./mi.ui.lcl.form/examples/mi.ui.lcl.form.tests/lib/x86_64-linux/units/udmxscroller_form_lcl_test.ppu
-rm ./mi.ui.lcl.form/examples/mi.ui.lcl.form.tests/lib/x86_64-linux/units/umi_ui_inputbox_lcl_test.ppu
-rm ./mi.ui.lcl.form/examples/mi.ui.lcl.form.tests/lib/x86_64-linux/units/umi_ui_mi_msgbox_dm.ppu
-rm ./mi.ui.lcl.form/examples/mi.ui.lcl.form.tests/lib/x86_64-linux/units/udmxscroller_form_lcl_add_test2.ppu
-rm ./mi.ui.lcl.form/examples/mi.ui.lcl.form.tests/lib/x86_64-win64/units/umi_ui_dmxscroller_form_lcl_ds_test2_dm.ppu
-rm ./mi.ui.lcl.form/examples/mi.ui.lcl.form.tests/lib/x86_64-win64/units/udmxscroller_form_lcl_add_test.ppu
-rm ./mi.ui.lcl.form/examples/mi.ui.lcl.form.tests/lib/x86_64-win64/units/umi_ui_dmxscroller_form_lcl_ds_test2.ppu
-rm ./mi.ui.lcl.form/examples/mi.ui.lcl.form.tests/lib/x86_64-win64/units/umi_ui_dmxscroller_form_lcl_ds_test.ppu
-rm ./mi.ui.lcl.form/examples/mi.ui.lcl.form.tests/lib/x86_64-win64/units/udmxscroller_form_lcl_test.ppu
-rm ./mi.ui.lcl.form/examples/mi.ui.lcl.form.tests/lib/x86_64-win64/units/umi_ui_inputbox_lcl_test.ppu
-rm ./mi.ui.lcl.form/examples/mi.ui.lcl.form.tests/lib/x86_64-win64/units/umi_ui_mi_msgbox_dm.ppu
-rm ./mi.ui.lcl.form/examples/mi.ui.lcl.form.tests/lib/x86_64-win64/units/udmxscroller_form_lcl_add_test2.ppu
-rm ./mi.ui.lcl.form/examples/mi.ui.lcl.form.tests/bin/x86_64-win64/units/umi_ui_dmxscroller_form_lcl_ds_test2_dm.ppu
-rm ./mi.ui.lcl.form/examples/mi.ui.lcl.form.tests/bin/x86_64-win64/units/udmxscroller_form_lcl_add_test.ppu
-rm ./mi.ui.lcl.form/examples/mi.ui.lcl.form.tests/bin/x86_64-win64/units/umi_ui_dmxscroller_form_lcl_ds_test2.ppu
-rm ./mi.ui.lcl.form/examples/mi.ui.lcl.form.tests/bin/x86_64-win64/units/umi_ui_dmxscroller_form_lcl_ds_test.ppu
-rm ./mi.ui.lcl.form/examples/mi.ui.lcl.form.tests/bin/x86_64-win64/units/udmxscroller_form_lcl_test.ppu
-rm ./mi.ui.lcl.form/examples/mi.ui.lcl.form.tests/bin/x86_64-win64/units/umi_ui_inputbox_lcl_test.ppu
-rm ./mi.ui.lcl.form/examples/mi.ui.lcl.form.tests/bin/x86_64-win64/units/umi_ui_mi_msgbox_dm.ppu
-rm ./mi.ui.lcl.form/examples/mi.ui.lcl.form.tests/bin/x86_64-win64/units/udmxscroller_form_lcl_add_test2.ppu
-rm ./mi.ui.lcl.form/examples/mi.ui.lcl.form.AddTemplates/lib/x86_64-linux/units/unit1.ppu
-rm ./mi.rtl/lib/x86_64-linux/units/mi.rtl.objects.methods.streambase.stream.filestream.ppu
-rm ./mi.rtl/lib/x86_64-linux/units/mi.rtl.objects.methods.streambase.stream.ppu
-rm ./mi.rtl/lib/x86_64-linux/units/mi.rtl.objects.consts.progressdlg_if.ppu
-rm ./mi.rtl/lib/x86_64-linux/units/mi.rtl.objects.methods.db.tb___access.ppu
-rm ./mi.rtl/lib/x86_64-linux/units/mi_rtl_ui_types.ppu
-rm ./mi.rtl/lib/x86_64-linux/units/mi.rtl.objects.methods.collection.sortedcollection.stringcollection.collectionstring.ppu
-rm ./mi.rtl/lib/x86_64-linux/units/mi_rtl_ui_dmxscroller_form.ppu
-rm ./mi.rtl/lib/x86_64-linux/units/mi.rtl.objects.methods.streambase.stream.memorystream.ppu
-rm ./mi.rtl/lib/x86_64-linux/units/mi.rtl.objects.methods.dates.ppu
-rm ./mi.rtl/lib/x86_64-linux/units/mi.rtl.objects.methods.collection.sortedcollection.strcollection.ppu
-rm ./mi.rtl/lib/x86_64-linux/units/mi.rtl.objects.methods.collection.ppu
-rm ./mi.rtl/lib/x86_64-linux/units/mi.rtl.applicationabstract.ppu
-rm ./mi.rtl/lib/x86_64-linux/units/mi.rtl.objects.methods.paramexecucao.application.ppu
-rm ./mi.rtl/lib/x86_64-linux/units/mi_rtl_ui_dmxscroller.ppu
-rm ./mi.rtl/lib/x86_64-linux/units/mi.rtl.consts.strerror.ppu
-rm ./mi.rtl/lib/x86_64-linux/units/mi.rtl.ppu
-rm ./mi.rtl/lib/x86_64-linux/units/mi.rtl.objectss.ppu
-rm ./mi.rtl/lib/x86_64-linux/units/mi.rtl.libbinres.ppu
-rm ./mi.rtl/lib/x86_64-linux/units/mi.rtl.types.ppu
-rm ./mi.rtl/lib/x86_64-linux/units/mi.rtl.objects.methods.paramexecucao.ppu
-rm ./mi.rtl/lib/x86_64-linux/units/mi.rtl.class_of_char.ppu
-rm ./mi.rtl/lib/x86_64-linux/units/mi.rtl.objects.methods.streambase.ppu
-rm ./mi.rtl/lib/x86_64-linux/units/mi.rtl.objects.methods.db.tb_access.ppu
-rm ./mi.rtl/lib/x86_64-linux/units/mi.rtl.objects.types.ppu
-rm ./mi.rtl/lib/x86_64-linux/units/mi.rtl.objects.methods.collection.filesstreams.ppu
-rm ./mi.rtl/lib/x86_64-linux/units/mi_rtl_ui_custom_application.ppu
-rm ./mi.rtl/lib/x86_64-linux/units/mi_rtl_ui_methods.ppu
-rm ./mi.rtl/lib/x86_64-linux/units/mi.rtl.files.ppu
-rm ./mi.rtl/lib/x86_64-linux/units/mi.rtl.consts.stringlist.ppu
-rm ./mi.rtl/lib/x86_64-linux/units/mi.rtl.objects.consts.logs.ppu
-rm ./mi.rtl/lib/x86_64-linux/units/mi.rtl.objects.consts.ppu
-rm ./mi.rtl/lib/x86_64-linux/units/mi.rtl.objects.methods.collection.sortedcollection.ppu
-rm ./mi.rtl/lib/x86_64-linux/units/mi.rtl.objects.methods.system.ppu
-rm ./mi.rtl/lib/x86_64-linux/units/mi.rtl.consts.stringlistbase.ppu
-rm ./mi.rtl/lib/x86_64-linux/units/mi.rtl.objects.methods.ppu
-rm ./mi.rtl/lib/x86_64-linux/units/mi.rtl.objects.methods.db.tb__access.ppu
-rm ./mi.rtl/lib/x86_64-linux/units/mi.rtl.objects.methods.streambase.stream.memorystream.buffermemory.ppu
-rm ./mi.rtl/lib/x86_64-linux/units/mi_rtl_ui_consts.ppu
-rm ./mi.rtl/lib/x86_64-linux/units/mi_rtl_ui_dmxscroller_buttons.ppu
-rm ./mi.rtl/lib/x86_64-linux/units/mi.rtl.objects.methods.collection.sortedcollection.stringcollection.ppu
-rm ./mi.rtl/lib/x86_64-linux/units/mi.rtl.consts.ppu
-rm ./mi.rtl/lib/x86_64-linux/units/mi.rtl.objects.consts.mi_msgbox.ppu
-rm ./mi.rtl/lib/x86_64-linux/units/mi.rtl.objects.methods.exception.ppu
-rm ./mi.rtl/lib/x86_64-win64/units/mi.rtl.objects.methods.streambase.stream.filestream.ppu
-rm ./mi.rtl/lib/x86_64-win64/units/mi.rtl.objects.methods.streambase.stream.ppu
-rm ./mi.rtl/lib/x86_64-win64/units/mi.rtl.objects.consts.progressdlg_if.ppu
-rm ./mi.rtl/lib/x86_64-win64/units/mi.rtl.objects.methods.db.tb___access.ppu
-rm ./mi.rtl/lib/x86_64-win64/units/mi_rtl_ui_types.ppu
-rm ./mi.rtl/lib/x86_64-win64/units/mi.rtl.objects.methods.collection.sortedcollection.stringcollection.collectionstring.ppu
-rm ./mi.rtl/lib/x86_64-win64/units/mi_rtl_ui_dmxscroller_form.ppu
-rm ./mi.rtl/lib/x86_64-win64/units/mi.rtl.objects.methods.streambase.stream.memorystream.ppu
-rm ./mi.rtl/lib/x86_64-win64/units/mi.rtl.objects.methods.dates.ppu
-rm ./mi.rtl/lib/x86_64-win64/units/mi.rtl.objects.methods.collection.sortedcollection.strcollection.ppu
-rm ./mi.rtl/lib/x86_64-win64/units/mi.rtl.objects.methods.collection.ppu
-rm ./mi.rtl/lib/x86_64-win64/units/mi.rtl.applicationabstract.ppu
-rm ./mi.rtl/lib/x86_64-win64/units/mi.rtl.objects.methods.paramexecucao.application.ppu
-rm ./mi.rtl/lib/x86_64-win64/units/mi_rtl_ui_dmxscroller.ppu
-rm ./mi.rtl/lib/x86_64-win64/units/mi.rtl.consts.strerror.ppu
-rm ./mi.rtl/lib/x86_64-win64/units/mi.rtl.ppu
-rm ./mi.rtl/lib/x86_64-win64/units/mi.rtl.objectss.ppu
-rm ./mi.rtl/lib/x86_64-win64/units/mi.rtl.libbinres.ppu
-rm ./mi.rtl/lib/x86_64-win64/units/mi.rtl.types.ppu
-rm ./mi.rtl/lib/x86_64-win64/units/mi.rtl.objects.methods.paramexecucao.ppu
-rm ./mi.rtl/lib/x86_64-win64/units/mi.rtl.class_of_char.ppu
-rm ./mi.rtl/lib/x86_64-win64/units/mi.rtl.objects.methods.streambase.ppu
-rm ./mi.rtl/lib/x86_64-win64/units/mi.rtl.objects.methods.db.tb_access.ppu
-rm ./mi.rtl/lib/x86_64-win64/units/mi.rtl.objects.types.ppu
-rm ./mi.rtl/lib/x86_64-win64/units/mi.rtl.objects.methods.collection.filesstreams.ppu
-rm ./mi.rtl/lib/x86_64-win64/units/mi_rtl_ui_custom_application.ppu
-rm ./mi.rtl/lib/x86_64-win64/units/mi_rtl_ui_methods.ppu
-rm ./mi.rtl/lib/x86_64-win64/units/mi.rtl.files.ppu
-rm ./mi.rtl/lib/x86_64-win64/units/mi.rtl.consts.stringlist.ppu
-rm ./mi.rtl/lib/x86_64-win64/units/mi.rtl.objects.consts.logs.ppu
-rm ./mi.rtl/lib/x86_64-win64/units/mi.rtl.objects.consts.ppu
-rm ./mi.rtl/lib/x86_64-win64/units/mi.rtl.objects.methods.collection.sortedcollection.ppu
-rm ./mi.rtl/lib/x86_64-win64/units/mi.rtl.objects.methods.system.ppu
-rm ./mi.rtl/lib/x86_64-win64/units/mi.rtl.consts.stringlistbase.ppu
-rm ./mi.rtl/lib/x86_64-win64/units/mi.rtl.objects.methods.ppu
-rm ./mi.rtl/lib/x86_64-win64/units/mi.rtl.objects.methods.db.tb__access.ppu
-rm ./mi.rtl/lib/x86_64-win64/units/mi.rtl.objects.methods.streambase.stream.memorystream.buffermemory.ppu
-rm ./mi.rtl/lib/x86_64-win64/units/mi_rtl_ui_consts.ppu
-rm ./mi.rtl/lib/x86_64-win64/units/mi_rtl_ui_dmxscroller_buttons.ppu
-rm ./mi.rtl/lib/x86_64-win64/units/mi.rtl.objects.methods.collection.sortedcollection.stringcollection.ppu
-rm ./mi.rtl/lib/x86_64-win64/units/mi.rtl.consts.ppu
-rm ./mi.rtl/lib/x86_64-win64/units/mi.rtl.objects.consts.mi_msgbox.ppu
-rm ./mi.rtl/lib/x86_64-win64/units/mi.rtl.objects.methods.exception.ppu
-rm ./mi.rtl/lib/i386-win32/units/mi.rtl.objects.methods.streambase.stream.filestream.ppu
-rm ./mi.rtl/lib/i386-win32/units/mi.rtl.objects.methods.streambase.stream.ppu
-rm ./mi.rtl/lib/i386-win32/units/mi.rtl.objects.consts.progressdlg_if.ppu
-rm ./mi.rtl/lib/i386-win32/units/mi.rtl.objects.methods.db.tb___access.ppu
-rm ./mi.rtl/lib/i386-win32/units/mi_rtl_ui_types.ppu
-rm ./mi.rtl/lib/i386-win32/units/mi.rtl.objects.methods.collection.sortedcollection.stringcollection.collectionstring.ppu
-rm ./mi.rtl/lib/i386-win32/units/mi_rtl_ui_dmxscroller_form.ppu
-rm ./mi.rtl/lib/i386-win32/units/mi.rtl.objects.methods.streambase.stream.memorystream.ppu
-rm ./mi.rtl/lib/i386-win32/units/mi.rtl.objects.methods.dates.ppu
-rm ./mi.rtl/lib/i386-win32/units/mi.rtl.objects.methods.collection.sortedcollection.strcollection.ppu
-rm ./mi.rtl/lib/i386-win32/units/mi.rtl.objects.methods.collection.ppu
-rm ./mi.rtl/lib/i386-win32/units/mi.rtl.applicationabstract.ppu
-rm ./mi.rtl/lib/i386-win32/units/mi.rtl.objects.methods.paramexecucao.application.ppu
-rm ./mi.rtl/lib/i386-win32/units/mi_rtl_ui_dmxscroller.ppu
-rm ./mi.rtl/lib/i386-win32/units/mi.rtl.consts.strerror.ppu
-rm ./mi.rtl/lib/i386-win32/units/mi.rtl.ppu
-rm ./mi.rtl/lib/i386-win32/units/mi.rtl.objectss.ppu
-rm ./mi.rtl/lib/i386-win32/units/mi.rtl.libbinres.ppu
-rm ./mi.rtl/lib/i386-win32/units/mi.rtl.types.ppu
-rm ./mi.rtl/lib/i386-win32/units/mi.rtl.objects.methods.paramexecucao.ppu
-rm ./mi.rtl/lib/i386-win32/units/mi.rtl.class_of_char.ppu
-rm ./mi.rtl/lib/i386-win32/units/mi.rtl.objects.methods.streambase.ppu
-rm ./mi.rtl/lib/i386-win32/units/mi.rtl.objects.methods.db.tb_access.ppu
-rm ./mi.rtl/lib/i386-win32/units/mi.rtl.objects.types.ppu
-rm ./mi.rtl/lib/i386-win32/units/mi.rtl.objects.methods.collection.filesstreams.ppu
-rm ./mi.rtl/lib/i386-win32/units/mi_rtl_ui_custom_application.ppu
-rm ./mi.rtl/lib/i386-win32/units/mi_rtl_ui_methods.ppu
-rm ./mi.rtl/lib/i386-win32/units/mi.rtl.files.ppu
-rm ./mi.rtl/lib/i386-win32/units/mi.rtl.consts.stringlist.ppu
-rm ./mi.rtl/lib/i386-win32/units/mi.rtl.objects.consts.logs.ppu
-rm ./mi.rtl/lib/i386-win32/units/mi.rtl.objects.consts.ppu
-rm ./mi.rtl/lib/i386-win32/units/mi.rtl.objects.methods.collection.sortedcollection.ppu
-rm ./mi.rtl/lib/i386-win32/units/mi.rtl.objects.methods.system.ppu
-rm ./mi.rtl/lib/i386-win32/units/mi.rtl.consts.stringlistbase.ppu
-rm ./mi.rtl/lib/i386-win32/units/mi.rtl.objects.methods.ppu
-rm ./mi.rtl/lib/i386-win32/units/mi.rtl.objects.methods.db.tb__access.ppu
-rm ./mi.rtl/lib/i386-win32/units/mi.rtl.objects.methods.streambase.stream.memorystream.buffermemory.ppu
-rm ./mi.rtl/lib/i386-win32/units/mi_rtl_ui_consts.ppu
-rm ./mi.rtl/lib/i386-win32/units/mi_rtl_ui_dmxscroller_buttons.ppu
-rm ./mi.rtl/lib/i386-win32/units/mi.rtl.objects.methods.collection.sortedcollection.stringcollection.ppu
-rm ./mi.rtl/lib/i386-win32/units/mi.rtl.consts.ppu
-rm ./mi.rtl/lib/i386-win32/units/mi.rtl.objects.consts.mi_msgbox.ppu
-rm ./mi.rtl/lib/i386-win32/units/mi.rtl.objects.methods.exception.ppu
-rm ./mi.rtl/examples/test_num_version/lib/x86_64-linux/unit1.ppu
-rm ./mi.rtl/examples/mi.rtl.tests/lib/x86_64-linux/units/mi.rtl.objects.methods.db.tb__access_test.ppu
-rm ./mi.rtl/examples/mi.rtl.tests/lib/x86_64-linux/units/unit1.ppu
-rm ./mi.rtl/examples/mi.rtl.tests/lib/x86_64-linux/units/mi_ui_mi_msgbox_dm.ppu
-rm ./mi.rtl/examples/mi.rtl.tests/lib/x86_64-win64/units/mi.rtl.objects.methods.db.tb__access_test.ppu
-rm ./mi.rtl/examples/mi.rtl.tests/lib/x86_64-win64/units/unit1.ppu
-rm ./mi.rtl/examples/mi.rtl.tests/lib/x86_64-win64/units/mi_ui_mi_msgbox_dm.ppu
-rm ./mi.rtl/examples/mi.rtl.tests/lib/i386-win32/units/mi.rtl.objects.methods.db.tb__access_test.ppu
-rm ./mi.rtl/examples/mi.rtl.tests/lib/i386-win32/units/unit1.ppu
-rm ./mi.rtl/examples/mi.rtl.tests/lib/i386-win32/units/mi_ui_mi_msgbox_dm.ppu
-rm ./mi.rtl/units/horse/console/lib/x86_64-linux/unit1.ppu
-rm ./lib/x86_64-linux/unit1.ppu
-rm ./lib/x86_64-linux/mi.rtl.horse.ppu
-rm ./mi.ui.lcl.form/lib/x86_64-linux/umi_ui_scrollbox_lcl.o
-rm ./mi.ui.lcl.form/lib/x86_64-linux/umi_ui_inputbox_lcl.o
-rm ./mi.ui.lcl.form/lib/x86_64-linux/umi_ui_dbradiogroup_lcl.o
-rm ./mi.ui.lcl.form/lib/x86_64-linux/umi_ui_bitbtn_lcl.o
-rm ./mi.ui.lcl.form/lib/x86_64-linux/umi_ui_label_lcl.o
-rm ./mi.ui.lcl.form/lib/x86_64-linux/umi_ui_dblookupcombobox_lcl.o
-rm ./mi.ui.lcl.form/lib/x86_64-linux/umi_ui_dbedit_lcl.o
-rm ./mi.ui.lcl.form/lib/x86_64-linux/umi_ui_dbcombobox_lcl.o
-rm ./mi.ui.lcl.form/lib/x86_64-linux/umi_ui_button_lcl.o
-rm ./mi.ui.lcl.form/lib/x86_64-linux/umi_ui_dmxscroller_form_lcl_ds.o
-rm ./mi.ui.lcl.form/lib/x86_64-linux/umi_ui_maskedit_lcl.o
-rm ./mi.ui.lcl.form/lib/x86_64-linux/mi.ui.lcl.form.o
-rm ./mi.ui.lcl.form/lib/x86_64-linux/umi_ui_dbcheckbox_lcl.o
-rm ./mi.ui.lcl.form/lib/x86_64-linux/umi_ui_dmxscroller_form_lcl_attributes.o
-rm ./mi.ui.lcl.form/lib/x86_64-linux/umi_ui_radiogroup_lcl.o
-rm ./mi.ui.lcl.form/lib/x86_64-linux/umi_ui_checkbox_lcl.o
-rm ./mi.ui.lcl.form/lib/x86_64-linux/umi_ui_combobox_lcl.o
-rm ./mi.ui.lcl.form/lib/x86_64-linux/umi_ui_dmxscroller_form_lcl.o
-rm ./mi.ui.lcl.form/lib/x86_64-win64/umi_ui_scrollbox_lcl.o
-rm ./mi.ui.lcl.form/lib/x86_64-win64/umi_ui_inputbox_lcl.o
-rm ./mi.ui.lcl.form/lib/x86_64-win64/umi_ui_dbradiogroup_lcl.o
-rm ./mi.ui.lcl.form/lib/x86_64-win64/umi_ui_bitbtn_lcl.o
-rm ./mi.ui.lcl.form/lib/x86_64-win64/umi_ui_label_lcl.o
-rm ./mi.ui.lcl.form/lib/x86_64-win64/umi_ui_dblookupcombobox_lcl.o
-rm ./mi.ui.lcl.form/lib/x86_64-win64/umi_ui_dbedit_lcl.o
-rm ./mi.ui.lcl.form/lib/x86_64-win64/umi_ui_dbcombobox_lcl.o
-rm ./mi.ui.lcl.form/lib/x86_64-win64/umi_ui_button_lcl.o
-rm ./mi.ui.lcl.form/lib/x86_64-win64/umi_ui_dmxscroller_form_lcl_ds.o
-rm ./mi.ui.lcl.form/lib/x86_64-win64/umi_ui_maskedit_lcl.o
-rm ./mi.ui.lcl.form/lib/x86_64-win64/mi.ui.lcl.form.o
-rm ./mi.ui.lcl.form/lib/x86_64-win64/umi_ui_dbcheckbox_lcl.o
-rm ./mi.ui.lcl.form/lib/x86_64-win64/umi_ui_dmxscroller_form_lcl_attributes.o
-rm ./mi.ui.lcl.form/lib/x86_64-win64/umi_ui_radiogroup_lcl.o
-rm ./mi.ui.lcl.form/lib/x86_64-win64/umi_ui_checkbox_lcl.o
-rm ./mi.ui.lcl.form/lib/x86_64-win64/umi_ui_combobox_lcl.o
-rm ./mi.ui.lcl.form/lib/x86_64-win64/umi_ui_dmxscroller_form_lcl.o
-rm ./mi.ui.lcl.form/examples/mi.ui.lcl.form.tests/lib/x86_64-linux/units/umi_ui_inputbox_lcl_test.o
-rm ./mi.ui.lcl.form/examples/mi.ui.lcl.form.tests/lib/x86_64-linux/units/umi_ui_dmxscroller_form_lcl_ds_test2_dm.o
-rm ./mi.ui.lcl.form/examples/mi.ui.lcl.form.tests/lib/x86_64-linux/units/udmxscroller_form_lcl_add_test.o
-rm ./mi.ui.lcl.form/examples/mi.ui.lcl.form.tests/lib/x86_64-linux/units/umi_ui_mi_msgbox_dm.o
-rm ./mi.ui.lcl.form/examples/mi.ui.lcl.form.tests/lib/x86_64-linux/units/udmxscroller_form_lcl_test.o
-rm ./mi.ui.lcl.form/examples/mi.ui.lcl.form.tests/lib/x86_64-linux/units/mi.ui.lcl.form.test.o
-rm ./mi.ui.lcl.form/examples/mi.ui.lcl.form.tests/lib/x86_64-linux/units/umi_ui_dmxscroller_form_lcl_ds_test.o
-rm ./mi.ui.lcl.form/examples/mi.ui.lcl.form.tests/lib/x86_64-linux/units/umi_ui_dmxscroller_form_lcl_ds_test2.o
-rm ./mi.ui.lcl.form/examples/mi.ui.lcl.form.tests/lib/x86_64-linux/units/udmxscroller_form_lcl_add_test2.o
-rm ./mi.ui.lcl.form/examples/mi.ui.lcl.form.tests/lib/x86_64-win64/units/umi_ui_inputbox_lcl_test.o
-rm ./mi.ui.lcl.form/examples/mi.ui.lcl.form.tests/lib/x86_64-win64/units/umi_ui_dmxscroller_form_lcl_ds_test2_dm.o
-rm ./mi.ui.lcl.form/examples/mi.ui.lcl.form.tests/lib/x86_64-win64/units/udmxscroller_form_lcl_add_test.o
-rm ./mi.ui.lcl.form/examples/mi.ui.lcl.form.tests/lib/x86_64-win64/units/umi_ui_mi_msgbox_dm.o
-rm ./mi.ui.lcl.form/examples/mi.ui.lcl.form.tests/lib/x86_64-win64/units/udmxscroller_form_lcl_test.o
-rm ./mi.ui.lcl.form/examples/mi.ui.lcl.form.tests/lib/x86_64-win64/units/mi.ui.lcl.form.test.o
-rm ./mi.ui.lcl.form/examples/mi.ui.lcl.form.tests/lib/x86_64-win64/units/umi_ui_dmxscroller_form_lcl_ds_test.o
-rm ./mi.ui.lcl.form/examples/mi.ui.lcl.form.tests/lib/x86_64-win64/units/umi_ui_dmxscroller_form_lcl_ds_test2.o
-rm ./mi.ui.lcl.form/examples/mi.ui.lcl.form.tests/lib/x86_64-win64/units/udmxscroller_form_lcl_add_test2.o
-rm ./mi.ui.lcl.form/examples/mi.ui.lcl.form.tests/bin/x86_64-win64/units/umi_ui_inputbox_lcl_test.o
-rm ./mi.ui.lcl.form/examples/mi.ui.lcl.form.tests/bin/x86_64-win64/units/umi_ui_dmxscroller_form_lcl_ds_test2_dm.o
-rm ./mi.ui.lcl.form/examples/mi.ui.lcl.form.tests/bin/x86_64-win64/units/udmxscroller_form_lcl_add_test.o
-rm ./mi.ui.lcl.form/examples/mi.ui.lcl.form.tests/bin/x86_64-win64/units/umi_ui_mi_msgbox_dm.o
-rm ./mi.ui.lcl.form/examples/mi.ui.lcl.form.tests/bin/x86_64-win64/units/udmxscroller_form_lcl_test.o
-rm ./mi.ui.lcl.form/examples/mi.ui.lcl.form.tests/bin/x86_64-win64/units/mi.ui.lcl.form.test.o
-rm ./mi.ui.lcl.form/examples/mi.ui.lcl.form.tests/bin/x86_64-win64/units/umi_ui_dmxscroller_form_lcl_ds_test.o
-rm ./mi.ui.lcl.form/examples/mi.ui.lcl.form.tests/bin/x86_64-win64/units/umi_ui_dmxscroller_form_lcl_ds_test2.o
-rm ./mi.ui.lcl.form/examples/mi.ui.lcl.form.tests/bin/x86_64-win64/units/udmxscroller_form_lcl_add_test2.o
-rm ./mi.ui.lcl.form/examples/mi.ui.lcl.form.AddTemplates/lib/x86_64-linux/units/unit1.o
-rm ./mi.ui.lcl.form/examples/mi.ui.lcl.form.AddTemplates/lib/x86_64-linux/units/mi.ui.lcl.form.addtemplates.o
-rm ./mi.rtl/lib/x86_64-linux/units/mi.rtl.objects.methods.db.tb___access.o
-rm ./mi.rtl/lib/x86_64-linux/units/mi.rtl.objects.methods.collection.sortedcollection.stringcollection.collectionstring.o
-rm ./mi.rtl/lib/x86_64-linux/units/mi.rtl.objects.methods.collection.sortedcollection.o
-rm ./mi.rtl/lib/x86_64-linux/units/mi.rtl.objects.consts.progressdlg_if.o
-rm ./mi.rtl/lib/x86_64-linux/units/mi.rtl.objects.methods.db.tb_access.o
-rm ./mi.rtl/lib/x86_64-linux/units/mi.rtl.objects.methods.streambase.o
-rm ./mi.rtl/lib/x86_64-linux/units/mi.rtl.types.o
-rm ./mi.rtl/lib/x86_64-linux/units/mi.rtl.objects.types.o
-rm ./mi.rtl/lib/x86_64-linux/units/mi.rtl.consts.stringlistbase.o
-rm ./mi.rtl/lib/x86_64-linux/units/mi.rtl.objects.methods.system.o
-rm ./mi.rtl/lib/x86_64-linux/units/mi.rtl.objectss.o
-rm ./mi.rtl/lib/x86_64-linux/units/mi_rtl_ui_consts.o
-rm ./mi.rtl/lib/x86_64-linux/units/mi.rtl.objects.consts.o
-rm ./mi.rtl/lib/x86_64-linux/units/mi.rtl.objects.methods.collection.sortedcollection.stringcollection.o
-rm ./mi.rtl/lib/x86_64-linux/units/mi_rtl_ui_types.o
-rm ./mi.rtl/lib/x86_64-linux/units/mi_rtl_ui_methods.o
-rm ./mi.rtl/lib/x86_64-linux/units/mi.rtl.class_of_char.o
-rm ./mi.rtl/lib/x86_64-linux/units/mi.rtl.objects.consts.mi_msgbox.o
-rm ./mi.rtl/lib/x86_64-linux/units/mi.rtl.objects.methods.collection.sortedcollection.strcollection.o
-rm ./mi.rtl/lib/x86_64-linux/units/mi.rtl.objects.methods.o
-rm ./mi.rtl/lib/x86_64-linux/units/mi.rtl.objects.methods.dates.o
-rm ./mi.rtl/lib/x86_64-linux/units/mi.rtl.o
-rm ./mi.rtl/lib/x86_64-linux/units/mi.rtl.objects.methods.exception.o
-rm ./mi.rtl/lib/x86_64-linux/units/mi_rtl_ui_dmxscroller_form.o
-rm ./mi.rtl/lib/x86_64-linux/units/mi.rtl.objects.methods.paramexecucao.application.o
-rm ./mi.rtl/lib/x86_64-linux/units/mi_rtl_ui_custom_application.o
-rm ./mi.rtl/lib/x86_64-linux/units/mi.rtl.consts.o
-rm ./mi.rtl/lib/x86_64-linux/units/mi.rtl.consts.stringlist.o
-rm ./mi.rtl/lib/x86_64-linux/units/mi.rtl.objects.methods.collection.filesstreams.o
-rm ./mi.rtl/lib/x86_64-linux/units/mi.rtl.objects.methods.db.tb__access.o
-rm ./mi.rtl/lib/x86_64-linux/units/mi.rtl.applicationabstract.o
-rm ./mi.rtl/lib/x86_64-linux/units/mi_rtl_ui_dmxscroller.o
-rm ./mi.rtl/lib/x86_64-linux/units/mi.rtl.objects.methods.streambase.stream.filestream.o
-rm ./mi.rtl/lib/x86_64-linux/units/mi.rtl.libbinres.o
-rm ./mi.rtl/lib/x86_64-linux/units/mi.rtl.objects.methods.streambase.stream.o
-rm ./mi.rtl/lib/x86_64-linux/units/mi.rtl.objects.methods.collection.o
-rm ./mi.rtl/lib/x86_64-linux/units/mi.rtl.objects.consts.logs.o
-rm ./mi.rtl/lib/x86_64-linux/units/mi.rtl.objects.methods.streambase.stream.memorystream.o
-rm ./mi.rtl/lib/x86_64-linux/units/mi.rtl.files.o
-rm ./mi.rtl/lib/x86_64-linux/units/mi.rtl.consts.strerror.o
-rm ./mi.rtl/lib/x86_64-linux/units/mi.rtl.objects.methods.paramexecucao.o
-rm ./mi.rtl/lib/x86_64-linux/units/mi_rtl_ui_dmxscroller_buttons.o
-rm ./mi.rtl/lib/x86_64-linux/units/mi.rtl.objects.methods.streambase.stream.memorystream.buffermemory.o
-rm ./mi.rtl/lib/x86_64-win64/units/mi.rtl.objects.methods.db.tb___access.o
-rm ./mi.rtl/lib/x86_64-win64/units/mi.rtl.objects.methods.collection.sortedcollection.stringcollection.collectionstring.o
-rm ./mi.rtl/lib/x86_64-win64/units/mi.rtl.objects.methods.collection.sortedcollection.o
-rm ./mi.rtl/lib/x86_64-win64/units/mi.rtl.objects.consts.progressdlg_if.o
-rm ./mi.rtl/lib/x86_64-win64/units/mi.rtl.objects.methods.db.tb_access.o
-rm ./mi.rtl/lib/x86_64-win64/units/mi.rtl.objects.methods.streambase.o
-rm ./mi.rtl/lib/x86_64-win64/units/mi.rtl.types.o
-rm ./mi.rtl/lib/x86_64-win64/units/mi.rtl.objects.types.o
-rm ./mi.rtl/lib/x86_64-win64/units/mi.rtl.consts.stringlistbase.o
-rm ./mi.rtl/lib/x86_64-win64/units/mi.rtl.objects.methods.system.o
-rm ./mi.rtl/lib/x86_64-win64/units/mi.rtl.objectss.o
-rm ./mi.rtl/lib/x86_64-win64/units/mi_rtl_ui_consts.o
-rm ./mi.rtl/lib/x86_64-win64/units/mi.rtl.objects.consts.o
-rm ./mi.rtl/lib/x86_64-win64/units/mi.rtl.objects.methods.collection.sortedcollection.stringcollection.o
-rm ./mi.rtl/lib/x86_64-win64/units/mi_rtl_ui_types.o
-rm ./mi.rtl/lib/x86_64-win64/units/mi_rtl_ui_methods.o
-rm ./mi.rtl/lib/x86_64-win64/units/mi.rtl.class_of_char.o
-rm ./mi.rtl/lib/x86_64-win64/units/mi.rtl.objects.consts.mi_msgbox.o
-rm ./mi.rtl/lib/x86_64-win64/units/mi.rtl.objects.methods.collection.sortedcollection.strcollection.o
-rm ./mi.rtl/lib/x86_64-win64/units/mi.rtl.objects.methods.o
-rm ./mi.rtl/lib/x86_64-win64/units/mi.rtl.objects.methods.dates.o
-rm ./mi.rtl/lib/x86_64-win64/units/mi.rtl.o
-rm ./mi.rtl/lib/x86_64-win64/units/mi.rtl.objects.methods.exception.o
-rm ./mi.rtl/lib/x86_64-win64/units/mi_rtl_ui_dmxscroller_form.o
-rm ./mi.rtl/lib/x86_64-win64/units/mi.rtl.objects.methods.paramexecucao.application.o
-rm ./mi.rtl/lib/x86_64-win64/units/mi_rtl_ui_custom_application.o
-rm ./mi.rtl/lib/x86_64-win64/units/mi.rtl.consts.o
-rm ./mi.rtl/lib/x86_64-win64/units/mi.rtl.consts.stringlist.o
-rm ./mi.rtl/lib/x86_64-win64/units/mi.rtl.objects.methods.collection.filesstreams.o
-rm ./mi.rtl/lib/x86_64-win64/units/mi.rtl.objects.methods.db.tb__access.o
-rm ./mi.rtl/lib/x86_64-win64/units/mi.rtl.applicationabstract.o
-rm ./mi.rtl/lib/x86_64-win64/units/mi_rtl_ui_dmxscroller.o
-rm ./mi.rtl/lib/x86_64-win64/units/mi.rtl.objects.methods.streambase.stream.filestream.o
-rm ./mi.rtl/lib/x86_64-win64/units/mi.rtl.libbinres.o
-rm ./mi.rtl/lib/x86_64-win64/units/mi.rtl.objects.methods.streambase.stream.o
-rm ./mi.rtl/lib/x86_64-win64/units/mi.rtl.objects.methods.collection.o
-rm ./mi.rtl/lib/x86_64-win64/units/mi.rtl.objects.consts.logs.o
-rm ./mi.rtl/lib/x86_64-win64/units/mi.rtl.objects.methods.streambase.stream.memorystream.o
-rm ./mi.rtl/lib/x86_64-win64/units/mi.rtl.files.o
-rm ./mi.rtl/lib/x86_64-win64/units/mi.rtl.consts.strerror.o
-rm ./mi.rtl/lib/x86_64-win64/units/mi.rtl.objects.methods.paramexecucao.o
-rm ./mi.rtl/lib/x86_64-win64/units/mi_rtl_ui_dmxscroller_buttons.o
-rm ./mi.rtl/lib/x86_64-win64/units/mi.rtl.objects.methods.streambase.stream.memorystream.buffermemory.o
-rm ./mi.rtl/lib/i386-win32/units/mi.rtl.objects.methods.db.tb___access.o
-rm ./mi.rtl/lib/i386-win32/units/mi.rtl.objects.methods.collection.sortedcollection.stringcollection.collectionstring.o
-rm ./mi.rtl/lib/i386-win32/units/mi.rtl.objects.methods.collection.sortedcollection.o
-rm ./mi.rtl/lib/i386-win32/units/mi.rtl.objects.consts.progressdlg_if.o
-rm ./mi.rtl/lib/i386-win32/units/mi.rtl.objects.methods.db.tb_access.o
-rm ./mi.rtl/lib/i386-win32/units/mi.rtl.objects.methods.streambase.o
-rm ./mi.rtl/lib/i386-win32/units/mi.rtl.types.o
-rm ./mi.rtl/lib/i386-win32/units/mi.rtl.objects.types.o
-rm ./mi.rtl/lib/i386-win32/units/mi.rtl.consts.stringlistbase.o
-rm ./mi.rtl/lib/i386-win32/units/mi.rtl.objects.methods.system.o
-rm ./mi.rtl/lib/i386-win32/units/mi.rtl.objectss.o
-rm ./mi.rtl/lib/i386-win32/units/mi_rtl_ui_consts.o
-rm ./mi.rtl/lib/i386-win32/units/mi.rtl.objects.consts.o
-rm ./mi.rtl/lib/i386-win32/units/mi.rtl.objects.methods.collection.sortedcollection.stringcollection.o
-rm ./mi.rtl/lib/i386-win32/units/mi_rtl_ui_types.o
-rm ./mi.rtl/lib/i386-win32/units/mi_rtl_ui_methods.o
-rm ./mi.rtl/lib/i386-win32/units/mi.rtl.class_of_char.o
-rm ./mi.rtl/lib/i386-win32/units/mi.rtl.objects.consts.mi_msgbox.o
-rm ./mi.rtl/lib/i386-win32/units/mi.rtl.objects.methods.collection.sortedcollection.strcollection.o
-rm ./mi.rtl/lib/i386-win32/units/mi.rtl.objects.methods.o
-rm ./mi.rtl/lib/i386-win32/units/mi.rtl.objects.methods.dates.o
-rm ./mi.rtl/lib/i386-win32/units/mi.rtl.o
-rm ./mi.rtl/lib/i386-win32/units/mi.rtl.objects.methods.exception.o
-rm ./mi.rtl/lib/i386-win32/units/mi_rtl_ui_dmxscroller_form.o
-rm ./mi.rtl/lib/i386-win32/units/mi.rtl.objects.methods.paramexecucao.application.o
-rm ./mi.rtl/lib/i386-win32/units/mi_rtl_ui_custom_application.o
-rm ./mi.rtl/lib/i386-win32/units/mi.rtl.consts.o
-rm ./mi.rtl/lib/i386-win32/units/mi.rtl.consts.stringlist.o
-rm ./mi.rtl/lib/i386-win32/units/mi.rtl.objects.methods.collection.filesstreams.o
-rm ./mi.rtl/lib/i386-win32/units/mi.rtl.objects.methods.db.tb__access.o
-rm ./mi.rtl/lib/i386-win32/units/mi.rtl.applicationabstract.o
-rm ./mi.rtl/lib/i386-win32/units/mi_rtl_ui_dmxscroller.o
-rm ./mi.rtl/lib/i386-win32/units/mi.rtl.objects.methods.streambase.stream.filestream.o
-rm ./mi.rtl/lib/i386-win32/units/mi.rtl.libbinres.o
-rm ./mi.rtl/lib/i386-win32/units/mi.rtl.objects.methods.streambase.stream.o
-rm ./mi.rtl/lib/i386-win32/units/mi.rtl.objects.methods.collection.o
-rm ./mi.rtl/lib/i386-win32/units/mi.rtl.objects.consts.logs.o
-rm ./mi.rtl/lib/i386-win32/units/mi.rtl.objects.methods.streambase.stream.memorystream.o
-rm ./mi.rtl/lib/i386-win32/units/mi.rtl.files.o
-rm ./mi.rtl/lib/i386-win32/units/mi.rtl.consts.strerror.o
-rm ./mi.rtl/lib/i386-win32/units/mi.rtl.objects.methods.paramexecucao.o
-rm ./mi.rtl/lib/i386-win32/units/mi_rtl_ui_dmxscroller_buttons.o
-rm ./mi.rtl/lib/i386-win32/units/mi.rtl.objects.methods.streambase.stream.memorystream.buffermemory.o
-rm ./mi.rtl/examples/stork/lib/x86_64-linux/create_config_stork.o
-rm ./mi.rtl/examples/test_num_version/lib/x86_64-linux/unit1.o
-rm ./mi.rtl/examples/test_num_version/lib/x86_64-linux/project1.o
-rm ./mi.rtl/examples/mi.rtl.tests/lib/x86_64-linux/units/mi.rtl.tests.o
-rm ./mi.rtl/examples/mi.rtl.tests/lib/x86_64-linux/units/mi.rtl.objects.methods.db.tb__access_test.o
-rm ./mi.rtl/examples/mi.rtl.tests/lib/x86_64-linux/units/unit1.o
-rm ./mi.rtl/examples/mi.rtl.tests/lib/x86_64-linux/units/mi_ui_mi_msgbox_dm.o
-rm ./mi.rtl/examples/mi.rtl.tests/lib/x86_64-win64/units/mi.rtl.tests.o
-rm ./mi.rtl/examples/mi.rtl.tests/lib/x86_64-win64/units/mi.rtl.objects.methods.db.tb__access_test.o
-rm ./mi.rtl/examples/mi.rtl.tests/lib/x86_64-win64/units/unit1.o
-rm ./mi.rtl/examples/mi.rtl.tests/lib/x86_64-win64/units/mi_ui_mi_msgbox_dm.o
-rm ./mi.rtl/examples/mi.rtl.tests/lib/i386-win32/units/mi.rtl.tests.o
-rm ./mi.rtl/examples/mi.rtl.tests/lib/i386-win32/units/mi.rtl.objects.methods.db.tb__access_test.o
-rm ./mi.rtl/examples/mi.rtl.tests/lib/i386-win32/units/unit1.o
-rm ./mi.rtl/examples/mi.rtl.tests/lib/i386-win32/units/mi_ui_mi_msgbox_dm.o
-rm ./mi.rtl/units/horse/console/lib/x86_64-linux/unit1.o
-rm ./lib/x86_64-linux/unit1.o
-rm ./lib/x86_64-linux/project1.o
-rm ./lib/x86_64-linux/mi.rtl.horse.o
-rm ./mi.ui.lcl.form/examples/mi.ui.lcl.form.tests/lib/x86_64-linux/units/mi.ui.lcl.form.test.or
-rm ./mi.ui.lcl.form/examples/mi.ui.lcl.form.AddTemplates/lib/x86_64-linux/units/mi.ui.lcl.form.addtemplates.or
-rm ./mi.rtl/examples/test_num_version/lib/x86_64-linux/project1.or
-rm ./mi.rtl/examples/mi.rtl.tests/lib/x86_64-linux/units/mi.rtl.tests.or
-rm ./mi.rtl/examples/mi.rtl.tests/lib/i386-win32/units/mi.rtl.tests.or
-rm ./mi.rtl/units/lib/x86_64-linux/project1.or
-rm ./lib/x86_64-linux/project1.or
-rm ./mi.ui.lcl.form/examples/mi.ui.lcl.form.tests/lib/x86_64-linux/units/udmxscroller_form_lcl_test.rsj
-rm ./mi.ui.lcl.form/examples/mi.ui.lcl.form.tests/lib/x86_64-linux/units/udmxscroller_form_lcl_add_test.rsj
-rm ./mi.ui.lcl.form/examples/mi.ui.lcl.form.tests/lib/x86_64-win64/units/udmxscroller_form_lcl_test.rsj
-rm ./mi.ui.lcl.form/examples/mi.ui.lcl.form.tests/lib/x86_64-win64/units/udmxscroller_form_lcl_add_test.rsj
-rm ./mi.ui.lcl.form/examples/mi.ui.lcl.form.tests/bin/x86_64-win64/units/udmxscroller_form_lcl_test.rsj
-rm ./mi.ui.lcl.form/examples/mi.ui.lcl.form.tests/bin/x86_64-win64/units/udmxscroller_form_lcl_add_test.rsj
-rm ./mi.rtl/lib/x86_64-linux/units/mi.rtl.objects.consts.logs.rsj
-rm ./mi.rtl/lib/x86_64-linux/units/mi.rtl.consts.rsj
-rm ./mi.rtl/lib/x86_64-win64/units/mi.rtl.objects.consts.logs.rsj
-rm ./mi.rtl/lib/x86_64-win64/units/mi.rtl.consts.rsj
-rm ./mi.rtl/lib/i386-win32/units/mi.rtl.objects.consts.logs.rsj
-rm ./mi.rtl/lib/i386-win32/units/mi.rtl.consts.rsj
-rm ./mi.rtl/units/mi.rtl.consts.rsj
-rm ./mi.ui.lcl.form/examples/mi.ui.lcl.form.tests/backup/mi.ui.lcl.form.test.lps
-rm ./mi.ui.lcl.form/examples/mi.ui.lcl.form.tests/mi.ui.lcl.form.test.lps
-rm ./mi.ui.lcl.form/examples/mi.ui.lcl.form.AddTemplates/backup/mi.ui.lcl.form.addtemplates.lps
-rm ./mi.ui.lcl.form/examples/mi.ui.lcl.form.AddTemplates/mi.ui.lcl.form.addtemplates.lps
-rm ./mi.rtl/examples/stork/backup/create_config_stork.lps
-rm ./mi.rtl/examples/stork/create_config_stork.lps
-rm ./mi.rtl/examples/test_num_version/test_num_version.lps
-rm ./mi.rtl/examples/test_num_version/backup/project1.lps
-rm ./mi.rtl/examples/test_num_version/project1.lps
-rm ./mi.rtl/examples/mi.rtl.tests/mi.rtl.tests.lps
-rm ./mi.rtl/examples/mi.rtl.tests/backup/mi.rtl.tests.lps
-rm ./mi.rtl/units/horse/console/backup/Console.lps
-rm ./mi.rtl/units/horse/console/backup/project1.lps
-rm ./mi.rtl/units/horse/console/Console.lps
-rm ./mi.rtl/units/horse/console/project1.lps
-rm ./backup/demo.lps
-rm ./backup/Readme.lps
-rm ./backup/project1.lps
-rm ./temp/project1.lps
-rm ./Readme.lps
-rm ./project1.lps
-rm ./mi.ui.lcl.form/backup/tarefas_a_fazer.pas.bak
-rm ./mi.ui.lcl.form/backup/histórico.pas.bak
-rm ./mi.ui.lcl.form/backup/mi.ui.lcl.form.lpk.bak
-rm ./mi.ui.lcl.form/examples/mi.ui.lcl.form.tests/units/backup/umi_ui_mi_msgbox_dm.lfm.bak
-rm ./mi.ui.lcl.form/examples/mi.ui.lcl.form.tests/units/backup/udmxscroller_form_lcl_test.lfm.bak
-rm ./mi.ui.lcl.form/units/backup/umi_ui_maskedit_lcl.md.bak
-rm ./mi.ui.lcl.form/units/backup/umi_ui_dmxscroller_form_lcl_attributes.pas.bak
-rm ./mi.ui.lcl.form/units/backup/umi_ui_bitbtn_lcl.pas.bak
-rm ./mi.rtl/backup/fpmake.pp.bak
-rm ./mi.rtl/backup/tarefas_a_fazer.pas.bak
-rm ./mi.rtl/backup/mi.rtl.lpk.bak
-rm ./mi.rtl/backup/histórico.pas.bak
-rm ./mi.rtl/examples/mi.rtl.tests/units/backup/unit1.lfm.bak
-rm ./mi.rtl/examples/mi.rtl.tests/units/backup/mi.rtl.dialogs.pas.bak
-rm ./mi.rtl/examples/mi.rtl.tests/units/backup/unit1.pas.ant.bak
-rm ./mi.rtl/examples/mi.rtl.tests/units/backup.ant/backup/unit1.pas.bak
-rm ./mi.rtl/examples/mi.rtl.tests/units/backup.ant/unit1.lfm.bak
-rm ./mi.rtl/examples/mi.rtl.tests/units/backup.ant/mi.rtl.dialogs.pas.bak
-rm ./mi.rtl/units/backup/mi_rtl_ui_dmxscroller.pas.bak
-rm ./mi.rtl/units/backup/mi.rtl.types.pas.bak
-rm ./mi.rtl/units/backup/mi.rtl.consts.pas.bak
-rm ./mi.rtl/units/backup/mi.rtl.objectss.pas.bak
-rm ./mi.rtl/units/backup/mi.rtl.objects.types.pas.bak
-rm ./mi.rtl/units/backup/mi.rtl.files.pas.bak
-rm ./mi.rtl/units/backup/mi.rtl.objects.methods.pas.bak
-rm ./mi.rtl/units/backup/Horse.Core.pas.bak
-rm ./mi.rtl/units/backup/mi.rtl.libbinres.pas.bak
-rm ./mi.rtl/units/backup/Horse.Core.Route.pas.bak
-rm ./backup/readme.md.bak
-rm ./backup/tarefas_a_fazer.pas.bak
-rm ./backup/mi.rtl.horse.lpk.bak
-rm ./mi.ui.lcl.form/examples/mi.ui.lcl.form.tests/bin/x86_64-linux/mi.ui.lcl.form.test.rtl.exe
-rm ./mi.ui.lcl.form/examples/mi.ui.lcl.form.tests/bin/x86_64-win64/mi.ui.lcl.form.test.rtl.exe
-rm ./mi.rtl/examples/mi.rtl.tests/bin/x86_64-linux/mi.rtl.tests.rtl.exe
-rm ./mi.rtl/examples/mi.rtl.tests/bin/x86_64-win64/mi.rtl.tests.rtl.exe
-rm ./mi.ui.lcl.form/examples/mi.ui.lcl.form.tests/lib/x86_64-linux/units/mi.ui.lcl.form.test.res
-rm ./mi.ui.lcl.form/examples/mi.ui.lcl.form.tests/lib/x86_64-win64/units/mi.ui.lcl.form.test.res
-rm ./mi.ui.lcl.form/examples/mi.ui.lcl.form.tests/bin/x86_64-win64/units/mi.ui.lcl.form.test.res
-rm ./mi.ui.lcl.form/examples/mi.ui.lcl.form.tests/mi.ui.lcl.form.test.res
-rm ./mi.ui.lcl.form/examples/mi.ui.lcl.form.AddTemplates/lib/x86_64-linux/units/mi.ui.lcl.form.addtemplates.res
-rm ./mi.ui.lcl.form/examples/mi.ui.lcl.form.AddTemplates/mi.ui.lcl.form.addtemplates.res
-rm ./mi.ui.lcl.form/temp/test/project1.res
-rm ./mi.rtl/examples/test_num_version/project1.res
-rm ./mi.rtl/examples/test_num_version/lib/x86_64-linux/project1.res
-rm ./mi.rtl/examples/test_num_version/test_num_version.res
-rm ./mi.rtl/examples/test_num_version/link5543.res
-rm ./mi.rtl/examples/mi.rtl.tests/lib/x86_64-linux/units/mi.rtl.tests.res
-rm ./mi.rtl/examples/mi.rtl.tests/lib/x86_64-win64/units/mi.rtl.tests.res
-rm ./mi.rtl/examples/mi.rtl.tests/lib/i386-win32/units/mi.rtl.tests.res
-rm ./mi.rtl/examples/mi.rtl.tests/bin/x86_64-linux/link3648.res
-rm ./mi.rtl/examples/mi.rtl.tests/bin/x86_64-linux/link3324.res
-rm ./mi.rtl/examples/mi.rtl.tests/mi.rtl.tests.res
-rm ./mi.rtl/units/horse/console/project1.res
-rm ./mi.rtl/units/lib/x86_64-linux/project1.res
-rm ./project1.res
-rm ./lib/x86_64-linux/project1.res
-rm ./Readme.res
-rm ./mi.ui.lcl.form/lib/x86_64-linux/mi.ui.lcl.form.compiled
-rm ./mi.ui.lcl.form/lib/x86_64-win64/mi.ui.lcl.form.compiled
-rm ./mi.ui.lcl.form/examples/mi.ui.lcl.form.tests/lib/x86_64-linux/units/mi.ui.lcl.form.test.compiled
-rm ./mi.ui.lcl.form/examples/mi.ui.lcl.form.tests/lib/x86_64-win64/units/mi.ui.lcl.form.test.compiled
-rm ./mi.ui.lcl.form/examples/mi.ui.lcl.form.tests/bin/x86_64-win64/units/mi.ui.lcl.form.test.compiled
-rm ./mi.ui.lcl.form/examples/mi.ui.lcl.form.AddTemplates/lib/x86_64-linux/units/mi.ui.lcl.form.addtemplates.compiled
-rm ./mi.ui.lcl.form/mi.ui.lcl.form.compiled
-rm ./mi.ui.lcl.form/Makefile.compiled
-rm ./mi.rtl/lib/x86_64-linux/units/mi.rtl.compiled
-rm ./mi.rtl/lib/x86_64-win64/units/mi.rtl.compiled
-rm ./mi.rtl/lib/i386-win32/units/mi.rtl.compiled
-rm ./mi.rtl/examples/stork/lib/x86_64-linux/create_config_stork.compiled
-rm ./mi.rtl/examples/test_num_version/lib/x86_64-linux/project1.compiled
-rm ./mi.rtl/examples/mi.rtl.tests/lib/x86_64-linux/units/mi.rtl.tests.compiled
-rm ./mi.rtl/examples/mi.rtl.tests/lib/x86_64-win64/units/mi.rtl.tests.compiled
-rm ./mi.rtl/examples/mi.rtl.tests/lib/i386-win32/units/mi.rtl.tests.compiled
-rm ./mi.rtl/units/horse/console/lib/x86_64-linux/project1.compiled
-rm ./mi.rtl/units/horse/console/lib/x86_64-linux/Console.compiled
-rm ./mi.rtl/Makefile.compiled
-rm ./lib/x86_64-linux/project1.compiled
-rm ./lib/x86_64-linux/mi.rtl.horse.compiled
-rm ./mi.ui.lcl.form/lib/x86_64-linux/mi.ui.lcl.form.ppu
-rm ./mi.ui.lcl.form/lib/x86_64-linux/umi_ui_checkbox_lcl.ppu
-rm ./mi.ui.lcl.form/lib/x86_64-linux/umi_ui_radiogroup_lcl.ppu
-rm ./mi.ui.lcl.form/lib/x86_64-linux/umi_ui_dblookupcombobox_lcl.ppu
-rm ./mi.ui.lcl.form/lib/x86_64-linux/umi_ui_maskedit_lcl.ppu
-rm ./mi.ui.lcl.form/lib/x86_64-linux/umi_ui_scrollbox_lcl.ppu
-rm ./mi.ui.lcl.form/lib/x86_64-linux/umi_ui_combobox_lcl.ppu
-rm ./mi.ui.lcl.form/lib/x86_64-linux/umi_ui_dbradiogroup_lcl.ppu
-rm ./mi.ui.lcl.form/lib/x86_64-linux/umi_ui_dbcombobox_lcl.ppu
-rm ./mi.ui.lcl.form/lib/x86_64-linux/umi_ui_dmxscroller_form_lcl_ds.ppu
-rm ./mi.ui.lcl.form/lib/x86_64-linux/umi_ui_dbcheckbox_lcl.ppu
-rm ./mi.ui.lcl.form/lib/x86_64-linux/umi_ui_button_lcl.ppu
-rm ./mi.ui.lcl.form/lib/x86_64-linux/umi_ui_label_lcl.ppu
-rm ./mi.ui.lcl.form/lib/x86_64-linux/umi_ui_dbedit_lcl.ppu
-rm ./mi.ui.lcl.form/lib/x86_64-linux/umi_ui_dmxscroller_form_lcl.ppu
-rm ./mi.ui.lcl.form/lib/x86_64-linux/umi_ui_inputbox_lcl.ppu
-rm ./mi.ui.lcl.form/lib/x86_64-linux/umi_ui_dmxscroller_form_lcl_attributes.ppu
-rm ./mi.ui.lcl.form/lib/x86_64-linux/umi_ui_bitbtn_lcl.ppu
-rm ./mi.ui.lcl.form/lib/x86_64-win64/mi.ui.lcl.form.ppu
-rm ./mi.ui.lcl.form/lib/x86_64-win64/umi_ui_checkbox_lcl.ppu
-rm ./mi.ui.lcl.form/lib/x86_64-win64/umi_ui_radiogroup_lcl.ppu
-rm ./mi.ui.lcl.form/lib/x86_64-win64/umi_ui_dblookupcombobox_lcl.ppu
-rm ./mi.ui.lcl.form/lib/x86_64-win64/umi_ui_maskedit_lcl.ppu
-rm ./mi.ui.lcl.form/lib/x86_64-win64/umi_ui_scrollbox_lcl.ppu
-rm ./mi.ui.lcl.form/lib/x86_64-win64/umi_ui_combobox_lcl.ppu
-rm ./mi.ui.lcl.form/lib/x86_64-win64/umi_ui_dbradiogroup_lcl.ppu
-rm ./mi.ui.lcl.form/lib/x86_64-win64/umi_ui_dbcombobox_lcl.ppu
-rm ./mi.ui.lcl.form/lib/x86_64-win64/umi_ui_dmxscroller_form_lcl_ds.ppu
-rm ./mi.ui.lcl.form/lib/x86_64-win64/umi_ui_dbcheckbox_lcl.ppu
-rm ./mi.ui.lcl.form/lib/x86_64-win64/umi_ui_button_lcl.ppu
-rm ./mi.ui.lcl.form/lib/x86_64-win64/umi_ui_label_lcl.ppu
-rm ./mi.ui.lcl.form/lib/x86_64-win64/umi_ui_dbedit_lcl.ppu
-rm ./mi.ui.lcl.form/lib/x86_64-win64/umi_ui_dmxscroller_form_lcl.ppu
-rm ./mi.ui.lcl.form/lib/x86_64-win64/umi_ui_inputbox_lcl.ppu
-rm ./mi.ui.lcl.form/lib/x86_64-win64/umi_ui_dmxscroller_form_lcl_attributes.ppu
-rm ./mi.ui.lcl.form/lib/x86_64-win64/umi_ui_bitbtn_lcl.ppu
-rm ./mi.ui.lcl.form/examples/mi.ui.lcl.form.tests/lib/x86_64-linux/units/umi_ui_dmxscroller_form_lcl_ds_test2_dm.ppu
-rm ./mi.ui.lcl.form/examples/mi.ui.lcl.form.tests/lib/x86_64-linux/units/udmxscroller_form_lcl_add_test.ppu
-rm ./mi.ui.lcl.form/examples/mi.ui.lcl.form.tests/lib/x86_64-linux/units/umi_ui_dmxscroller_form_lcl_ds_test2.ppu
-rm ./mi.ui.lcl.form/examples/mi.ui.lcl.form.tests/lib/x86_64-linux/units/umi_ui_dmxscroller_form_lcl_ds_test.ppu
-rm ./mi.ui.lcl.form/examples/mi.ui.lcl.form.tests/lib/x86_64-linux/units/udmxscroller_form_lcl_test.ppu
-rm ./mi.ui.lcl.form/examples/mi.ui.lcl.form.tests/lib/x86_64-linux/units/umi_ui_inputbox_lcl_test.ppu
-rm ./mi.ui.lcl.form/examples/mi.ui.lcl.form.tests/lib/x86_64-linux/units/umi_ui_mi_msgbox_dm.ppu
-rm ./mi.ui.lcl.form/examples/mi.ui.lcl.form.tests/lib/x86_64-linux/units/udmxscroller_form_lcl_add_test2.ppu
-rm ./mi.ui.lcl.form/examples/mi.ui.lcl.form.tests/lib/x86_64-win64/units/umi_ui_dmxscroller_form_lcl_ds_test2_dm.ppu
-rm ./mi.ui.lcl.form/examples/mi.ui.lcl.form.tests/lib/x86_64-win64/units/udmxscroller_form_lcl_add_test.ppu
-rm ./mi.ui.lcl.form/examples/mi.ui.lcl.form.tests/lib/x86_64-win64/units/umi_ui_dmxscroller_form_lcl_ds_test2.ppu
-rm ./mi.ui.lcl.form/examples/mi.ui.lcl.form.tests/lib/x86_64-win64/units/umi_ui_dmxscroller_form_lcl_ds_test.ppu
-rm ./mi.ui.lcl.form/examples/mi.ui.lcl.form.tests/lib/x86_64-win64/units/udmxscroller_form_lcl_test.ppu
-rm ./mi.ui.lcl.form/examples/mi.ui.lcl.form.tests/lib/x86_64-win64/units/umi_ui_inputbox_lcl_test.ppu
-rm ./mi.ui.lcl.form/examples/mi.ui.lcl.form.tests/lib/x86_64-win64/units/umi_ui_mi_msgbox_dm.ppu
-rm ./mi.ui.lcl.form/examples/mi.ui.lcl.form.tests/lib/x86_64-win64/units/udmxscroller_form_lcl_add_test2.ppu
-rm ./mi.ui.lcl.form/examples/mi.ui.lcl.form.tests/bin/x86_64-win64/units/umi_ui_dmxscroller_form_lcl_ds_test2_dm.ppu
-rm ./mi.ui.lcl.form/examples/mi.ui.lcl.form.tests/bin/x86_64-win64/units/udmxscroller_form_lcl_add_test.ppu
-rm ./mi.ui.lcl.form/examples/mi.ui.lcl.form.tests/bin/x86_64-win64/units/umi_ui_dmxscroller_form_lcl_ds_test2.ppu
-rm ./mi.ui.lcl.form/examples/mi.ui.lcl.form.tests/bin/x86_64-win64/units/umi_ui_dmxscroller_form_lcl_ds_test.ppu
-rm ./mi.ui.lcl.form/examples/mi.ui.lcl.form.tests/bin/x86_64-win64/units/udmxscroller_form_lcl_test.ppu
-rm ./mi.ui.lcl.form/examples/mi.ui.lcl.form.tests/bin/x86_64-win64/units/umi_ui_inputbox_lcl_test.ppu
-rm ./mi.ui.lcl.form/examples/mi.ui.lcl.form.tests/bin/x86_64-win64/units/umi_ui_mi_msgbox_dm.ppu
-rm ./mi.ui.lcl.form/examples/mi.ui.lcl.form.tests/bin/x86_64-win64/units/udmxscroller_form_lcl_add_test2.ppu
-rm ./mi.ui.lcl.form/examples/mi.ui.lcl.form.AddTemplates/lib/x86_64-linux/units/unit1.ppu
-rm ./mi.rtl/lib/x86_64-linux/units/mi.rtl.objects.methods.streambase.stream.filestream.ppu
-rm ./mi.rtl/lib/x86_64-linux/units/mi.rtl.objects.methods.streambase.stream.ppu
-rm ./mi.rtl/lib/x86_64-linux/units/mi.rtl.objects.consts.progressdlg_if.ppu
-rm ./mi.rtl/lib/x86_64-linux/units/mi.rtl.objects.methods.db.tb___access.ppu
-rm ./mi.rtl/lib/x86_64-linux/units/mi_rtl_ui_types.ppu
-rm ./mi.rtl/lib/x86_64-linux/units/mi.rtl.objects.methods.collection.sortedcollection.stringcollection.collectionstring.ppu
-rm ./mi.rtl/lib/x86_64-linux/units/mi_rtl_ui_dmxscroller_form.ppu
-rm ./mi.rtl/lib/x86_64-linux/units/mi.rtl.objects.methods.streambase.stream.memorystream.ppu
-rm ./mi.rtl/lib/x86_64-linux/units/mi.rtl.objects.methods.dates.ppu
-rm ./mi.rtl/lib/x86_64-linux/units/mi.rtl.objects.methods.collection.sortedcollection.strcollection.ppu
-rm ./mi.rtl/lib/x86_64-linux/units/mi.rtl.objects.methods.collection.ppu
-rm ./mi.rtl/lib/x86_64-linux/units/mi.rtl.applicationabstract.ppu
-rm ./mi.rtl/lib/x86_64-linux/units/mi.rtl.objects.methods.paramexecucao.application.ppu
-rm ./mi.rtl/lib/x86_64-linux/units/mi_rtl_ui_dmxscroller.ppu
-rm ./mi.rtl/lib/x86_64-linux/units/mi.rtl.consts.strerror.ppu
-rm ./mi.rtl/lib/x86_64-linux/units/mi.rtl.ppu
-rm ./mi.rtl/lib/x86_64-linux/units/mi.rtl.objectss.ppu
-rm ./mi.rtl/lib/x86_64-linux/units/mi.rtl.libbinres.ppu
-rm ./mi.rtl/lib/x86_64-linux/units/mi.rtl.types.ppu
-rm ./mi.rtl/lib/x86_64-linux/units/mi.rtl.objects.methods.paramexecucao.ppu
-rm ./mi.rtl/lib/x86_64-linux/units/mi.rtl.class_of_char.ppu
-rm ./mi.rtl/lib/x86_64-linux/units/mi.rtl.objects.methods.streambase.ppu
-rm ./mi.rtl/lib/x86_64-linux/units/mi.rtl.objects.methods.db.tb_access.ppu
-rm ./mi.rtl/lib/x86_64-linux/units/mi.rtl.objects.types.ppu
-rm ./mi.rtl/lib/x86_64-linux/units/mi.rtl.objects.methods.collection.filesstreams.ppu
-rm ./mi.rtl/lib/x86_64-linux/units/mi_rtl_ui_custom_application.ppu
-rm ./mi.rtl/lib/x86_64-linux/units/mi_rtl_ui_methods.ppu
-rm ./mi.rtl/lib/x86_64-linux/units/mi.rtl.files.ppu
-rm ./mi.rtl/lib/x86_64-linux/units/mi.rtl.consts.stringlist.ppu
-rm ./mi.rtl/lib/x86_64-linux/units/mi.rtl.objects.consts.logs.ppu
-rm ./mi.rtl/lib/x86_64-linux/units/mi.rtl.objects.consts.ppu
-rm ./mi.rtl/lib/x86_64-linux/units/mi.rtl.objects.methods.collection.sortedcollection.ppu
-rm ./mi.rtl/lib/x86_64-linux/units/mi.rtl.objects.methods.system.ppu
-rm ./mi.rtl/lib/x86_64-linux/units/mi.rtl.consts.stringlistbase.ppu
-rm ./mi.rtl/lib/x86_64-linux/units/mi.rtl.objects.methods.ppu
-rm ./mi.rtl/lib/x86_64-linux/units/mi.rtl.objects.methods.db.tb__access.ppu
-rm ./mi.rtl/lib/x86_64-linux/units/mi.rtl.objects.methods.streambase.stream.memorystream.buffermemory.ppu
-rm ./mi.rtl/lib/x86_64-linux/units/mi_rtl_ui_consts.ppu
-rm ./mi.rtl/lib/x86_64-linux/units/mi_rtl_ui_dmxscroller_buttons.ppu
-rm ./mi.rtl/lib/x86_64-linux/units/mi.rtl.objects.methods.collection.sortedcollection.stringcollection.ppu
-rm ./mi.rtl/lib/x86_64-linux/units/mi.rtl.consts.ppu
-rm ./mi.rtl/lib/x86_64-linux/units/mi.rtl.objects.consts.mi_msgbox.ppu
-rm ./mi.rtl/lib/x86_64-linux/units/mi.rtl.objects.methods.exception.ppu
-rm ./mi.rtl/lib/x86_64-win64/units/mi.rtl.objects.methods.streambase.stream.filestream.ppu
-rm ./mi.rtl/lib/x86_64-win64/units/mi.rtl.objects.methods.streambase.stream.ppu
-rm ./mi.rtl/lib/x86_64-win64/units/mi.rtl.objects.consts.progressdlg_if.ppu
-rm ./mi.rtl/lib/x86_64-win64/units/mi.rtl.objects.methods.db.tb___access.ppu
-rm ./mi.rtl/lib/x86_64-win64/units/mi_rtl_ui_types.ppu
-rm ./mi.rtl/lib/x86_64-win64/units/mi.rtl.objects.methods.collection.sortedcollection.stringcollection.collectionstring.ppu
-rm ./mi.rtl/lib/x86_64-win64/units/mi_rtl_ui_dmxscroller_form.ppu
-rm ./mi.rtl/lib/x86_64-win64/units/mi.rtl.objects.methods.streambase.stream.memorystream.ppu
-rm ./mi.rtl/lib/x86_64-win64/units/mi.rtl.objects.methods.dates.ppu
-rm ./mi.rtl/lib/x86_64-win64/units/mi.rtl.objects.methods.collection.sortedcollection.strcollection.ppu
-rm ./mi.rtl/lib/x86_64-win64/units/mi.rtl.objects.methods.collection.ppu
-rm ./mi.rtl/lib/x86_64-win64/units/mi.rtl.applicationabstract.ppu
-rm ./mi.rtl/lib/x86_64-win64/units/mi.rtl.objects.methods.paramexecucao.application.ppu
-rm ./mi.rtl/lib/x86_64-win64/units/mi_rtl_ui_dmxscroller.ppu
-rm ./mi.rtl/lib/x86_64-win64/units/mi.rtl.consts.strerror.ppu
-rm ./mi.rtl/lib/x86_64-win64/units/mi.rtl.ppu
-rm ./mi.rtl/lib/x86_64-win64/units/mi.rtl.objectss.ppu
-rm ./mi.rtl/lib/x86_64-win64/units/mi.rtl.libbinres.ppu
-rm ./mi.rtl/lib/x86_64-win64/units/mi.rtl.types.ppu
-rm ./mi.rtl/lib/x86_64-win64/units/mi.rtl.objects.methods.paramexecucao.ppu
-rm ./mi.rtl/lib/x86_64-win64/units/mi.rtl.class_of_char.ppu
-rm ./mi.rtl/lib/x86_64-win64/units/mi.rtl.objects.methods.streambase.ppu
-rm ./mi.rtl/lib/x86_64-win64/units/mi.rtl.objects.methods.db.tb_access.ppu
-rm ./mi.rtl/lib/x86_64-win64/units/mi.rtl.objects.types.ppu
-rm ./mi.rtl/lib/x86_64-win64/units/mi.rtl.objects.methods.collection.filesstreams.ppu
-rm ./mi.rtl/lib/x86_64-win64/units/mi_rtl_ui_custom_application.ppu
-rm ./mi.rtl/lib/x86_64-win64/units/mi_rtl_ui_methods.ppu
-rm ./mi.rtl/lib/x86_64-win64/units/mi.rtl.files.ppu
-rm ./mi.rtl/lib/x86_64-win64/units/mi.rtl.consts.stringlist.ppu
-rm ./mi.rtl/lib/x86_64-win64/units/mi.rtl.objects.consts.logs.ppu
-rm ./mi.rtl/lib/x86_64-win64/units/mi.rtl.objects.consts.ppu
-rm ./mi.rtl/lib/x86_64-win64/units/mi.rtl.objects.methods.collection.sortedcollection.ppu
-rm ./mi.rtl/lib/x86_64-win64/units/mi.rtl.objects.methods.system.ppu
-rm ./mi.rtl/lib/x86_64-win64/units/mi.rtl.consts.stringlistbase.ppu
-rm ./mi.rtl/lib/x86_64-win64/units/mi.rtl.objects.methods.ppu
-rm ./mi.rtl/lib/x86_64-win64/units/mi.rtl.objects.methods.db.tb__access.ppu
-rm ./mi.rtl/lib/x86_64-win64/units/mi.rtl.objects.methods.streambase.stream.memorystream.buffermemory.ppu
-rm ./mi.rtl/lib/x86_64-win64/units/mi_rtl_ui_consts.ppu
-rm ./mi.rtl/lib/x86_64-win64/units/mi_rtl_ui_dmxscroller_buttons.ppu
-rm ./mi.rtl/lib/x86_64-win64/units/mi.rtl.objects.methods.collection.sortedcollection.stringcollection.ppu
-rm ./mi.rtl/lib/x86_64-win64/units/mi.rtl.consts.ppu
-rm ./mi.rtl/lib/x86_64-win64/units/mi.rtl.objects.consts.mi_msgbox.ppu
-rm ./mi.rtl/lib/x86_64-win64/units/mi.rtl.objects.methods.exception.ppu
-rm ./mi.rtl/lib/i386-win32/units/mi.rtl.objects.methods.streambase.stream.filestream.ppu
-rm ./mi.rtl/lib/i386-win32/units/mi.rtl.objects.methods.streambase.stream.ppu
-rm ./mi.rtl/lib/i386-win32/units/mi.rtl.objects.consts.progressdlg_if.ppu
-rm ./mi.rtl/lib/i386-win32/units/mi.rtl.objects.methods.db.tb___access.ppu
-rm ./mi.rtl/lib/i386-win32/units/mi_rtl_ui_types.ppu
-rm ./mi.rtl/lib/i386-win32/units/mi.rtl.objects.methods.collection.sortedcollection.stringcollection.collectionstring.ppu
-rm ./mi.rtl/lib/i386-win32/units/mi_rtl_ui_dmxscroller_form.ppu
-rm ./mi.rtl/lib/i386-win32/units/mi.rtl.objects.methods.streambase.stream.memorystream.ppu
-rm ./mi.rtl/lib/i386-win32/units/mi.rtl.objects.methods.dates.ppu
-rm ./mi.rtl/lib/i386-win32/units/mi.rtl.objects.methods.collection.sortedcollection.strcollection.ppu
-rm ./mi.rtl/lib/i386-win32/units/mi.rtl.objects.methods.collection.ppu
-rm ./mi.rtl/lib/i386-win32/units/mi.rtl.applicationabstract.ppu
-rm ./mi.rtl/lib/i386-win32/units/mi.rtl.objects.methods.paramexecucao.application.ppu
-rm ./mi.rtl/lib/i386-win32/units/mi_rtl_ui_dmxscroller.ppu
-rm ./mi.rtl/lib/i386-win32/units/mi.rtl.consts.strerror.ppu
-rm ./mi.rtl/lib/i386-win32/units/mi.rtl.ppu
-rm ./mi.rtl/lib/i386-win32/units/mi.rtl.objectss.ppu
-rm ./mi.rtl/lib/i386-win32/units/mi.rtl.libbinres.ppu
-rm ./mi.rtl/lib/i386-win32/units/mi.rtl.types.ppu
-rm ./mi.rtl/lib/i386-win32/units/mi.rtl.objects.methods.paramexecucao.ppu
-rm ./mi.rtl/lib/i386-win32/units/mi.rtl.class_of_char.ppu
-rm ./mi.rtl/lib/i386-win32/units/mi.rtl.objects.methods.streambase.ppu
-rm ./mi.rtl/lib/i386-win32/units/mi.rtl.objects.methods.db.tb_access.ppu
-rm ./mi.rtl/lib/i386-win32/units/mi.rtl.objects.types.ppu
-rm ./mi.rtl/lib/i386-win32/units/mi.rtl.objects.methods.collection.filesstreams.ppu
-rm ./mi.rtl/lib/i386-win32/units/mi_rtl_ui_custom_application.ppu
-rm ./mi.rtl/lib/i386-win32/units/mi_rtl_ui_methods.ppu
-rm ./mi.rtl/lib/i386-win32/units/mi.rtl.files.ppu
-rm ./mi.rtl/lib/i386-win32/units/mi.rtl.consts.stringlist.ppu
-rm ./mi.rtl/lib/i386-win32/units/mi.rtl.objects.consts.logs.ppu
-rm ./mi.rtl/lib/i386-win32/units/mi.rtl.objects.consts.ppu
-rm ./mi.rtl/lib/i386-win32/units/mi.rtl.objects.methods.collection.sortedcollection.ppu
-rm ./mi.rtl/lib/i386-win32/units/mi.rtl.objects.methods.system.ppu
-rm ./mi.rtl/lib/i386-win32/units/mi.rtl.consts.stringlistbase.ppu
-rm ./mi.rtl/lib/i386-win32/units/mi.rtl.objects.methods.ppu
-rm ./mi.rtl/lib/i386-win32/units/mi.rtl.objects.methods.db.tb__access.ppu
-rm ./mi.rtl/lib/i386-win32/units/mi.rtl.objects.methods.streambase.stream.memorystream.buffermemory.ppu
-rm ./mi.rtl/lib/i386-win32/units/mi_rtl_ui_consts.ppu
-rm ./mi.rtl/lib/i386-win32/units/mi_rtl_ui_dmxscroller_buttons.ppu
-rm ./mi.rtl/lib/i386-win32/units/mi.rtl.objects.methods.collection.sortedcollection.stringcollection.ppu
-rm ./mi.rtl/lib/i386-win32/units/mi.rtl.consts.ppu
-rm ./mi.rtl/lib/i386-win32/units/mi.rtl.objects.consts.mi_msgbox.ppu
-rm ./mi.rtl/lib/i386-win32/units/mi.rtl.objects.methods.exception.ppu
-rm ./mi.rtl/examples/test_num_version/lib/x86_64-linux/unit1.ppu
-rm ./mi.rtl/examples/mi.rtl.tests/lib/x86_64-linux/units/mi.rtl.objects.methods.db.tb__access_test.ppu
-rm ./mi.rtl/examples/mi.rtl.tests/lib/x86_64-linux/units/unit1.ppu
-rm ./mi.rtl/examples/mi.rtl.tests/lib/x86_64-linux/units/mi_ui_mi_msgbox_dm.ppu
-rm ./mi.rtl/examples/mi.rtl.tests/lib/x86_64-win64/units/mi.rtl.objects.methods.db.tb__access_test.ppu
-rm ./mi.rtl/examples/mi.rtl.tests/lib/x86_64-win64/units/unit1.ppu
-rm ./mi.rtl/examples/mi.rtl.tests/lib/x86_64-win64/units/mi_ui_mi_msgbox_dm.ppu
-rm ./mi.rtl/examples/mi.rtl.tests/lib/i386-win32/units/mi.rtl.objects.methods.db.tb__access_test.ppu
-rm ./mi.rtl/examples/mi.rtl.tests/lib/i386-win32/units/unit1.ppu
-rm ./mi.rtl/examples/mi.rtl.tests/lib/i386-win32/units/mi_ui_mi_msgbox_dm.ppu
-rm ./mi.rtl/units/horse/console/lib/x86_64-linux/unit1.ppu
-rm ./lib/x86_64-linux/unit1.ppu
-rm ./lib/x86_64-linux/mi.rtl.horse.ppu
-rm ./mi.ui.lcl.form/lib/x86_64-linux/umi_ui_scrollbox_lcl.o
-rm ./mi.ui.lcl.form/lib/x86_64-linux/umi_ui_inputbox_lcl.o
-rm ./mi.ui.lcl.form/lib/x86_64-linux/umi_ui_dbradiogroup_lcl.o
-rm ./mi.ui.lcl.form/lib/x86_64-linux/umi_ui_bitbtn_lcl.o
-rm ./mi.ui.lcl.form/lib/x86_64-linux/umi_ui_label_lcl.o
-rm ./mi.ui.lcl.form/lib/x86_64-linux/umi_ui_dblookupcombobox_lcl.o
-rm ./mi.ui.lcl.form/lib/x86_64-linux/umi_ui_dbedit_lcl.o
-rm ./mi.ui.lcl.form/lib/x86_64-linux/umi_ui_dbcombobox_lcl.o
-rm ./mi.ui.lcl.form/lib/x86_64-linux/umi_ui_button_lcl.o
-rm ./mi.ui.lcl.form/lib/x86_64-linux/umi_ui_dmxscroller_form_lcl_ds.o
-rm ./mi.ui.lcl.form/lib/x86_64-linux/umi_ui_maskedit_lcl.o
-rm ./mi.ui.lcl.form/lib/x86_64-linux/mi.ui.lcl.form.o
-rm ./mi.ui.lcl.form/lib/x86_64-linux/umi_ui_dbcheckbox_lcl.o
-rm ./mi.ui.lcl.form/lib/x86_64-linux/umi_ui_dmxscroller_form_lcl_attributes.o
-rm ./mi.ui.lcl.form/lib/x86_64-linux/umi_ui_radiogroup_lcl.o
-rm ./mi.ui.lcl.form/lib/x86_64-linux/umi_ui_checkbox_lcl.o
-rm ./mi.ui.lcl.form/lib/x86_64-linux/umi_ui_combobox_lcl.o
-rm ./mi.ui.lcl.form/lib/x86_64-linux/umi_ui_dmxscroller_form_lcl.o
-rm ./mi.ui.lcl.form/lib/x86_64-win64/umi_ui_scrollbox_lcl.o
-rm ./mi.ui.lcl.form/lib/x86_64-win64/umi_ui_inputbox_lcl.o
-rm ./mi.ui.lcl.form/lib/x86_64-win64/umi_ui_dbradiogroup_lcl.o
-rm ./mi.ui.lcl.form/lib/x86_64-win64/umi_ui_bitbtn_lcl.o
-rm ./mi.ui.lcl.form/lib/x86_64-win64/umi_ui_label_lcl.o
-rm ./mi.ui.lcl.form/lib/x86_64-win64/umi_ui_dblookupcombobox_lcl.o
-rm ./mi.ui.lcl.form/lib/x86_64-win64/umi_ui_dbedit_lcl.o
-rm ./mi.ui.lcl.form/lib/x86_64-win64/umi_ui_dbcombobox_lcl.o
-rm ./mi.ui.lcl.form/lib/x86_64-win64/umi_ui_button_lcl.o
-rm ./mi.ui.lcl.form/lib/x86_64-win64/umi_ui_dmxscroller_form_lcl_ds.o
-rm ./mi.ui.lcl.form/lib/x86_64-win64/umi_ui_maskedit_lcl.o
-rm ./mi.ui.lcl.form/lib/x86_64-win64/mi.ui.lcl.form.o
-rm ./mi.ui.lcl.form/lib/x86_64-win64/umi_ui_dbcheckbox_lcl.o
-rm ./mi.ui.lcl.form/lib/x86_64-win64/umi_ui_dmxscroller_form_lcl_attributes.o
-rm ./mi.ui.lcl.form/lib/x86_64-win64/umi_ui_radiogroup_lcl.o
-rm ./mi.ui.lcl.form/lib/x86_64-win64/umi_ui_checkbox_lcl.o
-rm ./mi.ui.lcl.form/lib/x86_64-win64/umi_ui_combobox_lcl.o
-rm ./mi.ui.lcl.form/lib/x86_64-win64/umi_ui_dmxscroller_form_lcl.o
-rm ./mi.ui.lcl.form/examples/mi.ui.lcl.form.tests/lib/x86_64-linux/units/umi_ui_inputbox_lcl_test.o
-rm ./mi.ui.lcl.form/examples/mi.ui.lcl.form.tests/lib/x86_64-linux/units/umi_ui_dmxscroller_form_lcl_ds_test2_dm.o
-rm ./mi.ui.lcl.form/examples/mi.ui.lcl.form.tests/lib/x86_64-linux/units/udmxscroller_form_lcl_add_test.o
-rm ./mi.ui.lcl.form/examples/mi.ui.lcl.form.tests/lib/x86_64-linux/units/umi_ui_mi_msgbox_dm.o
-rm ./mi.ui.lcl.form/examples/mi.ui.lcl.form.tests/lib/x86_64-linux/units/udmxscroller_form_lcl_test.o
-rm ./mi.ui.lcl.form/examples/mi.ui.lcl.form.tests/lib/x86_64-linux/units/mi.ui.lcl.form.test.o
-rm ./mi.ui.lcl.form/examples/mi.ui.lcl.form.tests/lib/x86_64-linux/units/umi_ui_dmxscroller_form_lcl_ds_test.o
-rm ./mi.ui.lcl.form/examples/mi.ui.lcl.form.tests/lib/x86_64-linux/units/umi_ui_dmxscroller_form_lcl_ds_test2.o
-rm ./mi.ui.lcl.form/examples/mi.ui.lcl.form.tests/lib/x86_64-linux/units/udmxscroller_form_lcl_add_test2.o
-rm ./mi.ui.lcl.form/examples/mi.ui.lcl.form.tests/lib/x86_64-win64/units/umi_ui_inputbox_lcl_test.o
-rm ./mi.ui.lcl.form/examples/mi.ui.lcl.form.tests/lib/x86_64-win64/units/umi_ui_dmxscroller_form_lcl_ds_test2_dm.o
-rm ./mi.ui.lcl.form/examples/mi.ui.lcl.form.tests/lib/x86_64-win64/units/udmxscroller_form_lcl_add_test.o
-rm ./mi.ui.lcl.form/examples/mi.ui.lcl.form.tests/lib/x86_64-win64/units/umi_ui_mi_msgbox_dm.o
-rm ./mi.ui.lcl.form/examples/mi.ui.lcl.form.tests/lib/x86_64-win64/units/udmxscroller_form_lcl_test.o
-rm ./mi.ui.lcl.form/examples/mi.ui.lcl.form.tests/lib/x86_64-win64/units/mi.ui.lcl.form.test.o
-rm ./mi.ui.lcl.form/examples/mi.ui.lcl.form.tests/lib/x86_64-win64/units/umi_ui_dmxscroller_form_lcl_ds_test.o
-rm ./mi.ui.lcl.form/examples/mi.ui.lcl.form.tests/lib/x86_64-win64/units/umi_ui_dmxscroller_form_lcl_ds_test2.o
-rm ./mi.ui.lcl.form/examples/mi.ui.lcl.form.tests/lib/x86_64-win64/units/udmxscroller_form_lcl_add_test2.o
-rm ./mi.ui.lcl.form/examples/mi.ui.lcl.form.tests/bin/x86_64-win64/units/umi_ui_inputbox_lcl_test.o
-rm ./mi.ui.lcl.form/examples/mi.ui.lcl.form.tests/bin/x86_64-win64/units/umi_ui_dmxscroller_form_lcl_ds_test2_dm.o
-rm ./mi.ui.lcl.form/examples/mi.ui.lcl.form.tests/bin/x86_64-win64/units/udmxscroller_form_lcl_add_test.o
-rm ./mi.ui.lcl.form/examples/mi.ui.lcl.form.tests/bin/x86_64-win64/units/umi_ui_mi_msgbox_dm.o
-rm ./mi.ui.lcl.form/examples/mi.ui.lcl.form.tests/bin/x86_64-win64/units/udmxscroller_form_lcl_test.o
-rm ./mi.ui.lcl.form/examples/mi.ui.lcl.form.tests/bin/x86_64-win64/units/mi.ui.lcl.form.test.o
-rm ./mi.ui.lcl.form/examples/mi.ui.lcl.form.tests/bin/x86_64-win64/units/umi_ui_dmxscroller_form_lcl_ds_test.o
-rm ./mi.ui.lcl.form/examples/mi.ui.lcl.form.tests/bin/x86_64-win64/units/umi_ui_dmxscroller_form_lcl_ds_test2.o
-rm ./mi.ui.lcl.form/examples/mi.ui.lcl.form.tests/bin/x86_64-win64/units/udmxscroller_form_lcl_add_test2.o
-rm ./mi.ui.lcl.form/examples/mi.ui.lcl.form.AddTemplates/lib/x86_64-linux/units/unit1.o
-rm ./mi.ui.lcl.form/examples/mi.ui.lcl.form.AddTemplates/lib/x86_64-linux/units/mi.ui.lcl.form.addtemplates.o
-rm ./mi.rtl/lib/x86_64-linux/units/mi.rtl.objects.methods.db.tb___access.o
-rm ./mi.rtl/lib/x86_64-linux/units/mi.rtl.objects.methods.collection.sortedcollection.stringcollection.collectionstring.o
-rm ./mi.rtl/lib/x86_64-linux/units/mi.rtl.objects.methods.collection.sortedcollection.o
-rm ./mi.rtl/lib/x86_64-linux/units/mi.rtl.objects.consts.progressdlg_if.o
-rm ./mi.rtl/lib/x86_64-linux/units/mi.rtl.objects.methods.db.tb_access.o
-rm ./mi.rtl/lib/x86_64-linux/units/mi.rtl.objects.methods.streambase.o
-rm ./mi.rtl/lib/x86_64-linux/units/mi.rtl.types.o
-rm ./mi.rtl/lib/x86_64-linux/units/mi.rtl.objects.types.o
-rm ./mi.rtl/lib/x86_64-linux/units/mi.rtl.consts.stringlistbase.o
-rm ./mi.rtl/lib/x86_64-linux/units/mi.rtl.objects.methods.system.o
-rm ./mi.rtl/lib/x86_64-linux/units/mi.rtl.objectss.o
-rm ./mi.rtl/lib/x86_64-linux/units/mi_rtl_ui_consts.o
-rm ./mi.rtl/lib/x86_64-linux/units/mi.rtl.objects.consts.o
-rm ./mi.rtl/lib/x86_64-linux/units/mi.rtl.objects.methods.collection.sortedcollection.stringcollection.o
-rm ./mi.rtl/lib/x86_64-linux/units/mi_rtl_ui_types.o
-rm ./mi.rtl/lib/x86_64-linux/units/mi_rtl_ui_methods.o
-rm ./mi.rtl/lib/x86_64-linux/units/mi.rtl.class_of_char.o
-rm ./mi.rtl/lib/x86_64-linux/units/mi.rtl.objects.consts.mi_msgbox.o
-rm ./mi.rtl/lib/x86_64-linux/units/mi.rtl.objects.methods.collection.sortedcollection.strcollection.o
-rm ./mi.rtl/lib/x86_64-linux/units/mi.rtl.objects.methods.o
-rm ./mi.rtl/lib/x86_64-linux/units/mi.rtl.objects.methods.dates.o
-rm ./mi.rtl/lib/x86_64-linux/units/mi.rtl.o
-rm ./mi.rtl/lib/x86_64-linux/units/mi.rtl.objects.methods.exception.o
-rm ./mi.rtl/lib/x86_64-linux/units/mi_rtl_ui_dmxscroller_form.o
-rm ./mi.rtl/lib/x86_64-linux/units/mi.rtl.objects.methods.paramexecucao.application.o
-rm ./mi.rtl/lib/x86_64-linux/units/mi_rtl_ui_custom_application.o
-rm ./mi.rtl/lib/x86_64-linux/units/mi.rtl.consts.o
-rm ./mi.rtl/lib/x86_64-linux/units/mi.rtl.consts.stringlist.o
-rm ./mi.rtl/lib/x86_64-linux/units/mi.rtl.objects.methods.collection.filesstreams.o
-rm ./mi.rtl/lib/x86_64-linux/units/mi.rtl.objects.methods.db.tb__access.o
-rm ./mi.rtl/lib/x86_64-linux/units/mi.rtl.applicationabstract.o
-rm ./mi.rtl/lib/x86_64-linux/units/mi_rtl_ui_dmxscroller.o
-rm ./mi.rtl/lib/x86_64-linux/units/mi.rtl.objects.methods.streambase.stream.filestream.o
-rm ./mi.rtl/lib/x86_64-linux/units/mi.rtl.libbinres.o
-rm ./mi.rtl/lib/x86_64-linux/units/mi.rtl.objects.methods.streambase.stream.o
-rm ./mi.rtl/lib/x86_64-linux/units/mi.rtl.objects.methods.collection.o
-rm ./mi.rtl/lib/x86_64-linux/units/mi.rtl.objects.consts.logs.o
-rm ./mi.rtl/lib/x86_64-linux/units/mi.rtl.objects.methods.streambase.stream.memorystream.o
-rm ./mi.rtl/lib/x86_64-linux/units/mi.rtl.files.o
-rm ./mi.rtl/lib/x86_64-linux/units/mi.rtl.consts.strerror.o
-rm ./mi.rtl/lib/x86_64-linux/units/mi.rtl.objects.methods.paramexecucao.o
-rm ./mi.rtl/lib/x86_64-linux/units/mi_rtl_ui_dmxscroller_buttons.o
-rm ./mi.rtl/lib/x86_64-linux/units/mi.rtl.objects.methods.streambase.stream.memorystream.buffermemory.o
-rm ./mi.rtl/lib/x86_64-win64/units/mi.rtl.objects.methods.db.tb___access.o
-rm ./mi.rtl/lib/x86_64-win64/units/mi.rtl.objects.methods.collection.sortedcollection.stringcollection.collectionstring.o
-rm ./mi.rtl/lib/x86_64-win64/units/mi.rtl.objects.methods.collection.sortedcollection.o
-rm ./mi.rtl/lib/x86_64-win64/units/mi.rtl.objects.consts.progressdlg_if.o
-rm ./mi.rtl/lib/x86_64-win64/units/mi.rtl.objects.methods.db.tb_access.o
-rm ./mi.rtl/lib/x86_64-win64/units/mi.rtl.objects.methods.streambase.o
-rm ./mi.rtl/lib/x86_64-win64/units/mi.rtl.types.o
-rm ./mi.rtl/lib/x86_64-win64/units/mi.rtl.objects.types.o
-rm ./mi.rtl/lib/x86_64-win64/units/mi.rtl.consts.stringlistbase.o
-rm ./mi.rtl/lib/x86_64-win64/units/mi.rtl.objects.methods.system.o
-rm ./mi.rtl/lib/x86_64-win64/units/mi.rtl.objectss.o
-rm ./mi.rtl/lib/x86_64-win64/units/mi_rtl_ui_consts.o
-rm ./mi.rtl/lib/x86_64-win64/units/mi.rtl.objects.consts.o
-rm ./mi.rtl/lib/x86_64-win64/units/mi.rtl.objects.methods.collection.sortedcollection.stringcollection.o
-rm ./mi.rtl/lib/x86_64-win64/units/mi_rtl_ui_types.o
-rm ./mi.rtl/lib/x86_64-win64/units/mi_rtl_ui_methods.o
-rm ./mi.rtl/lib/x86_64-win64/units/mi.rtl.class_of_char.o
-rm ./mi.rtl/lib/x86_64-win64/units/mi.rtl.objects.consts.mi_msgbox.o
-rm ./mi.rtl/lib/x86_64-win64/units/mi.rtl.objects.methods.collection.sortedcollection.strcollection.o
-rm ./mi.rtl/lib/x86_64-win64/units/mi.rtl.objects.methods.o
-rm ./mi.rtl/lib/x86_64-win64/units/mi.rtl.objects.methods.dates.o
-rm ./mi.rtl/lib/x86_64-win64/units/mi.rtl.o
-rm ./mi.rtl/lib/x86_64-win64/units/mi.rtl.objects.methods.exception.o
-rm ./mi.rtl/lib/x86_64-win64/units/mi_rtl_ui_dmxscroller_form.o
-rm ./mi.rtl/lib/x86_64-win64/units/mi.rtl.objects.methods.paramexecucao.application.o
-rm ./mi.rtl/lib/x86_64-win64/units/mi_rtl_ui_custom_application.o
-rm ./mi.rtl/lib/x86_64-win64/units/mi.rtl.consts.o
-rm ./mi.rtl/lib/x86_64-win64/units/mi.rtl.consts.stringlist.o
-rm ./mi.rtl/lib/x86_64-win64/units/mi.rtl.objects.methods.collection.filesstreams.o
-rm ./mi.rtl/lib/x86_64-win64/units/mi.rtl.objects.methods.db.tb__access.o
-rm ./mi.rtl/lib/x86_64-win64/units/mi.rtl.applicationabstract.o
-rm ./mi.rtl/lib/x86_64-win64/units/mi_rtl_ui_dmxscroller.o
-rm ./mi.rtl/lib/x86_64-win64/units/mi.rtl.objects.methods.streambase.stream.filestream.o
-rm ./mi.rtl/lib/x86_64-win64/units/mi.rtl.libbinres.o
-rm ./mi.rtl/lib/x86_64-win64/units/mi.rtl.objects.methods.streambase.stream.o
-rm ./mi.rtl/lib/x86_64-win64/units/mi.rtl.objects.methods.collection.o
-rm ./mi.rtl/lib/x86_64-win64/units/mi.rtl.objects.consts.logs.o
-rm ./mi.rtl/lib/x86_64-win64/units/mi.rtl.objects.methods.streambase.stream.memorystream.o
-rm ./mi.rtl/lib/x86_64-win64/units/mi.rtl.files.o
-rm ./mi.rtl/lib/x86_64-win64/units/mi.rtl.consts.strerror.o
-rm ./mi.rtl/lib/x86_64-win64/units/mi.rtl.objects.methods.paramexecucao.o
-rm ./mi.rtl/lib/x86_64-win64/units/mi_rtl_ui_dmxscroller_buttons.o
-rm ./mi.rtl/lib/x86_64-win64/units/mi.rtl.objects.methods.streambase.stream.memorystream.buffermemory.o
-rm ./mi.rtl/lib/i386-win32/units/mi.rtl.objects.methods.db.tb___access.o
-rm ./mi.rtl/lib/i386-win32/units/mi.rtl.objects.methods.collection.sortedcollection.stringcollection.collectionstring.o
-rm ./mi.rtl/lib/i386-win32/units/mi.rtl.objects.methods.collection.sortedcollection.o
-rm ./mi.rtl/lib/i386-win32/units/mi.rtl.objects.consts.progressdlg_if.o
-rm ./mi.rtl/lib/i386-win32/units/mi.rtl.objects.methods.db.tb_access.o
-rm ./mi.rtl/lib/i386-win32/units/mi.rtl.objects.methods.streambase.o
-rm ./mi.rtl/lib/i386-win32/units/mi.rtl.types.o
-rm ./mi.rtl/lib/i386-win32/units/mi.rtl.objects.types.o
-rm ./mi.rtl/lib/i386-win32/units/mi.rtl.consts.stringlistbase.o
-rm ./mi.rtl/lib/i386-win32/units/mi.rtl.objects.methods.system.o
-rm ./mi.rtl/lib/i386-win32/units/mi.rtl.objectss.o
-rm ./mi.rtl/lib/i386-win32/units/mi_rtl_ui_consts.o
-rm ./mi.rtl/lib/i386-win32/units/mi.rtl.objects.consts.o
-rm ./mi.rtl/lib/i386-win32/units/mi.rtl.objects.methods.collection.sortedcollection.stringcollection.o
-rm ./mi.rtl/lib/i386-win32/units/mi_rtl_ui_types.o
-rm ./mi.rtl/lib/i386-win32/units/mi_rtl_ui_methods.o
-rm ./mi.rtl/lib/i386-win32/units/mi.rtl.class_of_char.o
-rm ./mi.rtl/lib/i386-win32/units/mi.rtl.objects.consts.mi_msgbox.o
-rm ./mi.rtl/lib/i386-win32/units/mi.rtl.objects.methods.collection.sortedcollection.strcollection.o
-rm ./mi.rtl/lib/i386-win32/units/mi.rtl.objects.methods.o
-rm ./mi.rtl/lib/i386-win32/units/mi.rtl.objects.methods.dates.o
-rm ./mi.rtl/lib/i386-win32/units/mi.rtl.o
-rm ./mi.rtl/lib/i386-win32/units/mi.rtl.objects.methods.exception.o
-rm ./mi.rtl/lib/i386-win32/units/mi_rtl_ui_dmxscroller_form.o
-rm ./mi.rtl/lib/i386-win32/units/mi.rtl.objects.methods.paramexecucao.application.o
-rm ./mi.rtl/lib/i386-win32/units/mi_rtl_ui_custom_application.o
-rm ./mi.rtl/lib/i386-win32/units/mi.rtl.consts.o
-rm ./mi.rtl/lib/i386-win32/units/mi.rtl.consts.stringlist.o
-rm ./mi.rtl/lib/i386-win32/units/mi.rtl.objects.methods.collection.filesstreams.o
-rm ./mi.rtl/lib/i386-win32/units/mi.rtl.objects.methods.db.tb__access.o
-rm ./mi.rtl/lib/i386-win32/units/mi.rtl.applicationabstract.o
-rm ./mi.rtl/lib/i386-win32/units/mi_rtl_ui_dmxscroller.o
-rm ./mi.rtl/lib/i386-win32/units/mi.rtl.objects.methods.streambase.stream.filestream.o
-rm ./mi.rtl/lib/i386-win32/units/mi.rtl.libbinres.o
-rm ./mi.rtl/lib/i386-win32/units/mi.rtl.objects.methods.streambase.stream.o
-rm ./mi.rtl/lib/i386-win32/units/mi.rtl.objects.methods.collection.o
-rm ./mi.rtl/lib/i386-win32/units/mi.rtl.objects.consts.logs.o
-rm ./mi.rtl/lib/i386-win32/units/mi.rtl.objects.methods.streambase.stream.memorystream.o
-rm ./mi.rtl/lib/i386-win32/units/mi.rtl.files.o
-rm ./mi.rtl/lib/i386-win32/units/mi.rtl.consts.strerror.o
-rm ./mi.rtl/lib/i386-win32/units/mi.rtl.objects.methods.paramexecucao.o
-rm ./mi.rtl/lib/i386-win32/units/mi_rtl_ui_dmxscroller_buttons.o
-rm ./mi.rtl/lib/i386-win32/units/mi.rtl.objects.methods.streambase.stream.memorystream.buffermemory.o
-rm ./mi.rtl/examples/stork/lib/x86_64-linux/create_config_stork.o
-rm ./mi.rtl/examples/test_num_version/lib/x86_64-linux/unit1.o
-rm ./mi.rtl/examples/test_num_version/lib/x86_64-linux/project1.o
-rm ./mi.rtl/examples/mi.rtl.tests/lib/x86_64-linux/units/mi.rtl.tests.o
-rm ./mi.rtl/examples/mi.rtl.tests/lib/x86_64-linux/units/mi.rtl.objects.methods.db.tb__access_test.o
-rm ./mi.rtl/examples/mi.rtl.tests/lib/x86_64-linux/units/unit1.o
-rm ./mi.rtl/examples/mi.rtl.tests/lib/x86_64-linux/units/mi_ui_mi_msgbox_dm.o
-rm ./mi.rtl/examples/mi.rtl.tests/lib/x86_64-win64/units/mi.rtl.tests.o
-rm ./mi.rtl/examples/mi.rtl.tests/lib/x86_64-win64/units/mi.rtl.objects.methods.db.tb__access_test.o
-rm ./mi.rtl/examples/mi.rtl.tests/lib/x86_64-win64/units/unit1.o
-rm ./mi.rtl/examples/mi.rtl.tests/lib/x86_64-win64/units/mi_ui_mi_msgbox_dm.o
-rm ./mi.rtl/examples/mi.rtl.tests/lib/i386-win32/units/mi.rtl.tests.o
-rm ./mi.rtl/examples/mi.rtl.tests/lib/i386-win32/units/mi.rtl.objects.methods.db.tb__access_test.o
-rm ./mi.rtl/examples/mi.rtl.tests/lib/i386-win32/units/unit1.o
-rm ./mi.rtl/examples/mi.rtl.tests/lib/i386-win32/units/mi_ui_mi_msgbox_dm.o
-rm ./mi.rtl/units/horse/console/lib/x86_64-linux/unit1.o
-rm ./lib/x86_64-linux/unit1.o
-rm ./lib/x86_64-linux/project1.o
-rm ./lib/x86_64-linux/mi.rtl.horse.o
-rm ./mi.ui.lcl.form/examples/mi.ui.lcl.form.tests/lib/x86_64-linux/units/mi.ui.lcl.form.test.or
-rm ./mi.ui.lcl.form/examples/mi.ui.lcl.form.AddTemplates/lib/x86_64-linux/units/mi.ui.lcl.form.addtemplates.or
-rm ./mi.rtl/examples/test_num_version/lib/x86_64-linux/project1.or
-rm ./mi.rtl/examples/mi.rtl.tests/lib/x86_64-linux/units/mi.rtl.tests.or
-rm ./mi.rtl/examples/mi.rtl.tests/lib/i386-win32/units/mi.rtl.tests.or
-rm ./mi.rtl/units/lib/x86_64-linux/project1.or
-rm ./lib/x86_64-linux/project1.or
-rm ./mi.ui.lcl.form/examples/mi.ui.lcl.form.tests/lib/x86_64-linux/units/udmxscroller_form_lcl_test.rsj
-rm ./mi.ui.lcl.form/examples/mi.ui.lcl.form.tests/lib/x86_64-linux/units/udmxscroller_form_lcl_add_test.rsj
-rm ./mi.ui.lcl.form/examples/mi.ui.lcl.form.tests/lib/x86_64-win64/units/udmxscroller_form_lcl_test.rsj
-rm ./mi.ui.lcl.form/examples/mi.ui.lcl.form.tests/lib/x86_64-win64/units/udmxscroller_form_lcl_add_test.rsj
-rm ./mi.ui.lcl.form/examples/mi.ui.lcl.form.tests/bin/x86_64-win64/units/udmxscroller_form_lcl_test.rsj
-rm ./mi.ui.lcl.form/examples/mi.ui.lcl.form.tests/bin/x86_64-win64/units/udmxscroller_form_lcl_add_test.rsj
-rm ./mi.rtl/lib/x86_64-linux/units/mi.rtl.objects.consts.logs.rsj
-rm ./mi.rtl/lib/x86_64-linux/units/mi.rtl.consts.rsj
-rm ./mi.rtl/lib/x86_64-win64/units/mi.rtl.objects.consts.logs.rsj
-rm ./mi.rtl/lib/x86_64-win64/units/mi.rtl.consts.rsj
-rm ./mi.rtl/lib/i386-win32/units/mi.rtl.objects.consts.logs.rsj
-rm ./mi.rtl/lib/i386-win32/units/mi.rtl.consts.rsj
-rm ./mi.rtl/units/mi.rtl.consts.rsj
-rm ./mi.ui.lcl.form/examples/mi.ui.lcl.form.tests/backup/mi.ui.lcl.form.test.lps
-rm ./mi.ui.lcl.form/examples/mi.ui.lcl.form.tests/mi.ui.lcl.form.test.lps
-rm ./mi.ui.lcl.form/examples/mi.ui.lcl.form.AddTemplates/backup/mi.ui.lcl.form.addtemplates.lps
-rm ./mi.ui.lcl.form/examples/mi.ui.lcl.form.AddTemplates/mi.ui.lcl.form.addtemplates.lps
-rm ./mi.rtl/examples/stork/backup/create_config_stork.lps
-rm ./mi.rtl/examples/stork/create_config_stork.lps
-rm ./mi.rtl/examples/test_num_version/test_num_version.lps
-rm ./mi.rtl/examples/test_num_version/backup/project1.lps
-rm ./mi.rtl/examples/test_num_version/project1.lps
-rm ./mi.rtl/examples/mi.rtl.tests/mi.rtl.tests.lps
-rm ./mi.rtl/examples/mi.rtl.tests/backup/mi.rtl.tests.lps
-rm ./mi.rtl/units/horse/console/backup/Console.lps
-rm ./mi.rtl/units/horse/console/backup/project1.lps
-rm ./mi.rtl/units/horse/console/Console.lps
-rm ./mi.rtl/units/horse/console/project1.lps
-rm ./backup/demo.lps
-rm ./backup/Readme.lps
-rm ./backup/project1.lps
-rm ./temp/project1.lps
-rm ./Readme.lps
-rm ./project1.lps
-rm ./mi.ui.lcl.form/backup/tarefas_a_fazer.pas.bak
-rm ./mi.ui.lcl.form/backup/histórico.pas.bak
-rm ./mi.ui.lcl.form/backup/mi.ui.lcl.form.lpk.bak
-rm ./mi.ui.lcl.form/examples/mi.ui.lcl.form.tests/units/backup/umi_ui_mi_msgbox_dm.lfm.bak
-rm ./mi.ui.lcl.form/examples/mi.ui.lcl.form.tests/units/backup/udmxscroller_form_lcl_test.lfm.bak
-rm ./mi.ui.lcl.form/units/backup/umi_ui_maskedit_lcl.md.bak
-rm ./mi.ui.lcl.form/units/backup/umi_ui_dmxscroller_form_lcl_attributes.pas.bak
-rm ./mi.ui.lcl.form/units/backup/umi_ui_bitbtn_lcl.pas.bak
-rm ./mi.rtl/backup/fpmake.pp.bak
-rm ./mi.rtl/backup/tarefas_a_fazer.pas.bak
-rm ./mi.rtl/backup/mi.rtl.lpk.bak
-rm ./mi.rtl/backup/histórico.pas.bak
-rm ./mi.rtl/examples/mi.rtl.tests/units/backup/unit1.lfm.bak
-rm ./mi.rtl/examples/mi.rtl.tests/units/backup/mi.rtl.dialogs.pas.bak
-rm ./mi.rtl/examples/mi.rtl.tests/units/backup/unit1.pas.ant.bak
-rm ./mi.rtl/examples/mi.rtl.tests/units/backup.ant/backup/unit1.pas.bak
-rm ./mi.rtl/examples/mi.rtl.tests/units/backup.ant/unit1.lfm.bak
-rm ./mi.rtl/examples/mi.rtl.tests/units/backup.ant/mi.rtl.dialogs.pas.bak
-rm ./mi.rtl/units/backup/mi_rtl_ui_dmxscroller.pas.bak
-rm ./mi.rtl/units/backup/mi.rtl.types.pas.bak
-rm ./mi.rtl/units/backup/mi.rtl.consts.pas.bak
-rm ./mi.rtl/units/backup/mi.rtl.objectss.pas.bak
-rm ./mi.rtl/units/backup/mi.rtl.objects.types.pas.bak
-rm ./mi.rtl/units/backup/mi.rtl.files.pas.bak
-rm ./mi.rtl/units/backup/mi.rtl.objects.methods.pas.bak
-rm ./mi.rtl/units/backup/Horse.Core.pas.bak
-rm ./mi.rtl/units/backup/mi.rtl.libbinres.pas.bak
-rm ./mi.rtl/units/backup/Horse.Core.Route.pas.bak
-rm ./backup/readme.md.bak
-rm ./backup/tarefas_a_fazer.pas.bak
-rm ./backup/mi.rtl.horse.lpk.bak
+rm -f -r ./mi.ui.lcl.form/examples/mi.ui.lcl.form.tests/bin/x86_64-linux/mi.ui.lcl.form.test.rtl.exe
+rm -f -r ./mi.rtl/examples/mi.rtl.tests/bin/x86_64-linux/mi.rtl.tests.rtl.exe
+rm -f -r ./mi.ui.lcl.form/examples/mi.ui.lcl.form.tests/lib/x86_64-linux/units/mi.ui.lcl.form.test.res
+rm -f -r ./mi.ui.lcl.form/examples/mi.ui.lcl.form.tests/mi.ui.lcl.form.test.res
+rm -f -r ./mi.ui.lcl.form/examples/mi.ui.lcl.form.AddTemplates/lib/x86_64-linux/units/mi.ui.lcl.form.addtemplates.res
+rm -f -r ./mi.ui.lcl.form/examples/mi.ui.lcl.form.AddTemplates/mi.ui.lcl.form.addtemplates.res
+rm -f -r ./mi.rtl/examples/test_num_version/lib/x86_64-linux/test_num_version.res
+rm -f -r ./mi.rtl/examples/test_num_version/test_num_version.res
+rm -f -r ./mi.rtl/examples/mi.rtl.tests/lib/x86_64-linux/units/mi.rtl.tests.res
+rm -f -r ./mi.rtl/examples/mi.rtl.tests/mi.rtl.tests.res
+rm -f -r ./mi.ui.lcl.form/lib/x86_64-linux/mi.ui.lcl.form.compiled
+rm -f -r ./mi.ui.lcl.form/examples/mi.ui.lcl.form.tests/lib/x86_64-linux/units/mi.ui.lcl.form.test.compiled
+rm -f -r ./mi.ui.lcl.form/examples/mi.ui.lcl.form.AddTemplates/lib/x86_64-linux/units/mi.ui.lcl.form.addtemplates.compiled
+rm -f -r ./mi.ui.lcl.form/Makefile.compiled
+rm -f -r ./mi.rtl/lib/x86_64-linux/units/mi.rtl.compiled
+rm -f -r ./mi.rtl/examples/stork/lib/x86_64-linux/create_config_stork.compiled
+rm -f -r ./mi.rtl/examples/test_num_version/lib/x86_64-linux/test_num_version.compiled
+rm -f -r ./mi.rtl/examples/mi.rtl.tests/lib/x86_64-linux/units/mi.rtl.tests.compiled
+rm -f -r ./mi.rtl/Makefile.compiled
+rm -f -r ./mi.ui.lcl.form/lib/x86_64-linux/mi.ui.lcl.form.ppu
+rm -f -r ./mi.ui.lcl.form/lib/x86_64-linux/umi_ui_checkbox_lcl.ppu
+rm -f -r ./mi.ui.lcl.form/lib/x86_64-linux/umi_ui_radiogroup_lcl.ppu
+rm -f -r ./mi.ui.lcl.form/lib/x86_64-linux/umi_ui_dblookupcombobox_lcl.ppu
+rm -f -r ./mi.ui.lcl.form/lib/x86_64-linux/umi_ui_maskedit_lcl.ppu
+rm -f -r ./mi.ui.lcl.form/lib/x86_64-linux/umi_ui_scrollbox_lcl.ppu
+rm -f -r ./mi.ui.lcl.form/lib/x86_64-linux/umi_ui_combobox_lcl.ppu
+rm -f -r ./mi.ui.lcl.form/lib/x86_64-linux/umi_ui_dbradiogroup_lcl.ppu
+rm -f -r ./mi.ui.lcl.form/lib/x86_64-linux/umi_ui_dbcombobox_lcl.ppu
+rm -f -r ./mi.ui.lcl.form/lib/x86_64-linux/umi_ui_dmxscroller_form_lcl_ds.ppu
+rm -f -r ./mi.ui.lcl.form/lib/x86_64-linux/umi_ui_dbcheckbox_lcl.ppu
+rm -f -r ./mi.ui.lcl.form/lib/x86_64-linux/umi_ui_button_lcl.ppu
+rm -f -r ./mi.ui.lcl.form/lib/x86_64-linux/umi_ui_label_lcl.ppu
+rm -f -r ./mi.ui.lcl.form/lib/x86_64-linux/umi_ui_dbedit_lcl.ppu
+rm -f -r ./mi.ui.lcl.form/lib/x86_64-linux/umi_ui_dmxscroller_form_lcl.ppu
+rm -f -r ./mi.ui.lcl.form/lib/x86_64-linux/umi_ui_inputbox_lcl.ppu
+rm -f -r ./mi.ui.lcl.form/lib/x86_64-linux/umi_ui_dmxscroller_form_lcl_attributes.ppu
+rm -f -r ./mi.ui.lcl.form/lib/x86_64-linux/umi_ui_bitbtn_lcl.ppu
+rm -f -r ./mi.ui.lcl.form/examples/mi.ui.lcl.form.tests/lib/x86_64-linux/units/umi_ui_dmxscroller_form_lcl_ds_test2_dm.ppu
+rm -f -r ./mi.ui.lcl.form/examples/mi.ui.lcl.form.tests/lib/x86_64-linux/units/udmxscroller_form_lcl_add_test.ppu
+rm -f -r ./mi.ui.lcl.form/examples/mi.ui.lcl.form.tests/lib/x86_64-linux/units/umi_ui_dmxscroller_form_lcl_ds_test2.ppu
+rm -f -r ./mi.ui.lcl.form/examples/mi.ui.lcl.form.tests/lib/x86_64-linux/units/umi_ui_dmxscroller_form_lcl_ds_test.ppu
+rm -f -r ./mi.ui.lcl.form/examples/mi.ui.lcl.form.tests/lib/x86_64-linux/units/udmxscroller_form_lcl_test.ppu
+rm -f -r ./mi.ui.lcl.form/examples/mi.ui.lcl.form.tests/lib/x86_64-linux/units/umi_ui_inputbox_lcl_test.ppu
+rm -f -r ./mi.ui.lcl.form/examples/mi.ui.lcl.form.tests/lib/x86_64-linux/units/umi_ui_mi_msgbox_dm.ppu
+rm -f -r ./mi.ui.lcl.form/examples/mi.ui.lcl.form.tests/lib/x86_64-linux/units/udmxscroller_form_lcl_add_test2.ppu
+rm -f -r ./mi.ui.lcl.form/examples/mi.ui.lcl.form.AddTemplates/lib/x86_64-linux/units/unit1.ppu
+rm -f -r ./mi.rtl/lib/x86_64-linux/units/mi.rtl.objects.methods.streambase.stream.filestream.ppu
+rm -f -r ./mi.rtl/lib/x86_64-linux/units/mi.rtl.objects.methods.streambase.stream.ppu
+rm -f -r ./mi.rtl/lib/x86_64-linux/units/mi.rtl.objects.consts.progressdlg_if.ppu
+rm -f -r ./mi.rtl/lib/x86_64-linux/units/mi.rtl.objects.methods.db.tb___access.ppu
+rm -f -r ./mi.rtl/lib/x86_64-linux/units/mi_rtl_ui_types.ppu
+rm -f -r ./mi.rtl/lib/x86_64-linux/units/mi.rtl.objects.methods.collection.sortedcollection.stringcollection.collectionstring.ppu
+rm -f -r ./mi.rtl/lib/x86_64-linux/units/mi_rtl_ui_dmxscroller_form.ppu
+rm -f -r ./mi.rtl/lib/x86_64-linux/units/mi.rtl.objects.methods.streambase.stream.memorystream.ppu
+rm -f -r ./mi.rtl/lib/x86_64-linux/units/mi.rtl.objects.methods.dates.ppu
+rm -f -r ./mi.rtl/lib/x86_64-linux/units/mi.rtl.objects.methods.collection.sortedcollection.strcollection.ppu
+rm -f -r ./mi.rtl/lib/x86_64-linux/units/mi.rtl.objects.methods.collection.ppu
+rm -f -r ./mi.rtl/lib/x86_64-linux/units/mi.rtl.applicationabstract.ppu
+rm -f -r ./mi.rtl/lib/x86_64-linux/units/mi.rtl.objects.methods.paramexecucao.application.ppu
+rm -f -r ./mi.rtl/lib/x86_64-linux/units/mi_rtl_ui_dmxscroller.ppu
+rm -f -r ./mi.rtl/lib/x86_64-linux/units/mi.rtl.consts.strerror.ppu
+rm -f -r ./mi.rtl/lib/x86_64-linux/units/mi.rtl.ppu
+rm -f -r ./mi.rtl/lib/x86_64-linux/units/mi.rtl.objectss.ppu
+rm -f -r ./mi.rtl/lib/x86_64-linux/units/mi.rtl.libbinres.ppu
+rm -f -r ./mi.rtl/lib/x86_64-linux/units/mi.rtl.types.ppu
+rm -f -r ./mi.rtl/lib/x86_64-linux/units/mi.rtl.objects.methods.paramexecucao.ppu
+rm -f -r ./mi.rtl/lib/x86_64-linux/units/mi.rtl.class_of_char.ppu
+rm -f -r ./mi.rtl/lib/x86_64-linux/units/mi.rtl.objects.methods.streambase.ppu
+rm -f -r ./mi.rtl/lib/x86_64-linux/units/mi.rtl.objects.methods.db.tb_access.ppu
+rm -f -r ./mi.rtl/lib/x86_64-linux/units/mi.rtl.objects.types.ppu
+rm -f -r ./mi.rtl/lib/x86_64-linux/units/mi.rtl.objects.methods.collection.filesstreams.ppu
+rm -f -r ./mi.rtl/lib/x86_64-linux/units/mi_rtl_ui_custom_application.ppu
+rm -f -r ./mi.rtl/lib/x86_64-linux/units/mi_rtl_ui_methods.ppu
+rm -f -r ./mi.rtl/lib/x86_64-linux/units/mi.rtl.files.ppu
+rm -f -r ./mi.rtl/lib/x86_64-linux/units/mi.rtl.consts.stringlist.ppu
+rm -f -r ./mi.rtl/lib/x86_64-linux/units/mi.rtl.objects.consts.logs.ppu
+rm -f -r ./mi.rtl/lib/x86_64-linux/units/mi.rtl.objects.consts.ppu
+rm -f -r ./mi.rtl/lib/x86_64-linux/units/mi.rtl.objects.methods.collection.sortedcollection.ppu
+rm -f -r ./mi.rtl/lib/x86_64-linux/units/mi.rtl.objects.methods.system.ppu
+rm -f -r ./mi.rtl/lib/x86_64-linux/units/mi.rtl.consts.stringlistbase.ppu
+rm -f -r ./mi.rtl/lib/x86_64-linux/units/mi.rtl.objects.methods.ppu
+rm -f -r ./mi.rtl/lib/x86_64-linux/units/mi.rtl.objects.methods.db.tb__access.ppu
+rm -f -r ./mi.rtl/lib/x86_64-linux/units/mi.rtl.objects.methods.streambase.stream.memorystream.buffermemory.ppu
+rm -f -r ./mi.rtl/lib/x86_64-linux/units/mi_rtl_ui_consts.ppu
+rm -f -r ./mi.rtl/lib/x86_64-linux/units/mi_rtl_ui_dmxscroller_buttons.ppu
+rm -f -r ./mi.rtl/lib/x86_64-linux/units/mi.rtl.objects.methods.collection.sortedcollection.stringcollection.ppu
+rm -f -r ./mi.rtl/lib/x86_64-linux/units/mi.rtl.consts.ppu
+rm -f -r ./mi.rtl/lib/x86_64-linux/units/mi.rtl.objects.consts.mi_msgbox.ppu
+rm -f -r ./mi.rtl/lib/x86_64-linux/units/mi.rtl.objects.methods.exception.ppu
+rm -f -r ./mi.rtl/examples/test_num_version/lib/x86_64-linux/unit1.ppu
+rm -f -r ./mi.rtl/examples/mi.rtl.tests/lib/x86_64-linux/units/mi.rtl.objects.methods.db.tb__access_test.ppu
+rm -f -r ./mi.rtl/examples/mi.rtl.tests/lib/x86_64-linux/units/unit1.ppu
+rm -f -r ./mi.rtl/examples/mi.rtl.tests/lib/x86_64-linux/units/mi_ui_mi_msgbox_dm.ppu
+rm -f -r ./mi.ui.lcl.form/lib/x86_64-linux/umi_ui_scrollbox_lcl.o
+rm -f -r ./mi.ui.lcl.form/lib/x86_64-linux/umi_ui_inputbox_lcl.o
+rm -f -r ./mi.ui.lcl.form/lib/x86_64-linux/umi_ui_dbradiogroup_lcl.o
+rm -f -r ./mi.ui.lcl.form/lib/x86_64-linux/umi_ui_bitbtn_lcl.o
+rm -f -r ./mi.ui.lcl.form/lib/x86_64-linux/umi_ui_label_lcl.o
+rm -f -r ./mi.ui.lcl.form/lib/x86_64-linux/umi_ui_dblookupcombobox_lcl.o
+rm -f -r ./mi.ui.lcl.form/lib/x86_64-linux/umi_ui_dbedit_lcl.o
+rm -f -r ./mi.ui.lcl.form/lib/x86_64-linux/umi_ui_dbcombobox_lcl.o
+rm -f -r ./mi.ui.lcl.form/lib/x86_64-linux/umi_ui_button_lcl.o
+rm -f -r ./mi.ui.lcl.form/lib/x86_64-linux/umi_ui_dmxscroller_form_lcl_ds.o
+rm -f -r ./mi.ui.lcl.form/lib/x86_64-linux/umi_ui_maskedit_lcl.o
+rm -f -r ./mi.ui.lcl.form/lib/x86_64-linux/mi.ui.lcl.form.o
+rm -f -r ./mi.ui.lcl.form/lib/x86_64-linux/umi_ui_dbcheckbox_lcl.o
+rm -f -r ./mi.ui.lcl.form/lib/x86_64-linux/umi_ui_dmxscroller_form_lcl_attributes.o
+rm -f -r ./mi.ui.lcl.form/lib/x86_64-linux/umi_ui_radiogroup_lcl.o
+rm -f -r ./mi.ui.lcl.form/lib/x86_64-linux/umi_ui_checkbox_lcl.o
+rm -f -r ./mi.ui.lcl.form/lib/x86_64-linux/umi_ui_combobox_lcl.o
+rm -f -r ./mi.ui.lcl.form/lib/x86_64-linux/umi_ui_dmxscroller_form_lcl.o
+rm -f -r ./mi.ui.lcl.form/examples/mi.ui.lcl.form.tests/lib/x86_64-linux/units/umi_ui_inputbox_lcl_test.o
+rm -f -r ./mi.ui.lcl.form/examples/mi.ui.lcl.form.tests/lib/x86_64-linux/units/umi_ui_dmxscroller_form_lcl_ds_test2_dm.o
+rm -f -r ./mi.ui.lcl.form/examples/mi.ui.lcl.form.tests/lib/x86_64-linux/units/udmxscroller_form_lcl_add_test.o
+rm -f -r ./mi.ui.lcl.form/examples/mi.ui.lcl.form.tests/lib/x86_64-linux/units/umi_ui_mi_msgbox_dm.o
+rm -f -r ./mi.ui.lcl.form/examples/mi.ui.lcl.form.tests/lib/x86_64-linux/units/udmxscroller_form_lcl_test.o
+rm -f -r ./mi.ui.lcl.form/examples/mi.ui.lcl.form.tests/lib/x86_64-linux/units/mi.ui.lcl.form.test.o
+rm -f -r ./mi.ui.lcl.form/examples/mi.ui.lcl.form.tests/lib/x86_64-linux/units/umi_ui_dmxscroller_form_lcl_ds_test.o
+rm -f -r ./mi.ui.lcl.form/examples/mi.ui.lcl.form.tests/lib/x86_64-linux/units/umi_ui_dmxscroller_form_lcl_ds_test2.o
+rm -f -r ./mi.ui.lcl.form/examples/mi.ui.lcl.form.tests/lib/x86_64-linux/units/udmxscroller_form_lcl_add_test2.o
+rm -f -r ./mi.ui.lcl.form/examples/mi.ui.lcl.form.AddTemplates/lib/x86_64-linux/units/unit1.o
+rm -f -r ./mi.ui.lcl.form/examples/mi.ui.lcl.form.AddTemplates/lib/x86_64-linux/units/mi.ui.lcl.form.addtemplates.o
+rm -f -r ./mi.rtl/lib/x86_64-linux/units/mi.rtl.objects.methods.db.tb___access.o
+rm -f -r ./mi.rtl/lib/x86_64-linux/units/mi.rtl.objects.methods.collection.sortedcollection.stringcollection.collectionstring.o
+rm -f -r ./mi.rtl/lib/x86_64-linux/units/mi.rtl.objects.methods.collection.sortedcollection.o
+rm -f -r ./mi.rtl/lib/x86_64-linux/units/mi.rtl.objects.consts.progressdlg_if.o
+rm -f -r ./mi.rtl/lib/x86_64-linux/units/mi.rtl.objects.methods.db.tb_access.o
+rm -f -r ./mi.rtl/lib/x86_64-linux/units/mi.rtl.objects.methods.streambase.o
+rm -f -r ./mi.rtl/lib/x86_64-linux/units/mi.rtl.types.o
+rm -f -r ./mi.rtl/lib/x86_64-linux/units/mi.rtl.objects.types.o
+rm -f -r ./mi.rtl/lib/x86_64-linux/units/mi.rtl.consts.stringlistbase.o
+rm -f -r ./mi.rtl/lib/x86_64-linux/units/mi.rtl.objects.methods.system.o
+rm -f -r ./mi.rtl/lib/x86_64-linux/units/mi.rtl.objectss.o
+rm -f -r ./mi.rtl/lib/x86_64-linux/units/mi_rtl_ui_consts.o
+rm -f -r ./mi.rtl/lib/x86_64-linux/units/mi.rtl.objects.consts.o
+rm -f -r ./mi.rtl/lib/x86_64-linux/units/mi.rtl.objects.methods.collection.sortedcollection.stringcollection.o
+rm -f -r ./mi.rtl/lib/x86_64-linux/units/mi_rtl_ui_types.o
+rm -f -r ./mi.rtl/lib/x86_64-linux/units/mi_rtl_ui_methods.o
+rm -f -r ./mi.rtl/lib/x86_64-linux/units/mi.rtl.class_of_char.o
+rm -f -r ./mi.rtl/lib/x86_64-linux/units/mi.rtl.objects.consts.mi_msgbox.o
+rm -f -r ./mi.rtl/lib/x86_64-linux/units/mi.rtl.objects.methods.collection.sortedcollection.strcollection.o
+rm -f -r ./mi.rtl/lib/x86_64-linux/units/mi.rtl.objects.methods.o
+rm -f -r ./mi.rtl/lib/x86_64-linux/units/mi.rtl.objects.methods.dates.o
+rm -f -r ./mi.rtl/lib/x86_64-linux/units/mi.rtl.o
+rm -f -r ./mi.rtl/lib/x86_64-linux/units/mi.rtl.objects.methods.exception.o
+rm -f -r ./mi.rtl/lib/x86_64-linux/units/mi_rtl_ui_dmxscroller_form.o
+rm -f -r ./mi.rtl/lib/x86_64-linux/units/mi.rtl.objects.methods.paramexecucao.application.o
+rm -f -r ./mi.rtl/lib/x86_64-linux/units/mi_rtl_ui_custom_application.o
+rm -f -r ./mi.rtl/lib/x86_64-linux/units/mi.rtl.consts.o
+rm -f -r ./mi.rtl/lib/x86_64-linux/units/mi.rtl.consts.stringlist.o
+rm -f -r ./mi.rtl/lib/x86_64-linux/units/mi.rtl.objects.methods.collection.filesstreams.o
+rm -f -r ./mi.rtl/lib/x86_64-linux/units/mi.rtl.objects.methods.db.tb__access.o
+rm -f -r ./mi.rtl/lib/x86_64-linux/units/mi.rtl.applicationabstract.o
+rm -f -r ./mi.rtl/lib/x86_64-linux/units/mi_rtl_ui_dmxscroller.o
+rm -f -r ./mi.rtl/lib/x86_64-linux/units/mi.rtl.objects.methods.streambase.stream.filestream.o
+rm -f -r ./mi.rtl/lib/x86_64-linux/units/mi.rtl.libbinres.o
+rm -f -r ./mi.rtl/lib/x86_64-linux/units/mi.rtl.objects.methods.streambase.stream.o
+rm -f -r ./mi.rtl/lib/x86_64-linux/units/mi.rtl.objects.methods.collection.o
+rm -f -r ./mi.rtl/lib/x86_64-linux/units/mi.rtl.objects.consts.logs.o
+rm -f -r ./mi.rtl/lib/x86_64-linux/units/mi.rtl.objects.methods.streambase.stream.memorystream.o
+rm -f -r ./mi.rtl/lib/x86_64-linux/units/mi.rtl.files.o
+rm -f -r ./mi.rtl/lib/x86_64-linux/units/mi.rtl.consts.strerror.o
+rm -f -r ./mi.rtl/lib/x86_64-linux/units/mi.rtl.objects.methods.paramexecucao.o
+rm -f -r ./mi.rtl/lib/x86_64-linux/units/mi_rtl_ui_dmxscroller_buttons.o
+rm -f -r ./mi.rtl/lib/x86_64-linux/units/mi.rtl.objects.methods.streambase.stream.memorystream.buffermemory.o
+rm -f -r ./mi.rtl/examples/stork/lib/x86_64-linux/create_config_stork.o
+rm -f -r ./mi.rtl/examples/test_num_version/lib/x86_64-linux/unit1.o
+rm -f -r ./mi.rtl/examples/test_num_version/lib/x86_64-linux/test_num_version.o
+rm -f -r ./mi.rtl/examples/mi.rtl.tests/lib/x86_64-linux/units/mi.rtl.tests.o
+rm -f -r ./mi.rtl/examples/mi.rtl.tests/lib/x86_64-linux/units/mi.rtl.objects.methods.db.tb__access_test.o
+rm -f -r ./mi.rtl/examples/mi.rtl.tests/lib/x86_64-linux/units/unit1.o
+rm -f -r ./mi.rtl/examples/mi.rtl.tests/lib/x86_64-linux/units/mi_ui_mi_msgbox_dm.o
+rm -f -r ./mi.ui.lcl.form/examples/mi.ui.lcl.form.tests/lib/x86_64-linux/units/mi.ui.lcl.form.test.or
+rm -f -r ./mi.ui.lcl.form/examples/mi.ui.lcl.form.AddTemplates/lib/x86_64-linux/units/mi.ui.lcl.form.addtemplates.or
+rm -f -r ./mi.rtl/examples/test_num_version/lib/x86_64-linux/test_num_version.or
+rm -f -r ./mi.rtl/examples/mi.rtl.tests/lib/x86_64-linux/units/mi.rtl.tests.or
+rm -f -r ./mi.ui.lcl.form/examples/mi.ui.lcl.form.tests/lib/x86_64-linux/units/udmxscroller_form_lcl_test.rsj
+rm -f -r ./mi.ui.lcl.form/examples/mi.ui.lcl.form.tests/lib/x86_64-linux/units/udmxscroller_form_lcl_add_test.rsj
+rm -f -r ./mi.rtl/lib/x86_64-linux/units/mi.rtl.objects.consts.logs.rsj
+rm -f -r ./mi.rtl/lib/x86_64-linux/units/mi.rtl.consts.rsj
+rm -f -r ./mi.ui.lcl.form/examples/mi.ui.lcl.form.AddTemplates/backup/mi.ui.lcl.form.addtemplates.lps
+rm -f -r ./mi.ui.lcl.form/examples/mi.ui.lcl.form.AddTemplates/mi.ui.lcl.form.addtemplates.lps
+rm -f -r ./mi.rtl/examples/stork/backup/create_config_stork.lps
+rm -f -r ./mi.rtl/examples/stork/create_config_stork.lps
+rm -f -r ./mi.rtl/examples/test_num_version/test_num_version.lps
+rm -f -r ./mi.rtl/examples/mi.rtl.tests/mi.rtl.tests.lps
+rm -f -r ./mi.rtl/examples/mi.rtl.tests/backup/mi.rtl.tests.lps
+rm -f -r ./mi.ui.lcl.form/backup/mi.ui.lcl.form.lpk.bak
+rm -f -r ./mi.rtl/backup/mi.rtl.lpk.bak

@@ -7,6 +7,7 @@
 ./examples/mi.ui.lcl.form.tests/units/horse/unit_horse.pas
 ./examples/mi.ui.lcl.form.tests/units/backup/umi_ui_mi_msgbox_dm.pas
 ./examples/mi.ui.lcl.form.tests/units/backup/udmxscroller_form_lcl_test.pas
+./examples/mi.ui.lcl.form.tests/units/backup/umi_ui_dmxscroller_form_lcl_ds_test.pas
 ./examples/mi.ui.lcl.form.tests/units/umi_ui_mi_msgbox_dm.pas
 ./examples/mi.ui.lcl.form.tests/units/umi_ui_dmxscroller_form_lcl_ds_test2.pas
 ./examples/mi.ui.lcl.form.tests/units/udmxscroller_form_lcl_test.pas
@@ -17,6 +18,7 @@
 ./examples/mi.ui.lcl.form.tests/units/unit1.pas
 ./examples/mi.ui.lcl.form.tests/units/inativo/umi_ui_dmxscroller_form_ds_test.pas
 ./examples/mi.ui.lcl.form.tests/units/umi_ui_inputbox_lcl_test.pas
+./examples/mi.ui.lcl.form.AddTemplates/backup/mi.ui.lcl.form.addtemplates.pas
 ./examples/mi.ui.lcl.form.AddTemplates/units/unit1.pas
 ./examples/mi.ui.lcl.form.AddTemplates/mi.ui.lcl.form.addtemplates.pas
 ./temp/test/unit1.pas

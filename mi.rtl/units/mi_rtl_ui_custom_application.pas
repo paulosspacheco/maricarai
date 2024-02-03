@@ -2,7 +2,7 @@ Unit mi_rtl_ui_custom_application;
 {:< A unit **@name** implementa a classe TMI_ui_Custom_Application.
 
   - **VERSÃO**
-    - Alpha - 0.8.0
+    - Alpha - Alpha - 0.9.0
 
   - **CÓDIGO FONTE**:
     - @html(<a href="../units/mi_ui_custom_application.pas">mi_ui_Custom_Application.pas</a>)
@@ -83,6 +83,8 @@ Uses
   ,mi.rtl.Types
   ,mi_rtl_ui_Dmxscroller
   ,mi.rtl.Objects.Methods.Paramexecucao.Application
+  ,mi.rtl.ui.dmxscroller.inputbox
+
 
   ;
 
@@ -91,6 +93,7 @@ Uses
     {: O tipo **@name** é usado no evento OnValidUser}
     TOnValidUser = function (aDmxScroller:TUiDmxScroller;aUserName:AnsiString;aPassword:AnsiString):boolean of Object;
 
+    //    TMI_ui_Custom_Application = Class(TCustomApplication)
     { TMI_ui_Custom_Application }
     {: A classe **@name** concentra as propriedades e formulários gerais necessários em qualquer aplicação.
 
@@ -100,8 +103,8 @@ Uses
          - Propriedade **SQLConnector** e **SQLTransaction** e as propriedades relacionadas;
          - O evento **OnValidUser** é usado para validar o nome do usuário e senha.
     }
-//    TMI_ui_Custom_Application = Class(TCustomApplication)
      TMI_ui_Custom_Application = Class(TApplication)
+       public MI_UI_InputBox : TMI_UI_InputBox;
 
       {: O atributo **@name** é usado para salvar em disco local no arquivo **FileName_Parameters** os parâmetros informados 
          pelo formulário **Get_Parameters**}   
@@ -476,17 +479,19 @@ begin
                                             UserName,
                                             Password,
                                             NameDataBase,
-                                            true); //false : exclui; true : cria
+                                            true //false : exclui; true : cria
+                                            );
                     if S <>''
                     then Result := true  // se S <> '' é porque ouve um erro.
                     else begin {Se S = '' é porque criou o banco e por isso devo apagar e retorna false}
                            result := false;
                            CreateDB_or_DropDB(ConnectorType,
-                                                   Hostname,
-                                                   UserName,
-                                                   Password,
-                                                   nameDataBase,
-                                                   false); //false : exclui; true : cria
+                                              Hostname,
+                                              UserName,
+                                              Password,
+                                              nameDataBase,
+                                              false //false : exclui; true : cria
+                                             );
 
                          end;
                   end;

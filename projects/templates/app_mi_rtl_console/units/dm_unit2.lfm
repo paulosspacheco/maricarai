@@ -1,0 +1,32 @@
+object DataModule2: TDataModule2
+  OldCreateOrder = False
+  Height = 192
+  HorizontalOffset = 432
+  VerticalOffset = 250
+  Width = 460
+  object DmxScroller_Form1: TDmxScroller_Form
+    Alias = 'TDmxScroller_Form'
+    OnAddTemplate = DmxScroller_Form1AddTemplate
+    Active = False
+    AlignmentLabels = taLeftJustify
+    Left = 72
+    Top = 8
+  end
+  object SQLQuery1: TSQLQuery
+    FieldDefs = <>
+    Database = DataModule1.SQLConnector1
+    Transaction = DataModule1.SQLTransaction1
+    SQL.Strings = (
+      'select * from nome_da_tabela'
+    )
+    Params = <>
+    Macros = <>
+    Left = 64
+    Top = 96
+  end
+  object DataSource1: TDataSource
+    DataSet = SQLQuery1
+    Left = 216
+    Top = 96
+  end
+end

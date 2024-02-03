@@ -23,11 +23,11 @@
     <VersionInfo>
       <UseVersionInfo Value="True"/>
       <AutoIncrementBuild Value="True"/>
-      <MinorVersionNr Value="8"/>
-      <BuildNr Value="734"/>
+      <MinorVersionNr Value="9"/>
+      <BuildNr Value="788"/>
       <Language Value="0416"/>
       <Attributes pvaDebug="True" pvaPreRelease="True"/>
-      <StringTable Comments="Programa exemplo do projeto maricarai." CompanyName="Itm Sistemas e Consultoria Ltda." FileDescription="Exemplo de uso do pacote mi.ui.lclrtl.form" ProductName="mi.ui.lcl.form.test"/>
+      <StringTable Comments="Programa exemplo do projeto maricarai." CompanyName="Itm Sistemas e Consultoria Ltda." FileDescription="Programa usado para testar as classes TDmxScroller_Form e TDmxScroller_Form_Ds" ProductName="mi.ui.lcl.form.test"/>
     </VersionInfo>
     <BuildModes>
       <Item Name="Default" Default="True"/>
@@ -35,7 +35,7 @@
         <CompilerOptions>
           <Version Value="11"/>
           <Target>
-            <Filename Value="bin/$(TargetCPU)-$(TargetOS)/mi.ui.lcl.form.test.rtl"/>
+            <Filename Value="$(TargetCPU)-$(TargetOS)_mi.ui.lcl.form.test.rtl.exe"/>
           </Target>
           <SearchPaths>
             <IncludeFiles Value="$(ProjOutDir);units/include/linux;units/include/windows"/>
@@ -68,7 +68,7 @@
         <CompilerOptions>
           <Version Value="11"/>
           <Target>
-            <Filename Value="bin/$(TargetCPU)-$(TargetOS)/mi.ui.lcl.form.test.rtl.exe"/>
+            <Filename Value="$(TargetCPU)-$(TargetOS)_mi.ui.lcl.form.test.rtl.exe"/>
           </Target>
           <SearchPaths>
             <IncludeFiles Value="$(ProjOutDir);units/include/linux;units/include/windows"/>
@@ -140,17 +140,6 @@
         <IsPartOfProject Value="True"/>
       </Unit>
       <Unit>
-        <Filename Value="units\umi_ui_mi_msgbox_dm.pas"/>
-        <IsPartOfProject Value="True"/>
-        <ComponentName Value="Mi_ui_mi_msgBox"/>
-        <HasResources Value="True"/>
-        <ResourceBaseClass Value="DataModule"/>
-      </Unit>
-      <Unit>
-        <Filename Value="units\umi_ui_inputbox_lcl_test.pas"/>
-        <IsPartOfProject Value="True"/>
-      </Unit>
-      <Unit>
         <Filename Value="units\umi_ui_dmxscroller_form_lcl_ds_test.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="Mi_ui_DmxScroller_Form_Lcl_ds_test"/>
@@ -162,6 +151,7 @@
         <Filename Value="units\umi_ui_dmxscroller_form_lcl_ds_test2_dm.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="Mi_ui_DmxScroller_Form_Lcl_ds_test2_dm"/>
+        <HasResources Value="True"/>
         <ResourceBaseClass Value="DataModule"/>
         <UnitName Value="uMi_ui_DmxScroller_Form_Lcl_ds_test2_dm"/>
       </Unit>
@@ -169,6 +159,7 @@
         <Filename Value="units\umi_ui_dmxscroller_form_lcl_ds_test2.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="Mi_ui_DmxScroller_Form_Lcl_ds_test2"/>
+        <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="uMi_ui_DmxScroller_Form_Lcl_ds_test2"/>
       </Unit>
@@ -184,6 +175,7 @@
         <Filename Value="units\udmxscroller_form_lcl_add_test2.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="DmxScroller_Form_Lcl_add_test2"/>
+        <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="uDmxScroller_Form_Lcl_add_test2"/>
       </Unit>
@@ -195,12 +187,20 @@
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="uDmxScroller_Form_Lcl_test"/>
       </Unit>
+      <Unit>
+        <Filename Value="units\mi_ui_inputbox_lcl_test_u.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="MI_UI_InputBox_lcl_test"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="MI_UI_InputBox_lcl_test_u"/>
+      </Unit>
     </Units>
   </ProjectOptions>
   <CompilerOptions>
     <Version Value="11"/>
     <Target>
-      <Filename Value="bin/$(TargetCPU)-$(TargetOS)/mi.ui.lcl.form.test.rtl.exe"/>
+      <Filename Value="$(TargetCPU)-$(TargetOS)_mi.ui.lcl.form.test.rtl.lnx"/>
     </Target>
     <SearchPaths>
       <IncludeFiles Value="$(ProjOutDir)"/>

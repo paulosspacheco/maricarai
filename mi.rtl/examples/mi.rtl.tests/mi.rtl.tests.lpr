@@ -1,3 +1,5 @@
+//https://wiki.freepascal.org/IDE_Window:_ToDo_List
+
 { <description>
 
   Copyright (c) <year> <copyright holders>
@@ -31,7 +33,7 @@ program mi.rtl.tests;
    - Unit **mi.rtl.files** contém as funções de acesso a arquivo usadas pelo projeto MarIcarai.
 
 - **VERSÃO**:
-  - Alpha - 0.8.0
+  - Alpha - 0.9.0
 
   - **CÓDIGO FONTE**:
     - @html(<a href="../units/rtl.pas">rtl.pas</a>)
@@ -39,50 +41,86 @@ program mi.rtl.tests;
   - **REFERÊNCIAS**
     - [Página de código](https://www.freepascal.org/docs-html/rtl/system/defaultfilesystemcodepage.html)
     - [Pandoc Conversor universal de documentos](https://pandoc.org/)
-    - [TFPHTMLModule - é igual a TpagePriduce do delphi](https://wiki.freepascal.org/fpWeb_Tutorial#Architecture_.28PLEASE_read.29)
-
-
-
+    - [TFPHTMLModule - é igual a TpagePriduce do Delphi](https://wiki.freepascal.org/fpWeb_Tutorial#Architecture_.28PLEASE_read.29)
 }
 
 
+{$mode Delphi}{$H+}
+{$macro on}
 
-{$mode objfpc}{$H+}
 
 uses
   {$IFDEF UNIX}
   cthreads,
+   baseunix,
   {$ENDIF}
   {$IFDEF HASAMIGA}
   athreads,
   {$ENDIF}
-  Interfaces, // this includes the LCL widgetset
-//  cp8859_1,
-  sysUtils,
-  Forms, sdflaz, lazcontrols,
-  drivers,
-  LCLIntf,
-  dialogs,
-  dos,
-  Mi_ui_mi_msgBox_dm
-  , unit1
+  Interfaces //Note: this, includes the LCL widgetset
+  ,sysutils
+
+  ,Forms
+  ,fpJson
+  ,unit1
+  ,Mi_ui_mi_msgBox_dm
+  ,mi.rtl.Objectss{$define Obj := mi.rtl.Objectss}
+  , MI_UI_InputBox_lcl_u
+  ,mi.rtl.all
   ;
 
 {$R *.res}
 
+//procedure SomeName;
+//begin
+//  Writeln('Name is ', {$I %CURRENTROUTINE%});
+//end;
+
+{$MACRO ON }
+
+
+Procedure InfoDemo;
+begin
+  Writeln('Name is ', {$I %CURRENTROUTINE%});
+  With Obj.TObjectss,TConsts do
+  begin
+    Writeln ('This program was compiled ',DateCompiler);
+    Writeln ('By ',User);
+    Writeln ('Compiler version: ',FPC_Version);
+    Writeln ('Target CPU: ',FPC_Target);
+    Writeln ('HOME: ',{$I %HOME%});
+  end;
+end;
+
+
+var
+  OutputFile: text;
 
 
 begin
-  //gerar relatório de vazamento de memória
-  //ReportMemoryLeaksOnShutdown := True;
 
-  RequireDerivedFormResource:=True;
-  Application.Title:='mi.rtl';
-  Application.Scaled:=True;
-  Application.Initialize;
-  Application.CreateForm(TMi_ui_mi_msgBox, Mi_ui_mi_msgBox);
-  Application.CreateForm(TForm1, Form1);
-  Application.Run;
+  try
+    TMi_rtl.redirectOutput(OutputFile,'output.txt');
+//  TMi_rtl.ShowMessage('Ola mundo!');
+    TMI_UI_InputBox_lcl.testInputBox;
+
+    Writeln('Toda escrita para o vídeo foi redirecionada para ./Output.txt');
+    InfoDemo;
+
+    //Note: gerar relatório de vazamento de memória
+    //Note: ReportMemoryLeaksOnShutdown := True;
+
+    RequireDerivedFormResource:=True;
+    Application.Title:='mi.rtl';
+    Application.Scaled:=True;
+    Application.Initialize;
+    Application.CreateForm(TForm1, Form1);
+    Application.Run;
+
+  finally
+    Close(OutputFile);
+  end;
+
 end.
 
 //# Gera documento de todos os arquivo .pas da pasta ./units

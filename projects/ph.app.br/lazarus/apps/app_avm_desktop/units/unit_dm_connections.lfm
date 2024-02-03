@@ -1,0 +1,29 @@
+object dm_connections: Tdm_connections
+  OldCreateOrder = False
+  Height = 160
+  HorizontalOffset = 616
+  VerticalOffset = 328
+  Width = 414
+  object SQLTransaction1: TSQLTransaction
+    Active = False
+    Database = SQLConnector1
+    Left = 336
+    Top = 32
+  end
+  object SQLConnector1: TSQLConnector
+    Connected = False
+    LoginPrompt = True
+    OnLogin = SQLConnector1Login
+    DatabaseName = 'assistente_virtual'
+    KeepConnection = False
+    Transaction = SQLTransaction1
+    HostName = '45.160.125.12'
+    ConnectorType = 'PostgreSQL'
+    Left = 208
+    Top = 32
+  end
+  object ActionList1: TActionList
+    Left = 336
+    Top = 104
+  end
+end

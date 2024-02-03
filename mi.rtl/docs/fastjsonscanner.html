@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<title>fastjsonscanner</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="generator" content="PasDoc 0.16.0">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<link rel="stylesheet" type="text/css" href="tipuesearch/tipuesearch.css">
+
+<link rel="StyleSheet" type="text/css" href="pasdoc.css">
+</head>
+<body>
+<div class="container"><div class="navigation">
+<ul><li><a href="AllUnits.html">Units</a></li><li><a href="ClassHierarchy.html">Hierarquia de Classes</a></li><li><a href="AllClasses.html">Classes, Interfaces, Objetos e Registros</a></li><li><a href="AllTypes.html">Tipos</a></li><li><a href="AllVariables.html">Variáveis</a></li><li><a href="AllConstants.html">Constantes</a></li><li><a href="AllFunctions.html">Funções e Procedimentos</a></li><li><a href="AllIdentifiers.html">Identificadores</a></li><li><form class="search-form" action="tipue_results.html"><div class="search-input"><input type="text" name="q" id="tipue_search_input" pattern=".{3,}" title="At least 3 characters" required><div class="search-button"><input type="button" id="tipue_search_button" onclick="this.form.submit();"></div></div></form>
+<div style="clear: both"></div>
+</li></ul></div><div class="content">
+<h1 class="unit">Unit fastjsonscanner</h1>
+<div class="sections">
+<div class="one_section"><a class="section" href="#PasDoc-Description">Descrição</a></div><div class="one_section"><a class="section" href="#PasDoc-Uses">Uses</a></div><div class="one_section"><a class="section" href="#PasDoc-Classes">Classes, Interfaces, Objetos e Registros</a></div><div class="one_section">Funções e Procedimentos</div><div class="one_section"><a class="section" href="#PasDoc-Types">Tipos</a></div><div class="one_section"><a class="section" href="#PasDoc-Constants">Constantes</a></div><div class="one_section">Variáveis</div></div>
+<span id="PasDoc-Description"></span><h2 class="description">Descrição</h2>
+&nbsp;<span id="PasDoc-Uses"></span><h2 class="uses">Uses</h2>
+<ul class="useslist"><li>SysUtils</li><li>Classes</li><li>bbutils</li></ul><h2 class="overview">Visão Geral</h2>
+<span id="PasDoc-Classes"></span><h3 class="cio">Classes, Interfaces, Objetos e Registros</h3>
+<table class="classestable wide_list">
+<tr class="listheader">
+<th class="itemname">Nome</th>
+<th class="itemdesc">Descrição</th>
+</tr>
+<tr class="list">
+<td class="itemname">Classe&nbsp;<a class="bold" href="fastjsonscanner.EScannerError.html"><code>EScannerError</code></a></td>
+<td class="itemdesc">&nbsp;</td>
+</tr>
+<tr class="list2">
+<td class="itemname">Registro&nbsp;<a class="bold" href="fastjsonscanner.TJSONScanner.html"><code>TJSONScanner</code></a></td>
+<td class="itemdesc">&nbsp;</td>
+</tr>
+</table>
+<span id="PasDoc-Types"></span><h3 class="summary">Tipos</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="itemcode"><code><strong><a href="fastjsonscanner.html#TJSONToken">TJSONToken</a></strong> = (...);</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><strong><a href="fastjsonscanner.html#TJSONOption">TJSONOption</a></strong> = (...);</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><strong><a href="fastjsonscanner.html#TJSONOptions">TJSONOptions</a></strong> = set of <a href="fastjsonscanner.html#TJSONOption">TJSONOption</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><strong><a href="fastjsonscanner.html#TAppendEscapeFunction">TAppendEscapeFunction</a></strong> = procedure (var sb: TStrBuilder; p: pchar; l: integer) of object;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><strong><a href="fastjsonscanner.html#TJSONEscapeCharacters">TJSONEscapeCharacters</a></strong> = (...);</code></td>
+</tr>
+</table>
+<span id="PasDoc-Constants"></span><h3 class="summary">Constantes</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="itemcode"><code><strong><a href="fastjsonscanner.html#SErrInvalidCharacter">SErrInvalidCharacter</a></strong> = 'Invalid character at line %d, pos %d: ''%s''';</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><strong><a href="fastjsonscanner.html#SUnterminatedComment">SUnterminatedComment</a></strong> = 'Unterminated comment at line %d, pos %d: ''%s''';</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><strong><a href="fastjsonscanner.html#SErrOpenString">SErrOpenString</a></strong> = 'string exceeds end of line %d';</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><strong><a href="fastjsonscanner.html#DefaultOptions">DefaultOptions</a></strong> = [<a href="fastjsonscanner.html#joUTF8">joUTF8</a>];</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><strong><a href="fastjsonscanner.html#TokenInfos">TokenInfos</a></strong>: array[<a href="fastjsonscanner.html#TJSONToken">TJSONToken</a>] of string = (
+    'EOF',
+    'Whitespace',
+    'String',
+    'Number',
+    'True',
+    'False',
+    'Null',
+    ',',
+    ':',
+    '{',
+    '}',
+    '[',
+    ']',
+    'identifier',
+    'comment',
+    ''
+  );</code></td>
+</tr>
+</table>
+<h2 class="description">Descrição</h2>
+<h3 class="detail">Tipos</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="TJSONToken"></span><code><strong>TJSONToken</strong> = (...);</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;<h6 class="description_section">Valores</h6>
+<ul>
+<li>
+<span id="tkEOF">tkEOF</span></li>
+<li>
+<span id="tkWhitespace">tkWhitespace</span></li>
+<li>
+<span id="tkString">tkString</span></li>
+<li>
+<span id="tkNumber">tkNumber</span></li>
+<li>
+<span id="tkTrue">tkTrue</span></li>
+<li>
+<span id="tkFalse">tkFalse</span></li>
+<li>
+<span id="tkNull">tkNull</span></li>
+<li>
+<span id="tkComma">tkComma</span></li>
+<li>
+<span id="tkColon">tkColon</span></li>
+<li>
+<span id="tkCurlyBraceOpen">tkCurlyBraceOpen</span></li>
+<li>
+<span id="tkCurlyBraceClose">tkCurlyBraceClose</span></li>
+<li>
+<span id="tkSquaredBraceOpen">tkSquaredBraceOpen</span></li>
+<li>
+<span id="tkSquaredBraceClose">tkSquaredBraceClose</span></li>
+<li>
+<span id="tkIdentifier">tkIdentifier</span></li>
+<li>
+<span id="tkComment">tkComment</span></li>
+<li>
+<span id="tkUnknown">tkUnknown</span></li>
+</ul>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="TJSONOption"></span><code><strong>TJSONOption</strong> = (...);</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;<h6 class="description_section">Valores</h6>
+<ul>
+<li>
+<span id="joUTF8">joUTF8</span></li>
+<li>
+<span id="joStrict">joStrict</span></li>
+<li>
+<span id="joIgnoreTrailingComma">joIgnoreTrailingComma</span></li>
+<li>
+<span id="joIgnoreDuplicates">joIgnoreDuplicates</span></li>
+<li>
+<span id="joBOMCheck">joBOMCheck</span></li>
+</ul>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="TJSONOptions"></span><code><strong>TJSONOptions</strong> = set of <a href="fastjsonscanner.html#TJSONOption">TJSONOption</a>;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="TAppendEscapeFunction"></span><code><strong>TAppendEscapeFunction</strong> = procedure (var sb: TStrBuilder; p: pchar; l: integer) of object;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="TJSONEscapeCharacters"></span><code><strong>TJSONEscapeCharacters</strong> = (...);</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;<h6 class="description_section">Valores</h6>
+<ul>
+<li>
+<span id="jecEscapeNothing">jecEscapeNothing</span></li>
+<li>
+<span id="jecEscapeForXML10">jecEscapeForXML10</span></li>
+<li>
+<span id="jecEscapeForXML11">jecEscapeForXML11</span></li>
+<li>
+<span id="jecEscapeAll">jecEscapeAll</span></li>
+</ul>
+</td></tr>
+</table>
+<h3 class="detail">Constantes</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="SErrInvalidCharacter"></span><code><strong>SErrInvalidCharacter</strong> = 'Invalid character at line %d, pos %d: ''%s''';</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="SUnterminatedComment"></span><code><strong>SUnterminatedComment</strong> = 'Unterminated comment at line %d, pos %d: ''%s''';</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="SErrOpenString"></span><code><strong>SErrOpenString</strong> = 'string exceeds end of line %d';</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="DefaultOptions"></span><code><strong>DefaultOptions</strong> = [<a href="fastjsonscanner.html#joUTF8">joUTF8</a>];</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="TokenInfos"></span><code><strong>TokenInfos</strong>: array[<a href="fastjsonscanner.html#TJSONToken">TJSONToken</a>] of string = (
+    'EOF',
+    'Whitespace',
+    'String',
+    'Number',
+    'True',
+    'False',
+    'Null',
+    ',',
+    ':',
+    '{',
+    '}',
+    '[',
+    ']',
+    'identifier',
+    'comment',
+    ''
+  );</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<hr><span class="appinfo"><em>Gerado por <a href="https://pasdoc.github.io/">PasDoc 0.16.0</a>. </em>
+</span>
+</div></div></body></html>

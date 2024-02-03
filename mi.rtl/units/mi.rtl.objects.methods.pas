@@ -1,16 +1,31 @@
 unit mi.rtl.Objects.Methods;
 {:< - A Unit **@name** implementa a classe **TObjectsMethods** do pacote **mi.rtl**.
 
+
+  - **DESCRIÇÃO**:
+    - Está unit é base para a class TObjetss
+
   - **NOTAS**
     - Esta unit foi testada nas plataformas: win32, win64 e linux.
 
   - **VERSÃO**
-    - Alpha - 0.8.0
+    - Alpha - Alpha - 0.9.0
 
   - **HISTÓRICO**
     - Criado por: Paulo Sérgio da Silva Pacheco e-mail: paulosspacheco@@yahoo.com.br
-      - **19/11/2021** 21:25 a 23:15 Criar a unit mi.rtl.objects.TObjectsMethods.pas
-      - **20/11/2021** 18:00 a 19:15 Criar a unit mi.rtl.objects.tStream.pas
+    - **19/11/2021**
+      - 21:25 a 23:15 Criar a unit mi.rtl.objects.TObjectsMethods.pas
+
+    - **20/11/2021**
+      - 18:00 a 19:15 Criar a unit mi.rtl.objects.tStream.pas
+    - **27/07/2023**
+      - 09:00 a 12:00 Criar método StringReplaceTgLink
+
+    - **10/08/2023**
+       - 08:10 a 12:00: Implementar componente TPageProducer
+       - 14:47 a 14:54: O método GetAlias deve retornar o nome da classe
+                        caso o atributo _Alias se igual a vazio.
+
 
   - **CÓDIGO FONTE**:
     - @html(<a href="../units/mi.rtl.objects.Methods.pas">mi.rtl.objects.Methods.pas</a>)
@@ -26,6 +41,7 @@ interface
 uses
   Classes
   ,SysUtils
+//  ,macuuid
   ,System.UITypes
 //  ,StrUtils
 
@@ -45,19 +61,31 @@ uses
   ,mi.rtl.objects.consts.MI_MsgBox
   ,mi.rtl.objects.consts.progressdlg_if
   ,mi.rtl.objects.Consts.logs
-  ,mi.rtl.consts.StringList
+  ,mi.rtl.MiStringList
 
   ;
 
   type
+    THTMLTagEvent = mi.rtl.types.TTypes.THTMLTagEvent;
+
+
 //    TObjectsMethods = class;
   {: - A classe **@name** implementa os método de classe comum a todas as classes de TObjects do pacote **mi.rtl**.}
   TObjectsMethods =
   class(TObjectsConsts)
-  //Construção da propriedade Alias
-    Private _Alias : AnsiString      ;
-    Public Property Alias:AnsiString Read _Alias Write _Alias;
 
+    {: A classe método **@name** redireciona a saida de vídeo para
+       arquivo passado como parâmetro.
+    }
+    public class Function redirectOutput(Var OutputFile: text;aFileName:TFileName):integer;
+
+  //Construção da propriedade Alias
+  {$REGION '--->Construção da propriedade Alias'}
+    Private  _Alias    : AnsiString;
+    Protected Function GetAlias:AnsiString;Virtual;
+    Protected Procedure SetAlias(Const aAlias:AnsiString);Virtual;
+    Published  Property Alias : AnsiString Read GetAlias Write SetAlias;
+  {$ENDREGION}
     public type TMI_MsgBox = mi.rtl.objects.consts.MI_MsgBox.TMI_MsgBox;
     public const MI_MsgBox: TMI_MsgBox = nil;
 //    public Class Procedure Set_MI_MsgBox(aMI_MsgBox: TMI_MsgBox);virtual;abstract;
@@ -293,8 +321,8 @@ uses
       public class function NumberCharControl(s:AnsiString):Integer;
 
       public class Function StrAlinhado(aStrMsg:tString;Colunas : byte;Const Alinhamento:TAlinhamento):tString;
-      public class Function StringToSItem( StrMsg:AnsiString; Colunas : byte;Alinhamento:TAlinhamento):PSItem;virtual;overload;
-      public class Function StringToSItem( StrMsg:AnsiString; Colunas : byte):PSItem;virtual;overload;
+      public class Function StringToSItem( StrMsg:AnsiString; Alinhamento:TAlinhamento):PSItem;virtual;overload;
+      public class Function StringToSItem( StrMsg:AnsiString ):PSItem;virtual;overload;
 
       public class function SItemsLen(S: PSItem) : SmallInt;
       public class Function SItemToString(Items: PSItem):AnsiString;
@@ -324,7 +352,7 @@ uses
     {: A função **@name** remove os acentos do texto pText
 
        - **REFERÊNCIA**
-         - Exemplo completo: https://showdelphi.com.br/dica-funcao-para-remover-acentos-de-uma-string-delphi/
+         - Exemplo completo: https://showdelphi.com.br/dica-funcao-para-remover-acentos-de-uma-string-Delphi/
     }
     public class function AnsiString_to_USASCII(const pText: string): string;
 
@@ -365,6 +393,7 @@ uses
 
     public class Procedure RedirecionaRelatorio;
 
+    {: O método **name** troca todos os aSubStrOld para aSubStrNew em S }
     public class Function ChangeSubStr(aSubStrOld : AnsiString; {:< SubtString de S a ser trocada}
                                        aSubStrNew : AnsiString; {:< a Nova SubtString de S}
                                        S: AnsiString ):AnsiString; {:< Retorna S com o tString Trocado}
@@ -418,6 +447,27 @@ uses
     public class function StrToInt(aStr:String):Int64;
     public class Function BooleanToStr(Const FieldData:Boolean):AnsiString;
     public class function DelSpcED(campo : Ansistring): AnsiString;
+
+    {: O método **@name** exclui de campo os caracteres contidos em
+       CharInvalid
+
+       - Exemplo de uso
+         ``` pascal
+
+            //inclui um conjunto de caracateres a tString
+              Var
+                s : String;
+            Begin
+              S := '"Paulo.Sergio Idade: 1958"';
+              DelChars(S,['"']);
+              Resultado: Paulo.Sergio Idade: 1958
+            end;
+
+         ```
+
+    }
+    public class function DeleteChars(campo: Ansistring;CharInvalid:TAnsiCharSet): AnsiString;
+
     public class function Delspace(campo : Ansistring):AnsiString;
     Public class function GetNameValid(aName:AnsiString):AnsiString;
     public class Function IsNumber_Real(Const aTemplate : ShortString):Boolean;
@@ -511,6 +561,115 @@ uses
     }
     Public class Procedure ShowHtml(URL:string);virtual;  //Deve ser redefinido onde a LCL for declarada.
 
+    //Criação da propriedade HelpCtx_StrCurrentModule. Obs: Corrente módulo em execução independente do módulo da classe.
+    private _HelpCtx_StrCurrentModule :AnsiString;
+    protected Function GetHelpCtx_StrCurrentModule :AnsiString;virtual;   //< Nortsoft Obs: Ao criar o objeto inicializa com Db_Global.StrCurrentModule
+
+    {: A propriedade **@name** contém o nome do corrente módudo do projeto
+      - NOTAS
+        - Ao criar o objeto inicializa com Db_Global.StrCurrentModule
+    }
+    Public property HelpCtx_StrCurrentModule: AnsiString read GetHelpCtx_StrCurrentModule write _HelpCtx_StrCurrentModule;
+
+
+    {: - A propriedade **@name** contém o nome do corrente comando do projeto
+
+       - NOTAS
+         - Ao criar o objeto inicializa com Db_Global.StrCurrentCommand
+    }
+    Private _HelpCtx_StrCurrentCommand: AnsiString;
+    protected Function GetHelpCtx_StrCurrentCommand: AnsiString; Virtual;
+    Public property HelpCtx_StrCurrentCommand: AnsiString read GetHelpCtx_StrCurrentCommand write _HelpCtx_StrCurrentCommand;
+
+    {: - A propriedade **@name** contém o nome da opção do corrente comando do projeto
+
+       - NOTAS
+         - Nome da opcao ativa dentro do comando
+    }
+    Private _HelpCtx_StrCurrentCommand_Opcao : AnsiString;
+    Protected Function GetHelpCtx_StrCurrentCommand_Opcao: AnsiString; virtual; //< Nome da opcao ativa dentro do comando
+    Public property HelpCtx_StrCurrentCommand_Opcao: AnsiString read GetHelpCtx_StrCurrentCommand_Opcao write _HelpCtx_StrCurrentCommand_Opcao;
+    {: O método **@name** retorna o número de ordem do controlo no grupo.}
+    public Function  TabIndex:Longint;Virtual;
+
+    Protected function CreateHTML : AnsiString;Overload;Virtual;
+    Protected Function GetAcao():AnsiString;Virtual; //Retorna o link da ação da classe
+
+    Protected function GetHelpCtx_Path: AnsiString;Virtual;
+
+    {$REGION '---> Construção da propriedade ID_Dinamic'}
+      Private _HelpCtx_StrCommand: AnsiString;
+      protected Function GetHelpCtx_StrCommand: AnsiString; Virtual;
+      {: A propriedade **@name** retorna o nome do comando que está
+         utilizando esta classe}
+      Public property HelpCtx_StrCommand: AnsiString read GetHelpCtx_StrCommand write _HelpCtx_StrCommand;
+    {$ENDREGION}
+
+    {$REGION '---> Construção da propriedade HelpCtx_StrCurrentCommand_Topic'}
+        private _HelpCtx_StrCurrentCommand_Topic: AnsiString;
+        protected Function GetHelpCtx_StrCurrentCommand_Topic: AnsiString;virtual;
+        {: A propriedade **@name** retorna o nome do tópico corrente do comando que está utilizando esta classe
+           - NOTAS
+             - Ao criar o objeto inicializa com Db_Global.StrCurrentCommand_topic
+        }
+        Public property HelpCtx_StrCurrentCommand_Topic: AnsiString read GetHelpCtx_StrCurrentCommand_Topic write _HelpCtx_StrCurrentCommand_Topic;
+
+    {$ENDREGION}
+
+    {$REGION '---> Construção da propriedade HelpCtx_StrCommand_Topic'}
+      private _HelpCtx_StrCommand_Topic: AnsiString;
+      protected Function GetHelpCtx_StrCommand_Topic: AnsiString;virtual;
+
+      {: A propriedade **@name** retorna o nome do tópico corrente do comando que está utilizando esta classe
+         - NOTAS
+           - Ao criar o objeto deve ser inicicializado pelo Alias da classe
+      }
+      Public property HelpCtx_StrCommand_Topic: AnsiString read GetHelpCtx_StrCommand_Topic write _HelpCtx_StrCommand_Topic;
+    {$ENDREGION}
+
+    {$REGION '---> Construção da propriedade HelpCtx_StrCurrentCommand_Topic_Content_Run'}
+      private _HelpCtx_StrCurrentCommand_Topic_Content_Run: TEnum_HelpCtx_StrCurrentCommand_Topic_Content_run;
+      protected Function GetHelpCtx_StrCurrentCommand_Topic_Content_Run: TEnum_HelpCtx_StrCurrentCommand_Topic_Content_run;virtual;
+      Protected Procedure SetHelpCtx_StrCurrentCommand_Topic_Content_Run(wHelpCtx_StrCurrentCommand_Topic_Content_Run: TEnum_HelpCtx_StrCurrentCommand_Topic_Content_run);virtual;
+      {: A propriedade **@name** retorna o nome StrCurrentCommand_topic_Content_run do comando que está utilizando esta classe
+         - NOTAS
+           - Ao criar o objeto inicializa com Db_Global.StrCurrentCommand_topic_Content_run;
+      }
+      Public property HelpCtx_StrCurrentCommand_Topic_Content_Run: TEnum_HelpCtx_StrCurrentCommand_Topic_Content_run read GetHelpCtx_StrCurrentCommand_Topic_Content_Run write SetHelpCtx_StrCurrentCommand_Topic_Content_Run;
+
+    {$ENDREGION}
+
+    {$REGION '---> Construção da propriedade Ok_HelpCtx_StrCurrentCommand_Topic_Content_run_Parameter_File'}
+      private _Ok_HelpCtx_StrCurrentCommand_Topic_Content_run_Parameter_File: Boolean;
+      Protected  Function Get_Ok_HelpCtx_StrCurrentCommand_Topic_Content_run_Parameter_File:Boolean;Virtual;
+      Protected  procedure Set_Ok_HelpCtx_StrCurrentCommand_Topic_Content_run_Parameter_File(a_Ok_HelpCtx_StrCurrentCommand_Topic_Content_run_Parameter_File: Boolean);Virtual;
+      {: A propriedade **@name** é usado para indica a propriedade **HelpCtx_StrCurrentCommand_Topic_Content_Run** que existe documento referente a visão corrente. Ou seja help sencível ao contexto.
+         - **NOTAS**
+           - Ao criar o objeto inicializa com Db_Global.StrCurrentCommand_topic
+           - Se HelpCtx_StrCurrentCommand_Topic_Content_Run = HelpCtx_StrCurrentCommand_Topic_Content_run_Parameter_File então:
+             - Retorna true;
+           - Se HelpCtx_StrCurrentCommand_Topic_Content_Run <> HelpCtx_StrCurrentCommand_Topic_Content_run_Parameter_File então:
+             - Retorna false;
+      }
+      Public property Ok_HelpCtx_StrCurrentCommand_Topic_Content_run_Parameter_File: Boolean read _Ok_HelpCtx_StrCurrentCommand_Topic_Content_run_Parameter_File write Set_Ok_HelpCtx_StrCurrentCommand_Topic_Content_run_Parameter_File;
+    {$ENDREGION}
+
+    {$REGION '---> Construção da propriedade HelpCtx_StrCurrentCommand_Topic_Content'}
+      private _HelpCtx_StrCurrentCommand_Topic_Content: AnsiString;
+      protected Function GetHelpCtx_StrCurrentCommand_Topic_Content: AnsiString;virtual;
+      protected Procedure SetHelpCtx_StrCurrentCommand_Topic_Content(wHelpCtx_StrCurrentCommand_Topic_Content:AnsiString);virtual;
+      {: A propriedade **@name** contém o conteúdo do campo no qual será criado um arquivo .html
+         - **NOTAS**
+           - Ao criar o objeto inicializa com Db_Global.StrCurrentCommand_topic_Content;
+      }
+
+      Public property HelpCtx_StrCurrentCommand_Topic_Content: AnsiString read GetHelpCtx_StrCurrentCommand_Topic_Content write SetHelpCtx_StrCurrentCommand_Topic_Content;
+    {$ENDREGION}
+    Public function GetHelpCtx_Doc_HTML: AnsiString;Virtual; //Se quem herdar esta classe não for do tipo campo então este metodo deve ser redefinido.
+
+    {: A classe método **@name** recebe em aInputString uma string separada pelo delimitador informado em aDelimiter e retorna um arrey de strings }
+    public class function SplitString(aInputString:string; aDelimiter: Char):TStringArray;
+
 
   end;
 
@@ -527,6 +686,24 @@ uses
 implementation
   const
       vidis : boolean = false;
+
+    class function TObjectsMethods.redirectOutput(var OutputFile:text;
+    aFileName:TFileName):integer;
+  begin
+    if not isfileopen(OutputFile)
+    Then Begin
+           AssignFile(OutputFile,aFileName );
+           Rewrite(OutputFile);//  abrir arquivo para gravação, destruindo conteúdo, se houver
+         end;
+    //Result := DuplicateHandle(TTextRec(OutputFile).Handle,TTextRec(output).Handle);
+    Result := DuplicateHandle(OutputFile, output);
+
+    if Result <>0 then
+    begin
+      raise Exception.CreateFmt('O método '+{$I %CURRENTROUTINE%}+' falhou: %s', [Result]);
+    end;
+  end;
+
 
   class function TObjectsMethods.Logs: TFilesLogs;
   begin
@@ -1702,7 +1879,47 @@ implementation
       End;
     End;
 
-    class function TObjectsMethods.StringToSItem( StrMsg: AnsiString;Colunas: byte; Alinhamento: TAlinhamento): PSItem;
+    class function TObjectsMethods.StringToSItem( StrMsg: AnsiString; Alinhamento: TAlinhamento): PSItem;
+
+      function Colunas:Byte;
+        var
+          i,posAnt,tamLinha : Integer;
+          s : string;
+      begin
+        result := 0;
+        posAnt := 0;
+        i      := 1;
+        while i <= length(StrMsg) do
+        begin
+          case StrMsg[i] of
+           fldENUM  : begin
+
+                        {$IFDEF CPU32} {$Region cpu32}
+                          inc(i,7);
+                        {$ENDIF} {$EndRegion cpu32}
+
+                        {$IFDEF CPU64} {$Region cpu64}
+                          inc(i,11);
+                        {$ENDIF} {$EndRegion cpu64}
+                        inc(i);
+                        s := system.copy(StrMsg,posAnt,i-posAnt);
+                        tamLinha := length(s);
+                        result := maxL(result,tamLinha) ;
+                        posAnt := i;
+
+                      end;
+          ^M : begin
+                 s := system.copy(StrMsg,posAnt,i-posAnt);
+                 tamLinha := length(s);
+                 result := maxL(result,tamLinha) ;
+                 posAnt := i;
+               end;
+
+          end;
+          inc(i);
+        end;
+      end;
+
       Var
         aStrMsg,ws  : AnsiString;
         MaxCol : Byte;
@@ -1722,8 +1939,8 @@ implementation
         End;
 
         LenStrMsg := length(StrMsg);
-
-        for i := 1 to LenStrMsg do
+        i := 1;
+        While  i <= LenStrMsg do
         Begin
           if (strMsg[i] in [#13,#10,^Z{,^C,^M}]) or (MaxCol > Colunas) Then
           Begin
@@ -1750,6 +1967,8 @@ implementation
             aStrMsg := aStrMsg + StrMsg[i];
             Inc(MaxCol);
           End;
+
+          inc(i);
         End;
 
       Finally
@@ -1762,9 +1981,9 @@ implementation
       End;
     End;
 
-    class function TObjectsMethods.StringToSItem(StrMsg: AnsiString;Colunas: byte): PSItem;
+    class function TObjectsMethods.StringToSItem(StrMsg: AnsiString): PSItem;
     begin
-      result := StringToSItem(StrMsg,Colunas,Alinhamento_Justificado);
+      result := StringToSItem(StrMsg,Alinhamento_Justificado);
     end;
 
     class function TObjectsMethods.SItemsLen(S: PSItem): SmallInt;var  Len : integer;
@@ -1838,7 +2057,7 @@ implementation
 
                 IF  (ListaDeMsgErro<>nil) and (ListaDeMsgErro^.Value<>NIL)
                 THEN BEGIN
-                        Result := StringToSItem(ListaDeMsgErro^.Value^,255,Alinhamento_Esquerda);
+                        Result := StringToSItem(ListaDeMsgErro^.Value^,Alinhamento_Esquerda);
                         If S1 = nil
                         Then WriteSItems(S1,Result )
                         Else S1.AddSItem(Result);
@@ -1982,7 +2201,7 @@ implementation
   end;
 
   class function TObjectsMethods.AnsiString_to_USASCII(const pText: string): string;
-    //Exemplo completo: https://showdelphi.com.br/dica-funcao-para-remover-acentos-de-uma-string-delphi/
+    //Exemplo completo: https://showdelphi.com.br/dica-funcao-para-remover-acentos-de-uma-string-Delphi/
   type
     USAscii20127 = type AnsiString(20127);
   begin
@@ -2283,23 +2502,29 @@ implementation
     abstracts;
   end;
 
-        class function TObjectsMethods.ChangeSubStr(aSubStrOld: AnsiString;
-      aSubStrNew: AnsiString; S: AnsiString): AnsiString; {:< Retorna S com o tString Trocado}
-    Var
-      Pos1,Pos2  : Integer;
+
+  class function TObjectsMethods.ChangeSubStr(aSubStrOld: AnsiString;
+      aSubStrNew: AnsiString; S: AnsiString): AnsiString;
+//
+//    Var
+//      Pos1,Pos2  : Integer;
   Begin
-    Pos1 := Pos(FMaiuscula(aSubStrOld),FMaiuscula(S));
-    If Pos1 <> 0
-    Then begin
-           if Pos1-1>0
-           then Result := Copy(S,1,Pos1-1)
-                        + aSubStrNew
-                        + Copy(S,Pos1+Length(aSubStrOld),Length(s)-Pos1+Length(aSubStrOld) +1)
-           Else Result :=
-                          aSubStrNew
-                        + Copy(S,Pos1+Length(aSubStrOld),Length(s)-Pos1+Length(aSubStrOld) +1)
-        end
-    Else Result := S;
+    //Pos1 := Pos(FMaiuscula(aSubStrOld),FMaiuscula(S));
+    //If Pos1 <> 0
+    //Then begin
+    //       if Pos1-1>0
+    //       then Result := Copy(S,1,Pos1-1)
+    //                    + aSubStrNew
+    //                    + Copy(S,Pos1+Length(aSubStrOld),Length(s)-Pos1+Length(aSubStrOld) +1)
+    //       Else Result :=
+    //                      aSubStrNew
+    //                    + Copy(S,Pos1+Length(aSubStrOld),Length(s)-Pos1+Length(aSubStrOld) +1);
+    //
+    //       // troca todas recursivamente
+    //       result := ChangeSubStr(aSubStrOld, aSubStrNew,result);
+    //    end
+    //Else Result := S;
+    result := StringReplace(s, aSubStrOld  , aSubStrNew , [rfReplaceAll])
   end;
 
         class function TObjectsMethods.Alias_To_Name(AAlias: AnsiString
@@ -2332,7 +2557,7 @@ implementation
      - **RETORNA**
        - **GUID**    : Novo GUID se sucesso ou string vazia se fracasso.
   }
-        class function TObjectsMethods.CreateGUID: TString;
+  class function TObjectsMethods.CreateGUID: TString;
     var
       GUID : TGuid;
       err: integer;
@@ -2346,7 +2571,8 @@ implementation
          end;
   end;
 
-        class function TObjectsMethods.SetExecAsync(aExecAsync: Byte): Byte;
+
+  class function TObjectsMethods.SetExecAsync(aExecAsync: Byte): Byte;
   //Retorna o estado anterior;
   Begin
     Result := ExecAsync;
@@ -2479,7 +2705,23 @@ implementation
     result := campo;
   end;
 
-    class function TObjectsMethods.Delspace(campo: Ansistring): AnsiString;
+  class function TObjectsMethods.DeleteChars(campo: Ansistring;CharInvalid:TAnsiCharSet): AnsiString;
+    Var
+      I : Integer;
+      ch : WideChar;
+  Begin
+    Result := '';
+    For i :=  1 to Length(campo)   do
+    Begin
+      ch := campo[i];
+      if (not(ch in CharInvalid )) and (ord(ch)>0)
+      Then Begin
+             Result := Result + campo[i];
+           end;
+    end;
+  end;
+
+  class function TObjectsMethods.Delspace(campo: Ansistring): AnsiString;
     var
       p : integer;
   begin
@@ -2557,7 +2799,7 @@ implementation
          end;
    end;
 
-            procedure TObjectsMethods.ClearEvent(var Event: TEvent);
+   procedure TObjectsMethods.ClearEvent(var Event: TEvent);
    Begin
      Event.What       := evNothing;
      Event.Command    := 0;
@@ -2775,14 +3017,242 @@ implementation
      Result := err = 0;
    end;
 
-   class Procedure TObjectsMethods.ShowHtml(URL: string);
+   class procedure TObjectsMethods.ShowHtml(URL: string);
    begin
+   end;
+
+   function TObjectsMethods.GetHelpCtx_StrCurrentModule: AnsiString;
+   begin
+      Result := _HelpCtx_StrCurrentModule;
+   end;
+
+   function TObjectsMethods.GetHelpCtx_StrCurrentCommand: AnsiString;
+   begin
+     Result := _HelpCtx_StrCurrentCommand;
+   end;
+
+   function TObjectsMethods.GetHelpCtx_StrCurrentCommand_Opcao: AnsiString;
+   begin
+     Result :=  _HelpCtx_StrCurrentCommand_Opcao;
+   end;
+
+   function TObjectsMethods.TabIndex: Longint;
+   begin
+     result := -1;
+   end;
+
+   function TObjectsMethods.CreateHTML: AnsiString;
+   begin
+     result := '';
+   end;
+
+   function TObjectsMethods.GetAcao(): AnsiString;
+
+     Function GetSubAcao(SubAcao:AnsiString):AnsiString;
+     //<a href="/cgi-bin/GCIC.exe/XX">Cadastrar planos de pagamentos</a>
+     //"/cgi-bin/GCIC.exe/CSistemaIntegrado,Cm_Arq_Plano_de_PagamentoI"
+     Begin
+       If SubAcao <> ''
+       Then Result :=','+SubAcao
+       Else Result := '';
+     end;
+     {
+       Deve tornar um link para ação
+     }
+   Begin
+     //Result :=  Application.ParamExecucao.HostName+
+     //           ExtractFileName(Application.ParamExecucao.NomeDeArquivosGenericos.NomeArqExe)+
+     //           '/'+
+     //           HelpCtx_StrCurrentModule+
+     //           GetSubAcao(HelpCtx_StrCurrentCommand)+
+     //           GetSubAcao(HelpCtx_StrCurrentCommand_Opcao);
+
+   end;
+
+
+  function TObjectsMethods.GetHelpCtx_StrCommand: AnsiString;
+  Begin
+    Result := _HelpCtx_StrCommand;
+
+    if Result = ''
+    then Result := HelpCtx_StrCurrentCommand;
+  end;
+
+  function TObjectsMethods.GetHelpCtx_StrCurrentCommand_Topic: AnsiString;
+  Begin
+    if ExtractFileDrive(_HelpCtx_StrCurrentCommand_Topic) = ''
+    then Result := _HelpCtx_StrCurrentCommand_Topic
+    Else Result := ExtractFileName(_HelpCtx_StrCurrentCommand_Topic);
+  End;
+
+  function TObjectsMethods.GetHelpCtx_StrCommand_Topic: AnsiString;
+  Begin
+    if ExtractFileDrive(_HelpCtx_StrCommand_Topic) = ''
+    then Result := _HelpCtx_StrCommand_Topic
+    Else ExtractFileName(HelpCtx_StrCurrentCommand_Topic);
+
+
+    if Result = ''
+    then Begin
+           if ExtractFileDrive(HelpCtx_StrCurrentCommand_Topic) = ''
+           then Result := HelpCtx_StrCurrentCommand_Topic
+           Else Result := ExtractFileName(HelpCtx_StrCurrentCommand_Topic);
+         end;
+  End;
+
+
+
+  function TObjectsMethods.GetHelpCtx_StrCurrentCommand_Topic_Content_Run: TEnum_HelpCtx_StrCurrentCommand_Topic_Content_run;
+  Begin
+    Result := _HelpCtx_StrCurrentCommand_Topic_Content_Run;
+  end;
+
+  procedure TObjectsMethods.SetHelpCtx_StrCurrentCommand_Topic_Content_Run(
+      wHelpCtx_StrCurrentCommand_Topic_Content_Run: TEnum_HelpCtx_StrCurrentCommand_Topic_Content_run
+    );
+  Begin
+    _HelpCtx_StrCurrentCommand_Topic_Content_Run := wHelpCtx_StrCurrentCommand_Topic_Content_Run;
+  end;
+
+
+  function TObjectsMethods.Get_Ok_HelpCtx_StrCurrentCommand_Topic_Content_run_Parameter_File: Boolean;
+  Begin
+    Result := _Ok_HelpCtx_StrCurrentCommand_Topic_Content_run_Parameter_File;
+  end;
+
+  procedure TObjectsMethods.Set_Ok_HelpCtx_StrCurrentCommand_Topic_Content_run_Parameter_File(a_Ok_HelpCtx_StrCurrentCommand_Topic_Content_run_Parameter_File: Boolean);
+  Begin
+    _Ok_HelpCtx_StrCurrentCommand_Topic_Content_run_Parameter_File := a_Ok_HelpCtx_StrCurrentCommand_Topic_Content_run_Parameter_File;
+  End;
+
+
+    function TObjectsMethods.GetHelpCtx_StrCurrentCommand_Topic_Content: AnsiString;
+  Begin
+    Result := _HelpCtx_StrCurrentCommand_Topic_Content;
+  end;
+
+    procedure TObjectsMethods.SetHelpCtx_StrCurrentCommand_Topic_Content(
+    wHelpCtx_StrCurrentCommand_Topic_Content: AnsiString);
+  Begin
+    _HelpCtx_StrCurrentCommand_Topic_Content := wHelpCtx_StrCurrentCommand_Topic_Content;
+  end;
+
+  function TObjectsMethods.GetHelpCtx_Doc_HTML: AnsiString;
+      {ATENÇAO:
+
+      Está um Implemntação só funciona se o objeto que herdar TNSComponent for do tipo campo.
+      Caso a classe que herdar TNSComponent seja tabela, então este método deve ser redefinido
+      para que os dados sejão pegos do corrente campo.
+      }
+
+     {
+      Retorna nome do documento associando a visao.
+     }
+     Var
+       wHelpCtx_StrCommand,wHelpCtx_StrCommand_Topic : AnsiString;
+
+  Begin
+     //Dar prioride a HelpCtx_StrCommand
+     wHelpCtx_StrCommand := HelpCtx_StrCommand;
+     if wHelpCtx_StrCommand = ''
+     then wHelpCtx_StrCommand := HelpCtx_StrCurrentCommand;
+
+     //Dar prioride a HelpCtx_StrCommand_Topic
+     wHelpCtx_StrCommand_Topic := HelpCtx_StrCommand_Topic;
+
+     //Se não foi definido um topico para o comando, então usa o corrente.
+     if wHelpCtx_StrCommand_Topic = ''
+     then wHelpCtx_StrCommand_Topic := HelpCtx_StrCurrentCommand_Topic;
+
+     If HelpCtx_StrCurrentCommand_Opcao <> ''
+     Then Result := GetHelpCtx_Path + wHelpCtx_StrCommand+'_'+HelpCtx_StrCurrentCommand_Opcao+'.htm'
+     Else If wHelpCtx_StrCommand <> ''
+          Then Begin
+                 if HelpCtx_StrCurrentCommand_Topic_Content_Run = HelpCtx_StrCurrentCommand_Topic_Content_run_Parameter_File
+                 Then Begin {$Region '// HelpCtx_StrCurrentCommand_Topic_Content_Run = HelpCtx_StrCurrentCommand_Topic_Content_run_Parameter_File'}
+                        Ok_HelpCtx_StrCurrentCommand_Topic_Content_run_Parameter_File := true;
+                       //HelpCtx_StrCurrentCommand_Topic_Content_run_Parameter_File. Nota: Para cada campo o conteudo do campo é criado um arquivo.
+                        Result := GetHelpCtx_Path + wHelpCtx_StrCommand+'_'+wHelpCtx_StrCommand_Topic+'_'+Alias_To_Name(HelpCtx_StrCurrentCommand_Topic_Content+'.htm') //
+                      end   {$EndRegion '// HelpCtx_StrCurrentCommand_Topic_Content_Run = HelpCtx_StrCurrentCommand_Topic_Content_run_Parameter_File'}
+                 Else Begin
+                        Ok_HelpCtx_StrCurrentCommand_Topic_Content_run_Parameter_File := False;
+                        Result := GetHelpCtx_Path + wHelpCtx_StrCommand+'.htm'
+                      End;
+              end
+          Else Result := '';
+   end;
+
+
+    function TObjectsMethods.GetHelpCtx_Path: AnsiString;
+      {
+       Retorna path do documento associando a visao.
+      }
+     //Function SIF(Const Logica : Boolean; Const E1 , E2 : String ) : String ;
+     //Begin
+     //  If Logica Then SIF := E1 Else SIF := E2;
+     //End;
+
+    Begin
+      result := '';
+      //if HelpCtx_StrCommand <>''
+      //then Result := application.ParamExecucao.NomeDeArquivosGenericos.DirHTML+
+      //               SIF(HelpCtx_StrModule<>'',HelpCtx_StrModule+PathDelim,'')+
+      //               SIF(HelpCtx_StrCommand<>'',HelpCtx_StrCommand+PathDelim,'')
+      //Else Result := application.ParamExecucao.NomeDeArquivosGenericos.DirHTML+
+      //               SIF(HelpCtx_StrCurrentModule<>'',HelpCtx_StrCurrentModule+PathDelim,'')+
+      //               SIF(HelpCtx_StrCurrentCommand<>'',HelpCtx_StrCurrentCommand+PathDelim,'');
+    end;
+
+   function TObjectsMethods.GetAlias: AnsiString;
+   begin
+     If _Alias <> ''
+     Then Result := _Alias
+     Else Result := ClassName;
+   end;
+
+   procedure TObjectsMethods.SetAlias(const aAlias: AnsiString);
+   begin
+     If aAlias <> ''
+     Then _Alias   := AAlias
+     else _Alias   := ClassName;
    end;
 
    class function TObjectsMethods.ShellScript(aCommand: String): String;
    begin
      RunCommand('/bin/bash',['-c',aCommand],result);
    end;
+
+
+   class function TObjectsMethods.SplitString(aInputString:string; aDelimiter: Char):TStringArray;
+
+      procedure AddStringToArray(var A: TStringArray; const B: String);
+      begin
+        SetLength(A, Length(A) + 1);
+        A[High(A)] := B;
+      end;
+
+    var
+      StringList: TStringList;
+      Part: string;
+
+   begin
+     Result := [];
+     StringList := TStringList.Create;
+     try
+       StringList.Delimiter := aDelimiter;
+       StringList.DelimitedText := aInputString;
+
+       for Part in StringList do
+       begin
+         AddStringToArray(Result,Part);
+       end;
+
+     finally
+        StringList.Free;
+     end;
+   end;
+
+
 
 
 
