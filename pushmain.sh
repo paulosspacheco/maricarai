@@ -1,38 +1,30 @@
 #!/bin/bash
 
-# Texto com as mudanças que estão sendo realizada neste push.
+# Texto com as mudanças que estão sendo realizadas neste push.
 TextoCommit="$1"
 
-#if [$TextoCommit -eq ""]; then
+# Verifica se o texto do commit foi passado como argumento
 if [ -z "$TextoCommit" ]; then
    echo "Parâmetro deve ser texto diferente de nulo"
-   exit
+   exit 1
 fi
 
-
-# Associa o repositório remoto ao repositório local.          
+# Associa o repositório remoto ao repositório local, se ainda não existir.
+if ! git remote | grep -q origin; then
     git remote add origin git@github.com:paulosspacheco/maricarai.git
+fi
 
-# Renomeie o branch  atual para main
-# O comando branch -M não precisa ser feito a todo momento, porque o git sempre envia para
-# o ultimo ramo selecionando.
-    git branch -M main  
+# Renomeia o branch atual para main (isso pode ser necessário apenas uma vez).
+git branch -M main
 
-# Atualiza o repositório local com os dados do repositório remoto
-# git pull esse comando não pode ser altomático pq a versão main da nuvem pode estar desatualizada.
+# Adiciona todas as mudanças no repositório local.
+git add .
 
-
-# Este comando pode ser executado várias vezes antes de um commit.  
-    git add .
-
-# Use o <msg> fornecido como a mensagem de confirmação. 
-    git commit -a -m "$TextoCommit"
+# Cria um commit com a mensagem fornecida.
+git commit -a -m "$TextoCommit"
 
 # Envia as alterações locais para o repositório remoto.
-    git push -u origin main                  
+git push -u origin main
 
-# imprime o status atual do repositório
- git status  
-
-
-
+# Imprime o status atual do repositório.
+git status
