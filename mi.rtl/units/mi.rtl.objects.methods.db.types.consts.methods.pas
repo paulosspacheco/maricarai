@@ -5,7 +5,7 @@ unit mi.rtl.objects.Methods.db.types.consts.Methods;
       -
 
     - **VERSÃO**
-      - Alpha - Alpha - 0.9.0
+      - Alpha - 1.0.0
 
     - **HISTÓRICO**
       - Criado por: Paulo Sérgio da Silva Pacheco e-mail: paulosspacheco@@yahoo.com.br
@@ -40,7 +40,7 @@ uses
   class(TDbConsts)
     public constructor Create(aowner:TComponent);Overload;Override;
     public destructor Destroy; override;
-    public function FExisteCodigo (Var IxF:IndexFile; Const código:tString):Boolean;//inline;
+    public function FExisteCodigo (Var IxF:IndexFile; Const codigo:tString):Boolean;//inline;
     public procedure CreateTAccess;
     public procedure DestroyTAccess;
 
@@ -251,7 +251,7 @@ uses
                                      aRecSize           : SmallWord);Overload;
 
     public function UpperCase(str:AnsiString):AnsiString;//inline;
-    public function FMinuscula(str:AnsiString):AnsiString;//inline;
+    public function Lowcase(str:AnsiString):AnsiString;//inline;
 
     public function Int2str(Const L : LongInt) : tString;//inline;
 
@@ -367,8 +367,8 @@ end;
 
 
 
-{$I Tb_Acce2_Inc.pas}  {  Implementation TTransaction}
-{$I Tb_Acce3_Inc.pas}  {  Implementation TFilesOpens}
+//{$I Tb_Acce2_Inc.pas}  {  Implementation TTransaction}
+//{$I Tb_Acce3_Inc.pas}  {  Implementation TFilesOpens}
 
 
 
@@ -996,7 +996,7 @@ begin
   Result := AnsiUpperCase(scg(Str));
 end;
 
-Function TDb_Methods.FMinuscula(str:AnsiString):AnsiString;
+Function TDb_Methods.Lowcase(str:AnsiString):AnsiString;
 var
   i:Integer;
   S : tString;
@@ -1015,7 +1015,7 @@ begin
   Else Result := '';
 end;
 
-{Function FMinuscula(str:AnsiString):AnsiString;
+{Function Lowcase(str:AnsiString):AnsiString;
 var
   i:Integer;
 begin
@@ -1029,7 +1029,7 @@ begin
       If Byte(str[i]) in [65..90] then
         str[i] := AnsiChar(Byte(str[i])+32);
   End;
-  FMinuscula := str;
+  Lowcase := str;
 end;}
 
 

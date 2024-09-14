@@ -1,0 +1,59 @@
+inherited operadores: Toperadores
+  OnCreate = DataModuleCreate
+  OnDestroy = DataModuleDestroy
+  Height = 174
+  HorizontalOffset = 524
+  VerticalOffset = 281
+  Width = 455
+  inherited DmxScroller_Form1: TDmxScroller_Form
+    Alias = 'Cadastro de  operadores'
+    OnAddTemplate = DmxScroller_Form1AddTemplate
+    onEnter = DmxScroller_Form1Enter
+    Top = 24
+  end
+  inherited ActionList1: TActionList
+    Left = 80
+    inherited CmRefresh: TAction
+      Caption = 'CmRefresh'
+    end
+  end
+  inherited Mi_SQLQuery1: TMi_SQLQuery
+    IndexName = 'DEFAULT_ORDER'
+    FieldDefs = <    
+      item
+        Name = 'id'
+        DataType = ftInteger
+        Precision = -1
+      end    
+      item
+        Name = 'nome'
+        DataType = ftString
+        Precision = -1
+        Size = 50
+      end    
+      item
+        Name = 'login'
+        DataType = ftString
+        Precision = -1
+        Size = 50
+      end    
+      item
+        Name = 'password'
+        DataType = ftString
+        Precision = -1
+        Size = 50
+      end    
+      item
+        Name = 'telefone'
+        DataType = ftString
+        Precision = -1
+        Size = 20
+      end>
+    Active = True
+    SQL.Strings = (
+      'select * from operadores order by id asc'
+    )
+    Left = 328
+    Top = 16
+  end
+end

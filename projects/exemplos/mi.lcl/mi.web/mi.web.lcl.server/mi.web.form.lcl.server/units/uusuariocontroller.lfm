@@ -1,0 +1,39 @@
+object UsuarioController: TUsuarioController
+  OldCreateOrder = False
+  Actions = <  
+    item
+      Name = 'GetUsuario'
+      Default = False
+      OnRequest = GetUsuario
+      Template.AllowTagParams = False
+    end  
+    item
+      Name = 'CreateUsuario'
+      Default = False
+      OnRequest = CreateUsuario
+      Template.AllowTagParams = False
+    end  
+    item
+      Name = 'UpdateUsuario'
+      Default = False
+      OnRequest = UpdateUsuario
+      Template.AllowTagParams = False
+    end  
+    item
+      Name = 'DeleteUsuario'
+      Default = False
+      OnRequest = DeleteUsuario
+      Template.AllowTagParams = False
+    end>
+  CreateSession = False
+  CORS.Enabled = False
+  CORS.Options = [coAllowCredentials, coEmptyDomainToOrigin]
+  CORS.AllowedMethods = 'GET, PUT, POST, OPTIONS, HEAD'
+  CORS.AllowedOrigins = '*'
+  CORS.AllowedHeaders = 'x-requested-with, content-type, authorization'
+  CORS.MaxAge = 0
+  Height = 150
+  HorizontalOffset = 285
+  VerticalOffset = 127
+  Width = 150
+end

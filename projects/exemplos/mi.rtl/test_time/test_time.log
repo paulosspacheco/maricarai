@@ -1,0 +1,302 @@
+ [2024-03-30 17:15:10.756 Info] Mask: yy/mm/dd
+ [2024-03-30 17:15:10.757 Info] fmt=...
+ [2024-03-30 17:15:10.757 Info] fmt=yy/mm/dd
+ [2024-03-30 17:15:10.757 Info] Print: Valor: 24-03-30
+ [2024-03-30 17:15:10.757 Info] Print_DateTimeToStr: 24/03/30
+ [2024-03-30 17:15:10.757 Info] Print_StrToDateTime: 24/03/28
+ [2024-03-30 17:15:10.757 Info] fmt=...
+ [2024-03-30 17:15:10.757 Info] fmt=dd/nn/yy
+ [2024-03-30 17:15:10.757 Info] Print: Valor: 30-15-24
+ [2024-03-30 17:15:10.757 Info] Print_DateTimeToStr: 30/15/24
+ [2024-03-30 17:16:35.729 Info] Mask: yy/mm/dd
+ [2024-03-30 17:16:48.049 Info] fmt=...
+ [2024-03-30 17:16:48.753 Info] fmt=yy/mm/dd
+ [2024-03-30 17:16:53.913 Info] Print: Valor: 24-03-30
+ [2024-03-30 17:16:56.698 Info] Print_DateTimeToStr: 24/03/30
+ [2024-03-30 17:16:57.546 Info] Print_StrToDateTime: 24/03/28
+ [2024-03-30 17:16:58.290 Info] fmt=...
+ [2024-03-30 17:16:58.290 Info] fmt=dd/nn/yy
+ [2024-03-30 17:16:58.290 Info] Print: Valor: 30-16-24
+ [2024-03-30 17:16:58.929 Info] Print_DateTimeToStr: 30/16/24
+ [2024-03-30 17:17:41.067 Info] Mask: yy/mm/dd
+ [2024-03-30 17:17:41.067 Info] fmt=...
+ [2024-03-30 17:17:41.067 Info] fmt=yy/mm/dd
+ [2024-03-30 17:17:41.067 Info] Print: Valor: 24/03/30
+ [2024-03-30 17:17:41.067 Info] Print_DateTimeToStr: 24/03/30
+ [2024-03-30 17:17:41.067 Info] Print_StrToDateTime: 24/03/28
+ [2024-03-30 17:17:45.107 Info] fmt=...
+ [2024-03-30 17:17:45.107 Info] fmt=dd/nn/yy
+ [2024-03-30 17:17:45.107 Info] Print: Valor: 30/17/24
+ [2024-03-30 17:20:46.511 Info] Mask: yy/mm/dd
+ [2024-03-30 17:20:46.511 Info] fmt=...
+ [2024-03-30 17:20:46.511 Info] fmt=yy/mm/dd
+ [2024-03-30 17:20:46.511 Info] Print: Valor: 24-03-30
+ [2024-03-30 17:20:46.511 Info] Print_DateTimeToStr: 24/03/30
+ [2024-03-30 17:20:46.511 Info] Print_StrToDateTime: 24/03/28
+ [2024-03-30 17:20:47.997 Info] fmt=...
+ [2024-03-30 17:20:47.997 Info] fmt=dd/mm/yy
+ [2024-03-30 17:20:47.997 Info] Print: Valor: 30-03-24
+ [2024-03-30 17:20:48.435 Info] Print_DateTimeToStr: 30/03/24
+ [2024-03-30 17:20:49.155 Info] Print_StrToDateTime: 28/03/24
+ [2024-03-30 17:20:49.612 Info] fmt=...
+ [2024-03-30 17:20:49.612 Info] fmt=dd/mm/yyyy
+ [2024-03-30 17:20:49.612 Info] Print: Valor: 30-03-2024
+ [2024-03-30 17:20:49.995 Info] Print_DateTimeToStr: 30/03/2024
+ [2024-03-30 17:20:50.387 Info] Print_StrToDateTime: 28/03/2024
+ [2024-03-30 17:20:50.827 Info] fmt=...
+ [2024-03-30 17:20:50.827 Info] fmt=yyyy/mm/dd
+ [2024-03-30 17:20:50.827 Info] Print: Valor: 2024-03-30
+ [2024-03-30 17:20:51.211 Info] Print_DateTimeToStr: 2024/03/30
+ [2024-03-30 17:20:51.579 Info] Print_StrToDateTime: 2024/03/28
+ [2024-03-30 17:20:51.947 Info] fmt=...
+ [2024-03-30 17:20:51.947 Info] fmt=mm/yy
+ [2024-03-30 17:20:51.947 Info] Print: Valor: 03-24
+ [2024-03-30 17:20:52.321 Info] Print_DateTimeToStr: 03/24
+ [2024-03-30 17:20:52.723 Info] fmt=...
+ [2024-03-30 17:20:52.723 Info] fmt=mm/yyyy
+ [2024-03-30 17:20:52.723 Info] Print: Valor: 03-2024
+ [2024-03-30 17:20:53.107 Info] Print_DateTimeToStr: 03/2024
+ [2024-03-30 17:20:53.508 Info] fmt=...
+ [2024-03-30 17:20:53.508 Info] fmt=dd/mm/yy hh:nn:ss
+ [2024-03-30 17:20:53.508 Info] Print: Valor: 30-03-24 17:20:53
+ [2024-03-30 17:20:53.891 Info] Print_DateTimeToStr: 30/03/24 17:20:53
+ [2024-03-30 17:20:54.291 Info] Print_StrToDateTime: 28/03/24 17:11:59
+ [2024-03-30 17:20:54.740 Info] fmt=...
+ [2024-03-30 17:20:54.740 Info] fmt=dd/mm/yy hh:nn
+ [2024-03-30 17:20:54.740 Info] Print: Valor: 30-03-24 17:20
+ [2024-03-30 17:20:55.155 Info] Print_DateTimeToStr: 30/03/24 17:20
+ [2024-03-30 17:20:55.555 Info] Print_StrToDateTime: 28/03/24 17:11
+ [2024-03-30 17:20:55.939 Info] fmt=...
+ [2024-03-30 17:20:55.939 Info] fmt=dd/mm/yyyy hh:nn:ss
+ [2024-03-30 17:20:55.939 Info] Print: Valor: 30-03-2024 17:20:55
+ [2024-03-30 17:20:56.387 Info] Print_DateTimeToStr: 30/03/2024 17:20:56
+ [2024-03-30 17:20:56.812 Info] Print_StrToDateTime: 28/03/2024 17:11:59
+ [2024-03-30 17:20:57.268 Info] fmt=...
+ [2024-03-30 17:20:57.268 Info] fmt=hh:nn
+ [2024-03-30 17:20:57.268 Info] Print: Valor: 17:20
+ [2024-03-30 17:20:57.683 Info] Print_DateTimeToStr: 17:20
+ [2024-03-30 17:20:58.060 Info] Print_StrToDateTime: 17:11
+ [2024-03-30 17:20:58.445 Info] fmt=...
+ [2024-03-30 17:20:58.445 Info] fmt=hh:nn:ss
+ [2024-03-30 17:20:58.445 Info] Print: Valor: 17:20:58
+ [2024-03-30 17:20:58.844 Info] Print_DateTimeToStr: 17:20:58
+ [2024-03-30 17:20:59.245 Info] Print_StrToDateTime: 17:11:59
+ [2024-03-30 17:20:59.669 Info] fmt=...
+ [2024-03-30 17:20:59.669 Info] fmt=hh:nn:ss:zzzz
+ [2024-03-30 17:20:59.669 Info] Print: Valor: 17:20:59:669
+ [2024-03-30 17:21:00.093 Info] Print_DateTimeToStr: 17:21:00:092
+ [2024-03-30 17:21:00.492 Info] fmt=...
+ [2024-03-30 17:21:00.492 Info] fmt=ddd of mmm of yyyy
+ [2024-03-30 17:21:00.492 Info] Print: Valor: Sat O30-3-24 17:21:00 Mar O30-3-24 17:21:00 2024
+ [2024-03-30 17:21:01.173 Info] Print_DateTimeToStr: Sat O30/3/24 17:21:01 Mar O30/3/24 17:21:01 2024
+ [2024-03-30 17:21:01.580 Info] Print_StrToDateTime: Thu O28/3/24 00:00:00 Mar O28/3/24 00:00:00 2024
+ [2024-04-01 20:57:20.298 Info] Mask: yy/mm/dd
+ [2024-04-01 20:57:20.298 Info] fmt=...
+ [2024-04-01 20:57:20.298 Info] fmt=yy/mm/dd
+ [2024-04-01 20:57:20.298 Info] Print: Valor: 24/04/01
+ [2024-04-01 20:57:20.298 Info] Print_DateTimeToStr: 24/04/01
+ [2024-04-01 20:57:20.298 Info] Print_StrToDateTime: 24/03/28
+ [2024-04-01 20:57:24.150 Info] fmt=...
+ [2024-04-01 20:57:24.150 Info] fmt=dd/mm/yy
+ [2024-04-01 20:57:24.150 Info] Print: Valor: 01/04/24
+ [2024-04-01 20:57:24.582 Info] Print_DateTimeToStr: 01/04/24
+ [2024-04-01 20:57:24.894 Info] Print_StrToDateTime: 28/03/24
+ [2024-04-01 20:57:25.231 Info] fmt=...
+ [2024-04-01 20:57:25.231 Info] fmt=dd/mm/yyyy
+ [2024-04-01 20:57:25.231 Info] Print: Valor: 01/04/2024
+ [2024-04-01 20:57:25.580 Info] Print_DateTimeToStr: 01/04/2024
+ [2024-04-01 20:57:26.230 Info] Print_StrToDateTime: 28/03/2024
+ [2024-04-01 20:57:26.558 Info] fmt=...
+ [2024-04-01 20:57:26.558 Info] fmt=yyyy/mm/dd
+ [2024-04-01 20:57:26.558 Info] Print: Valor: 2024/04/01
+ [2024-04-01 20:57:26.869 Info] Print_DateTimeToStr: 2024/04/01
+ [2024-04-01 20:57:27.204 Info] Print_StrToDateTime: 2024/03/28
+ [2024-04-01 20:57:27.606 Info] fmt=...
+ [2024-04-01 20:57:27.606 Info] fmt=mm/yy
+ [2024-04-01 20:57:27.606 Info] Print: Valor: 04/24
+ [2024-04-01 20:57:28.140 Info] Print_DateTimeToStr: 04/24
+ [2024-04-01 20:57:28.972 Info] fmt=...
+ [2024-04-01 20:57:28.972 Info] fmt=mm/yyyy
+ [2024-04-01 20:57:28.972 Info] Print: Valor: 04/2024
+ [2024-04-01 20:57:29.525 Info] Print_DateTimeToStr: 04/2024
+ [2024-04-01 20:57:32.070 Info] fmt=...
+ [2024-04-01 20:57:32.070 Info] fmt=dd/mm/yy hh:nn:ss
+ [2024-04-01 20:57:32.070 Info] Print: Valor: 01/04/24 20:57:32
+ [2024-04-01 20:57:32.973 Info] Print_DateTimeToStr: 01/04/24 20:57:32
+ [2024-04-01 20:57:33.933 Info] Print_StrToDateTime: 28/03/24 17:11:59
+ [2024-04-01 20:57:34.957 Info] fmt=...
+ [2024-04-01 20:57:34.957 Info] fmt=dd/mm/yy hh:nn
+ [2024-04-01 20:57:34.957 Info] Print: Valor: 01/04/24 20:57
+ [2024-04-01 20:57:35.597 Info] Print_DateTimeToStr: 01/04/24 20:57
+ [2024-04-01 20:57:36.621 Info] Print_StrToDateTime: 28/03/24 17:11
+ [2024-04-01 20:57:37.653 Info] fmt=...
+ [2024-04-01 20:57:37.653 Info] fmt=dd/mm/yyyy hh:nn:ss
+ [2024-04-01 20:57:37.653 Info] Print: Valor: 01/04/2024 20:57:37
+ [2024-04-01 20:57:38.222 Info] Print_DateTimeToStr: 01/04/2024 20:57:38
+ [2024-04-01 21:00:52.043 Info] fmt=...
+ [2024-04-01 21:00:52.043 Info] fmt=dd/mm/yyyy hh:nn:ss
+ [2024-04-01 21:00:52.043 Info] Print: Valor: 01/04/2024 21:00:52
+ [2024-04-01 21:00:52.043 Info] Print_DateTimeToStr: 01/04/2024 21:00:52
+ [2024-04-01 21:09:44.087 Info] fmt=...
+ [2024-04-01 21:09:44.087 Info] fmt=dd/mm/yyyy hh:nn:ss
+ [2024-04-01 21:09:44.087 Info] Print: Valor: 01/04/2024 21:09:44
+ [2024-04-01 21:09:44.087 Info] Print_DateTimeToStr: 01/04/2024 21:09:44
+ [2024-04-01 21:10:03.224 Info] fmt=...
+ [2024-04-01 21:10:03.224 Info] fmt=dd/mm/yyyy hh:nn:ss
+ [2024-04-01 21:10:03.224 Info] Print: Valor: 01/04/2024 21:10:03
+ [2024-04-01 21:10:03.224 Info] Print_DateTimeToStr: 01/04/2024 21:10:03
+ [2024-04-01 21:10:51.189 Info] Print_StrToDateTime: 17:11:59.999
+ [2024-04-01 21:10:56.254 Info] fmt=...
+ [2024-04-01 21:10:56.254 Info] fmt=hh:nn
+ [2024-04-01 21:10:56.254 Info] Print: Valor: 21:10
+ [2024-04-01 21:10:56.763 Info] Print_DateTimeToStr: 21:10
+ [2024-04-01 21:10:57.476 Info] Print_StrToDateTime: 17:11
+ [2024-04-01 21:10:57.959 Info] fmt=...
+ [2024-04-01 21:10:57.959 Info] fmt=hh:nn:ss
+ [2024-04-01 21:10:57.959 Info] Print: Valor: 21:10:57
+ [2024-04-01 21:10:58.420 Info] Print_DateTimeToStr: 21:10:58
+ [2024-04-01 21:10:58.860 Info] Print_StrToDateTime: 17:11:59
+ [2024-04-01 21:10:59.421 Info] fmt=...
+ [2024-04-01 21:10:59.421 Info] fmt=hh:nn:ss.zzz
+ [2024-04-01 21:10:59.421 Info] Print: Valor: 21:10:59.421
+ [2024-04-01 21:11:00.228 Info] Print_DateTimeToStr: 21:11:00.228
+ [2024-04-01 21:11:01.917 Info] fmt=...
+ [2024-04-01 21:11:01.917 Info] fmt=ddd of mmm of yyyy
+ [2024-04-01 21:11:01.917 Info] Print: Valor: Mon O1/4/24 21:11:01 Apr O1/4/24 21:11:01 2024
+ [2024-04-01 21:11:02.741 Info] Print_DateTimeToStr: Mon O1/4/24 21:11:02 Apr O1/4/24 21:11:02 2024
+ [2024-04-01 21:11:03.959 Info] Print_StrToDateTime: Thu O28/3/24 00:00:00 Mar O28/3/24 00:00:00 2024
+ [2024-04-01 21:11:33.576 Info] fmt=...
+ [2024-04-01 21:11:33.576 Info] fmt=dd/mm/yyyy hh:nn:ss
+ [2024-04-01 21:11:33.576 Info] Print: Valor: 01/04/2024 21:11:33
+ [2024-04-01 21:11:33.576 Info] Print_DateTimeToStr: 01/04/2024 21:11:33
+ [2024-04-01 21:11:35.780 Info] Print_StrToDateTime: 17:11:59.999
+ [2024-04-01 21:12:00.433 Info] fmt=...
+ [2024-04-01 21:12:00.433 Info] fmt=dd/mm/yyyy hh:nn:ss
+ [2024-04-01 21:12:00.433 Info] Print: Valor: 01/04/2024 21:12:00
+ [2024-04-01 21:12:00.433 Info] Print_DateTimeToStr: 01/04/2024 21:12:00
+ [2024-04-10 16:48:03.754 Info] Mask: yy/mm/dd
+ [2024-04-10 16:48:03.755 Info] fmt=...
+ [2024-04-10 16:48:03.755 Info] fmt=yy/mm/dd
+ [2024-04-10 16:48:03.755 Info] Print: Valor: 24/04/10
+ [2024-04-10 16:48:03.755 Info] Print_DateTimeToStr: 24/04/10
+ [2024-04-10 16:48:03.755 Info] Print_StrToDateTime: 24/03/28
+ [2024-04-10 16:48:03.755 Info] fmt=...
+ [2024-04-10 16:48:03.755 Info] fmt=dd/mm/yy
+ [2024-04-10 16:48:03.755 Info] Print: Valor: 10/04/24
+ [2024-04-10 16:48:03.755 Info] Print_DateTimeToStr: 10/04/24
+ [2024-04-10 16:48:03.755 Info] Print_StrToDateTime: 28/03/24
+ [2024-04-10 16:48:03.755 Info] fmt=...
+ [2024-04-10 16:48:03.755 Info] fmt=dd/mm/yyyy
+ [2024-04-10 16:48:03.755 Info] Print: Valor: 10/04/2024
+ [2024-04-10 16:48:03.755 Info] Print_DateTimeToStr: 10/04/2024
+ [2024-04-10 16:48:03.755 Info] Print_StrToDateTime: 28/03/2024
+ [2024-04-10 16:48:03.755 Info] fmt=...
+ [2024-04-10 16:48:03.755 Info] fmt=yyyy/mm/dd
+ [2024-04-10 16:48:03.755 Info] Print: Valor: 2024/04/10
+ [2024-04-10 16:48:03.755 Info] Print_DateTimeToStr: 2024/04/10
+ [2024-04-10 16:48:03.755 Info] Print_StrToDateTime: 2024/03/28
+ [2024-04-10 16:48:03.755 Info] fmt=...
+ [2024-04-10 16:48:03.755 Info] fmt=mm/yy
+ [2024-04-10 16:48:03.755 Info] Print: Valor: 04/24
+ [2024-04-10 16:48:03.755 Info] Print_DateTimeToStr: 04/24
+ [2024-04-10 16:48:03.755 Info] fmt=...
+ [2024-04-10 16:48:03.755 Info] fmt=mm/yyyy
+ [2024-04-10 16:48:03.755 Info] Print: Valor: 04/2024
+ [2024-04-10 16:48:03.755 Info] Print_DateTimeToStr: 04/2024
+ [2024-04-10 16:48:03.755 Info] fmt=...
+ [2024-04-10 16:48:03.755 Info] fmt=dd/mm/yy hh:nn:ss
+ [2024-04-10 16:48:03.755 Info] Print: Valor: 10/04/24 16:48:03
+ [2024-04-10 16:48:03.755 Info] Print_DateTimeToStr: 10/04/24 16:48:03
+ [2024-04-10 16:48:03.755 Info] Print_StrToDateTime: 28/03/24 17:11:59
+ [2024-04-10 16:48:03.755 Info] fmt=...
+ [2024-04-10 16:48:03.755 Info] fmt=dd/mm/yy hh:nn
+ [2024-04-10 16:48:03.755 Info] Print: Valor: 10/04/24 16:48
+ [2024-04-10 16:48:03.755 Info] Print_DateTimeToStr: 10/04/24 16:48
+ [2024-04-10 16:48:03.755 Info] Print_StrToDateTime: 28/03/24 17:11
+ [2024-04-10 16:48:03.755 Info] fmt=...
+ [2024-04-10 16:48:03.755 Info] fmt=dd/mm/yyyy hh:nn:ss
+ [2024-04-10 16:48:03.755 Info] Print: Valor: 10/04/2024 16:48:03
+ [2024-04-10 16:48:03.755 Info] Print_DateTimeToStr: 10/04/2024 16:48:03
+ [2024-04-10 16:48:03.755 Info] Print_StrToDateTime: 17:11:59.999
+ [2024-04-10 16:48:03.755 Info] fmt=...
+ [2024-04-10 16:48:03.755 Info] fmt=hh:nn
+ [2024-04-10 16:48:03.755 Info] Print: Valor: 16:48
+ [2024-04-10 16:48:03.755 Info] Print_DateTimeToStr: 16:48
+ [2024-04-10 16:48:03.755 Info] Print_StrToDateTime: 17:11
+ [2024-04-10 16:48:03.755 Info] fmt=...
+ [2024-04-10 16:48:03.755 Info] fmt=hh:nn:ss
+ [2024-04-10 16:48:03.755 Info] Print: Valor: 16:48:03
+ [2024-04-10 16:48:03.755 Info] Print_DateTimeToStr: 16:48:03
+ [2024-04-10 16:48:03.755 Info] Print_StrToDateTime: 17:11:59
+ [2024-04-10 16:48:03.755 Info] fmt=...
+ [2024-04-10 16:48:03.755 Info] fmt=hh:nn:ss.zzz
+ [2024-04-10 16:48:03.755 Info] Print: Valor: 16:48:03.755
+ [2024-04-10 16:48:03.755 Info] Print_DateTimeToStr: 16:48:03.755
+ [2024-04-10 16:48:03.755 Info] fmt=...
+ [2024-04-10 16:48:03.755 Info] fmt=ddd of mmm of yyyy
+ [2024-04-10 16:48:03.755 Info] Print: Valor: Qua O10/4/24 16:48:03 Abr O10/4/24 16:48:03 2024
+ [2024-04-10 16:48:03.755 Info] Print_DateTimeToStr: Qua OQua O  Abr O  2024 16:48:03 Abr OQua O  Abr O  2024 16:48:03 2024
+ [2024-04-10 16:48:03.755 Info] Print_StrToDateTime: Qui OQui O  Mar O  2024 00:00:00 Mar OQui O  Mar O  2024 00:00:00 2024
+ [2024-04-10 16:48:06.458 Info] Mask: yy/mm/dd
+ [2024-04-10 16:48:06.458 Info] fmt=...
+ [2024-04-10 16:48:06.458 Info] fmt=yy/mm/dd
+ [2024-04-10 16:48:06.458 Info] Print: Valor: 24/04/10
+ [2024-04-10 16:48:06.458 Info] Print_DateTimeToStr: 24/04/10
+ [2024-04-10 16:48:06.458 Info] Print_StrToDateTime: 24/03/28
+ [2024-04-10 16:48:06.458 Info] fmt=...
+ [2024-04-10 16:48:06.459 Info] fmt=dd/mm/yy
+ [2024-04-10 16:48:06.459 Info] Print: Valor: 10/04/24
+ [2024-04-10 16:48:06.459 Info] Print_DateTimeToStr: 10/04/24
+ [2024-04-10 16:48:06.459 Info] Print_StrToDateTime: 28/03/24
+ [2024-04-10 16:48:06.459 Info] fmt=...
+ [2024-04-10 16:48:06.459 Info] fmt=dd/mm/yyyy
+ [2024-04-10 16:48:06.459 Info] Print: Valor: 10/04/2024
+ [2024-04-10 16:48:06.459 Info] Print_DateTimeToStr: 10/04/2024
+ [2024-04-10 16:48:06.459 Info] Print_StrToDateTime: 28/03/2024
+ [2024-04-10 16:48:06.459 Info] fmt=...
+ [2024-04-10 16:48:06.459 Info] fmt=yyyy/mm/dd
+ [2024-04-10 16:48:06.459 Info] Print: Valor: 2024/04/10
+ [2024-04-10 16:48:06.459 Info] Print_DateTimeToStr: 2024/04/10
+ [2024-04-10 16:48:06.459 Info] Print_StrToDateTime: 2024/03/28
+ [2024-04-10 16:48:06.459 Info] fmt=...
+ [2024-04-10 16:48:06.459 Info] fmt=mm/yy
+ [2024-04-10 16:48:06.459 Info] Print: Valor: 04/24
+ [2024-04-10 16:48:06.459 Info] Print_DateTimeToStr: 04/24
+ [2024-04-10 16:48:06.459 Info] fmt=...
+ [2024-04-10 16:48:06.459 Info] fmt=mm/yyyy
+ [2024-04-10 16:48:06.459 Info] Print: Valor: 04/2024
+ [2024-04-10 16:48:06.459 Info] Print_DateTimeToStr: 04/2024
+ [2024-04-10 16:48:06.459 Info] fmt=...
+ [2024-04-10 16:48:06.459 Info] fmt=dd/mm/yy hh:nn:ss
+ [2024-04-10 16:48:06.459 Info] Print: Valor: 10/04/24 16:48:06
+ [2024-04-10 16:48:06.459 Info] Print_DateTimeToStr: 10/04/24 16:48:06
+ [2024-04-10 16:48:06.459 Info] Print_StrToDateTime: 28/03/24 17:11:59
+ [2024-04-10 16:48:06.459 Info] fmt=...
+ [2024-04-10 16:48:06.459 Info] fmt=dd/mm/yy hh:nn
+ [2024-04-10 16:48:06.459 Info] Print: Valor: 10/04/24 16:48
+ [2024-04-10 16:48:06.459 Info] Print_DateTimeToStr: 10/04/24 16:48
+ [2024-04-10 16:48:06.459 Info] Print_StrToDateTime: 28/03/24 17:11
+ [2024-04-10 16:48:06.459 Info] fmt=...
+ [2024-04-10 16:48:06.459 Info] fmt=dd/mm/yyyy hh:nn:ss
+ [2024-04-10 16:48:06.459 Info] Print: Valor: 10/04/2024 16:48:06
+ [2024-04-10 16:48:06.459 Info] Print_DateTimeToStr: 10/04/2024 16:48:06
+ [2024-04-10 16:48:06.459 Info] Print_StrToDateTime: 17:11:59.999
+ [2024-04-10 16:48:06.459 Info] fmt=...
+ [2024-04-10 16:48:06.459 Info] fmt=hh:nn
+ [2024-04-10 16:48:06.459 Info] Print: Valor: 16:48
+ [2024-04-10 16:48:06.459 Info] Print_DateTimeToStr: 16:48
+ [2024-04-10 16:48:06.459 Info] Print_StrToDateTime: 17:11
+ [2024-04-10 16:48:06.459 Info] fmt=...
+ [2024-04-10 16:48:06.459 Info] fmt=hh:nn:ss
+ [2024-04-10 16:48:06.459 Info] Print: Valor: 16:48:06
+ [2024-04-10 16:48:06.459 Info] Print_DateTimeToStr: 16:48:06
+ [2024-04-10 16:48:06.459 Info] Print_StrToDateTime: 17:11:59
+ [2024-04-10 16:48:06.459 Info] fmt=...
+ [2024-04-10 16:48:06.459 Info] fmt=hh:nn:ss.zzz
+ [2024-04-10 16:48:06.459 Info] Print: Valor: 16:48:06.459
+ [2024-04-10 16:48:06.459 Info] Print_DateTimeToStr: 16:48:06.459
+ [2024-04-10 16:48:06.459 Info] fmt=...
+ [2024-04-10 16:48:06.459 Info] fmt=ddd of mmm of yyyy
+ [2024-04-10 16:48:06.459 Info] Print: Valor: Qua O10/4/24 16:48:06 Abr O10/4/24 16:48:06 2024
+ [2024-04-10 16:48:06.459 Info] Print_DateTimeToStr: Qua OQua O  Abr O  2024 16:48:06 Abr OQua O  Abr O  2024 16:48:06 2024
+ [2024-04-10 16:48:06.459 Info] Print_StrToDateTime: Qui OQui O  Mar O  2024 00:00:00 Mar OQui O  Mar O  2024 00:00:00 2024

@@ -1,0 +1,93 @@
+./lazarus/app_avm-versao com código do fromulário duplicado/datamodule/udm_connections.pas
+./lazarus/app_avm-versao com código do fromulário duplicado/datamodule/uoperadores.pas
+./lazarus/app_avm-versao com código do fromulário duplicado/datamodule/udm_table.pas
+./lazarus/app_avm-versao com código do fromulário duplicado/lcl/uformdock.pas
+./lazarus/app_avm-versao com código do fromulário duplicado/lcl/uform_operadores2.pas
+./lazarus/app_avm-versao com código do fromulário duplicado/lcl/uform_main.pas
+./lazarus/app_avm-versao com código do fromulário duplicado/lcl/uform_default.pas
+./lazarus/app_avm-versao com código do fromulário duplicado/lcl/uform_operadores.pas
+./lazarus/app_avm (cópia)/datamodule/udm_connections.pas
+./lazarus/app_avm (cópia)/datamodule/uoperadores.pas
+./lazarus/app_avm (cópia)/datamodule/udm_table.pas
+./lazarus/app_avm (cópia)/lcl/uformdock.pas
+./lazarus/app_avm (cópia)/lcl/uform_operadores2.pas
+./lazarus/app_avm (cópia)/lcl/uform_main.pas
+./lazarus/app_avm (cópia)/lcl/uform_default.pas
+./lazarus/app_avm (cópia)/lcl/uform_operadores.pas
+./lazarus/avm-versao com as tarefas que fiz com o Paulo Henrique/datamodule/uconvenios.pas
+./lazarus/avm-versao com as tarefas que fiz com o Paulo Henrique/datamodule/uservico_de_agenda.pas
+./lazarus/avm-versao com as tarefas que fiz com o Paulo Henrique/datamodule/ustatus_da_agenda_ou_consulta.pas
+./lazarus/avm-versao com as tarefas que fiz com o Paulo Henrique/datamodule/uoperadores.pas
+./lazarus/avm-versao com as tarefas que fiz com o Paulo Henrique/datamodule/uhospitais.pas
+./lazarus/avm-versao com as tarefas que fiz com o Paulo Henrique/datamodule/umedicos.pas
+./lazarus/avm-versao com as tarefas que fiz com o Paulo Henrique/avm_lcl/datamodule/unit_dm_connections.pas
+./lazarus/avm-versao com as tarefas que fiz com o Paulo Henrique/avm_lcl/datamodule/unit_dm.pas
+./lazarus/avm-versao com as tarefas que fiz com o Paulo Henrique/avm_lcl/datamodule/unit_xoperadores.pas
+./lazarus/avm-versao com as tarefas que fiz com o Paulo Henrique/avm_lcl/datamodule/actions/healthcaredatamodule.pas
+./lazarus/avm-versao com as tarefas que fiz com o Paulo Henrique/avm_lcl/unit_form4.pas
+./lazarus/avm-versao com as tarefas que fiz com o Paulo Henrique/avm_lcl/units/unit_form_main.pas
+./lazarus/avm-versao com as tarefas que fiz com o Paulo Henrique/avm_lcl/units/unit_zoperadores.pas
+./lazarus/avm-versao com as tarefas que fiz com o Paulo Henrique/avm_lcl/unit_formdock.pas
+./lazarus/avm-versao com as tarefas que fiz com o Paulo Henrique/avm_mi_http/units/unit1.pas
+./lazarus/teste/lcl/uservico_de_agendas.pas
+./lazarus/teste/lcl/uform_integracao2.pas
+./lazarus/teste/lcl/uform_hospitais2.pas
+./lazarus/teste/lcl/uintegracao.pas
+./lazarus/teste/lcl/uform_medicos2.pas
+./lazarus/teste/lcl/uform_clientes2.pas
+./lazarus/teste/lcl/uclientes.pas
+./lazarus/teste/lcl/uform_servico_de_agendas2.pas
+./lazarus/teste/lcl/uhospitais.pas
+./lazarus/teste/lcl/umedicos.pas
+./lazarus/app_avm/datamodule/uservico_de_agendas.pas
+./lazarus/app_avm/datamodule/uagenda.pas
+./lazarus/app_avm/datamodule/uform_status_da_agenda_ou_consulta.pas
+./lazarus/app_avm/datamodule/uform_table.pas
+./lazarus/app_avm/datamodule/uformdock.pas
+./lazarus/app_avm/datamodule/uexpediente_do_medico_horas.pas
+./lazarus/app_avm/datamodule/uexpediente_do_medico_data.pas
+./lazarus/app_avm/datamodule/uintegracao.pas
+./lazarus/app_avm/datamodule/uformas_de_pagamento.pas
+./lazarus/app_avm/datamodule/udm_connections.pas
+./lazarus/app_avm/datamodule/ustatus_da_agenda_ou_consulta.pas
+./lazarus/app_avm/datamodule/uform_consulta.pas
+./lazarus/app_avm/datamodule/uoperadores.pas
+./lazarus/app_avm/datamodule/uconsulta.pas
+./lazarus/app_avm/datamodule/uform_agenda.pas
+./lazarus/app_avm/datamodule/uclientes.pas
+./lazarus/app_avm/datamodule/uform_integracao.pas
+./lazarus/app_avm/datamodule/udm_table.pas
+./lazarus/app_avm/datamodule/uform_main.pas
+./lazarus/app_avm/datamodule/uform_default.pas
+./lazarus/app_avm/datamodule/uhospitais.pas
+./lazarus/app_avm/datamodule/uform_formas_de_pagamento.pas
+./lazarus/app_avm/datamodule/uform_clientes.pas
+./lazarus/app_avm/datamodule/umedicos.pas
+./lazarus/app_avm/lcl/uform_hospitais.pas
+./lazarus/app_avm/lcl/uform_servico_de_agendas.pas
+./lazarus/app_avm/lcl/uform_table.pas
+./lazarus/app_avm/lcl/uformdock.pas
+./lazarus/app_avm/lcl/uform_expediente_do_medico_data.pas
+./lazarus/app_avm/lcl/uform_main.pas
+./lazarus/app_avm/lcl/uform_default.pas
+./lazarus/app_avm/lcl/uform_expediente_do_medico_horas.pas
+./lazarus/app_avm/lcl/uform_operadores.pas
+./lazarus/app_avm/lcl/uform_medicos.pas
+./uconvenios.pas
+./uform_table.pas
+./uformdock.pas
+./udm_connections.pas
+./udm_table.pas
+./uform_main.pas
+./uform_default.pas
+./uform_convenios.pas
+./lazarus/app_avm-versao com código do fromulário duplicado/lcl/avm.lpr
+./lazarus/app_avm-versao com código do fromulário duplicado/lcl/app_avm_lcl.lpr
+./lazarus/app_avm (cópia)/lcl/avm.lpr
+./lazarus/avm-versao com as tarefas que fiz com o Paulo Henrique/avm_lcl/avm_lcl.lpr
+./lazarus/avm-versao com as tarefas que fiz com o Paulo Henrique/avm_mi_http/avm_mi_http.lpr
+./lazarus/avm-versao com as tarefas que fiz com o Paulo Henrique/units/httpproject1.lpr
+./lazarus/teste/lcl/project1.lpr
+./lazarus/app_avm/lcl/app_avm_lcl.lpr
+./project1.lpr
+./menu.inc

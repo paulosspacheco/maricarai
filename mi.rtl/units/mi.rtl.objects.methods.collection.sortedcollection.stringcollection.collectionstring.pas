@@ -7,7 +7,7 @@ unit mi.rtl.Objects.Methods.Collection.Sortedcollection.Stringcollection.Collect
         -  Essa classe foi criada para transformar Lista PSItem eem TCollection de strings;
 
       - **VERSÃO**
-        - Alpha - Alpha - 0.9.0
+        - Alpha - 1.0.0
 
       - **CÓDIGO FONTE**:
         - @html(<a href="../units/mi.rtl.objects.tcollection.tsortedcollection.tstringcollection.pas">mi.rtl.objects.tcollection.tsortedcollection.tstringcollection.pas</a>)
@@ -16,6 +16,8 @@ unit mi.rtl.Objects.Methods.Collection.Sortedcollection.Stringcollection.Collect
         - Criado por: Paulo Sérgio da Silva Pacheco e-mail: paulosspacheco@@yahoo.com.br
           - **07/12/2021**
             - 08:00 a 10:07 : Criada a unit @name e a classe **TCollectionString**
+          - **22/05/2024**
+            - 11:00 a 11:20 :Implementar o campo fldEnum_db
 
   }
   {$IFDEF FPC}
@@ -25,7 +27,7 @@ unit mi.rtl.Objects.Methods.Collection.Sortedcollection.Stringcollection.Collect
   interface
 
   uses
-    Classes, SysUtils
+    Classes, SysUtils,db
     ,mi.rtl.objects.Methods
     ,mi.rtl.objects.methods.Collection.Sortedcollection.StringCollection;
 
@@ -102,7 +104,7 @@ implementation
     Begin
       Result := '';
       for I := 1 to Length(S)
-      do  if Not (S[i] in AnsiChar_Control_Template + ['`'] )
+      do  if Not (S[i] in AnsiChar_Control_Template + [fldCONTRACTION] )
       then Result := Result + S[i];
     end;
 
@@ -118,16 +120,13 @@ implementation
            S := At(Index);
            if S<>nil
            then Begin
-                  PosFldNum := Pos('\'+fldENUM,S^);
+                  PosFldNum := Pos('\'+fldENum,S^);
+                  if PosFldNum = 0
+                  then PosFldNum := Pos('\'+fldENum_db,S^);
+
                   if PosFldNum<>0
                   then Begin
-                         {$IFDEF CPU32}
-                            Move(S^[PosFldNum+2],P,4);
-                         {$ENDIF}
-                         {$IFDEF CPU64}
-                            Move(S^[PosFldNum+2],P,4+4);
-                         {$ENDIF}
-
+                         Move(S^[PosFldNum+2],P,sizeof(PSItem));
 
                          If P<>nil
                          Then Begin // Concatena a lista de PSITEM
@@ -404,7 +403,8 @@ implementation
   If (Item<>nil) and (ptString(Item)^ <> '')
   Then Case ptString(Item)^[1] of
            //<Os Campos abaixo pode ser uma lista de PSItem
-           fldENUM   : Begin
+           fldENum,
+           fldENum_db: Begin
                          {$IFDEF CPU32}
                            Move(ptString(Item)^[2],P1,4);
                          {$ENDIF}
@@ -446,7 +446,7 @@ implementation
         Else Begin
                if Not aIgnore_ShowWid
                then Begin
-                      If (S^[j] ='`') and (S^[j] in aConjDespreze)
+                      If (S^[j] =fldCONTRACTION) and (S^[j] in aConjDespreze)
                       Then Break; {<Despreza o resto da linha}
                    End
              End;
@@ -460,7 +460,9 @@ implementation
       S := At(i);
       If S <> nil
       Then Begin
-             Len := Pos('\'+fldENUM,S^);
+             Len := Pos('\'+fldENum,S^);
+             If Len = 0
+             then Len := Pos('\'+fldENum_db,S^);
              If Len  <> 0
              Then Begin
                     Move(S^[Len+2],P,sizeof(pointer));
@@ -691,58 +693,67 @@ implementation
 
   Class Function TCollectionString.CopyTemplateFrom(Const aTemplate:tString): tString;
    {:<
-     Esta fução se faz necessário porque um Template pode ser uma lista de Strings onde esta lista pode
-     ser inserida em um objeto e discartada ao destruir o objeto.
+     Esta fução se faz necessário porque um Template pode ser uma lista de Strings
+     onde esta lista pode ser inserida em um objeto e discartada ao destruir o objeto.
    }
      Var P1  : PSItem;
+         Ds : TDataSource;
+         KeyField   : Ansistring;
+         ListFields : Ansistring;
+         Default : Longint;
   Begin
     If aTemplate <> ''
     Then Case aTemplate[1] of
+           //Os Campos abaixo pode ser uma lista de PSItem
+           fldENUM,
+           fldENum_db : Begin
+                         Move(aTemplate[EnumField_ofs.TypeField],P1,sizeof(pSitem));
+                         move(aTemplate[EnumField_ofs.Default],Default,Sizeof(TEnumField.Default));
 
-             //Os Campos abaixo pode ser uma lista de PSItem
-             fldENUM   : Begin
-                           {$IFDEF CPU32}
-                              Move(ATemplate[2],P1,4);
-                              Result := CreateEnumField({ShowZ  } boolean(Byte(aTemplate[6])),
-                                                        {AccMode} Byte(aTemplate[7]),
-                                                        {Default} longInt(aTemplate[8]),
-                                                        {AItems}  CloneSItems(P1));
-                           {$ENDIF}
-                           {$IFDEF CPU64}
-                              Move(ATemplate[2],P1,4+4);
-                              Result := CreateEnumField({ShowZ  } boolean(Byte(aTemplate[6+4])),
-                                                       {AccMode} Byte(aTemplate[7+4]),
-                                                       {Default} longInt(aTemplate[8+4]),
-                                                       {AItems}  CloneSItems(P1));
+                         if aTemplate[1] = fldENUM
+                         Then Result := CreateEnumField({ShowZ  } boolean(Byte(aTemplate[EnumField_ofs.ShowZ])),
+                                                        {AccMode} Byte(aTemplate[EnumField_ofs.AccMode]),
+                                                        {Default} Default,
+                                                        {AItems}  CloneSItems(P1))
+                         else begin
+                                move(aTemplate[EnumField_ofs.DataSource],Ds,Sizeof(TEnumField.DataSource));
+                                move(aTemplate[EnumField_ofs.KeyField],KeyField,Sizeof(TEnumField.KeyField));
+                                move(aTemplate[EnumField_ofs.ListField],ListFields,Sizeof(TEnumField.ListField));
 
-                           {$ENDIF}
+                                Result := CreateEnumField({ShowZ  } boolean(Byte(aTemplate[EnumField_ofs.ShowZ])),
+                                                        {AccMode}   Byte(aTemplate[EnumField_ofs.AccMode]),
+                                                        {Default}   Default,
+                                                        {AItems}    CloneSItems(P1),
+                                                        {DataSource}DS,
+                                                        {KeyField}  KeyField,
+                                                        {ListField} ListFields);
+                               end;
+
+                        if length(aTemplate) > Length(Result)
+                        then Begin
+                               Result := Result + copy(aTemplate,length(result)+1,length(aTemplate) - Length(Result));
+                             End;
+                       End;
+           fldSItems : Begin
+                         {$IFDEF CPU32}
+                           Move(ATemplate[2],P1,4);
+                         {$ENDIF}
+                         {$IFDEF CPU64}
+                           Move(ATemplate[2],P1,4+4);
+                         {$ENDIF}
 
 
-                          if length(aTemplate) > Length(Result)
-                          then Begin
-                                 Result := Result + copy(aTemplate,length(result)+1,length(aTemplate) - Length(Result));
-                               End;
-                         End;
-             fldSItems : Begin
-                           {$IFDEF CPU32}
-                             Move(ATemplate[2],P1,4);
-                           {$ENDIF}
-                           {$IFDEF CPU64}
-                             Move(ATemplate[2],P1,4+4);
-                           {$ENDIF}
+                         Result := CreateTSItemFields(CloneSItems(P1));
 
-
-                           Result := CreateTSItemFields(CloneSItems(P1));
-
-                           if length(aTemplate) > Length(Result)
-                           then Begin
-                                  Result := Result + copy(aTemplate,length(result)+1,length(aTemplate) - Length(Result));
-                                End;
-                         end;
-           Else Result := aTemplate;
-         end
-    else Result := '';
-  End;
+                         if length(aTemplate) > Length(Result)
+                         then Begin
+                                Result := Result + copy(aTemplate,length(result)+1,length(aTemplate) - Length(Result));
+                              End;
+                       end;
+         Else Result := aTemplate;
+       end
+  else Result := '';
+End;
 
 
 {$ENDREGION}

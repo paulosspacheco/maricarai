@@ -2,7 +2,7 @@ unit mi.rtl.Objects.Consts.Logs;
 {:< - A Unit **@name** implementa a classe **TFilesLogs** baseado na classe  **TEventLog** da **FCL**
 
   - **VERSÃO**
-    - Alpha - Alpha - 0.9.0
+    - Alpha - 1.0.0
 
   - **REFERÊNCIA**
     - [TEventLog](https://www.freepascal.org/docs-html/current/fcl/eventlog/teventlog.html)
@@ -192,6 +192,7 @@ Type
          - Arquivo de logs: **rtl.log**:
            - [2021-12-09 10:25:41.425 Error] Acesso ao arquivo negado.
     }
+
     public procedure Error(const Msg: String);overload;
 
     {: - A procedure **@name** é usada registrar mensagens do tipo **etInfo**.
@@ -222,6 +223,7 @@ Type
          - Arquivo de logs: **rtl.log**:
            -  [2021-12-13 20:46:32.745 Info] A versão Beta 3.5 será lançada em breve.
     }
+
     public procedure Info(const Fmt: String; Args: array of const);overload;
 
     {: - A procedure **@name** é usada registrar mensagens do tipo **etInfo**.

@@ -492,7 +492,7 @@
           e o mesmo deve iniciar TDmxFieldRec.ListComboBox.
 
         - Ao construir o formulário caso tenha TDmxFieldRec.ListComboBox<>nil
-          e o campo for diferente de FldRadioButton, fldEnum, fldBoolean, fldCheckBox
+          e o campo for diferente de FldRadioButton, fldENum,fldENum_db, fldBoolean, fldCheckBox
           então o mesmo deve ser editado com o componente Tmi_ui_ComboBox e só
           aceitar o valor que está na lista.
 

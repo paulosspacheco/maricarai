@@ -1,0 +1,69 @@
+object Dm_InputBox: TDm_InputBox
+  OnCreate = DataModuleCreate
+  OldCreateOrder = False
+  Height = 150
+  HorizontalOffset = 653
+  VerticalOffset = 244
+  Width = 239
+  object MI_UI_InputBox1: TMI_UI_InputBox
+    Left = 48
+    Top = 40
+  end
+  object DmxScroller_Form1: TDmxScroller_Form
+    Alias = 'TDmxScroller_Form'
+    onGetTemplate = DmxScroller_Form1GetTemplate
+    Active = False
+    AlignmentLabels = taLeftJustify
+    Left = 160
+    Top = 40
+  end
+  object ActionList1: TActionList
+    Left = 104
+    Top = 8
+    object CmNewRecord: TAction
+      Category = 'dbNavigator'
+      Caption = '&Novo'
+      OnExecute = CmNewRecordExecute
+    end
+    object CmLocate: TAction
+      Category = 'dbNavigator'
+      Caption = 'Pesquisar'
+      OnExecute = CmLocateExecute
+    end
+    object CmUpdateRecord: TAction
+      Category = 'dbNavigator'
+      Caption = '&Gravar'
+      OnExecute = CmUpdateRecordExecute
+    end
+    object CmDeleteRecord: TAction
+      Category = 'dbNavigator'
+      Caption = '&Excluir'
+      OnExecute = CmDeleteRecordExecute
+    end
+    object CmGoBof: TAction
+      Category = 'dbNavigator'
+      Caption = 'Inicio'
+      OnExecute = CmGoBofExecute
+    end
+    object CmNextRecord: TAction
+      Category = 'dbNavigator'
+      Caption = 'Próximo'
+      OnExecute = CmNextRecordExecute
+    end
+    object CmPrevRecord: TAction
+      Category = 'dbNavigator'
+      Caption = 'Anterior'
+      OnExecute = CmPrevRecordExecute
+    end
+    object CmGoEof: TAction
+      Category = 'dbNavigator'
+      Caption = 'Fim'
+      OnExecute = CmGoEofExecute
+    end
+    object CmRefresh: TAction
+      Category = 'dbNavigator'
+      Caption = 'Atualizar'
+      OnExecute = CmRefreshExecute
+    end
+  end
+end

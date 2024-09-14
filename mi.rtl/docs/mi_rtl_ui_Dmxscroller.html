@@ -16,7 +16,7 @@
 </li></ul></div><div class="content">
 <h1 class="unit">Unit mi_rtl_ui_Dmxscroller</h1>
 <div class="sections">
-<div class="one_section"><a class="section" href="#PasDoc-Description">Descrição</a></div><div class="one_section"><a class="section" href="#PasDoc-Uses">Uses</a></div><div class="one_section"><a class="section" href="#PasDoc-Classes">Classes, Interfaces, Objetos e Registros</a></div><div class="one_section">Funções e Procedimentos</div><div class="one_section"><a class="section" href="#PasDoc-Types">Tipos</a></div><div class="one_section"><a class="section" href="#PasDoc-Constants">Constantes</a></div><div class="one_section">Variáveis</div></div>
+<div class="one_section"><a class="section" href="#PasDoc-Description">Descrição</a></div><div class="one_section"><a class="section" href="#PasDoc-Uses">Uses</a></div><div class="one_section"><a class="section" href="#PasDoc-Classes">Classes, Interfaces, Objetos e Registros</a></div><div class="one_section"><a class="section" href="#PasDoc-FuncsProcs">Funções e Procedimentos</a></div><div class="one_section"><a class="section" href="#PasDoc-Types">Tipos</a></div><div class="one_section"><a class="section" href="#PasDoc-Constants">Constantes</a></div><div class="one_section">Variáveis</div></div>
 <span id="PasDoc-Description"></span><h2 class="description">Descrição</h2>
 <p>
 A unit <strong><code>mi_rtl_ui_Dmxscroller</code></strong> implementa a classe <a class="normal" href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html">TUiDmxScroller</a> e registro <a class="normal" href="mi_rtl_ui_Dmxscroller.TDmxFieldRec.html">TDmxFieldRec</a>.
@@ -30,7 +30,7 @@ A unit <strong><code>mi_rtl_ui_Dmxscroller</code></strong> implementa a classe <
   <li><p>Este projeto foi criado baseado na ideia do projeto: </p>
 
 <ul class="paragraph_spacing">
-  <li><p>[TvDmx](<a href="https://www.pcorner.com/list/PASCAL/TVDMX.ZIP/INFO">https://www.pcorner.com/list/PASCAL/TVDMX.ZIP/INFO</a>)</p></li>
+  <li><p>[TvDmx](<a href="https://www.pcorner.com/list/PASCAL/TVDMX.ZIP/">https://www.pcorner.com/list/PASCAL/TVDMX.ZIP/</a>)</p></li>
 </ul>
 
 <p></p></li>
@@ -40,7 +40,7 @@ A unit <strong><code>mi_rtl_ui_Dmxscroller</code></strong> implementa a classe <
   <li><p><strong>VERSÃO</strong> </p>
 
 <ul class="paragraph_spacing">
-  <li><p>Alpha - Alpha - 0.9.0</p></li>
+  <li><p>Alpha - 1.0.0</p></li>
 </ul>
 
 <p></p></li>
@@ -58,22 +58,20 @@ A unit <strong><code>mi_rtl_ui_Dmxscroller</code></strong> implementa a classe <
 </ul>
 
 <p></p></li>
-  <li><p><strong>PENDÊNCIAS</strong>
-
-<p></p>
+  <li><p><strong>PENDÊNCIAS</strong> </p>
 
 <ul class="paragraph_spacing">
-  <li><p>T12 Quando uma linha em um label tem muitos caracteres de 2 bytes os últimos não são interpretados.</p></li>
-  <li><p>T12 Implementar o campo FldLink. (Esse campo executa um ação usando controle TStaticText.</p></li>
-  <li><p>T12 O controle TComboBox da LCL alterar o tamanho da fonte courie New caso o tema do sistema mude. </p>
+  <li><p>T12 Criar Property TMi_rtl_dmxScroller.TemplateClient_Path</p></li>
+  <li><p>T12 Criar Property TMi_rtl_dmxScroller.ClientTemplates_ dataModule_FileName</p></li>
+  <li><p>T12 Criar Property TMi_rtl_dmxScroller.ClientTemplates_Form_FileName</p></li>
+  <li><p>T12 O grupo TMi_RadioGroup_Lcl não é selecionado com a tecla na tecla <strong>TAB</strong> </p>
 
 <ul class="paragraph_spacing">
-  <li><p>Pesquisar sobre o assunto.</p></li>
+  <li><p>Quando os botões TRadioButton estão dentro do TRadioGroup a propriedade TRadioGroup.TabStop não funciona.</p></li>
 </ul>
 
 <p></p></li>
-  <li><p>T12 No método SetString em caso de erro de gera exceção informando valor máximo do campo e não o valor digitado.</p></li>
-  <li><p>T12 Implementar o evento OnChange em todos os controles, visto que o mesmo é mais fácil criar lógica de negócios visto que o mesmo só é executado se o campo for modificado.</p></li>
+  <li><p>T12 Implementar o campo FldLink. (Esse campo executa uma ação usando controle TStaticText.</p></li>
   <li><p>T12 Implementar a possibilidade das fontes do label ser personalizada baseado em um estilo que pode ser uma variável global.
 
 <p></p>
@@ -87,9 +85,9 @@ A unit <strong><code>mi_rtl_ui_Dmxscroller</code></strong> implementa a classe <
   <li><p>Exemplo:</p></li>
 </ul>
 
-<p> &tilde;&circ;ZCADASTRO DE ALUNOS&tilde;
+<p> &tilde;&circ;ZCADASTRO DE ALUNOS&circ;Z&tilde;
 
-<p>&tilde;&circ;DÑome do Aluno:&tilde;\ssssssssss</p></li>
+<p>&tilde;&circ;DÑome do Aluno&circ;D:&tilde;\ssssssssss</p></li>
 </ul>
 
 <p></p></li>
@@ -98,9 +96,72 @@ A unit <strong><code>mi_rtl_ui_Dmxscroller</code></strong> implementa a classe <
 <p></p>
 
 <ul class="paragraph_spacing">
-  <li><p>T12 Na construção do formulário LCL setar o campo PDmxFieldRec.LinkEdit;</p></li>
-  <li><p>T12 Implementar o método: function FieldByNum(aFieldnum:Integer):<a class="normal" href="mi_rtl_ui_Dmxscroller.html#pDmxFieldRec">PDmxFieldRec</a>;</p></li>
-  <li><p>T12 Implementar a edição <strong><a class="normal" href="mi_rtl_ui_dmxscroller_form.html#fldBoolean">FldBoolean</a></strong>. </p>
+  <li><p>T12 Implementar a edição de campo <strong><a class="normal" href="mi_rtl_ui_dmxscroller_form.html#FldMemo">FldMemo</a></strong>.</p></li>
+  <li><p>T!2 Implementar a campo <strong><a class="normal" href="mi_rtl_ui_dmxscroller_form.html#fldBLOb">fldBLOb</a></strong>;</p></li>
+  <li><p>t12 Implementar a edição de <strong><a class="normal" href="mi_rtl_ui_dmxscroller_form.html#fldHexValue">fldHexValue</a></strong>. </p>
+
+<ul class="paragraph_spacing">
+  <li><p>O campo Hexadecimal deve ser campo longint mais a edição é uma string comum . <a class="normal" href="mi_rtl_ui_dmxscroller_form.html#fldSTR">FldStr</a></p></li>
+</ul>
+
+<p></p></li>
+  <li><p>T12 Implementar a execução do evento do tipo CharExecProc quando a tecla F7 é pressionada.</p></li>
+  <li><p>T12 Criar opção para gerar cliente HTML a partir de TDmxScroller </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Referência: [Componente que espoe dados para o browser](<a href="https://wiki.freepascal.org/SqlDbRestBridge#Purpose">https://wiki.freepascal.org/SqlDbRestBridge#Purpose</a>)</p></li>
+</ul>
+
+<p></p></li>
+  <li><p>T12 Nosso código só é executado com o editor de propriedade. Se não estamos no editor de propriedade então não temos controle do código no modo design. Qual o meu problema: O formulário deve ser criado em tempo de execução, porém eu queria ver como ele estava ficando sem precisar compilar e executar o código, por isso coloquei o código em um stringList e ao ativar o objeto, o formulário é criado. Porém esses objetos criados no designer não podem ficar no arquivo de recursos porque quando for executado vai haver duplicidade. </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Quando eu desativo o objetos todos os objetos que ele criou são excluídos do arquivo de recursos.</p></li>
+  <li><p>Isso eu já faço agora, mais quando distribuir o componente as pessoas vão deixar esses componente usado no teste e ao executar vai haver error.</p></li>
+  <li><p>Por isso eu queria que caso a propriedade active tivesse em true eu queria que ela ficasse em false.</p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p></li>
+  <li><p><strong>CONCLUÍDO</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>T12 Criar <a class="normal" href="mi_rtl_ui_Dmxscroller.html#TEnClientsApplication">TEnClientsApplication</a> = (ApLcl,ApJavaScript,ApDynamichtml,ApVueJs,ApAngular); ✅</p></li>
+  <li><p>T12 Implementar o método public function Locate(): Boolean;override;overload;✅</p></li>
+  <li><p>T12 Implementar a propriedade public property CanModify: Boolean;</p></li>
+  <li><p>T12 Implementar a propriedade public property TDmxScrooler.Modified : Boolean read _Modified; ✅</p></li>
+  <li><p>T12 Criar método Select_First_Field_Normal para se acionado no método DoOnNewRecord.</p></li>
+  <li><p>T12 Implementar o evento OnChange em todos os controles, visto que o mesmo é mais fácil criar lógica de negócios visto que o mesmo só é executado se o campo for modificado. ✅</p></li>
+  <li><p>T12 Criar evento Procedure OnCalcField;✅</p></li>
+  <li><p>T12 Criar evento Procedure OnCalcFields;✅</p></li>
+  <li><p>T12 Criar evento <a class="normal" href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html#onBeforeDelete">TUiDmxScroller.OnBeforeDelete</a>.✅</p></li>
+  <li><p>T12 Criar evento <a class="normal" href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html#onAfterDelete">TUiDmxScroller.OnAfterDelete</a>.✅</p></li>
+  <li><p>T12 Criar evento <a class="normal" href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html#onBeforeUpdate">TUiDmxScroller.OnBeforeUpdate</a>.✅</p></li>
+  <li><p>T12 Criar evento <a class="normal" href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html#onAfterUpdate">TUiDmxScroller.OnAfterUpdate</a>. ✅</p></li>
+  <li><p>T12 Criar evento onAfterInsert e depurar as consequencias caso retorne false; ✅</p></li>
+  <li><p>T12 Criar método Procedure updateCommands; ✅</p></li>
+  <li><p>T12 Criar evento onBoforeInsert ✅</p></li>
+  <li><p>T12 Criar function GetNextValue(const SequenceName: string; IncrementBy: integer): Int64;✅</p></li>
+  <li><p>T12 Criar function MaxPKey(aTabela, aID: String): LongInt;overload;✅</p></li>
+  <li><p>T12 Criar Function MaxPKey: LongInt;Virtual;overload;✅</p></li>
+  <li><p>T12 Criar function GetRecNo: LongInt; virtual;✅</p></li>
+  <li><p>T12 Criar function <a class="normal" href="mi_rtl_ui_Dmxscroller.TDmxFieldRec.html#Mask">TDmxFieldRec.Mask</a> :TMask.✅ </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Retorna o tipo da mascrara contida no template;✅</p></li>
+</ul>
+
+<p></p></li>
+  <li><p>T12 Checar porque o campo combobox não está funcinando o valor default;✅</p></li>
+  <li><p>T12 Criar método: Public Function UpdateRec_if_RecordAltered:Boolean;Virtual;✅</p></li>
+  <li><p>T12 Implementar edição do campo <a class="normal" href="mi_rtl_ui_dmxscroller_form.html#FldDateTime">FldDateTime</a>. Obs: 'D'; //:&lt; D = TipoData dd/nn/yy✅</p></li>
+  <li><p>T12 Criar Método StarTransaction;✅</p></li>
+  <li><p>T12 Criar Método Commit✅</p></li>
+  <li><p>T12 Criar Método Rollback✅</p></li>
+  <li><p>T12 Quando o usuário teclar tab para passar o campo e o campo seguinte não estiver visível o sistema deve passar a página do controle parent.✅</p></li>
+  <li><p>T12 Implementar a edição <strong><a class="normal" href="mi_rtl_ui_dmxscroller_form.html#fldBoolean">FldBoolean</a></strong>. ✅ </p>
 
 <ul class="paragraph_spacing">
   <li><p>Os campo Boolean deve ser editados como uma campo enumerado onde: </p>
@@ -114,56 +175,75 @@ A unit <strong><code>mi_rtl_ui_Dmxscroller</code></strong> implementa a classe <
 </ul>
 
 <p></p></li>
-  <li><p>T12 O campo <a class="normal" href="mi_rtl_ui_dmxscroller_form.html#fld_LHora">fld_LHora</a> não inicializado antes de compactar a hora.</p></li>
-  <li><p>T12 Quando o usuário teclar tab para passar o campo e o campo seguinte não estiver visível o sistema deve passar a página do controle parent.</p></li>
-  <li><p>T12 Implementar a edição de campo <strong><a class="normal" href="mi_rtl_ui_dmxscroller_form.html#FldMemo">FldMemo</a></strong>.</p></li>
-  <li><p>T!2 Implementar a campo <strong><a class="normal" href="mi_rtl_ui_dmxscroller_form.html#fldBLOb">fldBLOb</a></strong>;</p></li>
-  <li><p>t12 Implementar a edição de <strong><a class="normal" href="mi_rtl_ui_dmxscroller_form.html#fldHexValue">fldHexValue</a></strong>. </p>
+  <li><p>T12 Implementar a propriedade AlignmentLabels := taCenter; ✅ AlignmentLabels := taLeftJustify; ✅ AlignmentLabels := taRightJustify ; ✅</p></li>
+  <li><p>T12 Na construção do formulário LCL setar o campo PDmxFieldRec.LinkEdit; ✅</p></li>
+  <li><p>T12 Implementar o método: function FieldByNum(aFieldnum:Integer):<a class="normal" href="mi_rtl_ui_Dmxscroller.html#pDmxFieldRec">PDmxFieldRec</a>; ✅</p></li>
+</ul>
+
+<p></p>
 
 <ul class="paragraph_spacing">
-  <li><p>O campo Hexadecimal deve ser campo longint mais a edição é uma string comum . <a class="normal" href="mi_rtl_ui_dmxscroller_form.html#fldSTR">FldStr</a></p></li>
+  <li><p>T12 Criar método Edit semelhante a TdataSet.edit ✅</p></li>
+  <li><p>T12 Criar método: Public Function UpdateRec_if_RecordAltered:Boolean;Virtual;✅</p></li>
+  <li><p>T12 Criar método para habilitar e desabilitar a tabela de acordo com seu estado atual; ✅
+
+<p></p>
+
+<ul class="paragraph_spacing">
+  <li><p>O método EnableUpdateNewRecord é habilita os botões grava e Refresh quando o modo appending for true. É acionando em ChangeMadeOnOff. </p>
+
+<ul class="paragraph_spacing">
+  <li><p>public procedure EnableUpdateNewRecord;✅</p></li>
 </ul>
 
 <p></p></li>
-  <li><p>T12 Implementar a propriedade AlignmentLabels := taCenter; AlignmentLabels := taLeftJustify; AlignmentLabels := taRightJustify ;</p></li>
-  <li><p>T12 Implementar a execução do evento do tipo CharExecProc quando a tecla F7 é pressionada.</p></li>
-  <li><p>T12 Criar opção para gerar cliente HTML a partir de TDmxScroller </p>
+  <li><p>O método EnableUpdateRecord habilita os botões Novo, grava e Refresh quando o modo appending for false. É acionando em ChangeMadeOnOff. </p>
 
 <ul class="paragraph_spacing">
-  <li><p>Referência: [Componente que espoe dados para o browser](<a href="https://wiki.freepascal.org/SqlDbRestBridge#Purpose">https://wiki.freepascal.org/SqlDbRestBridge#Purpose</a>)</p></li>
+  <li><p>public procedure EnableUpdateRecord;✅</p></li>
 </ul>
 
 <p></p></li>
-  <li><p>T12 O grupo TMi_RadioGroup_Lcl não é selecionado com a tecla na tecla <strong>TAB</strong> </p>
+  <li><p>T12 Criar método habilitar todos os botões quando em changeMadeOnOff O registro não foi alterado; </p>
 
 <ul class="paragraph_spacing">
-  <li><p>Quando os botões TRadioButton estão dentro do TRadioGroup a propriedade TRadioGroup.TabStop não funciona.</p></li>
+  <li><p>Public procedure EnableRefresh; ✅</p></li>
 </ul>
 
 <p></p></li>
-  <li><p>T12 Nosso código só é executado com o editor de propriedade. Se não estamos no editor de propriedade então não temos controle do código no modo design. Qual o meu problema: O formulário deve ser criado em tempo de execução, porém eu queria ver como ele estava ficando sem precisar compilar e executar o código, por isso coloquei o código em um stringList e ao ativar o objeto, o formulário é criado. Porém esses objetos criados no designer não podem ficar no arquivo de recursos porque quando for executado vai haver duplicidade. </p>
-
-<ul class="paragraph_spacing">
-  <li><p>Quando eu desativo o objetos todos os objetos que ele criou são excluídos do arquivo de recursos.</p></li>
-  <li><p>Isso eu já faço agora, mais quando distribuir o componente as pessoas vão deixar esses componente usado no teste e ao executar vai haver <a class="normal" href="slogsend.html#Error">error</a>.</p></li>
-  <li><p>Por isso eu queria que caso a propriedade active tivesse em true eu queria que ela ficasse em false.</p></li>
-</ul>
-
-<p></p></li>
-</ul>
-
-<p></p></li>
-  <li><p><strong>CONCLUÍDO</strong> </p>
-
-<ul class="paragraph_spacing">
-  <li><p>T12 O campo FldCheckBox não está funcionando o flag <a class="normal" href="mi_rtl_ui_dmxscroller_form.html#CharHint">charHint</a> ✅️.</p></li>
-  <li><p>T12 Implementar o controle ChatHint no Template para seja possível passar um documento markdown pelo Template; ✅️.</p></li>
-  <li><p>T12 Ao executar o evento OnExit é necessário o redraw em de todos os campo caso haja alteração ao retorna da chamada. ✅️.</p></li>
+  <li><p>T12 O Método Refresh deve anular o que foi digitado até o momento com os dados do dataset. ✅</p></li>
+  <li><p>T12 Quando o DataSet estiver vazio o evento Do OnNewRecord deve ser acionado no método .Refresh ✅</p></li>
+  <li><p>T12 Criar Método: public procedure DisableCommands(aCommands: Array of AnsiString);✅</p></li>
+  <li><p>T12 Criar Método: Public procedure EnableCommands(aCommands: Array of AnsiString);✅</p></li>
+  <li><p>T12 Criar atributo: public Var Mi_ActionList : TActionList;✅</p></li>
+  <li><p>T12 Criar métodos: Public function GetAction(aName:AnsiString):TAction;✅</p></li>
+  <li><p>T12 Criar métodos: public Procedure SetStateAction(aName:AnsiString;aEnable:Boolean);✅</p></li>
+  <li><p>T12 Criar métodos: public Function getStateAction(aName:AnsiString):Boolean; ✅</p></li>
+  <li><p>T12 Criar métodos: public function CommandsEnabled(aCommands : array of ansistring): Boolean; ✅</p></li>
+  <li><p>T12 Criar métodos: public function CommandsDisabled(aCommands : array of ansistring): Boolean; ✅</p></li>
+  <li><p>T12 Publica a propriedade DoOnNewRecord_FillChar e atualizar o buffer quando setado em true; ✅</p></li>
+  <li><p>T12 Criar atributo CurrentBookmark: TBookMark; ✅</p></li>
+  <li><p>T12 Criar método: Public Function GetRec :Boolean; Virtual; ✅</p></li>
+  <li><p>T12 Criar método: Public Function DeleteRec :Boolean; Virtual; ✅</p></li>
+  <li><p>T12 Criar método: Public Function PutRec:Boolean;Virtual; ✅</p></li>
+  <li><p>T12 Criar método: Public Function UpdateRec: Boolean; Virtual; ✅</p></li>
+  <li><p>T12 Criar método: Public Function AddRec:Boolean ;Virtual; ✅;</p></li>
+  <li><p>T12 Criar método: Public Function LastRec: Boolean;overload;virtual; ✅</p></li>
+  <li><p>T12 Criar método: Public Function FirstRec: Boolean;overload;virtual; ✅</p></li>
+  <li><p>T12 Criar método: Public Function PrevRec: Boolean;overload;virtual; ✅</p></li>
+  <li><p>T12 Criar método: Public Function NextRec: Boolean;overload;virtual; ✅</p></li>
+  <li><p>T12 O campo FldCheckBox não está funcionando o flag <a class="normal" href="mi_rtl_ui_dmxscroller_form.html#CharHint">charHint</a> ✅.</p></li>
+  <li><p>T12 Implementar o controle ChatHint no Template para seja possível passar um documento markdown pelo Template; ✅.</p></li>
+  <li><p>T12 Ao executar o evento OnExit é necessário o redraw em de todos os campo caso haja alteração ao retorna da chamada. ✅.</p></li>
   <li><p>T12 O componente TMi_ui_Button_lcl não está na lista dos campos selecionados na tecla tab. ✅</p></li>
-  <li><p>T12 Os campos <a class="normal" href="mi_rtl_ui_dmxscroller_form.html#fldENUM">FldEnum</a> não estão mostrando o help. ✅</p></li>
+  <li><p>T12 Os campos <a class="normal" href="mi_rtl_ui_dmxscroller_form.html#fldENum">FldEnum</a> não estão mostrando o help. ✅</p></li>
   <li><p>T12 Criar a propriedade Locked; ✅</p></li>
   <li><p>T12 No pacote mi.rtl.ui, transferir toda dependência do pacote LCL para o pacote mi.rtl.form.</p></li>
-  <li><p>T12 Implementar a propriedade TUiDmxScroller.JSONObject ✅</p></li>
+  <li><p>T12 Implementar a propriedade <a class="normal" href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html#JSONObject">TUiDmxScroller.JSONObject</a> ✅</p></li>
+  <li><p>T12 No método SetString em caso de erro de gera exceção informando valor máximo do campo e não o valor digitado. ✅</p></li>
+</ul>
+
+<p></p></li>
 </ul>
 
 <p></p></li>
@@ -171,7 +251,7 @@ A unit <strong><code>mi_rtl_ui_Dmxscroller</code></strong> implementa a classe <
 
 <p></p>
 <span id="PasDoc-Uses"></span><h2 class="uses">Uses</h2>
-<ul class="useslist"><li>Classes</li><li>SysUtils</li><li>db</li><li>BufDataset</li><li>SqlDb</li><li>fpjson</li><li><a href="mi.rtl.Objects.Consts.Mi_MsgBox.html">mi.rtl.Objects.Consts.Mi_MsgBox</a></li><li><a href="mi.rtl.objects.Methods.dates.html">mi.rtl.objects.Methods.dates</a></li><li><a href="mi_rtl_ui_types.html">mi_rtl_ui_Types</a></li><li><a href="mi.rtl.Consts.html">mi.rtl.Consts</a></li><li><a href="mi_rtl_ui_methods.html">mi_rtl_ui_methods</a></li></ul><h2 class="overview">Visão Geral</h2>
+<ul class="useslist"><li>Classes</li><li>SysUtils</li><li>ActnList</li><li>db</li><li>BufDataset</li><li>xmldatapacketreader</li><li>SqlDb</li><li>fpjson</li><li>Variants</li><li><a href="mi.rtl.miStringlist.html">mi.rtl.miStringlist</a></li><li><a href="mi.rtl.Consts.StrError.html">mi.rtl.Consts.StrError</a></li><li><a href="mi.rtl.Objects.Methods.Exception.html">mi.rtl.Objects.Methods.Exception</a></li><li><a href="mi.rtl.Objects.Methods.html">mi.rtl.Objects.Methods</a></li><li><a href="mi.rtl.Objects.Consts.Mi_MsgBox.html">mi.rtl.Objects.Consts.Mi_MsgBox</a></li><li><a href="mi_rtl_ui_types.html">mi_rtl_ui_Types</a></li><li><a href="mi.rtl.objects.Methods.dates.html">mi.rtl.objects.Methods.dates</a></li><li><a href="mi.rtl.Consts.html">mi.rtl.Consts</a></li><li><a href="mi_rtl_ui_methods.html">mi_rtl_ui_methods</a></li></ul><h2 class="overview">Visão Geral</h2>
 <span id="PasDoc-Classes"></span><h3 class="cio">Classes, Interfaces, Objetos e Registros</h3>
 <table class="classestable wide_list">
 <tr class="listheader">
@@ -179,16 +259,38 @@ A unit <strong><code>mi_rtl_ui_Dmxscroller</code></strong> implementa a classe <
 <th class="itemdesc">Descrição</th>
 </tr>
 <tr class="list">
-<td class="itemname">Classe&nbsp;<a class="bold" href="mi_rtl_ui_Dmxscroller.TFldEnum_Lookup.html"><code>TFldEnum_Lookup</code></a></td>
+<td class="itemname">Interface&nbsp;<a class="bold" href="mi_rtl_ui_Dmxscroller.IMi_rtl_ui_Form.html"><code>IMi_rtl_ui_Form</code></a></td>
 <td class="itemdesc">&nbsp;</td>
 </tr>
 <tr class="list2">
+<td class="itemname">Classe&nbsp;<a class="bold" href="mi_rtl_ui_Dmxscroller.TFldEnum_Lookup.html"><code>TFldEnum_Lookup</code></a></td>
+<td class="itemdesc">&nbsp;</td>
+</tr>
+<tr class="list">
 <td class="itemname">Registro&nbsp;<a class="bold" href="mi_rtl_ui_Dmxscroller.TDmxFieldRec.html"><code>TDmxFieldRec</code></a></td>
+<td class="itemdesc">&nbsp;</td>
+</tr>
+<tr class="list2">
+<td class="itemname">Classe&nbsp;<a class="bold" href="mi_rtl_ui_Dmxscroller.TMiBufDataset.html"><code>TMiBufDataset</code></a></td>
+<td class="itemdesc">&nbsp;</td>
+</tr>
+<tr class="list">
+<td class="itemname">Classe&nbsp;<a class="bold" href="mi_rtl_ui_Dmxscroller.TDataFields.html"><code>TDataFields</code></a></td>
+<td class="itemdesc">&nbsp;</td>
+</tr>
+<tr class="list2">
+<td class="itemname">Classe&nbsp;<a class="bold" href="mi_rtl_ui_Dmxscroller.TFields.html"><code>TFields</code></a></td>
 <td class="itemdesc">&nbsp;</td>
 </tr>
 <tr class="list">
 <td class="itemname">Classe&nbsp;<a class="bold" href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html"><code>TUiDmxScroller</code></a></td>
 <td class="itemdesc">&nbsp;</td>
+</tr>
+</table>
+<span id="PasDoc-FuncsProcs"></span><h3 class="summary">Funções e Procedimentos</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="itemcode"><code>function <strong><a href="mi_rtl_ui_Dmxscroller.html#Message">Message</a></strong>(Receiver: <a href="mi.rtl.Objects.Methods.TObjectsMethods.html">TObjectsMethods</a>; What, Command: Word;InfoPtr: Pointer): Pointer;</code></td>
 </tr>
 </table>
 <span id="PasDoc-Types"></span><h3 class="summary">Tipos</h3>
@@ -203,7 +305,7 @@ A unit <strong><code>mi_rtl_ui_Dmxscroller</code></strong> implementa a classe <
 <td class="itemcode"><code><strong><a href="mi_rtl_ui_Dmxscroller.html#ptString">ptString</a></strong> = TUiMethods.Ptstring;</code></td>
 </tr>
 <tr class="list2">
-<td class="itemcode"><code><strong><a href="mi_rtl_ui_Dmxscroller.html#TDates">TDates</a></strong> = TUiMethods.TDates;</code></td>
+<td class="itemcode"><code><strong><a href="mi_rtl_ui_Dmxscroller.html#TDates">TDates</a></strong> = mi.rtl.objects.Methods.dates.TDates;</code></td>
 </tr>
 <tr class="list">
 <td class="itemcode"><code><strong><a href="mi_rtl_ui_Dmxscroller.html#PValue">PValue</a></strong> = TUiMethods.PValue;</code></td>
@@ -212,37 +314,76 @@ A unit <strong><code>mi_rtl_ui_Dmxscroller</code></strong> implementa a classe <
 <td class="itemcode"><code><strong><a href="mi_rtl_ui_Dmxscroller.html#TValue">TValue</a></strong> = TUiMethods.TValue;</code></td>
 </tr>
 <tr class="list">
-<td class="itemcode"><code><strong><a href="mi_rtl_ui_Dmxscroller.html#TOnGetTemplate">TOnGetTemplate</a></strong> = function (aNext: <a href="mi_rtl_ui_Dmxscroller.html#PSItem">PSItem</a>) : <a href="mi_rtl_ui_Dmxscroller.html#PSItem">PSItem</a> of Object unimplemented;</code></td>
+<td class="itemcode"><code><strong><a href="mi_rtl_ui_Dmxscroller.html#TEvent">TEvent</a></strong> = TUiMethods.TEvent;</code></td>
 </tr>
 <tr class="list2">
-<td class="itemcode"><code><strong><a href="mi_rtl_ui_Dmxscroller.html#TOnAddTemplate">TOnAddTemplate</a></strong> = Procedure(const aUiDmxScroller:<a href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html">TUiDmxScroller</a>) of Object unimplemented;</code></td>
+<td class="itemcode"><code><strong><a href="mi_rtl_ui_Dmxscroller.html#SmallWord">SmallWord</a></strong>  = TUiMethods.SmallWord;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><strong><a href="mi_rtl_ui_Dmxscroller.html#TEnClientsApplication">TEnClientsApplication</a></strong> = TUiMethods.TEnClientsApplication ;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><strong><a href="mi_rtl_ui_Dmxscroller.html#TNameClientsApplication">TNameClientsApplication</a></strong> = TUiMethods.TNameClientsApplication;</code></td>
 </tr>
 <tr class="list">
 <td class="itemcode"><code><strong><a href="mi_rtl_ui_Dmxscroller.html#pDmxFieldRec">pDmxFieldRec</a></strong> = &circ;<a href="mi_rtl_ui_Dmxscroller.TDmxFieldRec.html">TDmxFieldRec</a>;</code></td>
 </tr>
 <tr class="list2">
+<td class="itemcode"><code><strong><a href="mi_rtl_ui_Dmxscroller.html#TOnGetTemplate">TOnGetTemplate</a></strong> = function (aNext: <a href="mi_rtl_ui_Dmxscroller.html#PSItem">PSItem</a>) : <a href="mi_rtl_ui_Dmxscroller.html#PSItem">PSItem</a> of Object unimplemented;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><strong><a href="mi_rtl_ui_Dmxscroller.html#TOnAddTemplate">TOnAddTemplate</a></strong> = Procedure(const aUiDmxScroller:<a href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html">TUiDmxScroller</a>) of Object unimplemented;</code></td>
+</tr>
+<tr class="list2">
 <td class="itemcode"><code><strong><a href="mi_rtl_ui_Dmxscroller.html#TEndProc">TEndProc</a></strong> = Procedure(Const AOwner:<a href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html">TUiDmxScroller</a>; Const ADmxFieldRec:<a href="mi_rtl_ui_Dmxscroller.html#pDmxFieldRec">PDmxFieldRec</a>);</code></td>
 </tr>
 <tr class="list">
-<td class="itemcode"><code><strong><a href="mi_rtl_ui_Dmxscroller.html#TOnEnter">TOnEnter</a></strong> = Procedure(aDmxScroller:<a href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html">TUiDmxScroller</a>) of Object;</code></td>
+<td class="itemcode"><code><strong><a href="mi_rtl_ui_Dmxscroller.html#TOnEnter">TOnEnter</a></strong> = Procedure(aDmxScroller:<a href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html">TUiDmxScroller</a>) of Object unimplemented;</code></td>
 </tr>
 <tr class="list2">
-<td class="itemcode"><code><strong><a href="mi_rtl_ui_Dmxscroller.html#TOnExit">TOnExit</a></strong> = Procedure(aDmxScroller:<a href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html">TUiDmxScroller</a>) of Object;</code></td>
+<td class="itemcode"><code><strong><a href="mi_rtl_ui_Dmxscroller.html#TOnExit">TOnExit</a></strong> = Procedure(aDmxScroller:<a href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html">TUiDmxScroller</a>) of Object unimplemented;</code></td>
 </tr>
 <tr class="list">
-<td class="itemcode"><code><strong><a href="mi_rtl_ui_Dmxscroller.html#TOnNewRecord">TOnNewRecord</a></strong> = Procedure(aDmxScroller:<a href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html">TUiDmxScroller</a>) of Object;</code></td>
+<td class="itemcode"><code><strong><a href="mi_rtl_ui_Dmxscroller.html#TOnNewRecord">TOnNewRecord</a></strong> = Procedure(aDmxScroller:<a href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html">TUiDmxScroller</a>) of Object unimplemented;</code></td>
 </tr>
 <tr class="list2">
-<td class="itemcode"><code><strong><a href="mi_rtl_ui_Dmxscroller.html#TOnCloseQuery">TOnCloseQuery</a></strong> = Procedure(aDmxScroller:<a href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html">TUiDmxScroller</a>; var CanClose:boolean) of Object;</code></td>
+<td class="itemcode"><code><strong><a href="mi_rtl_ui_Dmxscroller.html#TOnCloseQuery">TOnCloseQuery</a></strong> = Procedure(aDmxScroller:<a href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html">TUiDmxScroller</a>; var CanClose:boolean) of Object unimplemented;</code></td>
 </tr>
 <tr class="list">
-<td class="itemcode"><code><strong><a href="mi_rtl_ui_Dmxscroller.html#TOnEnterField">TOnEnterField</a></strong> = Procedure(aField:<a href="mi_rtl_ui_Dmxscroller.html#pDmxFieldRec">pDmxFieldRec</a>) of Object;</code></td>
+<td class="itemcode"><code><strong><a href="mi_rtl_ui_Dmxscroller.html#TOnEnterField">TOnEnterField</a></strong> = Procedure(aField:<a href="mi_rtl_ui_Dmxscroller.html#pDmxFieldRec">pDmxFieldRec</a>) of Object unimplemented;</code></td>
 </tr>
 <tr class="list2">
-<td class="itemcode"><code><strong><a href="mi_rtl_ui_Dmxscroller.html#TOnExitField">TOnExitField</a></strong> = Procedure(aField:<a href="mi_rtl_ui_Dmxscroller.html#pDmxFieldRec">pDmxFieldRec</a>) of Object;</code></td>
+<td class="itemcode"><code><strong><a href="mi_rtl_ui_Dmxscroller.html#TOnExitField">TOnExitField</a></strong> = Procedure(aField:<a href="mi_rtl_ui_Dmxscroller.html#pDmxFieldRec">pDmxFieldRec</a>) of Object unimplemented;</code></td>
 </tr>
 <tr class="list">
-<td class="itemcode"><code><strong><a href="mi_rtl_ui_Dmxscroller.html#SmallWord">SmallWord</a></strong>  = TUiDmxScroller.SmallWord;</code></td>
+<td class="itemcode"><code><strong><a href="mi_rtl_ui_Dmxscroller.html#TOnCalcField">TOnCalcField</a></strong> = Procedure(aField:<a href="mi_rtl_ui_Dmxscroller.html#pDmxFieldRec">pDmxFieldRec</a>) of Object unimplemented;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><strong><a href="mi_rtl_ui_Dmxscroller.html#TOnChangeField">TOnChangeField</a></strong> = Procedure(aField:<a href="mi_rtl_ui_Dmxscroller.html#pDmxFieldRec">pDmxFieldRec</a>) of Object unimplemented;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><strong><a href="mi_rtl_ui_Dmxscroller.html#TOnBeforeInsert">TOnBeforeInsert</a></strong> = function(const aUiDmxScroller:<a href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html">TUiDmxScroller</a>):boolean of Object unimplemented;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><strong><a href="mi_rtl_ui_Dmxscroller.html#TOnAfterInsert">TOnAfterInsert</a></strong> = function(const aUiDmxScroller:<a href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html">TUiDmxScroller</a>):boolean of Object unimplemented;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><strong><a href="mi_rtl_ui_Dmxscroller.html#TOnBeforeUpdate">TOnBeforeUpdate</a></strong> = function(const aUiDmxScroller:<a href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html">TUiDmxScroller</a>):boolean of Object unimplemented;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><strong><a href="mi_rtl_ui_Dmxscroller.html#TOnAfterUpdate">TOnAfterUpdate</a></strong> = function(const aUiDmxScroller:<a href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html">TUiDmxScroller</a>):boolean of Object unimplemented;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><strong><a href="mi_rtl_ui_Dmxscroller.html#TOnBeforeDelete">TOnBeforeDelete</a></strong> = function(const aUiDmxScroller:<a href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html">TUiDmxScroller</a>):boolean of Object unimplemented;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><strong><a href="mi_rtl_ui_Dmxscroller.html#TOnAfterDelete">TOnAfterDelete</a></strong> = function(const aUiDmxScroller:<a href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html">TUiDmxScroller</a>):boolean of Object unimplemented;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><strong><a href="mi_rtl_ui_Dmxscroller.html#TOnCalcFields">TOnCalcFields</a></strong> = Procedure(const aUiDmxScroller:<a href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html">TUiDmxScroller</a>) of Object unimplemented;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><strong><a href="mi_rtl_ui_Dmxscroller.html#TMiDataPacketFormat">TMiDataPacketFormat</a></strong> = (...);</code></td>
 </tr>
 </table>
 <span id="PasDoc-Constants"></span><h3 class="summary">Constantes</h3>
@@ -255,6 +396,14 @@ A unit <strong><code>mi_rtl_ui_Dmxscroller</code></strong> implementa a classe <
 </tr>
 </table>
 <h2 class="description">Descrição</h2>
+<h3 class="detail">Funções e Procedimentos</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="Message"></span><code>function <strong>Message</strong>(Receiver: <a href="mi.rtl.Objects.Methods.TObjectsMethods.html">TObjectsMethods</a>; What, Command: Word;InfoPtr: Pointer): Pointer;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
 <h3 class="detail">Tipos</h3>
 <table class="detail wide_list">
 <tr class="list">
@@ -279,7 +428,7 @@ A unit <strong><code>mi_rtl_ui_Dmxscroller</code></strong> implementa a classe <
 </table>
 <table class="detail wide_list">
 <tr class="list">
-<td class="itemcode"><span id="TDates"></span><code><strong>TDates</strong> = TUiMethods.TDates;</code></td>
+<td class="itemcode"><span id="TDates"></span><code><strong>TDates</strong> = mi.rtl.objects.Methods.dates.TDates;</code></td>
 </tr>
 <tr><td colspan="1">
 &nbsp;</td></tr>
@@ -297,6 +446,47 @@ A unit <strong><code>mi_rtl_ui_Dmxscroller</code></strong> implementa a classe <
 </tr>
 <tr><td colspan="1">
 &nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="TEvent"></span><code><strong>TEvent</strong> = TUiMethods.TEvent;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="SmallWord"></span><code><strong>SmallWord</strong>  = TUiMethods.SmallWord;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="TEnClientsApplication"></span><code><strong>TEnClientsApplication</strong> = TUiMethods.TEnClientsApplication ;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+O tipo <strong><code>TEnClientsApplication</code></strong> é usado para identificar o tipo de aplicação atual.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="TNameClientsApplication"></span><code><strong>TNameClientsApplication</strong> = TUiMethods.TNameClientsApplication;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+O tipo <strong><code>TNameClientsApplication</code></strong> é usado nos metodos que retornam nome de arquivos.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="pDmxFieldRec"></span><code><strong>pDmxFieldRec</strong> = &circ;<a href="mi_rtl_ui_Dmxscroller.TDmxFieldRec.html">TDmxFieldRec</a>;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+O tipo <strong><code>pDmxFieldRec</code></strong> aponta para o campo do tipo <a class="normal" href="mi_rtl_ui_Dmxscroller.TDmxFieldRec.html">TDmxFieldRec</a></p>
+</td></tr>
 </table>
 <table class="detail wide_list">
 <tr class="list">
@@ -364,15 +554,6 @@ O tipo <code>TOnAddTemplate</code> é usado para criar modelos de formulários d
 </table>
 <table class="detail wide_list">
 <tr class="list">
-<td class="itemcode"><span id="pDmxFieldRec"></span><code><strong>pDmxFieldRec</strong> = &circ;<a href="mi_rtl_ui_Dmxscroller.TDmxFieldRec.html">TDmxFieldRec</a>;</code></td>
-</tr>
-<tr><td colspan="1">
-<p>
-O tipo <strong><code>pDmxFieldRec</code></strong> aponta para o campo do tipo <a class="normal" href="mi_rtl_ui_Dmxscroller.TDmxFieldRec.html">TDmxFieldRec</a></p>
-</td></tr>
-</table>
-<table class="detail wide_list">
-<tr class="list">
 <td class="itemcode"><span id="TEndProc"></span><code><strong>TEndProc</strong> = Procedure(Const AOwner:<a href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html">TUiDmxScroller</a>; Const ADmxFieldRec:<a href="mi_rtl_ui_Dmxscroller.html#pDmxFieldRec">PDmxFieldRec</a>);</code></td>
 </tr>
 <tr><td colspan="1">
@@ -382,7 +563,7 @@ O tipo <strong><code>TEndProc</code></strong> é usado para fazer pesquisa gené
 </table>
 <table class="detail wide_list">
 <tr class="list">
-<td class="itemcode"><span id="TOnEnter"></span><code><strong>TOnEnter</strong> = Procedure(aDmxScroller:<a href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html">TUiDmxScroller</a>) of Object;</code></td>
+<td class="itemcode"><span id="TOnEnter"></span><code><strong>TOnEnter</strong> = Procedure(aDmxScroller:<a href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html">TUiDmxScroller</a>) of Object unimplemented;</code></td>
 </tr>
 <tr><td colspan="1">
 <p>
@@ -391,7 +572,7 @@ O tipo <strong><code>TOnEnter</code></strong> é usado para implementar evento o
 </table>
 <table class="detail wide_list">
 <tr class="list">
-<td class="itemcode"><span id="TOnExit"></span><code><strong>TOnExit</strong> = Procedure(aDmxScroller:<a href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html">TUiDmxScroller</a>) of Object;</code></td>
+<td class="itemcode"><span id="TOnExit"></span><code><strong>TOnExit</strong> = Procedure(aDmxScroller:<a href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html">TUiDmxScroller</a>) of Object unimplemented;</code></td>
 </tr>
 <tr><td colspan="1">
 <p>
@@ -400,7 +581,7 @@ O tipo <strong><code>TOnExit</code></strong> é usado para implementar evento on
 </table>
 <table class="detail wide_list">
 <tr class="list">
-<td class="itemcode"><span id="TOnNewRecord"></span><code><strong>TOnNewRecord</strong> = Procedure(aDmxScroller:<a href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html">TUiDmxScroller</a>) of Object;</code></td>
+<td class="itemcode"><span id="TOnNewRecord"></span><code><strong>TOnNewRecord</strong> = Procedure(aDmxScroller:<a href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html">TUiDmxScroller</a>) of Object unimplemented;</code></td>
 </tr>
 <tr><td colspan="1">
 <p>
@@ -409,7 +590,7 @@ O tipo <strong><code>TOnNewRecord</code></strong> é usado para implementar even
 </table>
 <table class="detail wide_list">
 <tr class="list">
-<td class="itemcode"><span id="TOnCloseQuery"></span><code><strong>TOnCloseQuery</strong> = Procedure(aDmxScroller:<a href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html">TUiDmxScroller</a>; var CanClose:boolean) of Object;</code></td>
+<td class="itemcode"><span id="TOnCloseQuery"></span><code><strong>TOnCloseQuery</strong> = Procedure(aDmxScroller:<a href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html">TUiDmxScroller</a>; var CanClose:boolean) of Object unimplemented;</code></td>
 </tr>
 <tr><td colspan="1">
 <p>
@@ -438,16 +619,16 @@ O tipo <strong><code>TOnCloseQuery</code></strong> é usado para implementar eve
 </table>
 <table class="detail wide_list">
 <tr class="list">
-<td class="itemcode"><span id="TOnEnterField"></span><code><strong>TOnEnterField</strong> = Procedure(aField:<a href="mi_rtl_ui_Dmxscroller.html#pDmxFieldRec">pDmxFieldRec</a>) of Object;</code></td>
+<td class="itemcode"><span id="TOnEnterField"></span><code><strong>TOnEnterField</strong> = Procedure(aField:<a href="mi_rtl_ui_Dmxscroller.html#pDmxFieldRec">pDmxFieldRec</a>) of Object unimplemented;</code></td>
 </tr>
 <tr><td colspan="1">
 <p>
-O tipo <strong><code>TOnEnterField</code></strong> é usado no evento OnEnterField</p>
+O tipo <strong><code>TOnEnterField</code></strong> é usado no evento OnEnterField e disparado em <a class="normal" href="mi_rtl_ui_Dmxscroller.TDmxFieldRec.html#DoOnEnter">TDmxFieldRec.DoOnEnter</a>()</p>
 </td></tr>
 </table>
 <table class="detail wide_list">
 <tr class="list">
-<td class="itemcode"><span id="TOnExitField"></span><code><strong>TOnExitField</strong> = Procedure(aField:<a href="mi_rtl_ui_Dmxscroller.html#pDmxFieldRec">pDmxFieldRec</a>) of Object;</code></td>
+<td class="itemcode"><span id="TOnExitField"></span><code><strong>TOnExitField</strong> = Procedure(aField:<a href="mi_rtl_ui_Dmxscroller.html#pDmxFieldRec">pDmxFieldRec</a>) of Object unimplemented;</code></td>
 </tr>
 <tr><td colspan="1">
 <p>
@@ -456,10 +637,124 @@ O tipo <strong><code>TOnExitField</code></strong> é usado no evento OnExitField
 </table>
 <table class="detail wide_list">
 <tr class="list">
-<td class="itemcode"><span id="SmallWord"></span><code><strong>SmallWord</strong>  = TUiDmxScroller.SmallWord;</code></td>
+<td class="itemcode"><span id="TOnCalcField"></span><code><strong>TOnCalcField</strong> = Procedure(aField:<a href="mi_rtl_ui_Dmxscroller.html#pDmxFieldRec">pDmxFieldRec</a>) of Object unimplemented;</code></td>
 </tr>
 <tr><td colspan="1">
-&nbsp;</td></tr>
+<p>
+O tipo <strong><code>TOnCalcField</code></strong> é usado no evento para calcular um campo e é executado em <a class="normal" href="mi_rtl_ui_Dmxscroller.TDmxFieldRec.html#DoOnEnter">TDmxFieldRec.DoOnEnter</a>() e <a class="normal" href="mi_rtl_ui_Dmxscroller.TDmxFieldRec.html#DoOnExit">TDmxFieldRec.DoOnExit</a>()</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="TOnChangeField"></span><code><strong>TOnChangeField</strong> = Procedure(aField:<a href="mi_rtl_ui_Dmxscroller.html#pDmxFieldRec">pDmxFieldRec</a>) of Object unimplemented;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+O tipo <strong><code>TOnChangeField</code></strong> é usado para fazer calculos quando um valor campo é alterado.
+
+<p></p>
+
+<ul class="paragraph_spacing">
+  <li><p>PARÂMETROS: </p>
+
+<ul class="paragraph_spacing">
+  <li><p>aUiDmxScroller : Classi que edita o campo;</p></li>
+  <li><p>Previous_value : Valor do campo antes da auteração</p></li>
+  <li><p>Current_value : Valor do campo atual.</p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="TOnBeforeInsert"></span><code><strong>TOnBeforeInsert</strong> = function(const aUiDmxScroller:<a href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html">TUiDmxScroller</a>):boolean of Object unimplemented;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+O tipo <strong><code>TOnBeforeInsert</code></strong> é usado para criar o evento OnBeforeInsert e disparado no método <a class="normal" href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html#AddRec">TUiDmxScroller.AddRec</a></p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="TOnAfterInsert"></span><code><strong>TOnAfterInsert</strong> = function(const aUiDmxScroller:<a href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html">TUiDmxScroller</a>):boolean of Object unimplemented;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+O tipo <strong><code>TOnAfterInsert</code></strong> é usado para criar o evento OnAfterInsert e disparado no método <a class="normal" href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html#AddRec">TUiDmxScroller.AddRec</a></p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="TOnBeforeUpdate"></span><code><strong>TOnBeforeUpdate</strong> = function(const aUiDmxScroller:<a href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html">TUiDmxScroller</a>):boolean of Object unimplemented;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+O tipo <strong><code>TOnBeforeUpdate</code></strong> é usado para criar o evento OnBeforeUpdate e disparado no método <a class="normal" href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html#PutRec">TUiDmxScroller.PutRec</a></p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="TOnAfterUpdate"></span><code><strong>TOnAfterUpdate</strong> = function(const aUiDmxScroller:<a href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html">TUiDmxScroller</a>):boolean of Object unimplemented;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+O tipo <strong><code>TOnAfterUpdate</code></strong> é usado para criar o evento OnAfterUpdate e disparado no método <a class="normal" href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html#PutRec">TUiDmxScroller.PutRec</a></p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="TOnBeforeDelete"></span><code><strong>TOnBeforeDelete</strong> = function(const aUiDmxScroller:<a href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html">TUiDmxScroller</a>):boolean of Object unimplemented;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+O tipo <strong><code>TOnBeforeDelete</code></strong> é usado para criar o evento OnBeforeDelete e disparado no método <a class="normal" href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html#PutRec">TUiDmxScroller.PutRec</a></p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="TOnAfterDelete"></span><code><strong>TOnAfterDelete</strong> = function(const aUiDmxScroller:<a href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html">TUiDmxScroller</a>):boolean of Object unimplemented;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+O tipo <strong><code>TOnAfterDelete</code></strong> é usado para criar o evento OnAfterDelete e disparado no método <a class="normal" href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html#PutRec">TUiDmxScroller.PutRec</a></p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="TOnCalcFields"></span><code><strong>TOnCalcFields</strong> = Procedure(const aUiDmxScroller:<a href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html">TUiDmxScroller</a>) of Object unimplemented;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+O tipo <strong><code>TOnCalcFields</code></strong> é usado para fazer calculos é executado ao entrar no registro e ao sair do registro</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="TMiDataPacketFormat"></span><code><strong>TMiDataPacketFormat</strong> = (...);</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+A classe <strong><code>TMiDataPacketFormat</code></strong> implementado porque o tipo TDataPacketFormat do freepascal não contém o tipo <a class="normal" href="mi_rtl_ui_Dmxscroller.html#dfJSon">dfjson</a></p>
+<h6 class="description_section">Valores</h6>
+<ul>
+<li>
+<span id="dfBinary">dfBinary</span></li>
+<li>
+<span id="dfXML">dfXML</span></li>
+<li>
+<span id="dfXMLUTF8">dfXMLUTF8</span></li>
+<li>
+<span id="dfAny">dfAny</span></li>
+<li>
+<span id="dfDefault">dfDefault</span></li>
+<li>
+<span id="dfJSon">dfJSon</span></li>
+</ul>
+</td></tr>
 </table>
 <h3 class="detail">Constantes</h3>
 <table class="detail wide_list">

@@ -270,11 +270,23 @@ Usado por TDmxScroller_sql para criar consulta sql no banco de dados
 <h6 class="description_section">Valores</h6>
 <ul>
 <li>
-<span id="pfInUpdate">pfInUpdate</span>: Usado por SqlDbConnector : As alterações no campo devem ser propagadas para o banco de dados..</li>
+<span id="pfInUpdate">pfInUpdate</span>: O flag <strong><code>pfInUpdate</code></strong> é usado por SqlDbConnector </p>
+
+<ul class="paragraph_spacing">
+  <li><p>As alterações no campo devem ser propagadas para o banco de dados..</p></li>
+</ul>
+
+<p></li>
 <li>
-<span id="pfInWhere">pfInWhere</span>: Usado por SqlDbConnector : O campo deve ser usado na cláusula WHERE de uma instrução de atualização no caso de upWhereChanged.</li>
+<span id="pfInWhere">pfInWhere</span>: O flag <strong><code>pfInWhere</code></strong> é usado por SqlDbConnector </p>
+
+<ul class="paragraph_spacing">
+  <li><p>O campo deve ser usado na cláusula WHERE de uma instrução de atualização no caso de upWhereChanged.</p></li>
+</ul>
+
+<p></li>
 <li>
-<span id="pfInKey">pfInKey</span>: Usado por SqlDbConnector : Indica se o campo é parte da Chave Primária. </p>
+<span id="pfInKey">pfInKey</span>: O flag <strong><code>pfInKey</code></strong> é usado por SqlDbConnector : Indica se o campo é parte da Chave Primária. </p>
 
 <ul class="paragraph_spacing">
   <li><p>Campo é um campo chave e usado na cláusula WHERE de uma instrução de atualização.</p></li>
@@ -282,15 +294,53 @@ Usado por TDmxScroller_sql para criar consulta sql no banco de dados
 
 <p></li>
 <li>
-<span id="pfHidden">pfHidden</span></li>
+<span id="pfHidden">pfHidden</span>: O flag <strong><code>pfHidden</code></strong> é usado por SqlDbConnector:
+
+<p></p>
+
+<ul class="paragraph_spacing">
+  <li><p>Indica se o campo será oculto para os Clientes.</p></li>
+</ul>
+
+<p></li>
 <li>
-<span id="pfRefreshOnInsert">pfRefreshOnInsert</span>: Usado por SqlDbConnector : O valor deste campo deve ser atualizado após a inserção.</li>
+<span id="pfRefreshOnInsert">pfRefreshOnInsert</span>: O flag <strong><code>pfRefreshOnInsert</code></strong> é usado por SqlDbConnector:
+
+<p></p>
+
+<ul class="paragraph_spacing">
+  <li><p>O valor deste campo deve ser atualizado após a inserção.</p></li>
+</ul>
+
+<p></li>
 <li>
-<span id="pfRefreshOnUpdate">pfRefreshOnUpdate</span>: Usado por SqlDbConnector : O valor deste campo deve ser atualizado após a atualização.</li>
+<span id="pfRefreshOnUpdate">pfRefreshOnUpdate</span>: O flag <strong><code>pfRefreshOnUpdate</code></strong> é usado por SqlDbConnector:
+
+<p></p>
+
+<ul class="paragraph_spacing">
+  <li><p>O valor deste campo deve ser atualizado após a atualização.</p></li>
+</ul>
+
+<p></li>
 <li>
-<span id="pfInKeyPrimary">pfInKeyPrimary</span>: Usado por TDmxScroller_sql : Campo é um campo chave primária e usado na cláusula WHERE de uma instrução de atualização.</li>
+<span id="pfInKeyPrimary">pfInKeyPrimary</span>: O flag <strong><code>pfInKeyPrimary</code></strong> é usado por TDmxScroller_sql </p>
+
+<ul class="paragraph_spacing">
+  <li><p>O campo é uma chave primária, usado na cláusula WHERE de uma instrução de atualização.</p></li>
+</ul>
+
+<p></li>
 <li>
-<span id="pfInAutoIncrement">pfInAutoIncrement</span>: Usado por TDmxScroller_sql : Campo é um campo autoincremental e usado em uma instrução de atualização.</li>
+<span id="pfInAutoIncrement">pfInAutoIncrement</span>: O flag <strong><code>pfInAutoIncrement</code></strong> é usado por TDmxScroller_sql
+
+<p></p>
+
+<ul class="paragraph_spacing">
+  <li><p>Campo é um campo autoincremental e usado em uma instrução de atualização.</p></li>
+</ul>
+
+<p></li>
 </ul>
 </td></tr>
 </table>

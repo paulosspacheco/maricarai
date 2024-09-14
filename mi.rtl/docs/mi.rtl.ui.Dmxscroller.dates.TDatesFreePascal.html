@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<title>mi.rtl.ui.Dmxscroller.dates: Classe TDatesFreePascal</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="generator" content="PasDoc 0.16.0">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<link rel="stylesheet" type="text/css" href="tipuesearch/tipuesearch.css">
+
+<link rel="StyleSheet" type="text/css" href="pasdoc.css">
+</head>
+<body>
+<div class="container"><div class="navigation">
+<ul><li><a href="AllUnits.html">Units</a></li><li><a href="ClassHierarchy.html">Hierarquia de Classes</a></li><li><a href="AllClasses.html">Classes, Interfaces, Objetos e Registros</a></li><li><a href="AllTypes.html">Tipos</a></li><li><a href="AllVariables.html">Variáveis</a></li><li><a href="AllConstants.html">Constantes</a></li><li><a href="AllFunctions.html">Funções e Procedimentos</a></li><li><a href="AllIdentifiers.html">Identificadores</a></li><li><form class="search-form" action="tipue_results.html"><div class="search-input"><input type="text" name="q" id="tipue_search_input" pattern=".{3,}" title="At least 3 characters" required><div class="search-button"><input type="button" id="tipue_search_button" onclick="this.form.submit();"></div></div></form>
+<div style="clear: both"></div>
+</li></ul></div><div class="content">
+<span id="TDatesFreePascal"></span><h1 class="cio">Classe TDatesFreePascal</h1>
+<div class="sections">
+<div class="one_section"><a class="section" href="#PasDoc-Description">Descrição</a></div><div class="one_section"><a class="section" href="#PasDoc-Hierarchy">Hierarquia</a></div><div class="one_section"><a class="section" href="#PasDoc-NestedTypes">Tipos Aninhados</a></div><div class="one_section">Campos</div><div class="one_section"><a class="section" href="#PasDoc-Methods">Métodos</a></div><div class="one_section">Propriedades</div></div>
+<span id="PasDoc-Description"></span><h2 class="unit">Unit</h2>
+<p class="unitlink">
+<a href="mi.rtl.ui.Dmxscroller.dates.html">mi.rtl.ui.Dmxscroller.dates</a></p>
+<h2 class="declaration">Declaração</h2>
+<p class="declaration">
+<code>type TDatesFreePascal = class(TObject)</code></p>
+<h2 class="description">Descrição</h2>
+<p>
+A Class <strong><code>TDatesFreePascal</code></strong> usado para acessar a data e hora usando formato TDateTime.
+
+<p></p>
+
+<ul class="paragraph_spacing">
+  <li><p>Programa usado para teste da unit</p></li>
+</ul>
+
+<p> </p>
+
+<pre class="preformatted">Pascal
+
+         unit Unit1;
+
+
+         interface
+
+         uses
+           Classes, SysUtils, Forms, Controls, Graphics, Dialogs, StdCtrls
+           ,Mi.rtl.All
+           ,mi.rtl.ui.Dmxscroller.dates;
+
+
+         type
+
+
+           TForm1 = class(TForm)
+             Button5: TButton;
+             procedure Button5Click(Sender: TObject);
+
+           private
+
+           public
+
+           end;
+
+         var
+           Form1: TForm1;
+
+         implementation
+
+         $R *.lfm
+
+
+
+         procedure TForm1.Button5Click(Sender: TObject);
+           Procedure today (Fmt : string);
+
+             Var S : AnsiString;
+
+           begin
+             DateTimeToString (S,Fmt,Date);
+             Writeln (S);
+           end;
+
+           Procedure Print (Fmt : string);
+
+             Var S : AnsiString;
+
+           begin
+             TMi_rtl.Logs.info('fmt='+'...');
+             TMi_rtl.Logs.info('fmt='+Fmt);
+
+             DateTimeToString (S,Fmt,now);
+             Writeln (S);
+             TMi_rtl.Logs.info('Print-fmt='+Fmt+' Valor: '+s);
+           end;
+
+           Procedure Print_DateTimeToStr (Mask:  TDatesFreePascal.TMask );
+             Var S : AnsiString;
+
+           begin
+             with TDatesFreePascal do
+             begin
+               s := DateTimeToStr(now,Mask);
+               TMi_rtl.Logs.info('Print_DateTimeToStr: '+s);
+
+             end;
+           end;
+
+
+           Procedure Print_StrToDateTime(Str:AnsiString;Mask:  TDatesFreePascal.TMask );
+             Var
+               d:TDateTime;
+           begin
+             with TDatesFreePascal do
+             begin
+               d := StrToDateTime(str,Mask);
+               str := DateTimeToStr(d,Mask);
+               TMi_rtl.Logs.info('Print_StrToDateTime: '+str);
+             end;
+           end;
+
+
+           procedure test1;
+           begin
+             Today ('&quot;Today is &quot;dddd dd mmmm y');
+             Today ('&quot;Today is &quot;d mmm yy');
+             Today ('&quot;Today is &quot;d/mm/yy');
+             Today ('&quot;Today is &quot;yy/mm/dd');
+             Today ('&quot;Today is &quot;yyyy/mm/dd');
+             //Now ('''The time is ''am/pmh:n:s');
+             //Now ('''The time is ''hh:nn:ssam/pm');
+             //Now ('''The time is ''tt');
+           end;
+
+         Begin
+
+          with TDatesFreePascal do
+          begin
+            TMi_rtl.Logs.info('Mask: '+Mask_to_MaskDateTime(Mask_yy_mm_dd));
+            Print(Mask_to_MaskDateTime(Mask_yy_mm_dd));
+            Print_DateTimeToStr(Mask_yy_mm_dd);
+            Print_StrToDateTime('24/03/28',Mask_yy_mm_dd);
+
+
+
+            Print(Mask_to_MaskDateTime(Mask_dd_mm_yy));
+            Print_DateTimeToStr(Mask_dd_mm_yy);
+            Print_StrToDateTime('28/03/24',Mask_dd_mm_yy);
+
+            Print(Mask_to_MaskDateTime(Mask_dd_mm_yyyy));
+            Print_DateTimeToStr(Mask_dd_mm_yyyy);
+            Print_StrToDateTime('28/03/2024',Mask_dd_mm_yyyy);
+
+            Print(Mask_to_MaskDateTime(Mask_yyyy_mm_dd));
+            Print_DateTimeToStr(Mask_yyyy_mm_dd);
+            Print_StrToDateTime('2024/03/28',Mask_yyyy_mm_dd);
+
+            Print(Mask_to_MaskDateTime(Mask_mm_yy));
+            Print_DateTimeToStr(Mask_mm_yy);
+         //    Print_StrToDateTime('03/24',Mask_mm_yy);Não é data válida
+
+            Print(Mask_to_MaskDateTime(Mask_mm_yyyy));
+            Print_DateTimeToStr(Mask_mm_yyyy);
+            //Print_StrToDateTime('03/2024',Mask_mm_yyyy);  Não é data válida
+
+
+            Print(Mask_to_MaskDateTime(Mask_dd_mm_yy_hh_nn_ss));
+            Print_DateTimeToStr(Mask_dd_mm_yy_hh_nn_ss);
+            Print_StrToDateTime('28/03/24 17:11:59',Mask_dd_mm_yy_hh_nn_ss);
+
+
+            Print(Mask_to_MaskDateTime(Mask_dd_mm_yy_hh_nn));
+            Print_DateTimeToStr(Mask_dd_mm_yy_hh_nn);
+            Print_StrToDateTime('28/03/24 17:11',Mask_dd_mm_yy_hh_nn);
+
+            Print(Mask_to_MaskDateTime(Mask_dd_mm_yyyy_hh_nn_ss));
+            Print_DateTimeToStr(Mask_dd_mm_yyyy_hh_nn_ss);
+            Print_StrToDateTime('28/03/24 17:11:59',Mask_dd_mm_yyyy_hh_nn_ss);
+
+
+
+            Print(Mask_to_MaskDateTime(Mask_hh_nn));
+            Print_DateTimeToStr(Mask_hh_nn_DateTime );
+            Print_StrToDateTime('17:11',Mask_hh_nn_DateTime );
+
+            Print(Mask_to_MaskDateTime(Mask_hh_nn_ss_DateTime));
+            Print_DateTimeToStr(Mask_hh_nn_ss_DateTime);
+            Print_StrToDateTime('17:11:59',Mask_hh_nn_ss_DateTime);
+
+            Print(Mask_to_MaskDateTime(Mask_hh_nn_ss_s1000_DateTime ));
+            Print_DateTimeToStr(Mask_hh_nn_ss_s1000_DateTime );
+         //    Print_StrToDateTime('17:48:25:742',Mask_hh_nn_ss_s1000_DateTime ); Não é válido.
+          end;
+
+         End;
+
+         end.</pre>
+
+<p></p>
+<span id="PasDoc-Hierarchy"></span><h2 class="hierarchy">Hierarquia</h2>
+<ul class="hierarchy"><li class="ancestor">TObject</li>
+<li class="thisitem">TDatesFreePascal</li></ul><h2 class="overview">Visão Geral</h2>
+<span id="PasDoc-NestedTypes"></span><h3 class="summary">Tipos Aninhados</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code><strong><a href="mi.rtl.ui.Dmxscroller.dates.TDatesFreePascal.html#SmallWord">SmallWord</a></strong> = System.word;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><code><strong><a href="mi.rtl.ui.Dmxscroller.dates.TDatesFreePascal.html#TMask">TMask</a></strong> = (...);</code></td>
+</tr>
+</table>
+<span id="PasDoc-Methods"></span><h3 class="summary">Métodos</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>class function <strong><a href="mi.rtl.ui.Dmxscroller.dates.TDatesFreePascal.html#Mask_to_MaskDateTime">Mask_to_MaskDateTime</a></strong>(const aMask: <a href="mi.rtl.ui.Dmxscroller.dates.TDatesFreePascal.html#TMask">TMask</a>): AnsiString;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>class function <strong><a href="mi.rtl.ui.Dmxscroller.dates.TDatesFreePascal.html#Mask_to_MaskEdit">Mask_to_MaskEdit</a></strong>(const aMask: <a href="mi.rtl.ui.Dmxscroller.dates.TDatesFreePascal.html#TMask">TMask</a>): AnsiString;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>class function <strong><a href="mi.rtl.ui.Dmxscroller.dates.TDatesFreePascal.html#MaskEdit_to_Mask">MaskEdit_to_Mask</a></strong>(const aMaskEdit: AnsiString): <a href="mi.rtl.ui.Dmxscroller.dates.TDatesFreePascal.html#TMask">TMask</a> ;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>class function <strong><a href="mi.rtl.ui.Dmxscroller.dates.TDatesFreePascal.html#SetDefaultFormatSettings">SetDefaultFormatSettings</a></strong>(Mask: <a href="mi.rtl.ui.Dmxscroller.dates.TDatesFreePascal.html#TMask">TMask</a>): TFormatSettings;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>class function <strong><a href="mi.rtl.ui.Dmxscroller.dates.TDatesFreePascal.html#StrToDateTime">StrToDateTime</a></strong>(const S: AnsiString;Const Mask: <a href="mi.rtl.ui.Dmxscroller.dates.TDatesFreePascal.html#TMask">TMask</a>):TDateTime; overload;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>class function <strong><a href="mi.rtl.ui.Dmxscroller.dates.TDatesFreePascal.html#StrToDateTime">StrToDateTime</a></strong>( const S: AnsiString):TDateTime; overload;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>class function <strong><a href="mi.rtl.ui.Dmxscroller.dates.TDatesFreePascal.html#DateTimeToStr">DateTimeToStr</a></strong>(d:TDateTime; Mask: <a href="mi.rtl.ui.Dmxscroller.dates.TDatesFreePascal.html#TMask">TMask</a> ): AnsiString; overload;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>class function <strong><a href="mi.rtl.ui.Dmxscroller.dates.TDatesFreePascal.html#DateTimeToStr">DateTimeToStr</a></strong>(d:TDateTime):AnsiString; Overload;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>class function <strong><a href="mi.rtl.ui.Dmxscroller.dates.TDatesFreePascal.html#IsDateTime">IsDateTime</a></strong>(const aTemplate: AnsiString): Boolean;</code></td>
+</tr>
+</table>
+<h2 class="description">Descrição</h2>
+<h3 class="detail">Tipos Aninhados</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="SmallWord"></span><code><strong>SmallWord</strong> = System.word;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><span id="TMask"></span><code><strong>TMask</strong> = (...);</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+Esse tipo é usado pelo interpretar o tipo TDateTime</p>
+<h6 class="description_section">Valores</h6>
+<ul>
+<li>
+<span id="Mask_yy_mm_dd">Mask_yy_mm_dd</span></li>
+<li>
+<span id="Mask_yyyy_mm_dd">Mask_yyyy_mm_dd</span></li>
+<li>
+<span id="Mask_dd_mm_yy">Mask_dd_mm_yy</span></li>
+<li>
+<span id="Mask_dd_mm_yyyy">Mask_dd_mm_yyyy</span></li>
+<li>
+<span id="Mask_mm_yy">Mask_mm_yy</span></li>
+<li>
+<span id="Mask_mm_yyyy">Mask_mm_yyyy</span></li>
+<li>
+<span id="Mask_dd_mm_yy_hh_nn_ss">Mask_dd_mm_yy_hh_nn_ss</span></li>
+<li>
+<span id="Mask_dd_mm_yy_hh_nn">Mask_dd_mm_yy_hh_nn</span></li>
+<li>
+<span id="Mask_dd_mm_yyyy_hh_nn_ss">Mask_dd_mm_yyyy_hh_nn_ss</span></li>
+<li>
+<span id="Mask_hh_nn">Mask_hh_nn</span></li>
+<li>
+<span id="Mask_hh_nn_ss">Mask_hh_nn_ss</span></li>
+<li>
+<span id="Mask_hh_nn_ss_zzz">Mask_hh_nn_ss_zzz</span></li>
+<li>
+<span id="Mask_Extenco">Mask_Extenco</span></li>
+<li>
+<span id="Mask_Invalid">Mask_Invalid</span></li>
+</ul>
+</td></tr>
+</table>
+<h3 class="detail">Métodos</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Mask_to_MaskDateTime"></span><code>class function <strong>Mask_to_MaskDateTime</strong>(const aMask: <a href="mi.rtl.ui.Dmxscroller.dates.TDatesFreePascal.html#TMask">TMask</a>): AnsiString;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+O método <strong><code>Mask_to_MaskDateTime</code></strong> recebe a mascara definida em aMask e retorna um string esperado pelo registro DefaultFormatSettings.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Mask_to_MaskEdit"></span><code>class function <strong>Mask_to_MaskEdit</strong>(const aMask: <a href="mi.rtl.ui.Dmxscroller.dates.TDatesFreePascal.html#TMask">TMask</a>): AnsiString;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="MaskEdit_to_Mask"></span><code>class function <strong>MaskEdit_to_Mask</strong>(const aMaskEdit: AnsiString): <a href="mi.rtl.ui.Dmxscroller.dates.TDatesFreePascal.html#TMask">TMask</a> ;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="SetDefaultFormatSettings"></span><code>class function <strong>SetDefaultFormatSettings</strong>(Mask: <a href="mi.rtl.ui.Dmxscroller.dates.TDatesFreePascal.html#TMask">TMask</a>): TFormatSettings;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+O método <strong><code>SetDefaultFormatSettings</code></strong> seta o o registro DefaultFormatSettings para a mascara definida em Mask e retorna o estado anterior de DefaultFormatSettings.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="StrToDateTime"></span><code>class function <strong>StrToDateTime</strong>(const S: AnsiString;Const Mask: <a href="mi.rtl.ui.Dmxscroller.dates.TDatesFreePascal.html#TMask">TMask</a>):TDateTime; overload;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="StrToDateTime"></span><code>class function <strong>StrToDateTime</strong>( const S: AnsiString):TDateTime; overload;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="DateTimeToStr"></span><code>class function <strong>DateTimeToStr</strong>(d:TDateTime; Mask: <a href="mi.rtl.ui.Dmxscroller.dates.TDatesFreePascal.html#TMask">TMask</a> ): AnsiString; overload;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="DateTimeToStr"></span><code>class function <strong>DateTimeToStr</strong>(d:TDateTime):AnsiString; Overload;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="IsDateTime"></span><code>class function <strong>IsDateTime</strong>(const aTemplate: AnsiString): Boolean;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<hr><span class="appinfo"><em>Gerado por <a href="https://pasdoc.github.io/">PasDoc 0.16.0</a>. </em>
+</span>
+</div></div></body></html>

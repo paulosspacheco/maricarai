@@ -1,0 +1,40 @@
+object DataModule2: TDataModule2
+  OnCreate = DataModuleCreate
+  OldCreateOrder = False
+  Height = 150
+  HorizontalOffset = 1113
+  VerticalOffset = 432
+  Width = 150
+  object ActionList1: TActionList
+    Left = 52
+    Top = 122
+    object Novo: TAction
+      Category = 'operadores'
+      Caption = 'Novo'
+    end
+    object Pesquisar: TAction
+      Category = 'operadores'
+      Caption = 'Pesquisar'
+    end
+    object Gravar: TAction
+      Category = 'operadores'
+      Caption = 'Gravar'
+    end
+    object Excluir: TAction
+      Category = 'operadores'
+      Caption = 'Excluir'
+    end
+    object Consultar: TAction
+      Category = 'operadores'
+      Caption = 'Consultar'
+    end
+  end
+  object DmxScroller_Form1: TDmxScroller_Form
+    Alias = 'TDmxScroller_Form'
+    OnAddTemplate = DmxScroller_Form1AddTemplate
+    Active = False
+    AlignmentLabels = taLeftJustify
+    Left = 41
+    Top = 36
+  end
+end

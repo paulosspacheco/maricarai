@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CONFIG>
+  <ProjectOptions>
+    <Version Value="12"/>
+    <General>
+      <Flags>
+        <MainUnitHasCreateFormStatements Value="False"/>
+        <MainUnitHasTitleStatement Value="False"/>
+        <MainUnitHasScaledStatement Value="False"/>
+      </Flags>
+      <SessionStorage Value="InProjectDir"/>
+      <Title Value="avm"/>
+      <ResourceType Value="res"/>
+      <UseXPManifest Value="True"/>
+      <XPManifest>
+        <DpiAware Value="True"/>
+      </XPManifest>
+      <Icon Value="0"/>
+    </General>
+    <BuildModes>
+      <Item Name="Default" Default="True"/>
+      <Item Name="i386-win32">
+        <CompilerOptions>
+          <Version Value="11"/>
+          <Target>
+            <Filename Value="bin/$(TargetCPU)-$(TargetOS)/avm"/>
+          </Target>
+          <SearchPaths>
+            <IncludeFiles Value="app_mi_ui_lcl_form/inc;$(ProjOutDir)"/>
+            <OtherUnitFiles Value="app_mi_ui_lcl_form/forms;app_mi_ui_lcl_form/dm;dm;forms;../app.mi.ui.dm;datamodule;lcl"/>
+            <UnitOutputDirectory Value="app_mi_ui_lcl_form/lib/$(TargetCPU)-$(TargetOS)"/>
+          </SearchPaths>
+          <CodeGeneration>
+            <TargetCPU Value="i386"/>
+            <TargetOS Value="win32"/>
+          </CodeGeneration>
+          <Linking>
+            <Debugging>
+              <DebugInfoType Value="dsDwarf3"/>
+            </Debugging>
+            <Options>
+              <Win32>
+                <GraphicApplication Value="True"/>
+              </Win32>
+            </Options>
+          </Linking>
+        </CompilerOptions>
+      </Item>
+      <Item Name="x86_64-win64">
+        <CompilerOptions>
+          <Version Value="11"/>
+          <Target>
+            <Filename Value="bin/$(TargetCPU)-$(TargetOS)/avm"/>
+          </Target>
+          <SearchPaths>
+            <IncludeFiles Value="app_mi_ui_lcl_form/inc;$(ProjOutDir)"/>
+            <OtherUnitFiles Value="app_mi_ui_lcl_form/forms;app_mi_ui_lcl_form/dm;dm;forms;../app.mi.ui.dm;datamodule;lcl"/>
+            <UnitOutputDirectory Value="app_mi_ui_lcl_form/lib/$(TargetCPU)-$(TargetOS)"/>
+          </SearchPaths>
+          <CodeGeneration>
+            <TargetCPU Value="x86_64"/>
+            <TargetOS Value="win64"/>
+          </CodeGeneration>
+          <Linking>
+            <Debugging>
+              <DebugInfoType Value="dsDwarf3"/>
+            </Debugging>
+            <Options>
+              <Win32>
+                <GraphicApplication Value="True"/>
+              </Win32>
+            </Options>
+          </Linking>
+        </CompilerOptions>
+      </Item>
+    </BuildModes>
+    <PublishOptions>
+      <Version Value="2"/>
+      <UseFileFilters Value="True"/>
+    </PublishOptions>
+    <RunParams>
+      <FormatVersion Value="2"/>
+    </RunParams>
+    <RequiredPackages>
+      <Item>
+        <PackageName Value="LCL"/>
+      </Item>
+      <Item>
+        <PackageName Value="AnchorDocking"/>
+      </Item>
+      <Item>
+        <PackageName Value="mi.lcl.form"/>
+      </Item>
+      <Item>
+        <PackageName Value="SQLDBLaz"/>
+      </Item>
+      <Item>
+        <PackageName Value="FCL"/>
+      </Item>
+      <Item>
+        <PackageName Value="mi.rtl"/>
+      </Item>
+    </RequiredPackages>
+    <Units>
+      <Unit>
+        <Filename Value="avm.lpr"/>
+        <IsPartOfProject Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="../pasdoc.sh"/>
+        <IsPartOfProject Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="../datamodule/udm_connections.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="dm_connections"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="DataModule"/>
+      </Unit>
+      <Unit>
+        <Filename Value="uform_default.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="form_default"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+      </Unit>
+      <Unit>
+        <Filename Value="../datamodule/udm_table.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="dm_table"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="DataModule"/>
+      </Unit>
+      <Unit>
+        <Filename Value="../datamodule/uoperadores.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="operadores"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="DataModule"/>
+      </Unit>
+      <Unit>
+        <Filename Value="uform_operadores2.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="form_operadores2"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+      </Unit>
+      <Unit>
+        <Filename Value="uform_operadores.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="form_operadores"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+      </Unit>
+      <Unit>
+        <Filename Value="uform_main.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="form_main"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+      </Unit>
+      <Unit>
+        <Filename Value="uformdock.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="FormDock"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+      </Unit>
+    </Units>
+  </ProjectOptions>
+  <CompilerOptions>
+    <Version Value="11"/>
+    <Target>
+      <Filename Value="bin/$(TargetCPU)-$(TargetOS)/avm"/>
+    </Target>
+    <SearchPaths>
+      <IncludeFiles Value="$(ProjOutDir)"/>
+      <OtherUnitFiles Value="../datamodule"/>
+      <UnitOutputDirectory Value="lib/$(TargetCPU)-$(TargetOS)"/>
+    </SearchPaths>
+    <Parsing>
+      <SyntaxOptions>
+        <SyntaxMode Value="Delphi"/>
+      </SyntaxOptions>
+    </Parsing>
+    <Linking>
+      <Debugging>
+        <DebugInfoType Value="dsDwarf3"/>
+      </Debugging>
+      <Options>
+        <Win32>
+          <GraphicApplication Value="True"/>
+        </Win32>
+      </Options>
+    </Linking>
+  </CompilerOptions>
+  <Debugging>
+    <Exceptions>
+      <Item>
+        <Name Value="EAbort"/>
+      </Item>
+      <Item>
+        <Name Value="ECodetoolError"/>
+      </Item>
+      <Item>
+        <Name Value="EFOpenError"/>
+      </Item>
+    </Exceptions>
+  </Debugging>
+</CONFIG>

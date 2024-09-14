@@ -304,7 +304,7 @@ Begin
    RunError(201);
   With MatPFile[Posicao]^ Do
   Begin
-    TMI_IndexFile(PI^).NomeArqIndice := FMaiuscula(TMI_IndexFile(PI^).NomeArqIndice);
+    TMI_IndexFile(PI^).NomeArqIndice := UpperCase(TMI_IndexFile(PI^).NomeArqIndice);
     IndiceSele := TMI_IndexFile(PI^).NomeArqIndice;
   End;
 

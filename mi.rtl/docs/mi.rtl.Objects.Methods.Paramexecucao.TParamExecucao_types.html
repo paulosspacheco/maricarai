@@ -41,26 +41,34 @@
 <table class="summary wide_list">
 <tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
-<td class="itemcode"><code><strong><a href="mi.rtl.Objects.Methods.Paramexecucao.TParamExecucao_types.TIdentificacao.html">TIdentificacao</a></strong> = record</code></td>
+<td class="itemcode"><code><strong><a href="mi.rtl.Objects.Methods.Paramexecucao.TParamExecucao_types.TEnvironmentVariables.html">TEnvironmentVariables</a></strong> = record</code></td>
 </tr>
 <tr class="list2">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
-<td class="itemcode"><code><strong><a href="mi.rtl.Objects.Methods.Paramexecucao.TParamExecucao_types.TNomeDeArquivosGenericos.html">TNomeDeArquivosGenericos</a></strong> = record</code></td>
+<td class="itemcode"><code><strong><a href="mi.rtl.Objects.Methods.Paramexecucao.TParamExecucao_types.TIdentificacao.html">TIdentificacao</a></strong> = record</code></td>
 </tr>
 </table>
 <span id="PasDoc-NestedTypes"></span><h3 class="summary">Tipos Aninhados</h3>
 <table class="summary wide_list">
 <tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
-<td class="itemcode"><code><strong><a href="mi.rtl.Objects.Methods.Paramexecucao.TParamExecucao_types.html#TParamExecucao_Tipo_de_Execucao">TParamExecucao_Tipo_de_Execucao</a></strong> = (...);</code></td>
+<td class="itemcode"><code><strong><a href="mi.rtl.Objects.Methods.Paramexecucao.TParamExecucao_types.html#TFunc_Set_EnvironmentVariables">TFunc_Set_EnvironmentVariables</a></strong> = Function(aParamExecucao: <a href="mi.rtl.Objects.Methods.Paramexecucao.TParamExecucao.html">TParamExecucao</a>) :boolean;</code></td>
 </tr>
 <tr class="list2">
 <td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
-<td class="itemcode"><code><strong><a href="mi.rtl.Objects.Methods.Paramexecucao.TParamExecucao_types.html#TSet_NomeDeArquivosGenericos">TSet_NomeDeArquivosGenericos</a></strong> = Function(aParamExecucao: <a href="mi.rtl.Objects.Methods.Paramexecucao.TParamExecucao.html">TParamExecucao</a>) :boolean;</code></td>
+<td class="itemcode"><code><strong><a href="mi.rtl.Objects.Methods.Paramexecucao.TParamExecucao_types.html#TParamExecucao_Tipo_de_Execucao">TParamExecucao_Tipo_de_Execucao</a></strong> = (...);</code></td>
 </tr>
 </table>
 <h2 class="description">Descrição</h2>
 <h3 class="detail">Tipos Aninhados</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><span id="TFunc_Set_EnvironmentVariables"></span><code><strong>TFunc_Set_EnvironmentVariables</strong> = Function(aParamExecucao: <a href="mi.rtl.Objects.Methods.Paramexecucao.TParamExecucao.html">TParamExecucao</a>) :boolean;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
 <table class="detail wide_list">
 <tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
@@ -70,27 +78,13 @@
 &nbsp;<h6 class="description_section">Valores</h6>
 <ul>
 <li>
-<span id="TParamExecucao_Tipo_de_Execucao_Normal">TParamExecucao_Tipo_de_Execucao_Normal</span>: O sistema trabalha com menu da LCL</li>
+<span id="TParamExecucao_Tipo_de_Execucao_Normal">TParamExecucao_Tipo_de_Execucao_Normal</span>: Aplicação LCL</li>
 <li>
-<span id="TParamExecucao_Tipo_de_Execucao_Normal_Sem_Pedir_Password">TParamExecucao_Tipo_de_Execucao_Normal_Sem_Pedir_Password</span>: O sistema trabalha com menu da LCL</li>
+<span id="TParamExecucao_Tipo_de_Execucao_cgi">TParamExecucao_Tipo_de_Execucao_cgi</span>: Aplicação CGI</li>
 <li>
-<span id="TParamExecucao_Tipo_de_Execucao_Normal_Exec_Command">TParamExecucao_Tipo_de_Execucao_Normal_Exec_Command</span>: O sistema executa um comando depois de pedir a Password. Usado para execusão em lote</li>
-<li>
-<span id="TParamExecucao_Tipo_de_Execucao_VCL">TParamExecucao_Tipo_de_Execucao_VCL</span>: O sistema trabalha com menu Grafico ???</li>
-<li>
-<span id="TParamExecucao_Tipo_de_Execucao_CGI">TParamExecucao_Tipo_de_Execucao_CGI</span></li>
-<li>
-<span id="TParamExecucao_Tipo_de_Execucao_ISAPI">TParamExecucao_Tipo_de_Execucao_ISAPI</span>: O Sistema trabalha como um serviço DLL ???</li>
+<span id="TParamExecucao_Tipo_de_Execucao_Fastcgi">TParamExecucao_Tipo_de_Execucao_Fastcgi</span>: Aplicação Fast CGI</li>
 </ul>
 </td></tr>
-</table>
-<table class="detail wide_list">
-<tr class="list">
-<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
-<td class="itemcode"><span id="TSet_NomeDeArquivosGenericos"></span><code><strong>TSet_NomeDeArquivosGenericos</strong> = Function(aParamExecucao: <a href="mi.rtl.Objects.Methods.Paramexecucao.TParamExecucao.html">TParamExecucao</a>) :boolean;</code></td>
-</tr>
-<tr><td colspan="2">
-&nbsp;</td></tr>
 </table>
 <hr><span class="appinfo"><em>Gerado por <a href="https://pasdoc.github.io/">PasDoc 0.16.0</a>. </em>
 </span>

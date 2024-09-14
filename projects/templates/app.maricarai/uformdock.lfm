@@ -1,0 +1,8 @@
+inherited FormDock: TFormDock
+  Left = 279
+  Top = 122
+  Width = 775
+  Caption = 'FormDock'
+  OnClose = FormClose
+  OnCloseQuery = FormCloseQuery
+end

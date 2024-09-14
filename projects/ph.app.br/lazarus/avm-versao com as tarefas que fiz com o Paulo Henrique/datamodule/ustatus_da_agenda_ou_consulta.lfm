@@ -1,0 +1,40 @@
+object Status_da_agenda_ou_consulta: TStatus_da_agenda_ou_consulta
+  OnCreate = DataModuleCreate
+  OldCreateOrder = False
+  Height = 150
+  HorizontalOffset = 554
+  VerticalOffset = 328
+  Width = 316
+  object DmxScroller_Form1: TDmxScroller_Form
+    Alias = 'TDmxScroller_Form'
+    OnAddTemplate = DmxScroller_Form1AddTemplate
+    Active = False
+    AlignmentLabels = taLeftJustify
+    Left = 24
+    Top = 24
+  end
+  object ActionList1: TActionList
+    Left = 24
+    Top = 96
+    object Novo: TAction
+      Category = 'operadores'
+      Caption = 'Novo'
+    end
+    object Pesquisar: TAction
+      Category = 'operadores'
+      Caption = 'Pesquisar'
+    end
+    object Gravar: TAction
+      Category = 'operadores'
+      Caption = 'Gravar'
+    end
+    object Excluir: TAction
+      Category = 'operadores'
+      Caption = 'Excluir'
+    end
+    object Consultar: TAction
+      Category = 'operadores'
+      Caption = 'Consultar'
+    end
+  end
+end

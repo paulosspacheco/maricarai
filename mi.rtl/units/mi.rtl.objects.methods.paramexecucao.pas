@@ -22,52 +22,50 @@ uses
 
       TParamExecucao_types = Class (TObjectsMethods)
 
-        public type TSet_NomeDeArquivosGenericos = Function(aParamExecucao: TParamExecucao) :boolean;
-        public type TParamExecucao_Tipo_de_Execucao =
-                      (TParamExecucao_Tipo_de_Execucao_Normal, {:< O sistema trabalha com menu da LCL}
-                       TParamExecucao_Tipo_de_Execucao_Normal_Sem_Pedir_Password, {:< O sistema trabalha com menu da LCL}
-                       TParamExecucao_Tipo_de_Execucao_Normal_Exec_Command,    {:< O sistema executa um comando depois de pedir a Password. Usado para execusão em lote }
-                       TParamExecucao_Tipo_de_Execucao_VCL,     {:< O sistema trabalha com menu Grafico ???}
-                       TParamExecucao_Tipo_de_Execucao_CGI,     {<O sistema trabalha com chamadas do Browse ???}
-                       TParamExecucao_Tipo_de_Execucao_ISAPI);  {:< O Sistema trabalha como um serviço DLL ???}
+        public type TFunc_Set_EnvironmentVariables = Function(aParamExecucao: TParamExecucao) :boolean;
 
-        Public Type TNomeDeArquivosGenericos =
+
+        Public Type TEnvironmentVariables =
                       record
-                        NomeArqExe : DirStr;
-                        NomeArqDll            : DirStr;
-                        DirExe                : DirStr;
-                        DirDataBaseName_Template  : DirStr;
-                        CGI_BIN               : DirStr;
+                        LANGUAGE                : AnsiString;
+                        pwd                     : DirStr;
+                        SessionName             : DirStr;
+                        SHELL                   : PathStr;
+                        NomeArqExe              : DirStr;
+                        NomeArqDll              : DirStr;
+                        DirExe                  : DirStr;
+                        DirDataBaseName_Template: DirStr;
+                        CGI_BIN                 : DirStr;
 
-                        DirPalette: DirStr;
-                        Dir_Local_Ferr  : DirStr;
+                        {: O campo **@name** contém a pasta de recursos do
+                           template para criar formulários
+                        }
+                        Dir_lfm_mi              : DirStr;
 
-                        Name_Local_Ferr : DirStr;
-
-                        Path_Schema   : DirStr;
-                        Name_Schema   : DirStr;
-                        Ext_Schema    : ExtStr;
-
-                        Path_Import   : DirStr;
-                        Path_Export   : DirStr;
-
-                        OS            : DirStr;   //<  Sistema operacional
-                        ComputerName  : DirStr;
-                        LOGONSERVER   : DirStr;
-                        SESSIONNAME   : DirStr;
-                        USERDOMAIN    : DirStr;
-                        USERNAME      : DirStr;
-                        USERPROFILE   : DirStr;
-                        ALLUSERSPROFILE: DirStr;
-                        ProgramFiles: DirStr;
-                        CommonProgramFiles : DirStr;
-                        HOMEDRIVE          : DirStr;
-                        HOMEPATH           : DirStr;
-                        SystemDrive        : DirStr;
-                        SystemRoot         : DirStr;
-                        windir             : AnsiString;
-                        DirHTML_Template   : DirStr;
-                        DirHTML_imagens    : DirStr;
+                        Dir_Local_Ferr          : DirStr;
+                        Name_Local_Ferr         : DirStr;
+                        Path_Schema             : DirStr;
+                        Name_Schema             : DirStr;
+                        Ext_Schema              : ExtStr;
+                        Path_Import             : DirStr;
+                        Path_Export             : DirStr;
+                        OS                      : DirStr;   //<  Sistema operacional
+                        ComputerName            : DirStr;
+                        LOGONSERVER             : DirStr;
+                        USERDOMAIN              : DirStr;
+                        USERNAME                : DirStr;
+                        USERPROFILE             : DirStr;
+                        ALLUSERSPROFILE         : DirStr;
+                        ProgramFiles            : DirStr;
+                        CommonProgramFiles      : DirStr;
+                        HOME                    : DirStr;
+                        HOMEDRIVE               : DirStr;
+                        HOMEPATH                : DirStr;
+                        SystemDrive             : DirStr;
+                        SystemRoot              : DirStr;
+                        windir                  : AnsiString;
+                        DirHTML_Template        : DirStr;
+                        DirHTML_imagens         : DirStr;
                         DirHTML_FileName_JPG_Program_Logomarca : String;// = 'Z:\Tv32\GCIC\GCIC_EC\GCIC_VCL_EC\images\logo.jpg';
                         DirHTML_Template_Default: DirStr;
                         DirHTML_Template_Custom : DirStr;
@@ -138,21 +136,18 @@ uses
 
         TParamExecucao_consts = Class (TParamExecucao_types)
           {:Usado para inicializar os paths da sessão.}
-          Public var _Set_NomeDeArquivosGenericos : TSet_NomeDeArquivosGenericos;static;
-          public Const  Set_NomeDeArquivosGenericos_Global : TSet_NomeDeArquivosGenericos = nil;
+          Public var Func_Set_EnvironmentVariables : TFunc_Set_EnvironmentVariables;static;
+          public Const  Func_Set_EnvironmentVariables_Global : TFunc_Set_EnvironmentVariables = nil;
         end;
 
         TParamExecucao = Class (TParamExecucao_consts)
           protected Var okCreate:Boolean;
-          public Constructor Create(aPathRaiz:Ansistring);overload;Virtual;
           public Constructor Create(aOwner:TComponent);overload;override;
+          public Procedure SetParamametros(aPathRaiz:Ansistring);Virtual;
           Destructor Destroy;override;
-
           private R_ParamExecucao_Local_ant : TR_ParamExecucao_Local;
-
-          Public Function Set_NomeDeArquivosGenericos() :boolean;
-
-          public NomeDeArquivosGenericos : TNomeDeArquivosGenericos;
+          Public Function Set_EnvironmentVariables() :boolean;
+          public EnvironmentVariables : TEnvironmentVariables;
           public PathRaiz  : AnsiString;
           public Tipo_de_Execucao : TParamExecucao_Tipo_de_Execucao;
           public Identificacao    : TIdentificacao;
@@ -236,29 +231,8 @@ uses
           Public Function Acao_Form_Is_Event:Boolean;//< True se acao_form for um evento e False se for um mapa de bits
           public Function Acao_Form_Is_Mb_Bit:Boolean;//< True se acao_form for um mapa de bits.
 
-          public procedure Set_ParamStr(wFilial{1},WUsuario{2},wPassword{3}: tString);Overload;
-          public procedure Set_ParamStr(wFilial{1}:Byte;WUsuario{2}:SmallInt;wPassword{3}:tString);Overload;
-          public procedure Set_ParamStr(wFilial{1},WUsuario{2},wPassword{3},wCommand{4} : tString);Overload;
-          public procedure Set_ParamStr(wFilial{1}:Byte;WUsuario{2}:SmallInt;wPassword{3}:tString;wCommand{4} : SmallInt);Overload;
-          public procedure Set_ParamStr(wFilial{1}:Byte;WUsuario{2}:SmallInt;wNome_Compreto_do_Usuario{3} : tString;wPassword{4}:tString);Overload;
-          public procedure Set_ParamStr(wFilial{1}:Byte;WUsuario{2}:SmallInt;wNome_Compreto_do_Usuario{3} : tString;wPassword{4}:tString;aUsername{5}: tString);Overload;
+          public procedure Set_ParamStr();Overload;
 
-          public procedure Set_ParamStr(wFilial{1},WUsuario{2},wPassword{3},wModulo{4},wCommand{5} : tString);Overload;
-          public procedure Set_ParamStr(wFilial{1},WUsuario{2},wPassword{3},wModulo{4},wCommand{5},a_DataAtual{6} : tString);Overload;
-          public procedure Set_ParamStr(wFilial{1},WUsuario{2},wPassword{3},wModulo{4},wCommand{5},a_DataAtual{6} : tString;wAcao_Form{7}: AnsiString);Overload;
-
-          public procedure Set_ParamStr(wFilial{1},WUsuario{2},wPassword{3},wModulo{4},wCommand{5},a_DataAtual{6} : tString;wAcao_Form{7}: AnsiString;wList_Value_Default{8}:AnsiString);Overload;
-
-          public procedure Set_ParamStr(wFilial{1}:Byte;
-                                 WUsuario{2}:SmallInt;
-                                 wPassword{3}:tString;
-                                 wModulo{4}:SmallInt;
-                                 wCommand{5} : SmallInt);Overload;
-          public procedure Set_ParamStr(wFilial{1}:AnsiString;
-                                 WUsuario{2}:SmallInt;
-                                 wPassword{3}:tString;
-                                 wModulo{4}:SmallInt;
-                                 wCommand{5} : SmallInt);Overload;
           public function Check_Se_Comando_autorizado:Boolean;
 
 
@@ -279,19 +253,19 @@ implementation
 //  RegisterComponents(Name_Type_App_MarIcaraiV1, [TParamExecucao]);
 //end;
 
-Procedure TParamExecucao_types.TNomeDeArquivosGenericos.Set_DirDoc(a_DirDoc: DirStr);
+Procedure TParamExecucao_types.TEnvironmentVariables.Set_DirDoc(a_DirDoc: DirStr);
 Begin
+  DirHTML                    := TObjectsMethods.ChangeSubStr(_DirDoc,a_DirDoc,DirHTML);
   DirHTML_Template           := TObjectsMethods.ChangeSubStr(_DirDoc,a_DirDoc,DirHTML_Template);
   DirHTML_Template_Default   := TObjectsMethods.ChangeSubStr(_DirDoc,a_DirDoc,DirHTML_Template_Default);
   DirHTML_Template_Default   := TObjectsMethods.ChangeSubStr(_DirDoc,a_DirDoc,DirHTML_Template_Default);
   DirHTML_Template_Custom    := TObjectsMethods.ChangeSubStr(_DirDoc,a_DirDoc,DirHTML_Template_Custom);
-  DirHTML                    := TObjectsMethods.ChangeSubStr(_DirDoc,a_DirDoc,DirHTML);
   DirHTML_Doc_Program	     := TObjectsMethods.ChangeSubStr(_DirDoc,a_DirDoc,DirHTML_Doc_Program);
   _DirDoc := a_DirDoc;
 End;
 
 
-Procedure TParamExecucao_types.TNomeDeArquivosGenericos.Set_DirDataBaseName(a_DirDataBaseName: DirStr);
+Procedure TParamExecucao_types.TEnvironmentVariables.Set_DirDataBaseName(a_DirDataBaseName: DirStr);
 begin
   if a_DirDataBaseName[length(a_DirDataBaseName)] <> PathDelim
   then a_DirDataBaseName := a_DirDataBaseName + PathDelim;
@@ -304,7 +278,7 @@ begin
   Path_Export := TObjectsMethods.ChangeSubStr(_DirDataBaseName,a_DirDataBaseName,Path_Export);
 end;
 
-Procedure TParamExecucao_types.TNomeDeArquivosGenericos.Set_DataBaseName(a_DataBaseName: NameStr);
+Procedure TParamExecucao_types.TEnvironmentVariables.Set_DataBaseName(a_DataBaseName: NameStr);
 Begin
   if a_DataBaseName = ''
   then _DataBaseName := ExtractFileName(Self.NomeArqExe) + '.tb'
@@ -315,7 +289,7 @@ Begin
   then _DirDataBaseName := ExtractFilePath(FExpand(a_DataBaseName));
 End;
 
-Function TParamExecucao_types.TNomeDeArquivosGenericos.Get_DirTemp(): DirStr;
+Function TParamExecucao_types.TEnvironmentVariables.Get_DirTemp(): DirStr;
 Begin
   If _DirTemp = ''
   Then Begin
@@ -332,8 +306,8 @@ end;
 {$REGION '---> Function Param_Execucao : TParamExecucao'}
 
 //Const Param_Execucao : TParamExecucao = nil;
-//threadvar
-Var
+threadvar
+//Var
   R_ParamExecucao_Local : TR_ParamExecucao_Local;
 
   class Function TParamExecucao.Param_Execucao : TParamExecucao;
@@ -342,15 +316,15 @@ Var
     begin
       If _ParamExecucao = nil
       Then Begin
-             _ParamExecucao        := TParamExecucao.create('');
+             _ParamExecucao        := TParamExecucao.create(nil);
              _Destoy_ParamExecucao := True;
 
-             if @_ParamExecucao._Set_NomeDeArquivosGenericos<>nil
+             if @_ParamExecucao.Func_Set_EnvironmentVariables<>nil
              Then begin
                     if _ParamExecucao.PathRaiz = ''
                     Then _ParamExecucao.PathRaiz := ParamStr(0);
 
-                    _ParamExecucao.Set_NomeDeArquivosGenericos;
+                    _ParamExecucao.Set_EnvironmentVariables;
                   end;
 
            end;
@@ -380,7 +354,7 @@ Var
   {Procedure TParamExecucao.Set_Acao_Form(w_Acao_Form   : AnsiString);
   Begin
     Nao posso converter a acao em maiúscula por que os eventos pode serem strings minusculo.
-    _Acao_Form := FMaiuscula(w_Acao_Form );
+    _Acao_Form := UpperCase(w_Acao_Form );
   end;       }
 
   Function TParamExecucao.Acao_Form_Is_Event:Boolean;//< True se acao_form for um evento.
@@ -426,7 +400,7 @@ Var
      Var
        wAcao_form : AnsiString;
   Begin
-    wAcao_form := FMaiuscula(Acao_form);
+    wAcao_form := UpperCase(Acao_form);
     If (Pos('EVCOMMAND',wAcao_form) <> 0) or
        (Pos('EVKEYBOARD',wAcao_form) <> 0)
     THEN RESULT := TRUE
@@ -477,7 +451,7 @@ Var
      Var
        wAcao_form : AnsiString;
   Begin
-    wAcao_form := FMaiuscula(Acao_form);
+    wAcao_form := UpperCase(Acao_form);
 
     {Deleta brancos a esquerda }
     While (wAcao_form[1] in [' ',#0] ) and (Length(wAcao_form)>0) do
@@ -510,143 +484,8 @@ Var
   end;
 
 
-  Procedure TParamExecucao.Set_ParamStr(wFilial,WUsuario,wPassword : tString);
+  Procedure TParamExecucao.Set_ParamStr();
   Begin
-    try
-      Identificacao.filial := StrToInt(WFilial)
-    Except
-      Identificacao.filial := 1;
-    end;
-
-    try
-      Identificacao.Usuario := StrToInt(WUsuario)
-    Except
-      Identificacao.filial := 1;
-    end;
-
-    Identificacao.Password := wPassword;
-  end;
-
-  Procedure TParamExecucao.Set_ParamStr(wFilial,WUsuario,wPassword,wCommand : tString);
-    Var
-      Err : Integer;
-  Begin
-    Set_ParamStr(wFilial,WUsuario,wPassword);
-
-    try
-      Command := StrToInt(wCommand);
-    Except
-      Command := 0;
-      // wcomando deve ser uma lista de eventos do tipo: EvCommand,141,EvCommand,50045,EvCommand,4428
-    end;
-  end;
-
-
-  Procedure TParamExecucao.Set_ParamStr(wFilial:Byte;WUsuario:SmallInt;wNome_Compreto_do_Usuario : tString;wPassword:tString;aUsername: tString);
-  Begin
-    Identificacao.Filial        := wFilial;
-    Identificacao.Usuario       := WUsuario;
-    Identificacao.Password         := wPassword;
-    Identificacao.Nome_Compreto_do_Usuario := wNome_Compreto_do_Usuario;
-    Identificacao.Username         := aUsername;
-  end;
-
-  Procedure TParamExecucao.Set_ParamStr(wFilial:Byte;WUsuario:SmallInt;wPassword:tString);
-  Begin
-    Set_ParamStr(wFilial,WUsuario,'',wPassword,'0');
-  end;
-
-  Procedure TParamExecucao.Set_ParamStr(wFilial:Byte;WUsuario:SmallInt;wPassword:tString;wCommand : SmallInt);
-  Begin
-    Set_ParamStr(wFilial,WUsuario,wPassword);
-    Command := wCommand;
-  end;
-
-  Procedure TParamExecucao.Set_ParamStr(wFilial:Byte;WUsuario:SmallInt;wNome_Compreto_do_Usuario : tString;wPassword:tString);
-  Begin
-    Set_ParamStr(wFilial,WUsuario,wNome_Compreto_do_Usuario,wPassword,''{<Username do usuario});
-  end;
-
-
-  Procedure TParamExecucao.Set_ParamStr(wFilial,WUsuario,wPassword,wModulo,wCommand  : tString);
-  Begin
-    Set_ParamStr(wFilial,WUsuario,wPassword);
-
-    try
-      Modulo := StrToInt(wModulo);
-    Except
-      Modulo := 0;
-    end;
-
-    try
-      Command := StrToInt(wCommand);
-    Except
-      Command := 0;
-    end;
-  end;
-
-  Procedure TParamExecucao.Set_ParamStr(wFilial: AnsiString;WUsuario:SmallInt;wPassword:tString;wModulo:SmallInt;wCommand : SmallInt);
-  //Mais: wModulo,wCommand SmallInt
-
-    Var
-      Err : Integer;
-      BFilial : Byte;
-  Begin
-    Val(wFilial,BFilial,err);
-    If Err <> 0
-    Then Set_ParamStr(bFilial,WUsuario,wPassword,wModulo,wCommand);
-  end;
-
-  Procedure TParamExecucao.Set_ParamStr(wFilial,WUsuario,wPassword,wModulo,wCommand,a_DataAtual : tString);
-  Begin
-    Set_ParamStr(wFilial,WUsuario,wPassword,wModulo,wCommand);
-    with Tdates do
-     DataAtual := StrToDate(a_DataAtual,DateMask_DD_MM_AA)^;
-  end;
-
-  Procedure TParamExecucao.Set_ParamStr(wFilial,WUsuario,wPassword,wModulo,wCommand,a_DataAtual : tString;wAcao_Form: AnsiString);
-   // Mais: wAcao_Form
-  Begin
-    Set_ParamStr(wFilial,WUsuario,wPassword,wModulo,wCommand,a_DataAtual);
-    Acao_Form := wAcao_Form;
-  //  Global_Acao_Form := wAcao_Form; // Obs: Global_Acao_Form espera que a lista de  comandos seja numerico.
-  end;
-
-  Procedure TParamExecucao.Set_ParamStr(wFilial,WUsuario,wPassword,wModulo,wCommand,a_DataAtual : tString;wAcao_Form: AnsiString;wList_Value_Default:AnsiString);
-    // Mais: wList_Value_Default:AnsiString;
-    Var
-      Poss : Integer;
-  Begin
-    Set_ParamStr(wFilial,WUsuario,wPassword,wModulo,wCommand,a_DataAtual,wAcao_Form);
-    List_Value_Default  := wList_Value_Default;
-
-  // Insere " na string
-    while Pos('$22',List_Value_Default) <> 0 do
-    Begin
-      Poss := Pos('$22',List_Value_Default);
-      delete(List_Value_Default,Poss,3);
-      Insert('"',List_Value_Default,Poss);
-    end;
-
-  // Insere branco na tString
-    while Pos('$20',List_Value_Default) <> 0 do
-    Begin
-      Poss := Pos('$20',List_Value_Default);
-      delete(List_Value_Default,Poss,3);
-      Insert(' ',List_Value_Default,Poss);
-    end;
-
-  //  Global_List_Value_Default := List_Value_Default;
-  end;
-
-  Procedure TParamExecucao.Set_ParamStr(wFilial:Byte;WUsuario:SmallInt;wPassword:tString;wModulo:SmallInt;wCommand : SmallInt);
-  Begin
-    Identificacao.Filial  := wFilial;
-    Identificacao.Usuario := WUsuario;
-    Identificacao.Password   := wPassword;
-
-    Modulo  := wModulo;
-    Command := wCommand;
   end;
 
 
@@ -688,199 +527,96 @@ Var
     Result := IntToStr(aResult);
   End;
 
-  Constructor TParamExecucao.Create(aPathRaiz:Ansistring);
-  {<  sintaxe de chamda "Programa.Exe Password_admin 0 filial usuario Password comando"
-
-    p1 = Password_admin+' '+
-    p2 = IStr(admin_Logado,'W')+' '+
-    p3 = IStr(IntTipos.ParamExecucao.Identificacao.Filial,'BB')+' '+
-    p4 = IStr(IntTipos.ParamExecucao.Identificacao.Usuario,'IIIII')+' '+
-    p5 = IntTipos.ParamExecucao.Identificacao.Password+' '+
-    p6 = IStr(aCommand,'LLLLLL')+' '+
-  }
-
-{
-                   //Parametros que o sistema espera.
-                    Param := 01  Password_admin+' '+
-                             02  IStr(admin_Logado,'W')+' '+
-                             03  IStr(App_GCIC_EC.MI_Connection_GCIC.ID_Filial,'BB')+' '+
-                             04  IStr(App_GCIC_EC.MI_Connection_GCIC.ID_Username,'IIIII')+' '+
-                             05  App_GCIC_EC.MI_Connection_GCIC.PassSmallInt+' '+
-                             06  Istr(Byte(aModulo),'BB')+' '+
-                             07  IStr(aCommand,'LLLLLL')+' '+
-                             08  DateToStr(App_GCIC_EC.DataAtual,DateMask_DD_MM_AA)+' '+
-                  //                             aList_Event_Command
-                             09  SIF(aList_Event_Command<>'',aList_Event_Command,',');
-
-}
+  Procedure TParamExecucao.SetParamametros(aPathRaiz:Ansistring);
   Begin
-    if Not okCreate
-    then Begin
-           Inherited Create(nil);
-           okCreate := true;
-    end;
-
     name := Alias_To_Name('TParamExecucao_'+CreateGUID);
-    NomeDeArquivosGenericos.NomeArqExe := FExpand(FMaiuscula(ParamStr(0)));
+//    EnvironmentVariables.NomeArqExe := FExpand(UpperCase(ParamStr(0)));
+    EnvironmentVariables.NomeArqExe := UpperCase(ParamStr(0));
 
     If aPathRaiz = ''
     Then PathRaiz := ExtractFilePath( ParamStr(0))
     Else PathRaiz := aPathRaiz;
-
-
-  {Nao devo inicializar _DataAtual para que possa controlar se a _DataAtual
-  foi passada como parametro em um processamento em lote.
-   Se _DataAtual.dia = 0 e porque a data nao foi passada como parametro.
-
-    GetDataSistOp(_DataAtual,'/');
-  }
-
-    //If IsConsole
-    //Then Check_Se_Comando_autorizado;
-
-//    Identificacao.Filial  := 1;
-//    Identificacao.Usuario := 1;
-//    Identificacao.Password   := Password_admin;
-
-
-    Case ParamCount of
-       1  : Begin {O sistema pede a Password e executan o commando}
-              Tipo_de_Execucao := TParamExecucao_Tipo_de_Execucao_Normal_Exec_Command;
-              Set_ParamStr('1','','',ParamStr(1))
-            End;
-
-       3  : Begin {O sistema pede a Password e executan o commando}
-              Tipo_de_Execucao := TParamExecucao_Tipo_de_Execucao_Normal_Exec_Command;
-              Set_ParamStr('1','','',ParamStr(1),ParamStr(2));
-            End;
-  {     5  : Begin
-              Tipo_de_Execucao := TParamExecucao_Tipo_de_Execucao_Normal_Sem_Pedir_Password;
-              Set_ParamStr(ParamStr(3), //<  filial
-                           ParamStr(4), //<  usuario
-                           ParamStr(5));//<  Password
-             end;
-  }
-       5  : Begin {O sistema trabalha com menu do turbo Vision}
-              Tipo_de_Execucao := TParamExecucao_Tipo_de_Execucao_Normal_Sem_Pedir_Password;
-              Set_ParamStr(ParamStr(3), //<  filial
-                           ParamStr(4), //<  usuario
-                           ParamStr(5), //<  Password
-                           '','');
-            End;
-
-       6  : Begin
-              Tipo_de_Execucao := TParamExecucao_Tipo_de_Execucao_Normal_Sem_Pedir_Password;
-              Set_ParamStr(ParamStr(3), //<  filial
-                           ParamStr(4), //<  usuario
-                           ParamStr(5), //<  Password
-                           ParamStr(6));//<  Commando
-            End;
-
-       7  : Begin {O sistema trabalha com menu Grafico}
-              Tipo_de_Execucao := TParamExecucao_Tipo_de_Execucao_VCL;
-              Set_ParamStr(ParamStr(3), //IStr(App_GCIC_EC.MI_Connection_GCIC.ID_Filial,'BB')+' '+
-                           ParamStr(4), //IStr(App_GCIC_EC.MI_Connection_GCIC.ID_Username,'IIIII')+' '+
-                           ParamStr(5), //App_GCIC_EC.MI_Connection_GCIC.PassSmallInt+' '+
-                           ParamStr(6), //Istr(Byte(aModulo),'BB')+' '+
-                           ParamStr(7)); //IStr(aCommand,'LLLLLL')+' '+
-
-            End;
-       8  : Begin {O sistema trabalha com menu Grafico}
-              Tipo_de_Execucao := TParamExecucao_Tipo_de_Execucao_VCL;
-              Set_ParamStr(ParamStr(3), //IStr(App_GCIC_EC.MI_Connection_GCIC.ID_Filial,'BB')+' '+
-                           ParamStr(4), //IStr(App_GCIC_EC.MI_Connection_GCIC.ID_Username,'IIIII')+' '+
-                           ParamStr(5), //App_GCIC_EC.MI_Connection_GCIC.PassSmallInt+' '+
-                           ParamStr(6), //Istr(Byte(aModulo),'BB')+' '+
-                           ParamStr(7), //IStr(aCommand,'LLLLLL')+' '+
-                           ParamStr(8)); // DateToStr(App_GCIC_EC.DataAtual,DateMask_DD_MM_AA)+' '+
-             end;
-
-       9  : Begin {O sistema trabalha com menu Grafico}
-              Tipo_de_Execucao := TParamExecucao_Tipo_de_Execucao_VCL;
-
-              Set_ParamStr(ParamStr(3), //IStr(App_GCIC_EC.MI_Connection_GCIC.ID_Filial,'BB')+' '+
-                           ParamStr(4), //IStr(App_GCIC_EC.MI_Connection_GCIC.ID_Username,'IIIII')+' '+
-                           ParamStr(5), //App_GCIC_EC.MI_Connection_GCIC.PassSmallInt+' '+
-                           ParamStr(6), //Istr(Byte(aModulo),'BB')+' '+
-                           ParamStr(7), //IStr(aCommand,'LLLLLL')+' '+
-                           ParamStr(8), // DateToStr(App_GCIC_EC.DataAtual,DateMask_DD_MM_AA)+' '+
-                           ParamStr(9)); // SIF(aList_Event_Command<>'',aList_Event_Command,',');
-            End;
-
-      10  : Begin {O sistema trabalha com menu Grafico}
-              Tipo_de_Execucao := TParamExecucao_Tipo_de_Execucao_VCL;
-              Set_ParamStr(ParamStr(3), //IStr(App_GCIC_EC.MI_Connection_GCIC.ID_Filial,'BB')+' '+
-                           ParamStr(4), //IStr(App_GCIC_EC.MI_Connection_GCIC.ID_Username,'IIIII')+' '+
-                           ParamStr(5), //App_GCIC_EC.MI_Connection_GCIC.PassSmallInt+' '+
-                           ParamStr(6), //Istr(Byte(aModulo),'BB')+' '+
-                           ParamStr(7), //IStr(aCommand,'LLLLLL')+' '+
-                           ParamStr(8), // DateToStr(App_GCIC_EC.DataAtual,DateMask_DD_MM_AA)+' '+
-                           ParamStr(9), // SIF(aList_Event_Command<>'',aList_Event_Command,',');
-                           ParamStr(10)); //?
-  //            SysMessageBox( PAnsiChar(Global_List_Value_Default),'teste dos parametros',true);
-            End;
-
-      Else Begin
-
-             Tipo_de_Execucao := TParamExecucao_Tipo_de_Execucao_Normal; {O sistema trabalha com menu do turbo Vision vcl normal}
-             Set_ParamStr('1', //<  filial
-                          '1', //<  usuario
-                          Password_admin,  //<  Password
-                          '','');
-           End;
-     End;
-
-     If IsApp_Cgi
-     Then Tipo_de_Execucao := TParamExecucao_Tipo_de_Execucao_CGI;
-
-     if IsApp_ISAPI
-     then Tipo_de_Execucao := TParamExecucao_Tipo_de_Execucao_ISAPI;
-
-     if Tipo_de_Execucao in [TParamExecucao_Tipo_de_Execucao_CGI,TParamExecucao_Tipo_de_Execucao_ISAPI]
-     then Set_ParamStr('1','1',Password_admin);
-
-
-    If (@_Set_NomeDeArquivosGenericos = nil ) and (@Set_NomeDeArquivosGenericos_Global <> nil)
+    Set_ParamStr();
+    If (@Func_Set_EnvironmentVariables = nil ) and
+       (@Func_Set_EnvironmentVariables_Global <> nil)
     then Begin
-           _Set_NomeDeArquivosGenericos := Set_NomeDeArquivosGenericos_Global;
-
-//           Set_NomeDeArquivosGenericos(PathRaiz); não posso chamar aqui porque a variável global ParamExecução ainda é nil.
+           Func_Set_EnvironmentVariables := Func_Set_EnvironmentVariables_Global;
+//           Set_EnvironmentVariables(PathRaiz); não posso chamar aqui porque a variável global ParamExecução ainda é nil.
          End;
-
-
-    Set_HostName('127.0.0.1');
+    Set_HostName('http://localHost'); //127.0.0.1
 
     if DefaultSystemCodePage = CP_UTF8
     then DatabaseNameCharSet := 'UTF8'
     else DatabaseNameCharSet := '';
 
-
-    With NomeDeArquivosGenericos do
+    With EnvironmentVariables do
     Begin
-      DataBaseName := 'MarIcarai';
 
-      OS             := GetEnv('OS');
-      ComputerName   := GetEnv('ComputerName');
-      LOGONSERVER    := GetEnv('LOGONSERVER');
-      SESSIONNAME    := GetEnv('SESSIONNAME');
-      USERDOMAIN     := GetEnv('USERDOMAIN');
-      USERNAME       := GetEnv('USERNAME');
-      USERPROFILE    := GetEnv('USERPROFILE');
-      ALLUSERSPROFILE:= GetEnv('ALLUSERSPROFILE');
-      ProgramFiles   := GetEnv('ProgramFiles');
-      CommonProgramFiles:= GetEnv('CommonProgramFiles');
-      HOMEDRIVE      := GetEnv('HOMEDRIVE');
-      HOMEPATH       := GetEnv('HOMEPATH');
-      SystemDrive    := GetEnv('SystemDrive');
-      SystemRoot     := GetEnv('SystemRoot');
-      windir         := GetEnv('windir');
+      {$IFDEF Windows}
+        home           := GetEnv('USERPROFILE');
+        UserName       := GetEnv('USERNAME');
+        DataBaseName := 'MarIcarai';
+        LANGUAGE       := GetEnv('LANGUAGE');
+        OS             := GetEnv('OS');
+        ComputerName   := GetEnv('ComputerName');
+        LOGONSERVER    := GetEnv('LOGONSERVER');
+        SESSIONNAME    := GetEnv('SESSIONNAME');
+        USERDOMAIN     := GetEnv('USERDOMAIN');
+        shell          := GetEnv('ComSpec');
+
+        DirTemp        := GetEnv('TEMP');
+        if DirTemp = ''
+        Then DirTemp   := GetEnv('TMP');
+
+        pwd            := GetEnv('CD');
+        USERPROFILE    := GetEnv('USERPROFILE');
+        ALLUSERSPROFILE:= GetEnv('ALLUSERSPROFILE');
+        ProgramFiles   := GetEnv('ProgramFiles');
+        CommonProgramFiles:= GetEnv('CommonProgramFiles');
+        HOMEDRIVE      := GetEnv('HOMEDRIVE');
+        HOMEPATH       := GetEnv('HOMEPATH');
+        SystemDrive    := GetEnv('SystemDrive');
+        SystemRoot     := GetEnv('SystemRoot');
+        windir         := GetEnv('windir');
+
+      {$ENDIF}
+
+      {$IFDEF UNIX}
+        OS             := 'Linux';
+        DataBaseName   := 'MarIcarai';
+        LANGUAGE       := GetEnv('LANG');
+        HOMEPATH       := GetEnv('HOME');
+        USERNAME       := GetEnv('USER');
+        if USERNAME = ''
+        Then USERNAME  := GetEnv('LOGNAME');
+
+        SHELL          := GetEnv('SHELL');
+        DirTemp        := GetEnv('TMP');
+        if DirTemp = ''
+        Then DirTemp   := GetEnv('TEMP');
+
+        pwd            := GetEnv('PWD');
+        ComputerName   := GetEnv('ComputerName');
+        LOGONSERVER    := GetEnv('LOGONSERVER');
+        SESSIONNAME    := GetEnv('SESSIONNAME');
+        USERDOMAIN     := GetEnv('USERDOMAIN');
+        USERPROFILE    := GetEnv('USERPROFILE');
+        ALLUSERSPROFILE:= GetEnv('ALLUSERSPROFILE');
+        ProgramFiles   := GetEnv('ProgramFiles');
+        CommonProgramFiles:= GetEnv('CommonProgramFiles');
+        SystemDrive    := GetEnv('SystemDrive');
+        SystemRoot     := GetEnv('SystemRoot');
+        windir         := GetEnv('windir');
+
+      {$ENDIF}
+
     end;
   End;
 
   Constructor TParamExecucao.Create(aOwner:TComponent);
   Begin
     inherited Create(aOwner);
-    Create('');
+    SetParamametros('');
   End;
 
   Destructor TParamExecucao.Destroy;
@@ -895,12 +631,12 @@ Var
     _HostName  := aHostName;
   End;
 
-  function TParamExecucao.Set_NomeDeArquivosGenericos(): boolean;
+  function TParamExecucao.Set_EnvironmentVariables(): boolean;
   begin
     result := true;
-    IF @_Set_NomeDeArquivosGenericos <> NIL
-    THEN _Set_NomeDeArquivosGenericos(SELF)
-    ELSE Raise TException.Create(Self,'Set_NomeDeArquivosGenericos()','Atributo _Set_NomeDeArquivosGenericos não inicializado!.');
+    IF @Func_Set_EnvironmentVariables <> NIL
+    THEN Func_Set_EnvironmentVariables(SELF)
+    ELSE Raise TException.Create(Self,'Set_EnvironmentVariables()','Atributo _Set_EnvironmentVariables não inicializado!.');
   end;
 
   Procedure TParamExecucao.SetDominioHost(aHostName : AnsiString);

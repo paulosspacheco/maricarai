@@ -1,0 +1,6 @@
+inherited Mi_rtl_WebModule_Custom: TMi_rtl_WebModule_Custom
+  Height = 138
+  HorizontalOffset = 627
+  VerticalOffset = 273
+  Width = 150
+end

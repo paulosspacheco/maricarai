@@ -2,52 +2,83 @@
 <CONFIG>
   <ProjectGroup FileVersion="2">
     <Targets>
-      <Target FileName="tarefas_a_fazer.pas"/>
-      <Target FileName="histórico.pas"/>
+      <Target FileName="../fcl-web/routing/lcl/AppHttpServer/AppHttpServer.lpi">
+        <BuildModes>
+          <Mode Name="Default"/>
+        </BuildModes>
+      </Target>
       <Target FileName="mi.rtl/mi.rtl.lpk"/>
-      <Target FileName="mi.rtl/examples/mi.rtl.tests/mi.rtl.tests.lpi">
+      <Target FileName="projects/exemplos/mi.rtl/mi.rtl.tests/mi.rtl.tests.lpi">
+        <BuildModes>
+          <Mode Name="Default" Compile="True"/>
+          <Mode Name="i386-win32"/>
+          <Mode Name="x86_64-win64"/>
+          <Mode Name="Debug Linux"/>
+        </BuildModes>
+      </Target>
+      <Target FileName="projects/exemplos/mi.rtl/test_treeNode/Test_treeNode.lpi">
+        <BuildModes>
+          <Mode Name="Default"/>
+        </BuildModes>
+      </Target>
+      <Target FileName="projects/exemplos/mi.rtl/create_tipuesearch/create_tipuesearch.lpi">
+        <BuildModes>
+          <Mode Name="Default"/>
+        </BuildModes>
+      </Target>
+      <Target FileName="mi.lcl.form/mi.lcl.form.lpk"/>
+      <Target FileName="projects/exemplos/mi.lcl/mi.lcl.form/mi.lcl.form.test/mi.lcl.form.test.lpi">
+        <BuildModes>
+          <Mode Name="Default"/>
+          <Mode Name="x86_64-win64"/>
+          <Mode Name="i386-win32"/>
+        </BuildModes>
+      </Target>
+      <Target FileName="projects/exemplos/mi.lcl/mi.lcl.form/mi.lcl.ds.form.test/mi.lcl.ds.form.test.lpi">
+        <BuildModes>
+          <Mode Name="Default" Compile="True"/>
+          <Mode Name="i386-win32"/>
+          <Mode Name="x86_64-win64"/>
+          <Mode Name="debug"/>
+        </BuildModes>
+      </Target>
+      <Target FileName="mi.web.form/mi.web.form.lpk"/>
+      <Target FileName="projects/exemplos/mi.lcl/mi.web/mi.web.lcl.server/mi_web_form_lcl_server.lpg"/>
+      <Target FileName="projects/exemplos/mi.lcl/mi.web/mi.web.lcl.client/mi_web_lcl_client.lpg"/>
+      <Target FileName="projects/ph.app.br/lazarus/app_avm/lcl/avm.lpi">
         <BuildModes>
           <Mode Name="Default" Compile="True"/>
           <Mode Name="i386-win32"/>
           <Mode Name="x86_64-win64"/>
         </BuildModes>
       </Target>
-      <Target FileName="mi.ui.lcl.form/mi.ui.lcl.form.lpk"/>
-      <Target FileName="mi.ui.lcl.form/examples/mi.ui.lcl.form.tests/mi.ui.lcl.form.test.lpi">
+      <Target FileName="projects/templates/app.mi.lcl/__ProjName__.lpi">
         <BuildModes>
           <Mode Name="Default" Compile="True"/>
           <Mode Name="i386-win32"/>
           <Mode Name="x86_64-win64"/>
+          <Mode Name="Debug" Compile="True"/>
         </BuildModes>
       </Target>
-      <Target FileName="mi.ui.lcl.form/examples/mi.ui.lcl.form.AddTemplates/mi.ui.lcl.form.addtemplates.lpi">
+      <Target FileName="projects/templates/app.maricarai/__ProjName__.lpi">
         <BuildModes>
           <Mode Name="Default" Compile="True"/>
           <Mode Name="i386-win32"/>
           <Mode Name="x86_64-win64"/>
+          <Mode Name="Debug"/>
         </BuildModes>
       </Target>
-      <Target FileName="mi.rtl/examples/svr_http/httpproject1.lpi">
+      <Target FileName="../rtti/project3/test_RTTI.lpi">
         <BuildModes>
           <Mode Name="Default"/>
         </BuildModes>
       </Target>
-      <Target FileName="mi.rtl/examples/svrhttp-2.3.0/svr_http_listrecords.lpi">
+      <Target FileName="../fcl-web/restbridge/client/cmdclient/cmdclient.lpi">
         <BuildModes>
           <Mode Name="Default"/>
         </BuildModes>
       </Target>
-      <Target FileName="mi.rtl/examples/stork/create_index_stork.lpi">
-        <BuildModes>
-          <Mode Name="Default"/>
-        </BuildModes>
-      </Target>
-      <Target FileName="mi.rtl/examples/tipuesearch/tipuesearch.lpi">
-        <BuildModes>
-          <Mode Name="Default"/>
-        </BuildModes>
-      </Target>
-      <Target FileName="mi.rtl/examples/create_tipuesearch/create_tipuesearch.lpi">
+      <Target FileName="../json/jsonrtti.lpi">
         <BuildModes>
           <Mode Name="Default"/>
         </BuildModes>

@@ -1,0 +1,90 @@
+object data_module_client_rest: Tdata_module_client_rest
+  OnCreate = DataModuleCreate
+  OldCreateOrder = False
+  Height = 180
+  HorizontalOffset = 448
+  VerticalOffset = 168
+  Width = 384
+  object DmxScroller_Form_Rest_Client1: TDmxScroller_Form_Rest_Client
+    Alias = 'TDmxScroller_Form_Rest_Client'
+    Active = False
+    MiDataPacketFormat_Default = dfBinary
+    AlignmentLabels = taLeftJustify
+    TableName = 'data_module_client_rest'
+    Mi_ActionList = ActionList1
+    ShouldSaveTemplate = False
+    ClientsTemplatesDataModule = 'mi.rtl.web.module'
+    Mi_FpHttpClient = Mi_FpHttpClient1
+    Left = 96
+    Top = 16
+  end
+  object Mi_FpHttpClient1: TMi_FpHttpClient
+    KeepConnection = False
+    IOTimeout = 0
+    ConnectTimeout = 3000
+    HTTPversion = '1.1'
+    AllowRedirect = False
+    ServerURL = 'http://LocalHost:8080'
+    NameWebModule = 'Tmi_rtl_web_module'
+    Left = 96
+    Top = 88
+  end
+  object ActionList1: TActionList
+    Left = 296
+    Top = 8
+    object CmNewRecord: TAction
+      Category = 'dbCRUD'
+      Caption = '&Novo'
+      OnExecute = CmNewRecordExecute
+    end
+    object CmUpdateRecord: TAction
+      Category = 'dbCRUD'
+      Caption = '&Gravar'
+      OnExecute = CmUpdateRecordExecute
+    end
+    object CmLocate: TAction
+      Category = 'dbNavigator'
+      Caption = 'Pesquisar'
+      OnExecute = CmLocateExecute
+    end
+    object CmDeleteRecord: TAction
+      Category = 'dbCRUD'
+      Caption = '&Excluir'
+      OnExecute = CmDeleteRecordExecute
+    end
+    object CmGoBof: TAction
+      Category = 'dbNavigator'
+      Caption = 'Inicio'
+      OnExecute = CmGoBofExecute
+    end
+    object CmNextRecord: TAction
+      Category = 'dbNavigator'
+      Caption = 'Próximo'
+      OnExecute = CmNextRecordExecute
+    end
+    object CmPrevRecord: TAction
+      Category = 'dbNavigator'
+      Caption = 'Anterior'
+      OnExecute = CmPrevRecordExecute
+    end
+    object CmGoEof: TAction
+      Category = 'dbNavigator'
+      Caption = 'Fim'
+      OnExecute = CmGoEofExecute
+    end
+    object CmRefresh: TAction
+      Category = 'dbNavigator'
+      Caption = 'Atualizar'
+      OnExecute = CmRefreshExecute
+    end
+    object CmCancel: TAction
+      Category = 'dbCRUD'
+      Caption = '&Cancelar'
+      OnExecute = CmCancelExecute
+    end
+    object CmBuildFormFromTemplate: TAction
+      Category = 'Create'
+      Caption = 'CmBuildFormFromTemplate'
+    end
+  end
+end

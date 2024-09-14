@@ -3,7 +3,7 @@ unit mi.rtl.Consts;
       **mi.rtl**.
 
   - **VERSÃO**
-    - Alpha - Alpha - 0.9.0
+    - Alpha - 1.0.0
 
   - **CÓDIGO FONTE**:
     - @html(<a href="../units/mi.rtl.consts.pas">mi.rtl.consts.pas</a>)          
@@ -38,22 +38,46 @@ interface
 
 uses
   {$IFDEF Windows}Windows,{$ENDIF}
-  {$IFDEF UNIX}BaseUnix,  Unix, {$ENDIF}
+  {$IFDEF UNIX}BaseUnix,  Unix,
+//               clocale, cwstring,
+  {$ENDIF}
 
   Classes
   ,SysUtils
+  ,db
+
   ,process
+
   ,fpTemplate
   ,mi.rtl.types;
 
+  {: A variável **@name** foi declarada porque os controles dataware não estão
+     obdecendo o valor padrão}
+  var FormatBr: TFormatSettings;
+
+  { TConsts }
   {: A classe **@name** declara todas as constantes globais do
      pacote Mi.RTL
   }
-  type TConsts =
+ type
+ TConsts =
   class(TTypes)
-    Const C_DEF_VER_FORMAT4             = '{mjr}.{mnr}.{rev}.{bld}';
-    Const C_DEF_VER_FORMAT3             = '{mjr}.{mnr}.{rev}';
-    Const C_DEF_VER_FORMAT2             = '{mjr}.{mnr}';
+    {:A constante **@name** contém o nome das aplicações clientes que pretendo
+      gerar automaticamente.
+    }
+    public const NameClientsApplication : TNameClientsApplication =
+      ('lcl','javascript','dynamic_html','vuejs','angularjs','reactjs');
+
+    {:A constante **@name** contém o nome da extenção dos arquivos das aplicações
+      clientes que pretendo gerar automaticamente.
+    }
+    public const NameClientsApplicationExt : TNameClientsApplicationExt =
+      ('pas','js'        ,'html'        ,'vue'  ,'js'       ,'js');
+
+    public Const C_MessageError : TMessageError = nil;
+    public Const C_DEF_VER_FORMAT4             = '{mjr}.{mnr}.{rev}.{bld}';
+    public Const C_DEF_VER_FORMAT3             = '{mjr}.{mnr}.{rev}';
+    public Const C_DEF_VER_FORMAT2             = '{mjr}.{mnr}';
 
     {: Pilha com tStrings de erros.}
     public  Const ListaDeMsgErro : TTypes.PSItem = nil;
@@ -65,31 +89,40 @@ uses
            Modificador de código de campo:
              ' Z'--zero modificador para forçar conduzindo ou arrastando zeroes
 
-           Códigos de controle de campo:
+             # SINTAXE DE RECURSOS DO TEMPLATE MARICARAI
 
-             ^A--Zera todos os campos
-             ^C--O campo corrente possuem uma lista de opções do mesmo tipo.
-             ^D--use o próximo char como um delimiter de campo
-             ^E--Campos do tipo enumerado.
-             ^F--Usado para criar restrições e relacionamentos
-             ^H--Campo escondido
-             ^P--Usado para controlar o flag do tipo de campo
-             ^R--campo somente de leitura
-             ^S--" salte " campo (cursor saltar  em cima disto)
-             ^U--o limite superior do campo (Somente 1 a 255)
-             ^V--Em caso de omissão use o tString apos ^V
-             ^X--campo de BOOLEAN especial
-             ^Z--zera se este campo está vazio
-             ^L--Link para uma URL ou actionItens
+             1. **Códigos de Controles**
+                1. _~_ switch tString-literals on/off
+                2. _^A_ Zera todos os campos
+                3. _^B_ Indica que os caracteres seguintes contém o nome do campo
+                4. _^C_ O campo corrente possui uma lista de opções do mesmo tipo.
+                5. _^D_ Use o próximo caractere como um delimiter de campo
+                6. _^E_ Campo do tipo enumerado.
+                7. _^F_ Usado para criar restrições e relacionamentos
+                8. _^G_ Usada para concatenar duas listas do tipo PSItem.
+                9. _^H_ Campo escondido
+                10. _^I_ Link para cadeia de template pSItem
+                11. _^J_ Retorno do carro
+                12. _^k_ Os caracteres após ^k é capturado no campo TDmxFieldRec.Default
+                13. _\\k_ k minusculo tipo FldDbRadioButton.
+                14. _\\K_ K maiúsculo tipo FldRadioButton.
+                15. _^L_ Link para uma URL ou actionItens
+                16. _^M_ Fim da linha
+                17. _^N_ A sequência a seguir é o hint do campo.
+                18. _^O_ Campo fldBLOb
+                19. _^P_ Usado para controlar o flag do tipo de campo
+                20. _^R_ Campo somente de leitura
+                21. _^S_ Salte campo para o próximo campo de acesso normal
+                22. _^T_ O campo é um botão de ação
+                23. _^U_ Informar um limite superior campos do tipo byte. Faixa: [0..255]
+                24. _^V_ Se o campo for numérico, preencha com '#0'(AccNormal) se for alfanumérico, preencha com ' ' AccNormal
+                25. _^X_ Campo de BOOLEAN especial
+                26. _^Z_ Zera se este campo está vazio
 
-             '~' --switch tString-literals on/off
-
-           Delimiters de campo:
-
-               #0--delimiter de campo técnico (não exibe)
-             ' \ '--exibe como um espaço
-             ' | '--exibe como uma linha vertical sólida (#179)
-
+             2. **Delimitadores de campos:**
+                1. #0 = delimiter de campo técnico (não exibe)
+                2. \ = exibe como um espaço
+                3. | = exibe como**Tipos de campos:** uma linha vertical sólida (#179)
              Obs:
                também podem ser usados #179 ou #186 como delimiters.
                Obs: No modo console os caracteres #179 ou #186 eram impressos para dividir colunas.
@@ -198,7 +231,7 @@ uses
         Const fldStr              =   'S';
         Const fldS = fldStr;
 
-        {: A constante **@name** (Const fldSTR_Minuscula = 's') usado na máscara do Template,
+        {: A constante **@name** (Const fldstr_Lowcase = 's') usado na máscara do Template,
            informa ao componente **TUiDmxScroller** que a sequência de caracteres 's'
            após o caractere **"\"** representa no buffer do formulário um tipo ShortString
            que só aceita caractere minúscula.
@@ -214,8 +247,8 @@ uses
                     Nome := '\Ssssssssss' //Paulo serg
                ```
         }
-        Const fldSTR_Minuscula    =   's';
-        Const fldSMi = fldSTR_Minuscula;
+        Const fldstr_Lowcase    =   's';
+        Const fldSMi = fldstr_Lowcase;
 
         {: A constante **@name** (Const fldSTRNUM = '#') usado na máscara do Template,
            informa ao componente **TUiDmxScroller** que a sequência de caracteres '#'
@@ -258,7 +291,7 @@ uses
         {: A constante **@name** (Const fldAnsiChar = 'c') usado na máscara do Template,
            informa ao componente **TUiDmxScroller** que a sequência de caracteres 'c'
            após o caractere **"\"** representa no buffer do formulário um tipo AnsiString
-           que só aceita caractere minúsculo.
+           que só aceita caractere maiusculos e minúsculo.
 
            - **EXEMPLO**
              - Representação de um AnsiString de 10 dígitos em um buffer de 11 bytes
@@ -273,8 +306,8 @@ uses
 
                ```
         }
-        Const fldAnsiChar_Minuscula   =   'c';
-        Const fldACMi = fldAnsiChar_Minuscula;
+        Const fldAnsiChar_LowCase   =   'c';
+        Const fldACMi = fldAnsiChar_LowCase;
 
         {: A constante **@name** (Const fldAnsiChar = '0') usado na máscara do Template,
            informa ao componente **TUiDmxScroller** que a sequência de caracteres '0'
@@ -357,6 +390,38 @@ uses
         }
         Const fldBoolean          =   'X';
 
+        {: O tipo do campo **@name** tipo byte usado como index de um controle TRadiobutton.
+           Template em um controle TRadioButton
+
+           - **NOTAS**
+             - Um template pode conter vários campos do tipo cluster e o mesmo é
+               identificado após a sequência \K? onde ? indica que a informação
+               que pertence ao campo ?
+               - Exemplo:
+                 - SEXO
+                   - \Ka Masculino
+                   - \Ka Feminino
+                   - \Ka Indefinido
+             - Os campos clusteres possuem o mesmo número do campo e na primeira
+               ocorrência contém o nome do campo na lista pDmxFieldRec.
+
+           - **EXEMPLO**
+
+             ```pascal
+                 Result :=
+                   NewSItem('~  SEXO~',
+                   NewSItem('~  ~\Ka Masculino',
+                   NewSItem('~  ~\Ka Feminino',
+                   NewSItem('~  ~\Ka Indefinido',
+                   NewSItem('~  ESTADO CIVIL~',
+                   NewSItem('~  ~\Kb Solteiro',
+                   NewSItem('~  ~\Kb Casado',
+                   NewSItem('~  ~\Kb Divorciado',
+                   nil))))))))
+             ```
+        }
+        Const FldRadioButton      =  'K'; //Maiúscula
+
         Const fldHexValue         =   'H';  //:< hexadecimal numeric entry
 
         {: A constante **@name** (CharUpperlimit=^U) permite informar um limite superior para campos
@@ -406,7 +471,53 @@ uses
 
              ```
         }
-        Const fldENUM      =  ^E;   //:< enumerated Field
+        Const fldENUM      =  ^E;
+
+        {: A constante **@name** (fldENum_db=^D) é um campo do tipo longint associado
+           a um dataSource, uma chave dataSource.dataSet.KeyField e um campo a ser
+           visualizado na liasta dataSource.dataSet.listField.
+
+           - Os controles usados para edita-lo são:
+             - TdbLookupComboBox.
+
+             - **EXEMPLO USO NO TEMPLATE**
+
+               ```pascal
+
+                 function T__dm_xtable__.DmxScroller_Form1GetTemplate(aNext: PSItem): PSItem;
+                 begin
+                    with DmxScroller_Form1 do
+                    begin
+                      Result :=
+                      NewSItem(GetTemplate_CRUD_Buttons(CmNewRecord,CmUpdateRecord,CmLocate,CmDeleteRecord),
+                      NewSItem('',
+                 //     NewSItem('~ID:            ~\LLLLLL'+chFN+'id',
+                      NewSItem('~ID:            ~'+CreateEnumField(TRUE, accNormal, 1,NewSItem('ssssssssssssssssssssssssssssssssssssssssssssssssss',nil),
+                                                              Mi_SQLQuery1.DataSource,'id','nome')+
+                                                    ChFN+'id'+
+                                                    CharHint+'Campo enumero lookup',
+                      NewSItem('~Nome:          ~\ssssssssssssssssssssssssssssssssssssssssssssssssss'+chFN+'nome'+CharHint+'Campo alfanumérico aceita maiuscula e minuscula',
+                      NewSItem('~endereco       ~\ssssssssssssssssssssssssssssssssssssssssssssssssss'+chFN+'endereco',
+                      NewSItem('~cnpj           ~\##.###.###/####-##'+chFN+'cnpj',
+                      NewSItem('~cpf            ~\###.###.###-##'+chFN+'cpf',
+                      NewSItem('~cep            ~\##.###-###'+chFN+'cep',
+                      NewSItem('~valor_SMALLINT ~\IIIII'+chFN+'valor_SMALLINT',
+                      NewSItem('~valor_Integer  ~\LLLLLLLLLL'+chFN+'valor_Integer',//Maximo:2.147.483.647
+
+                      NewSItem('~valor_FLOAT8   ~\RRR,RRR.ZZ'+chFN+'valor_FLOAT8',
+                      NewSItem('~Data_1         ~\Ddd/mm/yy'+chFN+'Data_1',
+                      NewSItem('~hora_1         ~\Dhh:nn:ss'+chFN+'hora_1',
+                      NewSItem('~hora_2         ~\Dhh:nn'+chFN+'hora_2',
+                      NewSItem('',
+                      NewSItem(GetTemplate_DbNavigator_Buttons(CmGoBof,CmNextRecord,CmPrevRecord,CmGoEof,CmRefresh),
+                      NewSItem('',
+                      aNext)))))))))))))))));
+                    end;
+                 end;
+
+               ```
+        }
+        Const fldENUM_Db   =  ^D;   //:< enumerated Field
 
         {: A constante **@name** indica que o campo é não formatado 
            podendo ser um Record, porém a edição do mesmo será feito por outros meios.
@@ -414,43 +525,13 @@ uses
            - **NOTA**
                - Para informar ao buffer do registro que o campo é **@name**,
                  a função **CreateBlobField** é necessário.
-               - A **class function TUiMethods.CreateBlobField(Len: integer; AccMode,Default: byte) : DmxIDstr;**
+               - A **class function TUiMethods.CreateBlobField(Len: integer; AccMode,Default: byte) : TDmxStr_ID;**
                  reserva espaço para o mesmo.
 
                - Pendência: Preciso criar um exemplo de uso deste tipo de informação.  
         }        
         Const fldBLOb             =   ^M;  
 
-        {: O tipo do campo **@name** é um campo tipo TCluster e é representado no Template
-           em um controle TRadioButton
-
-           - **NOTAS**
-             - Um Template pode conter vários campos do tipo cluster e o mesmo é identificado
-               após a sequencia \K? onde ? indica que a informação pertence ao campo ?
-               - Exemplo:
-                 - SEXO
-                   - \Ka Masculino
-                   - \Ka Feminino
-                   - \Ka Indefinido
-             - Os campos clusteres possuem o mesmo número do campo e na primeira
-               ocorrência contém o nome do campo na lista pDmxFieldRec.
-
-           - **EXEMPLO**
-
-             ```pascal
-                 Result :=
-                   NewSItem('~  SEXO~',
-                   NewSItem('~  ~\Ka Masculino',
-                   NewSItem('~  ~\Ka Feminino',
-                   NewSItem('~  ~\Ka Indefinido',
-                   NewSItem('~  ESTADO CIVIL~',
-                   NewSItem('~  ~\Kb Solteiro',
-                   NewSItem('~  ~\Kb Casado',
-                   NewSItem('~  ~\Kb Divorciado',
-                   nil))))))))
-             ```
-        }
-        Const FldRadioButton      =  'K'; //Maiúscula
 
         {: O tipo do campo **@name** é um campo tipo String e é representado no Template
            em controle TDbRadioButton
@@ -471,7 +552,7 @@ uses
 
              - O tamanho da string deve ser o tamanho da maior string da lista de opções.
         }
-        Const FldDbRadioButton    =  'k';//minúsculo
+//        Const FldDbRadioButton    =  'k';//minúsculo
 
         Const fldZEROMOD          =   'Z';  //:< zero modifier
 
@@ -561,7 +642,7 @@ uses
         Const fldReal4P         = 'P';  //:< P = Real de mostrado x por 100 positivos e negativos
         Const fldReal4PPositivo = 'p';  //:< P = Real de mostrado x por 100 positivos
 
-        {: A constante **@name** indica que o campo contem um campo com 255 posições 
+        {: A constante **@name** indica que o campo contém um campo com 255 posições
            que contém um endereço para um página html ou não:
 
            - **LINKS POSSÍVEIS:**
@@ -572,16 +653,16 @@ uses
         Const FldlinkUrl    = ^L+'1';//:< Endereço de uma página na web a ser acessada pelo browser.
         Const FldlinkAction = ^L+'2';//:< Nome de uma ação da lista actionItens.
 
-        Const fldData           = 'D';   //:< D = TipoData DD/DD/DD
-        Const fld_LData         = 'd' ;  //:< d = TDataTime;Guarda a data compactada 'dd/dd/dd'
-        Const fldLData          = #1  ;  //:< #1 = TDataTime;Guarda a data compactada '##/##/##'
-        Const FldSData          = '##/##/##';
-        Const fldLHora          = #2 ;  //:< #2 = Longint;Guarda a hora compactada  ##:##:##
-        Const FldSHora          = '##:##:##';
-        Const fld_LHora         = 'h';  //:< h = Longint;Guarda a hora compactada   hh:hh:hh
-        Const FldOperador       = #3; //:< #3 = Byte indica que o campo é um operador matemático
-        Const FldDateTimeDos    = #4 ;  //:< #4 = Longint;Guarda a data e hora compactada  ##/##/## ##:##:## e o ano não pode ser menor que 1980.
-        Const FldSDateTimeDos   = '##/##/## ##:##:##';
+//        Const FldDateTimeDOS       = #4;
+        Const FldSData      = '##/##/##';
+
+        Const fldLHora      = #2 ;  //:< #2 = Longint;Guarda a hora compactada  ##:##:##
+        Const FldSHora      = '99:99:99';
+        Const fld_LHora     = 'h';  //:< h = Longint;Guarda a hora compactada   hh:hh:hh
+        Const FldOperador   = #3; //:< #3 = Byte indica que o campo é um operador matemático
+
+        Const FldDateTime   = 'D' ;  //:< TDateTime;Guarda a data e hora compactada. O Formato é retonado pela função TDateFreePascal.TDatesFreePascal.Mask_to_MaskEdit
+
 
         {: Usado para omitir os caracteres que estão sendo digitados em qualquer tipo de campo
         }
@@ -642,7 +723,7 @@ uses
 
              ```
         }
-        const CharFieldName     = ^B; //#2
+        const CharFieldName = ^B; //#2
 
         {: A constante **@name** é igual a CharFieldName, foi criada para facilitar seu uso.}                              
         Const ChFN = CharFieldName;//CharFieldName;
@@ -683,10 +764,10 @@ uses
         Const FldMemo         = 'M';
         Const TypeMemo        = '\ZB'+^F+#0'ssssssssss'#0'ZZZZZZZL'#0'ZZZZW'#0'ZZZZW'+#0+^F; //:<Usado em conjunto com FldBLob
         Const CTypeReal       =  [fldRealNum,fldReal4,fldReal4P,fldRealNum_Positivo,fldExtended];
-        Const CTypeAnsiChar   =  [fldAnsiChar,fldAnsiChar_Minuscula,fldAnsiCharVAL];
-        Const CTypeString     =  [fldSTRNUM,fldSTR,fldSTR_Minuscula];
-        Const CTypeInteger    =  [fldENUM,fldBOOLEAN,fldBYTE,fldSHORTINT,fldSmallWORD,fldSmallInt,fldLONGINT,FldRadioButton];
-        Const CTypeDate       =  [fldData,fldLData,fld_LData,FldDateTimeDos];
+        Const CTypeAnsiChar   =  [fldAnsiChar,fldAnsiChar_LowCase,fldAnsiCharVAL];
+        Const CTypeString     =  [fldSTRNUM,fldSTR,fldstr_Lowcase];
+        Const CTypeInteger    =  [fldENum,fldENum_db,fldBOOLEAN,fldBYTE,fldSHORTINT,fldSmallWORD,fldSmallInt,fldLONGINT,FldRadioButton];
+        Const CTypeDate       =  [FldDateTime];
         Const CTypeHour       =  [fldLHora,fld_LHora];
         Const CTypeBlob       =  [FldMemo,fldBLOb];
         Const CTypeOperator   =  [FldOperador];
@@ -819,7 +900,10 @@ uses
            - No Windows usa a sequencia **CR+LF** para passar a linha, o linux
              obdece o conceito inical no qual o **LF** foi criado que é passar a linha.
       }
-      const New_Line = {$IFDEF WINDOWS} CR+LF {$ENDIF} {$IFDEF LINUX} LF {$ENDIF};
+      const New_Line = {$IFDEF WINDOWS} CR+LF {$ENDIF}
+                       {$IFDEF DARWIN} CR+LF {$ENDIF}
+                       {$IFDEF LINUX} LF {$ENDIF}
+                       ;
 
 
       //============================================================================
@@ -1037,7 +1121,7 @@ uses
         {: - O atributo **@name** indica que o bit do arquivo está definido.
           - **REFERÊNCIA**
              - https://www.freepascal.org/docs-html/rtl/sysutils/faarchive.html
-
+                      exit the application
           - **NOTA**
             - Significa que o arquivo tem o conjunto de bits de arquivo. Usado em TSearchRec e FindFirst
         }
@@ -1311,6 +1395,21 @@ uses
 
       {**************************************************************************}
       {$REGION  'Constantes usadas por TvDmx - Construtor de Templates            ' }
+          {: - A contante **@name** é usada para criar mascara de entrada de dados.}
+          const SpaceChar : char  = ' ';
+
+          {: - A contante **@name** é usado para informar ao método TUiDmxScroller.Get_MaskEdit_LCL
+               se a mascara deve ser salva com o número ou não.
+
+               - **VALORES POSSÍVEIS**
+                 - 0 : Não salve a mascara
+                 - 1 : Salve a mascara
+                 - Obs: Para que tdbedit funcione precisa
+                  que SaveMaskChar := '0', ou seja a mascara não deve
+                  ser salva no banco de dados;
+          }
+          const SaveMaskChar : char  = '0';
+
           {: - A contante **@name** é usada na construção de formulários de entrada automaticamente.
 
                - **NOTA**
@@ -1318,11 +1417,27 @@ uses
           }
           Const Auto_Add_Line_Default:Boolean = false;
 
-          Const Comma     : char  =   ','; //:< - Separador de milhar nas mascaras internas ao campo.
-          Const showComma : char  =   '.'; //:< - Separador de números na visualização }
+          {: A virgula usadas como separador de milhar nas mascaras dos templates
+             númericos }
+          Const ThousandSeparator =   ',';//usado em tempo de projeto
 
-          Const DecPt      : char =   '.'; //:< - Ponto decimal usado nas mascaras internas ao campo.
-          Const showDecPt  : Char =   ','; //:< - Char decimal point display }
+          {: Mostra a virgula como separador de milhares quando o idioma o exigir
+             em números reais e inteiros}
+          Const ShowThousandSeparator : Ansichar  =  ','; //usado em tempo de execução
+
+          {: O ponto é usada como separador de casas decimais dos templates com
+             números reais, ou seja: O caractere usado para separar as partes
+             inteira e fracionária de um número..}
+          Const DecimalSeparator  =   '.';//usado em tempo de projeto
+
+          {: A virgula mostrada em textos como separadorr de casas decimais dos
+             números reais quando o idioma o exigir.
+             - **NOTAS**
+               - Portugues usao a virgula como seprador de casas decimais;
+               - O Inglês usa o ponto como separador de casas decimais.
+          }
+          Const showDecimalSeparator  : AnsiChar =   '.'; //usado em tempo de execução
+
 
           Const CloseParenthesis = ')';
           Const OpenParenthesis  = '(';
@@ -1348,6 +1463,7 @@ uses
           Const CharAccHidden = ^H;
           Const ChAH          = CharAccHidden;
 
+
           {: A constante **@name** indica que o campo não pode receber o foco. }
           Const CharAccSkip   = ^S;
 
@@ -1359,7 +1475,6 @@ uses
 
           {: A constante **@name** é igual a CharAccReadOnly}
           Const ChARO   = CharAccReadOnly;
-
 
           {: A constante **@name** avisa para iniciar com #0 todos os campos}
           Const CharAllZeroes = ^A;
@@ -1408,18 +1523,44 @@ uses
 
           }
           Const CharProviderFlag  = ^P;
-          Const CharpfInUpdate = ^P'0'; {:< As alterações no campo devem ser propagadas para o banco de dados..}
-          Const CharpfInWhere  = ^P'1'; {:< O campo deve ser usado na cláusula WHERE de uma instrução de
-                                           atualização no caso de upWhereChanged.}
-          Const CharPfInKey    = ^P'2';  {:< Campo é um campo chave e usado na cláusula WHERE de uma instrução de atualização.}
-          Const CharPfHidden   = ^P'3';  {:< O valor deste campo deve ser atualizado após a inserção.}
-          Const CharPfRefreshOnInsert = ^P'4'; {:< O valor deste campo deve ser atualizado após a inserção.}
-          Const CharPfRefreshOnUpdate = ^P'5'; {:< O valor deste campo deve ser atualizado após a atualização.}
-          Const CharPfInKeyPrimary    = ^P'6';  {:< Campo é um campo chave primária e usado na cláusula WHERE de uma instrução de atualização.}
+          {: A constante **@name** indica que as alterações no campo devem ser propagadas para o banco de dados.
+          }
+          Const CharpfInUpdate = ^P'0';
 
-          Const CharPfInKeyPrimaryAutoIncrement = ^P'7';  {:< Campo é um campo autoincremental e usado em uma instrução de atualização.}
+          {: A constante **@name** indica que o campo deve ser usado na cláusula
+             WHERE de uma instrução de atualização no caso de upWhereChanged.
+          }
+          Const CharpfInWhere  = ^P'1';
 
-          {: O caractere **@name** é ussado para criar restrições entre o corrente campo e uma campo de
+          {: A constante **@name** indica que o campo é um campo chave e usado na
+             cláusula WHERE de uma instrução de atualização.
+          }
+          Const CharPfInKey    = ^P'2';
+
+          {: A constante **@name** indica que o valor deste campo deve ser atualizado
+             após a inserção.
+          }
+          Const CharPfHidden   = ^P'3';
+
+          {: A constante **@name** indica que o valor deste campo deve ser atualizado
+             após a inserção.}
+          Const CharPfRefreshOnInsert = ^P'4';
+
+          {: A constante **@name** indica que o valor deste campo deve ser atualizado
+             após a atualização.
+          }
+          Const CharPfRefreshOnUpdate = ^P'5';
+
+          {: A constante **@name** indica que o campo é um campo chave primária
+             e usado na cláusula WHERE de uma instrução de atualização.
+          }
+          Const CharPfInKeyPrimary    = ^P'6';
+
+          {: A constante **@name** indica que o campo é um campo autoincremental
+             e usado em uma instrução de atualização.}
+          Const CharPfInKeyPrimaryAutoIncrement = ^P'7';
+
+          {: O caractere **@name** é usado para criar restrições entre o corrente campo e uma campo de
              uma tabela estrangeira.
 
              - A sequência esperada após ^F corresponde a NomeDaTabela,TipoDeRelacionamento,campo1;campo2;...campoN
@@ -1459,7 +1600,6 @@ uses
           {:<  Defina a(s) coluna(s) de referência como nula.}
           Const CharFk_Set_Null  = ^F'3' ;
 
-
           {:< A contante **@name** defina a(s) coluna(s) de referência para seus valores
               padrão. (Deve haver uma linha na tabela referenciada que
               corresponda aos valores padrão, se eles não forem nulos,
@@ -1483,11 +1623,22 @@ uses
                   tmp_Alunos = '~     Idade:~'+tmp_Alunos_Idade+lf+
                                    '~ Matricula:~'+tmp_Alunos_Matricula+lf;
           }
-          Const CharHint       = '^';
+          Const CharHint       = ^N;
           Const ChH = CharHint;
 
-          Const CharHintPorque = '^0'; //:< A contante **@name** informa que todo texto até o próximo delimitador contém informações para o campo HelpCtx_Porque
-          Const CharHintOnde   = '^1'; //:< A contante **@name** informa que todo texto até o próximo delimitador contém informações para o campo HelpCtx_Onde
+          {: A contante **@name** informa que todo texto até o próximo delimitador
+             contém informações para o campo HelpCtx_Porque}
+          Const CharHintPorque = ^N'0';
+
+          {: A contante **@name** informa que todo texto até o próximo delimitador
+             contém informações para o campo HelpCtx_Onde}
+          Const CharHintOnde   = ^N'1';
+
+          {: A contante **@name** indica que a sequência de caracteres seguintes
+            devem são capiturado para TDmxFieldRec.Default}
+          Const CharDefault = ^K;
+          Const ChDf = CharDefault;
+
 
           Const Delimiters : AnsiCharSet = [CharDelimiter_0,
                                             CharDelimiter_1,
@@ -1505,7 +1656,8 @@ uses
                                             CharHint,
                                             fldAPPEND,
                                             fldSItems,
-                                            CharListComboBox
+                                            CharListComboBox,
+                                            charDefault
                                             ];
 
 
@@ -1583,186 +1735,119 @@ uses
       const contaPagina  : Longint= 1;
 
 
-       {Comandos do Banco de dados}
-        {O TVision V.20 usa no max 84
 
-         Portanto posso usar de 85 a 100 ou seja 85+15
-         Para comandos genericos.
-         A documentacao recomenda usar 100 a 255
+      {$Region Comandos do Banco de dados}
+        const CmCut                  = 'CmCut';
+        const CmCopy                 = 'CmCopy';
+        const CmPaste                = 'CmPaste';
+        const CmExitApp              = 'CmExitApp';
+        const CmNewFile              = 'CmNewFile';
+        const CmSaveFile             = 'CmSaveFile';
+        const CmDeleteFile           = 'CmDeleteFile';
 
-         Vou reservar para mim 85 a 109 para comandos Genericos que ncessitam ser
-         desabilitados.
-
-         A aplicacao usa de 110 a 255. Necessario para que se possa que o
-         usuario pai possa desabilitar as opcoes dos filhos.
-        }
-        {TCmDb}
-      const CmNulo                =          100 {<84};
-      const CmDbNextRec           = CmNulo + 01;
-      const CmDbPrevRec           = CmNulo + 02;
-      const CmDbNextRecValid      = CmNulo + 03;
-      const CmDbPrevRecValid      = CmNulo + 04;
-      const CmDbFindRec           = CmNulo + 05;
-      const CmDbSearchRec         = CmNulo + 06;
-      const CmDbGoEof             = CmNulo + 07;
-      const CmDbGoBof             = CmNulo + 08;
-      const CmDbLocaliza          = CmNulo + 09; //Não precisa ser desabilitado
-      const CmNewRecord           = CmNulo + 10;
-      const CmZeroizeRecord       = CmNulo + 11;
-      const CmEvaluateRecord      = CmNulo + 12;
-      const CmEditDlg             = CmNulo + 13;
-      const cmMyOK                = CmNulo + 14;
-      const cmMyCancel            = CmNulo + 15;
-      const cmPrint               = CmNulo + 16;
-           //  cmHomePage            = CmNulo + 17; O comando CmHomePage nao precisa desabilitar.
-      const CmImport              = CmNulo + 17;
-      const CmProcess             = CmNulo + 18;
-      const CmExecEndProc         = CmNulo + 19; //:<  Usado para acessar a pesquisa associado ao campo
-      const CmExecComboBox        = CmNulo + 20; //:<  Usado para acessar a visao associada ao campo. Usado para visualizar CamposEnumerado e lista de forma geral
-      const CmExecCommand         = CmNulo + 21; //:<  O comando vinculado ao campo focado e disparado para apliication.HanleEvent() se
-
-      const CmCreate_Shortcut     = CmNulo + 22; //<  Cria um atalho do programa corrente no desktop do windows
-                                                //<  e passa como parametro todas as tecla digitada entre o inicio e o fin da criação do atalho.
-      const CmVisualizar          = CmNulo + 23;
-      const CmExport_Stru         = CmNulo + 24; //<  Exporta a estrutura das consultas para o arquivo Schema.ini
-      const CmExport              = CmNulo + 25; //<  Exporta a consulta seleciona para varios formatos de arquivos a serem implementados
-
-         // ...
-      const CmInt                 = CmNulo + 29;  {<= Limit dos comandos genericos que pode ser desabilitados}
-
-      const TCmLivre    = [CmVisualizar..CmInt];
+        const CmNextRecord           = 'CmNextRecord';
+        const CmPrevRecord           = 'CmPrevRecord';
+        const CmNextRecordValid      = 'CmNextRecordValid';
+        const CmPrevRecordValid      = 'CmPrevRecordValid';
+        const CmFindRecord           = 'CmFindRecord';
+        const CmSearchRecord         = 'CmSearchRec';
+        const CmGoEof                = 'CmGoEof';
+        const CmGoBof                = 'CmGoBof';
+        const CmLocate              = 'CmLocate';
+        const CmNewRecord           = 'CmNewRecord';
+        Const CmDeleteRecord        = 'CmDeleteRecord';
+        Const CmUpdateRecord        = 'CmUpdateRecord';
+        Const CmRefresh             = 'CmRefresh';
+        const CmEditDlg             = 'CmEditDlg';
+        const cmOK                  = 'cmOK';
+        const cmCancel              = 'cmCancel';
+        const cmPrint               = 'cmPrint';
+        const CmImport              = 'CmImport';
+        const CmProcess             = 'CmProcess';
+        const CmExecEndProc         = 'CmExecEndProc'; //:<  Usado para acessar a pesquisa associado ao campo
+        const CmExecComboBox        = 'CmExecComboBox'; //:<  Usado para acessar a visao associada ao campo. Usado para visualizar CamposEnumerado e lista de forma geral
+        const CmExecCommand         = 'CmExecCommand'; //:<  O comando vinculado ao campo focado e disparado para apliication.HanleEvent() se
+        const CmCreate_Shortcut     = 'CmCreate_Shortcut'; //<  Cria um atalho do programa corrente no desktop do windows
+                                                           //<  e passa como parametro todas as tecla digitada entre o inicio e o fin da criação do atalho.
+        const CmView                = 'CmView';
+        const CmExport_Stru         = 'CmExport_Stru'; //<  Exporta a estrutura das consultas para o arquivo Schema.ini
+        const CmExport              = 'CmExport'; //<  Exporta a consulta seleciona para varios formatos de arquivos a serem implementados
 
 
 
-        const TCmCommands = [CmInt..255];
-        const TCmDb       = [CmDbNextRec    ,
-                             CmDbPrevRec    ,
-                             CmDbNextRecValid,
-                             CmDbPrevRecValid,
-                             CmDbFindRec    ,
-                             CmDbSearchRec  ,
-                             CmDbGoEof      ,
-                             CmDbGoBof      ,
-                             CmDbLocaliza
-                            ];
-        const TCmDbView    = [cmMyOK                  ,
-                              cmMyCancel               ,
-                              CmEditDlg                ,
-                              CmEvaluateRecord         ,
-                              cmZeroizeRecord          ,
-                              CmNewRecord,
-                              CmProcess,
-                              cmPrint,
-                              CmExecEndProc,
-                              CmExecComboBox
-                           ];
-        const TCmOutros        =[cmPrint];
+//          const TCmCommands = [CmInt..255];
+          const CmsNavigator : Array of AnsiString = [CmNextRecord    ,
+                                                      CmPrevRecord    ,
+                                                      CmNextRecordValid,
+                                                      CmPrevRecordValid,
+                                                      CmFindRecord    ,
+                                                      CmSearchRecord  ,
+                                                      CmGoEof         ,
+                                                      CmGoBof         ,
+                                                      CmRefresh
 
-      {********************************************************************}
-        const CmNortSoft           = 50000; {<Camandos comuns que nao podem serem desabilitados}
-        const CmDbAddRec           = CmNortSoft + 001;
-        const CmDbDeleteRec        = CmNortSoft + 002;
-        const CmDbGetRec           = CmNortSoft + 003;
-        const CmDbPutRec           = CmNortSoft + 004;
-        const CmDbUpdateRec        = CmNortSoft + 005;
-        const CmDbSearchTop        = CmNortSoft + 006;
-        const CmDbSearchKey        = CmNortSoft + 007;
-        const CmDbUsedRecs_Valid    = CmNortSoft + 008;
-        const CmOkEscrevaParametrosDosRelatorios = CmNortSoft + 009;
-        const CmDbSelecionaIndice   = CmNortSoft + 010;
-        const LivreCmVisualisa      = CmNortSoft + 011;
-        const CmQuitInterno         = CmNortSoft + 012;
-        const CmSobre               = CmNortSoft + 013;
-        const CmDbOnEnter           = CmNortSoft + 014;
-        const CmDbOnExit            = CmNortSoft + 015;
-        const cmCores               = CmNortSoft + 016;
-        const CmF7                  = CmNortSoft + 017;
-        const CmDbLabel_DoubleClick = CmNortSoft + 018;
-        const cmDbView_DoubleClick  = CmNortSoft + 019;
-        const CmDbOrdemCressante    = CmNortSoft + 020;
-        const CmDbOrdemDecrescente  = CmNortSoft + 021;
-        const CmDbSelecColunaAtual  = CmNortSoft + 022;
-        const CmMouseDownmbRightButton = CmNortSoft + 023; {<Gerado quando o botao do lado direito ‚ pressionado}
-        const CmReindex             = CmNortSoft + 024;
-        const CmCadastraImpressoraRede  = CmNortSoft + 025;
-        const CmInfoSystem          = CmNortSoft + 026;{<Lista a rotina com as informacoes tecnicas do sistema}
-        const cmPrintSemFormatar    = CmNortSoft + 027;{<Lista um arquivo texto sem formatacao de TvDmxReport}
-        const CmDbDoBeforeInsert      = CmNortSoft + 028;
-        const CmDbDoBeforePost        = CmNortSoft + 029;
-        const CmDbDoBeforeDelete      = CmNortSoft + 030;
-        const CmDbDoAfterInsert       = CmNortSoft + 031;
-        const CmDbDoAfterPost         = CmNortSoft + 032;
-        const CmDbDoAfterDelete       = CmNortSoft + 033;
-        const CmTb_SelectRefCruzadaResume = CmNortSoft + 034;
-        const CmTb_SelectSelect           = CmNortSoft + 035;
-        const CmTb_SelectResume           = CmNortSoft + 036;
-        const CmRegistroValido            = CmNortSoft + 037;
-        const CmCopyTo                    = CmNortSoft + 038;
-        const CmCadastraImpressoraLocal   = CmNortSoft + 039;
-        const CmSetAppending              = CmNortSoft + 040;
-        const CmStartTransaction          = CmNortSoft + 041;
-        const CmCommit                    = CmNortSoft + 042;
-        const CmRollback                  = CmNortSoft + 043;
-        const CmOnCalcRecord_All          = CmNortSoft + 044; //<  Varre toda a tabela executando o evento OnCalcRecord
-        const CmTime                      = CmNortSoft + 045; //<  Este comando faz com que o sistema dar um tempo de TimeCmTime.
-        const cmEditaCores                = CmNortSoft + 046;
-        const cmSalvaCores                = CmNortSoft + 047;
-        const cmHomePage                  = CmNortSoft + 048;
-        const CmDbPack                    = CmNortSoft + 049;
+                                                     ];
 
-        const FirstCmdNum   =  4400;  { starting number for reserved commands }
-        const cmDMX               = FirstCmdNum;
-        const cmDMX_RollCall      = cmDMX +  1;
-        const cmDMX_Ack           = cmDMX +  2;
-        const cmDMX_FieldAltered  = cmDMX +  3;
-        const cmDMX_Draw          = cmDMX +  4;
-        const cmDMX_DrawData      = cmDMX +  5;
-        const cmDMX_Lock          = cmDMX +  6;
-        const cmDMX_LockData      = cmDMX +  7;
-        const cmDMX_Unlock        = cmDMX +  8;
-        const cmDMX_UnlockData    = cmDMX +  9;
-        const cmDMX_FixSize       = cmDMX + 10;
-        const cmDMX_SetupRecord   = cmDMX + 11;
-        const cmDMX_WrongKey      = cmDMX + 12;
-        const cmDMX_ZeroizeField  = cmDMX + 13;
-        const cmDMX_ZeroizeRecord = cmDMX + 14;
-        const cmDMX_Enter         = cmDMX + 15;
-        const cmDMX_Left          = cmDMX + 16;
-        const cmDMX_Right         = cmDMX + 17;
-        const cmDMX_Home          = cmDMX + 18;
-        const cmDMX_End           = cmDMX + 19;
-        const cmDMX_goto          = cmDMX + 20;
-        const cmDMX_NextRow       = cmDMX + 21;
-        const cmDMX_Up            = cmDMX + 22;
-        const cmDMX_Down          = cmDMX + 23;
-        const cmDMX_PgUp          = cmDMX + 24;
-        const cmDMX_PgDn          = cmDMX + 25;
-        const cmDMX_ScreenTop     = cmDMX + 26;
-        const cmDMX_ScreenBottom  = cmDMX + 27;
-        const cmDMX_Top           = cmDMX + 28;
-        const cmDMX_Bottom        = cmDMX + 29;
-        const cmDMX_DoubleClick   = cmDMX + 30;  {< mouse was double-clicked }
-        const cmDMX_RecIndClicked = cmDMX + 31;  {< record indicator was clicked }
-        const cmDMX_Reset         = cmDMX + 32;  {< tvDMXCOL: reset size of collection }
-        const cmDMX_ScrollBarChanged =cmDMX+33;  {< updates the TDmxLabels views }
-        const cmDMX_InsertRec     = cmDMX + 34;  {< inserts a new record }
-        const cmPRN_NewPage       = cmDMX + 40;  {< tvDMXREP: broadcast before new page }
-        const cmPRN_EndPage       = cmDMX + 41;  {< tvDMXREP: broadcast before page end }
-        const cmPRN_SetOptions    = cmDMX + 42;  {< tvDMXREP: open options window }
-        const cmPRN_LineFeed      = cmDMX + 43;  {< tvDMXREP: line feed to printer }
-        const cmPRN_FormFeed      = cmDMX + 44;  {< tvDMXREP: form feed to printer }
-        const cmPRN_Reset         = cmDMX + 45;  {< tvDMXREP: reset printer }
-        const cmUserScreen        = cmDMX + 51;  {< tvGizma: invokes User Screen }
-        const cmToggleSound       = cmDMX + 52;  {< tvGizma: toggles BeepOn }
-        const cmToggleVideo       = cmDMX + 53;  {< tvGizma: toggles video mode }
-        const cmBeep              = cmDMX + 54;  {< tvGizma: beeps if BeepOn is TRUE }
-        const cmChime             = cmDMX + 55;  {< tvGizma: broadcast every 30 minutes }
-        const cmPromptMsg         = cmDMX + 56;  {< tvGizma: used by proc UserMessage }
-        const cmBlinkMsg          = cmDMX + 57;  {< tvGizma: used by proc BlinkMessage }
-        {Inicio NortSoft}
-        const cmDbMX_GetBuffer    = cmDMX + 58;  {< Ler o buffer do registro do arquivo para  WorkingData}
-        const cmDbMX_PutBuffer    = cmDMX + 59;  {< Grava o buffer de WorkingData para o registro do arquivo}
-        {<Fin NortSoft}
+
+          const CmsEdition : Array of AnsiString = [cmOK           ,
+                                                    cmCancel       ,
+                                                    CmEditDlg      ,
+                                                    CmUpdateRecord ,
+                                                    CmDeleteRecord ,
+                                                    CmNewRecord,
+                                                    CmProcess,
+                                                    cmPrint,
+                                                    CmExecEndProc,
+                                                    CmExecComboBox,
+                                                    CmLocate
+                                                   ];
+
+
+
+        {********************************************************************}
+          const CmAddRecord           = 'CmAddRecord';
+
+          const CmGetRecord           = 'CmGetRecord';
+          const CmPutRecord           = 'CmPutRecord';
+
+          const CmSearchTop        = 'CmSearchTop';
+          const CmSearchKey        = 'CmSearchKey';
+          const CmUsedRecs_Valid   = 'CmUsedRecs_Valid';
+          const CmOkEscrevaParametrosDosRelatorios = 'CmOkEscrevaParametrosDosRelatorios';
+          const CmSelecionaIndice   = 'CmSelecionaIndice';
+          const CmSobre               = 'CmSobre';
+          const CmOnEnter           = 'CmOnEnter';
+          const CmOnExit            = 'CmOnExit';
+          const CmF7                  = 'CmF7';
+          const CmLabel_DoubleClick = 'CmLabel_DoubleClick';
+          const cmView_DoubleClick  = 'cmView_DoubleClick';
+          const CmOrdemCressante    = 'CmOrdemCressante';
+          const CmOrdemDecrescente  = 'CmOrdemDecrescente';
+          const CmSelecColunaAtual  = 'CmSelecColunaAtual';
+          const CmMouseDownmbRightButton = 'CmMouseDownmbRightButton'; {<Gerado quando o botao do lado direito ‚ pressionado}
+          const CmReindex             = 'CmReindex';
+          const CmInfoSystem          = 'CmInfoSystem';{<Lista a rotina com as informacoes tecnicas do sistema}
+          const CmDoBeforeInsert    = 'CmDoBeforeInsert';
+          const CmDoBeforePost      = 'CmDoBeforePost';
+          const CmDoBeforeDelete    = 'CmDoBeforeDelete';
+          const CmDoAfterInsert     = 'CmDoAfterInsert';
+          const CmDoAfterPost       = 'CmDoAfterPost';
+          const CmDoAfterDelete     = 'CmDoAfterDelete';
+          const CmCopyTo              = 'CmCopyTo';
+          const CmSetAppending        = 'CmSetAppending';
+          const CmStartTransaction    = 'CmStartTransaction';
+          const CmCommit              = 'CmCommit';
+          const CmRollback            = 'CmRollback';
+          const CmOnCalcRecord_All    = 'CmOnCalcRecord_All'; //<  Varre toda a tabela executando o evento OnCalcRecord
+          const CmTime                = 'CmTime'; //<  Este comando faz com que o sistema dar um tempo de TimeCmTime.
+          const cmHomePage            = 'cmHomePage';
+          const CmPack              = 'CmPack';
+        {$EndRegion Comandos do Banco de dados}
+
+        //const cmBeep              = cmDMX + 54;  {< tvGizma: beeps if BeepOn is TRUE }
+        //const cmChime             = cmDMX + 55;  {< tvGizma: broadcast every 30 minutes }
+        //const cmPromptMsg         = cmDMX + 56;  {< tvGizma: used by proc UserMessage }
+        //const cmBlinkMsg          = cmDMX + 57;  {< tvGizma: used by proc BlinkMessage }
 
 
 
@@ -1837,25 +1922,123 @@ uses
       {: A constante **@name** contém otipo de cpu no qual esse código se destina.}
       Const FPC_Target = {$I %FPCTARGET%};
 
-      public class function  CreateEnumField(ShowZ: boolean; AccMode,Default: LongInt;AItems: PSItem) : tString;
-      public class function  CreateTSItemFields(ATemplates: PSItem) : tString;
+
+      const
+        EnumField_ofs_TypeField  = 1;    //1
+        EnumField_ofs_Items      = EnumField_ofs_TypeField+sizeof(TEnumField.TypeField);//1+1 = 2
+        EnumField_ofs_showz      = EnumField_ofs_Items+sizeof(TEnumField.Items); //3
+        EnumField_ofs_AccMode    = EnumField_ofs_showz+sizeof(TEnumField.ShowZ);
+        EnumField_ofs_Default    = EnumField_ofs_AccMode+sizeof(TEnumField.AccMode);
+        EnumField_ofs_DataSource = EnumField_ofs_Default+sizeof(TEnumField.Default);
+        EnumField_ofs_KeyField   = EnumField_ofs_DataSource+sizeof(TEnumField.DataSource);
+        EnumField_ofs_ListField  = EnumField_ofs_KeyField+sizeof(TEnumField.KeyField);
+//        EnumField_ofs_Length     = EnumField_ofs_ListField+sizeof(TEnumField.ListField);
+      const
+        {: A constante **@name** é usada para endereçar os parâmetros da função CreateEnumField }
+        EnumField_ofs : TEnumField_ofs = (TypeField : EnumField_ofs_TypeField;
+                                          Items     : EnumField_ofs_Items;
+                                          ShowZ     : EnumField_ofs_showz;
+                                          AccMode   : EnumField_ofs_AccMode;
+                                          Default   : EnumField_ofs_Default;
+                                          DataSource : EnumField_ofs_DataSource;
+                                          KeyField  : EnumField_ofs_KeyField;
+                                          ListField : EnumField_ofs_ListField
+                                          );
+
+      public class function conststr(i: Longint; const a: AnsiChar): AnsiString;
+
+      public class function CreateEnumField(aShowZ: boolean;
+                                            aAccMode:Byte;
+                                            aDefault: LongInt;
+                                            AItems: PSItem) : TDmxStr_ID;overload;
+
+      public class function CreateEnumField(ShowZ: boolean;
+                                            AccMode:byte;
+                                            Default: LongInt;
+                                            AItems: PSItem;
+                                            aDataSource: TDataSource;
+                                            aKeyField,
+                                            aListField: AnsiString): TDmxStr_ID;overload;
+
+      public class function CreateOptions(AItems: PSItem): TDmxStr_ID;
+
+      {: A class function **@name** é usado para encandear Templates do tipo TString}
+      public class function CreateAppendFields(ATemplate: ptString) : TDmxStr_ID;
+
+      {: A class function **@name** é usado para encandear campos do tipo blob}
+      public class function CreateBlobField(Len: Longint; AccMode:byte;Default: Longint) : TDmxStr_ID;
+
+      public class FUNCTION IsValidPtr( ADDR:POINTER):BOOLEAN ;overload;
+
+      public class FUNCTION IsValidPtr( const aClass: Tobject):BOOLEAN ;overload;
+      public class procedure DisposeSItems(var AItems: PSItem);overload;
+      public class procedure DisposeSItems(var AStrItems: PtString);overload;
+
+      {: A class function **@name** é usado para encandear Templates do tipo checkbox}
+      public class function CreateCheckBoxField(CharNumberField: AnsiChar;ShowZ: boolean; AccMode,Default: byte;AItems: PSItem) : AnsiString;
+
+      {: A class function **@name** é usado para encandear Templates do tipo PSItem}
+      public class function CreateTSItemFields(ATemplates: PSItem) : TDmxStr_ID;overload;
+
+//      public class function CreateTSItemFields(ATemplates: PSItem) : tString;overload;
+
+      {$Region Property ok_Set_Transaction}
+        public class function Get_ok_Set_Transaction:Boolean;
+        public class Procedure Set_ok_Set_Transaction(aok_Set_Transaction:Boolean);
+
+        {:A propriedade **@name** indica se a ação está dentro de uma transação
+          onde Result igual true indica que está dentro de uma transação e result
+          igual false indica que está fora de uma transação.
+
+          - **NOTAS**
+            - Quando o retorno de **@name** é igual true as caixa de dialogos que
+              normalmente parariam o fluxo do processamento para fazer uma pergunta
+              são ignorados e os texto são adicionandos em PushMsgErro();
+        }
+        public property ok_Set_Transaction : BOOLEAN Read Get_ok_Set_Transaction write set_ok_Set_Transaction;
+      {$EndRegion Property ok_Set_Transaction}
+
+      {$Region Property ok_Set_Server_Http}
+        {:O método **@name** indica se a ação está dentro de uma requisição
+          http. Se Result igual true indica que a chamada é de um cliente http e
+          se result igual false, indica que é chamada de um formulário local.
+
+          - **NOTAS**
+            - Quando o retorno de **@name** é igual true as caixa de diálogos que
+              normalmente parariam o fluxo do processamento para fazer uma pergunta
+              são ignorados e os texto são adicionados em PushMsgErro();
+        }
+        public class function Get_ok_Set_Server_Http:Boolean;
+
+        {:O método **@name** inicia a váriável _ok_Set_Server_Http com o valor
+          passado por aok_Set_Server_Http e retorna o conteúdo anterior.
+
+          - **Nota**
+            - Usado para manter o valor correto da variável _ok_Set_Server_Http
+              em uma sequencia de chamadas.
+        }
+        public class function Set_ok_Set_Server_Http(aok_Set_Server_Http:Boolean):boolean;
+
+      {$EndRegion Property ok_Set_Server_Http}
 
 
+      public class procedure ConfigureBrazilRegion;
+      public class function Set_Show_DecimalSeparator(aDecimalSeparator:char):char;
     end;
 
     resourcestring //Padrão de código dos recursos é GUI.
-      SCmDbNextRec          = 'Próximo registro';
-      SCmDbPrevRec          = 'Registro Anterior';
-      SCmDbNextRecValid     = 'Próximo registro válido';
-      SCmDbPrevRecValid     = 'Registro válido anterior';
-      SCmDbFindRec          = 'Atualiza o registro atual';
-      SCmDbSearchRec        = 'SCmDbSearchRec';
-      SCmDbGoEof            = 'Último registro';
-      SCmDbGoBof            = 'Primeiro registro';
-      SCmDbLocaliza         = 'Localiza registro';
+      SCmNextRecord          = 'Próximo registro';
+      SCmPrevRecord          = 'Registro Anterior';
+      SCmNextRecordValid     = 'Próximo registro válido';
+      SCmPrevRecordValid     = 'Registro válido anterior';
+      SCmFindRecord          = 'Atualiza o registro atual';
+      SCmSearchRecord        = 'SCmSearchRec';
+      SCmGoEof            = 'Último registro';
+      SCmGoBof            = 'Primeiro registro';
+      SCmLocate         = 'Localiza registro';
       SCmNewRecord          = 'Novo registro';
-      SCmZeroizeRecord      = 'Apaga o registro atual';
-      SCmEvaluateRecord     = 'Grava o registro atual';
+      SCmDeleteRecord      = 'Apaga o registro atual';
+      SCmUpdateRecord     = 'Grava o registro atual';
       SCmEditDlg            = 'Edita o registro atual';
       ScmMyOK               = 'Ok';
       ScmMyCancel           = 'Cancelar';
@@ -1868,46 +2051,44 @@ uses
 
       SCmCreate_Shortcut    = 'Cria atalho no desktop do windows'; //<  Cria um atalho do programa corrente no desktop do windows
                                                                   //<  e passa como parametro todas as tecla digitada entre o inicio e o fin da criação do atalho.
-      SCmVisualizar         = 'Visualizar';
+      SCmView         = 'Visualizar';
       SCmExport_Stru        = 'Exportar estrutura da tabela'; //:<  Exporta a estrutura das consultas para o arquivo Schema.ini
       SCmExport             = 'Exporta'; //:<  Exporta a consulta seleciona para varios formatos de arquivos a serem implementados
 
 
     {********************************************************************}
     //Padrão de código dos recursos é GUI.
-      SCmDbAddRec             = 'Adicionar registro';
-      SCmDbDeleteRec          = 'Apagar registro selecionado';
-      SCmDbGetRec             = 'Ler registro selecionado';
-      SCmDbPutRec             = 'Gravar registro selecionado';
-      SCmDbUpdateRec          = 'Atualizar registro selecionado caso tenha sido alterado';
-      SCmDbSearchTop          = 'Pesquisar primeira ocorrência a partir do topo da tabela';
-      SCmDbSearchKey          = 'Pesquisar primeira ocorrência a partir do inicio da tabela';
-      SCmDbUsedRecs_Valid     = 'CmDbUsedRecs_Valid';
+      SCmAddRecord             = 'Adicionar registro';
+      SCmGetRecord             = 'Ler registro selecionado';
+      SCmPutRecord             = 'Gravar registro selecionado';
+      SCmSearchTop          = 'Pesquisar primeira ocorrência a partir do topo da tabela';
+      SCmSearchKey          = 'Pesquisar primeira ocorrência a partir do inicio da tabela';
+      SCmUsedRecs_Valid     = 'CmUsedRecs_Valid';
       SCmOkEscrevaParametrosDosRelatorios = 'Escreva parâmetros dos relatórios';
-      SCmDbSelecionaIndice    = 'Selecionar indice';
+      SCmSelecionaIndice    = 'Selecionar indice';
       SLivreCmVisualisa       = 'CmLivreCmVisualisa';
       SCmQuitInterno          = 'Quit interno';
       SCmSobre                = 'Sobre';
-      SCmDbOnEnter            = 'CmDbOnEnter';
-      SCmDbOnExit             = 'CmDbOnExit';
+      SCmOnEnter            = 'CmOnEnter';
+      SCmOnExit             = 'CmOnExit';
       ScmCores                = 'cmCores';
       SCmF7                   = 'Seleciona as opções para o campo selecionado';
-      SCmDbLabel_DoubleClick  = 'CmDbLabel_DoubleClick';
-      ScmDbView_DoubleClick   = 'cmDbView_DoubleClick';
-      SCmDbOrdemCressante     = 'Ordem cressante';
-      SCmDbOrdemDecrescente   = 'Ordem decrescente';
-      SCmDbSelecColunaAtual   = 'CmDbSelecColunaAtual';
+      SCmLabel_DoubleClick  = 'CmLabel_DoubleClick';
+      ScmView_DoubleClick   = 'cmView_DoubleClick';
+      SCmOrdemCressante     = 'Ordem cressante';
+      SCmOrdemDecrescente   = 'Ordem decrescente';
+      SCmSelecColunaAtual   = 'CmSelecColunaAtual';
       SCmMouseDownmbRightButton = 'CmMouseDownmbRightButton'; {<Gerado quando o botao do lado direito ‚ pressionado}
       SCmReindex                = 'Cria indices dos arquivos';
       SCmCadastraImpressoraRede  = 'Cadastra impressora da rede';
       SCmInfoSystem            = 'Informações do sistema';{<Lista a rotina com as informacoes tecnicas do sistema}
       ScmPrintSemFormatar      = 'cmPrintSemFormatar';{<Lista um arquivo texto sem formatacao de TvDmxReport}
-      SCmDbDoBeforeInsert      = 'CmDbDoBeforeInsert';
-      SCmDbDoBeforePost        = 'CmDbDoBeforePost';
-      SCmDbDoBeforeDelete      = 'CmDbDoBeforeDelete';
-      SCmDbDoAfterInsert       = 'CmDbDoAfterInsert';
-      SCmDbDoAfterPost         = 'CmDbDoAfterPost';
-      SCmDbDoAfterDelete       = 'CmDbDoAfterDelete';
+      SCmDoBeforeInsert      = 'CmDoBeforeInsert';
+      SCmDoBeforePost        = 'CmDoBeforePost';
+      SCmDoBeforeDelete      = 'CmDoBeforeDelete';
+      SCmDoAfterInsert       = 'CmDoAfterInsert';
+      SCmDoAfterPost         = 'CmDoAfterPost';
+      SCmDoAfterDelete       = 'CmDoAfterDelete';
       SCmTb_SelectRefCruzadaResume = 'CmTb_SelectRefCruzadaResume';
       SCmTb_SelectSelect           = 'CmTb_SelectSelect';
       SCmTb_SelectResume           = 'CmTb_SelectResume';
@@ -1923,7 +2104,7 @@ uses
       ScmEditaCores                = 'Edita cores';
       ScmSalvaCores                = 'Salva cores';
       ScmHomePage                  = 'Gera documento no formato HTML do formulário atual';
-      SCmDbPack                    = 'Pack';
+      SCmPack                    = 'Pack';
 
 
       sErr201 = 'Erro: %d - O valor %s está fora da faixa permitida para o campo. Faixa: [%d .. %d ]';
@@ -1931,35 +2112,293 @@ uses
 
 implementation
 
-
-class function  TConsts.CreateEnumField(ShowZ: boolean; AccMode,Default: Longint;AItems: PSItem) : tString;
+class function TConsts.conststr(i: Longint; const a: AnsiChar): AnsiString;
 begin
-  {$IFDEF CPU32}
-     Result := fldENUM + #0#0#0#0 + AnsiChar(ShowZ) + chr(AccMode) + IntToStr(Default);
-     Move(AItems, Result[2], 4);
-  {$ENDIF}
-  {$IFDEF CPU64}
-     Result := fldENUM + #0#0#0#0#0#0#0#0 + AnsiChar(ShowZ) + chr(AccMode) + IntToStr(Default);
-     Move(AItems, Result[2], 8);
-  {$ENDIF}
+  if i > 0
+  then Begin
+         SetLength(Result,i);
+         FillChar(Result[1],i,a);
+       End
+  else Result := '';
 end;
 
-class function  TConsts.CreateTSItemFields(ATemplates: PSItem) : tString;
-  //var  S : tString;
+class function  TConsts.CreateEnumField(aShowZ: boolean; aAccMode:Byte;aDefault: LongInt;AItems: PSItem) : TDmxStr_ID;
+   var
+     s : TDmxStr_ID;
+ begin
+   s := ConstStr(EnumField_ofs.Default+Sizeof(aDefault),' ');
+   s[EnumField_ofs.TypeField] := fldENum;
+   Move(AItems, s[EnumField_ofs.Items], sizeof(aitems));
+   s[EnumField_ofs.ShowZ] := AnsiChar(aShowZ);
+   s[EnumField_ofs.AccMode] := AnsiChar(aAccMode);
+   Move(aDefault, s[EnumField_ofs.Default], sizeof(aDefault));
+   Result := s;
+end;
+
+
+class function TConsts.CreateEnumField(ShowZ: boolean;
+                                          AccMode:byte;
+                                          Default: LongInt;
+                                          AItems: PSItem;
+                                          aDataSource: TDataSource;
+                                          aKeyField,
+                                          aListField: AnsiString): TDmxStr_ID;
+begin
+  result := CreateEnumField(ShowZ,AccMode,Default,AItems);
+  Result[EnumField_ofs.TypeField] := FldEnum_Db;
+  result := result +
+            ConstStr(sizeof(aDataSource),' ')+
+            ConstStr(sizeof(aKeyField),' ')+
+            ConstStr(sizeof(aListField),' ');
+  Move(aDataSource, Result[EnumField_ofs.DataSource], sizeof(aDataSource));
+  Move(aKeyField, Result[EnumField_ofs.KeyField], sizeof(aKeyField));
+  Move(aListField, Result[EnumField_ofs.ListField], sizeof(aListField));
+end;
+
+class function TConsts.CreateOptions(AItems: PSItem): TDmxStr_ID;
+begin
+  Result := CharListComboBox + ConstStr(sizeof(aItems),' ');
+  Move(aItems, Result[2],sizeof(aItems));
+end;
+
+class function TConsts.CreateAppendFields(ATemplate: ptString) : TDmxStr_ID;
+begin
+  Result := fldAPPEND + ConstStr(sizeof(ATemplate),' ');
+  Move(ATemplate, Result[2],sizeof(ATemplate));
+end;
+
+class function TConsts.CreateBlobField(Len: Longint; AccMode: byte;
+  Default: Longint): TDmxStr_ID;
+//  var  S : TDmxStr_ID;
+begin
+  //{$IFDEF CPU32}
+  //    //Length(Result) = 7 bytes
+  //    S := fldBLOb + #0#0#0#0#0 + chr(AccMode) + chr(Default);
+  //    Move(Len, S[2], sizeof(Len));
+  //{$ENDIF}
+  //
+  //{$IFDEF CPU64}    //8 bytes para um ponteiro com os dados do campo memo por ser um stringlist.
+  //   //Length(Result) = 7 bytes
+  //   S := fldBLOb + #0#0#0#0#0#0#0#0#0 + chr(AccMode) + chr(Default);
+  //   Move(Len, S[2], sizeof(Len));
+  //{$ENDIF}
+  //result := S;
+
+  Result := fldBLOb + ConstStr(sizeof(PSitem),' ')+ chr(AccMode) + chr(Default);
+  Move(Result, Result[2],sizeof(Len));
+end;
+
+class function TConsts.IsValidPtr(ADDR: POINTER): BOOLEAN;
+Begin
+ Try
+   Result := (addr <> nil);
+ Except
+   Result := False;
+ end;
+END;
+
+class function TConsts.IsValidPtr(const aClass: Tobject): BOOLEAN;
+Begin
+ Try
+   Result := (aClass <> nil)
+//              And (aClass Is TObject)
+             and aClass.ClassNameIs(aClass.ClassName);      //Acessa um metodo do objeto se gerar excessao retorna false
+ Except
+//    aClass := nil;
+   Result := False;
+ end;
+END;
+
+class procedure TConsts.DisposeSItems(var AItems: PSItem);
+  var  P : PSItem;
+begin
+    While (AItems <> nil) do
+    begin
+      P := AItems^.Next;
+      If (AItems^.Value<>nil) then DisposeStr(AItems^.Value);
+      Dispose(AItems);
+
+      AItems := P;
+    end;
+    AItems := nil;
+end;
+
+class procedure TConsts.DisposeSItems(var AStrItems: PtString);
+  Var
+    P : PSItem;
+Begin
+ if (aStrItems <> nil) and (length(aStrItems^)>sizeof(p))
+ then begin
+        if aStrItems^[1] in [fldSItems,fldENUM,fldEnum_db,CharListComboBox ]
+        Then begin
+               Move(aStrItems^[1], P,sizeof(p));
+               DisposeSItems(p);
+            end;
+      end;
+
+    //If (AStrItems <> nil) and (AStrItems^ <> '') and (AStrItems^[1] in
+    //   [fldSItems,fldENUM,fldEnum_db])
+    //Then Begin
+    //       Case AStrItems^[1] of
+    //         chat
+    //         fldSItems,
+    //         fldENum,
+    //         fldENum_db: Begin
+    //                      {$IFDEF CPU32}
+    //                         Move(AStrItems^[2],P,4);
+    //                      {$ENDIF}
+    //                      {$IFDEF CPU64}
+    //                         Move(AStrItems^[2],P,4+4);
+    //                      {$ENDIF}
+    //
+    //                       if IsValidPtr(P)
+    //                       then DisposeSItems(P);
+    //                   End;
+    //        end;
+    //     end
+    //Else DisposeStr(AStrItems);
+
+  AStrItems := nil;
+end;
+
+class function TConsts.CreateCheckBoxField(CharNumberField: AnsiChar;ShowZ: boolean; AccMode,Default: byte;AItems: PSItem) : AnsiString;
+   {
+     AItems deve retorna um templete com o seguinte formato:
+
+     fldCheckBox + #0#0#0#0 + AnsiChar(ShowZ) + chr(AccMode) + chr(Default) +
+      \[KA] ~Usuário auxiliar                ~'^R+#0
+      \[KA] ~Usuário lider                   ~'^R+#0
+      \[KA] ~Operador do sistema             ~'^R+#0
+      \[KA] ~Operador do sistema: modo ajuste~'^R+#0
+      \[KA] ~Usuário diretor                 ~'^R+#0
+   }
+
+  Var
+    P : PSItem;
+//      S : AnsiString;
+begin
+  {Formata a lista aItems com o modelo acima }
+  P := AItems;
+
+  result := '';
+  while P <> nil do
+  Begin
+    result := result + '\[K'+CharNumberField+ '] ~' + P.Value^+ '~' + char(AccMode);
+
+//    NNewStr(P.Value,S);
+    P := P.Next;
+  end;
+
+  DisposeSItems(P);
+end;
+
+class function TConsts.CreateTSItemFields(ATemplates: PSItem) : TDmxStr_ID;
 begin
   {$IFDEF CPU32}
-    Result := fldSItems + #0#0#0#0#0#0#0;
+    //Length(result)=5
+    Result := fldSItems + #0#0#0#0;//#0#0#0;
     Move(ATemplates, Result[2], 4);
   {$ENDIF}
   {$IFDEF CPU64}
-    Result := fldSItems + #0#0#0#0#0#0#0#0#0#0#0;
+   //Length(result)=9
+    Result := fldSItems + #0#0#0#0#0#0#0#0;//#0#0#0;
     Move(ATemplates, Result[2], 4+4);
+
   {$ENDIF}
-  //CreateTSItemFields := S;
+
+ // Result := S;
 end;
 
-//Var D : TFormatSettings;
 
+//class function  TConsts.CreateTSItemFields(ATemplates: PSItem) : tString;
+//  //var  S : tString;
+//begin
+//  {$IFDEF CPU32}
+//    Result := fldSItems + #0#0#0#0#0#0#0;
+//    Move(ATemplates, Result[2], 4);
+//  {$ENDIF}
+//  {$IFDEF CPU64}
+//    Result := fldSItems + #0#0#0#0#0#0#0#0#0#0#0;
+//    Move(ATemplates, Result[2], 4+4);
+//  {$ENDIF}
+//  //CreateTSItemFields := S;
+//end;
+
+
+{: - A constant **@name** indica se o processo está dentro de uma transação.}
+var
+ _ok_Set_Transaction  : BOOLEAN ;
+
+class function TConsts.Get_ok_Set_Transaction: Boolean;
+begin
+ result := _ok_Set_Transaction;
+end;
+
+class procedure TConsts.Set_ok_Set_Transaction(aok_Set_Transaction: Boolean);
+begin
+  _ok_Set_Transaction := aok_Set_Transaction;
+end;
+
+{: - A constant **@name** indica se o processo está dentro de uma requisição http.}
+var
+ _ok_Set_Server_Http  : BOOLEAN ;
+class function TConsts.Get_ok_Set_Server_Http: Boolean;
+begin
+  Result := _ok_Set_Server_Http;
+end;
+
+class function TConsts.Set_ok_Set_Server_Http(aok_Set_Server_Http: Boolean
+  ): boolean;
+begin
+  Result := _ok_Set_Server_Http;
+  _ok_Set_Server_Http := aok_Set_Server_Http;
+end;
+
+class procedure TConsts.ConfigureBrazilRegion;
+begin
+  // Create new setting and configure for the brazillian format
+
+  FormatBr                     := DefaultFormatSettings;
+  FormatBr.CurrencyFormat      := 0;
+  FormatBr.DecimalSeparator    := ',';
+  FormatBr.ThousandSeparator   := '.';
+  FormatBr.CurrencyDecimals    := 2;
+  FormatBr.DateSeparator       := '/';
+  FormatBr.ShortDateFormat     := 'dd/mm/yyyy';
+  FormatBr.LongDateFormat      := 'dd/mm/yyyy';
+  //FormatBr.LongDateFormat      := 'dddd, dd MMMM yyyy';
+  FormatBr.TimeSeparator       := ':';
+  FormatBr.TimeAMString        := 'AM';
+  FormatBr.TimePMString        := 'PM';
+  FormatBr.ShortTimeFormat     := 'hh:nn';
+  FormatBr.LongTimeFormat      := 'hh:nn:ss';
+  FormatBr.CurrencyString      := 'R$';
+  FormatBr.TwoDigitYearCenturyWindow:=50;
+
+  // Assign the App region settings to the newly created format
+  SysUtils.FormatSettings := FormatBr;
+  //FormatBr := DefaultFormatSettings;
+  Set_Show_DecimalSeparator(FormatBr.DecimalSeparator);
+end;
+
+class function TConsts.Set_Show_DecimalSeparator(aDecimalSeparator: char): char;
+begin
+  result := DefaultFormatSettings.DecimalSeparator;
+  DefaultFormatSettings.DecimalSeparator := aDecimalSeparator;
+  if aDecimalSeparator = '.'
+  then begin
+        DefaultFormatSettings.ThousandSeparator := ',';
+      end
+  else begin
+        DefaultFormatSettings.ThousandSeparator := '.';
+      end;
+
+  ShowThousandSeparator := DefaultFormatSettings.ThousandSeparator;
+  showDecimalSeparator  := DefaultFormatSettings.DecimalSeparator;
+end;
+
+  var
+    s : integer;
 Initialization
 
   // Não posso fazer essa inicialização porque System.FileMode = 1 bytes apenas.
@@ -1967,43 +2406,17 @@ Initialization
 
   with TConsts do
   begin
-//    d := DefaultFormatSettings;
-
-    decPt     := DefaultFormatSettings.DecimalSeparator;
-    showDecPt := decPt;//DefaultFormatSettings.CurrencyDecimals;
-
-    Comma     := DefaultFormatSettings.ThousandSeparator;
-    showComma := Comma;
-    //       showDecPt := Comma ; //Português
-
-
-    {Analizar com mais detalhe se precisa permitir digitar ponto e inverter para virgula}
-    //if decPt = '.'
-    //then Begin
-    //       Comma := ','; //Comma   := DefaultFormatSettings.ThousandSeparator;  ,
-    //       showComma := decPt;  //Português
-    //       showDecPt := Comma ; //Português
-    //     end
-    //else
-    //if decPt = ',' // usuário entre com a virgula e o sistema mostra o ponto no lugar da virgula
-    //then Begin
-    //       Comma := '.';
-    //       showComma := decPt;
-    //       showDecPt := Comma ;
-    //     end;
-    //
-
+    ConfigureBrazilRegion;
     MaskIsNumber := [fldBYTE,fldSHORTINT,fldSmallWORD,
                      fldRealNum,fldSmallInt,fldLONGINT,
-                     fldRealNum_Positivo,'z','Z',DecPt,showDecPt];  //fldSTRNUM é string e não número,
+                     fldRealNum_Positivo,'z','Z',DecimalSeparator ,showDecimalSeparator ];  //fldSTRNUM é string e não número,
   end;
 
 
-  
 
   //const MaskIsNumber : TMaskIsNumber = [fldBYTE,fldSHORTINT,fldSmallWORD,
   //                                    fldRealNum,fldSmallInt,fldLONGINT,
-  //                                    fldRealNum_Positivo,'z','Z',DecPt,showDecPt];  //fldSTRNUM é string e não número,
+  //                                    fldRealNum_Positivo,'z','Z',DecimalSeparator ,showDecimalSeparator ];  //fldSTRNUM é string e não número,
 
 
 end.

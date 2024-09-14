@@ -1,0 +1,101 @@
+object Form1: TForm1
+  Left = 488
+  Height = 286
+  Top = 281
+  Width = 506
+  Caption = 'Form1'
+  ClientHeight = 286
+  ClientWidth = 506
+  LCLVersion = '3.4.0.0'
+  object Mi_LCL_Scrollbox1: TMi_LCL_Scrollbox
+    Left = 0
+    Height = 286
+    Top = 0
+    Width = 506
+    Align = alClient
+    AutoScroll = False
+    TabOrder = 0
+    TabStop = True
+  end
+  object DmxScroller_Form1: TDmxScroller_Form
+    Alias = 'TDmxScroller_Form'
+    MiDataPacketFormat_Default = dfJSon
+    Active = True
+    AlignmentLabels = taLeftJustify
+    TableName = 'DataModule1'
+    Mi_ActionList = ActionList1
+    ShouldSaveTemplate = False
+    Left = 56
+    Top = 16
+  end  
+  object Mi_lcl_ui_ds_Form1: TMi_lcl_ui_ds_Form
+    Alias = 'TDmxScroller_Form'
+    ParentLCL = Mi_LCL_Scrollbox1
+    Active = True
+    DmxScroller_Form = DmxScroller_Form1
+    Left = 192
+    Top = 16
+  end
+
+  object ActionList1: TActionList
+    Left = 352
+    Top = 24
+    object CmNewRecord: TAction
+      Category = 'dbCRUD'
+      Caption = '&Novo'
+      OnExecute = CmNewRecordExecute
+    end
+    object CmLocate: TAction
+      Category = 'dbNavigator'
+      Caption = 'Pesquisar'
+      OnExecute = CmLocateExecute
+    end
+    object CmUpdateRecord: TAction
+      Category = 'dbCRUD'
+      Caption = '&Gravar'
+      OnExecute = CmUpdateRecordExecute
+    end
+    object CmDeleteRecord: TAction
+      Category = 'dbCRUD'
+      Caption = '&Excluir'
+      OnExecute = CmDeleteRecordExecute
+    end
+    object CmGoBof: TAction
+      Category = 'dbNavigator'
+      Caption = 'Inicio'
+      OnExecute = CmGoBofExecute
+    end
+    object CmNextRecord: TAction
+      Category = 'dbNavigator'
+      Caption = 'Próximo'
+      OnExecute = CmNextRecordExecute
+    end
+    object CmPrevRecord: TAction
+      Category = 'dbNavigator'
+      Caption = 'Anterior'
+      OnExecute = CmPrevRecordExecute
+    end
+    object CmGoEof: TAction
+      Category = 'dbNavigator'
+      Caption = 'Fim'
+      OnExecute = CmGoEofExecute
+    end
+    object CmRefresh: TAction
+      Category = 'dbNavigator'
+      Caption = 'Atualizar'
+      OnExecute = CmRefreshExecute
+    end
+    object CmCancel: TAction
+      Category = 'dbCRUD'
+      Caption = '&Cancelar'
+      OnExecute = CmCancelExecute
+    end
+    object Action_TestJson: TAction
+      Caption = 'Action_TestJson'
+    end
+    object Cm_Pesquisa_em_outra_tabela: TAction
+      Caption = 'Cm_Pesquisa_em_outra_tabela'
+      OnExecute = Cm_Pesquisa_em_outra_tabelaExecute
+    end
+  end
+end

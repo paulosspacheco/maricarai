@@ -1,0 +1,1044 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<title>mi.rtl.treenode: Classe TMi_rtl_treenode</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="generator" content="PasDoc 0.16.0">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<link rel="stylesheet" type="text/css" href="tipuesearch/tipuesearch.css">
+
+<link rel="StyleSheet" type="text/css" href="pasdoc.css">
+</head>
+<body>
+<div class="container"><div class="navigation">
+<ul><li><a href="AllUnits.html">Units</a></li><li><a href="ClassHierarchy.html">Hierarquia de Classes</a></li><li><a href="AllClasses.html">Classes, Interfaces, Objetos e Registros</a></li><li><a href="AllTypes.html">Tipos</a></li><li><a href="AllVariables.html">Variáveis</a></li><li><a href="AllConstants.html">Constantes</a></li><li><a href="AllFunctions.html">Funções e Procedimentos</a></li><li><a href="AllIdentifiers.html">Identificadores</a></li><li><form class="search-form" action="tipue_results.html"><div class="search-input"><input type="text" name="q" id="tipue_search_input" pattern=".{3,}" title="At least 3 characters" required><div class="search-button"><input type="button" id="tipue_search_button" onclick="this.form.submit();"></div></div></form>
+<div style="clear: both"></div>
+</li></ul></div><div class="content">
+<span id="TMi_rtl_treenode"></span><h1 class="cio">Classe TMi_rtl_treenode</h1>
+<div class="sections">
+<div class="one_section"><a class="section" href="#PasDoc-Description">Descrição</a></div><div class="one_section"><a class="section" href="#PasDoc-Hierarchy">Hierarquia</a></div><div class="one_section"><a class="section" href="#PasDoc-Fields">Campos</a></div><div class="one_section"><a class="section" href="#PasDoc-Methods">Métodos</a></div><div class="one_section"><a class="section" href="#PasDoc-Properties">Propriedades</a></div></div>
+<span id="PasDoc-Description"></span><h2 class="unit">Unit</h2>
+<p class="unitlink">
+<a href="mi.rtl.treenode.html">mi.rtl.treenode</a></p>
+<h2 class="declaration">Declaração</h2>
+<p class="declaration">
+<code>type TMi_rtl_treenode = class(TObject)</code></p>
+<h2 class="description">Descrição</h2>
+<p>
+A class <strong><code>TMi_rtl_treenode</code></strong> foi criada para criar menu html ou arvores de strings usando sintaxe simples de adição de nós e folhas.
+
+<p></p>
+
+<ul class="paragraph_spacing">
+  <li><p><strong>NOTAS</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Esta classe representa um nó em uma árvore hierárquica. </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Ela possui propriedades e métodos para gerenciar filhos, dados associados ao nó e navegação na árvore.</p></li>
+</ul>
+
+<p></p></li>
+  <li><p>Este código fornece uma estrutura básica para trabalhar com árvores hierárquicas no FreePascal. Você pode estender a classe TTreeNode para adicionar funcionalidades específicas à sua aplicação.</p></li>
+</ul>
+
+<p></p></li>
+  <li><p><strong>EXEMPLOS</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Gera menu em HTML e um índice em arquivo .txt
+
+<p></p>
+
+<pre class="longcode">
+
+<span class="pascal_keyword">class</span> <span class="pascal_keyword">procedure</span> TTreeNode.Test(okListHTML:boolean);
+<span class="pascal_keyword">var</span>
+  Root: TTreeNode;
+  List : TStringList;
+  S : <span class="pascal_keyword">string</span>;
+
+<span class="pascal_keyword">begin</span>
+  writeLn(<span class="pascal_string">'TTreeNode.Test'</span>);
+  writeLn(<span class="pascal_string">'Inicio: ==============='</span>);
+
+  Root := TTreeNode.Create(TPath.create(<span class="pascal_string">'root'</span>,false));
+
+  <span class="pascal_keyword">with</span> Root <span class="pascal_keyword">do</span>
+  <span class="pascal_keyword">begin</span>
+    List := TStringList.Create;
+
+    <span class="pascal_comment">// Adicione os caminhos de diretórios e folhas da árvore manualmente</span>
+    <span class="pascal_comment">// ...</span>
+
+    <span class="pascal_comment">// Adicione o arquivo '/home/documentos/test1.pas' com pastas no nome</span>
+    AddChildFileName(Root,<span class="pascal_string">'/home/documentos/test1.pas'</span>);
+    AddChildFileName(Root,<span class="pascal_string">'/home/documentos/test2.pas'</span>);
+    AddChildFileName(Root,<span class="pascal_string">'/home/documentos/mamae/test3.pas'</span>);
+    AddChildFileName(Root,<span class="pascal_string">'/home/documentos/mamae/celia/test4.pas'</span>);
+<span class="pascal_comment">//    s := (root..Owner.Owner as TTreeNode).fFilePath;</span>
+    AddChildFileName(Root,<span class="pascal_string">'test5.pas'</span>);
+    AddChildFileName(Root,<span class="pascal_string">'/home/test6.pas'</span>);
+
+    <span class="pascal_comment">// Exiba a árvore de diretórios</span>
+    WriteLn(<span class="pascal_string">'Árvore de diretórios:'</span>);
+    <span class="pascal_keyword">if</span> okListHTML
+    <span class="pascal_keyword">then</span> Root.TreeToStringListHtml(Root,List)
+    <span class="pascal_keyword">else</span> Root.TreeToStringList(Root,List);
+    <span class="pascal_keyword">for</span> s <span class="pascal_keyword">in</span> List <span class="pascal_keyword">do</span>
+      writeLn(s);
+
+    List.Free;
+
+  <span class="pascal_keyword">end</span>;
+  Root.Free;
+  writeLn(<span class="pascal_string">'Fim: ==============='</span>);
+
+<span class="pascal_keyword">end</span>;</pre>
+
+<p></p></li>
+  <li><p>Gera uma formulário dinamicamente com menu de opções baseado no componente treenode:
+
+<p></p>
+
+<pre class="longcode">
+
+<span class="pascal_keyword">procedure</span> PopulateMenuFromTreeNode(Node: TTreeNode; ParentMenuItem: TMenuItem);
+<span class="pascal_keyword">var</span>
+  Child: TTreeNode;
+  NewMenuItem: TMenuItem;
+  PathAction: TPathAction;
+<span class="pascal_keyword">begin</span>
+  <span class="pascal_keyword">if</span> Node &lt;&gt; <span class="pascal_keyword">nil</span> <span class="pascal_keyword">then</span>
+  <span class="pascal_keyword">begin</span>
+    PathAction := TPathAction(Node.Data); <span class="pascal_comment">// Obtém o objeto TPath associado ao nó</span>
+
+    NewMenuItem := TMenuItem.Create(ParentMenuItem);
+    NewMenuItem.Caption := PathAction.Data;
+    NewMenuItem.Action  := PathAction.Action;
+
+    ParentMenuItem.Add(NewMenuItem);
+
+    <span class="pascal_comment">// Se o nó atual não for uma folha, adiciona seus filhos ao menu</span>
+    <span class="pascal_keyword">if</span> <span class="pascal_keyword">not</span> PathAction.IsSheet <span class="pascal_keyword">then</span>
+    <span class="pascal_keyword">begin</span>
+      Child := Node.GetFirstChild;
+      <span class="pascal_keyword">while</span> Child &lt;&gt; <span class="pascal_keyword">nil</span> <span class="pascal_keyword">do</span>
+      <span class="pascal_keyword">begin</span>
+        PopulateMenuFromTreeNode(Child, NewMenuItem);
+        Child := Child.GetNextSibling;
+      <span class="pascal_keyword">end</span>;
+    <span class="pascal_keyword">end</span>;
+  <span class="pascal_keyword">end</span>;
+<span class="pascal_keyword">end</span>;
+
+
+<span class="pascal_keyword">type</span>
+
+  <span class="pascal_comment">//TForm</span>
+
+  TForm = <span class="pascal_keyword">class</span>(Forms.TForm)
+  <span class="pascal_keyword">private</span>
+    <span class="pascal_keyword">procedure</span> ShowMessageAction(Sender: TObject);
+  <span class="pascal_keyword">public</span>
+    <span class="pascal_keyword">constructor</span> Create(AOwner: TComponent); <span class="pascal_keyword">override</span>;
+    <span class="pascal_keyword">function</span> CreateAction(<span class="pascal_keyword">const</span> ACaption: <span class="pascal_keyword">string</span>): TAction;
+  <span class="pascal_keyword">end</span>;
+
+<span class="pascal_keyword">constructor</span> TForm.Create(AOwner: TComponent);
+<span class="pascal_keyword">begin</span>
+  <span class="pascal_comment">//inherited Create(AOwner);</span>
+  <span class="pascal_keyword">inherited</span> CreateNew(AOwner, <span class="pascal_numeric">1</span>); <span class="pascal_comment">// O segundo parâmetro é uma janela vazia</span>
+  Self.Caption := <span class="pascal_string">'My Form'</span>;
+  Self.SetBounds(<span class="pascal_numeric">100</span>, <span class="pascal_numeric">100</span>, <span class="pascal_numeric">400</span>, <span class="pascal_numeric">300</span>); <span class="pascal_comment">// Define o tamanho e a posição do formulário</span>
+
+  <span class="pascal_comment">// Aqui você pode criar e adicionar componentes manualmente</span>
+<span class="pascal_keyword">end</span>;
+
+<span class="pascal_keyword">procedure</span> TForm.ShowMessageAction(Sender: TObject);
+<span class="pascal_keyword">begin</span>
+  ShowMessage(<span class="pascal_string">'Alô mundo'</span>);
+<span class="pascal_keyword">end</span>;
+
+<span class="pascal_keyword">function</span> TForm.CreateAction(<span class="pascal_keyword">const</span> ACaption: <span class="pascal_keyword">string</span>): TAction;
+<span class="pascal_keyword">begin</span>
+  Result := TAction.Create(Self);
+  Result.Caption := ACaption;
+  Result.OnExecute := @ShowMessageAction; <span class="pascal_comment">// Associa o método ao evento OnExecute</span>
+<span class="pascal_keyword">end</span>;
+
+<span class="pascal_keyword">procedure</span> TTreeNode_Test_AddChildAction();
+<span class="pascal_keyword">var</span>
+  Root: TTreeNode;
+  MainMenu: TMainMenu;
+  Form: TForm;
+  action : TAction;
+<span class="pascal_keyword">begin</span>
+  <span class="pascal_comment">// Criação e configuração do formulário e do menu</span>
+  Form := TForm.Create(<span class="pascal_keyword">nil</span>);
+
+  <span class="pascal_comment">// Criação do nó raiz e inicialização da árvore</span>
+  Root := TTreeNode.Create(TPathAction.Create(<span class="pascal_string">'root'</span>, False));
+  <span class="pascal_keyword">With</span> Root,Form <span class="pascal_keyword">do</span>
+  <span class="pascal_keyword">try</span>
+    <span class="pascal_comment">// Adiciona os caminhos de diretórios e folhas da árvore</span>
+    AddChildAction(<span class="pascal_string">'/home/documentos/ShowMessageAction'</span>,CreateAction(<span class="pascal_string">'ShowMessageAction'</span>));
+    AddChildAction(<span class="pascal_string">'/home/documentos/test2.pas'</span>,<span class="pascal_keyword">nil</span>);
+    AddChildAction(<span class="pascal_string">'/home/documentos/mamae/test3.pas'</span>,<span class="pascal_keyword">nil</span>);
+    AddChildAction(<span class="pascal_string">'/home/documentos/test1.pas'</span>,<span class="pascal_keyword">nil</span>);
+    AddChildAction(<span class="pascal_string">'/home/documentos/test2.pas'</span>,<span class="pascal_keyword">nil</span>);
+    AddChildAction(<span class="pascal_string">'/home/documentos/mamae/test3.pas'</span>,<span class="pascal_keyword">nil</span>);
+    AddChildAction(<span class="pascal_string">'/home/documentos/mamae/celia/test4.pas'</span>,<span class="pascal_keyword">nil</span>);
+    AddChildAction(<span class="pascal_string">'test5.pas'</span>,<span class="pascal_keyword">nil</span>);
+    AddChildAction(<span class="pascal_string">'/home/test6.pas'</span>,<span class="pascal_keyword">nil</span>);
+    AddChildAction(<span class="pascal_string">'test5.pas'</span>,<span class="pascal_keyword">nil</span>);
+    AddChildAction(<span class="pascal_string">'/home/test6.pas'</span>,<span class="pascal_keyword">nil</span>);
+
+    <span class="pascal_keyword">try</span>
+      MainMenu := TMainMenu.Create(Form);
+      Form.Menu := MainMenu;
+
+      <span class="pascal_comment">// Popula o menu a partir da árvore</span>
+      PopulateMenuFromTreeNode(Root, MainMenu.Items);
+
+      Form.ShowModal;
+    <span class="pascal_keyword">finally</span>
+      Form.Free;
+    <span class="pascal_keyword">end</span>;
+  <span class="pascal_keyword">finally</span>
+    Root.Free;
+  <span class="pascal_keyword">end</span>;
+<span class="pascal_keyword">end</span>;</pre>
+
+<p></p></li>
+</ul>
+
+<p></p></li>
+  <li><p>Outros pontos importantes do código incluem: </p>
+
+<ul class="paragraph_spacing">
+  <li><p>A estrutura de TTreeNode permite criar e manipular árvores hierárquicas, com a capacidade de associar dados específicos a cada nó.</p></li>
+  <li><p>A classe <a class="normal" href="mi.rtl.treenode.TPath.html">TPath</a> foi projetada para representar o caminho dos nós, distinguindo entre arquivos e diretórios.</p></li>
+  <li><p>A classe <a class="normal" href="mi.rtl.treenode.TPathAction.html">TPathAction</a> estende <a class="normal" href="mi.rtl.treenode.TPath.html">TPath</a> para incluir uma ação associada, permitindo criar árvores interativas com funcionalidade adicional.</p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p>
+<span id="PasDoc-Hierarchy"></span><h2 class="hierarchy">Hierarquia</h2>
+<ul class="hierarchy"><li class="ancestor">TObject</li>
+<li class="thisitem">TMi_rtl_treenode</li></ul><h2 class="overview">Visão Geral</h2>
+<span id="PasDoc-Fields"></span><h3 class="summary">Campos</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code><strong><a href="mi.rtl.treenode.TMi_rtl_treenode.html#Sorted">Sorted</a></strong>: Boolean;</code></td>
+</tr>
+</table>
+<span id="PasDoc-Methods"></span><h3 class="summary">Métodos</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>constructor <strong><a href="mi.rtl.treenode.TMi_rtl_treenode.html#Create">Create</a></strong>(AData: TObject);</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>destructor <strong><a href="mi.rtl.treenode.TMi_rtl_treenode.html#Destroy">Destroy</a></strong>; override;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="mi.rtl.treenode.TMi_rtl_treenode.html#AddChild">AddChild</a></strong>(AChildData: TObject): <a href="mi.rtl.treenode.TMi_rtl_treenode.html">TMi_rtl_treenode</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="mi.rtl.treenode.TMi_rtl_treenode.html#CompareNodes">CompareNodes</a></strong>(const Node1, Node2: TObject): integer;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="mi.rtl.treenode.TMi_rtl_treenode.html#AddChildOrdered">AddChildOrdered</a></strong>(AChildData: TObject;CompareFunction: <a href="mi.rtl.treenode.html#TCompareNodes">TCompareNodes</a>): <a href="mi.rtl.treenode.TMi_rtl_treenode.html">TMi_rtl_treenode</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>procedure <strong><a href="mi.rtl.treenode.TMi_rtl_treenode.html#RemoveChild">RemoveChild</a></strong>(AChild: <a href="mi.rtl.treenode.TMi_rtl_treenode.html">TMi_rtl_treenode</a>);</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>procedure <strong><a href="mi.rtl.treenode.TMi_rtl_treenode.html#ClearChildren">ClearChildren</a></strong>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="mi.rtl.treenode.TMi_rtl_treenode.html#GetFirstChild">GetFirstChild</a></strong>: <a href="mi.rtl.treenode.TMi_rtl_treenode.html">TMi_rtl_treenode</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="mi.rtl.treenode.TMi_rtl_treenode.html#Create_Object">Create_Object</a></strong>(aFileName, aPart: string): TObject; virtual; overload;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="mi.rtl.treenode.TMi_rtl_treenode.html#AddChildFileName">AddChildFileName</a></strong>(Root: <a href="mi.rtl.treenode.TMi_rtl_treenode.html">TMi_rtl_treenode</a>; FileName: string):<a href="mi.rtl.treenode.TMi_rtl_treenode.html">TMi_rtl_treenode</a>; overload;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="mi.rtl.treenode.TMi_rtl_treenode.html#AddChildFileName">AddChildFileName</a></strong>(FileName: string):<a href="mi.rtl.treenode.TMi_rtl_treenode.html">TMi_rtl_treenode</a>; overload;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="mi.rtl.treenode.TMi_rtl_treenode.html#Create_Object">Create_Object</a></strong>(aFileName, aPart: string; aAction: TAction): TObject; virtual; overload;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="mi.rtl.treenode.TMi_rtl_treenode.html#AddChildAction">AddChildAction</a></strong>(Root: <a href="mi.rtl.treenode.TMi_rtl_treenode.html">TMi_rtl_treenode</a>;const TreeNodeNames: string; Action: TAction): <a href="mi.rtl.treenode.TMi_rtl_treenode.html">TMi_rtl_treenode</a>; overload;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="mi.rtl.treenode.TMi_rtl_treenode.html#AddChildAction">AddChildAction</a></strong>(const FileName: string; Action: TAction): <a href="mi.rtl.treenode.TMi_rtl_treenode.html">TMi_rtl_treenode</a>; overload;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="mi.rtl.treenode.TMi_rtl_treenode.html#GetNodeLevel">GetNodeLevel</a></strong>(): integer;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="mi.rtl.treenode.TMi_rtl_treenode.html#conststr">conststr</a></strong>(i: longint; str: string): string;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="mi.rtl.treenode.TMi_rtl_treenode.html#FindChild">FindChild</a></strong>(const AName: string): <a href="mi.rtl.treenode.TMi_rtl_treenode.html">TMi_rtl_treenode</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="mi.rtl.treenode.TMi_rtl_treenode.html#GetNextSibling">GetNextSibling</a></strong>: <a href="mi.rtl.treenode.TMi_rtl_treenode.html">TMi_rtl_treenode</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>procedure <strong><a href="mi.rtl.treenode.TMi_rtl_treenode.html#TreeToStringList">TreeToStringList</a></strong>(Mi_rtl_treenode: <a href="mi.rtl.treenode.TMi_rtl_treenode.html">TMi_rtl_treenode</a>; var S: TStringList); virtual;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>procedure <strong><a href="mi.rtl.treenode.TMi_rtl_treenode.html#TreeToStringListHtml">TreeToStringListHtml</a></strong>(Mi_rtl_treenode: <a href="mi.rtl.treenode.TMi_rtl_treenode.html">TMi_rtl_treenode</a>; var S: TStringList); virtual;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>class procedure <strong><a href="mi.rtl.treenode.TMi_rtl_treenode.html#Test_AddChildFileName">Test_AddChildFileName</a></strong>(okListHTML: boolean);</code></td>
+</tr>
+</table>
+<span id="PasDoc-Properties"></span><h3 class="summary">Propriedades</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="mi.rtl.treenode.TMi_rtl_treenode.html#Data">Data</a></strong>: TObject read fData write fData;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="mi.rtl.treenode.TMi_rtl_treenode.html#Children">Children</a></strong>: TObjectList read FChildren;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="mi.rtl.treenode.TMi_rtl_treenode.html#Parent">Parent</a></strong>: <a href="mi.rtl.treenode.TMi_rtl_treenode.html">TMi_rtl_treenode</a> read FParent write FParent;</code></td>
+</tr>
+</table>
+<h2 class="description">Descrição</h2>
+<h3 class="detail">Campos</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Sorted"></span><code><strong>Sorted</strong>: Boolean;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+O atributo <strong><code>Sorted</code></strong> se True insere em ordem alfabetica</p>
+</td></tr>
+</table>
+<h3 class="detail">Métodos</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Create"></span><code>constructor <strong>Create</strong>(AData: TObject);</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+O constructor <strong><code>Create</code></strong> inicializa o nó com o dado AData e cria uma lista vazia de filhos.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Destroy"></span><code>destructor <strong>Destroy</strong>; override;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+O destructor <strong><code>Destroy</code></strong> Libera a lista de filhos e chama o destrutor herdado.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="AddChild"></span><code>function <strong>AddChild</strong>(AChildData: TObject): <a href="mi.rtl.treenode.TMi_rtl_treenode.html">TMi_rtl_treenode</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+O método <strong><code>AddChild</code></strong> adiciona um novo filho ao nó atual.
+
+<p></p>
+
+<ul class="paragraph_spacing">
+  <li><p><strong>PASSOS</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>O método recebe o dado do filho AChildData;</p></li>
+  <li><p>Cria um novo nó <a class="normal" href="mi.rtl.treenode.TMi_rtl_treenode.html">TMi_rtl_treenode</a>;</p></li>
+  <li><p>Atribui o nó atual como pai e o adiciona na lista de filhos;</p></li>
+  <li><p>Retorna o novo nó filho criado.</p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="CompareNodes"></span><code>function <strong>CompareNodes</strong>(const Node1, Node2: TObject): integer;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+O método <strong>name</strong> é usado para comparar os nós com base no campo '<a class="normal" href="mi.rtl.treenode.TMi_rtl_treenode.html#Data">Data</a>' do objeto '<a class="normal" href="mi.rtl.treenode.TPath.html">TPath</a>' e insere ordenado ou não, depende do atributo <a class="normal" href="mi.rtl.treenode.TMi_rtl_treenode.html#Sorted">Sorted</a>.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="AddChildOrdered"></span><code>function <strong>AddChildOrdered</strong>(AChildData: TObject;CompareFunction: <a href="mi.rtl.treenode.html#TCompareNodes">TCompareNodes</a>): <a href="mi.rtl.treenode.TMi_rtl_treenode.html">TMi_rtl_treenode</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+O método <strong>name</strong> é usado para comparar os nós com base no campo '<a class="normal" href="mi.rtl.treenode.TMi_rtl_treenode.html#Data">Data</a>' do objeto '<a class="normal" href="mi.rtl.treenode.TPath.html">TPath</a>' e insere na ordem crescente.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="RemoveChild"></span><code>procedure <strong>RemoveChild</strong>(AChild: <a href="mi.rtl.treenode.TMi_rtl_treenode.html">TMi_rtl_treenode</a>);</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+O método <strong><code>RemoveChild</code></strong> remove um filho específico da lista de filhos do nó atual.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="ClearChildren"></span><code>procedure <strong>ClearChildren</strong>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+O método <strong><code>ClearChildren</code></strong> remove todos os filhos do nó atual.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="GetFirstChild"></span><code>function <strong>GetFirstChild</strong>: <a href="mi.rtl.treenode.TMi_rtl_treenode.html">TMi_rtl_treenode</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+O método <strong><code>GetFirstChild</code></strong> verifica se o nó atual tem algum filho na lista FChildren. Se houver, ele retorna o primeiro filho. Caso contrário, retorna nil.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Create_Object"></span><code>function <strong>Create_Object</strong>(aFileName, aPart: string): TObject; virtual; overload;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+O método <strong><code>Create_Object</code></strong> é responsável por criar um novo objeto do tipo <a class="normal" href="mi.rtl.treenode.TPath.html">TPath</a>.
+
+<p></p>
+
+<ul class="paragraph_spacing">
+  <li><p><strong>NOTAS</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>A finalidade principal é determinar se o objeto criado representará uma folha (sheet) ou um nó interno na árvore, com base no nome do arquivo e da parte do caminho fornecidos como parâmetros.</p></li>
+</ul>
+
+<p></p></li>
+  <li><p><strong>PARÂMETROS</strong>: </p>
+
+<ul class="paragraph_spacing">
+  <li><p>aFileName: </p>
+
+<ul class="paragraph_spacing">
+  <li><p>String que representa o nome completo do arquivo.</p></li>
+</ul>
+
+<p></p></li>
+  <li><p>aPart: </p>
+
+<ul class="paragraph_spacing">
+  <li><p>String que representa a parte do caminho que está sendo analisada.</p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p></li>
+  <li><p><strong>RETORNO</strong>: </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Um objeto do tipo <a class="normal" href="mi.rtl.treenode.TPath.html">TPath</a>. </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Se a parte do caminho corresponder ao nome do arquivo (indicando uma folha), o objeto <a class="normal" href="mi.rtl.treenode.TPath.html">TPath</a> será criado com a propriedade com <strong>IsSheet</strong> como <strong>True</strong>, caso contrário, <strong>IsSheet</strong> será False.</p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p></li>
+  <li><p>*<em>EXEMPLO</em>
+
+<p></p>
+
+<pre class="longcode">
+
+<span class="pascal_comment">// Criando um nó representando um arquivo</span>
+<span class="pascal_keyword">var</span>
+  Node: TMi_rtl_treenode;
+  PathObject: TPath;
+<span class="pascal_keyword">begin</span>
+  PathObject := Create_Object(<span class="pascal_string">'C:\meus_documentos\arquivo.txt'</span>, <span class="pascal_string">'arquivo.txt'</span>) <span class="pascal_keyword">as</span> TPath;
+  Node := TMi_rtl_treenode.Create(PathObject);
+  <span class="pascal_comment">// Node agora representa uma folha (IsSheet = True)</span>
+<span class="pascal_keyword">end</span>;</pre>
+
+<p></p></li>
+</ul>
+
+<p></p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="AddChildFileName"></span><code>function <strong>AddChildFileName</strong>(Root: <a href="mi.rtl.treenode.TMi_rtl_treenode.html">TMi_rtl_treenode</a>; FileName: string):<a href="mi.rtl.treenode.TMi_rtl_treenode.html">TMi_rtl_treenode</a>; overload;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+O método <strong><code>AddChildFileName</code></strong> adiciona um novo nó filho a um nó raiz (Root) com base no nome de um arquivo especificado (FileName).
+
+<p></p>
+
+<ul class="paragraph_spacing">
+  <li><p>Esse método é útil quando se deseja construir uma estrutura hierárquica de nós de árvore que represente o caminho de um arquivo ou um conjunto de arquivos.</p></li>
+  <li><p>PARÂMETROS: </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Root: <a class="normal" href="mi.rtl.treenode.TMi_rtl_treenode.html">TMi_rtl_treenode</a> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>O nó raiz ao qual o novo nó filho será adicionado. Este parâmetro representa o ponto de partida na árvore onde o novo nó será inserido.</p></li>
+</ul>
+
+<p></p></li>
+  <li><p>FileName: string </p>
+
+<ul class="paragraph_spacing">
+  <li><p>O nome do arquivo que será utilizado para criar o novo nó. O FileName pode ser um caminho completo ou parcial, e os nós serão criados de acordo com as partes do caminho.</p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p></li>
+  <li><p>RETORNO: </p>
+
+<ul class="paragraph_spacing">
+  <li><p><a class="normal" href="mi.rtl.treenode.TMi_rtl_treenode.html">TMi_rtl_treenode</a> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Retorna o novo nó filho criado e adicionado à árvore. Este nó corresponde ao nome do arquivo especificado.</p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p></li>
+  <li><p>COMPORTAMENTO: </p>
+
+<ul class="paragraph_spacing">
+  <li><p>O método divide o FileName em partes, utilizando o separador de diretório (normalmente / ou \), e então cria ou encontra cada nó correspondente no caminho, adicionando-os à árvore sob o nó Root.</p></li>
+  <li><p>Se o caminho completo já existir na árvore, o método simplesmente retorna o nó correspondente ao FileName fornecido.</p></li>
+  <li><p>Se FileName contiver apenas um nome de arquivo (sem diretórios), o novo nó será adicionado diretamente como um filho de Root.</p></li>
+</ul>
+
+<p></p></li>
+  <li><p><strong>EXEMPLO</strong>
+
+<p></p>
+
+<pre class="longcode">
+
+<span class="pascal_keyword">var</span>
+  RootNode, NewNode: TMi_rtl_treenode;
+  FilePath: <span class="pascal_keyword">string</span>;
+<span class="pascal_keyword">begin</span>
+  <span class="pascal_comment">// Cria um nó raiz</span>
+  RootNode := TMi_rtl_treenode.Create(<span class="pascal_keyword">nil</span>);
+  RootNode.Text := <span class="pascal_string">'Root'</span>;
+
+  <span class="pascal_comment">// Caminho do arquivo para adicionar à árvore</span>
+  FilePath := <span class="pascal_string">'C:\Users\JohnDoe\Documents\file.txt'</span>;
+
+  <span class="pascal_comment">// Adiciona nós com base no caminho do arquivo</span>
+  NewNode := AddChildFileName(RootNode, FilePath);
+
+  <span class="pascal_comment">// Se desejar verificar o resultado, você pode percorrer e listar a árvore</span>
+  <span class="pascal_comment">// (Essa parte é opcional e serve apenas para demonstrar como você pode verificar o resultado)</span>
+  ShowMessage(<span class="pascal_string">'O nó filho foi criado com o texto: '</span> + NewNode.Text);
+<span class="pascal_keyword">end</span>;</pre>
+
+<p></p></li>
+</ul>
+
+<p></p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="AddChildFileName"></span><code>function <strong>AddChildFileName</strong>(FileName: string):<a href="mi.rtl.treenode.TMi_rtl_treenode.html">TMi_rtl_treenode</a>; overload;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+O método <strong><code>AddChildFileName</code></strong> executa o método <code>AddChildFileName</code>(Root,...) passando o root como self.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Create_Object"></span><code>function <strong>Create_Object</strong>(aFileName, aPart: string; aAction: TAction): TObject; virtual; overload;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+O método <strong><code>Create_Object</code></strong> é responsável por criar e retornar uma instância da classe <a class="normal" href="mi.rtl.treenode.TPathAction.html">TPathAction</a>, uma extensão de <a class="normal" href="mi.rtl.treenode.TPath.html">TPath</a> que inclui uma ação associada.
+
+<p></p>
+
+<ul class="paragraph_spacing">
+  <li><p>O método determina se a parte do caminho (aPart) corresponde ao nome do arquivo e, com base nisso, configura o objeto criado como um nó de folha (arquivo) ou um nó interno (diretório).</p></li>
+  <li><p>**PARÂMETROS: </p>
+
+<ul class="paragraph_spacing">
+  <li><p>aFileName (string): O caminho completo do arquivo ou diretório em questão. Este parâmetro é usado para verificar se aPart corresponde ao nome do arquivo ou se representa um diretório.</p></li>
+  <li><p>aPart (string): </p>
+
+<ul class="paragraph_spacing">
+  <li><p>A parte do caminho que será utilizada para nomear o objeto <a class="normal" href="mi.rtl.treenode.TPathAction.html">TPathAction</a> criado. Pode ser o nome do arquivo ou o nome de um diretório.</p></li>
+</ul>
+
+<p></p></li>
+  <li><p>aAction (TAction): </p>
+
+<ul class="paragraph_spacing">
+  <li><p>A ação que será associada ao objeto <a class="normal" href="mi.rtl.treenode.TPathAction.html">TPathAction</a> criado. Esta ação pode ser executada quando o nó correspondente na árvore é ativado.</p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p></li>
+  <li><p><strong>RETORNO</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>TObject: </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Retorna uma instância de <a class="normal" href="mi.rtl.treenode.TPathAction.html">TPathAction</a>, que é uma classe que estende <a class="normal" href="mi.rtl.treenode.TPath.html">TPath</a> e inclui uma ação associada. Essa instância pode ser utilizada como <a class="normal" href="mi.rtl.treenode.TMi_rtl_treenode.html#Data">Data</a> em um nó da árvore (<a class="normal" href="mi.rtl.treenode.TMi_rtl_treenode.html">TMi_rtl_treenode</a>).</p></li>
+  <li><p>O método retorna o objeto <a class="normal" href="mi.rtl.treenode.TPathAction.html">TPathAction</a> recém-criado, que pode ser associado ao <a class="normal" href="mi.rtl.treenode.TMi_rtl_treenode.html#Data">Data</a> de um nó da árvore.</p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p></li>
+  <li><p><strong>FUNCIONAMENTO</strong>: </p>
+
+<ul class="paragraph_spacing">
+  <li><p>O método compara o nome do arquivo extraído de aFileName com aPart. </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Se forem iguais (ignorando maiúsculas e minúsculas), isso indica que aPart é o nome do arquivo, e o objeto criado será marcado como uma folha (IsSheet := true).</p></li>
+  <li><p>Caso contrário, aPart representa um diretório, e o objeto será marcado como nó interno (IsSheet := false).</p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p></li>
+  <li><p>*<em>EXEMPLO DE USO</em>
+
+<p></p>
+
+<pre class="longcode">
+<span class="pascal_keyword">var</span>
+  Obj: TObject;
+<span class="pascal_keyword">begin</span>
+  <span class="pascal_comment">// Suponha que um TreeNode já tenha sido criado</span>
+
+  <span class="pascal_comment">// Cria um objeto associado ao arquivo 'test1.pas' com uma ação Action1</span>
+  Obj := TreeNode.Create_Object(<span class="pascal_string">'/home/documentos/test1.pas'</span>, <span class="pascal_string">'test1.pas'</span>, Action1);
+
+  <span class="pascal_comment">// Obj agora é uma instância de TPathAction associada ao arquivo 'test1.pas'</span>
+  <span class="pascal_comment">// e com a ação Action1 associada.</span>
+<span class="pascal_keyword">end</span>;</pre>
+
+<p></p></li>
+  <li><p>Benefícios: </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Flexibilidade: </p>
+
+<ul class="paragraph_spacing">
+  <li><p>O método permite criar objetos de caminho (<a class="normal" href="mi.rtl.treenode.TPathAction.html">TPathAction</a>) que são conscientes de sua posição na hierarquia da árvore, seja como um arquivo ou diretório.</p></li>
+  <li><p>Associação de Ação: Além de criar o objeto, o método associa uma ação específica, facilitando a interação do usuário com os nós da árvore.</p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p></li>
+  <li><p>Observações: </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Este método é fundamental para a criação e manipulação dinâmica de árvores onde cada nó pode ter uma ação específica associada, como em menus contextuais ou na execução de comandos específicos relacionados ao nó.</p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="AddChildAction"></span><code>function <strong>AddChildAction</strong>(Root: <a href="mi.rtl.treenode.TMi_rtl_treenode.html">TMi_rtl_treenode</a>;const TreeNodeNames: string; Action: TAction): <a href="mi.rtl.treenode.TMi_rtl_treenode.html">TMi_rtl_treenode</a>; overload;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+O método <strong><code>AddChildAction</code></strong> adiciona uma série de nós filhos a partir de uma cadeia de nomes (TreeNodeNames) a um nó raiz (Root) e associa uma ação (Action) ao último nó da cadeia, se for uma folha.
+
+<p>-
+
+<p></p>
+
+<ul class="paragraph_spacing">
+  <li><p><strong>PARÂMETROS</strong>: </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Root: </p>
+
+<ul class="paragraph_spacing">
+  <li><p>O nó raiz ao qual os novos nós serão adicionados. Este parâmetro representa o ponto de partida na árvore onde os novos nós serão inseridos.</p></li>
+</ul>
+
+<p></p></li>
+  <li><p>TreeNodeNames (string): </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Uma cadeia de nomes dos nós a serem criados. Os nomes devem ser separados por barras (/) ou outro delimitador que você escolher. Cada nome na cadeia representará um novo nó na árvore.</p></li>
+  <li><p>Action (TAction): </p>
+
+<ul class="paragraph_spacing">
+  <li><p>A ação (TAction) que será associada ao último nó da cadeia de nós se ele for uma folha. Se o último nó não for uma folha, a ação não será associada..</p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p></li>
+  <li><p><strong>RETORNO</strong>: </p>
+
+<ul class="paragraph_spacing">
+  <li><p><a class="normal" href="mi.rtl.treenode.TMi_rtl_treenode.html">TMi_rtl_treenode</a>: </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Retorna o último nó adicionado na árvore. Esse nó pode ser utilizado para operações adicionais se necessário.</p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p></li>
+  <li><p><strong>EXEMPLO</strong>
+
+<p></p>
+
+<pre class="preformatted">Pacal
+
+            var
+              RootNode, NewNode: TMi_rtl_treenode;
+              MyAction: TAction;
+            begin
+              // Supondo que 'RootNode' e 'MyAction' já estão definidos
+              // Exemplo de uso: Adiciona nós para &quot;Users/JohnDoe/Documents/file.txt&quot; sob o nó &quot;RootNode&quot;
+              NewNode := RootNode.AddChildAction(RootNode, 'Users/JohnDoe/Documents/file.txt', MyAction);
+
+              // 'NewNode' será o nó &quot;file.txt&quot; e 'MyAction' será associado a ele se &quot;file.txt&quot; for uma folha
+            end;</pre>
+
+<p></p></li>
+  <li><p>Notas: </p>
+
+<ul class="paragraph_spacing">
+  <li><p>O delimitador usado em TreeNodeNames deve ser consistente com o utilizado na implementação. Se a cadeia TreeNodeNames usar barras (/), elas serão usadas para determinar a estrutura hierárquica dos nós.</p></li>
+  <li><p>Se o último nó na cadeia não for uma folha (ou seja, ele tiver filhos), a ação fornecida não será associada a ele.</p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="AddChildAction"></span><code>function <strong>AddChildAction</strong>(const FileName: string; Action: TAction): <a href="mi.rtl.treenode.TMi_rtl_treenode.html">TMi_rtl_treenode</a>; overload;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+O método <strong><code>AddChildAction</code></strong> executa o método <code>AddChildAction</code>(Root,...) passando o root como self.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="GetNodeLevel"></span><code>function <strong>GetNodeLevel</strong>(): integer;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+o método <strong><code>GetNodeLevel</code></strong> calcula o nível do nó atual na árvore.
+
+<p></p>
+
+<ul class="paragraph_spacing">
+  <li><p><strong>NOTAS</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>O nível é contado a partir da raiz (0) e incrementado para cada nó pai encontrado.</p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="conststr"></span><code>function <strong>conststr</strong>(i: longint; str: string): string;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+O método <strong><code>conststr</code></strong> é uma função auxiliar, ela cria uma string repetida um determinado número de vezes.
+
+<p></p>
+
+<ul class="paragraph_spacing">
+  <li><p><strong>NOTAS</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Utilizado para indentação na exibição da árvore.</p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="FindChild"></span><code>function <strong>FindChild</strong>(const AName: string): <a href="mi.rtl.treenode.TMi_rtl_treenode.html">TMi_rtl_treenode</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+O método <strong><code>FindChild</code></strong> procurar um nó filho na árvore. Esse método percorre os nós filhos do nó atual e retorna o nó que tem o nome especificado por AName.
+
+<p></p>
+
+<ul class="paragraph_spacing">
+  <li><p><strong>NOTAS</strong>* </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Percorre os filhos do nó atual: O método verifica todos os filhos do nó atual para encontrar um que tenha um nome correspondente a AName.</p></li>
+  <li><p>Retorna:: </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Se encontrar um filho cujo nome corresponda a AName, ele retorna esse nó.</p></li>
+  <li><p>Retorna nil se nenhum nó for encontrado: Se não encontrar nenhum nó filho com o nome especificado, o método retorna nil, indicando que o nó não existe entre os filhos.</p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p></li>
+  <li><p>*<em>PARÂMETRO</em> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>AName </p>
+
+<ul class="paragraph_spacing">
+  <li><p>é uma string que representa o nome do nó que você está tentando encontrar.</p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="GetNextSibling"></span><code>function <strong>GetNextSibling</strong>: <a href="mi.rtl.treenode.TMi_rtl_treenode.html">TMi_rtl_treenode</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="TreeToStringList"></span><code>procedure <strong>TreeToStringList</strong>(Mi_rtl_treenode: <a href="mi.rtl.treenode.TMi_rtl_treenode.html">TMi_rtl_treenode</a>; var S: TStringList); virtual;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+O método <strong><code>TreeToStringList</code></strong> retorna uma lista de strings indentada.
+
+<p></p>
+
+<ul class="paragraph_spacing">
+  <li><p><strong>NOTAS</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Percorre a árvore recursivamente e adiciona o caminho e tipo (folha ou nó) de cada nó a uma lista TStringList.</p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="TreeToStringListHtml"></span><code>procedure <strong>TreeToStringListHtml</strong>(Mi_rtl_treenode: <a href="mi.rtl.treenode.TMi_rtl_treenode.html">TMi_rtl_treenode</a>; var S: TStringList); virtual;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+O método <strong><code>TreeToStringListHtml</code></strong> retorna código html como uma lista de strings indentada.
+
+<p></p>
+
+<ul class="paragraph_spacing">
+  <li><p><strong>NOTAS</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Similar ao <a class="normal" href="mi.rtl.treenode.TMi_rtl_treenode.html#TreeToStringList">TreeToStringList</a>, porém gera a saída em formato HTML com tags &lt;ul&gt; e &lt;li&gt; para representar a hierarquia.</p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Test_AddChildFileName"></span><code>class procedure <strong>Test_AddChildFileName</strong>(okListHTML: boolean);</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+A método de classe <strong><code>Test_AddChildFileName</code></strong> cria uma árvore de exemplo adicionando alguns caminhos de arquivo e exibe a estrutura da árvore utilizando <a class="normal" href="mi.rtl.treenode.TMi_rtl_treenode.html#TreeToStringList">TreeToStringList</a> ou <a class="normal" href="mi.rtl.treenode.TMi_rtl_treenode.html#TreeToStringListHtml">TreeToStringListHtml</a> dependendo do parâmetro okListHTML.</p>
+</td></tr>
+</table>
+<h3 class="detail">Propriedades</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Data"></span><code>property <strong>Data</strong>: TObject read fData write fData;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+A propriedade <strong><code>Data</code></strong> armazena um dado associado ao nó. Pode ser qualquer tipo de objeto derivado de TObject. Esta propriedade permite que você associe informações adicionais a um nó específico na estrutura da árvore, que pode ser útil para armazenar metadados, informações de configuração ou qualquer outra informação relevante.
+
+<p></p>
+
+<ul class="paragraph_spacing">
+  <li><p><strong>EXEMPLO</strong>
+
+<p></p>
+
+<pre class="longcode">
+
+<span class="pascal_keyword">var</span>
+  Node: TMi_rtl_treenode;
+  MyObject: TMyCustomObject;
+<span class="pascal_keyword">begin</span>
+  Node := TMi_rtl_treenode.Create;
+  MyObject := TMyCustomObject.Create;
+
+  <span class="pascal_comment">// Associando um objeto ao nó</span>
+  Node.Data := MyObject;
+
+  <span class="pascal_comment">// Acessando o objeto associado ao nó</span>
+  <span class="pascal_keyword">if</span> Node.Data <span class="pascal_keyword">is</span> TMyCustomObject <span class="pascal_keyword">then</span>
+    <span class="pascal_comment">// Realizar operações com MyObject</span>
+<span class="pascal_keyword">end</span>;</pre>
+
+<p></p></li>
+</ul>
+
+<p></p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Children"></span><code>property <strong>Children</strong>: TObjectList read FChildren;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+A prpriedade <strong><code>Children</code></strong> é uma lista contendo os nós filhos do nó atual.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Parent"></span><code>property <strong>Parent</strong>: <a href="mi.rtl.treenode.TMi_rtl_treenode.html">TMi_rtl_treenode</a> read FParent write FParent;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+A propriedade <strong><code>Parent</code></strong> adicionando a referência ao nó pai</p>
+</td></tr>
+</table>
+<hr><span class="appinfo"><em>Gerado por <a href="https://pasdoc.github.io/">PasDoc 0.16.0</a>. </em>
+</span>
+</div></div></body></html>

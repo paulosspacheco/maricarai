@@ -172,7 +172,7 @@
 </tr>
 <tr class="list2">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
-<td class="itemcode"><code>class Function <strong><a href="mi.rtl.files.TFiles.html#CreateDir">CreateDir</a></strong>(Const NewDir : AnsiString) : Boolean;</code></td>
+<td class="itemcode"><code>class Function <strong><a href="mi.rtl.files.TFiles.html#CreateDirectory">CreateDirectory</a></strong>(Const NewDir : AnsiString) : Boolean;</code></td>
 </tr>
 <tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
@@ -220,7 +220,7 @@
 </tr>
 <tr class="list2">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
-<td class="itemcode"><code>class procedure <strong><a href="mi.rtl.files.TFiles.html#FindFilesAll">FindFilesAll</a></strong>(aPath,Mask : AnsiString; FileAttrs : Cardinal;aRelative:Boolean; var List : TStringList);</code></td>
+<td class="itemcode"><code>class procedure <strong><a href="mi.rtl.files.TFiles.html#FindFilesAll">FindFilesAll</a></strong>(aPath,Mask : AnsiString; FileAttrs : Cardinal;aRelative:Boolean; var List : TStringList;aSorted:boolean);</code></td>
 </tr>
 <tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
@@ -249,6 +249,10 @@
 <tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
 <td class="itemcode"><code>class Function <strong><a href="mi.rtl.files.TFiles.html#ByteDrive">ByteDrive</a></strong>(Const NomeArquivo:AnsiString) : Byte;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>Class function <strong><a href="mi.rtl.files.TFiles.html#RewriteFile">RewriteFile</a></strong>(aFilePath:AnsiString):Boolean;</code></td>
 </tr>
 </table>
 <h2 class="description">Descrição</h2>
@@ -1121,7 +1125,7 @@ O função <strong><code>FileSizes</code></strong> retorna em aFileSize a soma d
   <li><p><strong>NOTA</strong> </p>
 
 <ul class="paragraph_spacing">
-  <li><p>Se houver <a class="normal" href="slogsend.html#Error">error</a> retorna o código do <a class="normal" href="slogsend.html#Error">error</a> em <a class="normal" href="mi.rtl.files.TFiles.html#FileSize">FileSize</a></p></li>
+  <li><p>Se houver error retorna o código do error em <a class="normal" href="mi.rtl.files.TFiles.html#FileSize">FileSize</a></p></li>
 </ul>
 
 <p></p></li>
@@ -1469,14 +1473,14 @@ O função <strong><code>FileSizes</code></strong> retorna em aFileSize a soma d
 <table class="detail wide_list">
 <tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
-<td class="itemcode"><span id="CreateDir"></span><code>class Function <strong>CreateDir</strong>(Const NewDir : AnsiString) : Boolean;</code></td>
+<td class="itemcode"><span id="CreateDirectory"></span><code>class Function <strong>CreateDirectory</strong>(Const NewDir : AnsiString) : Boolean;</code></td>
 </tr>
 <tr><td colspan="2">
 <p>
 </p>
 
 <ul class="paragraph_spacing">
-  <li><p>A classe método <code>CreateDir</code> cria diretório passado no parâmetro</p></li>
+  <li><p>A classe método <code>CreateDirectory</code> cria diretório passado pelo parâmetro NewDir</p></li>
 </ul>
 
 <p></p>
@@ -1728,7 +1732,7 @@ A classe function <strong><code>FileFlushBuffers</code></strong> descarrega o bu
   <li><p><strong>NOTA</strong> </p>
 
 <ul class="paragraph_spacing">
-  <li><p>Funciona no linux mais não funciona do linux.</p></li>
+  <li><p>Funciona no windows mais não funciona do linux.</p></li>
 </ul>
 
 <p></p></li>
@@ -1890,7 +1894,7 @@ A classe function <strong><code>FileFlushBuffers</code></strong> descarrega o bu
 <table class="detail wide_list">
 <tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
-<td class="itemcode"><span id="FindFilesAll"></span><code>class procedure <strong>FindFilesAll</strong>(aPath,Mask : AnsiString; FileAttrs : Cardinal;aRelative:Boolean; var List : TStringList);</code></td>
+<td class="itemcode"><span id="FindFilesAll"></span><code>class procedure <strong>FindFilesAll</strong>(aPath,Mask : AnsiString; FileAttrs : Cardinal;aRelative:Boolean; var List : TStringList;aSorted:boolean);</code></td>
 </tr>
 <tr><td colspan="2">
 <p>
@@ -2085,7 +2089,7 @@ Retorna o numero de arquivos abertos no sistema operacional
   <li><p><strong>NOTA</strong> </p>
 
 <ul class="paragraph_spacing">
-  <li><p>TaStaus : Retorna o número do <a class="normal" href="slogsend.html#Error">error</a> se ouver</p></li>
+  <li><p>TaStaus : Retorna o número do error se ouver</p></li>
 </ul>
 
 <p></p></li>
@@ -2227,6 +2231,16 @@ A class function <strong><code>DiskFree</code></strong> retorna o espaço livre 
 </tr>
 <tr><td colspan="2">
 &nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="RewriteFile"></span><code>Class function <strong>RewriteFile</strong>(aFilePath:AnsiString):Boolean;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+A classe método <strong><code>RewriteFile</code></strong> cria as pastas e arquivo em disco se o mesmo não existir.</p>
+</td></tr>
 </table>
 <hr><span class="appinfo"><em>Gerado por <a href="https://pasdoc.github.io/">PasDoc 0.16.0</a>. </em>
 </span>

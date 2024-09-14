@@ -5,7 +5,7 @@ unit mi.rtl.Objects.Methods.StreamBase.Stream.FileStream;
       - Implementa banco um fluxo de dados em disco.
 
     - **VERSÃO**
-      - Alpha - Alpha - 0.9.0
+      - Alpha - 1.0.0
 
     - **HISTÓRICO**
       - Criado por: Paulo Sérgio da Silva Pacheco e-mail: paulosspacheco@@yahoo.com.br
@@ -375,28 +375,27 @@ implementation
   BEGIN
     Handle   := HANDLE_INVALID;
     Inherited Create;
+    if aFName <> ''
+    then begin
+           FileName := ExpandFileName(LowerCase(ExtractFileName(aFName)));
+           if (not FileExists(FileName)) and (aShareMode or StCreate <> 0)
+           then
+           begin
+              if FileCreate(FileName,aFileMode,aShareMode, Handle) = 0
+              then FileClose(handle);
+           end;
 
-    FileName := ExpandFileName(LowerCase(ExtractFileName(aFName)));
+           Handle   := HANDLE_INVALID;
+           FileMode  := aFileMode;
+           ShareMode := aShareMode;
 
-    if (not FileExists(FileName)) and (aShareMode or StCreate <> 0)
-    then
-    begin
-      if FileCreate(FileName,aFileMode,aShareMode, Handle) = 0
-      then FileClose(handle);
-    end;
-
-    Handle   := HANDLE_INVALID;
-
-    FileMode  := aFileMode;
-    ShareMode := aShareMode;
-
-    If FileName <> ''
-    Then Reset()
-    else Error(stCreateError,ParametroInvalido);
-
-    if status = StOk
-    Then RecSize := 1;
-
+           If FileName <> ''
+           Then Reset()
+           else Error(stCreateError,ParametroInvalido);
+           if status = StOk
+           Then RecSize := 1;
+         end
+    else Status := stError;
   END;
 
     constructor TFileStream.Create(aFName: AnsiString; aFileMode: Word);
@@ -414,7 +413,7 @@ implementation
     RecSize  := a_RecSize;
   end;
 
-    destructor TFileStream.Destroy;
+  destructor TFileStream.Destroy;
   BEGIN
     If (Handle  <>  HANDLE_INVALID) Then
     Begin
@@ -528,7 +527,7 @@ implementation
      TaStatus  := ErrorInfo;
   END;
 
-    procedure TFileStream.Open(aFileMode: Word; aShareMode: Cardinal);
+  procedure TFileStream.Open(aFileMode: Word; aShareMode: Cardinal);
   begin
     FileMode := aFileMode;
     ShareMode := aShareMode;
@@ -536,14 +535,15 @@ implementation
   end;
 
   { File not open }
-    procedure TFileStream.Reset;
+  procedure TFileStream.Reset;
    Var Success: Integer;
+     s : String;
   Begin
     If (Handle = HANDLE_INVALID)
     Then Begin
             Status         := 0;
             ErrorInfo      := 0;
-
+            s := FileName;
             //O Modo StCreate cria o arquivo se não existir e abre o arquivo para leitura e escrita
             If (Not FileExists(FileName)) and ((ShareMode and  stCreate) <> 0)
             Then Begin

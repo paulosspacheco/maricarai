@@ -1,0 +1,26 @@
+inherited clientes: Tclientes
+  OnCreate = DataModuleCreate
+  Height = 174
+  HorizontalOffset = 736
+  VerticalOffset = 392
+  Width = 455
+  inherited DmxScroller_Form1: TDmxScroller_Form
+    Alias = 'Cadastro de  clientes'
+    OnAddTemplate = DmxScroller_Form1AddTemplate
+    OnNewRecord = DmxScroller_Form1NewRecord
+    onEnter = DmxScroller_Form1Enter
+    onEnterField = DmxScroller_Form1EnterField
+    TableName = 'clientes'
+    Top = 24
+  end
+  inherited ActionList1: TActionList
+    Left = 80
+    inherited CmRefresh: TAction
+      Caption = 'CmRefresh'
+    end
+  end
+  inherited Mi_SQLQuery1: TMi_SQLQuery
+    Left = 328
+    Top = 32
+  end
+end

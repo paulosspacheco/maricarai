@@ -1,0 +1,261 @@
+object DmxScroller_Form_Lcl_test: TDmxScroller_Form_Lcl_test
+  Left = 426
+  Height = 301
+  Hint = 'Hint form'
+  Top = 214
+  Width = 701
+  HorzScrollBar.Visible = False
+  Caption = 'DmxScroller_Form_Lcl_test'
+  ClientHeight = 301
+  ClientWidth = 701
+  Font.Height = -13
+  Font.Name = 'Arial'
+  Font.Style = [fsItalic]
+  Menu = MainMenu1
+  OnClose = FormClose
+  OnCreate = FormCreate
+  Position = poDesktopCenter
+  LCLVersion = '3.1.0.0'
+  object GroupBox1: TGroupBox
+    Left = 0
+    Height = 145
+    Top = 32
+    Width = 701
+    Anchors = [akTop, akLeft, akRight, akBottom]
+    Caption = 'GroupBox1'
+    ClientHeight = 129
+    ClientWidth = 699
+    TabOrder = 0
+    object Mi_ScrollBox_LCL1: TMi_ScrollBox_LCL
+      Left = 0
+      Height = 129
+      Top = 0
+      Width = 699
+      HorzScrollBar.Smooth = True
+      VertScrollBar.Smooth = True
+      Align = alClient
+      AutoScroll = False
+      BorderStyle = bsNone
+      Font.Name = 'Courier New'
+      ParentFont = False
+      ParentShowHint = False
+      TabOrder = 0
+      TabStop = True
+      UiDmxScroller = DmxScroller_Form_Lcl1
+    end
+  end
+  object DBGrid1: TDBGrid
+    Left = 0
+    Height = 100
+    Top = 201
+    Width = 701
+    Align = alBottom
+    Anchors = [akLeft, akRight]
+    Color = clWindow
+    Columns = <>
+    DataSource = DataSource1
+    TabOrder = 1
+  end
+  object DBNavigator1: TDBNavigator
+    Left = 0
+    Height = 25
+    Top = 176
+    Width = 152
+    Anchors = [akLeft, akRight, akBottom]
+    BevelOuter = bvNone
+    ChildSizing.EnlargeHorizontal = crsScaleChilds
+    ChildSizing.EnlargeVertical = crsScaleChilds
+    ChildSizing.ShrinkHorizontal = crsScaleChilds
+    ChildSizing.ShrinkVertical = crsScaleChilds
+    ChildSizing.Layout = cclLeftToRightThenTopToBottom
+    ChildSizing.ControlsPerLine = 100
+    ClientHeight = 25
+    ClientWidth = 152
+    DataSource = DataSource1
+    Options = []
+    TabOrder = 2
+  end
+  object ToolBar1: TToolBar
+    Left = 0
+    Height = 26
+    Top = 0
+    Width = 701
+    Caption = 'ToolBar1'
+    TabOrder = 3
+    object InputBox1: TButton
+      Left = 570
+      Height = 22
+      Top = 2
+      Width = 88
+      Action = Action_InputBox
+      TabOrder = 0
+    end
+    object Button_ModifyFontsAll_LCL1: TButton
+      Left = 106
+      Height = 22
+      Top = 2
+      Width = 136
+      Action = Action_ModifyFontsAll
+      TabOrder = 1
+    end
+    object AddTemplate1: TButton
+      Left = 242
+      Height = 22
+      Top = 2
+      Width = 104
+      Action = Action_AddTemplate
+      TabOrder = 2
+    end
+    object GetTemplate1: TButton
+      Left = 1
+      Height = 22
+      Top = 2
+      Width = 105
+      Action = Action_GetTemplate
+      TabOrder = 3
+    end
+    object Button_form_ds_test2: TButton
+      Left = 466
+      Height = 22
+      Top = 2
+      Width = 104
+      Action = Action_Form_ds_test2
+      Font.Height = -13
+      Font.Name = 'Arial'
+      Font.Style = [fsItalic]
+      ParentFont = False
+      TabOrder = 4
+    end
+    object Button_form_ds_Test: TButton
+      Left = 346
+      Height = 22
+      Top = 2
+      Width = 120
+      Action = Action_Form_ds_test
+      Font.Height = -13
+      Font.Name = 'DejaVu Sans Mono'
+      ParentFont = False
+      TabOrder = 5
+    end
+  end
+  object DmxScroller_Form_Lcl1: TDmxScroller_Form_Lcl
+    Alias = 'Formulário Exemplo'
+    DataSource = DataSource1
+    OnNewRecord = DmxScroller_Form_Lcl1NewRecord
+    onEnter = DmxScroller_Form_Lcl1Enter
+    onExit = DmxScroller_Form_Lcl1Exit
+    onEnterField = DmxScroller_Form_Lcl1EnterField
+    onExitField = DmxScroller_Form_Lcl1ExitField
+    onGetTemplate = DmxScroller_Form_Lcl1GetTemplate
+    Active = False
+    AlignmentLabels = taLeftJustify
+    ParentLCL = Mi_ScrollBox_LCL1
+    ActionList = ActionList1
+    Left = 360
+    Top = 56
+  end
+  object ActionList1: TActionList
+    Left = 240
+    Top = 112
+    object Novo: TAction
+      Category = 'Cadastros'
+      Caption = '&Novo'
+      OnExecute = NovoExecute
+    end
+    object Pesquisar: TAction
+      Category = 'Cadastros'
+      Caption = '&Pesquisar'
+      OnExecute = PesquisarExecute
+    end
+    object Excluir: TAction
+      Category = 'Cadastros'
+      Caption = '&Excluir'
+      OnExecute = ExcluirExecute
+    end
+    object Gravar: TAction
+      Category = 'Cadastros'
+      Caption = '&Gravar'
+      OnExecute = GravarExecute
+    end
+    object Action_Form_ds_test: TAction
+      Category = 'Test_form_Ds'
+      Caption = 'Form ds test'
+      OnExecute = Action_Form_ds_testExecute
+    end
+    object Action_Form_ds_test2: TAction
+      Category = 'Test_form_Ds'
+      Caption = 'Form ds test2'
+      OnExecute = Action_Form_ds_test2Execute
+    end
+    object Action_GetTemplate: TAction
+      Category = 'Template'
+      Caption = 'GetTemplate'
+      OnExecute = Action_GetTemplateExecute
+    end
+    object Action_AddTemplate: TAction
+      Category = 'Template'
+      Caption = 'AddTemplate'
+      OnExecute = Action_AddTemplateExecute
+    end
+    object Action_ModifyFontsAll: TAction
+      Category = 'Fontes'
+      Caption = 'ModifyFontsAll'
+      OnExecute = Action_ModifyFontsAllExecute
+    end
+    object Action_InputBox: TAction
+      Category = 'InputBox'
+      Caption = 'InputBox'
+      OnExecute = Action_InputBoxExecute
+    end
+    object Action_ShowHtml: TAction
+      Category = 'web'
+      Caption = 'Show Html'
+      OnExecute = Action_ShowHtmlExecute
+    end
+  end
+  object DataSource1: TDataSource
+    Left = 352
+    Top = 112
+  end
+  object MainMenu1: TMainMenu
+    Left = 464
+    Top = 72
+    object MenuItem_Files: TMenuItem
+      Caption = 'Arquivos'
+      object MenuItem1: TMenuItem
+        Action = Action_GetTemplate
+      end
+      object MenuItem2: TMenuItem
+        Action = Action_AddTemplate
+      end
+      object MenuItem4: TMenuItem
+        Action = Action_Form_ds_test
+      end
+      object MenuItem3: TMenuItem
+        Action = Action_Form_ds_test2
+      end
+      object MenuItem6: TMenuItem
+        Action = Action_InputBox
+      end
+    end
+    object MenuItem_fontes: TMenuItem
+      Caption = 'Fontes'
+      object MenuItem5: TMenuItem
+        Action = Action_ModifyFontsAll
+      end
+    end
+    object MenuItem_web: TMenuItem
+      Caption = 'web'
+      object MenuItem7: TMenuItem
+        Action = Action_ShowHtml
+      end
+    end
+  end
+  object Mi_rtl1: TMi_rtl
+    Alias = 'TMi_rtl'
+    Active = False
+    AlignmentLabels = taLeftJustify
+    Left = 95
+    Top = 61
+  end
+end

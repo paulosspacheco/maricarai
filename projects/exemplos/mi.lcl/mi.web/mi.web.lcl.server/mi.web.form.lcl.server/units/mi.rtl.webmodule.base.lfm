@@ -1,0 +1,202 @@
+object Mi_rtl_WebModule_base: TMi_rtl_WebModule_base
+  OnCreate = DataModuleCreate
+  OnDestroy = DataModuleDestroy
+  OldCreateOrder = False
+  Actions = <  
+    item
+      Name = 'CmNewRecord'
+      Default = False
+      OnRequest = CmNewRecordRequest
+      Template.AllowTagParams = False
+    end  
+    item
+      Name = 'CmAddRecord'
+      Default = False
+      OnRequest = CmAddRecordRequest
+      Template.AllowTagParams = False
+    end  
+    item
+      Name = 'Cmlocate'
+      Default = False
+      OnRequest = CmlocateRequest
+      Template.AllowTagParams = False
+    end  
+    item
+      Name = 'CmPutRecord'
+      Default = False
+      OnRequest = CmPutRecordRequest
+      Template.AllowTagParams = False
+    end  
+    item
+      Name = 'CmDeleteRecord'
+      Default = False
+      OnRequest = CmDeleteRecordRequest
+      Template.AllowTagParams = False
+    end  
+    item
+      Name = 'CmGoBof'
+      Default = False
+      OnRequest = CmGoBofRequest
+      Template.AllowTagParams = False
+    end  
+    item
+      Name = 'CmGoEof'
+      Default = False
+      OnRequest = CmGoEofRequest
+      Template.AllowTagParams = False
+    end  
+    item
+      Name = 'CmNextRecord'
+      Default = False
+      OnRequest = CmNextRecordRequest
+      Template.AllowTagParams = False
+    end  
+    item
+      Name = 'CmPrevRecord'
+      Default = False
+      OnRequest = CmPrevRecordRequest
+      Template.AllowTagParams = False
+    end  
+    item
+      Name = 'OnEnterField'
+      Default = False
+      OnRequest = OnEnterFieldRequest
+      Template.AllowTagParams = False
+    end  
+    item
+      Name = 'OnExitField'
+      Default = False
+      OnRequest = OnExitFieldRequest
+      Template.AllowTagParams = False
+    end  
+    item
+      Name = 'OnCalcField'
+      Default = False
+      OnRequest = OnCalcFieldRequest
+      Template.AllowTagParams = False
+    end  
+    item
+      Name = 'OnChangeField'
+      Default = False
+      OnRequest = OnChangeFieldRequest
+      Template.AllowTagParams = False
+    end  
+    item
+      Name = 'OnBeforeInsert'
+      Default = False
+      OnRequest = OnBeforeInsertRequest
+      Template.AllowTagParams = False
+    end  
+    item
+      Name = 'OnAfterInsert'
+      Default = False
+      OnRequest = OnAfterInsert
+      Template.AllowTagParams = False
+    end  
+    item
+      Name = 'OnBeforeUpdate'
+      Default = False
+      OnRequest = OnBeforeUpdateRequest
+      Template.AllowTagParams = False
+    end  
+    item
+      Name = 'OnAfterUpdate'
+      Default = False
+      OnRequest = OnAfterUpdateRequest
+      Template.AllowTagParams = False
+    end  
+    item
+      Name = 'OnBeforeDelete'
+      Default = False
+      Template.AllowTagParams = False
+    end>
+  CreateSession = False
+  CORS.Enabled = False
+  CORS.Options = [coAllowCredentials, coEmptyDomainToOrigin]
+  CORS.AllowedMethods = 'GET, PUT, POST, OPTIONS, HEAD'
+  CORS.AllowedOrigins = '*'
+  CORS.AllowedHeaders = 'x-requested-with, content-type, authorization'
+  CORS.MaxAge = 0
+  Height = 187
+  HorizontalOffset = 618
+  VerticalOffset = 310
+  Width = 329
+  object ActionList1: TActionList
+    Left = 208
+    Top = 16
+    object CmNewRecord: TAction
+      Category = 'dbCRUD'
+      Caption = '&Novo'
+      OnExecute = CmNewRecordExecute
+    end
+    object CmUpdateRecord: TAction
+      Category = 'dbCRUD'
+      Caption = '&Gravar'
+      OnExecute = CmUpdateRecordExecute
+    end
+    object CmLocate: TAction
+      Category = 'dbNavigator'
+      Caption = 'Pesquisar'
+      OnExecute = CmLocateExecute
+    end
+    object CmDeleteRecord: TAction
+      Category = 'dbCRUD'
+      Caption = '&Excluir'
+      OnExecute = CmDeleteRecordExecute
+    end
+    object CmGoBof: TAction
+      Category = 'dbNavigator'
+      Caption = 'Inicio'
+      OnExecute = CmGoBofExecute
+    end
+    object CmNextRecord: TAction
+      Category = 'dbNavigator'
+      Caption = 'Próximo'
+      OnExecute = CmNextRecordExecute
+    end
+    object CmPrevRecord: TAction
+      Category = 'dbNavigator'
+      Caption = 'Anterior'
+      OnExecute = CmPrevRecordExecute
+    end
+    object CmGoEof: TAction
+      Category = 'dbNavigator'
+      Caption = 'Fim'
+      OnExecute = CmGoEofExecute
+    end
+    object CmRefresh: TAction
+      Category = 'dbNavigator'
+      Caption = 'Atualizar'
+      OnExecute = CmRefreshExecute
+    end
+    object CmCancel: TAction
+      Category = 'dbCRUD'
+      Caption = '&Cancelar'
+      OnExecute = CmCancelExecute
+    end
+    object CmBuildFormFromTemplate: TAction
+      Category = 'Create'
+      Caption = 'CmBuildFormFromTemplate'
+      OnExecute = CmBuildFormFromTemplateExecute
+    end
+  end
+  object Mi_SQLQuery1: TMi_SQLQuery
+    FieldDefs = <>
+    Params = <>
+    Macros = <>
+    Left = 136
+    Top = 104
+  end
+  object DmxScroller_Form1: TDmxScroller_Form
+    Alias = 'TDmxScroller_Form'
+    Active = False
+    MiDataPacketFormat_Default = dfBinary
+    AlignmentLabels = taLeftJustify
+    onExitField = DmxScroller_Form1ExitField
+    Mi_ActionList = ActionList1
+    ShouldSaveTemplate = False
+    ClientsTemplatesDataModule = 'mi.rtl.web.module'
+    Left = 64
+    Top = 24
+  end
+end

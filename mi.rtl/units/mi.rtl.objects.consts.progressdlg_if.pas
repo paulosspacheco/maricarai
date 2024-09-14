@@ -1,7 +1,7 @@
 {: - A unit **@name** implementa a classe TProgressDlg_If do pacote mi.rtl.
 
     - **VERSÃO**:
-      - Alpha - Alpha - 0.9.0
+      - Alpha - 1.0.0
 
     - **CÓDIGO FONTE**:
       - @html(<a href="../units/mi.rtl.objects.methods.tprogressdlg_if.pas">mi.rtl.objects.methods.tprogressdlg_if.pas</a>)
@@ -183,14 +183,14 @@ interface
 
 
 
-procedure Register;
+//procedure Register;
 
 implementation
 
-procedure Register;
-begin
-  RegisterComponents('Mi.Rtl', [TProgressDlg_If]);
-end;
+//procedure Register;
+//begin
+//  RegisterComponents('Mi.Rtl', [TProgressDlg_If]);
+//end;
 
 
 //function KeyIsDown(const Key: integer): boolean;

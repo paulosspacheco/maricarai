@@ -1021,11 +1021,11 @@
                          --------------------------
 
   Some situations require special functions that assign control codes.
-  The following functions return DmxIDstr strings (which are String[8]
+  The following functions return TDmxStr_ID strings (which are String[8]
   types) that have the required control codes.
 
 
-      function  InitAppendFields(ATemplate: pstring) : DmxIDstr;
+      function  InitAppendFields(ATemplate: pstring) : TDmxStr_ID;
 
            Initializes a pointer to more Field Templates.  This can
            be used to increase the effective length of your Template.
@@ -1038,7 +1038,7 @@
 
 
       function  InitBlobField(Len: integer;
-                              AccMode,Default: byte) : DmxIDstr;
+                              AccMode,Default: byte) : TDmxStr_ID;
 
            Initializes an unformatted data Field of the given Field
            length.  BLOb Fields take space within the record but will
@@ -1050,7 +1050,7 @@
 
 
       function  InitEnumField(ShowZ: boolean; AccMode,Default: byte;
-           AItems: PSItem) : DmxIDstr;
+           AItems: PSItem) : TDmxStr_ID;
 
            Initializes a tvDMX enumerated Field list.
 
@@ -1063,7 +1063,7 @@
                   + '| ###-#### |rrr,rrr.rrr ';
 
 
-      function  InitTSItemFields (ATemplates : PSItem) : DmxIDstr;
+      function  InitTSItemFields (ATemplates : PSItem) : TDmxStr_ID;
 
            Initializes a chain of TSItem Templates.  This can be used
            to increase the effective length of your Template.

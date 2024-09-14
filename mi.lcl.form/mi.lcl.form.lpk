@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CONFIG>
+  <Package Version="5">
+    <Name Value="mi.lcl.form"/>
+    <Type Value="RunAndDesignTime"/>
+    <Author Value="PauloSSPacheco@yahoo.com; "/>
+    <CompilerOptions>
+      <Version Value="11"/>
+      <SearchPaths>
+        <IncludeFiles Value="units/inc"/>
+        <Libraries Value="bin/$(TargetCPU)/$(TargetOS)/lib"/>
+        <OtherUnitFiles Value="units"/>
+        <UnitOutputDirectory Value="bin/$(TargetCPU)/$(TargetOS)/units"/>
+      </SearchPaths>
+      <Other>
+        <CreateMakefileOnBuild Value="True"/>
+      </Other>
+    </CompilerOptions>
+    <Description Value="# pacote Mi.ui.lcl.form
+## Objetivo do pacote mi.ui.lcl.form
+- Criar formulários LCL baseado em templates semelhantes ao projeto TvDmx de Rand back.
+## Como funciona o número da versão do pacote
+- O número da versão é composta de 4 números sendo xx.yy.zz.ww
+  - xx : Versão PRINCIPAL do projeto e só deve mudar nas seguintes situações:
+    - Quando troca de estado de Alpha para Beta e Final e caso no furo se faça algo que torne o passado incompatível;
+  - yy : Muda a cada vez que é criado algo novo no projeto;
+  - zz : Muda a cada correção de bugs ou otimização.
+  - ww : Número de vezes que o pacote foi construido do zero.
+"/>
+    <License Value="Copyright (c) &lt;2023> &lt;PauloSSPacheco@gmail.com>
+
+A permissão é concedida, gratuitamente, a qualquer pessoa que obtenha uma cópia  deste software e arquivos de documentação associados (o &quot;Software&quot;), para   negociar no Software sem restrições, incluindo, sem limitação, o   direitos de usar, copiar, modificar, mesclar, publicar, distribuir, sublicenciar e/ou vender cópias do Software e permitir que as pessoas a quem o Software é  munidos para o efeito, nas seguintes condições:
+
+   O aviso de direitos autorais acima e este aviso de permissão devem ser incluídos em todas as cópias ou partes substanciais do Software.
+
+   O SOFTWARE É FORNECIDO &quot;COMO ESTÁ&quot;, SEM GARANTIA DE QUALQUER TIPO, EXPRESSA OU IMPLÍCITAS, INCLUINDO, SEM
+   LIMITAÇÃO,  AS GARANTIAS DE COMERCIALIZAÇÃO,  ADEQUAÇÃO PARA UM FIM ESPECÍFICO E NÃO VIOLAÇÃO. 
+   EM NENHUM CASO O  OS AUTORES OU DETENTORES DOS DIREITOS AUTORAIS SERÃO RESPONSÁVEIS POR QUALQUE
+   REIVINDICAÇÃO,  DANOS OU OUTROS  RESPONSABILIDADE, SEJA EM UMA AÇÃO DE CONTRATO, ILÍCITO OU DE OUTRA FORMA,
+   DECORRENTE  DE,  FORA DE OU EM CONEXÃO COM O SOFTWARE OU O USO OU OUTROS NEGÓCIOS  NO SOFTWARE."/>
+    <Version Minor="9" Build="687"/>
+    <Files>
+      <Item>
+        <Filename Value="histórico.pas"/>
+        <Type Value="Include"/>
+      </Item>
+      <Item>
+        <Filename Value="readme.md"/>
+        <Type Value="Text"/>
+      </Item>
+      <Item>
+        <Filename Value="readme.html"/>
+        <Type Value="Text"/>
+      </Item>
+      <Item>
+        <Filename Value="pasdoc.sh"/>
+        <Type Value="Text"/>
+      </Item>
+      <Item>
+        <Filename Value="pasdoc.pds"/>
+        <Type Value="Text"/>
+      </Item>
+      <Item>
+        <Filename Value="pasdoc.md"/>
+        <Type Value="Text"/>
+      </Item>
+      <Item>
+        <Filename Value="units/umi_lcl_scrollbox.pas"/>
+        <HasRegisterProc Value="True"/>
+        <UnitName Value="umi_lcl_scrollbox"/>
+      </Item>
+      <Item>
+        <Filename Value="units/ulabel_mi_lcl.pas"/>
+        <UnitName Value="uLabel_mi_lcl"/>
+      </Item>
+      <Item>
+        <Filename Value="units/ulabel_mi_lcl_icon.lrs"/>
+        <Type Value="LRS"/>
+      </Item>
+      <Item>
+        <Filename Value="units/ubitbtn_mi_lcl.pas"/>
+        <UnitName Value="ubitbtn_mi_lcl"/>
+      </Item>
+      <Item>
+        <Filename Value="units/ubitbtn_mii_lcl_icon.lrs"/>
+        <Type Value="LRS"/>
+      </Item>
+      <Item>
+        <Filename Value="units/umaskedit_mi_lcl.pas"/>
+        <UnitName Value="uMaskedit_mi_lcl"/>
+      </Item>
+      <Item>
+        <Filename Value="units/umaskedit_mi_lcl_icon.lrs"/>
+        <Type Value="LRS"/>
+      </Item>
+      <Item>
+        <Filename Value="units/ubutton_mi_lcl.pas"/>
+        <UnitName Value="uButton_mi_lcl"/>
+      </Item>
+      <Item>
+        <Filename Value="units/ubutton_mi_lcl_icon.lrs"/>
+        <Type Value="LRS"/>
+      </Item>
+      <Item>
+        <Filename Value="units/ucheckbox_mi_lcl.pas"/>
+        <UnitName Value="uCheckbox_mi_lcl"/>
+      </Item>
+      <Item>
+        <Filename Value="units/ucheckbox_mi_lcl_icon.lrs"/>
+        <Type Value="LRS"/>
+      </Item>
+      <Item>
+        <Filename Value="units/uradiogroup_mi_lcl.pas"/>
+        <UnitName Value="uRadiogroup_mi_lcl"/>
+      </Item>
+      <Item>
+        <Filename Value="units/uradiogroup_mi_lcl_icon.lrs"/>
+        <Type Value="LRS"/>
+      </Item>
+      <Item>
+        <Filename Value="units/ucombobox_mi_lcl.pas"/>
+        <UnitName Value="uCombobox_mi_lcl"/>
+      </Item>
+      <Item>
+        <Filename Value="units/ucombobox_mi_lcl_icon.lrs"/>
+        <Type Value="LRS"/>
+      </Item>
+      <Item>
+        <Filename Value="units/udbcheckbox_mi_lcl.pas"/>
+        <UnitName Value="uDbcheckbox_mi_lcl"/>
+      </Item>
+      <Item>
+        <Filename Value="units/udbcheckbox_mi_lcl_icon.lrs"/>
+        <Type Value="LRS"/>
+      </Item>
+      <Item>
+        <Filename Value="units/udbcombobox_mi_lcl.pas"/>
+        <UnitName Value="uDbcombobox_mi_lcl"/>
+      </Item>
+      <Item>
+        <Filename Value="units/udbcombobox_mi_lcl_icon.lrs"/>
+        <Type Value="LRS"/>
+      </Item>
+      <Item>
+        <Filename Value="units/udbedit_mi_lcl.pas"/>
+        <UnitName Value="uDbedit_mi_lcl"/>
+      </Item>
+      <Item>
+        <Filename Value="units/udbedit_mi_lcl_icon.lrs"/>
+        <Type Value="LRS"/>
+      </Item>
+      <Item>
+        <Filename Value="units/udblookupcombobox_mi_lcl.pas"/>
+        <UnitName Value="uDblookupcombobox_mi_lcl"/>
+      </Item>
+      <Item>
+        <Filename Value="units/uDblookupcombobox_mi_lcl_icon.lrs"/>
+        <Type Value="LRS"/>
+      </Item>
+      <Item>
+        <Filename Value="units/udbradiogroup_mi_lcl.pas"/>
+        <UnitName Value="uDbradiogroup_mi_lcl"/>
+      </Item>
+      <Item>
+        <Filename Value="units/udbradiogroup_mi_lcl_icon.lrs"/>
+        <Type Value="LRS"/>
+      </Item>
+      <Item>
+        <Filename Value="units/umi_lcl_ui_form_attributes.pas"/>
+        <UnitName Value="uMi_lcl_ui_Form_attributes"/>
+      </Item>
+      <Item>
+        <Filename Value="units/umi_lcl_ui_form.pas"/>
+        <HasRegisterProc Value="True"/>
+        <UnitName Value="umi_lcl_ui_form"/>
+      </Item>
+      <Item>
+        <Filename Value="units/umi_lcl_ui_ds_form.pas"/>
+        <HasRegisterProc Value="True"/>
+        <UnitName Value="umi_lcl_ui_ds_form"/>
+      </Item>
+      <Item>
+        <Filename Value="units/umi_lcl_msgbox.pas"/>
+        <UnitName Value="umi_lcl_msgbox"/>
+      </Item>
+      <Item>
+        <Filename Value="units/umi_lcl_inputbox.pas"/>
+        <UnitName Value="uMi_lcl_inputbox"/>
+      </Item>
+      <Item>
+        <Filename Value="units/mi.lcl.application.pas"/>
+        <UnitName Value="mi.lcl.application"/>
+      </Item>
+      <Item>
+        <Filename Value="units/mi.template.highlighter.pas"/>
+        <HasRegisterProc Value="True"/>
+        <UnitName Value="Mi.Template.Highlighter"/>
+      </Item>
+    </Files>
+    <RequiredPkgs>
+      <Item>
+        <PackageName Value="mi.rtl"/>
+      </Item>
+    </RequiredPkgs>
+    <UsageOptions>
+      <UnitPath Value="$(PkgOutDir)"/>
+    </UsageOptions>
+    <PublishOptions>
+      <Version Value="2"/>
+      <DestinationDirectory Value="/home/paulosspacheco/v/paulosspacheco/LazarusProjects/maricarai/teste"/>
+      <OpenInFileMan Value="True"/>
+      <UseFileFilters Value="True"/>
+    </PublishOptions>
+  </Package>
+</CONFIG>

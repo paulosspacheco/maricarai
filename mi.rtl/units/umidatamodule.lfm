@@ -1,0 +1,79 @@
+object MiDataModule: TMiDataModule
+  OnCreate = DataModuleCreate
+  OnDestroy = DataModuleDestroy
+  OldCreateOrder = False
+  Height = 150
+  HorizontalOffset = 513
+  VerticalOffset = 298
+  Width = 326
+  object ActionList1: TActionList
+    Left = 232
+    Top = 32
+    object CmNewRecord: TAction
+      Category = 'dbCRUD'
+      Caption = '&Novo'
+      OnExecute = CmNewRecordExecute
+    end
+    object CmLocate: TAction
+      Category = 'dbNavigator'
+      Caption = 'Pesquisar'
+      OnExecute = CmLocateExecute
+    end
+    object CmUpdateRecord: TAction
+      Category = 'dbCRUD'
+      Caption = '&Gravar'
+      OnExecute = CmUpdateRecordExecute
+    end
+    object CmDeleteRecord: TAction
+      Category = 'dbCRUD'
+      Caption = '&Excluir'
+      OnExecute = CmDeleteRecordExecute
+    end
+    object CmGoBof: TAction
+      Category = 'dbNavigator'
+      Caption = 'Inicio'
+      OnExecute = CmGoBofExecute
+    end
+    object CmNextRecord: TAction
+      Category = 'dbNavigator'
+      Caption = 'Próximo'
+      OnExecute = CmNextRecordExecute
+    end
+    object CmPrevRecord: TAction
+      Category = 'dbNavigator'
+      Caption = 'Anterior'
+      OnExecute = CmPrevRecordExecute
+    end
+    object CmGoEof: TAction
+      Category = 'dbNavigator'
+      Caption = 'Fim'
+      OnExecute = CmGoEofExecute
+    end
+    object CmRefresh: TAction
+      Category = 'dbNavigator'
+      Caption = 'Atualizar'
+      OnExecute = CmRefreshExecute
+    end
+    object CmCancel: TAction
+      Category = 'dbCRUD'
+      Caption = '&Cancelar'
+      OnExecute = CmCancelExecute
+    end
+  end
+  object Mi_SQLQuery1: TMi_SQLQuery
+    FieldDefs = <>
+    Params = <>
+    Macros = <>
+    Left = 144
+    Top = 72
+  end
+  object DmxScroller_Form1: TDmxScroller_Form
+    Alias = 'TDmxScroller_Form'
+    MiDataPacketFormat_Default = dfBinary
+    AlignmentLabels = taLeftJustify
+    Mi_ActionList = ActionList1
+    ShouldSaveTemplate = False
+    Left = 52
+    Top = 22
+  end
+end

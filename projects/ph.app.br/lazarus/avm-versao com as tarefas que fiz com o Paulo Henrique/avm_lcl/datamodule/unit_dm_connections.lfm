@@ -1,0 +1,27 @@
+object DM_Connections: TDM_Connections
+  OnDestroy = DataModuleDestroy
+  OldCreateOrder = False
+  Height = 160
+  HorizontalOffset = 616
+  VerticalOffset = 327
+  Width = 414
+  object SQLTransaction1: TSQLTransaction
+    Active = False
+    Database = SQLConnector1
+    Left = 336
+    Top = 32
+  end
+  object SQLConnector1: TSQLConnector
+    Connected = False
+    LoginPrompt = True
+    DatabaseName = 'assistente_virtual'
+    KeepConnection = False
+    Password = 'masterkey'
+    Transaction = SQLTransaction1
+    UserName = 'postgres'
+    HostName = '45.160.125.12'
+    ConnectorType = 'PostgreSQL'
+    Left = 208
+    Top = 32
+  end
+end

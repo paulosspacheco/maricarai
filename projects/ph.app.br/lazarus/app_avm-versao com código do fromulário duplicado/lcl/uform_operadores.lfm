@@ -1,0 +1,113 @@
+inherited form_operadores: Tform_operadores
+  Left = 526
+  Height = 356
+  Top = 219
+  Width = 462
+  Anchors = [akTop]
+  Caption = 'form_operadores'
+  ClientHeight = 356
+  ClientWidth = 462
+  OnClose = FormClose
+  OnCreate = FormCreate
+  OnDestroy = FormDestroy
+  object Mi_LCL_Scrollbox1: TMi_LCL_Scrollbox[0]
+    Left = 8
+    Height = 120
+    Top = 232
+    Width = 448
+    Anchors = [akTop, akLeft, akRight, akBottom]
+    AutoScroll = False
+    Color = clDefault
+    ParentBackground = False
+    ParentColor = False
+    TabOrder = 0
+    TabStop = True
+  end
+  object DBNavigator1: TDBNavigator[1]
+    Left = 16
+    Height = 25
+    Top = 96
+    Width = 241
+    BevelOuter = bvNone
+    ChildSizing.EnlargeHorizontal = crsScaleChilds
+    ChildSizing.EnlargeVertical = crsScaleChilds
+    ChildSizing.ShrinkHorizontal = crsScaleChilds
+    ChildSizing.ShrinkVertical = crsScaleChilds
+    ChildSizing.Layout = cclLeftToRightThenTopToBottom
+    ChildSizing.ControlsPerLine = 100
+    ClientHeight = 25
+    ClientWidth = 241
+    Options = []
+    TabOrder = 1
+    VisibleButtons = [nbFirst, nbPrior, nbNext, nbLast, nbRefresh]
+  end
+  object DBGrid1: TDBGrid[2]
+    Left = 8
+    Height = 104
+    Top = 128
+    Width = 448
+    Anchors = [akTop, akLeft, akRight]
+    Color = clWindow
+    Columns = <>
+    TabOrder = 2
+  end
+  object Panel2: TPanel[3]
+    Left = 16
+    Height = 44
+    Top = 40
+    Width = 864
+    Anchors = [akTop, akLeft, akRight]
+    ClientHeight = 44
+    ClientWidth = 864
+    TabOrder = 3
+    object Label1: TLabel
+      Left = 62
+      Height = 14
+      Top = 15
+      Width = 91
+      Anchors = [akTop, akLeft, akRight]
+      Caption = 'Localizar nome?'
+    end
+    object Edit_Pesquisar: TEdit
+      Left = 177
+      Height = 26
+      Top = 12
+      Width = 152
+      TabOrder = 0
+      OnKeyDown = Edit_PesquisarKeyDown
+    end
+    object Button_Pesquisar: TButton
+      Left = 336
+      Height = 32
+      Top = 8
+      Width = 75
+      Caption = 'Pesquisar'
+      TabOrder = 1
+      OnClick = Button_PesquisarClick
+    end
+  end
+  object Label_title: TLabel[4]
+    Left = 0
+    Height = 24
+    Top = 8
+    Width = 458
+    Alignment = taCenter
+    Anchors = [akTop, akLeft, akRight, akBottom]
+    AutoSize = False
+    Caption = 'Nome da página ativa'
+    Color = clWindowFrame
+    Font.Color = clInfoText
+    Font.Height = -16
+    Font.Name = 'System'
+    Font.Style = [fsItalic]
+    ParentColor = False
+    ParentFont = False
+  end
+  inherited ApplicationEvents1: TApplicationProperties[5]
+  end
+  object Mi_lcl_ui_Form1: TMi_lcl_ui_Form[6]
+    Active = False
+    Left = 208
+    Top = 216
+  end
+end

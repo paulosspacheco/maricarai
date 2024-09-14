@@ -24,16 +24,31 @@
 <p class="declaration">
 <code>type TMiStringList = class(<a class="normal" href="mi.rtl.MiStringlistbase.TStringListBase.html">TStringListBase</a>)</code></p>
 <h2 class="description">Descrição</h2>
-<p>
-A class <strong><code>TMiStringList</code></strong> implementa a navegação como se tivesse navegando em arquivos usando os métodos <a class="normal" href="mi.rtl.MiStringlistbase.TStringListBase.html#NextKey">NextKey</a>,<a class="normal" href="mi.rtl.miStringlist.TMiStringList.html#PrevKey">Prevkey</a> etc...
+<div class="nodescription">No description available, ancestor TStringListBase description follows</div><p>
+A a <strong><code>TStringListBase</code></strong>* é usada para indexar uma lista de objetos ondes os mesmos são excluídos ao destruir a lista
 
 <p></p>
 
 <ul class="paragraph_spacing">
-  <li><p><strong>NOTA</strong> </p>
+  <li><p><strong>POR QUE?</strong> </p>
 
 <ul class="paragraph_spacing">
-  <li><p>Usando quando quero manter uma lista de registros ordenada.</p></li>
+  <li><p>Para converter caracteres com acento para caracteres sem acento e seu equivalente em html. </p>
+
+<ul class="paragraph_spacing">
+  <li><p>class Function String_Asc_GUI_to_Asc_Ingles(Const S: String): String;</p></li>
+  <li><p>class Function String_Asc_GUI_to_Asc_HTML(Const S: String): String;</p></li>
+</ul>
+
+<p></p></li>
+  <li><p>Para converter a lista de strings em lista <a class="normal" href="mi_rtl_ui_Dmxscroller.html#PSItem">PSItem</a>; </p>
+
+<ul class="paragraph_spacing">
+  <li><p>function <a class="normal" href="mi.rtl.MiStringlistbase.TStringListBase.html#PListSItem">TStringListBase.PListSItem</a>: TConsts.PSItem;</p></li>
+  <li><p>function <a class="normal" href="mi.rtl.MiStringlistbase.TStringListBase.html#CloneSItems">TStringListBase.CloneSItems</a>(const Items: TConsts.PSItem): TConsts.PSItem;</p></li>
+</ul>
+
+<p></p></li>
 </ul>
 
 <p></p></li>
@@ -51,7 +66,7 @@ A class <strong><code>TMiStringList</code></strong> implementa a navegação com
 <table class="summary wide_list">
 <tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
-<td class="itemcode"><code>Function <strong><a href="mi.rtl.miStringlist.TMiStringList.html#AddKey">AddKey</a></strong>(WKey:String;wNr:Longint):Boolean;</code></td>
+<td class="itemcode"><code>Function <strong><a href="mi.rtl.miStringlist.TMiStringList.html#AddKey">AddKey</a></strong>(WKey:String; wNr:TObject):Boolean; overload;</code></td>
 </tr>
 <tr class="list2">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
@@ -75,7 +90,7 @@ A class <strong><code>TMiStringList</code></strong> implementa a navegação com
 <table class="detail wide_list">
 <tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
-<td class="itemcode"><span id="AddKey"></span><code>Function <strong>AddKey</strong>(WKey:String;wNr:Longint):Boolean;</code></td>
+<td class="itemcode"><span id="AddKey"></span><code>Function <strong>AddKey</strong>(WKey:String; wNr:TObject):Boolean; overload;</code></td>
 </tr>
 <tr><td colspan="2">
 &nbsp;</td></tr>

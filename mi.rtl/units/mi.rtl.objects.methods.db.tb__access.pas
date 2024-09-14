@@ -405,13 +405,16 @@ class procedure TTb__access. Init_IxF(Const      Indice             : Byte;
       ','       : if LArq = Indice then
                   begin
                     with EnderecoReg[CArq] do
-                      val(St,SegmentoReg,Err);
+                      //val(St,SegmentoReg,Err);
+                      SegmentoReg := StrToInt(St);
+
                     St := '';
                   end;
       ';'       : if LArq = Indice then
                   begin
                     with EnderecoReg[CArq] do
-                      val(St,OffsetReg,Err);
+                      //val(St,OffsetReg,Err);
+                      OffsetReg := StrToInt(St);
                     st := '';
                     inc(CArq);
                   end;
@@ -419,7 +422,9 @@ class procedure TTb__access. Init_IxF(Const      Indice             : Byte;
       '.'       : if LArq = Indice then
                   begin
                     with EnderecoReg[CArq] do
-                      val(St,OffsetReg,Err);
+                      //val(St,OffsetReg,Err);
+                      OffsetReg := StrToInt(St);
+
                     with IxF do
                     begin
                       TamChave := 0;
@@ -605,22 +610,26 @@ begin
     if OkCreate and (TaStatus<>0) And (TaStatus in [ArquivoNaoEncontrado2,ArquivoNaoEncontrado18]) then
     begin
       If FileShared(DatF.NomeArq)
-      Then with Mi_MsgBox do Begin
-             If MessageBox('O arquivo '+DatF.nomeArq+' não existe.'+^M+
-                           ^M+
-                           'Cria o arquivo agora?'
-                           ,mtConfirmation,mbYesNoCancel,mbYes) = MrYes
-             Then Begin
+      Then begin
+             if Assigned(MI_MsgBox)
+             then with Mi_MsgBox do
+                  Begin
+                     If MessageBox('O arquivo '+DatF.nomeArq+' não existe.'+^M+
+                                   ^M+
+                                   'Cria o arquivo agora?'
+                                   ,mtConfirmation,mbYesNoCancel,mbYes) = MrYes
+                     Then Begin
 
-                    TaStatus := MakeFile(DatF);
-                    If TaStatus = 0
-                    Then CloseFile(DatF);
+                            TaStatus := MakeFile(DatF);
+                            If TaStatus = 0
+                            Then CloseFile(DatF);
 
-                    If TaStatus = 0
-                    Then TaStatus := OpenFile(DatF);
-                  End
-             Else TaStatus := ArquivoNaoEncontrado2;
-           End;
+                            If TaStatus = 0
+                            Then TaStatus := OpenFile(DatF);
+                          End
+                     Else TaStatus := ArquivoNaoEncontrado2;
+                   End;
+         end;
      End; {Sucesso na operação}
 
   Finally
@@ -743,27 +752,33 @@ BEGIN
     OpenArq(Arqdados,Buff);
     IF NOT ok THEN
       IF NOT FileShared(Arqdados.NomeArq)
-      THEN with Mi_MsgBox do
-        MessageBox(Format('Não pode usar o arquivo %s. ( USO EXCLUSIVO )',[Arqdados.nomeArq]),MtError, mbOKButton,mbok);
+      THEN if Assigned(MI_MsgBox)
+           then with Mi_MsgBox do
+                 MessageBox(Format('Não pode usar o arquivo %s. ( USO EXCLUSIVO )',[Arqdados.nomeArq]),MtError, mbOKButton,mbok);
   END
   ELSE
   BEGIN
-    IF FileShared(Arqdados.NomeArq) THEN
-    with Mi_MsgBox do BEGIN
-      If MessageBox(Format('O arquivo %s Não existe.'+^M+
-                    ^M+
-                    'Cria o arquivo agora?',[ArqDados.nomeArq])
-                    ,mtConfirmation,mbYesNoCancel,mbYes)
-      = MrYes Then
-        MakeArq(arqdados,Buff)
-      ELSE
-       Ok := False;
-    END
-    ELSE with Mi_MsgBox do
+    IF FileShared(Arqdados.NomeArq)
+    THEN begin
+           if Assigned(MI_MsgBox) then
+           with Mi_MsgBox do
+           BEGIN
+              If MessageBox(Format('O arquivo %s Não existe.'+^M+
+                            ^M+
+                            'Cria o arquivo agora?',[ArqDados.nomeArq])
+                            ,mtConfirmation,mbYesNoCancel,mbYes)
+              = MrYes Then
+                MakeArq(arqdados,Buff)
+              ELSE
+               Ok := False;
+            END
+         end
+    ELSE if Assigned(MI_MsgBox) then
+         with Mi_MsgBox do
          MessageBox(format('Não pode usar o arquivo %s. ( USO EXCLUSIVO )',[Arqdados.nomeArq])
                     ,mtError, mbOKButton,mbOk);
-
   END;
+
 END;
 
 class procedure TTb__Access.CloseArqSemHeader(var DatF: TMI_DataFile);
@@ -900,6 +915,7 @@ Begin
 // Se nao o fizer o commit gerar um erro de GPF.
     aOkTransaction := SetOkTransaction(False);
 
+    if Assigned(MI_MsgBox) then
     with Mi_MsgBox do
       MessageBox('O tamanho do registro do arquivo '+FName+' maior que a Versão em disco.'+^M+
                  ^M+
@@ -1017,7 +1033,7 @@ Var
 Begin
   Try
 //    {$IFDEF TaDebug}Application.Push_MsgErro('Tb_Access.TraveArq',ListaDeChamadas);{$ENDIF}
-    If (Not FileModeDenyALL) and (not ok_Set_Transaction) Then
+    If (Not FileModeDenyALL) and (not get_ok_Set_Transaction) Then
     Begin
       ok := TraveHeader(DatF.Df);
       If Ok Then
@@ -1037,7 +1053,7 @@ Var
 Begin
   Try
 //    {$IFDEF TaDebug}Application.Push_MsgErro('Tb_Access.DestraveArq',ListaDeChamadas);{$ENDIF}
-    If (Not FileModeDenyALL) and (not ok_Set_Transaction) Then
+    If (Not FileModeDenyALL) and (not get_ok_Set_Transaction) Then
     Begin
       Ok := DestraveHeader(DatF.DF);
       If Ok Then
@@ -1078,6 +1094,8 @@ Begin
             If Not FileShared(aNomeRedireciona) Then
             Begin
               Set_FileModeDenyALL(WFileModeDenyALL);
+
+              if Assigned(MI_MsgBox) then
               with Mi_MsgBox do
                 MessageBox('Arquivo de relatório está sendo usado em outro processo.',
                             mtWarning, mbOKButton,mbOk);
@@ -1092,6 +1110,8 @@ Begin
             If Rewrite(lst,fileMode) <> 0 Then
             Begin
               Set_FileModeDenyALL(WFileModeDenyALL);
+
+              if Assigned(MI_MsgBox) then
               with Mi_MsgBox do
                 MessageBox('Erro ao criar arquivo de impressão: '+aNomeRedireciona,MtError, mbOKButton,mbOk);
               Exit;
@@ -1146,7 +1166,7 @@ Begin
      Retorno:= 1
    Else
    Begin
-     Val(Wchave,Retorno,Err);
+     system.Val(Wchave,Retorno,Err);
      If Err <> 0 Then
        Retorno:= 1
      Else
@@ -1179,7 +1199,7 @@ Begin
   Begin
 //    SetProgress1Passo(AProgress1Passo,I);
     _Progress1Passo.IncPosition();
-    Str(i,NomeArq);
+    system.Str(i,NomeArq);
     NomeArq := NomeArq+ '.$$$';
     NomeArq := ExpandFileName(LowerCase(ExtractFileName(NomeArq)));
     AssignFile(Arquivo[i],NomeArq);
@@ -1270,15 +1290,16 @@ class function TTb__Access.CreateLst:Boolean;
 begin
   Try
     CreateLst := False;
-    if Not DirectoryExists(Application.ParamExecucao.NomeDeArquivosGenericos.DirTemp) Then
-      ok := CreateDir(Application.ParamExecucao.NomeDeArquivosGenericos.DirTemp);
+    if Not DirectoryExists(Application.ParamExecucao.EnvironmentVariables.DirTemp) Then
+      ok := CreateDir(Application.ParamExecucao.EnvironmentVariables.DirTemp);
 
     If Not Ok Then
-    with Mi_MsgBox do
-      Begin
-        MessageBox(^C+'não é possivel criar diretório para os relatórios.',mtError, mbOKButton,mbOk);
-        Exit;
-      End;
+      if Assigned(MI_MsgBox) then
+        with Mi_MsgBox do
+        Begin
+          MessageBox(^C+'não é possivel criar diretório para os relatórios.',mtError, mbOKButton,mbOk);
+          Exit;
+        End;
 
     If FileNameTemp_Ext(NomeRedireciona,'Prn') Then
     Begin
@@ -1558,7 +1579,7 @@ class function TTb__Access.FindKey(var IxF : TMI_IndexFile;
                                    var ProcDatRef : Longint;
                                        ProcKey    : TaKeyStr):Boolean ;
 Begin
-  ProcKey := FMaiuscula(ProcKey);
+  ProcKey := UpperCase(ProcKey);
   FindKey(IxF.Ix,ProcDatRef,ProcKey);
   result := ok;
 End;
@@ -1568,7 +1589,7 @@ class function TTb__Access. AdicioneChave(var IxF : TMI_IndexFile ;
                        Const ProcKey    : TaKeyStr):Boolean;
 begin
 //  {$IFDEF TaDebug}Application.Push_MsgErro('Tb__Access.AdicioneChave',ListaDeChamadas);{$ENDIF}
-  AddKey(IxF.Ix,ProcDatRef,FMaiuscula(ProcKey));
+  AddKey(IxF.Ix,ProcDatRef,UpperCase(ProcKey));
   If IxF.OkMsgDuplicidade Then
   Begin
     If (Not ok)
@@ -1732,7 +1753,7 @@ end;
 
 class function TTb__Access.AddKey(var IxF : TMI_IndexFile ;Const  ProcDatRef : Longint; Const ProcKey:TaKeyStr ):Boolean;
 begin
-  AddKey(IxF.Ix,ProcDatRef,ProcKey);//{FMaiuscula(ProcKey));
+  AddKey(IxF.Ix,ProcDatRef,ProcKey);//{UpperCase(ProcKey));
   If IxF.OkMsgDuplicidade Then
   Begin
     Result:= ok;
@@ -1754,7 +1775,7 @@ class function TTb__Access.DeleteKey(var IxF : TMI_IndexFile ; Const ProcDatRef 
     wProcKey:TaKeyStr;
 begin
   wProcKey  := ProcKey;
-  DeleteKey(IxF.Ix,ProcDatRef,taKeyStr(wProcKey));//FMaiuscula(ProcKey));
+  DeleteKey(IxF.Ix,ProcDatRef,taKeyStr(wProcKey));//UpperCase(ProcKey));
   Result := Ok;
 
   If Not ok
@@ -2147,30 +2168,50 @@ Begin
 End;
 
 
-{Var
-  ExitProcAnterior : Pointer;}
+
+Var
+  okCreate : Boolean = false;
 class procedure TTb__Access.Create;
 Begin
+  if not okCreate
+  Then begin
+         okCreate       := true;
+         EndOpenFiles   := Nil;
+         EndCloseFiles  := Nil;
+         EndClearAll    := @TTb__Access.CloseFilesOpens;
+         Set_FileModeDenyALL(False);
+         CreateTAccess;
+       end;
+End;
+
+{procedure TTb__Access. InicializaTb__Access;
+Begin
+  CreateTAccess;
   EndOpenFiles   := Nil;
   EndCloseFiles  := Nil;
-  EndClearAll    := @TTb__Access.CloseFilesOpens;
-  Set_FileModeDenyALL(False);
-End;
+  EndClearAll    := CloseFilesOpens;
+  FuncTurboError := TurboError;
+End;}
 
 class procedure TTb__Access.Destroy;
 Begin
-  DestroyLst;
-  If @EndClearAll <> Nil Then
-  Begin
-    EndClearAll;
-    EndClearAll := Nil;
-  End;
-  If @EndCloseFiles <> Nil Then
-  Begin
-    EndCloseFiles;
-    EndOpenFiles  := nil;
-    EndCloseFiles := nil;
-  End;
+  if okCreate
+  Then begin
+         DestroyLst;
+         If @EndClearAll <> Nil Then
+         Begin
+           EndClearAll;
+           EndClearAll := Nil;
+         End;
+         If @EndCloseFiles <> Nil Then
+         Begin
+           EndCloseFiles;
+           EndOpenFiles  := nil;
+           EndCloseFiles := nil;
+         End;
+         okCreate := false;
+         DestroyTAccess;
+       end;
 End;
 
 Initialization

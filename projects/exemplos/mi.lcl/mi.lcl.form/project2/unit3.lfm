@@ -1,0 +1,14 @@
+inherited form_table1: Tform_table1
+  Caption = 'Form teste'
+  inherited PageControl1: TPageControl
+    inherited Lista: TTabSheet
+      ClientHeight = 355
+      inherited DBNavigator1: TDBNavigator
+        Hints.Strings = (        )
+      end
+    end
+    inherited Cadastra: TTabSheet
+      ClientHeight = 355
+    end
+  end
+end

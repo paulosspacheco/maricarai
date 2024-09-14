@@ -1,0 +1,81 @@
+inherited operadores: Toperadores
+  OnCreate = DataModuleCreate
+  OnDestroy = DataModuleDestroy
+  Height = 174
+  HorizontalOffset = 549
+  VerticalOffset = 275
+  Width = 455
+  inherited DmxScroller_Form1: TDmxScroller_Form
+    Alias = 'Cadastro de  operadores'
+    OnAddTemplate = DmxScroller_Form1AddTemplate
+    onEnter = DmxScroller_Form1Enter
+    onEnterField = DmxScroller_Form1EnterField
+    TableName = 'operadores'
+    Top = 24
+  end
+  inherited ActionList1: TActionList
+    Left = 80
+    inherited CmNewRecord: TAction
+      OnExecute = CmNewRecordExecute
+    end
+    inherited CmLocate: TAction
+      OnExecute = CmLocateExecute
+    end
+    inherited CmUpdateRecord: TAction
+      OnExecute = CmUpdateRecordExecute
+    end
+    inherited CmDeleteRecord: TAction
+      OnExecute = CmDeleteRecordExecute
+    end
+    inherited CmGoBof: TAction
+      OnExecute = CmGoBofExecute
+    end
+    inherited CmNextRecord: TAction
+      OnExecute = CmNextRecordExecute
+    end
+    inherited CmPrevRecord: TAction
+      OnExecute = CmPrevRecordExecute
+    end
+    inherited CmGoEof: TAction
+      OnExecute = CmGoEofExecute
+    end
+    inherited CmRefresh: TAction
+      Caption = 'CmRefresh'
+      OnExecute = CmRefreshExecute
+    end
+  end
+  inherited Mi_SQLQuery1: TMi_SQLQuery
+    FieldDefs = <    
+      item
+        Name = 'id'
+        DataType = ftInteger
+        Precision = -1
+      end    
+      item
+        Name = 'nome'
+        DataType = ftString
+        Precision = -1
+        Size = 50
+      end    
+      item
+        Name = 'login'
+        DataType = ftString
+        Precision = -1
+        Size = 50
+      end    
+      item
+        Name = 'password'
+        DataType = ftString
+        Precision = -1
+        Size = 50
+      end    
+      item
+        Name = 'telefone'
+        DataType = ftString
+        Precision = -1
+        Size = 20
+      end>
+    Left = 344
+    Top = 80
+  end
+end

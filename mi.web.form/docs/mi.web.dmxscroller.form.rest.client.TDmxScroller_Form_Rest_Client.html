@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<title>mi.web.dmxscroller.form.rest.client: Classe TDmxScroller_Form_Rest_Client</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="generator" content="PasDoc 0.16.0">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<link rel="stylesheet" type="text/css" href="tipuesearch/tipuesearch.css">
+
+<link rel="StyleSheet" type="text/css" href="pasdoc.css">
+</head>
+<body>
+<div class="container"><div class="navigation">
+<ul><li><a href="AllUnits.html">Units</a></li><li><a href="ClassHierarchy.html">Hierarquia de Classes</a></li><li><a href="AllClasses.html">Classes, Interfaces, Objetos e Registros</a></li><li><a href="AllTypes.html">Tipos</a></li><li><a href="AllVariables.html">Variáveis</a></li><li><a href="AllConstants.html">Constantes</a></li><li><a href="AllFunctions.html">Funções e Procedimentos</a></li><li><a href="AllIdentifiers.html">Identificadores</a></li><li><form class="search-form" action="tipue_results.html"><div class="search-input"><input type="text" name="q" id="tipue_search_input" pattern=".{3,}" title="At least 3 characters" required><div class="search-button"><input type="button" id="tipue_search_button" onclick="this.form.submit();"></div></div></form>
+<div style="clear: both"></div>
+</li></ul></div><div class="content">
+<span id="TDmxScroller_Form_Rest_Client"></span><h1 class="cio">Classe TDmxScroller_Form_Rest_Client</h1>
+<div class="sections">
+<div class="one_section"><a class="section" href="#PasDoc-Description">Descrição</a></div><div class="one_section"><a class="section" href="#PasDoc-Hierarchy">Hierarquia</a></div><div class="one_section">Campos</div><div class="one_section"><a class="section" href="#PasDoc-Methods">Métodos</a></div><div class="one_section"><a class="section" href="#PasDoc-Properties">Propriedades</a></div></div>
+<span id="PasDoc-Description"></span><h2 class="unit">Unit</h2>
+<p class="unitlink">
+<a href="mi.web.dmxscroller.form.rest.client.html">mi.web.dmxscroller.form.rest.client</a></p>
+<h2 class="declaration">Declaração</h2>
+<p class="declaration">
+<code>type TDmxScroller_Form_Rest_Client = class(TDmxScroller_Form)</code></p>
+<h2 class="description">Descrição</h2>
+<span id="PasDoc-Hierarchy"></span><h2 class="hierarchy">Hierarquia</h2>
+<ul class="hierarchy"><li class="ancestor">TDmxScroller_Form</li>
+<li class="thisitem">TDmxScroller_Form_Rest_Client</li></ul><h2 class="overview">Visão Geral</h2>
+<span id="PasDoc-Methods"></span><h3 class="summary">Métodos</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>Procedure <strong><a href="mi.web.dmxscroller.form.rest.client.TDmxScroller_Form_Rest_Client.html#DoOnNewRecord">DoOnNewRecord</a></strong>; Override;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>Function <strong><a href="mi.web.dmxscroller.form.rest.client.TDmxScroller_Form_Rest_Client.html#AddRec">AddRec</a></strong>:Boolean; Override;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>Function <strong><a href="mi.web.dmxscroller.form.rest.client.TDmxScroller_Form_Rest_Client.html#PutRec">PutRec</a></strong>:Boolean; Override;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="mi.web.dmxscroller.form.rest.client.TDmxScroller_Form_Rest_Client.html#Locate">Locate</a></strong>(const KeyFields: string; const KeyValues: Variant; Options: TLocateOptions) : boolean; override; overload;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>Function <strong><a href="mi.web.dmxscroller.form.rest.client.TDmxScroller_Form_Rest_Client.html#DeleteRec">DeleteRec</a></strong>:Boolean; Override;</code></td>
+</tr>
+</table>
+<span id="PasDoc-Properties"></span><h3 class="summary">Propriedades</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><code>property <strong><a href="mi.web.dmxscroller.form.rest.client.TDmxScroller_Form_Rest_Client.html#Mi_FpHttpClient">Mi_FpHttpClient</a></strong>: TMi_FpHttpClient Read _Mi_FpHttpClient write _Mi_FpHttpClient;</code></td>
+</tr>
+</table>
+<h2 class="description">Descrição</h2>
+<h3 class="detail">Métodos</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="DoOnNewRecord"></span><code>Procedure <strong>DoOnNewRecord</strong>; Override;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+O método <strong><code>DoOnNewRecord</code></strong> é responsável por criar um novo registro através de uma requisição HTTP GET, utilizando o cliente <code><a class="normal" href="mi.web.dmxscroller.form.rest.client.TDmxScroller_Form_Rest_Client.html#Mi_FpHttpClient">Mi_FpHttpClient</a></code>. Caso a requisição seja bem-sucedida, o novo registro é processado e atribuído ao formulário para edição.
+
+<p></p>
+
+<ul class="paragraph_spacing">
+  <li><p><strong>Fluxo de Execução</strong> </p>
+
+<ol class="paragraph_spacing">
+  <li value="1"><p>Envia uma requisição HTTP do tipo GET com o comando <code>CmNewRecord</code>.</p></li>
+  <li value="2"><p>Se a resposta for recebida (<code>Response</code> for atribuído), chama o método herdado <code><code>DoOnNewRecord</code></code> e armazena a resposta em <code>JSONObject</code>.</p></li>
+  <li value="3"><p>Libera a memória de <code>Response</code> no final, se alocado.</p></li>
+</ol>
+
+<p></p></li>
+  <li><p><strong>Parâmetros Locais</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p><code>Response: TJSONObject</code>: -Objeto JSON que contém a resposta da requisição HTTP.</p></li>
+  <li><p><strong>Exceções</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Caso o envio da requisição ou o processamento do JSON falhe, uma exceção pode ser levantada pelo método <code>SendRequest</code> ou pela manipulação de objetos.</p></li>
+</ul>
+
+<p></p></li>
+  <li><p><strong>Ver Também</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p><code>Mi_FpHttpClient.SendRequest</code></p></li>
+  <li><p><code>inherited <code>DoOnNewRecord</code></code></p></li>
+</ul>
+
+<p></p></li>
+  <li><p><strong>Exemplo de uso</strong>
+
+<p></p>
+
+<pre class="longcode">
+
+<span class="pascal_keyword">var</span>
+  RestClient: TDmxScroller_Form_Rest_Client;
+<span class="pascal_keyword">begin</span>
+  <span class="pascal_comment">// Inicializando o cliente REST</span>
+  RestClient := TDmxScroller_Form_Rest_Client.Create(<span class="pascal_keyword">nil</span>);
+  <span class="pascal_keyword">try</span>
+    <span class="pascal_comment">// Chama o método para criar um novo registro</span>
+    RestClient.DoOnNewRecord;
+
+    <span class="pascal_comment">// Agora o JSON com o novo registro estará disponível para edição</span>
+    <span class="pascal_comment">// Processar o JSONObject conforme necessário</span>
+    <span class="pascal_keyword">if</span> Assigned(RestClient.JSONObject) <span class="pascal_keyword">then</span>
+      ShowMessage(<span class="pascal_string">'Novo registro criado com sucesso.'</span>);
+
+  <span class="pascal_keyword">finally</span>
+    RestClient.Free;
+  <span class="pascal_keyword">end</span>;
+<span class="pascal_keyword">end</span>;</pre>
+
+<p></p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="AddRec"></span><code>Function <strong>AddRec</strong>:Boolean; Override;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+O método <strong><code>AddRec</code></strong> adiciona o buffer DataSource.dataSet no arquivo.
+
+<p></p>
+
+<ul class="paragraph_spacing">
+  <li><p><strong>Descrição</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>O método <code><code>AddRec</code></code> tem a função de adicionar um novo registro à base de dados remota, utilizando a funcionalidade REST do cliente HTTP. Se um registro estiver selecionado e o estado for de adição (<code>Appending</code>), ele envia os dados do registro para o servidor via requisição HTTP POST. Após a confirmação da resposta, o método atualiza a chave primária do registro e realiza uma busca pelo novo registro, utilizando as chaves atualizadas.</p></li>
+</ul>
+
+<p></p></li>
+  <li><p><strong>Parâmetros Locais</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p><strong>Params</strong>: <code>TJSONObject</code> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Objeto JSON contendo os parâmetros da requisição.</p></li>
+</ul>
+
+<p></p></li>
+  <li><p><strong>KeyFields</strong>: <code>string</code> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Campos-chave do registro.</p></li>
+</ul>
+
+<p></p></li>
+  <li><p><strong>KeyValues</strong>: <code>Variant</code> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Valores dos campos-chave.</p></li>
+</ul>
+
+<p></p></li>
+  <li><p><strong>Response</strong>: <code>TJSONObject</code> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Objeto JSON contendo a resposta da requisição HTTP.</p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p></li>
+  <li><p><strong>Fluxo de Execução</strong> </p>
+
+<ol class="paragraph_spacing">
+  <li value="1"><p>Verifica se há um registro selecionado com <code>RecordSelected</code>.</p></li>
+  <li value="2"><p>Caso o registro esteja sendo adicionado (<code>Appending</code>), realiza a adição chamando <code>Inherited <code>AddRec</code></code>.</p></li>
+  <li value="3"><p>Envia a requisição HTTP POST para o servidor com a ação <code>CmUpdateRecord</code> e os dados do registro.</p></li>
+  <li value="4"><p>Se a resposta tiver um código diferente de <code>200</code> ou <code>201</code>, o método falha e chama <code><a class="normal" href="mi.web.dmxscroller.form.rest.client.TDmxScroller_Form_Rest_Client.html#DoOnNewRecord">DoOnNewRecord</a></code>.</p></li>
+  <li value="5"><p>Ao finalizar, verifica se houve uma resposta do servidor e processa os campos-chave atualizados, chamando <code>ParseServerResponse</code>.</p></li>
+  <li value="6"><p>Caso o registro seja adicionado com sucesso, gera os parâmetros de busca e envia a requisição HTTP GET para localizar o registro recém-adicionado.</p></li>
+  <li value="7"><p>O resultado da busca é armazenado em <code>JSONObject</code> e a atualização do registro é concluída com <code>Inherited <a class="normal" href="mi.web.dmxscroller.form.rest.client.TDmxScroller_Form_Rest_Client.html#PutRec">PutRec</a></code>.</p></li>
+</ol>
+
+<p></p></li>
+  <li><p><strong>Exceções</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p><strong>TException</strong>: Lançada caso nenhum registro tenha sido selecionado.</p></li>
+</ul>
+
+<p></p></li>
+  <li><p><strong>Ver Também</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p><code>Mi_FpHttpClient.SendRequest</code>: Método utilizado para enviar requisições HTTP.</p></li>
+  <li><p><code>ParseServerResponse</code>: Método responsável por processar a resposta do servidor e atualizar os campos-chave.</p></li>
+  <li><p><code>Inherited <code>AddRec</code></code>: Método herdado responsável por adicionar um registro localmente.</p></li>
+  <li><p><code>Inherited UpdateRec</code>: Método herdado responsável por atualizar um registro localmente.</p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="PutRec"></span><code>Function <strong>PutRec</strong>:Boolean; Override;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+O método <strong><code>PutRec</code></strong> tem a função de atualizar um registro existente na base de dados remota usando uma requisição HTTP PUT. Caso o registro esteja selecionado, ele utiliza as chaves do registro para localizar e atualizar o registro no servidor. Se as chaves não estiverem disponíveis, o processo de atualização é interrompido e uma exceção é lançada.
+
+<p></p>
+
+<ul class="paragraph_spacing">
+  <li><p><strong>Parâmetros Locais</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p><strong>Response</strong>: <code>TJSONObject</code> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Armazena a resposta da requisição HTTP.</p></li>
+</ul>
+
+<p></p></li>
+  <li><p><strong>Params</strong>: <code>TJSONObject</code> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Contém os parâmetros para localizar o registro no servidor.</p></li>
+</ul>
+
+<p></p></li>
+  <li><p><strong>wJSONObject</strong>: <code>TJSONObject</code> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Armazena uma cópia do objeto JSON atual.</p></li>
+</ul>
+
+<p></p></li>
+  <li><p><strong>KeyFields</strong>: <code>string</code> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Campos-chave utilizados para identificar o registro.</p></li>
+</ul>
+
+<p></p></li>
+  <li><p><strong>KeyValues</strong>: <code>Variant</code> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Valores dos campos-chave do registro.</p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p></li>
+  <li><p><strong>Fluxo de Execução</strong> </p>
+
+<ol class="paragraph_spacing">
+  <li value="1"><p>Verifica se um registro foi selecionado com <code>RecordSelected</code>.</p></li>
+  <li value="2"><p>Se o registro estiver selecionado, chama <code>Inherited <code>PutRec</code></code> para realizar a atualização local.</p></li>
+  <li value="3"><p>Obtém os campos-chave do registro através do método <code>getFieldsKeys</code>.</p></li>
+  <li value="4"><p>Se as chaves estiverem presentes, monta os parâmetros de localização com <code>LocateParamsToJson</code> e envia uma requisição HTTP PUT com a ação <code>CmUpdateRecord</code>.</p></li>
+  <li value="5"><p>Verifica o código de status da resposta. Se não for <code>200</code>, restaura o valor original de <code>JSONObject</code> e interrompe a operação.</p></li>
+  <li value="6"><p>Se não houver campos-chave, uma exceção é lançada informando que não é possível atualizar o registro no servidor sem chaves de pesquisa.</p></li>
+  <li value="7"><p>Caso nenhum registro tenha sido selecionado, lança uma exceção informando que o registro não foi selecionado.</p></li>
+</ol>
+
+<p></p></li>
+  <li><p><strong>Exceções</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p><strong>TException</strong>: </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Lançada nos seguintes cenários: </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Se não houver registro selecionado.</p></li>
+  <li><p>Se não houver campos-chave disponíveis para realizar a atualização no servidor.</p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p></li>
+  <li><p><strong>Ver Também</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p><code>Mi_FpHttpClient.SendRequest</code>: Método utilizado para enviar requisições HTTP.</p></li>
+  <li><p><code>LocateParamsToJson</code>: Método responsável por criar os parâmetros de localização do registro.</p></li>
+  <li><p><code>Inherited <code>PutRec</code></code>: Método herdado responsável por atualizar o registro localmente.</p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Locate"></span><code>function <strong>Locate</strong>(const KeyFields: string; const KeyValues: Variant; Options: TLocateOptions) : boolean; override; overload;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+O método <strong><code>Locate</code></strong> Localiza o registro no servidor e adicone no BufDataSet local caso exista.
+
+<p></p>
+
+<ul class="paragraph_spacing">
+  <li><p><strong>Descrição</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>O método <code><code>Locate</code></code> tenta localizar um registro com base nos parâmetros fornecidos. Ele envia uma requisição HTTP usando a função <code>Mi_FpHttpClient.SendRequest</code> e manipula a resposta JSON para localizar ou criar um novo registro.</p></li>
+</ul>
+
+<p></p></li>
+  <li><p><strong>Parâmetros</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p><strong>KeyFields</strong>: <code>string</code> Nome(s) do(s) campo(s) utilizado(s) para localizar o registro.</p></li>
+  <li><p><strong>KeyValues</strong>: <code>Variant</code> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Valor(es) correspondente(s) ao(s) campo(s) especificado(s) em <code>KeyFields</code>.</p></li>
+</ul>
+
+<p></p></li>
+  <li><p><strong>Options</strong>: <code>TLocateOptions</code> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Conjunto de opções de localização (exemplo: <code>loCaseInsensitive</code>, <code>loPartialKey</code>).</p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p></li>
+  <li><p><strong>Retorno</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p><strong>boolean</strong>: </p>
+
+<ul class="paragraph_spacing">
+  <li><p><code>true</code> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Se o registro for localizado ou criado com sucesso.</p></li>
+</ul>
+
+<p></p></li>
+  <li><p><code>false</code> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Em caso de erro ou se o registro não for encontrado.</p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p></li>
+  <li><p><strong>Exceções</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>O método trata exceções internamente e retorna <code>false</code> em caso de falha.</p></li>
+</ul>
+
+<p></p></li>
+  <li><p><strong>Detalhes de Implementação</strong> </p>
+
+<ol class="paragraph_spacing">
+  <li value="1"><p>Converte os parâmetros <code>KeyFields</code>, <code>KeyValues</code> e <code>Options</code> para um JSON utilizando o método <code>LocateParamsToJson</code>.</p></li>
+  <li value="2"><p>Envia uma requisição HTTP do tipo <code>GET</code> para localizar o registro correspondente, utilizando o endpoint <code>'Cmlocate'</code>.</p></li>
+  <li value="3"><p>Se a resposta HTTP contém dados: </p>
+
+<ul class="paragraph_spacing">
+  <li><p>O método tenta localizar o registro chamando o método <code>inherited <code>Locate</code></code>.</p></li>
+  <li><p>Se o registro for localizado, a resposta JSON é atribuída à propriedade <code>JSONObject</code>.</p></li>
+  <li><p>Caso o registro não seja localizado, o método chama <code>inherited <a class="normal" href="mi.web.dmxscroller.form.rest.client.TDmxScroller_Form_Rest_Client.html#DoOnNewRecord">DoOnNewRecord</a></code> e atribui o JSON da resposta ao <code>JSONObject</code>, permitindo a criação de um novo registro.</p></li>
+</ul>
+
+<p></p></li>
+  <li value="4"><p>Atualiza o registro chamando <code>inherited UpdateRec</code>.</p></li>
+  <li value="5"><p>Libera os objetos <code>Params</code> e <code>Response</code> para evitar vazamento de memória.</p></li>
+</ol>
+
+<p></p></li>
+  <li><p><strong>Exemplo de Uso</strong>
+
+<p></p>
+
+<pre class="longcode">
+<span class="pascal_keyword">procedure</span> teste;
+  <span class="pascal_keyword">var</span>
+    Found: boolean;
+<span class="pascal_keyword">begin</span>
+  Found := MyDmxScrollerFormRestClient.Locate(<span class="pascal_string">'ID'</span>, <span class="pascal_numeric">123</span>, []);
+  <span class="pascal_keyword">if</span> Found
+  <span class="pascal_keyword">then</span> ShowMessage(<span class="pascal_string">'Registro localizado com sucesso!'</span>)
+  <span class="pascal_keyword">else</span> ShowMessage(<span class="pascal_string">'Registro não encontrado.'</span>);
+<span class="pascal_keyword">end</span>;</pre>
+
+<p></p></li>
+</ul>
+
+<p></p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="DeleteRec"></span><code>Function <strong>DeleteRec</strong>:Boolean; Override;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+O método <strong><code>DeleteRec</code></strong> tem como objetivo excluir um registro da base de dados remota através de uma requisição HTTP. Ele identifica o registro a ser excluído com base em suas chaves primárias, monta os parâmetros da requisição e envia uma operação HTTP DELETE ao servidor. Se não houver um registro selecionado ou se as chaves não estiverem disponíveis, o método gera uma exceção.
+
+<p></p>
+
+<ul class="paragraph_spacing">
+  <li><p><strong>Parâmetros Locais</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p><strong>Response</strong>: <code>TJSONObject</code> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Objeto que armazena a resposta da requisição HTTP.</p></li>
+</ul>
+
+<p></p></li>
+  <li><p><strong>Params</strong>: <code>TJSONObject</code> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Objeto JSON contendo os parâmetros para localizar o registro a ser excluído.</p></li>
+</ul>
+
+<p></p></li>
+  <li><p><strong>KeyFields</strong>: <code>string</code> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Campos-chave do registro.</p></li>
+</ul>
+
+<p></p></li>
+  <li><p><strong>KeyValues</strong>: <code>Variant</code> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Valores dos campos-chave do registro.</p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p></li>
+  <li><p><strong>Fluxo de Execução</strong> </p>
+
+<ol class="paragraph_spacing">
+  <li value="1"><p>Verifica se existe um registro selecionado usando <code>RecordSelected</code>.</p></li>
+  <li value="2"><p>Obtém os campos-chave do registro com o método <code>getFieldsKeys</code>.</p></li>
+  <li value="3"><p>Se as chaves forem encontradas, monta os parâmetros da requisição com <code>LocateParamsToJson</code> e envia uma solicitação HTTP PUT com a ação <code>CmDeleteRecord</code>.</p></li>
+  <li value="4"><p>Verifica o código de resposta do servidor: </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Sucesso se o código for <code>200</code> (OK) ou <code>204</code> (No Content).</p></li>
+  <li><p>Se o código for diferente, o método define <code>Result</code> como <code>False</code>.</p></li>
+</ul>
+
+<p></p></li>
+  <li value="5"><p>Se não houver campos-chave disponíveis, o método lança uma exceção, impedindo a exclusão do registro no servidor.</p></li>
+  <li value="6"><p>Caso nenhum registro tenha sido selecionado, uma exceção é lançada informando que não há registro selecionado para exclusão.</p></li>
+</ol>
+
+<p></p></li>
+  <li><p><strong>Exceções</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p><strong>TException</strong>: Lançada nas seguintes situações: </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Se nenhum registro estiver selecionado.</p></li>
+  <li><p>Se os campos-chave não estiverem disponíveis, impedindo a exclusão do registro no servidor.</p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p></li>
+  <li><p><strong>Ver Também</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p><code>Mi_FpHttpClient.SendRequest</code>: Método responsável por enviar a requisição HTTP para excluir o registro.</p></li>
+  <li><p><code>LocateParamsToJson</code>: Método que cria os parâmetros para localizar o registro no servidor.</p></li>
+  <li><p><code>getFieldsKeys</code>: Método que obtém os campos-chave de um registro.</p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p>
+</td></tr>
+</table>
+<h3 class="detail">Propriedades</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><span id="Mi_FpHttpClient"></span><code>property <strong>Mi_FpHttpClient</strong>: TMi_FpHttpClient Read _Mi_FpHttpClient write _Mi_FpHttpClient;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+A propiedade <strong><code>Mi_FpHttpClient</code></strong> usanda para fazer requisições http ao servidor
+
+<p></p>
+
+<ul class="paragraph_spacing">
+  <li><p><strong>EXEMPLO</strong> </p>
+
+<pre class="longcode"></pre>
+
+<p></p></li>
+</ul>
+
+<p></p>
+</td></tr>
+</table>
+<hr><span class="appinfo"><em>Gerado por <a href="https://pasdoc.github.io/">PasDoc 0.16.0</a>. </em>
+</span>
+</div></div></body></html>

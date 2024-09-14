@@ -19,7 +19,7 @@
 <div class="one_section"><a class="section" href="#PasDoc-Description">Descrição</a></div><div class="one_section"><a class="section" href="#PasDoc-Uses">Uses</a></div><div class="one_section"><a class="section" href="#PasDoc-Classes">Classes, Interfaces, Objetos e Registros</a></div><div class="one_section"><a class="section" href="#PasDoc-FuncsProcs">Funções e Procedimentos</a></div><div class="one_section"><a class="section" href="#PasDoc-Types">Tipos</a></div><div class="one_section">Constantes</div><div class="one_section">Variáveis</div></div>
 <span id="PasDoc-Description"></span><h2 class="description">Descrição</h2>
 <p>
-A unit <strong><code>mi.rtl.ui.dmxscroller.inputbox</code></strong> implementa a classe genérica <strong><a class="normal" href="mi.rtl.ui.dmxscroller.inputbox.TMI_UI_InputBox.html">TMI_UI_InputBox</a></strong> com objtivo do pacote maricarai possa comunicar-se com usuário nas interfaces visuais na qual for implementado <a class="normal" href="MI_UI_InputBox_lcl_u.html#InputBox">inputBox</a>.</p>
+A unit <strong><code>mi.rtl.ui.dmxscroller.inputbox</code></strong> implementa a classe genérica <strong><a class="normal" href="mi.rtl.ui.dmxscroller.inputbox.TMI_UI_InputBox.html">TMI_UI_InputBox</a></strong> com objtivo do pacote maricarai possa comunicar-se com usuário nas interfaces visuais na qual for implementado inputBox.</p>
 <span id="PasDoc-Uses"></span><h2 class="uses">Uses</h2>
 <ul class="useslist"><li>Classes</li><li>SysUtils</li><li>System.UITypes</li><li>fpjson</li><li><a href="mi.rtl.Objects.Methods.Exception.html">mi.rtl.objects.Methods.Exception</a></li><li><a href="mi.rtl.Objects.Consts.Mi_MsgBox.html">mi.rtl.Objects.Consts.Mi_MsgBox</a></li><li><a href="mi_rtl_ui_Dmxscroller.html">mi_rtl_ui_Dmxscroller</a></li></ul><h2 class="overview">Visão Geral</h2>
 <span id="PasDoc-Classes"></span><h3 class="cio">Classes, Interfaces, Objetos e Registros</h3>
@@ -56,6 +56,9 @@ A unit <strong><code>mi.rtl.ui.dmxscroller.inputbox</code></strong> implementa a
 </tr>
 <tr class="list2">
 <td class="itemcode"><code><strong><a href="mi.rtl.ui.dmxscroller.inputbox.html#TOnInputBox">TOnInputBox</a></strong> = function (aTitle : AnsiString; aTemplate: AnsiString; aOnCloseQuery:<a href="mi_rtl_ui_Dmxscroller.html#TOnCloseQuery">TOnCloseQuery</a> ; aFont : AnsiString; aOnEnter:<a href="mi_rtl_ui_Dmxscroller.html#TOnEnter">TOnEnter</a> ; aOnExit:<a href="mi_rtl_ui_Dmxscroller.html#TOnExit">TOnExit</a>; aOnEnterField:<a href="mi_rtl_ui_Dmxscroller.html#TOnEnterField">TOnEnterField</a>; aOnExitField:<a href="mi_rtl_ui_Dmxscroller.html#TOnExitField">TOnExitField</a>; aIn_JSONObject: TJSONObject; out aOut_JSONObject: TJSONObject ): <a href="mi.rtl.ui.dmxscroller.inputbox.html#TModalResult">TModalResult</a> of Object unimplemented;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><strong><a href="mi.rtl.ui.dmxscroller.inputbox.html#TMI_UI_InputBox_class">TMI_UI_InputBox_class</a></strong> = Class of <a href="mi.rtl.ui.dmxscroller.inputbox.TMI_UI_InputBox.html">TMI_UI_InputBox</a>;</code></td>
 </tr>
 </table>
 <h2 class="description">Descrição</h2>
@@ -95,6 +98,36 @@ A unit <strong><code>mi.rtl.ui.dmxscroller.inputbox</code></strong> implementa a
 </tr>
 <tr><td colspan="1">
 &nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="TMI_UI_InputBox_class"></span><code><strong>TMI_UI_InputBox_class</strong> = Class of <a href="mi.rtl.ui.dmxscroller.inputbox.TMI_UI_InputBox.html">TMI_UI_InputBox</a>;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+A Classe <strong>name</strong> deve ser implementado na plataforma destino
+
+<p></p>
+
+<ul class="paragraph_spacing">
+  <li><p>Unit onde essa classe é implementada na plataforma desktop: </p>
+
+<ul class="paragraph_spacing">
+  <li><p>MI_UI_InputBox_lcl_u</p></li>
+</ul>
+
+<p></p></li>
+  <li><p>Referência: </p>
+
+<ul class="paragraph_spacing">
+  <li><p>[Class reference type](<a href="https://www.freepascal.org/docs-html/ref/refse35.html">https://www.freepascal.org/docs-html/ref/refse35.html</a>)</p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p>
+</td></tr>
 </table>
 <hr><span class="appinfo"><em>Gerado por <a href="https://pasdoc.github.io/">PasDoc 0.16.0</a>. </em>
 </span>

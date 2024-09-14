@@ -16,7 +16,7 @@
 </li></ul></div><div class="content">
 <span id="TUiDmxScroller"></span><h1 class="cio">Classe TUiDmxScroller</h1>
 <div class="sections">
-<div class="one_section"><a class="section" href="#PasDoc-Description">Descrição</a></div><div class="one_section"><a class="section" href="#PasDoc-Hierarchy">Hierarquia</a></div><div class="one_section"><a class="section" href="#PasDoc-Fields">Campos</a></div><div class="one_section"><a class="section" href="#PasDoc-Methods">Métodos</a></div><div class="one_section"><a class="section" href="#PasDoc-Properties">Propriedades</a></div></div>
+<div class="one_section"><a class="section" href="#PasDoc-Description">Descrição</a></div><div class="one_section"><a class="section" href="#PasDoc-Hierarchy">Hierarquia</a></div><div class="one_section"><a class="section" href="#PasDoc-NestedTypes">Tipos Aninhados</a></div><div class="one_section"><a class="section" href="#PasDoc-Fields">Campos</a></div><div class="one_section"><a class="section" href="#PasDoc-Methods">Métodos</a></div><div class="one_section"><a class="section" href="#PasDoc-Properties">Propriedades</a></div></div>
 <span id="PasDoc-Description"></span><h2 class="unit">Unit</h2>
 <p class="unitlink">
 <a href="mi_rtl_ui_Dmxscroller.html">mi_rtl_ui_Dmxscroller</a></p>
@@ -41,16 +41,28 @@ A classe <strong><code>TUiDmxScroller</code></strong> tem como objetivo criar um
   <li><p><strong>EXEMPLO</strong>: </p>
 
 <ul class="paragraph_spacing">
-  <li><p>Template := '&tilde;Nome&tilde;\SSSSSSSSSSSSSSSSSSSS &tilde;Idade:&tilde;\BB' </p>
+  <li><p>Template := '&tilde;Nome&tilde;\SSSSSSSSSSSSSSSSSSSS&circ;Bnome &tilde;Idade:&tilde;\BB&circ;Bidade' </p>
 
 <ul class="paragraph_spacing">
   <li><p>A classe cria a lista de campos: </p>
 
 <ul class="paragraph_spacing">
-  <li><p>Label1: Nome</p></li>
-  <li><p>Field1: campo ShortString com 20 posições maiúsculas</p></li>
-  <li><p>Label2: Idade</p></li>
-  <li><p>Field2: Campo byte com duas posições</p></li>
+  <li><p>Label1 : Nome</p></li>
+  <li><p>Field1 : campo ShortString com 20 posições maiúsculas </p>
+
+<ul class="paragraph_spacing">
+  <li><p>&circ;Bnome : A sequência após &circ;B contém o nome do campo</p></li>
+</ul>
+
+<p></p></li>
+  <li><p>Label2 : Idade</p></li>
+  <li><p>Field2 : Campo byte com duas posições </p>
+
+<ul class="paragraph_spacing">
+  <li><p>&circ;Bidade: A sequência após &circ;B contém o nome do campo -</p></li>
+</ul>
+
+<p></p></li>
 </ul>
 
 <p></p></li>
@@ -67,11 +79,26 @@ A classe <strong><code>TUiDmxScroller</code></strong> tem como objetivo criar um
 <ul class="hierarchy"><li class="ancestor">TUiConsts</li>
 <li class="ancestor"><a class="normal" href="mi_rtl_ui_methods.TUiMethods.html">TUiMethods</a></li>
 <li class="thisitem">TUiDmxScroller</li></ul><h2 class="overview">Visão Geral</h2>
+<span id="PasDoc-NestedTypes"></span><h3 class="summary">Tipos Aninhados</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code><strong><a href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html#TDates">TDates</a></strong> = mi.rtl.objects.Methods.dates.TDates;</code></td>
+</tr>
+</table>
 <span id="PasDoc-Fields"></span><h3 class="summary">Campos</h3>
 <table class="summary wide_list">
 <tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
-<td class="itemcode"><code><strong><a href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html#Fields">Fields</a></strong>: TFPList;</code></td>
+<td class="itemcode"><code><strong><a href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html#DMXFields">DMXFields</a></strong>: TFPList;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code><strong><a href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html#Fields">Fields</a></strong>: <a href="mi_rtl_ui_Dmxscroller.TFields.html">TFields</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code><strong><a href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html#DataFields">DataFields</a></strong>: <a href="mi_rtl_ui_Dmxscroller.TDataFields.html">TDataFields</a>;</code></td>
 </tr>
 <tr class="list2">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
@@ -126,7 +153,7 @@ A classe <strong><code>TUiDmxScroller</code></strong> tem como objetivo criar um
 <td class="itemcode"><code><strong><a href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html#KeyAltered">KeyAltered</a></strong>: Boolean ;</code></td>
 </tr>
 <tr class="list">
-<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
 <td class="itemcode"><code><strong><a href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html#keysPrimaryKeyComposite">keysPrimaryKeyComposite</a></strong>: AnsiString;</code></td>
 </tr>
 <tr class="list2">
@@ -155,50 +182,114 @@ A classe <strong><code>TUiDmxScroller</code></strong> tem como objetivo criar um
 </tr>
 <tr class="list2">
 <td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
-<td class="itemcode"><code>var <strong><a href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html#_Active">_Active</a></strong>: Boolean;</code></td>
+<td class="itemcode"><code><strong><a href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html#_OnCalcField">_OnCalcField</a></strong>: <a href="mi_rtl_ui_Dmxscroller.html#TOnCalcField">TOnCalcField</a>;</code></td>
 </tr>
 <tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>var <strong><a href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html#_Active">_Active</a></strong>: Boolean;</code></td>
+</tr>
+<tr class="list2">
 <td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
 <td class="itemcode"><code><strong><a href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html#_CurrentField">_CurrentField</a></strong>: <a href="mi_rtl_ui_Dmxscroller.html#pDmxFieldRec">pDmxFieldRec</a>;</code></td>
 </tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code><strong><a href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html#CurrentField_old">CurrentField_old</a></strong>: <a href="mi_rtl_ui_Dmxscroller.html#pDmxFieldRec">pDmxFieldRec</a>;</code></td>
+</tr>
 <tr class="list2">
 <td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
-<td class="itemcode"><code><strong><a href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html#_BufDataset">_BufDataset</a></strong>: TBufDataset;</code></td>
+<td class="itemcode"><code><strong><a href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html#CurrentField_focused">CurrentField_focused</a></strong>: <a href="mi_rtl_ui_Dmxscroller.html#pDmxFieldRec">pDmxFieldRec</a>;</code></td>
 </tr>
 <tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
-<td class="itemcode"><code><strong><a href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html#_DataSource">_DataSource</a></strong>: TDataSource;</code></td>
+<td class="itemcode"><code>var <strong><a href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html#_BufDataset_created">_BufDataset_created</a></strong>:Boolean;</code></td>
 </tr>
 <tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code><strong><a href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html#_DataSource">_DataSource</a></strong>: TDataSource;</code></td>
+</tr>
+<tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
 <td class="itemcode"><code><strong><a href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html#_Locked">_Locked</a></strong>: Boolean;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>var <strong><a href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html#_ShouldSaveTemplate">_ShouldSaveTemplate</a></strong>: Boolean;</code></td>
 </tr>
 </table>
 <span id="PasDoc-Methods"></span><h3 class="summary">Métodos</h3>
 <table class="summary wide_list">
 <tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
-<td class="itemcode"><code>Function <strong><a href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html#SetHelpCtx_Hint">SetHelpCtx_Hint</a></strong>(aFldNum:Integer;a_HelpCtx_Hint:AnsiString):<a href="mi_rtl_ui_Dmxscroller.html#pDmxFieldRec">pDmxFieldRec</a>; virtual; overload;</code></td>
+<td class="itemcode"><code>procedure <strong><a href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html#HandleEvent">HandleEvent</a></strong>(var Event: TUiMethods.TEvent); override;</code></td>
 </tr>
 <tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html#GetAction">GetAction</a></strong>(aName:AnsiString):TAction;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>Procedure <strong><a href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html#SetStateAction">SetStateAction</a></strong>(aName:AnsiString;aEnable:Boolean);</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>Function <strong><a href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html#getStateAction">getStateAction</a></strong>(aName:AnsiString):Boolean;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html#CommandsDisabled">CommandsDisabled</a></strong>(aCommands : array of ansistring): Boolean;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html#CommandsEnabled">CommandsEnabled</a></strong>(aCommands : array of ansistring): Boolean;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>procedure <strong><a href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html#EnableCommands">EnableCommands</a></strong>(aCommands: Array of AnsiString);</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>procedure <strong><a href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html#DisableCommands">DisableCommands</a></strong>(aCommands: Array of AnsiString);</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>Procedure <strong><a href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html#UpdateCommands">UpdateCommands</a></strong>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>class function <strong><a href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html#GetTemplate_CRUD_Buttons">GetTemplate_CRUD_Buttons</a></strong>(aCmNewRecord,aCmUpdateRecord, aCmLocate,aCmDeleteRecord,aCmCancel:string):string; Virtual; overload;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>class function <strong><a href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html#GetTemplate_CRUD_Buttons">GetTemplate_CRUD_Buttons</a></strong>():string; overload;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>class function <strong><a href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html#GetTemplate_DbNavigator_Buttons">GetTemplate_DbNavigator_Buttons</a></strong>(aCmGoBof,aCmNextRecord, aCmPrevRecord,aCmGoEof,aCmRefresh:string):string; Virtual; overload;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>class function <strong><a href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html#GetTemplate_DbNavigator_Buttons">GetTemplate_DbNavigator_Buttons</a></strong>():string; overload;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>Function <strong><a href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html#SetHelpCtx_Hint">SetHelpCtx_Hint</a></strong>(aFldNum:Integer;a_HelpCtx_Hint:AnsiString):<a href="mi_rtl_ui_Dmxscroller.html#pDmxFieldRec">pDmxFieldRec</a>; virtual; overload;</code></td>
+</tr>
+<tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
 <td class="itemcode"><code>Procedure <strong><a href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html#SetHelpCtx_Hint">SetHelpCtx_Hint</a></strong>(apDmxFieldRec:<a href="mi_rtl_ui_Dmxscroller.html#pDmxFieldRec">pDmxFieldRec</a>;a_HelpCtx_Hint:AnsiString); virtual; overload;</code></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
 <td class="itemcode"><code>Procedure <strong><a href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html#SetCurrentRecord">SetCurrentRecord</a></strong>(aCurrentRecord : Longint ); Virtual;</code></td>
 </tr>
-<tr class="list2">
-<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
-<td class="itemcode"><code>procedure <strong><a href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html#ShowControlState">ShowControlState</a></strong>; Virtual;</code></td>
-</tr>
 <tr class="list">
-<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
-<td class="itemcode"><code>Procedure <strong><a href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html#UpdateBuffers">UpdateBuffers</a></strong>; Virtual;</code></td>
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>procedure <strong><a href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html#ShowControlState">ShowControlState</a></strong>; Virtual; abstract;</code></td>
 </tr>
 <tr class="list2">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
-<td class="itemcode"><code>procedure <strong><a href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html#Refresh">Refresh</a></strong>; VIRTUAL;</code></td>
+<td class="itemcode"><code>Procedure <strong><a href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html#UpdateBuffers">UpdateBuffers</a></strong>; Virtual; abstract;</code></td>
 </tr>
 <tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
@@ -226,47 +317,47 @@ A classe <strong><code>TUiDmxScroller</code></strong> tem como objetivo criar um
 </tr>
 <tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
-<td class="itemcode"><code>Procedure <strong><a href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html#DoOnNewRecord">DoOnNewRecord</a></strong>; overload; Virtual;</code></td>
-</tr>
-<tr class="list2">
-<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
 <td class="itemcode"><code>Function <strong><a href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html#SetState">SetState</a></strong>(Const AState: Int64; Const Enable: boolean):Boolean; virtual;</code></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
 <td class="itemcode"><code>function <strong><a href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html#GetState">GetState</a></strong>(Const AState: Int64): Boolean; Virtual;</code></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
 <td class="itemcode"><code>function <strong><a href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html#FieldByName">FieldByName</a></strong>(aName:String):<a href="mi_rtl_ui_Dmxscroller.html#pDmxFieldRec">PDmxFieldRec</a>;</code></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
 <td class="itemcode"><code>function <strong><a href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html#FieldByNumber">FieldByNumber</a></strong>(aFieldNum:Integer):<a href="mi_rtl_ui_Dmxscroller.html#pDmxFieldRec">PDmxFieldRec</a>;</code></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
 <td class="itemcode"><code>function <strong><a href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html#CancelBuffers">CancelBuffers</a></strong>: Boolean;</code></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
 <td class="itemcode"><code>function <strong><a href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html#GetBuffers">GetBuffers</a></strong>:Boolean; Virtual;</code></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
 <td class="itemcode"><code>function <strong><a href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html#PutBuffers">PutBuffers</a></strong>:Boolean; Virtual;</code></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
 <td class="itemcode"><code>Procedure <strong><a href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html#DoOnCloseQuery">DoOnCloseQuery</a></strong>(aDmxScroller:<a href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html">TUiDmxScroller</a> ; var CanClose:boolean ); overload;</code></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
 <td class="itemcode"><code>Procedure <strong><a href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html#DoOnCloseQuery">DoOnCloseQuery</a></strong>(var CanClose:boolean ); overload;</code></td>
 </tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html#IsEmpty">IsEmpty</a></strong>:Boolean;</code></td>
+</tr>
 <tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
-<td class="itemcode"><code>procedure <strong><a href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html#Scroll_it_inview">Scroll_it_inview</a></strong>(AControl: <a href="mi_rtl_ui_Dmxscroller.html#pDmxFieldRec">pDmxFieldRec</a>); virtual;</code></td>
+<td class="itemcode"><code>procedure <strong><a href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html#Scroll_it_inview">Scroll_it_inview</a></strong>(AControl: <a href="mi_rtl_ui_Dmxscroller.html#pDmxFieldRec">pDmxFieldRec</a>); virtual; abstract;</code></td>
 </tr>
 <tr class="list2">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
@@ -326,82 +417,318 @@ A classe <strong><code>TUiDmxScroller</code></strong> tem como objetivo criar um
 </tr>
 <tr class="list2">
 <td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
-<td class="itemcode"><code>function <strong><a href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html#GetTemplate">GetTemplate</a></strong>(aNext: <a href="mi_rtl_ui_Dmxscroller.html#PSItem">PSItem</a>) : <a href="mi_rtl_ui_Dmxscroller.html#PSItem">PSItem</a>; overload; virtual;</code></td>
+<td class="itemcode"><code>function <strong><a href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html#GetTemplate">GetTemplate</a></strong>(aNext: <a href="mi_rtl_ui_Dmxscroller.html#PSItem">PSItem</a>) : <a href="mi_rtl_ui_Dmxscroller.html#PSItem">PSItem</a>; overload; virtual; abstract;</code></td>
 </tr>
 <tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html#DoAddTemplate">DoAddTemplate</a></strong>:Boolean; virtual; Abstract;</code></td>
+</tr>
+<tr class="list2">
 <td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
 <td class="itemcode"><code>procedure <strong><a href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html#SetActive">SetActive</a></strong>(aActive : Boolean); virtual;</code></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
 <td class="itemcode"><code>Procedure <strong><a href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html#SetCurrentField">SetCurrentField</a></strong>(aCurrentField : <a href="mi_rtl_ui_Dmxscroller.html#pDmxFieldRec">pDmxFieldRec</a>);</code></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
 <td class="itemcode"><code>Function <strong><a href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html#PutString">PutString</a></strong>(Const OkSpc:Boolean;Const S:<a href="mi_rtl_ui_Dmxscroller.html#tString">tString</a>) : SmallInt; virtual; overload;</code></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
 <td class="itemcode"><code>function <strong><a href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html#PutString">PutString</a></strong>(Const aFieldName:<a href="mi_rtl_ui_Dmxscroller.html#tString">tString</a>;S : ShortString):SmallInt; virtual; overload;</code></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
 <td class="itemcode"><code>function <strong><a href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html#GetString">GetString</a></strong>(const aFieldName: <a href="mi_rtl_ui_Dmxscroller.html#tString">tString</a>):AnsiString; virtual; overload;</code></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
 <td class="itemcode"><code>Function <strong><a href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html#GetString">GetString</a></strong>(Const OkSpc:Boolean) : <a href="mi_rtl_ui_Dmxscroller.html#tString">TString</a>; virtual; overload;</code></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
 <td class="itemcode"><code>Function <strong><a href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html#GetString">GetString</a></strong>: <a href="mi_rtl_ui_Dmxscroller.html#tString">TString</a>; virtual; overload;</code></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
 <td class="itemcode"><code>function <strong><a href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html#PutString">PutString</a></strong>(const S : ShortString):SmallInt; virtual; overload;</code></td>
 </tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>Function <strong><a href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html#Get_MaskEdit_LCL">Get_MaskEdit_LCL</a></strong>(aTemplate : AnsiString; aSpaceChar :AnsiChar; out Size_TypeFld, aLength_Buffer : <a href="mi_rtl_ui_Dmxscroller.html#SmallWord">SmallWord</a>; out aOkMask : Boolean) : AnsiString; overload;</code></td>
+</tr>
 <tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
-<td class="itemcode"><code>Function <strong><a href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html#Get_MaskEdit_LCL">Get_MaskEdit_LCL</a></strong>(aTemplate : ShortString; out Size_TypeFld, aLength_Buffer : <a href="mi_rtl_ui_Dmxscroller.html#SmallWord">SmallWord</a>; out OkMask : Boolean) : AnsiString; overload;</code></td>
+<td class="itemcode"><code>Function <strong><a href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html#Get_MaskEdit_LCL">Get_MaskEdit_LCL</a></strong>(aTemplate : AnsiString; aSpaceChar:Ansichar; out aOkMask : Boolean) : AnsiString; overload;</code></td>
 </tr>
 <tr class="list2">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
-<td class="itemcode"><code>Function <strong><a href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html#Get_MaskEdit_LCL">Get_MaskEdit_LCL</a></strong>(aTemplate : ShortString; out OkMask : Boolean) : AnsiString; overload;</code></td>
+<td class="itemcode"><code>function <strong><a href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html#FormatMaskEdit_LCL">FormatMaskEdit_LCL</a></strong>( aValue, Mask: string;aDirecao:Boolean): string;</code></td>
 </tr>
 <tr class="list">
-<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
-<td class="itemcode"><code>Function <strong><a href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html#DoAddRec">DoAddRec</a></strong>:Boolean; virtual;</code></td>
-</tr>
-<tr class="list2">
-<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
-<td class="itemcode"><code>Function <strong><a href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html#IfEqual">IfEqual</a></strong>(Const Ofset_Inicial:Word;Const PAnt,PAtu : Pointer; Const Len:Word):Boolean;</code></td>
-</tr>
-<tr class="list">
-<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
-<td class="itemcode"><code>function <strong><a href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html#RecordAltered">RecordAltered</a></strong>: Boolean ;</code></td>
-</tr>
-<tr class="list2">
-<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
-<td class="itemcode"><code>class function <strong><a href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html#CreateExecAction">CreateExecAction</a></strong>(Const aFieldName:AnsiString;const aExecAction: AnsiString) : AnsiString;</code></td>
-</tr>
-<tr class="list">
-<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
-<td class="itemcode"><code>procedure <strong><a href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html#add">add</a></strong>(aTemplate:AnsiString);</code></td>
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html#GetDataSource">GetDataSource</a></strong>: TDataSource;</code></td>
 </tr>
 <tr class="list2">
 <td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>Procedure <strong><a href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html#SetDataSource">SetDataSource</a></strong>(aDataSource : TDataSource);</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>Function <strong><a href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html#IfEqual">IfEqual</a></strong>(Const Ofset_Inicial:Word;Const PAnt,PAtu : Pointer; Const Len:Word):Boolean;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html#RecordAltered">RecordAltered</a></strong>: Boolean ;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>class function <strong><a href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html#CreateExecAction">CreateExecAction</a></strong>(Const aFieldName:AnsiString;const aExecAction: AnsiString) : AnsiString;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>procedure <strong><a href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html#add">add</a></strong>(aTemplate:AnsiString); overload;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
 <td class="itemcode"><code>Procedure <strong><a href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html#SetLocked">SetLocked</a></strong>(aLocked:Boolean); Virtual;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>Procedure <strong><a href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html#SetArgs">SetArgs</a></strong>(aArgs: array of const); virtual;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>Procedure <strong><a href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html#Select_First_Field_Normal">Select_First_Field_Normal</a></strong>; virtual; abstract;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>Procedure <strong><a href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html#DoOnNewRecord">DoOnNewRecord</a></strong>; overload; Virtual;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html#StartTransaction">StartTransaction</a></strong>:Boolean; override; Overload;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html#COMMIT">COMMIT</a></strong>:Boolean; override; Overload;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>procedure <strong><a href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html#Rollback">Rollback</a></strong>(afinalize:Boolean;aMsg:AnsiString;aBuffer: TJSONObject); overload;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html#isDataSetActive">isDataSetActive</a></strong>:Boolean;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html#GetDataSet">GetDataSet</a></strong>:TDataSet;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html#GetDataSet_Status">GetDataSet_Status</a></strong>:String;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>Procedure <strong><a href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html#UpdateState">UpdateState</a></strong>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>Procedure <strong><a href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html#DataSet_Append">DataSet_Append</a></strong>;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>Procedure <strong><a href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html#DataSet_post">DataSet_post</a></strong>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>Procedure <strong><a href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html#DataSet_Delete">DataSet_Delete</a></strong>;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>Procedure <strong><a href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html#DataSet_Edit">DataSet_Edit</a></strong>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html#Locate">Locate</a></strong>(const KeyFields: string; const KeyValues: Variant; Options: TLocateOptions) : boolean; virtual; overload;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html#Locate">Locate</a></strong>(): TMi_MsgBox.TModalResult; Virtual; Overload; Abstract;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>Function <strong><a href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html#DataSet_BookmarkValid">DataSet_BookmarkValid</a></strong>(aBookMark:TBookMark):Boolean;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>procedure <strong><a href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html#DataSet_Cancel">DataSet_Cancel</a></strong>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>Procedure <strong><a href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html#DataSet_Refresh">DataSet_Refresh</a></strong>;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>procedure <strong><a href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html#DataSet_ApplyUpdates">DataSet_ApplyUpdates</a></strong>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>procedure <strong><a href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html#Edit">Edit</a></strong>;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>Function <strong><a href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html#GetBof">GetBof</a></strong>: Boolean; overload; virtual;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>Function <strong><a href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html#GetEof">GetEof</a></strong>: Boolean; overload; virtual;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>Function <strong><a href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html#FirstRec">FirstRec</a></strong>: Boolean; overload; virtual;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>Function <strong><a href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html#NextRec">NextRec</a></strong>: Boolean; overload; virtual;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>Function <strong><a href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html#PrevRec">PrevRec</a></strong>: Boolean; overload; virtual;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>Function <strong><a href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html#LastRec">LastRec</a></strong>: Boolean; overload; virtual;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>Procedure <strong><a href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html#Cancel">Cancel</a></strong>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>procedure <strong><a href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html#RefreshInternal">RefreshInternal</a></strong>; VIRTUAL;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>procedure <strong><a href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html#Refresh">Refresh</a></strong>; VIRTUAL;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>Function <strong><a href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html#DoBeforeInsert">DoBeforeInsert</a></strong>:Boolean; Virtual;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>Function <strong><a href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html#DoAfterInsert">DoAfterInsert</a></strong>:Boolean; Virtual;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>Function <strong><a href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html#DoBeforeUpdate">DoBeforeUpdate</a></strong>:Boolean; Virtual;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>Function <strong><a href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html#DoAfterUpdate">DoAfterUpdate</a></strong>:Boolean; Virtual;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>Function <strong><a href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html#DoBeforeDelete">DoBeforeDelete</a></strong>:Boolean; Virtual;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>Function <strong><a href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html#DoAfterDelete">DoAfterDelete</a></strong>:Boolean; Virtual;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>Procedure <strong><a href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html#DoCalcFields">DoCalcFields</a></strong>(aWorkingData : Pointer) ; overload; Virtual;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>Procedure <strong><a href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html#DoCalcFields">DoCalcFields</a></strong>; overload; Virtual;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>Procedure <strong><a href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html#DoChangeField">DoChangeField</a></strong>(aField: <a href="mi_rtl_ui_Dmxscroller.html#pDmxFieldRec">pDmxFieldRec</a>); Virtual;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>Function <strong><a href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html#AddRec">AddRec</a></strong>:Boolean ; Virtual;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>Function <strong><a href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html#GetRec">GetRec</a></strong>(aBookmark : TBookMark):Boolean ; Virtual;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>Function <strong><a href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html#DeleteRec">DeleteRec</a></strong>:Boolean ; Virtual;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html#getFieldsKeys">getFieldsKeys</a></strong>(out Values:Variant):AnsiString; overload;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>Function <strong><a href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html#PutRec">PutRec</a></strong>:Boolean; Virtual;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>Function <strong><a href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html#UpdateRec">UpdateRec</a></strong>: Boolean; Virtual;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html#GetNextValue">GetNextValue</a></strong>(const SequenceName: string; IncrementBy: integer): Int64;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html#MaxPKey">MaxPKey</a></strong>(aTabela, aID: String): LongInt; overload;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>Function <strong><a href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html#MaxPKey">MaxPKey</a></strong>: LongInt; Virtual; overload;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html#GetRecNo">GetRecNo</a></strong>: LongInt; virtual;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>procedure <strong><a href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html#EnableControls">EnableControls</a></strong>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>procedure <strong><a href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html#DisableControls">DisableControls</a></strong>;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html#ControlsDisabled">ControlsDisabled</a></strong>: Boolean;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html#SaveTemplate">SaveTemplate</a></strong>(aFileName:AnsiString;adataformat:AnsiString):Boolean; Virtual;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>procedure <strong><a href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html#UpdateDataField_AliasList">UpdateDataField_AliasList</a></strong>;</code></td>
 </tr>
 </table>
 <span id="PasDoc-Properties"></span><h3 class="summary">Propriedades</h3>
 <table class="summary wide_list">
 <tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html#Parent">Parent</a></strong>: TComponent read GetParent write SetParent;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html#Mi_ActionList">Mi_ActionList</a></strong>: TActionList read Get_Mi_ActionList write Set_Mi_ActionList;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
 <td class="itemcode"><code>property <strong><a href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html#CurrentRecord">CurrentRecord</a></strong> : Longint read _CurrentRecord write <a href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html#SetCurrentRecord">SetCurrentRecord</a>;</code></td>
 </tr>
 <tr class="list2">
-<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
-<td class="itemcode"><code>property <strong><a href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html#Strings">Strings</a></strong> : <a href="mi.rtl.Consts.StringList.TMiStringList.html">TMiStringList</a> Read GetStrings   Write  SetStrings;</code></td>
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html#Strings">Strings</a></strong> : <a href="mi.rtl.miStringlist.TMiStringList.html">TMiStringList</a> Read GetStrings   Write  SetStrings;</code></td>
 </tr>
 <tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
@@ -412,16 +739,8 @@ A classe <strong><code>TUiDmxScroller</code></strong> tem como objetivo criar um
 <td class="itemcode"><code>property <strong><a href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html#Appending">Appending</a></strong> : Boolean read <a href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html#GetAppending">GetAppending</a> write <a href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html#SetAppending">SetAppending</a>;</code></td>
 </tr>
 <tr class="list">
-<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
-<td class="itemcode"><code>property <strong><a href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html#DoOnNewRecord_FillChar">DoOnNewRecord_FillChar</a></strong> : Boolean Read _DoOnNewRecord_FillChar Write SetDoOnNewRecord_FillChar default True;</code></td>
-</tr>
-<tr class="list2">
 <td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
 <td class="itemcode"><code>property <strong><a href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html#RecordSelected">RecordSelected</a></strong>  : boolean read <a href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html#GetRecordSelected">GetRecordSelected</a>  Write <a href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html#SetRecordSelected">SetRecordSelected</a> default false;</code></td>
-</tr>
-<tr class="list">
-<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
-<td class="itemcode"><code>property <strong><a href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html#OnNewRecord">OnNewRecord</a></strong>  : <a href="mi_rtl_ui_Dmxscroller.html#TOnNewRecord">TOnNewRecord</a> read _OnNewRecord  Write _OnNewRecord;</code></td>
 </tr>
 <tr class="list2">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
@@ -445,47 +764,153 @@ A classe <strong><code>TUiDmxScroller</code></strong> tem como objetivo criar um
 </tr>
 <tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
-<td class="itemcode"><code>property <strong><a href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html#onGetTemplate">onGetTemplate</a></strong> : <a href="mi_rtl_ui_Dmxscroller.html#TOnGetTemplate">TonGetTemplate</a> Read _onGetTemplate   Write  _onGetTemplate;</code></td>
+<td class="itemcode"><code>property <strong><a href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html#onCalcField">onCalcField</a></strong> : <a href="mi_rtl_ui_Dmxscroller.html#TOnCalcField">TOnCalcField</a> Read <a href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html#_OnCalcField">_OnCalcField</a> write <a href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html#_OnCalcField">_onCalcField</a>;</code></td>
 </tr>
 <tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html#onGetTemplate">onGetTemplate</a></strong> : <a href="mi_rtl_ui_Dmxscroller.html#TOnGetTemplate">TonGetTemplate</a> Read _onGetTemplate   Write  _onGetTemplate;</code></td>
+</tr>
+<tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
 <td class="itemcode"><code>property <strong><a href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html#onAddTemplate">onAddTemplate</a></strong>: <a href="mi_rtl_ui_Dmxscroller.html#TOnAddTemplate">TonAddTemplate</a> read _onAddTemplate write _onAddTemplate;</code></td>
 </tr>
-<tr class="list">
-<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
 <td class="itemcode"><code>property <strong><a href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html#Active">Active</a></strong> : Boolean Read <a href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html#_Active">_Active</a> Write <a href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html#SetActive">SetActive</a>;</code></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
 <td class="itemcode"><code>property <strong><a href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html#CurrentField">CurrentField</a></strong> : <a href="mi_rtl_ui_Dmxscroller.html#pDmxFieldRec">pDmxFieldRec</a>  read <a href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html#_CurrentField">_CurrentField</a> write <a href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html#SetCurrentField">SetCurrentField</a>;</code></td>
 </tr>
-<tr class="list">
-<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
-<td class="itemcode"><code>property <strong><a href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html#AlignmentLabels">AlignmentLabels</a></strong> : TAlignment read _AlignmentLabels write _AlignmentLabels;</code></td>
-</tr>
 <tr class="list2">
-<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
-<td class="itemcode"><code>property <strong><a href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html#BufDataset">BufDataset</a></strong> : TBufDataset read GetBufDataset write SetBufDataset;</code></td>
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html#AlignmentLabels">AlignmentLabels</a></strong> : TAlignment read _AlignmentLabels write SetAlignmentLabels;</code></td>
 </tr>
 <tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
-<td class="itemcode"><code>property <strong><a href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html#DataSource">DataSource</a></strong> : TDataSource Read <a href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html#_DataSource">_DataSource</a>   Write  <a href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html#_DataSource">_DataSource</a>;</code></td>
+<td class="itemcode"><code>property <strong><a href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html#BufDataset">BufDataset</a></strong> : <a href="mi_rtl_ui_Dmxscroller.TMiBufDataset.html">TMiBufDataset</a> read GetBufDataset write SetBufDataset;</code></td>
 </tr>
 <tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html#DataSource">DataSource</a></strong> : TDataSource Read <a href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html#GetDataSource">GetDataSource</a>   Write  <a href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html#SetDataSource">SetDataSource</a>;</code></td>
+</tr>
+<tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
 <td class="itemcode"><code>property <strong><a href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html#Locked">Locked</a></strong> : Boolean read <a href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html#_Locked">_Locked</a> write <a href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html#SetLocked">SetLocked</a>;</code></td>
 </tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html#JSONObject">JSONObject</a></strong>: TJSONObject read Get_JSONObject write Set_JSONObject;</code></td>
+</tr>
 <tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
-<td class="itemcode"><code>property <strong><a href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html#JObject">JObject</a></strong>: TJSONObject read Get_JObject write Set_JObject;</code></td>
+<td class="itemcode"><code>property <strong><a href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html#DoOnNewRecord_FillChar">DoOnNewRecord_FillChar</a></strong> : Boolean Read _DoOnNewRecord_FillChar Write SetDoOnNewRecord_FillChar default True ;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html#OnNewRecord">OnNewRecord</a></strong>  : <a href="mi_rtl_ui_Dmxscroller.html#TOnNewRecord">TOnNewRecord</a> read _OnNewRecord  Write _OnNewRecord;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html#CurrentBookmark">CurrentBookmark</a></strong> : TBookMark Read _CurrentBookmark   Write  SetCurrentBookmark;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html#Bof">Bof</a></strong>: Boolean read <a href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html#GetBof">GetBof</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html#Eof">Eof</a></strong>: Boolean read <a href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html#GetEof">GetEof</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html#onBeforeInsert">onBeforeInsert</a></strong>: <a href="mi_rtl_ui_Dmxscroller.html#TOnBeforeInsert">TOnBeforeInsert</a>  Read _OnBeforeInsert Write _OnBeforeInsert;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html#onAfterInsert">onAfterInsert</a></strong>: <a href="mi_rtl_ui_Dmxscroller.html#TOnAfterInsert">TonAfterInsert</a>  Read _onAfterInsert Write _onAfterInsert;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html#onBeforeUpdate">onBeforeUpdate</a></strong>: <a href="mi_rtl_ui_Dmxscroller.html#TOnBeforeUpdate">TOnBeforeUpdate</a>  Read _OnBeforeUpdate Write _OnBeforeUpdate;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html#onAfterUpdate">onAfterUpdate</a></strong>: <a href="mi_rtl_ui_Dmxscroller.html#TOnAfterUpdate">TonAfterUpdate</a>  Read _onAfterUpdate Write _onAfterUpdate;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html#onBeforeDelete">onBeforeDelete</a></strong>: <a href="mi_rtl_ui_Dmxscroller.html#TOnBeforeDelete">TOnBeforeDelete</a>  Read _OnBeforeDelete Write _OnBeforeDelete;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html#onAfterDelete">onAfterDelete</a></strong>: <a href="mi_rtl_ui_Dmxscroller.html#TOnAfterDelete">TonAfterDelete</a>  Read _onAfterDelete Write _onAfterDelete;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html#OnCalcFields">OnCalcFields</a></strong>: <a href="mi_rtl_ui_Dmxscroller.html#TOnCalcFields">TOnCalcFields</a>  Read _OnCalcFields Write _OnCalcFields;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html#OnChangeField">OnChangeField</a></strong>: <a href="mi_rtl_ui_Dmxscroller.html#TOnChangeField">TOnChangeField</a>  Read _OnChangeField Write _OnChangeField;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html#ShouldSaveTemplate">ShouldSaveTemplate</a></strong> : Boolean Read <a href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html#_ShouldSaveTemplate">_ShouldSaveTemplate</a> Write <a href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html#_ShouldSaveTemplate">_ShouldSaveTemplate</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><code>property <strong><a href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html#MiDataPacketFormat_Default">MiDataPacketFormat_Default</a></strong>: <a href="mi_rtl_ui_Dmxscroller.html#TMiDataPacketFormat">TMiDataPacketFormat</a> read _MiDataPacketFormat_Default
+                                                                           write SetTMiDataPacketFormat;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html#Modified">Modified</a></strong> : Boolean read GetModified ;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html#CanModify">CanModify</a></strong> : Boolean read GetCanModify ;</code></td>
 </tr>
 </table>
 <h2 class="description">Descrição</h2>
+<h3 class="detail">Tipos Aninhados</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="TDates"></span><code><strong>TDates</strong> = mi.rtl.objects.Methods.dates.TDates;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
 <h3 class="detail">Campos</h3>
 <table class="detail wide_list">
 <tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
-<td class="itemcode"><span id="Fields"></span><code><strong>Fields</strong>: TFPList;</code></td>
+<td class="itemcode"><span id="DMXFields"></span><code><strong>DMXFields</strong>: TFPList;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+O atributo <strong><code>DMXFields</code></strong> salva todos os rótulos e campos da lista de Templates.
+
+<p></p>
+
+<ul class="paragraph_spacing">
+  <li><p><strong>MOTIVO</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>A classe mãe <a class="normal" href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html">TUiDmxScroller</a> mãe da classe <a class="normal" href="mi_rtl_ui_dmxscroller_form.TDmxScroller_Form.html">TDmxScroller_Form</a> cria Template de apenas uma linha, a lista <strong><code>DMXFields</code></strong> salva todas as linhas para geração de um Template do tipo formulário.</p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Fields"></span><code><strong>Fields</strong>: <a href="mi_rtl_ui_Dmxscroller.TFields.html">TFields</a>;</code></td>
 </tr>
 <tr><td colspan="2">
 <p>
@@ -503,10 +928,22 @@ O atributo <strong><code>Fields</code></strong> contém uma lista <a class="norm
 <table class="detail wide_list">
 <tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="DataFields"></span><code><strong>DataFields</strong>: <a href="mi_rtl_ui_Dmxscroller.TDataFields.html">TDataFields</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+O atributo <strong><code>DataFields</code></strong> salva somente os campos de dados cujo o campo filednum&lt;&gt;0</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
 <td class="itemcode"><span id="Limit"></span><code><strong>Limit</strong>: TPoint;</code></td>
 </tr>
 <tr><td colspan="2">
-&nbsp;</td></tr>
+<p>
+O atributo <strong><code>Limit</code></strong> salva o limite inferior e superior da janela no qual foi criado os componentes dos formulários</p>
+</td></tr>
 </table>
 <table class="detail wide_list">
 <tr class="list">
@@ -515,7 +952,7 @@ O atributo <strong><code>Fields</code></strong> contém uma lista <a class="norm
 </tr>
 <tr><td colspan="2">
 <p>
-Deve ser true ao criar a classe</p>
+O atributo <strong><code>CreateValid</code></strong> indica que a classe voi criada.</p>
 </td></tr>
 </table>
 <table class="detail wide_list">
@@ -524,7 +961,9 @@ Deve ser true ao criar a classe</p>
 <td class="itemcode"><span id="WorkingData"></span><code><strong>WorkingData</strong>: pointer;</code></td>
 </tr>
 <tr><td colspan="2">
-&nbsp;</td></tr>
+<p>
+O atributo <strong><code>WorkingData</code></strong> é um ponteiro para o buffer do registro</p>
+</td></tr>
 </table>
 <table class="detail wide_list">
 <tr class="list">
@@ -532,7 +971,9 @@ Deve ser true ao criar a classe</p>
 <td class="itemcode"><span id="WorkingDataOld"></span><code><strong>WorkingDataOld</strong>: pointer;</code></td>
 </tr>
 <tr><td colspan="2">
-&nbsp;</td></tr>
+<p>
+O atributo <strong><code>WorkingDataOld</code></strong> é um ponteiro para o buffer do registro anterior</p>
+</td></tr>
 </table>
 <table class="detail wide_list">
 <tr class="list">
@@ -540,7 +981,9 @@ Deve ser true ao criar a classe</p>
 <td class="itemcode"><span id="DataBlockSize"></span><code><strong>DataBlockSize</strong>: longint;</code></td>
 </tr>
 <tr><td colspan="2">
-&nbsp;</td></tr>
+<p>
+O atributo <strong><code>DataBlockSize</code></strong> é o tamanho do registro apontado por <a class="normal" href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html#WorkingData">WorkingData</a>.</p>
+</td></tr>
 </table>
 <table class="detail wide_list">
 <tr class="list">
@@ -548,7 +991,9 @@ Deve ser true ao criar a classe</p>
 <td class="itemcode"><span id="ActualRecordNum"></span><code><strong>ActualRecordNum</strong>: longint;</code></td>
 </tr>
 <tr><td colspan="2">
-&nbsp;</td></tr>
+<p>
+O atributo <strong><code>ActualRecordNum</code></strong> contém o número da linha corrente</p>
+</td></tr>
 </table>
 <table class="detail wide_list">
 <tr class="list">
@@ -603,7 +1048,7 @@ O atributo <strong><code>WidthChar</code></strong> deve ser iniciado quando este
   <li><p><strong>EXEMPLO</strong> </p>
 
 <ul class="paragraph_spacing">
-  <li><p><code>WidthChar</code> := ((Owner as TScrollingWinControl).Canvas.TextWidth(UiDmxScroller.CharAlfanumeric) <a class="normal" href="int65math.html#div">div</a> Length(UiDmxScroller.CharAlfanumeric));</p></li>
+  <li><p><code>WidthChar</code> := ((Owner as TScrollingWinControl).Canvas.TextWidth(UiDmxScroller.CharAlfanumeric) div Length(UiDmxScroller.CharAlfanumeric));</p></li>
 </ul>
 
 <p></p></li>
@@ -646,7 +1091,7 @@ O atributo <strong><code>KeyAltered</code></strong> indica se algum campo da cha
 </table>
 <table class="detail wide_list">
 <tr class="list">
-<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
 <td class="itemcode"><span id="keysPrimaryKeyComposite"></span><code><strong>keysPrimaryKeyComposite</strong>: AnsiString;</code></td>
 </tr>
 <tr><td colspan="2">
@@ -677,7 +1122,7 @@ O atributo <strong><code>keysPrimaryKeyComposite</code></strong> contém a lista
   <li><p><strong>NOTA</strong> </p>
 
 <ul class="paragraph_spacing">
-  <li><p>Se pos(',',<code>keysPrimaryKeyComposite</code>) &lt;&gt; 0 indica que a chave é composta.</p></li>
+  <li><p>Se pos(';',<code>keysPrimaryKeyComposite</code>) &lt;&gt; 0 indica que a chave é composta.</p></li>
 </ul>
 
 <p></p></li>
@@ -737,11 +1182,19 @@ O atributo <strong><code>keysPrimaryKeyComposite</code></strong> contém a lista
 <table class="detail wide_list">
 <tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="_OnCalcField"></span><code><strong>_OnCalcField</strong>: <a href="mi_rtl_ui_Dmxscroller.html#TOnCalcField">TOnCalcField</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
 <td class="itemcode"><span id="_Active"></span><code>var <strong>_Active</strong>: Boolean;</code></td>
 </tr>
 <tr><td colspan="2">
 <p>
-O atributo <strong>name</strong> é usado para criar a propriedade <a class="normal" href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html#Active">active</a> do componente
+O atributo <strong><code>_Active</code></strong> é usado para criar a propriedade <a class="normal" href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html#Active">active</a> do componente
 
 <p></p>
 
@@ -766,12 +1219,48 @@ O atributo <strong>name</strong> é usado para criar a propriedade <a class="nor
 <td class="itemcode"><span id="_CurrentField"></span><code><strong>_CurrentField</strong>: <a href="mi_rtl_ui_Dmxscroller.html#pDmxFieldRec">pDmxFieldRec</a>;</code></td>
 </tr>
 <tr><td colspan="2">
-&nbsp;</td></tr>
+<p>
+O atributo protected <strong><code>_CurrentField</code></strong> contem os dados da propriedade <a class="normal" href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html#CurrentField">CurrentField</a>.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="CurrentField_old"></span><code><strong>CurrentField_old</strong>: <a href="mi_rtl_ui_Dmxscroller.html#pDmxFieldRec">pDmxFieldRec</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+O atributo <strong><code>CurrentField_old</code></strong> salva o currentefield anterior ao atual.
+
+<p></p>
+
+<ul class="paragraph_spacing">
+  <li><p><strong>ATENÇÃO</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Necessário caso se deseja fazer alguma crítica com os dados do buffer do corrente campo focado ao pressionar um botão de ação.</p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p>
+</td></tr>
 </table>
 <table class="detail wide_list">
 <tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
-<td class="itemcode"><span id="_BufDataset"></span><code><strong>_BufDataset</strong>: TBufDataset;</code></td>
+<td class="itemcode"><span id="CurrentField_focused"></span><code><strong>CurrentField_focused</strong>: <a href="mi_rtl_ui_Dmxscroller.html#pDmxFieldRec">pDmxFieldRec</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+A atributo <strong><code>CurrentField_focused</code></strong> contém um ponteiro para o campo selecionado e que FieldNum seja diferente de zero.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="_BufDataset_created"></span><code>var <strong>_BufDataset_created</strong>:Boolean;</code></td>
 </tr>
 <tr><td colspan="2">
 &nbsp;</td></tr>
@@ -792,7 +1281,211 @@ O atributo <strong>name</strong> é usado para criar a propriedade <a class="nor
 <tr><td colspan="2">
 &nbsp;</td></tr>
 </table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="_ShouldSaveTemplate"></span><code>var <strong>_ShouldSaveTemplate</strong>: Boolean;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
 <h3 class="detail">Métodos</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="HandleEvent"></span><code>procedure <strong>HandleEvent</strong>(var Event: TUiMethods.TEvent); override;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="GetAction"></span><code>function <strong>GetAction</strong>(aName:AnsiString):TAction;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+O Método <strong><code>GetAction</code></strong> retorna a ação associada a aName se existir</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="SetStateAction"></span><code>Procedure <strong>SetStateAction</strong>(aName:AnsiString;aEnable:Boolean);</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+O método <strong><code>SetStateAction</code></strong> habilita e desabila o botão aName</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="getStateAction"></span><code>Function <strong>getStateAction</strong>(aName:AnsiString):Boolean;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+O método <strong><code>getStateAction</code></strong> retorna a propriedade Taction.enable</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="CommandsDisabled"></span><code>function <strong>CommandsDisabled</strong>(aCommands : array of ansistring): Boolean;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+O método <strong><code>CommandsDisabled</code></strong> retorna <strong>true</strong> se todos os comandos passados por aCommands estiverem desativados e retorna <strong>false</strong> se pelo menos um estiver ativado.
+
+<p></p>
+
+<ul class="paragraph_spacing">
+  <li><p>EXEMPLO
+
+<p></p>
+
+<pre class="longcode">
+
+<span class="pascal_keyword">if</span> CommandsDisabled(<span class="pascal_string">'novo'</span>,<span class="pascal_string">'grava'</span>)
+<span class="pascal_keyword">Then</span> WriteLn(<span class="pascal_string">'Os comandos novo e grava estão desabilitados'</span>);</pre>
+
+<p></p></li>
+</ul>
+
+<p></p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="CommandsEnabled"></span><code>function <strong>CommandsEnabled</strong>(aCommands : array of ansistring): Boolean;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+O método <strong><code>CommandsEnabled</code></strong> retorna <strong>true</strong> se todos os comandos passados por aCommands estiverem ativados e retorna <strong>false</strong> se pelo menos um estiver desativado
+
+<p></p>
+
+<ul class="paragraph_spacing">
+  <li><p>EXEMPLO
+
+<p></p>
+
+<pre class="longcode">
+
+<span class="pascal_keyword">if</span> CommandsEnabled(<span class="pascal_string">'novo'</span>,<span class="pascal_string">'grava'</span>)
+<span class="pascal_keyword">Then</span> WriteLn(<span class="pascal_string">'Os comandos novo e grava estão ativados'</span>);</pre>
+
+<p></p></li>
+</ul>
+
+<p></p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="EnableCommands"></span><code>procedure <strong>EnableCommands</strong>(aCommands: Array of AnsiString);</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+O método <strong><code>EnableCommands</code></strong> ativa todos os todos os comandos passados por aCommands.
+
+<p></p>
+
+<ul class="paragraph_spacing">
+  <li><p>EXEMPLO
+
+<p></p>
+
+<pre class="longcode">
+
+DisableCommands(<span class="pascal_string">'novo'</span>,<span class="pascal_string">'grava'</span>);
+WriteLn(<span class="pascal_string">'Os comandos novo e grava estão ativados'</span>);</pre>
+
+<p></p></li>
+</ul>
+
+<p></p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="DisableCommands"></span><code>procedure <strong>DisableCommands</strong>(aCommands: Array of AnsiString);</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+O método <strong><code>DisableCommands</code></strong> desativa todos os todos os comandos passados por aCommands.
+
+<p></p>
+
+<ul class="paragraph_spacing">
+  <li><p>EXEMPLO
+
+<p></p>
+
+<pre class="longcode">
+
+DisableCommands(<span class="pascal_string">'novo'</span>,<span class="pascal_string">'grava'</span>);
+WriteLn(<span class="pascal_string">'Os comandos novo e grava estão desativados'</span>);</pre>
+
+<p></p></li>
+</ul>
+
+<p></p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="UpdateCommands"></span><code>Procedure <strong>UpdateCommands</strong>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+O método <strong><code>UpdateCommands</code></strong> habilita ou desabilita os botões de ações baseado no estado do dataset.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="GetTemplate_CRUD_Buttons"></span><code>class function <strong>GetTemplate_CRUD_Buttons</strong>(aCmNewRecord,aCmUpdateRecord, aCmLocate,aCmDeleteRecord,aCmCancel:string):string; Virtual; overload;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+O método <strong><code>GetTemplate_CRUD_Buttons</code></strong> retorna um template para criação dos botões aCmNewRecord, aCmUpdateRecord,aCmLocate,aCmDeleteRecord,aCmCancel.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="GetTemplate_CRUD_Buttons"></span><code>class function <strong>GetTemplate_CRUD_Buttons</strong>():string; overload;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+O método <strong><code>GetTemplate_CRUD_Buttons</code></strong> retorna um template para criação dos botões CmNewRecord, CmUpdateRecord,CmLocate,CmDeleteRecord,CmCancel.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="GetTemplate_DbNavigator_Buttons"></span><code>class function <strong>GetTemplate_DbNavigator_Buttons</strong>(aCmGoBof,aCmNextRecord, aCmPrevRecord,aCmGoEof,aCmRefresh:string):string; Virtual; overload;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+O método <strong><code>GetTemplate_DbNavigator_Buttons</code></strong> retorna um template para criação dos botões aCmGoBof, aCmNextRecord,aCmPrevRecord,aCmGoEof,aCmRefresh.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="GetTemplate_DbNavigator_Buttons"></span><code>class function <strong>GetTemplate_DbNavigator_Buttons</strong>():string; overload;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+O método <strong><code>GetTemplate_DbNavigator_Buttons</code></strong> retorna um template para criação dos botões CmGoBof, CmNextRecord,CmPrevRecord,CmGoEof,CmRefresh.</p>
+</td></tr>
+</table>
 <table class="detail wide_list">
 <tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
@@ -824,7 +1517,7 @@ O método <strong><code>SetHelpCtx_Hint</code></strong> inicia a documentação 
 <table class="detail wide_list">
 <tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
-<td class="itemcode"><span id="ShowControlState"></span><code>procedure <strong>ShowControlState</strong>; Virtual;</code></td>
+<td class="itemcode"><span id="ShowControlState"></span><code>procedure <strong>ShowControlState</strong>; Virtual; abstract;</code></td>
 </tr>
 <tr><td colspan="2">
 &nbsp;</td></tr>
@@ -832,18 +1525,12 @@ O método <strong><code>SetHelpCtx_Hint</code></strong> inicia a documentação 
 <table class="detail wide_list">
 <tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
-<td class="itemcode"><span id="UpdateBuffers"></span><code>Procedure <strong>UpdateBuffers</strong>; Virtual;</code></td>
+<td class="itemcode"><span id="UpdateBuffers"></span><code>Procedure <strong>UpdateBuffers</strong>; Virtual; abstract;</code></td>
 </tr>
 <tr><td colspan="2">
-&nbsp;</td></tr>
-</table>
-<table class="detail wide_list">
-<tr class="list">
-<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
-<td class="itemcode"><span id="Refresh"></span><code>procedure <strong>Refresh</strong>; VIRTUAL;</code></td>
-</tr>
-<tr><td colspan="2">
-&nbsp;</td></tr>
+<p>
+O método <strong><code>UpdateBuffers</code></strong> atualiza o buffer dos controles associados ao componente.</p>
+</td></tr>
 </table>
 <table class="detail wide_list">
 <tr class="list">
@@ -898,16 +1585,6 @@ O método <strong><code>ChangeMadeOnOff</code></strong> seta os atributos indica
 <table class="detail wide_list">
 <tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
-<td class="itemcode"><span id="DoOnNewRecord"></span><code>Procedure <strong>DoOnNewRecord</strong>; overload; Virtual;</code></td>
-</tr>
-<tr><td colspan="2">
-<p>
-O método <strong><code>DoOnNewRecord</code></strong> é usado para inicializa os parâmetros de um novo registro</p>
-</td></tr>
-</table>
-<table class="detail wide_list">
-<tr class="list">
-<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
 <td class="itemcode"><span id="SetState"></span><code>Function <strong>SetState</strong>(Const AState: Int64; Const Enable: boolean):Boolean; virtual;</code></td>
 </tr>
 <tr><td colspan="2">
@@ -967,7 +1644,7 @@ O método <strong><code>CancelBuffers</code></strong> copia o buffer do registro
 </tr>
 <tr><td colspan="2">
 <p>
-O método <strong><code>GetBuffers</code></strong> copia o buffer do registro atual para o buffer do registro anterior
+O método <strong><code>GetBuffers</code></strong> copia o buffer do registro atual para o buffer do registro anterior.
 
 <p></p>
 
@@ -1013,7 +1690,15 @@ O método <strong><code>PutBuffers</code></strong> deve ser anulado para grava o
 <table class="detail wide_list">
 <tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
-<td class="itemcode"><span id="Scroll_it_inview"></span><code>procedure <strong>Scroll_it_inview</strong>(AControl: <a href="mi_rtl_ui_Dmxscroller.html#pDmxFieldRec">pDmxFieldRec</a>); virtual;</code></td>
+<td class="itemcode"><span id="IsEmpty"></span><code>function <strong>IsEmpty</strong>:Boolean;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Scroll_it_inview"></span><code>procedure <strong>Scroll_it_inview</strong>(AControl: <a href="mi_rtl_ui_Dmxscroller.html#pDmxFieldRec">pDmxFieldRec</a>); virtual; abstract;</code></td>
 </tr>
 <tr><td colspan="2">
 <p>
@@ -1095,8 +1780,8 @@ A procedure <strong><code>CreateStruct</code></strong> é executado para constru
   <li><p><strong>NOTA</strong> </p>
 
 <ul class="paragraph_spacing">
-  <li><p>O parâmetro aTemplate é um string com 255 caracteres, porém o mesmo pode ser encandeado usando a função <a class="normal" href="mi_rtl_ui_methods.TUiMethods.html#CreateAppendFields">CreateAppendFields</a>.</p></li>
-  <li><p>A função <a class="normal" href="mi_rtl_ui_methods.TUiMethods.html#CreateAppendFields">CreateAppendFields</a> retorna a constante <strong><a class="normal" href="mi_rtl_ui_dmxscroller_form.html#fldAPPEND">fldAPPEND</a></strong> mais o endereço da string a ser concatenada.
+  <li><p>O parâmetro aTemplate é um string com 255 caracteres, porém o mesmo pode ser encandeado usando a função CreateAppendFields.</p></li>
+  <li><p>A função CreateAppendFields retorna a constante <strong><a class="normal" href="mi_rtl_ui_dmxscroller_form.html#fldAPPEND">fldAPPEND</a></strong> mais o endereço da string a ser concatenada.
 
 <p></p>
 
@@ -1142,7 +1827,7 @@ A procedure <strong><code>CreateStruct</code></strong> é executado para constru
 
 <ul class="paragraph_spacing">
   <li><p>O parâmetro aTemplate é uma lista <a class="normal" href="mi_rtl_ui_Dmxscroller.html#PSItem">PSitem</a>.</p></li>
-  <li><p>A função <a class="normal" href="mi_rtl_ui_methods.TUiMethods.html#CreateTSItemFields">CreateTSItemFields</a> retorna uma lista de <a class="normal" href="mi_rtl_ui_Dmxscroller.html#PSItem">PSItem</a>. </p>
+  <li><p>A função CreateTSItemFields retorna uma lista de <a class="normal" href="mi_rtl_ui_Dmxscroller.html#PSItem">PSItem</a>. </p>
 
 <ul class="paragraph_spacing">
   <li><p><strong>EXEMPLO</strong>
@@ -1214,7 +1899,24 @@ A procedure <strong><code>DestroyStruct</code></strong> destrói as lista criada
 </tr>
 <tr><td colspan="2">
 <p>
-O método <strong><code>CreateBufDataset_FieldDefs</code></strong> é usado para criar os campos de <strong><a class="normal" href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html#BufDataset">BufDataset</a></strong></p>
+O método <strong><code>CreateBufDataset_FieldDefs</code></strong> é usado para criar os campos de <strong><a class="normal" href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html#BufDataset">BufDataset</a></strong>
+
+<p></p>
+
+<ul class="paragraph_spacing">
+  <li><p>Dica
+
+<p></p>
+
+<pre class="longcode">
+<span class="pascal_keyword">if</span> GetDataSet.DefaultFields
+<span class="pascal_keyword">Then</span> WriteLn(<span class="pascal_string">'Os campos foram criados baseado nos metadados do banco de dados'</span>)
+<span class="pascal_keyword">else</span> WriteLn(<span class="pascal_string">'Os campos foram criados em tempo de designer ou tempo de execução.'</span>);</pre>
+
+<p></p></li>
+</ul>
+
+<p></p>
 </td></tr>
 </table>
 <table class="detail wide_list">
@@ -1258,7 +1960,7 @@ A função <strong><code>GetRecordData</code></strong> retorna o atributo <a cla
 <table class="detail wide_list">
 <tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
-<td class="itemcode"><span id="GetTemplate"></span><code>function <strong>GetTemplate</strong>(aNext: <a href="mi_rtl_ui_Dmxscroller.html#PSItem">PSItem</a>) : <a href="mi_rtl_ui_Dmxscroller.html#PSItem">PSItem</a>; overload; virtual;</code></td>
+<td class="itemcode"><span id="GetTemplate"></span><code>function <strong>GetTemplate</strong>(aNext: <a href="mi_rtl_ui_Dmxscroller.html#PSItem">PSItem</a>) : <a href="mi_rtl_ui_Dmxscroller.html#PSItem">PSItem</a>; overload; virtual; abstract;</code></td>
 </tr>
 <tr><td colspan="2">
 <p>
@@ -1283,6 +1985,39 @@ O método <strong><code>GetTemplate</code></strong> é usado para atualizar o at
 </table>
 <table class="detail wide_list">
 <tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="DoAddTemplate"></span><code>function <strong>DoAddTemplate</strong>:Boolean; virtual; Abstract;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+O método <strong><code>DoAddTemplate</code></strong> Criar um formulário baseado em _Strings.
+
+<p></p>
+
+<ul class="paragraph_spacing">
+  <li><p><strong>Objetivo</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Criar formulário baseado em recursos tipo maricarai em arquivo.</p></li>
+  <li><p>Nome do arquivo: TableName.template</p></li>
+</ul>
+
+<p></p></li>
+  <li><p><strong>NOTAS</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Se _Strings.Count &gt; 0 então gera o template e retorna true;</p></li>
+  <li><p>Se _Strings.Count = 0 retorna false.</p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
 <td class="itemcode"><span id="SetActive"></span><code>procedure <strong>SetActive</strong>(aActive : Boolean); virtual;</code></td>
 </tr>
@@ -1297,7 +2032,9 @@ A procedure <strong><code>SetActive</code></strong> seta a propriedade <a class=
 <td class="itemcode"><span id="SetCurrentField"></span><code>Procedure <strong>SetCurrentField</strong>(aCurrentField : <a href="mi_rtl_ui_Dmxscroller.html#pDmxFieldRec">pDmxFieldRec</a>);</code></td>
 </tr>
 <tr><td colspan="2">
-&nbsp;</td></tr>
+<p>
+O Método <strong><code>SetCurrentField</code></strong> Set o currenteField com aCurrentField</p>
+</td></tr>
 </table>
 <table class="detail wide_list">
 <tr class="list">
@@ -1405,7 +2142,7 @@ A função <strong><code>PutString</code></strong> salva a string <strong>S</str
 <table class="detail wide_list">
 <tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
-<td class="itemcode"><span id="Get_MaskEdit_LCL"></span><code>Function <strong>Get_MaskEdit_LCL</strong>(aTemplate : ShortString; out Size_TypeFld, aLength_Buffer : <a href="mi_rtl_ui_Dmxscroller.html#SmallWord">SmallWord</a>; out OkMask : Boolean) : AnsiString; overload;</code></td>
+<td class="itemcode"><span id="Get_MaskEdit_LCL"></span><code>Function <strong>Get_MaskEdit_LCL</strong>(aTemplate : AnsiString; aSpaceChar :AnsiChar; out Size_TypeFld, aLength_Buffer : <a href="mi_rtl_ui_Dmxscroller.html#SmallWord">SmallWord</a>; out aOkMask : Boolean) : AnsiString; overload;</code></td>
 </tr>
 <tr><td colspan="2">
 <p>
@@ -1414,12 +2151,274 @@ O método <strong><code>Get_MaskEdit_LCL</code></strong> receber a máscara do D
 <p></p>
 
 <ul class="paragraph_spacing">
-  <li><p><strong>Nota</strong> </p>
+  <li><p><strong>PARÂMETROS</strong> </p>
 
 <ul class="paragraph_spacing">
-  <li><p>Em <strong>Size_TypeFld</strong> retorno o tamanho do tipo de dados da mascara;</p></li>
-  <li><p>Em <strong>OkMask</strong> retorna <strong>true</strong> se tiver mascara e <strong>false</strong> caso contrário</p></li>
+  <li><p><strong>aTemplate</strong> : </p>
+
+<ul class="paragraph_spacing">
+  <li><p><em>S</em> = Indica que a posição é do tipo ShortString e só aceita caractere maiúsculo. </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Exemplo: \SSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS</p></li>
 </ul>
+
+<p></p></li>
+  <li><p><em>s</em> = Indica que a posição é do tipo ShortString e só aceita caractere maiusculos e minusculos. </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Exemplo: \ssssssssssssssssssssssssssssssssssssss</p></li>
+</ul>
+
+<p></p></li>
+  <li><p><em>s</em> = Indica que a posição é do tipo ShortString e só aceita caracteres númericos. </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Exemplo: '\(##) # ####-####'</p></li>
+</ul>
+
+<p></p></li>
+  <li><p>C = Indica que a posição é do tipo AnsiString e só aceita caractere maiúsculo. </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Exemplo: \CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC</p></li>
+</ul>
+
+<p></p></li>
+  <li><p><em>c</em> = Indica que a posição é do tipo ansistring e aceita caractere maiusculos e minusculos. </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Exemplo: \cccccccccccccccccccccccccccccccccccccc</p></li>
+</ul>
+
+<p></p></li>
+  <li><p><em>0</em> = Indica que a posição é do tipo ansistring e aceita caracteres númericos. </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Exemplo: \(00) 0 0000-0000' //85 9 9702 4498</p></li>
+</ul>
+
+<p></p></li>
+  <li><p><em>B</em> = Indica que a posição é do tipo byte o máximo de B que pode ter é 3. O valor não pode ser maior que 255. </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Exemplo: \BBB</p></li>
+</ul>
+
+<p></p></li>
+  <li><p><em>J</em> = Indica que a posição é do tipo shortint o número shotint so pode ter número entre -128 to 127 </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Exemplo: \JJJ</p></li>
+</ul>
+
+<p></p></li>
+  <li><p><em>W</em> = Indica que a posição é do tipo <a class="normal" href="mi_rtl_ui_Dmxscroller.html#SmallWord">smallword</a> (2 bytes) e só pode ter número entre 0 a 65.535 </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Exemplo: \WWWWW</p></li>
+</ul>
+
+<p></p></li>
+  <li><p><em>I</em> = Indica que a posição é do tipo inteiro longo (4 bytes) e só pode ter número entre -4.294.967.295 a 4.294.967.295 </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Exemplo: \IIIII</p></li>
+</ul>
+
+<p></p></li>
+  <li><p><em>L</em> = Indica que a posição é do tipo inteiro longo (4 bytes) e só pode ter número entre -4.294.967.295 a 4.294.967.295 </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Exemplo: \LLLLLL</p></li>
+</ul>
+
+<p></p></li>
+  <li><p><em>R</em> = Indica que a posição é do tipo real (8 bytes) e pode ter número fracionários. </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Exemplo: \RRR,RRRR,RR</p></li>
+</ul>
+
+<p></p></li>
+  <li><p><em>r</em> = Indica que a posição é do tipo real positivo (8 bytes) e pode ter número fracionários. </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Exemplo: \rrr,rrr.rr</p></li>
+</ul>
+
+<p></p></li>
+  <li><p><em>O</em> = Indica que a posição é do tipo real (4 bytes) e pode ter número fracionários. </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Exemplo: \OOO,OOO.OO</p></li>
+</ul>
+
+<p></p></li>
+  <li><p><em>o</em> = Indica que a posição é do tipo real positivo (4 bytes) e pode ter número fracionários. </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Exemplo: \ooo,ooo.oo</p></li>
+</ul>
+
+<p></p></li>
+  <li><p><em>P</em> = Indica que a posição é do tipo real (4 bytes) e pode ter número fracionários e armazena. Seu valor é dividido por 100 e ao gravar e ao ler é mutiplicado por 100 usado em número percentuais. Obs: Pode se negativo. </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Exemplo: \PPP.PP</p></li>
+</ul>
+
+<p></p></li>
+  <li><p><em>p</em> = Indica que a posição é do tipo real positivo (4 bytes) e pode ter número fracionários e armazena. Seu valor é dividido por 100 e ao gravar e ao ler é mutiplicado por 100 usado em número percentuais. Obs: Não pode se negativo. </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Exemplo: \PPP.PP</p></li>
+</ul>
+
+<p></p></li>
+  <li><p><em>E</em> = Indica que a posição é do tipo extended (10 bytes) e pode ter números fracionários. </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Exemplo: \EEE,EEE,EEE.EE</p></li>
+</ul>
+
+<p></p></li>
+  <li><p><em>X</em> = Indica que a posição é do tipo boolean (1 bytes) e só pode ter os números 0 ou 1; </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Exemplo: \X</p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p></li>
+  <li><p><em>Size_TypeFld</em> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Retorno o tipo de dados da mascara;</p></li>
+</ul>
+
+<p></p></li>
+  <li><p><em>aLength_Buffer</em> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Retorno o tamanho do tipo de dados da mascara;</p></li>
+</ul>
+
+<p></p></li>
+  <li><p><em>aOkMask</em> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Retorna <strong>true</strong> se tiver mascara e <strong>false</strong> caso contrário;</p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p></li>
+  <li><p><em>RESULT</em> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Caracter Descrição da mascara da LCL </p>
+
+<ul class="paragraph_spacing">
+  <li><p>! Espaços em branco não aparecerão</p></li>
+  <li><p>&gt; Todos os caracteres seguintes serão maiúsculos até que apareça o caracter</p></li>
+  <li><p>&lt; Todos os caracteres seguintes serão minúsculos até que apareça o caracter</p></li>
+  <li><p>\ Indica um caracter literal</p></li>
+  <li><p>l (L minusculo) Somente caracter alfabético</p></li>
+  <li><p>L Obrigatoriamente um caracter alfabético (A-Z, a-z)</p></li>
+  <li><p>a Somente caracter alfanumérico</p></li>
+  <li><p>A Obrigatoriamente caractere alfanumérico ( A-Z, a-z, 0-9)</p></li>
+  <li><p>9 Somente caracter numérico</p></li>
+  <li><p>0 Obrigatoriamente caracter numérico</p></li>
+  <li><p>c permite um caracter</p></li>
+  <li><p>C Obrigatoriamente um caracter</p></li>
+  <li><p># Permite um caracter numérico ou sinal de mais ou de menos, mas não os requer.</p></li>
+  <li><p>: Separador de horas, minutos e segundos</p></li>
+  <li><p>/ Separador de dias, meses e anos</p></li>
+  <li><p>NOTAS: </p>
+
+<ul class="paragraph_spacing">
+  <li><p>A máscara basicamente consiste de três campos, separados por ponto e vírgula. </p>
+
+<ul class="paragraph_spacing">
+  <li><p>A primeira parte é a máscara propriamente dita.</p></li>
+  <li><p>A segunda parte determina se os caracteres fixos devem ser ou não salvos com a máscara (ex: /, -, (, ...).</p></li>
+  <li><p>A terceira parte da máscara representa o caracter em branco, podendo ser substituído por outro (ex: _, @, ...).</p></li>
+</ul>
+
+<p></p></li>
+  <li><p>Caracteres especiais utilizados com a máscara: </p>
+
+<ul class="paragraph_spacing">
+  <li><p>! Faz com que a digitação da máscara fique parada no primeiro caracter, fazendo com que os caracteres digitados que se movam. Ex: !;0;_</p></li>
+  <li><p>&gt; Todos os caracteres alfabéticos digitados após este símbolo serão convertidos para maiúsculos. Ex: &gt;aaa;0;_</p></li>
+  <li><p>&lt; Todos os caracteres alfabéticos digitados após este símbolo serão convertidos para minúsculos. Ex: &lt;aaa;0;_</p></li>
+  <li><p>&lt;&gt; Anula o uso dos caracteres &gt; e &lt;. Ex: &gt;aaa&lt;&gt;aaa;0;_</p></li>
+  <li><p>\ Utilizado para marcar determinado caractere não especial como fixo, não podendo sobrescrevê-lo. Ex: !\(999\)000-0000;0;_</p></li>
+  <li><p>L Caracteres alfabéticos (A-Z, a-z.) de preenchimento obrigatório. Ex: LLL;1;_</p></li>
+  <li><p>l (Letra ele minúscula) Caracteres alfabéticos (A-Z, a-z.) de preenchimento opcional. Ex: lll;1;_</p></li>
+  <li><p>A Caracteres alfanuméricos (A-Z, a-z, 0-9) de preenchimento obrigatório. Ex: AAA;1;_</p></li>
+  <li><p>a Caracteres alfanuméricos (A-Z, a-z, 0-9) de preenchimento opcional. Ex: aaa;1;_</p></li>
+  <li><p>C Exige preenchimento obrigatório com qualquer caractere para a posição. Ex: CCC;1;_</p></li>
+  <li><p>c Permite qualquer caractere para a posição de preenchimento opcional. Ex: ccc;1;_</p></li>
+  <li><p>0 Caracteres numéricos (0-9) de preenchimento obrigatório. Ex: 000;1;_</p></li>
+  <li><p>9 Caracteres numéricos (0-9) de preenchimento opcional. Ex: 999;1;_</p></li>
+  <li><p># Caracteres numéricos (0-9) e os sinais de - ou + de preenchimento opcional. Ex: ###;1;_</p></li>
+  <li><p>: Utilizado como separador de horas, minutos e segundos. Ex: !00:00:00;1;_</p></li>
+  <li><p>/ Utilizado como separador de dia, mês e ano. Ex: !99/99/9999;1;_</p></li>
+  <li><p>; Separa os três campos da máscara.</p></li>
+  <li><p>_ Caractere usado normalmente nas posições do campo ainda não preenchidas.</p></li>
+  <li><p>Campom númerico </p>
+
+<ul class="paragraph_spacing">
+  <li><p>#####,##;1;_</p></li>
+  <li><p>O 1 Indica para salvar a mascara no resultado.</p></li>
+  <li><p>O caractere _ indica que deve ser digitado 1 caractere.</p></li>
+  <li><p>#####,##;0;_ </p>
+
+<ul class="paragraph_spacing">
+  <li><p>O 0 Indica para não salvar a máscara no resultado.</p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p></li>
+  <li><p><strong>EXEMPLO DE FORMATO FLOAT</strong>
+
+<p></p>
+
+<pre class="longcode">
+<span class="pascal_keyword">Const</span>
+  NrFormat=<span class="pascal_numeric">9</span>;
+  FormatStrings : <span class="pascal_keyword">Array</span>[<span class="pascal_numeric">1</span>..NrFormat] <span class="pascal_keyword">of</span> <span class="pascal_keyword">string</span> = (
+        <span class="pascal_string">''</span>,
+        <span class="pascal_string">'0'</span>,
+        <span class="pascal_string">'0.00'</span>,
+        <span class="pascal_string">'#.##'</span>,
+        <span class="pascal_string">'#,##0.00'</span>,
+        <span class="pascal_string">'#,##0.00;(#,##0.00)'</span>,
+        <span class="pascal_string">'#,##0.00;;Zero'</span>,
+        <span class="pascal_string">'0.000E+00'</span>,
+        <span class="pascal_string">'#.###E-0'</span>);
+
+        <span class="pascal_string">'999999999,99;0; '</span>;
+        <span class="pascal_string">'###,###,###,##0.00'</span>;</pre>
 
 <p></p></li>
 </ul>
@@ -1430,17 +2429,64 @@ O método <strong><code>Get_MaskEdit_LCL</code></strong> receber a máscara do D
 <table class="detail wide_list">
 <tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
-<td class="itemcode"><span id="Get_MaskEdit_LCL"></span><code>Function <strong>Get_MaskEdit_LCL</strong>(aTemplate : ShortString; out OkMask : Boolean) : AnsiString; overload;</code></td>
+<td class="itemcode"><span id="Get_MaskEdit_LCL"></span><code>Function <strong>Get_MaskEdit_LCL</strong>(aTemplate : AnsiString; aSpaceChar:Ansichar; out aOkMask : Boolean) : AnsiString; overload;</code></td>
 </tr>
 <tr><td colspan="2">
 <p>
-O método <strong><code>Get_MaskEdit_LCL</code></strong> receber a máscara do Dmx e retorna a mascara do componente LCL.</p>
+O método <strong><code>Get_MaskEdit_LCL</code></strong> receber a máscara do Dmx e retorna a mascara do componente LCL.
+
+<p></p>
+
+<ul class="paragraph_spacing">
+  <li><p><strong>PARÂMETROS</strong></p></li>
+</ul>
+
+<p></p>
 </td></tr>
 </table>
 <table class="detail wide_list">
 <tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
-<td class="itemcode"><span id="DoAddRec"></span><code>Function <strong>DoAddRec</strong>:Boolean; virtual;</code></td>
+<td class="itemcode"><span id="FormatMaskEdit_LCL"></span><code>function <strong>FormatMaskEdit_LCL</strong>( aValue, Mask: string;aDirecao:Boolean): string;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+O Método <strong><code>FormatMaskEdit_LCL</code></strong> retorna um valor o parâmetro aValue formatado deacordo o parâmetro mask com formato da IDL LCL.
+
+<p></p>
+
+<ul class="paragraph_spacing">
+  <li><p>NOTA: </p>
+
+<ul class="paragraph_spacing">
+  <li><p>aDirecao </p>
+
+<ul class="paragraph_spacing">
+  <li><p>True : aValue será formatado da esquerda para direita;</p></li>
+  <li><p>false: aValue será formatado da direita para esquerda;</p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="GetDataSource"></span><code>function <strong>GetDataSource</strong>: TDataSource;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="SetDataSource"></span><code>Procedure <strong>SetDataSource</strong>(aDataSource : TDataSource);</code></td>
 </tr>
 <tr><td colspan="2">
 &nbsp;</td></tr>
@@ -1478,7 +2524,7 @@ A classe método <strong><code>CreateExecAction</code></strong> é usado para ad
 <table class="detail wide_list">
 <tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
-<td class="itemcode"><span id="add"></span><code>procedure <strong>add</strong>(aTemplate:AnsiString);</code></td>
+<td class="itemcode"><span id="add"></span><code>procedure <strong>add</strong>(aTemplate:AnsiString); overload;</code></td>
 </tr>
 <tr><td colspan="2">
 &nbsp;</td></tr>
@@ -1491,19 +2537,1040 @@ A classe método <strong><code>CreateExecAction</code></strong> é usado para ad
 <tr><td colspan="2">
 &nbsp;</td></tr>
 </table>
-<h3 class="detail">Propriedades</h3>
 <table class="detail wide_list">
 <tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
-<td class="itemcode"><span id="CurrentRecord"></span><code>property <strong>CurrentRecord</strong> : Longint read _CurrentRecord write <a href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html#SetCurrentRecord">SetCurrentRecord</a>;</code></td>
+<td class="itemcode"><span id="SetArgs"></span><code>Procedure <strong>SetArgs</strong>(aArgs: array of const); virtual;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+O método <strong><code>SetArgs</code></strong> atualiza o buffer com o array aArgs
+
+<p></p>
+
+<ul class="paragraph_spacing">
+  <li><p>Exemplo de como alterar o primeiro registro com a sequencia [josé Carlos, 15]:
+
+<p></p>
+
+<pre class="longcode">
+
+<span class="pascal_keyword">if</span> FirstRec <span class="pascal_keyword">Then</span>
+<span class="pascal_keyword">begin</span>
+  edit;
+  SetArgs([<span class="pascal_string">'José Carlos'</span>,<span class="pascal_numeric">15</span>]);
+  UpdateRec;
+<span class="pascal_keyword">end</span>;</pre>
+
+<p></p></li>
+</ul>
+
+<p></p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="Select_First_Field_Normal"></span><code>Procedure <strong>Select_First_Field_Normal</strong>; virtual; abstract;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+O método <strong><code>Select_First_Field_Normal</code></strong> deve ser implamentado na unit que implementar o desenho do formulário</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="DoOnNewRecord"></span><code>Procedure <strong>DoOnNewRecord</strong>; overload; Virtual;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+O método <strong><code>DoOnNewRecord</code></strong> é usado para inicializa os parâmetros de um novo registro.
+
+<p></p>
+
+<ul class="paragraph_spacing">
+  <li><p><strong>Descrição</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>O método <code><code>DoOnNewRecord</code></code> é responsável por iniciar a criação de um novo registro no dataset associado ao componente. Ele executa uma série de operações para configurar o estado da aplicação como &quot;<a class="normal" href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html#Appending">appending</a>&quot;, preencher campos com valores padrão e atualizar o buffer de dados.</p></li>
+</ul>
+
+<p></p></li>
+  <li><p><strong>Parâmetros Locais</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p><strong>WState_SfFocused</strong> (<code>Boolean</code>): Guarda o estado anterior do foco no componente para restaurá-lo após a inserção.</p></li>
+  <li><p><strong>wOnCalcRecordEnable</strong> (<code>Boolean</code>): Armazena o estado da habilitação de cálculos de registros, desativado temporariamente.</p></li>
+  <li><p><strong>p</strong> (<code>TDataSetNotifyEvent</code>): Ponteiro para o evento <code><a class="normal" href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html#OnNewRecord">OnNewRecord</a></code> do dataset, se atribuído.</p></li>
+  <li><p><strong>wCurrentField</strong> (<code><a class="normal" href="mi_rtl_ui_Dmxscroller.html#pDmxFieldRec">PDmxFieldRec</a></code>): Campo atualmente em foco.</p></li>
+  <li><p><strong>i</strong> (<code>Integer</code>): Usado para iterar sobre os campos do dataset.</p></li>
+  <li><p><strong>s</strong> (<code>String</code>): Usado para armazenar temporariamente valores padrão dos campos.</p></li>
+</ul>
+
+<p></p></li>
+  <li><p><strong>Fluxo de Execução</strong> </p>
+
+<ol class="paragraph_spacing">
+  <li value="1"><p>Verifica se o dataset está ativo com <code><a class="normal" href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html#isDataSetActive">isDataSetActive</a></code>.</p></li>
+  <li value="2"><p>Se ativo: </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Marca o estado como &quot;<a class="normal" href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html#Appending">Appending</a>&quot; para indicar a inserção de um novo registro.</p></li>
+  <li><p>Define valores padrão para os campos do novo registro.</p></li>
+  <li><p>Notifica os manipuladores de evento, se existentes.</p></li>
+  <li><p>Atualiza o buffer de dados e os comandos associados ao dataset.</p></li>
+</ul>
+
+<p></p></li>
+  <li value="3"><p>Após a inserção, restaura o estado anterior, como foco e habilitação de cálculos.</p></li>
+</ol>
+
+<p></p></li>
+  <li><p><strong>Exceções</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p><strong>Exception</strong>: </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Lança uma exceção se houver algum erro durante o processo de inserção de um novo registro.</p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p></li>
+  <li><p><strong>Ver Também</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p><code><a class="normal" href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html#OnNewRecord">OnNewRecord</a></code>: Evento chamado ao criar um novo registro.</p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="StartTransaction"></span><code>function <strong>StartTransaction</strong>:Boolean; override; Overload;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+O método <strong><code>StartTransaction</code></strong> inicia uma transação se puder.
+
+<p></p>
+
+<ul class="paragraph_spacing">
+  <li><p><strong>RESULT</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>True </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Se a transação atual for false;</p></li>
+</ul>
+
+<p></p></li>
+  <li><p>false </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Se a transação atual for true;</p></li>
+</ul>
+
+<p></p></li>
+  <li><p>**Objetivo: </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Permitir que após o processamento, só executar <a class="normal" href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html#COMMIT">commit</a> ou <a class="normal" href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html#Rollback">rollback</a> se <code>StartTransaction</code> tenha retornado true;</p></li>
+</ul>
+
+<p></p></li>
+  <li><p>EXEMPLO DE USO
+
+<p></p>
+
+<pre class="longcode">
+
+<span class="pascal_keyword">Function</span> AddRec:Boolean;
+<span class="pascal_keyword">Var</span>
+  Finalize : boolean;
+<span class="pascal_keyword">begin</span>
+  <span class="pascal_keyword">try</span> /Exepet
+
+    Finalize := StartTransaction;
+
+    AddRec;
+
+    <span class="pascal_keyword">if</span> Finalize
+    <span class="pascal_keyword">then</span> Commit
+
+  <span class="pascal_keyword">Except</span>
+    <span class="pascal_keyword">On</span> E : Exception <span class="pascal_keyword">do</span>
+    <span class="pascal_keyword">begin</span>
+      <span class="pascal_keyword">if</span> finalize
+      <span class="pascal_keyword">then</span> Rollback;
+
+      <span class="pascal_keyword">Raise</span> TException.Create(Self,<span class="pascal_hex">$</span>I %CURRENTROUTINE%,E.<span class="pascal_keyword">Message</span>);
+    <span class="pascal_keyword">end</span>;
+<span class="pascal_keyword">end</span>;</pre>
+
+<p></p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="COMMIT"></span><code>function <strong>COMMIT</strong>:Boolean; override; Overload;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+O método <strong><code>COMMIT</code></strong> confirme a transação no banco de dados</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="Rollback"></span><code>procedure <strong>Rollback</strong>(afinalize:Boolean;aMsg:AnsiString;aBuffer: TJSONObject); overload;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+O método <strong><code>Rollback</code></strong> anula a transação do banco de dados</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="isDataSetActive"></span><code>function <strong>isDataSetActive</strong>:Boolean;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+O método <strong><code>isDataSetActive</code></strong> retorna true se ativo e existe <a class="normal" href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html#DataSource">datasource</a> com dataset ativo.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="GetDataSet"></span><code>function <strong>GetDataSet</strong>:TDataSet;</code></td>
 </tr>
 <tr><td colspan="2">
 &nbsp;</td></tr>
 </table>
 <table class="detail wide_list">
 <tr class="list">
-<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
-<td class="itemcode"><span id="Strings"></span><code>property <strong>Strings</strong> : <a href="mi.rtl.Consts.StringList.TMiStringList.html">TMiStringList</a> Read GetStrings   Write  SetStrings;</code></td>
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="GetDataSet_Status"></span><code>function <strong>GetDataSet_Status</strong>:String;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="UpdateState"></span><code>Procedure <strong>UpdateState</strong>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+O método <strong><code>UpdateState</code></strong> Executa <a class="normal" href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html#SetState">SetState</a> para hablitar e desabilita comandos para estar sincronizado com <a class="normal" href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html#GetDataSet">getdataset</a></p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="DataSet_Append"></span><code>Procedure <strong>DataSet_Append</strong>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+O método <strong><code>DataSet_Append</code></strong> comunica-se com o DataSource.DataSet.Append</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="DataSet_post"></span><code>Procedure <strong>DataSet_post</strong>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+O método <strong><code>DataSet_post</code></strong> comunica-se com o DataSource.DataSet.post</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="DataSet_Delete"></span><code>Procedure <strong>DataSet_Delete</strong>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+O método <strong><code>DataSet_Delete</code></strong> comunica-se com o DataSource.DataSet.delete</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="DataSet_Edit"></span><code>Procedure <strong>DataSet_Edit</strong>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+O método <strong><code>DataSet_Edit</code></strong> comunica-se com o DataSource.DataSet.edit</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Locate"></span><code>function <strong>Locate</strong>(const KeyFields: string; const KeyValues: Variant; Options: TLocateOptions) : boolean; virtual; overload;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+O método <strong><code>Locate</code></strong> localiza o registro baseada nos valores (KeyValues) dos campos passados por KeyFields.
+
+<p></p>
+
+<ul class="paragraph_spacing">
+  <li><p><strong>RETORNA</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>True : Se localizou;</p></li>
+  <li><p>False : Não localizou.</p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Locate"></span><code>function <strong>Locate</strong>(): TMi_MsgBox.TModalResult; Virtual; Overload; Abstract;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+O método <strong><code>Locate</code></strong> executa o método <a class="normal" href="mi.rtl.all.TMi_rtl.html#Locate">TMi_rtl.Locate</a>(const aField:<a class="normal" href="mi_rtl_ui_Dmxscroller.html#pDmxFieldRec">pDmxFieldRec</a>) onde aField é o campo corrente do formulário em edição.
+
+<p></p>
+
+<ul class="paragraph_spacing">
+  <li><p><strong>RETORNA</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>True : Se localizou;</p></li>
+  <li><p>False : Não localizou.</p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="DataSet_BookmarkValid"></span><code>Function <strong>DataSet_BookmarkValid</strong>(aBookMark:TBookMark):Boolean;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+O método <strong><code>DataSet_BookmarkValid</code></strong> comunica-se com o DataSource.DataSet.BookMarkValid</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="DataSet_Cancel"></span><code>procedure <strong>DataSet_Cancel</strong>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+O método <strong><code>DataSet_Cancel</code></strong> comunica-se com o DataSource.DataSet.Cancel</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="DataSet_Refresh"></span><code>Procedure <strong>DataSet_Refresh</strong>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+O método <strong><code>DataSet_Refresh</code></strong> Exeuta DataSource.DataSet.Refresh porém antes desativa e ativa.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="DataSet_ApplyUpdates"></span><code>procedure <strong>DataSet_ApplyUpdates</strong>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+O método <strong><code>DataSet_ApplyUpdates</code></strong> comunica-se com o DataSource.DataSet.ApplyUpdates</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Edit"></span><code>procedure <strong>Edit</strong>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+O método <strong><code>Edit</code></strong> colocará o conjunto de dados no modo de edição:
+
+<p></p>
+
+<ul class="paragraph_spacing">
+  <li><p>NOTAS: </p>
+
+<ul class="paragraph_spacing">
+  <li><p>O conteúdo do registro atual poderá então ser alterado.</p></li>
+  <li><p>Esta ação irá chamar os eventos TDataset.BeforeEdit e TDataset.AfterEdit.</p></li>
+  <li><p>Se o conjunto de dados já estiver em modo de inserção ou edição, nada acontecerá (os eventos também não serão acionados).</p></li>
+  <li><p>Se o conjunto de dados estiver vazio, esta ação executará TDataset.Append .</p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="GetBof"></span><code>Function <strong>GetBof</strong>: Boolean; overload; virtual;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+O método <strong><code>GetBof</code></strong> retorna DataSource.dataSet.bof
+
+<p></p>
+
+<ul class="paragraph_spacing">
+  <li><p><strong>RETORNA</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>True: se posicionado no primeiro registro;</p></li>
+  <li><p>False: Não está no primeiro registro.</p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="GetEof"></span><code>Function <strong>GetEof</strong>: Boolean; overload; virtual;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+O método <strong><code>GetEof</code></strong> retorna DataSource.dataSet.eof
+
+<p></p>
+
+<ul class="paragraph_spacing">
+  <li><p><strong>RETORNA</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>True: se posicionado no último registro;</p></li>
+  <li><p>False: Não está no último registro.</p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="FirstRec"></span><code>Function <strong>FirstRec</strong>: Boolean; overload; virtual;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+O método <strong><code>FirstRec</code></strong> posiciona o cursor no primeiro registro de DataSource.dataSet
+
+<p></p>
+
+<ul class="paragraph_spacing">
+  <li><p><strong>RETORNA</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>True: se posicionado no primeiro registro;</p></li>
+  <li><p>False: Chamada ao método <code>FirstRec</code> estando no primeiro registro.</p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="NextRec"></span><code>Function <strong>NextRec</strong>: Boolean; overload; virtual;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+O método <strong><code>NextRec</code></strong> posiciona o cursor no próximo registro de DataSource.dataSet
+
+<p></p>
+
+<ul class="paragraph_spacing">
+  <li><p><strong>RETORNA</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>True se posicionau no próximo registro;</p></li>
+  <li><p>False se atingir o <a class="normal" href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html#Eof">eof</a> (fim de arquivo)</p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="PrevRec"></span><code>Function <strong>PrevRec</strong>: Boolean; overload; virtual;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+O método <strong><code>PrevRec</code></strong> posiciona o cursor no registro anteror de DataSource.dataSet
+
+<p></p>
+
+<ul class="paragraph_spacing">
+  <li><p><strong>RETORNA</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>True se posicionau no registro anterior;</p></li>
+  <li><p>False se atingir o <a class="normal" href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html#Bof">bof</a> (inicio do arquivo)</p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="LastRec"></span><code>Function <strong>LastRec</strong>: Boolean; overload; virtual;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+O método <strong><code>LastRec</code></strong> posiciona o cursor no último registro do DataSource.dataSet
+
+<p></p>
+
+<ul class="paragraph_spacing">
+  <li><p><strong>RETORNA</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>True: se posicionado no último registro;</p></li>
+  <li><p>False: Chamada ao método <code>LastRec</code> estando no último registro.</p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Cancel"></span><code>Procedure <strong>Cancel</strong>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+O Método <strong><code>Cancel</code></strong> deve apagar o buffer e coloca a tabela no modo Browser</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="RefreshInternal"></span><code>procedure <strong>RefreshInternal</strong>; VIRTUAL;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+O método <strong><code>RefreshInternal</code></strong> posiciona ler o registro atual do DataSource.dataSet</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Refresh"></span><code>procedure <strong>Refresh</strong>; VIRTUAL;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="DoBeforeInsert"></span><code>Function <strong>DoBeforeInsert</strong>:Boolean; Virtual;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="DoAfterInsert"></span><code>Function <strong>DoAfterInsert</strong>:Boolean; Virtual;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="DoBeforeUpdate"></span><code>Function <strong>DoBeforeUpdate</strong>:Boolean; Virtual;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="DoAfterUpdate"></span><code>Function <strong>DoAfterUpdate</strong>:Boolean; Virtual;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="DoBeforeDelete"></span><code>Function <strong>DoBeforeDelete</strong>:Boolean; Virtual;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="DoAfterDelete"></span><code>Function <strong>DoAfterDelete</strong>:Boolean; Virtual;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="DoCalcFields"></span><code>Procedure <strong>DoCalcFields</strong>(aWorkingData : Pointer) ; overload; Virtual;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+O método <strong><code>DoCalcFields</code></strong> entra e sai em todos os campos para que os mesmos executem seus eventos assinalados e é executado em <a class="normal" href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html#DoCalcFields">DoCalcFields</a> sem parâmetros.
+
+<p></p>
+
+<ul class="paragraph_spacing">
+  <li><p><strong>NOTA</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>O Buffer deve ser <a class="normal" href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html#WorkingData">WorkingData</a> ou <a class="normal" href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html#WorkingDataOld">WorkingDataold</a>.</p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="DoCalcFields"></span><code>Procedure <strong>DoCalcFields</strong>; overload; Virtual;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="DoChangeField"></span><code>Procedure <strong>DoChangeField</strong>(aField: <a href="mi_rtl_ui_Dmxscroller.html#pDmxFieldRec">pDmxFieldRec</a>); Virtual;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="AddRec"></span><code>Function <strong>AddRec</strong>:Boolean ; Virtual;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+O método <strong><code>AddRec</code></strong> adiciona o buffer DataSource.dataSet n arquivo.
+
+<p></p>
+
+<ul class="paragraph_spacing">
+  <li><p><strong>RETORNA</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>True: Se sucesso;</p></li>
+  <li><p>False: Se fracasso.</p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="GetRec"></span><code>Function <strong>GetRec</strong>(aBookmark : TBookMark):Boolean ; Virtual;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+O método <strong><code>GetRec</code></strong> ler do arquivo o registro apontado pelo buffer DataSource.dataSet. </p>
+
+<ul class="paragraph_spacing">
+  <li><p><strong>RETORNA</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>True: Se sucesso;</p></li>
+  <li><p>False: Se fracasso.</p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="DeleteRec"></span><code>Function <strong>DeleteRec</strong>:Boolean ; Virtual;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+O método <strong><code>DeleteRec</code></strong> exclui o registro apontado pelo buffer DataSource.dataSet no arquivo.
+
+<p></p>
+
+<ul class="paragraph_spacing">
+  <li><p><strong>RETORNA</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>True: Se sucesso;</p></li>
+  <li><p>False: Se fracasso.</p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="getFieldsKeys"></span><code>function <strong>getFieldsKeys</strong>(out Values:Variant):AnsiString; overload;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+O método <strong><code>getFieldsKeys</code></strong> retorna uma string com os nomes dos campos separados por virculas e em Values retorna os valores do campos;
+
+<p></p>
+
+<ul class="paragraph_spacing">
+  <li><p>EXEMPLO </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Campo chaves: 'data;id'</p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="PutRec"></span><code>Function <strong>PutRec</strong>:Boolean; Virtual;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+O método <strong><code>PutRec</code></strong> grava o buffer no registro apontado CuurentBookmark do DataSource.dataSet no arquivo.
+
+<p></p>
+
+<ul class="paragraph_spacing">
+  <li><p><strong>RETORNA</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>True: Se sucesso;</p></li>
+  <li><p>False: Se fracasso.</p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="UpdateRec"></span><code>Function <strong>UpdateRec</strong>: Boolean; Virtual;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+O método <strong><code>UpdateRec</code></strong> grava o buffer no registro apontado CuurentBookmark do DataSource.dataSet no arquivo.
+
+<p></p>
+
+<ul class="paragraph_spacing">
+  <li><p>NOTAS </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Se <a class="normal" href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html#Appending">appending</a> = true executar o método <a class="normal" href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html#AddRec">addRec</a>;</p></li>
+  <li><p>Se Appening = false executa o método <a class="normal" href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html#PutRec">PutRec</a>;</p></li>
+</ul>
+
+<p></p></li>
+  <li><p><strong>RETORNA</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>True: Se sucesso;</p></li>
+  <li><p>False: Se fracasso.</p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="GetNextValue"></span><code>function <strong>GetNextValue</strong>(const SequenceName: string; IncrementBy: integer): Int64;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+O método <strong><code>GetNextValue</code></strong> retorna a número da sequência do próximo registro.
+
+<p></p>
+
+<ul class="paragraph_spacing">
+  <li><p><strong>PARAMETROS</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>SequenceName </p>
+
+<ul class="paragraph_spacing">
+  <li><p>O nome da sequência no banco de dados;</p></li>
+</ul>
+
+<p></p></li>
+  <li><p>IncrementBy </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Número que deve ser acrescentado na sequência</p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="MaxPKey"></span><code>function <strong>MaxPKey</strong>(aTabela, aID: String): LongInt; overload;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+O método <strong><code>MaxPKey</code></strong> retorna o maximo do campo ID da tabela dm_table
+
+<p></p>
+
+<ul class="paragraph_spacing">
+  <li><p>EXMPLO DE USO:
+
+<p>´´´pascal procedure TForm_Operadores.Button1Click(Sender: TObject); Var Id : string; begin id := Operadores.MaxPKey('dm_table','id'); Tmi_rtl.ShowMessage('Próxímo número = '+id+1); end;
+
+<p>`<code></code></p></li>
+  <li><p>REFERÊNCIA:
+
+<p></p>
+
+<ul class="paragraph_spacing">
+  <li><p>ATENÇÂO: </p>
+
+<ul class="paragraph_spacing">
+  <li><p>[Geração automática de instruções SQL de atualização](<a href="https://www.freepascal.org/docs-html/fcl/sqldb/updatesqls.html">https://www.freepascal.org/docs-html/fcl/sqldb/updatesqls.html</a>)</p></li>
+  <li><p>[aprenda-programar-funcao-para-retornar](<a href="https://infocotidiano.com.br/2016/09/aprenda-programar-funcao-para-retornar.html">https://infocotidiano.com.br/2016/09/aprenda-programar-funcao-para-retornar.html</a>)</p></li>
+  <li><p>[postgresql-max-function](<a href="https://www.postgresqltutorial.com/postgresql-aggregate-functions/postgresql-max-function/">https://www.postgresqltutorial.com/postgresql-aggregate-functions/postgresql-max-function/</a>)</p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="MaxPKey"></span><code>Function <strong>MaxPKey</strong>: LongInt; Virtual; overload;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+O método <strong><code>MaxPKey</code></strong> retorna o número de registros da coluna 'ID'</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="GetRecNo"></span><code>function <strong>GetRecNo</strong>: LongInt; virtual;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+O método <strong><code>GetRecNo</code></strong> retorna o valor máximo da coluna 'ID' se a tabela for TSQLQuery e DataSet.RecNo caso contrário.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="EnableControls"></span><code>procedure <strong>EnableControls</strong>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+O método <strong><code>EnableControls</code></strong> habilitas os controles visuais do dataset</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="DisableControls"></span><code>procedure <strong>DisableControls</strong>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+O método <strong><code>DisableControls</code></strong> desabilita os controles visuais do dataset</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="ControlsDisabled"></span><code>function <strong>ControlsDisabled</strong>: Boolean;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+O método <strong><code>ControlsDisabled</code></strong> retorna true se os contoles estã habilitados e retorna false se não tiver habilitado</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="SaveTemplate"></span><code>function <strong>SaveTemplate</strong>(aFileName:AnsiString;adataformat:AnsiString):Boolean; Virtual;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+O método <strong><code>SaveTemplate</code></strong> salva o parâmetro <strong>aTemplate_org</strong> no arquivo <strong>aFileName</strong> se o arquivo <strong>aFileName</strong> não existir.
+
+<p></p>
+
+<ul class="paragraph_spacing">
+  <li><p><strong>PARÂMETROS</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>aFileName </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Nome do arquivo;</p></li>
+</ul>
+
+<p></p></li>
+  <li><p>aTemplate_org </p>
+
+<ul class="paragraph_spacing">
+  <li><p>String com o template</p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p></li>
+  <li><p><strong>NOTA</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>o Método <strong><a class="normal" href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html#CreateStruct">CreateStruct</a></strong> reconhece somente os rótulos e os campos da mesma linha. É necessário ser redefinido em mi_rtl_ui_mxscroller_form para salve todas as linhas.</p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="UpdateDataField_AliasList"></span><code>procedure <strong>UpdateDataField_AliasList</strong>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+O método <strong><code>UpdateDataField_AliasList</code></strong> procura todos os campos fldRadioGroup e atualiza o campo AliasList a alias.</p>
+</td></tr>
+</table>
+<h3 class="detail">Propriedades</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Parent"></span><code>property <strong>Parent</strong>: TComponent read GetParent write SetParent;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Mi_ActionList"></span><code>property <strong>Mi_ActionList</strong>: TActionList read Get_Mi_ActionList write Set_Mi_ActionList;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="CurrentRecord"></span><code>property <strong>CurrentRecord</strong> : Longint read _CurrentRecord write <a href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html#SetCurrentRecord">SetCurrentRecord</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+A propriedade <strong><code>CurrentRecord</code></strong> salva o número do campo selecionado.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Strings"></span><code>property <strong>Strings</strong> : <a href="mi.rtl.miStringlist.TMiStringList.html">TMiStringList</a> Read GetStrings   Write  SetStrings;</code></td>
 </tr>
 <tr><td colspan="2">
 <p>
@@ -1562,29 +3629,11 @@ A propriedade <strong><code>Appending</code></strong> é usada para saber se est
 </table>
 <table class="detail wide_list">
 <tr class="list">
-<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
-<td class="itemcode"><span id="DoOnNewRecord_FillChar"></span><code>property <strong>DoOnNewRecord_FillChar</strong> : Boolean Read _DoOnNewRecord_FillChar Write SetDoOnNewRecord_FillChar default True;</code></td>
-</tr>
-<tr><td colspan="2">
-&nbsp;</td></tr>
-</table>
-<table class="detail wide_list">
-<tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
 <td class="itemcode"><span id="RecordSelected"></span><code>property <strong>RecordSelected</strong>  : boolean read <a href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html#GetRecordSelected">GetRecordSelected</a>  Write <a href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html#SetRecordSelected">SetRecordSelected</a> default false;</code></td>
 </tr>
 <tr><td colspan="2">
 &nbsp;</td></tr>
-</table>
-<table class="detail wide_list">
-<tr class="list">
-<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
-<td class="itemcode"><span id="OnNewRecord"></span><code>property <strong>OnNewRecord</strong>  : <a href="mi_rtl_ui_Dmxscroller.html#TOnNewRecord">TOnNewRecord</a> read _OnNewRecord  Write _OnNewRecord;</code></td>
-</tr>
-<tr><td colspan="2">
-<p>
-A propriedade <strong><code>OnNewRecord</code></strong> é executada em <a class="normal" href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html#DoOnNewRecord">DoOnNewRecord</a> se a mesma for assinalada.</p>
-</td></tr>
 </table>
 <table class="detail wide_list">
 <tr class="list">
@@ -1659,6 +3708,16 @@ O evento <strong><code>onExitField</code></strong> é disparado toda vez que o c
 <table class="detail wide_list">
 <tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="onCalcField"></span><code>property <strong>onCalcField</strong> : <a href="mi_rtl_ui_Dmxscroller.html#TOnCalcField">TOnCalcField</a> Read <a href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html#_OnCalcField">_OnCalcField</a> write <a href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html#_OnCalcField">_onCalcField</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+O tipo <strong><code>onCalcField</code></strong> é usado no evento para calcular um campo e é executado em <a class="normal" href="mi_rtl_ui_Dmxscroller.TDmxFieldRec.html#DoOnEnter">TDmxFieldRec.DoOnEnter</a>() e <a class="normal" href="mi_rtl_ui_Dmxscroller.TDmxFieldRec.html#DoOnExit">TDmxFieldRec.DoOnExit</a>()</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
 <td class="itemcode"><span id="onGetTemplate"></span><code>property <strong>onGetTemplate</strong> : <a href="mi_rtl_ui_Dmxscroller.html#TOnGetTemplate">TonGetTemplate</a> Read _onGetTemplate   Write  _onGetTemplate;</code></td>
 </tr>
 <tr><td colspan="2">
@@ -1676,7 +3735,7 @@ O evento <strong><code>onGetTemplate</code></strong> substitui o método <a clas
 </table>
 <table class="detail wide_list">
 <tr class="list">
-<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
 <td class="itemcode"><span id="Active"></span><code>property <strong>Active</strong> : Boolean Read <a href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html#_Active">_Active</a> Write <a href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html#SetActive">SetActive</a>;</code></td>
 </tr>
 <tr><td colspan="2">
@@ -1689,31 +3748,47 @@ O evento <strong><code>onGetTemplate</code></strong> substitui o método <a clas
 </tr>
 <tr><td colspan="2">
 <p>
-A propriedade <strong><code>CurrentField</code></strong> contem um ponteiro para o campo selecionado</p>
+A propriedade <strong><code>CurrentField</code></strong> contém um ponteiro para o campo selecionado</p>
 </td></tr>
 </table>
 <table class="detail wide_list">
 <tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
-<td class="itemcode"><span id="AlignmentLabels"></span><code>property <strong>AlignmentLabels</strong> : TAlignment read _AlignmentLabels write _AlignmentLabels;</code></td>
-</tr>
-<tr><td colspan="2">
-&nbsp;</td></tr>
-</table>
-<table class="detail wide_list">
-<tr class="list">
-<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
-<td class="itemcode"><span id="BufDataset"></span><code>property <strong>BufDataset</strong> : TBufDataset read GetBufDataset write SetBufDataset;</code></td>
+<td class="itemcode"><span id="AlignmentLabels"></span><code>property <strong>AlignmentLabels</strong> : TAlignment read _AlignmentLabels write SetAlignmentLabels;</code></td>
 </tr>
 <tr><td colspan="2">
 <p>
-A propriedade <strong><code>BufDataset</code></strong> é usada com objetivo de integração dos dados do formulário TVDmx e os controle decentes de TDataSet.</p>
+A propriedade <strong><code>AlignmentLabels</code></strong> contém a propriedade taLeftJustify, taRightJustify, taCenter indicando que o rótulos dos campos devem ser alinhados a esquerda, a direita ou ao centro.
+
+<p></p>
+
+<ul class="paragraph_spacing">
+  <li><p><strong>NOTA</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Quando todas as letras são maiúsculas e o alinhamento é a direta é necessário colocar espaços em branco a direta para compensar o tamanho, do contrário o TLabel omite o inicio do label porque o texto fica maior que o a largura do label.</p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p>
 </td></tr>
 </table>
 <table class="detail wide_list">
 <tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
-<td class="itemcode"><span id="DataSource"></span><code>property <strong>DataSource</strong> : TDataSource Read <a href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html#_DataSource">_DataSource</a>   Write  <a href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html#_DataSource">_DataSource</a>;</code></td>
+<td class="itemcode"><span id="BufDataset"></span><code>property <strong>BufDataset</strong> : <a href="mi_rtl_ui_Dmxscroller.TMiBufDataset.html">TMiBufDataset</a> read GetBufDataset write SetBufDataset;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+A propriedade <strong><code>BufDataset</code></strong> é usada com objetivo de integração dos dados do formulário TDmxScroller e os controle que forem baseados em TDataSet.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="DataSource"></span><code>property <strong>DataSource</strong> : TDataSource Read <a href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html#GetDataSource">GetDataSource</a>   Write  <a href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html#SetDataSource">SetDataSource</a>;</code></td>
 </tr>
 <tr><td colspan="2">
 <p>
@@ -1747,10 +3822,194 @@ A propriedade <strong><code>Locked</code></strong> deve ser redefinida na interf
 <table class="detail wide_list">
 <tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
-<td class="itemcode"><span id="JObject"></span><code>property <strong>JObject</strong>: TJSONObject read Get_JObject write Set_JObject;</code></td>
+<td class="itemcode"><span id="JSONObject"></span><code>property <strong>JSONObject</strong>: TJSONObject read Get_JSONObject write Set_JSONObject;</code></td>
 </tr>
 <tr><td colspan="2">
 &nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="DoOnNewRecord_FillChar"></span><code>property <strong>DoOnNewRecord_FillChar</strong> : Boolean Read _DoOnNewRecord_FillChar Write SetDoOnNewRecord_FillChar default True ;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="OnNewRecord"></span><code>property <strong>OnNewRecord</strong>  : <a href="mi_rtl_ui_Dmxscroller.html#TOnNewRecord">TOnNewRecord</a> read _OnNewRecord  Write _OnNewRecord;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+A propriedade <strong><code>OnNewRecord</code></strong> é executada em <a class="normal" href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html#DoOnNewRecord">DoOnNewRecord</a> se a mesma for assinalada.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="CurrentBookmark"></span><code>property <strong>CurrentBookmark</strong> : TBookMark Read _CurrentBookmark   Write  SetCurrentBookmark;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+A propriedade <strong><code>CurrentBookmark</code></strong> retorna o registro corrente de TDataSource.Datase.
+
+<p></p>
+
+<ul class="paragraph_spacing">
+  <li><p>NOTA </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Faz a mesma função de gerRec;</p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Bof"></span><code>property <strong>Bof</strong>: Boolean read <a href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html#GetBof">GetBof</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Eof"></span><code>property <strong>Eof</strong>: Boolean read <a href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html#GetEof">GetEof</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="onBeforeInsert"></span><code>property <strong>onBeforeInsert</strong>: <a href="mi_rtl_ui_Dmxscroller.html#TOnBeforeInsert">TOnBeforeInsert</a>  Read _OnBeforeInsert Write _OnBeforeInsert;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="onAfterInsert"></span><code>property <strong>onAfterInsert</strong>: <a href="mi_rtl_ui_Dmxscroller.html#TOnAfterInsert">TonAfterInsert</a>  Read _onAfterInsert Write _onAfterInsert;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="onBeforeUpdate"></span><code>property <strong>onBeforeUpdate</strong>: <a href="mi_rtl_ui_Dmxscroller.html#TOnBeforeUpdate">TOnBeforeUpdate</a>  Read _OnBeforeUpdate Write _OnBeforeUpdate;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="onAfterUpdate"></span><code>property <strong>onAfterUpdate</strong>: <a href="mi_rtl_ui_Dmxscroller.html#TOnAfterUpdate">TonAfterUpdate</a>  Read _onAfterUpdate Write _onAfterUpdate;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="onBeforeDelete"></span><code>property <strong>onBeforeDelete</strong>: <a href="mi_rtl_ui_Dmxscroller.html#TOnBeforeDelete">TOnBeforeDelete</a>  Read _OnBeforeDelete Write _OnBeforeDelete;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="onAfterDelete"></span><code>property <strong>onAfterDelete</strong>: <a href="mi_rtl_ui_Dmxscroller.html#TOnAfterDelete">TonAfterDelete</a>  Read _onAfterDelete Write _onAfterDelete;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="OnCalcFields"></span><code>property <strong>OnCalcFields</strong>: <a href="mi_rtl_ui_Dmxscroller.html#TOnCalcFields">TOnCalcFields</a>  Read _OnCalcFields Write _OnCalcFields;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="OnChangeField"></span><code>property <strong>OnChangeField</strong>: <a href="mi_rtl_ui_Dmxscroller.html#TOnChangeField">TOnChangeField</a>  Read _OnChangeField Write _OnChangeField;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="ShouldSaveTemplate"></span><code>property <strong>ShouldSaveTemplate</strong> : Boolean Read <a href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html#_ShouldSaveTemplate">_ShouldSaveTemplate</a> Write <a href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html#_ShouldSaveTemplate">_ShouldSaveTemplate</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+A propriedade <strong><code>ShouldSaveTemplate</code></strong> é usada método <strong><a class="normal" href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html#CreateStruct">CreateStruct</a></strong> com objetivo de salvar o <strong>template_org</strong>.
+
+<p></p>
+
+<ul class="paragraph_spacing">
+  <li><p><strong>NOTAS</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Condição para que o método <strong><a class="normal" href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html#SaveTemplate">SaveTemplate</a></strong> seja executado: </p>
+
+<ul class="paragraph_spacing">
+  <li><p>A propriedade <strong><code>ShouldSaveTemplate</code></strong> deve ser igua <strong>true</strong>;</p></li>
+  <li><p>O Nome da propriedade <strong><a class="normal" href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html#TableName">TableName</a></strong> deve ser diferente de vazio;</p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><span id="MiDataPacketFormat_Default"></span><code>property <strong>MiDataPacketFormat_Default</strong>: <a href="mi_rtl_ui_Dmxscroller.html#TMiDataPacketFormat">TMiDataPacketFormat</a> read _MiDataPacketFormat_Default
+                                                                           write SetTMiDataPacketFormat;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+O propriedade <strong><code>MiDataPacketFormat_Default</code></strong> usado para dar opção do usuário informar o tipo de arquivo a ser salvo por <a class="normal" href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html#BufDataset">BufDataSet</a>.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Modified"></span><code>property <strong>Modified</strong> : Boolean read GetModified ;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+O propriedade <strong><code>Modified</code></strong> se retorna <strong>true</strong> indica que pelo menos um campo foi alterado no dataset.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="CanModify"></span><code>property <strong>CanModify</strong> : Boolean read GetCanModify ;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+O propriedade <strong><code>CanModify</code></strong> se retorna <strong>true</strong> indica que pelo menos um campo foi alterado no dataset.</p>
+</td></tr>
 </table>
 <hr><span class="appinfo"><em>Gerado por <a href="https://pasdoc.github.io/">PasDoc 0.16.0</a>. </em>
 </span>

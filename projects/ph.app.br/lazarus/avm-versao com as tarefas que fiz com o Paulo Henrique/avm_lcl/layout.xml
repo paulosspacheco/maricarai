@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CONFIG>
+  <MainConfig>
+    <Nodes ChildCount="1" PixelsPerInch="0">
+      <Item1 Name="AnchorDockPanel1" Type="CustomSite" ChildCount="1" WindowState="Maximized" PixelsPerInch="0">
+        <Bounds Width="1600" Height="798"/>
+        <Anchors Align="Client"/>
+        <Item1 Name="AnchorDockSite1" Type="Pages" ChildCount="2" WindowState="Maximized">
+          <Bounds Top="33" Left="1" Width="1598" Height="746"/>
+          <Anchors Align="Client"/>
+          <Item1 Name="ZOperadores" Type="Control" WindowState="Maximized">
+            <Bounds Width="1570" Height="716"/>
+            <Anchors Align="Client"/>
+          </Item1>
+          <Item2 Name="Form4" Type="Control" WindowState="Maximized">
+            <Bounds Width="1570" Height="716"/>
+            <Anchors Align="Client"/>
+          </Item2>
+        </Item1>
+      </Item1>
+    </Nodes>
+  </MainConfig>
+</CONFIG>

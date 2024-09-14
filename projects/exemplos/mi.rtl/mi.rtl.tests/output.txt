@@ -1,0 +1,7 @@
+Toda escrita para o vídeo foi redirecionada para ./Output.txt
+Name is InfoDemo
+This program was compiled 20:50:53 on 2024/09/13
+By paulosspacheco
+Compiler version: 3
+Target CPU: x86_64
+HOME: /home/paulosspacheco

@@ -1,0 +1,47 @@
+object FormMain: TFormMain
+  Left = 471
+  Height = 277
+  Top = 120
+  Width = 471
+  Caption = 'FormMain'
+  ClientHeight = 277
+  ClientWidth = 471
+  OnCreate = FormCreate
+  OnDestroy = FormDestroy
+  object TreeView1: TTreeView
+    Left = 8
+    Height = 245
+    Top = 32
+    Width = 463
+    ReadOnly = True
+    TabOrder = 0
+    OnChange = TreeView1Change
+    OnClick = TreeView1Click
+    Options = [tvoAutoItemHeight, tvoHideSelection, tvoKeepCollapsedNodes, tvoReadOnly, tvoShowButtons, tvoShowLines, tvoShowRoot, tvoToolTips, tvoThemedDraw]
+  end
+  object Panel1: TPanel
+    Left = 8
+    Height = 26
+    Top = 0
+    Width = 456
+    Caption = 'Testes da api da classe TMi_rtl_WebModule'
+    TabOrder = 1
+  end
+  object ActionList1: TActionList
+    Left = 352
+    Top = 80
+    object CmForm_Server: TAction
+      Caption = 'CmForm_Server'
+      OnExecute = CmForm_ServerExecute
+    end
+    object CmForm_Mi_Rtl_WebModule: TAction
+      Caption = 'CmForm_Mi_Rtl_WebModule'
+      OnExecute = CmForm_Mi_Rtl_WebModuleExecute
+    end
+  end
+  object Mi_lcl_ui_ds_Form1: TMi_lcl_ui_ds_Form
+    Active = False
+    Left = 112
+    Top = 88
+  end
+end

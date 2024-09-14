@@ -1,0 +1,8 @@
+object Form_Mi_rtl_WebModule_Custom: TForm_Mi_rtl_WebModule_Custom
+  Left = 320
+  Height = 240
+  Top = 250
+  Width = 320
+  Caption = 'Form_Mi_rtl_WebModule_Custom'
+  Position = poOwnerFormCenter
+end

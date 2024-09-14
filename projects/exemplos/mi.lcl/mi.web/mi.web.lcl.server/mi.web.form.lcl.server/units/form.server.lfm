@@ -1,0 +1,96 @@
+object Form_server: TForm_server
+  Left = 1036
+  Height = 167
+  Top = 337
+  Width = 320
+  BorderStyle = bsDialog
+  Caption = 'Form_server'
+  ClientHeight = 167
+  ClientWidth = 320
+  OnClose = FormClose
+  OnCreate = FormCreate
+  OnDestroy = FormDestroy
+  Position = poMainFormCenter
+  object StartButton: TButton
+    Left = 40
+    Height = 25
+    Top = 112
+    Width = 80
+    Caption = 'Start'
+    TabOrder = 0
+    OnClick = StartButtonClick
+  end
+  object StopButton: TButton
+    Left = 128
+    Height = 25
+    Top = 112
+    Width = 75
+    Caption = 'Stop'
+    TabOrder = 1
+    OnClick = StopButtonClick
+  end
+  object Label1: TLabel
+    Left = 40
+    Height = 17
+    Top = 80
+    Width = 36
+    Caption = 'Porta: '
+  end
+  object MaskEdit_port: TMaskEdit
+    Left = 112
+    Height = 34
+    Top = 72
+    Width = 48
+    EnableSets = False
+    MaxLength = 4
+    TabOrder = 2
+    EditMask = '####;1;_'
+    Text = '8080'
+    SpaceChar = '_'
+  end
+  object Label_hostName: TLabel
+    Left = 40
+    Height = 17
+    Top = 48
+    Width = 67
+    Caption = 'Hostname:  '
+  end
+  object MaskEdit_hostName: TMaskEdit
+    Left = 112
+    Height = 34
+    Top = 40
+    Width = 176
+    EnableSets = False
+    MaxLength = 0
+    TabOrder = 3
+    Text = 'http://localhost'
+    SpaceChar = '_'
+  end
+  object Panel1: TPanel
+    Left = 0
+    Height = 24
+    Top = 0
+    Width = 320
+    Align = alTop
+    Anchors = [akLeft, akRight]
+    Caption = 'fcl-web : Teste unit httproute'
+    TabOrder = 4
+  end
+  object CloseButton: TButton
+    Left = 208
+    Height = 25
+    Top = 112
+    Width = 75
+    Caption = 'Stop'
+    Enabled = False
+    TabOrder = 5
+    OnClick = CloseButtonClick
+  end
+  object Mi_FpHttpServer1: TMi_FpHttpServer
+    MimeFile = '/home/paulosspacheco/v/Lazarus/fpcupdeluxe/lazarus/mime.type'
+    UseSSL = False
+    HostName = 'http://localhost'
+    AllowDefaultModule = True
+    Left = 48
+  end
+end

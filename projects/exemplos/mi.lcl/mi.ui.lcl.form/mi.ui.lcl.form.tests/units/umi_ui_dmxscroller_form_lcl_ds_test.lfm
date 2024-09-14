@@ -1,0 +1,76 @@
+object Mi_ui_DmxScroller_Form_Lcl_ds_test: TMi_ui_DmxScroller_Form_Lcl_ds_test
+  Left = 434
+  Height = 168
+  Top = 255
+  Width = 746
+  Caption = 'Mi_ui_DmxScroller_Form_Lcl_ds_test'
+  ClientHeight = 168
+  ClientWidth = 746
+  Font.Height = -12
+  Font.Name = 'Verdana'
+  Menu = MainMenu1
+  OnCreate = FormCreate
+  Position = poDesktopCenter
+  LCLVersion = '3.3.0.0'
+  object GroupBox1: TGroupBox
+    Left = 0
+    Height = 80
+    Top = 0
+    Width = 746
+    Align = alClient
+    Anchors = [akLeft, akRight, akBottom]
+    Caption = 'GroupBox1'
+    ClientHeight = 76
+    ClientWidth = 742
+    TabOrder = 0
+    object Mi_ScrollBox_LCL1: TMi_ScrollBox_LCL
+      Left = 0
+      Height = 63
+      Top = 0
+      Width = 744
+      HorzScrollBar.Page = 1
+      VertScrollBar.Page = 1
+      Align = alClient
+      AutoScroll = False
+      Font.Name = 'Verdana'
+      ParentFont = False
+      TabOrder = 0
+      TabStop = True
+    end
+  end
+  object DBGrid1: TDBGrid
+    Left = 0
+    Height = 88
+    Top = 80
+    Width = 746
+    Align = alBottom
+    Color = clWindow
+    Columns = <>
+    DataSource = DataSource1
+    TabOrder = 1
+  end
+  object DataSource1: TDataSource
+    Left = 408
+    Top = 48
+  end
+  object DmxScroller_Form_Lcl_DS1: TDmxScroller_Form_Lcl_DS
+    Alias = 'TDmxScroller_Form_Lcl_DS'
+    DataSource = DataSource1
+    onGetTemplate = DmxScroller_Form_Lcl_DS1GetTemplate
+    Active = False
+    AlignmentLabels = taLeftJustify
+    ParentLCL = Mi_ScrollBox_LCL1
+    Left = 224
+    Top = 32
+  end
+  object MainMenu1: TMainMenu
+    Left = 568
+    Top = 48
+    object MenuItem1: TMenuItem
+      Caption = 'MenuItem1'
+      object MenuItem2: TMenuItem
+        Caption = 'MenuItem2'
+      end
+    end
+  end
+end

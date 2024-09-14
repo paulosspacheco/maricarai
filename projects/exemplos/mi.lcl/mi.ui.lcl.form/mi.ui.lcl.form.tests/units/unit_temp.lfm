@@ -1,0 +1,73 @@
+object Form1: TForm1
+  Left = 571
+  Height = 240
+  Top = 320
+  Width = 716
+  Caption = 'Form1'
+  ClientHeight = 240
+  ClientWidth = 716
+  LCLVersion = '3.1.0.0'
+  object ToolBar1: TToolBar
+    Left = 0
+    Height = 26
+    Top = 0
+    Width = 716
+    Caption = 'ToolBar1'
+    TabOrder = 0
+    object form_ds_Test: TButton
+      Left = 1
+      Height = 22
+      Top = 2
+      Width = 120
+      Caption = '&form_ds_Test'
+      Font.Height = -13
+      Font.Name = 'DejaVu Sans Mono'
+      ParentFont = False
+      TabOrder = 0
+    end
+    object InputBox: TButton
+      Left = 121
+      Height = 22
+      Top = 2
+      Width = 88
+      Caption = 'InputBox'
+      TabOrder = 1
+    end
+    object Button_ModifyFontsAll_LCL: TButton
+      Left = 209
+      Height = 22
+      Top = 2
+      Width = 136
+      Caption = 'ModifyFontsAll_LCL'
+      TabOrder = 2
+    end
+    object AddTemplate: TButton
+      Left = 345
+      Height = 22
+      Top = 2
+      Width = 104
+      Caption = 'AddTemplate'
+      TabOrder = 3
+    end
+    object GetTemplate: TButton
+      Left = 449
+      Height = 22
+      Top = 2
+      Width = 105
+      Caption = 'GetTemplate'
+      TabOrder = 4
+    end
+    object Button_form_ds_test2: TButton
+      Left = 554
+      Height = 22
+      Top = 2
+      Width = 104
+      Caption = 'Form_ds_Test2'
+      Font.Height = -13
+      Font.Name = 'Arial'
+      Font.Style = [fsItalic]
+      ParentFont = False
+      TabOrder = 5
+    end
+  end
+end

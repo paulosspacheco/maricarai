@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+        <html>
+        <head>
+            <meta charset="UTF-8">
+            <title>This package installs the Google APIs in Free Pascal 3&period;1 in the lazarus component palette&period;</title>
+            <style>
+/* From extension vscode.github */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+.vscode-dark img[src$=\#gh-light-mode-only],
+.vscode-light img[src$=\#gh-dark-mode-only],
+.vscode-high-contrast:not(.vscode-high-contrast-light) img[src$=\#gh-light-mode-only],
+.vscode-high-contrast-light img[src$=\#gh-dark-mode-only] {
+	display: none;
+}
+
+/* From extension davidmwhynot.markdown-higlightjs */
+/*
+
+Atom One Dark by Daniel Gamage
+Original One Dark Syntax theme from https://github.com/atom/one-dark-syntax
+
+base:    #282c34
+mono-1:  #abb2bf
+mono-2:  #818896
+mono-3:  #5c6370
+hue-1:   #56b6c2
+hue-2:   #61aeee
+hue-3:   #c678dd
+hue-4:   #98c379
+hue-5:   #e06c75
+hue-5-2: #be5046
+hue-6:   #d19a66
+hue-6-2: #e6c07b
+
+*/
+
+.hljs {
+  display: block;
+  overflow-x: auto;
+  padding: 0.5em;
+  color: #abb2bf;
+  background: #282c34;
+}
+
+.hljs-comment,
+.hljs-quote {
+  color: #5c6370;
+  font-style: italic;
+}
+
+.hljs-doctag,
+.hljs-keyword,
+.hljs-formula {
+  color: #c678dd;
+}
+
+.hljs-section,
+.hljs-name,
+.hljs-selector-tag,
+.hljs-deletion,
+.hljs-subst {
+  color: #e06c75;
+}
+
+.hljs-literal {
+  color: #56b6c2;
+}
+
+.hljs-string,
+.hljs-regexp,
+.hljs-addition,
+.hljs-attribute,
+.hljs-meta-string {
+  color: #98c379;
+}
+
+.hljs-built_in,
+.hljs-class .hljs-title {
+  color: #e6c07b;
+}
+
+.hljs-attr,
+.hljs-variable,
+.hljs-template-variable,
+.hljs-type,
+.hljs-selector-class,
+.hljs-selector-attr,
+.hljs-selector-pseudo,
+.hljs-number {
+  color: #d19a66;
+}
+
+.hljs-symbol,
+.hljs-bullet,
+.hljs-link,
+.hljs-meta,
+.hljs-selector-id,
+.hljs-title {
+  color: #61aeee;
+}
+
+.hljs-emphasis {
+  font-style: italic;
+}
+
+.hljs-strong {
+  font-weight: bold;
+}
+
+.hljs-link {
+  text-decoration: underline;
+}
+
+</style>
+            
+        
+        <style>
+.task-list-item {
+    list-style-type: none;
+}
+
+.task-list-item-checkbox {
+    margin-left: -20px;
+    vertical-align: middle;
+    pointer-events: none;
+}
+</style>
+<style>
+:root {
+  --color-note: #0969da;
+  --color-tip: #1a7f37;
+  --color-warning: #9a6700;
+  --color-severe: #bc4c00;
+  --color-caution: #d1242f;
+  --color-important: #8250df;
+}
+
+</style>
+<style>
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-note: #2f81f7;
+    --color-tip: #3fb950;
+    --color-warning: #d29922;
+    --color-severe: #db6d28;
+    --color-caution: #f85149;
+    --color-important: #a371f7;
+  }
+}
+
+</style>
+<style>
+.markdown-alert {
+  padding: 0.5rem 1rem;
+  margin-bottom: 16px;
+  color: inherit;
+  border-left: .25em solid #888;
+}
+
+.markdown-alert>:first-child {
+  margin-top: 0
+}
+
+.markdown-alert>:last-child {
+  margin-bottom: 0
+}
+
+.markdown-alert .markdown-alert-title {
+  display: flex;
+  font-weight: 500;
+  align-items: center;
+  line-height: 1
+}
+
+.markdown-alert .markdown-alert-title .octicon {
+  margin-right: 0.5rem;
+  display: inline-block;
+  overflow: visible !important;
+  vertical-align: text-bottom;
+  fill: currentColor;
+}
+
+.markdown-alert.markdown-alert-note {
+  border-left-color: var(--color-note);
+}
+
+.markdown-alert.markdown-alert-note .markdown-alert-title {
+  color: var(--color-note);
+}
+
+.markdown-alert.markdown-alert-important {
+  border-left-color: var(--color-important);
+}
+
+.markdown-alert.markdown-alert-important .markdown-alert-title {
+  color: var(--color-important);
+}
+
+.markdown-alert.markdown-alert-warning {
+  border-left-color: var(--color-warning);
+}
+
+.markdown-alert.markdown-alert-warning .markdown-alert-title {
+  color: var(--color-warning);
+}
+
+.markdown-alert.markdown-alert-tip {
+  border-left-color: var(--color-tip);
+}
+
+.markdown-alert.markdown-alert-tip .markdown-alert-title {
+  color: var(--color-tip);
+}
+
+.markdown-alert.markdown-alert-caution {
+  border-left-color: var(--color-caution);
+}
+
+.markdown-alert.markdown-alert-caution .markdown-alert-title {
+  color: var(--color-caution);
+}
+
+</style>
+        <style>
+
+</style>
+        </head>
+        <body class="vscode-body vscode-dark">
+            <h1 id="this-package-installs-the-google-apis-in-free-pascal-31-in-the-lazarus-component-palette">This package installs the Google APIs in Free Pascal 3.1 in the lazarus component palette.</h1>
+<p>Each Google Service API is a REST API that offers multiple resources.</p>
+<p>See the end of this file for instructions for compiling with FPC 2.6.x</p>
+<h1 id="component-overview">==================
+Component overview</h1>
+<p>A Google API breaks down in 4 parts, all of which have a base class in the
+following units:</p>
+<h2 id="tgoogleclient---unit-googleclient">TGoogleClient - unit googleclient</h2>
+<p>This is a simple component that handles the transport and authorization,
+it needs a TFPWebClient descendent (such as TFPHTTPWebClient, available in
+the weblaz package) and a TFPOauth2Handler descendent to communicate with
+Google servers (the component creates a default one).</p>
+<p>These 2 classes are part of fcl-web, a synapse-based TFPWebclient descendant
+is available separately.</p>
+<h2 id="tgoogleapi---unit-googleservice">TGoogleAPI - unit googleservice</h2>
+<p>There is a descendent of this component for each Google service API, which
+handles all calls to the service. It uses a TGoogleClient component to
+handle actual communication.</p>
+<p>This class contains a method called ServiceCall which is used by all
+resources in the API to execute service requests. It will use the client to
+do the actual HTTP request.</p>
+<p>Each unit google*.pp in this package contains a single component that
+descends from the TGoogleAPI component.</p>
+<h2 id="tgoogleresource---unit-googleservice">TGoogleResource - unit googleservice</h2>
+<p>For each resource exposed by the service, a descendent of this class is generated
+that has all the methods for that resource, as described in the REST service
+description.</p>
+<p>TGoogleResource uses an instance of the TGoogleAPI class to handle all calls to<br>
+the service.</p>
+<p>Each API unit google*.pp in this package contains one or more
+TGoogleResource<br>
+descendents, used in the API of that unit.</p>
+<h2 id="tgooglebaseobject---unit-googlebase">TGoogleBaseObject - unit googlebase</h2>
+<p>For each data type used in the API, a descendent of this class is used: it is a
+descendent of TBaseObject (unit restbase, part of fcl-web) and handles
+loading from and saving to JSON.</p>
+<h1 id="demo-programs-setup">====================
+Demo programs setup.</h1>
+<p>The demo programs create the necessary API components in code, it is
+therefor not necessary to install the lazgoogleapis package in the IDE,
+it just has to be opened and compiled.</p>
+<p>There are 4 demo programs. Before they can be used, they must be defined in Google.</p>
+<p>The following procedure is not needed for the discovery demo, it does not
+need authentication.</p>
+<p>You will need to:</p>
+<ol>
+<li>
+<p>Have a google account</p>
+</li>
+<li>
+<p>Be registered as a google Developer. Just go to the google developer console at:
+<a href="https://console.developers.google.com/">https://console.developers.google.com/</a></p>
+</li>
+<li>
+<p>Register a new project in the console.</p>
+</li>
+<li>
+<p>Create a new client ID and Secret key under Credentials (APIs &amp; Auth)
+As a redirect URI, enter:  urn:ietf:wg:oauth:2.0:oob</p>
+<p>The Client ID and secret key must be saved in the google.ini file in the example directory:</p>
+</li>
+</ol>
+<p>[Credentials]
+ClientID=Your client ID
+ClientSecret=Your secret key
+Scope=<a href="https://www.googleapis.com/auth/calendar">https://www.googleapis.com/auth/calendar</a></p>
+<p>The scope must match the API that is used. (the example files contain the
+correct scope)</p>
+<ol start="5">
+<li>Under credentials, request credentials (under APIs) for
+Calendar API
+Drive API
+Tasks API</li>
+</ol>
+<p>You can re-use the same Client ID and secret for all examples, or you
+can create different client IDs and keys, or even create different projects.</p>
+<h1 id="compiling-with-fpc-264">========================
+Compiling with FPC 2.6.4</h1>
+<p>The code works with FPC 2.6.4. To work with FPC 2.6.4, you need the
+following files from the FPC SVN repository (trunk):</p>
+<p>From packages/fcl-web/src/base:</p>
+<p>fpoauth2.pp
+fphttpwebclient.pp
+fpwebclient.pp
+restcodegen.pp
+restbase.pp
+fpoauth2ini.pp
+fpjwt.pp</p>
+<p>From packages/googleapi/src
+All *.pp files</p>
+<p>There is a directory 2_6_4 to which the files can be copied.</p>
+<p>Additionally, in the directory 2_6_4 there is a unit synapsewebclient.
+This unit implements a TFPWebclient descendent that works with Synapse.
+It works with version 2.6.4, and with version 3.x of Free Pascal.</p>
+<p>You need to have compiled the laz_synapse package (distributed with synapse)
+for this to work.</p>
+<p>To compile the package and the demos, copy the needed files to directory 2_6_4 and
+add this directory to the source path of the lazgoogleapi package and all
+demo programs.</p>
+
+            
+            
+        </body>
+        </html>

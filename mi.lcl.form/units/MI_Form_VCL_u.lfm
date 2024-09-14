@@ -1,0 +1,23 @@
+object MI_Form_VCL: TMI_Form_VCL
+  Left = 378
+  Height = 293
+  Hint = 'Hint Form'
+  Top = 218
+  Width = 562
+  Caption = 'MI_Form_VCL'
+  Color = clBtnFace
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'Tahoma'
+  KeyPreview = True
+  OnCreate = FormCreate
+  OnKeyDown = FormKeyDown
+  OnKeyPress = FormKeyPress
+  ShowHint = True
+  LCLVersion = '3.1.0.0'
+  object ApplicationEvents1: TApplicationProperties
+    OnHint = ApplicationEvents1Hint
+    Left = 48
+    Top = 24
+  end
+end

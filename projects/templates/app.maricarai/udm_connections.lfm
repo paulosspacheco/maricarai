@@ -1,0 +1,30 @@
+object dm_connections: Tdm_connections
+  OnCreate = DataModuleCreate
+  OnDestroy = DataModuleDestroy
+  OldCreateOrder = False
+  Height = 160
+  HorizontalOffset = 616
+  VerticalOffset = 328
+  Width = 414
+  object SQLTransaction1: TSQLTransaction
+    Active = False
+    Action = caNone
+    Database = SQLConnector1
+    Left = 288
+    Top = 24
+  end
+  object SQLConnector1: TSQLConnector
+    Connected = False
+    LoginPrompt = True
+    OnLogin = SQLConnector1Login
+    DatabaseName = 'avm'
+    KeepConnection = True
+    Password = 'masterkey'
+    Transaction = SQLTransaction1
+    UserName = 'postgres'
+    HostName = '45.160.125.12'
+    ConnectorType = 'PostgreSQL'
+    Left = 144
+    Top = 24
+  end
+end

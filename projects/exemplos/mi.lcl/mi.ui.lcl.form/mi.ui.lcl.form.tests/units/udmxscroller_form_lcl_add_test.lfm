@@ -1,0 +1,54 @@
+object DmxScroller_Form_Lcl_add_test: TDmxScroller_Form_Lcl_add_test
+  Left = 596
+  Height = 258
+  Top = 300
+  Width = 500
+  Caption = 'DmxScroller_Form_Lcl_add_test'
+  ClientHeight = 258
+  ClientWidth = 500
+  Font.Name = 'Verdana'
+  OnCreate = FormCreate
+  Position = poDesktopCenter
+  LCLVersion = '3.3.0.0'
+  object Mi_ScrollBox_LCL1: TMi_ScrollBox_LCL
+    Left = 0
+    Height = 202
+    Top = 0
+    Width = 500
+    HorzScrollBar.Increment = 1
+    VertScrollBar.Increment = 1
+    Align = alClient
+    AutoScroll = False
+    BorderStyle = bsNone
+    Font.Name = 'Verdana'
+    ParentFont = False
+    TabOrder = 0
+    TabStop = True
+  end
+  object ButtonPanel1: TButtonPanel
+    Left = 6
+    Height = 44
+    Top = 208
+    Width = 488
+    OKButton.Name = 'OKButton'
+    OKButton.DefaultCaption = True
+    HelpButton.Name = 'HelpButton'
+    HelpButton.DefaultCaption = True
+    CloseButton.Name = 'CloseButton'
+    CloseButton.DefaultCaption = True
+    CancelButton.Name = 'CancelButton'
+    CancelButton.DefaultCaption = True
+    TabOrder = 1
+    ShowButtons = [pbOK, pbCancel]
+    ShowGlyphs = [pbOK, pbCancel]
+  end
+  object DmxScroller_Form_Lcl1: TDmxScroller_Form_Lcl
+    Alias = 'TDmxScroller_Form_Lcl'
+    OnAddTemplate = DmxScroller_Form_Lcl1AddTemplate
+    Active = False
+    AlignmentLabels = taLeftJustify
+    ParentLCL = Owner
+    Left = 64
+    Top = 16
+  end
+end

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CONFIG>
+  <MainConfig>
+    <Nodes ChildCount="1" PixelsPerInch="0">
+      <Item1 Name="AnchorDockPanel1" Type="CustomSite" ChildCount="1" PixelsPerInch="0">
+        <Bounds Top="211" Left="668" Width="1068" Height="611"/>
+        <Anchors Align="Client"/>
+        <Item1 Name="AnchorDockSite3" Type="Pages" ChildCount="2">
+          <Bounds Top="33" Left="1" Width="1066" Height="559"/>
+          <Anchors Align="Client"/>
+          <Header PageIndex="1"/>
+          <Item1 Name="form_expediente_do_medico_data" Type="Control">
+            <Bounds Width="1038" Height="529"/>
+            <Anchors Align="Client"/>
+          </Item1>
+          <Item2 Name="form_expediente_do_medico_horas" Type="Control">
+            <Bounds Width="1038" Height="529"/>
+            <Anchors Align="Client"/>
+          </Item2>
+        </Item1>
+      </Item1>
+    </Nodes>
+  </MainConfig>
+</CONFIG>

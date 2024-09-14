@@ -2,7 +2,7 @@ unit mi.rtl.Objects.Methods.Exception;
 {:< -A unit **@name** implementa a classe TException do pacote mi.rtl.
 
     - **VERSÃO**:
-      - Alpha - Alpha - 0.9.0
+      - Alpha - 1.0.0
 
     - **CÓDIGO FONTE**:
       - @html(<a href="../units/mi.rtl.objects.texception.pas">mi.rtl.objects.texception.pas</a>)
@@ -137,9 +137,16 @@ type
       constructor Create(const Msg: Ansistring);Overload;
       constructor Create(const aCodError:SmallInt);Overload;
       constructor Create(const Sender: TObject;Const aMethodName, aFileName, AFieldName:AnsiString;aCodError:integer );Overload;
+      constructor Create(                      Const aMethodName, aFileName, AFieldName:AnsiString;aCodError:integer );Overload;
+
       constructor Create(const Sender: TObject;Const aMethodName, aFileName, AFieldName:AnsiString;aMsg:AnsiString);Overload;
+      constructor Create(                      Const aMethodName, aFileName, AFieldName:AnsiString;aMsg:AnsiString);Overload;
+
       constructor Create(const Sender: TObject;Const aMethodName:AnsiString;aCodError:SmallInt );Overload;
+      constructor Create(                      Const aMethodName:AnsiString;aCodError:SmallInt );Overload;
+
       constructor Create(const Sender: TObject;Const aMethodName:AnsiString;aMsg:AnsiString );Overload;
+      constructor Create(                      Const aMethodName:AnsiString;aMsg:AnsiString );Overload;
 
       constructor Create4(Const aModule,
                                 aUnit,
@@ -242,15 +249,28 @@ implementation
       SysMessageBox(Message,'TException.Create',true);
     end;
 
-        constructor TException.Create(const Sender: TObject; const aMethodName,
-      aFileName, AFieldName: AnsiString; aMsg: AnsiString);
+    constructor TException.Create(const aMethodName, aFileName,AFieldName: AnsiString; aCodError: integer);
+    begin
+      Create(nil,aMethodName, aFileName,AFieldName,aCodError);
+    end;
+
+    constructor TException.Create(const Sender: TObject; const aMethodName,aFileName, AFieldName: AnsiString; aMsg: AnsiString);
     begin
       CTRL_SLEEP_ENABLE := true;
       Inherited Create(nil) ;
 
-      Message := tstrerror.ErrorMessage7('',
+      if Assigned(sender)
+      Then Message := tstrerror.ErrorMessage7('',
                                 sender.UnitName,
                                 sender.ClassName,
+                                aMethodName,
+                                aFileName,
+                                AFieldName,
+                                aMsg
+                                )
+      else Message := tstrerror.ErrorMessage7('',
+                                '',
+                                '',
                                 aMethodName,
                                 aFileName,
                                 AFieldName,
@@ -261,14 +281,29 @@ implementation
       SysMessageBox(Message,'TException.Create',true);
     end;
 
+    constructor TException.Create(const aMethodName, aFileName,AFieldName: AnsiString; aMsg: AnsiString);
+    begin
+      Create(nil,aMethodName, aFileName,AFieldName,aMsg);
+    end;
+
     constructor TException.Create(const Sender: TObject; const aMethodName: AnsiString; aCodError: SmallInt);
     begin
       Create(Sender,aMethodName, '', '', aCodError);
     end;
 
+    constructor TException.Create(const aMethodName: AnsiString;aCodError: SmallInt);
+    begin
+      Create(nil,aMethodName,aCodError);
+    end;
+
     constructor TException.Create(const Sender: TObject; const aMethodName: AnsiString; aMsg: AnsiString);
     begin
       Create(Sender,aMethodName, '', '', aMsg);
+    end;
+
+    constructor TException.Create(const aMethodName: AnsiString;aMsg: AnsiString);
+    begin
+      Create(nil,aMethodName,aMsg);
     end;
 
     constructor TException.Create4(const aModule, aUnit, Procedure_or_Function,   aMessage: AnsiString);

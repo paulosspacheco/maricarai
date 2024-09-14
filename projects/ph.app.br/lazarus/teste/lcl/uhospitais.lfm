@@ -1,0 +1,24 @@
+inherited hospitais: Thospitais
+  OnCreate = DataModuleCreate
+  Height = 174
+  HorizontalOffset = 524
+  VerticalOffset = 281
+  Width = 455
+  inherited DmxScroller_Form1: TDmxScroller_Form
+    Alias = 'Cadastro de  hospitais'
+    OnAddTemplate = DmxScroller_Form1AddTemplate
+    onEnter = DmxScroller_Form1Enter
+    Top = 24
+  end
+  inherited ActionList1: TActionList
+    Left = 80
+    inherited CmRefresh: TAction
+      Caption = 'CmRefresh'
+    end
+  end
+  inherited Mi_SQLQuery1: TMi_SQLQuery
+    Options = [sqoKeepOpenOnCommit, sqoAutoApplyUpdates, sqoAutoCommit, sqoRefreshUsingSelect]
+    Left = 328
+    Top = 16
+  end
+end

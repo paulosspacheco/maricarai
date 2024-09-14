@@ -3,7 +3,7 @@ unit mi.rtl.Consts;
       **mi.rtl**.
 
   - **VERSÃO**
-    - Alpha - Alpha - 0.9.0
+    - Alpha - 1.0.0
 
   - **CÓDIGO FONTE**:
     - @html(<a href="../units/mi.rtl.consts.pas">mi.rtl.consts.pas</a>)          
@@ -198,7 +198,7 @@ uses
         Const fldStr              =   'S';
         Const fldS = fldStr;
 
-        {: A constante **@name** (Const fldSTR_Minuscula = 's') usado na máscara do Template,
+        {: A constante **@name** (Const fldstr_Lowcase = 's') usado na máscara do Template,
            informa ao componente **TUiDmxScroller** que a sequência de caracteres 's'
            após o caractere **"\"** representa no buffer do formulário um tipo ShortString
            que só aceita caractere minúscula.
@@ -214,8 +214,8 @@ uses
                     Nome := '\Ssssssssss' //Paulo serg
                ```
         }
-        Const fldSTR_Minuscula    =   's';
-        Const fldSMi = fldSTR_Minuscula;
+        Const fldstr_Lowcase    =   's';
+        Const fldSMi = fldstr_Lowcase;
 
         {: A constante **@name** (Const fldSTRNUM = '#') usado na máscara do Template,
            informa ao componente **TUiDmxScroller** que a sequência de caracteres '#'
@@ -273,8 +273,8 @@ uses
 
                ```
         }
-        Const fldAnsiChar_Minuscula   =   'c';
-        Const fldACMi = fldAnsiChar_Minuscula;
+        Const fldAnsiChar_LowCase   =   'c';
+        Const fldACMi = fldAnsiChar_LowCase;
 
         {: A constante **@name** (Const fldAnsiChar = '0') usado na máscara do Template,
            informa ao componente **TUiDmxScroller** que a sequência de caracteres '0'
@@ -414,7 +414,7 @@ uses
            - **NOTA**
                - Para informar ao buffer do registro que o campo é **@name**,
                  a função **CreateBlobField** é necessário.
-               - A **class function TUiMethods.CreateBlobField(Len: integer; AccMode,Default: byte) : DmxIDstr;**
+               - A **class function TUiMethods.CreateBlobField(Len: integer; AccMode,Default: byte) : TDmxStr_ID;**
                  reserva espaço para o mesmo.
 
                - Pendência: Preciso criar um exemplo de uso deste tipo de informação.  
@@ -572,9 +572,9 @@ uses
         Const FldlinkUrl    = ^L+'1';//:< Endereço de uma página na web a ser acessada pelo browser.
         Const FldlinkAction = ^L+'2';//:< Nome de uma ação da lista actionItens.
 
-        Const fldData           = 'D';   //:< D = TipoData DD/DD/DD
-        Const fld_LData         = 'd' ;  //:< d = TDataTime;Guarda a data compactada 'dd/dd/dd'
-        Const fldLData          = #1  ;  //:< #1 = TDataTime;Guarda a data compactada '##/##/##'
+        Const FldDateTime           = 'D';   //:< D = TipoData dd/nn/yy
+        Const FldDateTime         = 'd' ;  //:< d = TDataTime;Guarda a data compactada 'dd/nn/yy'
+        Const FldDateTime          = #1  ;  //:< #1 = TDataTime;Guarda a data compactada '##/##/##'
         Const FldSData          = '##/##/##';
         Const fldLHora          = #2 ;  //:< #2 = Longint;Guarda a hora compactada  ##:##:##
         Const FldSHora          = '##:##:##';
@@ -683,10 +683,10 @@ uses
         Const FldMemo         = 'M';
         Const TypeMemo        = '\ZB'+^F+#0'ssssssssss'#0'ZZZZZZZL'#0'ZZZZW'#0'ZZZZW'+#0+^F; //:<Usado em conjunto com FldBLob
         Const CTypeReal       =  [fldRealNum,fldReal4,fldReal4P,fldRealNum_Positivo,fldExtended];
-        Const CTypeAnsiChar   =  [fldAnsiChar,fldAnsiChar_Minuscula,fldAnsiCharVAL];
-        Const CTypeString     =  [fldSTRNUM,fldSTR,fldSTR_Minuscula];
-        Const CTypeInteger    =  [fldENUM,fldBOOLEAN,fldBYTE,fldSHORTINT,fldSmallWORD,fldSmallInt,fldLONGINT,FldRadioButton];
-        Const CTypeDate       =  [fldData,fldLData,fld_LData,FldDateTimeDos];
+        Const CTypeAnsiChar   =  [fldAnsiChar,fldAnsiChar_LowCase,fldAnsiCharVAL];
+        Const CTypeString     =  [fldSTRNUM,fldSTR,fldstr_Lowcase];
+        Const CTypeInteger    =  [fldENum,fldENum_db,fldBOOLEAN,fldBYTE,fldSHORTINT,fldSmallWORD,fldSmallInt,fldLONGINT,FldRadioButton];
+        Const CTypeDate       =  [FldDateTime,FldDateTime,FldDateTime,FldDateTimeDos];
         Const CTypeHour       =  [fldLHora,fld_LHora];
         Const CTypeBlob       =  [FldMemo,fldBLOb];
         Const CTypeOperator   =  [FldOperador];
@@ -1318,11 +1318,11 @@ uses
           }
           Const Auto_Add_Line_Default:Boolean = false;
 
-          Const Comma     : char  =   ','; //:< - Separador de milhar nas mascaras internas ao campo.
-          Const showComma : char  =   '.'; //:< - Separador de números na visualização }
+          Const ThousandSeparator     : char  =   ','; //:< - Separador de milhar nas mascaras internas ao campo.
+          Const ShowThousandSeparator : char  =   '.'; //:< - Separador de números na visualização }
 
-          Const DecPt      : char =   '.'; //:< - Ponto decimal usado nas mascaras internas ao campo.
-          Const showDecPt  : Char =   ','; //:< - Char decimal point display }
+          Const DecimalSeparator       : char =   '.'; //:< - Ponto decimal usado nas mascaras internas ao campo.
+          Const showDecimalSeparator   : Char =   ','; //:< - Char decimal point display }
 
           Const CloseParenthesis = ')';
           Const OpenParenthesis  = '(';
@@ -1596,20 +1596,20 @@ uses
          A aplicacao usa de 110 a 255. Necessario para que se possa que o
          usuario pai possa desabilitar as opcoes dos filhos.
         }
-        {TCmDb}
+        {TCm}
       const CmNulo                =          100 {<84};
-      const CmDbNextRec           = CmNulo + 01;
-      const CmDbPrevRec           = CmNulo + 02;
-      const CmDbNextRecValid      = CmNulo + 03;
-      const CmDbPrevRecValid      = CmNulo + 04;
-      const CmDbFindRec           = CmNulo + 05;
-      const CmDbSearchRec         = CmNulo + 06;
-      const CmDbGoEof             = CmNulo + 07;
-      const CmDbGoBof             = CmNulo + 08;
-      const CmDbLocaliza          = CmNulo + 09; //Não precisa ser desabilitado
+      const CmNextRecord           = CmNulo + 01;
+      const CmPrevRecord           = CmNulo + 02;
+      const CmNextRecordValid      = CmNulo + 03;
+      const CmPrevRecordValid      = CmNulo + 04;
+      const CmFindRecord           = CmNulo + 05;
+      const CmSearchRecord         = CmNulo + 06;
+      const CmGoEof             = CmNulo + 07;
+      const CmGoBof             = CmNulo + 08;
+      const CmLocate          = CmNulo + 09; //Não precisa ser desabilitado
       const CmNewRecord           = CmNulo + 10;
-      const CmZeroizeRecord       = CmNulo + 11;
-      const CmEvaluateRecord      = CmNulo + 12;
+      const CmDeleteRecord       = CmNulo + 11;
+      const CmUpdateRecord      = CmNulo + 12;
       const CmEditDlg             = CmNulo + 13;
       const cmMyOK                = CmNulo + 14;
       const cmMyCancel            = CmNulo + 15;
@@ -1623,33 +1623,33 @@ uses
 
       const CmCreate_Shortcut     = CmNulo + 22; //<  Cria um atalho do programa corrente no desktop do windows
                                                 //<  e passa como parametro todas as tecla digitada entre o inicio e o fin da criação do atalho.
-      const CmVisualizar          = CmNulo + 23;
+      const CmView          = CmNulo + 23;
       const CmExport_Stru         = CmNulo + 24; //<  Exporta a estrutura das consultas para o arquivo Schema.ini
       const CmExport              = CmNulo + 25; //<  Exporta a consulta seleciona para varios formatos de arquivos a serem implementados
 
          // ...
       const CmInt                 = CmNulo + 29;  {<= Limit dos comandos genericos que pode ser desabilitados}
 
-      const TCmLivre    = [CmVisualizar..CmInt];
+      const TCmLivre    = [CmView..CmInt];
 
 
 
         const TCmCommands = [CmInt..255];
-        const TCmDb       = [CmDbNextRec    ,
-                             CmDbPrevRec    ,
-                             CmDbNextRecValid,
-                             CmDbPrevRecValid,
-                             CmDbFindRec    ,
-                             CmDbSearchRec  ,
-                             CmDbGoEof      ,
-                             CmDbGoBof      ,
-                             CmDbLocaliza
+        const TCm       = [CmNextRecord    ,
+                             CmPrevRecord    ,
+                             CmNextRecordValid,
+                             CmPrevRecordValid,
+                             CmFindRecord    ,
+                             CmSearchRecord  ,
+                             CmGoEof      ,
+                             CmGoBof      ,
+                             CmLocate
                             ];
-        const TCmDbView    = [cmMyOK                  ,
+        const TCmView    = [cmMyOK                  ,
                               cmMyCancel               ,
                               CmEditDlg                ,
-                              CmEvaluateRecord         ,
-                              cmZeroizeRecord          ,
+                              CmUpdateRecord         ,
+                              CmDeleteRecord          ,
                               CmNewRecord,
                               CmProcess,
                               cmPrint,
@@ -1660,39 +1660,39 @@ uses
 
       {********************************************************************}
         const CmNortSoft           = 50000; {<Camandos comuns que nao podem serem desabilitados}
-        const CmDbAddRec           = CmNortSoft + 001;
-        const CmDbDeleteRec        = CmNortSoft + 002;
-        const CmDbGetRec           = CmNortSoft + 003;
-        const CmDbPutRec           = CmNortSoft + 004;
-        const CmDbUpdateRec        = CmNortSoft + 005;
-        const CmDbSearchTop        = CmNortSoft + 006;
-        const CmDbSearchKey        = CmNortSoft + 007;
-        const CmDbUsedRecs_Valid    = CmNortSoft + 008;
+        const CmAddRecord           = CmNortSoft + 001;
+        const CmDeleteRecord        = CmNortSoft + 002;
+        const CmGetRecord           = CmNortSoft + 003;
+        const CmPutRecord           = CmNortSoft + 004;
+        const CmUpdateRecord        = CmNortSoft + 005;
+        const CmSearchTop        = CmNortSoft + 006;
+        const CmSearchKey        = CmNortSoft + 007;
+        const CmUsedRecs_Valid    = CmNortSoft + 008;
         const CmOkEscrevaParametrosDosRelatorios = CmNortSoft + 009;
-        const CmDbSelecionaIndice   = CmNortSoft + 010;
+        const CmSelecionaIndice   = CmNortSoft + 010;
         const LivreCmVisualisa      = CmNortSoft + 011;
         const CmQuitInterno         = CmNortSoft + 012;
         const CmSobre               = CmNortSoft + 013;
-        const CmDbOnEnter           = CmNortSoft + 014;
-        const CmDbOnExit            = CmNortSoft + 015;
+        const CmOnEnter           = CmNortSoft + 014;
+        const CmOnExit            = CmNortSoft + 015;
         const cmCores               = CmNortSoft + 016;
         const CmF7                  = CmNortSoft + 017;
-        const CmDbLabel_DoubleClick = CmNortSoft + 018;
-        const cmDbView_DoubleClick  = CmNortSoft + 019;
-        const CmDbOrdemCressante    = CmNortSoft + 020;
-        const CmDbOrdemDecrescente  = CmNortSoft + 021;
-        const CmDbSelecColunaAtual  = CmNortSoft + 022;
+        const CmLabel_DoubleClick = CmNortSoft + 018;
+        const cmView_DoubleClick  = CmNortSoft + 019;
+        const CmOrdemCressante    = CmNortSoft + 020;
+        const CmOrdemDecrescente  = CmNortSoft + 021;
+        const CmSelecColunaAtual  = CmNortSoft + 022;
         const CmMouseDownmbRightButton = CmNortSoft + 023; {<Gerado quando o botao do lado direito ‚ pressionado}
         const CmReindex             = CmNortSoft + 024;
         const CmCadastraImpressoraRede  = CmNortSoft + 025;
         const CmInfoSystem          = CmNortSoft + 026;{<Lista a rotina com as informacoes tecnicas do sistema}
         const cmPrintSemFormatar    = CmNortSoft + 027;{<Lista um arquivo texto sem formatacao de TvDmxReport}
-        const CmDbDoBeforeInsert      = CmNortSoft + 028;
-        const CmDbDoBeforePost        = CmNortSoft + 029;
-        const CmDbDoBeforeDelete      = CmNortSoft + 030;
-        const CmDbDoAfterInsert       = CmNortSoft + 031;
-        const CmDbDoAfterPost         = CmNortSoft + 032;
-        const CmDbDoAfterDelete       = CmNortSoft + 033;
+        const CmDoBeforeInsert      = CmNortSoft + 028;
+        const CmDoBeforePost        = CmNortSoft + 029;
+        const CmDoBeforeDelete      = CmNortSoft + 030;
+        const CmDoAfterInsert       = CmNortSoft + 031;
+        const CmDoAfterPost         = CmNortSoft + 032;
+        const CmDoAfterDelete       = CmNortSoft + 033;
         const CmTb_SelectRefCruzadaResume = CmNortSoft + 034;
         const CmTb_SelectSelect           = CmNortSoft + 035;
         const CmTb_SelectResume           = CmNortSoft + 036;
@@ -1708,7 +1708,7 @@ uses
         const cmEditaCores                = CmNortSoft + 046;
         const cmSalvaCores                = CmNortSoft + 047;
         const cmHomePage                  = CmNortSoft + 048;
-        const CmDbPack                    = CmNortSoft + 049;
+        const CmPack                    = CmNortSoft + 049;
 
         const FirstCmdNum   =  4400;  { starting number for reserved commands }
         const cmDMX               = FirstCmdNum;
@@ -1760,8 +1760,8 @@ uses
         const cmPromptMsg         = cmDMX + 56;  {< tvGizma: used by proc UserMessage }
         const cmBlinkMsg          = cmDMX + 57;  {< tvGizma: used by proc BlinkMessage }
         {Inicio NortSoft}
-        const cmDbMX_GetBuffer    = cmDMX + 58;  {< Ler o buffer do registro do arquivo para  WorkingData}
-        const cmDbMX_PutBuffer    = cmDMX + 59;  {< Grava o buffer de WorkingData para o registro do arquivo}
+        const CmMX_GetBuffer    = cmDMX + 58;  {< Ler o buffer do registro do arquivo para  WorkingData}
+        const CmMX_PutBuffer    = cmDMX + 59;  {< Grava o buffer de WorkingData para o registro do arquivo}
         {<Fin NortSoft}
 
 
@@ -1844,18 +1844,18 @@ uses
     end;
 
     resourcestring //Padrão de código dos recursos é GUI.
-      SCmDbNextRec          = 'Próximo registro';
-      SCmDbPrevRec          = 'Registro Anterior';
-      SCmDbNextRecValid     = 'Próximo registro válido';
-      SCmDbPrevRecValid     = 'Registro válido anterior';
-      SCmDbFindRec          = 'Atualiza o registro atual';
-      SCmDbSearchRec        = 'SCmDbSearchRec';
-      SCmDbGoEof            = 'Último registro';
-      SCmDbGoBof            = 'Primeiro registro';
-      SCmDbLocaliza         = 'Localiza registro';
+      SCmNextRecord          = 'Próximo registro';
+      SCmPrevRecord          = 'Registro Anterior';
+      SCmNextRecordValid     = 'Próximo registro válido';
+      SCmPrevRecordValid     = 'Registro válido anterior';
+      SCmFindRecord          = 'Atualiza o registro atual';
+      SCmSearchRecord        = 'SCmSearchRec';
+      SCmGoEof            = 'Último registro';
+      SCmGoBof            = 'Primeiro registro';
+      SCmLocate         = 'Localiza registro';
       SCmNewRecord          = 'Novo registro';
-      SCmZeroizeRecord      = 'Apaga o registro atual';
-      SCmEvaluateRecord     = 'Grava o registro atual';
+      SCmDeleteRecord      = 'Apaga o registro atual';
+      SCmUpdateRecord     = 'Grava o registro atual';
       SCmEditDlg            = 'Edita o registro atual';
       ScmMyOK               = 'Ok';
       ScmMyCancel           = 'Cancelar';
@@ -1868,46 +1868,46 @@ uses
 
       SCmCreate_Shortcut    = 'Cria atalho no desktop do windows'; //<  Cria um atalho do programa corrente no desktop do windows
                                                                   //<  e passa como parametro todas as tecla digitada entre o inicio e o fin da criação do atalho.
-      SCmVisualizar         = 'Visualizar';
+      SCmView         = 'Visualizar';
       SCmExport_Stru        = 'Exportar estrutura da tabela'; //:<  Exporta a estrutura das consultas para o arquivo Schema.ini
       SCmExport             = 'Exporta'; //:<  Exporta a consulta seleciona para varios formatos de arquivos a serem implementados
 
 
     {********************************************************************}
     //Padrão de código dos recursos é GUI.
-      SCmDbAddRec             = 'Adicionar registro';
-      SCmDbDeleteRec          = 'Apagar registro selecionado';
-      SCmDbGetRec             = 'Ler registro selecionado';
-      SCmDbPutRec             = 'Gravar registro selecionado';
-      SCmDbUpdateRec          = 'Atualizar registro selecionado caso tenha sido alterado';
-      SCmDbSearchTop          = 'Pesquisar primeira ocorrência a partir do topo da tabela';
-      SCmDbSearchKey          = 'Pesquisar primeira ocorrência a partir do inicio da tabela';
-      SCmDbUsedRecs_Valid     = 'CmDbUsedRecs_Valid';
+      SCmAddRecord             = 'Adicionar registro';
+      SCmDeleteRecord          = 'Apagar registro selecionado';
+      SCmGetRecord             = 'Ler registro selecionado';
+      SCmPutRecord             = 'Gravar registro selecionado';
+      SCmUpdateRecord          = 'Atualizar registro selecionado caso tenha sido alterado';
+      SCmSearchTop          = 'Pesquisar primeira ocorrência a partir do topo da tabela';
+      SCmSearchKey          = 'Pesquisar primeira ocorrência a partir do inicio da tabela';
+      SCmUsedRecs_Valid     = 'CmUsedRecs_Valid';
       SCmOkEscrevaParametrosDosRelatorios = 'Escreva parâmetros dos relatórios';
-      SCmDbSelecionaIndice    = 'Selecionar indice';
+      SCmSelecionaIndice    = 'Selecionar indice';
       SLivreCmVisualisa       = 'CmLivreCmVisualisa';
       SCmQuitInterno          = 'Quit interno';
       SCmSobre                = 'Sobre';
-      SCmDbOnEnter            = 'CmDbOnEnter';
-      SCmDbOnExit             = 'CmDbOnExit';
+      SCmOnEnter            = 'CmOnEnter';
+      SCmOnExit             = 'CmOnExit';
       ScmCores                = 'cmCores';
       SCmF7                   = 'Seleciona as opções para o campo selecionado';
-      SCmDbLabel_DoubleClick  = 'CmDbLabel_DoubleClick';
-      ScmDbView_DoubleClick   = 'cmDbView_DoubleClick';
-      SCmDbOrdemCressante     = 'Ordem cressante';
-      SCmDbOrdemDecrescente   = 'Ordem decrescente';
-      SCmDbSelecColunaAtual   = 'CmDbSelecColunaAtual';
+      SCmLabel_DoubleClick  = 'CmLabel_DoubleClick';
+      ScmView_DoubleClick   = 'cmView_DoubleClick';
+      SCmOrdemCressante     = 'Ordem cressante';
+      SCmOrdemDecrescente   = 'Ordem decrescente';
+      SCmSelecColunaAtual   = 'CmSelecColunaAtual';
       SCmMouseDownmbRightButton = 'CmMouseDownmbRightButton'; {<Gerado quando o botao do lado direito ‚ pressionado}
       SCmReindex                = 'Cria indices dos arquivos';
       SCmCadastraImpressoraRede  = 'Cadastra impressora da rede';
       SCmInfoSystem            = 'Informações do sistema';{<Lista a rotina com as informacoes tecnicas do sistema}
       ScmPrintSemFormatar      = 'cmPrintSemFormatar';{<Lista um arquivo texto sem formatacao de TvDmxReport}
-      SCmDbDoBeforeInsert      = 'CmDbDoBeforeInsert';
-      SCmDbDoBeforePost        = 'CmDbDoBeforePost';
-      SCmDbDoBeforeDelete      = 'CmDbDoBeforeDelete';
-      SCmDbDoAfterInsert       = 'CmDbDoAfterInsert';
-      SCmDbDoAfterPost         = 'CmDbDoAfterPost';
-      SCmDbDoAfterDelete       = 'CmDbDoAfterDelete';
+      SCmDoBeforeInsert      = 'CmDoBeforeInsert';
+      SCmDoBeforePost        = 'CmDoBeforePost';
+      SCmDoBeforeDelete      = 'CmDoBeforeDelete';
+      SCmDoAfterInsert       = 'CmDoAfterInsert';
+      SCmDoAfterPost         = 'CmDoAfterPost';
+      SCmDoAfterDelete       = 'CmDoAfterDelete';
       SCmTb_SelectRefCruzadaResume = 'CmTb_SelectRefCruzadaResume';
       SCmTb_SelectSelect           = 'CmTb_SelectSelect';
       SCmTb_SelectResume           = 'CmTb_SelectResume';
@@ -1923,7 +1923,7 @@ uses
       ScmEditaCores                = 'Edita cores';
       ScmSalvaCores                = 'Salva cores';
       ScmHomePage                  = 'Gera documento no formato HTML do formulário atual';
-      SCmDbPack                    = 'Pack';
+      SCmPack                    = 'Pack';
 
 
       sErr201 = 'Erro: %d - O valor %s está fora da faixa permitida para o campo. Faixa: [%d .. %d ]';
@@ -1969,33 +1969,33 @@ Initialization
   begin
 //    d := DefaultFormatSettings;
 
-    decPt     := DefaultFormatSettings.DecimalSeparator;
-    showDecPt := decPt;//DefaultFormatSettings.CurrencyDecimals;
+    DecimalSeparator      := DefaultFormatSettings.DecimalSeparator;
+    showDecimalSeparator  := DecimalSeparator ;//DefaultFormatSettings.CurrencyDecimals;
 
-    Comma     := DefaultFormatSettings.ThousandSeparator;
-    showComma := Comma;
-    //       showDecPt := Comma ; //Português
+    ThousandSeparator     := DefaultFormatSettings.ThousandSeparator;
+    ShowThousandSeparator := ThousandSeparator;
+    //       showDecimalSeparator  := ThousandSeparator ; //Português
 
 
     {Analizar com mais detalhe se precisa permitir digitar ponto e inverter para virgula}
-    //if decPt = '.'
+    //if DecimalSeparator  = '.'
     //then Begin
-    //       Comma := ','; //Comma   := DefaultFormatSettings.ThousandSeparator;  ,
-    //       showComma := decPt;  //Português
-    //       showDecPt := Comma ; //Português
+    //       ThousandSeparator := ','; //ThousandSeparator   := DefaultFormatSettings.ThousandSeparator;  ,
+    //       ShowThousandSeparator := DecimalSeparator ;  //Português
+    //       showDecimalSeparator  := ThousandSeparator ; //Português
     //     end
     //else
-    //if decPt = ',' // usuário entre com a virgula e o sistema mostra o ponto no lugar da virgula
+    //if DecimalSeparator  = ',' // usuário entre com a virgula e o sistema mostra o ponto no lugar da virgula
     //then Begin
-    //       Comma := '.';
-    //       showComma := decPt;
-    //       showDecPt := Comma ;
+    //       ThousandSeparator := '.';
+    //       ShowThousandSeparator := DecimalSeparator ;
+    //       showDecimalSeparator  := ThousandSeparator ;
     //     end;
     //
 
     MaskIsNumber := [fldBYTE,fldSHORTINT,fldSmallWORD,
                      fldRealNum,fldSmallInt,fldLONGINT,
-                     fldRealNum_Positivo,'z','Z',DecPt,showDecPt];  //fldSTRNUM é string e não número,
+                     fldRealNum_Positivo,'z','Z',DecimalSeparator ,showDecimalSeparator ];  //fldSTRNUM é string e não número,
   end;
 
 
@@ -2003,7 +2003,7 @@ Initialization
 
   //const MaskIsNumber : TMaskIsNumber = [fldBYTE,fldSHORTINT,fldSmallWORD,
   //                                    fldRealNum,fldSmallInt,fldLONGINT,
-  //                                    fldRealNum_Positivo,'z','Z',DecPt,showDecPt];  //fldSTRNUM é string e não número,
+  //                                    fldRealNum_Positivo,'z','Z',DecimalSeparator ,showDecimalSeparator ];  //fldSTRNUM é string e não número,
 
 
 end.

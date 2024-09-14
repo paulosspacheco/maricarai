@@ -16,7 +16,7 @@
 </li></ul></div><div class="content">
 <span id="TMI_UI_InputBox"></span><h1 class="cio">Classe TMI_UI_InputBox</h1>
 <div class="sections">
-<div class="one_section"><a class="section" href="#PasDoc-Description">Descrição</a></div><div class="one_section"><a class="section" href="#PasDoc-Hierarchy">Hierarquia</a></div><div class="one_section">Campos</div><div class="one_section"><a class="section" href="#PasDoc-Methods">Métodos</a></div><div class="one_section"><a class="section" href="#PasDoc-Properties">Propriedades</a></div></div>
+<div class="one_section"><a class="section" href="#PasDoc-Description">Descrição</a></div><div class="one_section"><a class="section" href="#PasDoc-Hierarchy">Hierarquia</a></div><div class="one_section"><a class="section" href="#PasDoc-Fields">Campos</a></div><div class="one_section"><a class="section" href="#PasDoc-Methods">Métodos</a></div><div class="one_section"><a class="section" href="#PasDoc-Properties">Propriedades</a></div></div>
 <span id="PasDoc-Description"></span><h2 class="unit">Unit</h2>
 <p class="unitlink">
 <a href="mi.rtl.ui.dmxscroller.inputbox.html">mi.rtl.ui.dmxscroller.inputbox</a></p>
@@ -32,19 +32,46 @@ A classe <strong><code>TMI_UI_InputBox</code></strong> é uma interface abstrata
 <li class="ancestor"><a class="normal" href="mi.rtl.Objects.Consts.Mi_MsgBox.TMI_MsgBoxTypes.html">TMI_MsgBoxTypes</a></li>
 <li class="ancestor"><a class="normal" href="mi.rtl.ui.dmxscroller.inputbox.TMI_InputBoxTypes.html">TMI_InputBoxTypes</a></li>
 <li class="thisitem">TMI_UI_InputBox</li></ul><h2 class="overview">Visão Geral</h2>
+<span id="PasDoc-Fields"></span><h3 class="summary">Campos</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code><strong><a href="mi.rtl.ui.dmxscroller.inputbox.TMI_UI_InputBox.html#form">form</a></strong>: TComponent;</code></td>
+</tr>
+</table>
 <span id="PasDoc-Methods"></span><h3 class="summary">Métodos</h3>
 <table class="summary wide_list">
 <tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
-<td class="itemcode"><code>function <strong><a href="mi.rtl.ui.dmxscroller.inputbox.TMI_UI_InputBox.html#InputBox">InputBox</a></strong>(aTitle : AnsiString; aTemplate: AnsiString; aOnCloseQuery:<a href="mi_rtl_ui_Dmxscroller.html#TOnCloseQuery">TOnCloseQuery</a> ; aFont : AnsiString; aOnEnter:<a href="mi_rtl_ui_Dmxscroller.html#TOnEnter">TOnEnter</a> ; aOnExit:<a href="mi_rtl_ui_Dmxscroller.html#TOnExit">TOnExit</a>; aOnEnterField:<a href="mi_rtl_ui_Dmxscroller.html#TOnEnterField">TOnEnterField</a>; aOnExitField:<a href="mi_rtl_ui_Dmxscroller.html#TOnExitField">TOnExitField</a>; aIn_JSONObject :TJSONObject; out aOut_JSONObject: TJSONObject ): <a href="mi.rtl.ui.dmxscroller.inputbox.html#TModalResult">TModalResult</a>; overload;</code></td>
+<td class="itemcode"><code>Destructor <strong><a href="mi.rtl.ui.dmxscroller.inputbox.TMI_UI_InputBox.html#destroy">destroy</a></strong>; override;</code></td>
 </tr>
 <tr class="list2">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
-<td class="itemcode"><code>function <strong><a href="mi.rtl.ui.dmxscroller.inputbox.TMI_UI_InputBox.html#InputBox">InputBox</a></strong>(aTitle : AnsiString; aTemplate: AnsiString; aIn_JSONObject :TJSONObject; out aOut_JSONObject: TJSONObject ): <a href="mi.rtl.ui.dmxscroller.inputbox.html#TModalResult">TModalResult</a>; overload;</code></td>
+<td class="itemcode"><code>function <strong><a href="mi.rtl.ui.dmxscroller.inputbox.TMI_UI_InputBox.html#InputBox">InputBox</a></strong>(aTitle : AnsiString; aTemplate: AnsiString; aOnCloseQuery:<a href="mi_rtl_ui_Dmxscroller.html#TOnCloseQuery">TOnCloseQuery</a> ; aFont : AnsiString; aOnEnter:<a href="mi_rtl_ui_Dmxscroller.html#TOnEnter">TOnEnter</a> ; aOnExit:<a href="mi_rtl_ui_Dmxscroller.html#TOnExit">TOnExit</a>; aOnEnterField:<a href="mi_rtl_ui_Dmxscroller.html#TOnEnterField">TOnEnterField</a>; aOnExitField:<a href="mi_rtl_ui_Dmxscroller.html#TOnExitField">TOnExitField</a>; aIn_JSONObject :TJSONObject; out aOut_JSONObject: TJSONObject ): <a href="mi.rtl.Objects.Consts.Mi_MsgBox.TMI_MsgBoxTypes.html#TModalResult">TModalResult</a>; overload;</code></td>
 </tr>
 <tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
-<td class="itemcode"><code>function <strong><a href="mi.rtl.ui.dmxscroller.inputbox.TMI_UI_InputBox.html#InputBox">InputBox</a></strong>(aTitle : AnsiString; aTemplate: AnsiString; aOnCloseQuery:<a href="mi_rtl_ui_Dmxscroller.html#TOnCloseQuery">TOnCloseQuery</a> ; aIn_JSONObject :TJSONObject; out aOut_JSONObject: TJSONObject ): <a href="mi.rtl.ui.dmxscroller.inputbox.html#TModalResult">TModalResult</a>; overload;</code></td>
+<td class="itemcode"><code>function <strong><a href="mi.rtl.ui.dmxscroller.inputbox.TMI_UI_InputBox.html#InputBox">InputBox</a></strong>(aTitle : AnsiString; aTemplate: AnsiString; aIn_JSONObject :TJSONObject; out aOut_JSONObject: TJSONObject ): <a href="mi.rtl.Objects.Consts.Mi_MsgBox.TMI_MsgBoxTypes.html#TModalResult">TModalResult</a>; overload;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="mi.rtl.ui.dmxscroller.inputbox.TMI_UI_InputBox.html#InputBox">InputBox</a></strong>(aTitle : AnsiString; aTemplate: AnsiString; aOnCloseQuery:<a href="mi_rtl_ui_Dmxscroller.html#TOnCloseQuery">TOnCloseQuery</a> ; aIn_JSONObject :TJSONObject; out aOut_JSONObject: TJSONObject ): <a href="mi.rtl.Objects.Consts.Mi_MsgBox.TMI_MsgBoxTypes.html#TModalResult">TModalResult</a>; overload;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="mi.rtl.ui.dmxscroller.inputbox.TMI_UI_InputBox.html#InputBox">InputBox</a></strong>(const aTitle, aLabel: AnsiString; var aValue: Variant; Template: AnsiString ): <a href="mi.rtl.Objects.Consts.Mi_MsgBox.TMI_MsgBoxTypes.html#TModalResult">TModalResult</a>; overload;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="mi.rtl.ui.dmxscroller.inputbox.TMI_UI_InputBox.html#InputValue">InputValue</a></strong>(const aTitle, aLabel: AnsiString; var aValue : Variant ): <a href="mi.rtl.Objects.Consts.Mi_MsgBox.TMI_MsgBoxTypes.html#TModalResult">TModalResult</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="mi.rtl.ui.dmxscroller.inputbox.TMI_UI_InputBox.html#InputPassword">InputPassword</a></strong>(aTitle: AnsiString; out aUsername: AnsiString; out apassword: AnsiString): <a href="mi.rtl.Objects.Consts.Mi_MsgBox.TMI_MsgBoxTypes.html#TModalResult">TModalResult</a>; overload;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="mi.rtl.ui.dmxscroller.inputbox.TMI_UI_InputBox.html#InputPassword">InputPassword</a></strong>(const aTitle:AnsiString;out aPassword : AnsiString): <a href="mi.rtl.Objects.Consts.Mi_MsgBox.TMI_MsgBoxTypes.html#TModalResult">TModalResult</a>; Overload;</code></td>
 </tr>
 </table>
 <span id="PasDoc-Properties"></span><h3 class="summary">Propriedades</h3>
@@ -55,11 +82,28 @@ A classe <strong><code>TMI_UI_InputBox</code></strong> é uma interface abstrata
 </tr>
 </table>
 <h2 class="description">Descrição</h2>
+<h3 class="detail">Campos</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="form"></span><code><strong>form</strong>: TComponent;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
 <h3 class="detail">Métodos</h3>
 <table class="detail wide_list">
 <tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
-<td class="itemcode"><span id="InputBox"></span><code>function <strong>InputBox</strong>(aTitle : AnsiString; aTemplate: AnsiString; aOnCloseQuery:<a href="mi_rtl_ui_Dmxscroller.html#TOnCloseQuery">TOnCloseQuery</a> ; aFont : AnsiString; aOnEnter:<a href="mi_rtl_ui_Dmxscroller.html#TOnEnter">TOnEnter</a> ; aOnExit:<a href="mi_rtl_ui_Dmxscroller.html#TOnExit">TOnExit</a>; aOnEnterField:<a href="mi_rtl_ui_Dmxscroller.html#TOnEnterField">TOnEnterField</a>; aOnExitField:<a href="mi_rtl_ui_Dmxscroller.html#TOnExitField">TOnExitField</a>; aIn_JSONObject :TJSONObject; out aOut_JSONObject: TJSONObject ): <a href="mi.rtl.ui.dmxscroller.inputbox.html#TModalResult">TModalResult</a>; overload;</code></td>
+<td class="itemcode"><span id="destroy"></span><code>Destructor <strong>destroy</strong>; override;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="InputBox"></span><code>function <strong>InputBox</strong>(aTitle : AnsiString; aTemplate: AnsiString; aOnCloseQuery:<a href="mi_rtl_ui_Dmxscroller.html#TOnCloseQuery">TOnCloseQuery</a> ; aFont : AnsiString; aOnEnter:<a href="mi_rtl_ui_Dmxscroller.html#TOnEnter">TOnEnter</a> ; aOnExit:<a href="mi_rtl_ui_Dmxscroller.html#TOnExit">TOnExit</a>; aOnEnterField:<a href="mi_rtl_ui_Dmxscroller.html#TOnEnterField">TOnEnterField</a>; aOnExitField:<a href="mi_rtl_ui_Dmxscroller.html#TOnExitField">TOnExitField</a>; aIn_JSONObject :TJSONObject; out aOut_JSONObject: TJSONObject ): <a href="mi.rtl.Objects.Consts.Mi_MsgBox.TMI_MsgBoxTypes.html#TModalResult">TModalResult</a>; overload;</code></td>
 </tr>
 <tr><td colspan="2">
 <p>
@@ -122,7 +166,7 @@ O Método <strong><code>InputBox</code></strong> gera um formulário baseado no 
   <li><p><strong>RETORNA</strong> </p>
 
 <ul class="paragraph_spacing">
-  <li><p><a class="normal" href="mi.rtl.ui.dmxscroller.inputbox.html#TModalResult">TModalResult</a>; </p>
+  <li><p><a class="normal" href="mi.rtl.Objects.Consts.Mi_MsgBox.TMI_MsgBoxTypes.html#TModalResult">TModalResult</a>; </p>
 
 <ul class="paragraph_spacing">
   <li><p>Botão <a class="normal" href="mi.rtl.Objects.Consts.Mi_MsgBox.TMI_MsgBoxTypes.html#mrOK">MrOk</a> : </p>
@@ -152,7 +196,7 @@ O Método <strong><code>InputBox</code></strong> gera um formulário baseado no 
 </ul>
 
 <p></p></li>
-  <li><p>Exemplo de uso está no método testInputBox dor formulário <a class="normal" href="MI_UI_InputBox_lcl_u.TMI_UI_InputBox_lcl.html">TMI_UI_InputBox_lcl</a>:
+  <li><p>Exemplo de uso está no método testInputBox dor formulário TMI_UI_InputBox_lcl:
 
 <p></p>
 
@@ -160,12 +204,12 @@ O Método <strong><code>InputBox</code></strong> gera um formulário baseado no 
 
 <span class="pascal_keyword">class</span> <span class="pascal_keyword">procedure</span> TMI_UI_InputBox_lcl.testInputBox;
   <span class="pascal_keyword">var</span>
-    in_JObject,
-    out_JObject : TJSONObject;
+    in_JSONObject,
+    out_JSONObject : TJSONObject;
 <span class="pascal_keyword">begin</span>
   <span class="pascal_keyword">with</span> TMi_rtl,MI_UI_InputBox <span class="pascal_keyword">do</span>
   <span class="pascal_keyword">begin</span>
-    in_JObject := TJSONObject.Create([<span class="pascal_string">'id'</span>      , <span class="pascal_numeric">1</span>,
+    in_JSONObject := TJSONObject.Create([<span class="pascal_string">'id'</span>      , <span class="pascal_numeric">1</span>,
                                       <span class="pascal_string">'nome'</span>    ,<span class="pascal_string">'Paulo Sérgio'</span>,
                                       <span class="pascal_string">'endereco'</span>,<span class="pascal_string">'Rua Francisco de Souza Oliveira'</span>,
                                       <span class="pascal_string">'cep'</span>     ,<span class="pascal_string">'61624-300'</span>]);
@@ -177,12 +221,12 @@ O Método <strong><code>InputBox</code></strong> gera um formulário baseado no 
         <span class="pascal_string">' &tilde;Endereço:&tilde;\sssssssssssssssssssssssssssss`ssssssssssssssssssssssss'</span>+ChFN+<span class="pascal_string">'Endereco'</span>+&circ;M+
         <span class="pascal_string">' &tilde;Cep:     &tilde;\##.###-###'</span>+ChFN+<span class="pascal_string">'cep'</span>+&circ;M
         ,  <span class="pascal_keyword">nil</span>,<span class="pascal_string">''</span>,<span class="pascal_keyword">nil</span>,<span class="pascal_keyword">nil</span>,<span class="pascal_keyword">nil</span>,<span class="pascal_keyword">nil</span>
-        ,in_JObject
-        ,out_JObject) = mrok
+        ,in_JSONObject
+        ,out_JSONObject) = mrok
     <span class="pascal_keyword">then</span> <span class="pascal_keyword">begin</span>
 
-           in_JObject.free;
-           out_JObject.free;
+           in_JSONObject.free;
+           out_JSONObject.free;
          <span class="pascal_keyword">end</span>;
 
   <span class="pascal_keyword">end</span>;
@@ -198,7 +242,7 @@ O Método <strong><code>InputBox</code></strong> gera um formulário baseado no 
 <table class="detail wide_list">
 <tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
-<td class="itemcode"><span id="InputBox"></span><code>function <strong>InputBox</strong>(aTitle : AnsiString; aTemplate: AnsiString; aIn_JSONObject :TJSONObject; out aOut_JSONObject: TJSONObject ): <a href="mi.rtl.ui.dmxscroller.inputbox.html#TModalResult">TModalResult</a>; overload;</code></td>
+<td class="itemcode"><span id="InputBox"></span><code>function <strong>InputBox</strong>(aTitle : AnsiString; aTemplate: AnsiString; aIn_JSONObject :TJSONObject; out aOut_JSONObject: TJSONObject ): <a href="mi.rtl.Objects.Consts.Mi_MsgBox.TMI_MsgBoxTypes.html#TModalResult">TModalResult</a>; overload;</code></td>
 </tr>
 <tr><td colspan="2">
 <p>
@@ -207,7 +251,7 @@ O Método <strong><code>InputBox</code></strong> recebe um template de um formul
 <p></p>
 
 <ul class="paragraph_spacing">
-  <li><p>Exemplo de uso está no método testInputBox dor formulário <a class="normal" href="MI_UI_InputBox_lcl_u.TMI_UI_InputBox_lcl.html">TMI_UI_InputBox_lcl</a>:
+  <li><p>Exemplo de uso está no método testInputBox dor formulário TMI_UI_InputBox_lcl:
 
 <p></p>
 
@@ -222,7 +266,7 @@ O Método <strong><code>InputBox</code></strong> recebe um template de um formul
 <table class="detail wide_list">
 <tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
-<td class="itemcode"><span id="InputBox"></span><code>function <strong>InputBox</strong>(aTitle : AnsiString; aTemplate: AnsiString; aOnCloseQuery:<a href="mi_rtl_ui_Dmxscroller.html#TOnCloseQuery">TOnCloseQuery</a> ; aIn_JSONObject :TJSONObject; out aOut_JSONObject: TJSONObject ): <a href="mi.rtl.ui.dmxscroller.inputbox.html#TModalResult">TModalResult</a>; overload;</code></td>
+<td class="itemcode"><span id="InputBox"></span><code>function <strong>InputBox</strong>(aTitle : AnsiString; aTemplate: AnsiString; aOnCloseQuery:<a href="mi_rtl_ui_Dmxscroller.html#TOnCloseQuery">TOnCloseQuery</a> ; aIn_JSONObject :TJSONObject; out aOut_JSONObject: TJSONObject ): <a href="mi.rtl.Objects.Consts.Mi_MsgBox.TMI_MsgBoxTypes.html#TModalResult">TModalResult</a>; overload;</code></td>
 </tr>
 <tr><td colspan="2">
 <p>
@@ -231,7 +275,7 @@ O Método <code>InputBox</code> recebe um template de um formulário, o evento <
 <p></p>
 
 <ul class="paragraph_spacing">
-  <li><p>Exemplo de uso está no método testInputBox dor formulário <a class="normal" href="MI_UI_InputBox_lcl_u.TMI_UI_InputBox_lcl.html">TMI_UI_InputBox_lcl</a>:
+  <li><p>Exemplo de uso está no método testInputBox dor formulário TMI_UI_InputBox_lcl:
 
 <p></p>
 
@@ -242,6 +286,40 @@ O Método <code>InputBox</code> recebe um template de um formulário, o evento <
 
 <p></p>
 </td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="InputBox"></span><code>function <strong>InputBox</strong>(const aTitle, aLabel: AnsiString; var aValue: Variant; Template: AnsiString ): <a href="mi.rtl.Objects.Consts.Mi_MsgBox.TMI_MsgBoxTypes.html#TModalResult">TModalResult</a>; overload;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="InputValue"></span><code>function <strong>InputValue</strong>(const aTitle, aLabel: AnsiString; var aValue : Variant ): <a href="mi.rtl.Objects.Consts.Mi_MsgBox.TMI_MsgBoxTypes.html#TModalResult">TModalResult</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+O método <strong><code>InputValue</code></strong> ler um valor na tela e retorna em <strong>aValue</strong> o valor e em result retorna <strong><a class="normal" href="mi.rtl.Objects.Consts.Mi_MsgBox.TMI_MsgBoxTypes.html#mrOK">MrOk</a></strong> ou <strong><a class="normal" href="mi.rtl.Objects.Consts.Mi_MsgBox.TMI_MsgBoxTypes.html#mrCancel">MrCancel</a></strong></p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="InputPassword"></span><code>function <strong>InputPassword</strong>(aTitle: AnsiString; out aUsername: AnsiString; out apassword: AnsiString): <a href="mi.rtl.Objects.Consts.Mi_MsgBox.TMI_MsgBoxTypes.html#TModalResult">TModalResult</a>; overload;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="InputPassword"></span><code>function <strong>InputPassword</strong>(const aTitle:AnsiString;out aPassword : AnsiString): <a href="mi.rtl.Objects.Consts.Mi_MsgBox.TMI_MsgBoxTypes.html#TModalResult">TModalResult</a>; Overload;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
 </table>
 <h3 class="detail">Propriedades</h3>
 <table class="detail wide_list">

@@ -1,0 +1,6 @@
+inherited __dm_xtable__: T__dm_xtable__
+  inherited DmxScroller_Form1: TDmxScroller_Form
+    onGetTemplate = DmxScroller_Form1GetTemplate
+    TableName = '__dm_xtable__'
+  end
+end

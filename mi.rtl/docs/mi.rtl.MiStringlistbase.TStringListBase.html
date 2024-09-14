@@ -77,7 +77,7 @@ A a <strong><code>TStringListBase</code></strong>* é usada para indexar uma lis
 </tr>
 <tr class="list2">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
-<td class="itemcode"><code><strong><a href="mi.rtl.MiStringlistbase.TStringListBase.html#Nr">Nr</a></strong>: <a href="synafpc.html#PtrInt">PtrInt</a>;</code></td>
+<td class="itemcode"><code><strong><a href="mi.rtl.MiStringlistbase.TStringListBase.html#Nr">Nr</a></strong>: PtrInt;</code></td>
 </tr>
 </table>
 <span id="PasDoc-Methods"></span><h3 class="summary">Métodos</h3>
@@ -144,33 +144,37 @@ A a <strong><code>TStringListBase</code></strong>* é usada para indexar uma lis
 </tr>
 <tr class="list2">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
-<td class="itemcode"><code>Function <strong><a href="mi.rtl.MiStringlistbase.TStringListBase.html#SearchKey">SearchKey</a></strong>(WKey:String):Boolean;</code></td>
+<td class="itemcode"><code>Function <strong><a href="mi.rtl.MiStringlistbase.TStringListBase.html#getRec">getRec</a></strong>(aNRec:PtrInt):PtrInt; virtual; overload;</code></td>
 </tr>
 <tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>Function <strong><a href="mi.rtl.MiStringlistbase.TStringListBase.html#SearchKey">SearchKey</a></strong>(WKey:String):Boolean;</code></td>
+</tr>
+<tr class="list2">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
 <td class="itemcode"><code>Function <strong><a href="mi.rtl.MiStringlistbase.TStringListBase.html#NewStr">NewStr</a></strong>(S : String):Boolean; overload;</code></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
 <td class="itemcode"><code>Function <strong><a href="mi.rtl.MiStringlistbase.TStringListBase.html#Append">Append</a></strong>(S : String):Boolean;</code></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
 <td class="itemcode"><code>procedure <strong><a href="mi.rtl.MiStringlistbase.TStringListBase.html#AddSItem">AddSItem</a></strong>(P : TConsts.PSItem; ConvertIdioma : TConsts.TConvertIdioma; OkDisposeSItems:Boolean); Overload;</code></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
 <td class="itemcode"><code>procedure <strong><a href="mi.rtl.MiStringlistbase.TStringListBase.html#AddSItem">AddSItem</a></strong>(P : TConsts.PSItem); Overload;</code></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
 <td class="itemcode"><code>Function <strong><a href="mi.rtl.MiStringlistbase.TStringListBase.html#CloneSItems">CloneSItems</a></strong>(Const Items: TConsts.PSItem):TConsts.PSItem;</code></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
 <td class="itemcode"><code>Function <strong><a href="mi.rtl.MiStringlistbase.TStringListBase.html#CopyTemplateFrom">CopyTemplateFrom</a></strong>(Const aTemplate:TConsts.tString): TConsts.tString;</code></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
 <td class="itemcode"><code>Function <strong><a href="mi.rtl.MiStringlistbase.TStringListBase.html#PListSItem">PListSItem</a></strong>: TConsts.PSItem;</code></td>
 </tr>
@@ -219,7 +223,7 @@ Fim de arquivo</p>
 <table class="detail wide_list">
 <tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
-<td class="itemcode"><span id="Nr"></span><code><strong>Nr</strong>: <a href="synafpc.html#PtrInt">PtrInt</a>;</code></td>
+<td class="itemcode"><span id="Nr"></span><code><strong>Nr</strong>: PtrInt;</code></td>
 </tr>
 <tr><td colspan="2">
 <p>
@@ -405,6 +409,14 @@ Redefini para poder deletar o objeto associando</p>
 <tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
 <td class="itemcode"><span id="NextKey"></span><code>Function <strong>NextKey</strong>: Boolean;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="getRec"></span><code>Function <strong>getRec</strong>(aNRec:PtrInt):PtrInt; virtual; overload;</code></td>
 </tr>
 <tr><td colspan="2">
 &nbsp;</td></tr>

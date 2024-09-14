@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CONFIG>
+  <Package Version="5">
+    <Name Value="mi.web.form"/>
+    <Type Value="RunAndDesignTime"/>
+    <CompilerOptions>
+      <Version Value="11"/>
+      <SearchPaths>
+        <Libraries Value="bin/$(TargetCPU)/$(TargetOS)/lib"/>
+        <OtherUnitFiles Value="units"/>
+        <UnitOutputDirectory Value="bin/$(TargetCPU)/$(TargetOS)/units"/>
+      </SearchPaths>
+    </CompilerOptions>
+    <Files>
+      <Item>
+        <Filename Value="units/mi.web.fphttpclient.pas"/>
+        <HasRegisterProc Value="True"/>
+        <UnitName Value="mi.web.fphttpclient"/>
+      </Item>
+      <Item>
+        <Filename Value="units/mi.web.fphttpserver.pas"/>
+        <HasRegisterProc Value="True"/>
+        <UnitName Value="mi.web.fphttpserver"/>
+      </Item>
+      <Item>
+        <Filename Value="units/mi.web.dmxscroller.form.rest.client.pas"/>
+        <HasRegisterProc Value="True"/>
+        <UnitName Value="mi.web.dmxscroller.form.rest.client"/>
+      </Item>
+      <Item>
+        <Filename Value="units/mi.lcl.application.client.pas"/>
+        <UnitName Value="mi.lcl.application.client"/>
+      </Item>
+    </Files>
+    <RequiredPkgs>
+      <Item>
+        <PackageName Value="mi.lcl.form"/>
+      </Item>
+      <Item>
+        <PackageName Value="weblaz"/>
+      </Item>
+      <Item>
+        <PackageName Value="mi.rtl"/>
+      </Item>
+      <Item>
+        <PackageName Value="FCL"/>
+      </Item>
+    </RequiredPkgs>
+    <UsageOptions>
+      <UnitPath Value="$(PkgOutDir)"/>
+    </UsageOptions>
+    <PublishOptions>
+      <Version Value="2"/>
+      <UseFileFilters Value="True"/>
+    </PublishOptions>
+  </Package>
+</CONFIG>

@@ -1,0 +1,60 @@
+object Form1: TForm1
+  Left = 351
+  Height = 355
+  Top = 237
+  Width = 499
+  Caption = 'Form1'
+  ClientHeight = 355
+  ClientWidth = 499
+  OnCreate = FormCreate
+  LCLVersion = '3.4.0.0'
+  object Button_Test_AddChildFileName: TButton
+    Left = 16
+    Height = 25
+    Top = 8
+    Width = 184
+    Caption = 'Button_Test_AddChildFileName'
+    TabOrder = 0
+    OnClick = Button_Test_AddChildFileNameClick
+  end
+  object Button_Test_AddChildAction: TButton
+    Left = 16
+    Height = 25
+    Top = 40
+    Width = 184
+    Caption = 'Button_Test_AddChildAction'
+    TabOrder = 1
+    OnClick = Button_Test_AddChildActionClick
+  end
+  object TreeView1: TTreeView
+    Left = 8
+    Height = 217
+    Top = 88
+    Width = 488
+    ReadOnly = True
+    TabOrder = 2
+    OnChange = TreeView1Change
+    Options = [tvoAutoItemHeight, tvoHideSelection, tvoKeepCollapsedNodes, tvoReadOnly, tvoShowButtons, tvoShowLines, tvoShowRoot, tvoToolTips, tvoThemedDraw]
+  end
+  object Button1: TButton
+    Left = 216
+    Height = 25
+    Top = 8
+    Width = 136
+    Caption = 'Conversão para .css'
+    TabOrder = 3
+    OnClick = Button1Click
+  end
+  object ActionList1: TActionList
+    Left = 361
+    Top = 18
+    object Action1: TAction
+      Caption = 'Action1'
+      OnExecute = Action1Execute
+    end
+    object Action2: TAction
+      Caption = 'Action2'
+      OnExecute = Action2Execute
+    end
+  end
+end

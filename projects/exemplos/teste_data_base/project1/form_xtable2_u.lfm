@@ -1,0 +1,471 @@
+object form_xtable2: Tform_xtable2
+  Left = 490
+  Height = 511
+  Top = 177
+  Width = 800
+  HelpContext = 446
+  Align = alClient
+  AutoSize = True
+  BorderIcons = []
+  Caption = 'SDI Application'
+  ClientHeight = 511
+  ClientWidth = 800
+  Color = clBtnFace
+  Font.Color = clWindowText
+  Font.Height = -13
+  Font.Name = 'System'
+  Menu = MainMenu1
+  OnCreate = FormCreate
+  LCLVersion = '3.1.0.0'
+  object Panel1: TPanel
+    Left = 0
+    Height = 66
+    Top = 6
+    Width = 800
+    Anchors = [akTop, akLeft, akRight]
+    ClientHeight = 66
+    ClientWidth = 800
+    ParentBackground = False
+    TabOrder = 0
+    object Label_title: TLabel
+      Left = 11
+      Height = 16
+      Top = 0
+      Width = 784
+      Alignment = taCenter
+      Anchors = [akTop, akLeft, akRight, akBottom]
+      AutoSize = False
+      Caption = 'Nome da página ativa'
+      Font.Color = clWindowText
+      Font.Height = -16
+      Font.Name = 'System'
+      Font.Style = [fsItalic]
+      ParentFont = False
+    end
+    object ToolBar1: TToolBar
+      Left = 2
+      Height = 35
+      Top = 24
+      Width = 798
+      Align = alNone
+      Anchors = [akTop, akLeft, akRight]
+      AutoSize = True
+      BorderWidth = 1
+      Color = clBtnFace
+      Images = ImageList1
+      Indent = 5
+      ParentColor = False
+      ParentShowHint = False
+      ShowHint = True
+      TabOrder = 0
+      Wrapable = False
+      object BitBtn2: TBitBtn
+        Left = 5
+        Height = 33
+        Top = 2
+        Width = 70
+        Action = CmNewRecord
+        AutoSize = True
+        Images = ImageList1
+        ImageIndex = 6
+        TabOrder = 0
+      end
+      object BitBtn1: TBitBtn
+        Left = 75
+        Height = 33
+        Top = 2
+        Width = 109
+        Action = CmLocate
+        AutoSize = True
+        Images = ImageList1
+        ImageIndex = 9
+        TabOrder = 1
+      end
+      object BitBtn3: TBitBtn
+        Left = 184
+        Height = 33
+        Top = 2
+        Width = 80
+        Action = CmUpdateRecord
+        AutoSize = True
+        Images = ImageList1
+        ImageIndex = 8
+        TabOrder = 2
+      end
+      object BitBtn7: TBitBtn
+        Left = 264
+        Height = 33
+        Top = 2
+        Width = 102
+        Action = CmProcess
+        AutoSize = True
+        Images = ImageList1
+        ImageIndex = 8
+        TabOrder = 6
+      end
+      object BitBtn4: TBitBtn
+        Left = 366
+        Height = 33
+        Top = 2
+        Width = 79
+        Action = CmDeleteRecord
+        AutoSize = True
+        Images = ImageList1
+        ImageIndex = 5
+        TabOrder = 3
+      end
+      object BitBtn6: TBitBtn
+        Left = 445
+        Height = 33
+        Top = 2
+        Width = 100
+        Action = File_CmView
+        AutoSize = True
+        Images = ImageList1
+        ImageIndex = 12
+        TabOrder = 5
+      end
+      object BitBtn5: TBitBtn
+        Left = 545
+        Height = 33
+        Top = 2
+        Width = 103
+        Action = File_CmPrint
+        AutoSize = True
+        Images = ImageList1
+        ImageIndex = 14
+        TabOrder = 4
+      end
+    end
+  end
+  object PageControl1: TPageControl
+    Left = 0
+    Height = 728
+    Top = 80
+    Width = 800
+    ActivePage = TabSheet3
+    Anchors = [akTop, akLeft, akRight]
+    TabIndex = 2
+    TabOrder = 1
+    OnMouseDown = PageControl1MouseDown
+    object TabSheet1: TTabSheet
+      Caption = 'page1'
+      ClientHeight = 697
+      ClientWidth = 790
+      object Mi_ScrollBox_LCL1: TMi_ScrollBox_LCL
+        Left = 0
+        Height = 697
+        Top = 0
+        Width = 790
+        HorzScrollBar.Page = 1
+        VertScrollBar.Page = 1
+        Align = alClient
+        AutoScroll = False
+        Color = clGradientActiveCaption
+        ParentBackground = False
+        ParentColor = False
+        TabOrder = 0
+        TabStop = True
+      end
+    end
+    object TabSheet2: TTabSheet
+      Caption = 'page2'
+      ClientHeight = 697
+      ClientWidth = 790
+      ImageIndex = 1
+      object Mi_ScrollBox_LCL2: TMi_ScrollBox_LCL
+        Left = 0
+        Height = 697
+        Top = 0
+        Width = 790
+        Align = alClient
+        Anchors = [akLeft, akRight]
+        AutoScroll = False
+        Color = clInfoBk
+        ParentBackground = False
+        ParentColor = False
+        TabOrder = 0
+        TabStop = True
+      end
+    end
+    object TabSheet3: TTabSheet
+      Caption = 'page3'
+      ClientHeight = 697
+      ClientWidth = 790
+      ImageIndex = 2
+      object Mi_ScrollBox_LCL3: TMi_ScrollBox_LCL
+        Left = 0
+        Height = 697
+        Top = 0
+        Width = 790
+        Align = alClient
+        AutoScroll = False
+        Color = clGrayText
+        ParentBackground = False
+        ParentColor = False
+        TabOrder = 0
+        TabStop = True
+      end
+    end
+  end
+  object MainMenu1: TMainMenu
+    Images = ImageList1
+    Left = 627
+    Top = 59
+    object File1: TMenuItem
+      Caption = '&Arquivos'
+      Hint = 'File related commands'
+      object FileNewItem: TMenuItem
+        Caption = '&Novo...'
+        Hint = 'Abre um novo arquivo para incluir um registro.'
+        ImageIndex = 6
+        ShortCut = 16462
+        object Produto1: TMenuItem
+          Caption = 'Produto'
+        end
+        object CFOP1: TMenuItem
+          Caption = 'Natureza da Operação'
+        end
+        object CentrodeCustos1: TMenuItem
+          Caption = 'Centro de Custos'
+        end
+      end
+      object FileOpenItem: TMenuItem
+        Caption = '&Alterar...'
+        Hint = 'Abre um arquivo e posiciona no registro selecionado pelo campo corrente.'
+        ImageIndex = 7
+        ShortCut = 16451
+        object Produto2: TMenuItem
+          Caption = 'Produto...'
+        end
+        object NaturezadaOperao1: TMenuItem
+          Caption = 'Natureza da Operação...'
+        end
+        object CentrodeCustos2: TMenuItem
+          Caption = 'Centro de Custos'
+        end
+      end
+      object Excluir1: TMenuItem
+        Caption = '&Excluir...'
+        ShortCut = 16453
+        object Produto3: TMenuItem
+          Caption = 'Produto...'
+        end
+        object NaturezadaOperao2: TMenuItem
+          Caption = 'Natureza da Operação...'
+        end
+        object CentrodeCustos3: TMenuItem
+          Caption = 'Centro de Custos'
+        end
+      end
+      object N3: TMenuItem
+        Caption = '-'
+      end
+      object FileSaveItem: TMenuItem
+        Action = File_CmView
+      end
+      object FileSaveAsItem: TMenuItem
+        Action = File_CmPrint
+      end
+      object N1: TMenuItem
+        Caption = '-'
+      end
+      object FileExitItem: TMenuItem
+        Action = FileExit1
+      end
+    end
+    object Edit1: TMenuItem
+      Caption = '&Editar'
+      Hint = 'Edit commands'
+      object NovoRegistro1: TMenuItem
+        Action = CmNewRecord
+        AutoCheck = True
+      end
+      object Pesquisar1: TMenuItem
+        Action = CmLocate
+      end
+      object Grava1: TMenuItem
+        Action = CmUpdateRecord
+      end
+      object ExcluirregistroSelecionado1: TMenuItem
+        Action = CmDeleteRecord
+      end
+      object N2: TMenuItem
+        Caption = '-'
+      end
+      object CutItem: TMenuItem
+        Action = EditCut1
+      end
+      object CopyItem: TMenuItem
+        Action = EditCopy1
+      end
+      object PasteItem: TMenuItem
+        Action = EditPaste1
+      end
+    end
+    object Help1: TMenuItem
+      Caption = '&Help'
+      Hint = 'Help topics'
+      object HelpAboutItem: TMenuItem
+        Action = HelpAbout1
+      end
+    end
+  end
+  object ActionList1: TActionList
+    Images = ImageList1
+    Left = 579
+    Top = 59
+    object EditCut1: TEditCut
+      Category = 'Edit'
+      Caption = 'Cu&t'
+      Hint = 'Cut|Cuts the selection and puts it on the Clipboard'
+      ImageIndex = 0
+      ShortCut = 16472
+    end
+    object EditCopy1: TEditCopy
+      Category = 'Edit'
+      Caption = '&Copy'
+      Hint = 'Copy|Copies the selection and puts it on the Clipboard'
+      ImageIndex = 1
+      ShortCut = 16451
+    end
+    object File_CmDeleteRecord: TAction
+      Category = 'File'
+      Caption = '&Excluir...'
+      ShortCut = 16453
+    end
+    object File_CmNewRecord: TAction
+      Category = 'File'
+      Caption = '&Novo...'
+      Hint = 'Abre um novo arquivo para incluir um registro.'
+      ImageIndex = 6
+      OnExecute = File_CmNewRecordExecute
+      ShortCut = 16462
+    end
+    object EditPaste1: TEditPaste
+      Category = 'Edit'
+      Caption = '&Paste'
+      Hint = 'Paste|Inserts Clipboard contents'
+      ImageIndex = 2
+      ShortCut = 16470
+    end
+    object File_CmUpdateRecord: TAction
+      Category = 'File'
+      Caption = '&Alterar...'
+      Hint = 'Abre um arquivo e posiciona no registro selecionado pelo campo corrente.'
+      ImageIndex = 7
+      OnExecute = File_CmUpdateRecordExecute
+      ShortCut = 16451
+    end
+    object FileExit1: TAction
+      Category = 'File'
+      Caption = 'S&air'
+      Hint = ' Sair (Sair da Aplicação)'
+      OnExecute = FileExit1Execute
+      ShortCut = 16467
+    end
+    object HelpAbout1: TAction
+      Category = 'Help'
+      Caption = '&Sobre o  gcic...'
+      Hint = 'Mostra a Versão do Produto e fabricante.'
+      OnExecute = HelpAbout1Execute
+    end
+    object CmNewRecord: TAction
+      Category = 'Edit'
+      AutoCheck = True
+      Caption = '&Novo'
+      Hint = 'Posiciona em Novo Registro do arquivo selecionado.'
+      ImageIndex = 6
+      OnExecute = CmNewRecordExecute
+      ShortCut = 32846
+    end
+    object CmUpdateRecord: TAction
+      Category = 'Edit'
+      Caption = '&Gravar'
+      Hint = 'Gravas as alterações do Registro Selecionada.'
+      ImageIndex = 8
+      OnExecute = CmUpdateRecordExecute
+      ShortCut = 32839
+    end
+    object CmDeleteRecord: TAction
+      Category = 'Edit'
+      Caption = '&Excluir'
+      Hint = 'Excluir o registro selecionado e os registros associados a ele.'
+      ImageIndex = 5
+      OnExecute = CmDeleteRecordExecute
+      ShortCut = 32837
+    end
+    object CmLocate: TAction
+      Category = 'Edit'
+      Caption = '&Pesquisar...'
+      Hint = 'Pesquisar um registro para edição.'
+      ImageIndex = 9
+      OnExecute = CmLocateExecute
+      ShortCut = 32848
+    end
+    object File_CmPrint: TAction
+      Category = 'File'
+      Caption = '&Imprimir...'
+      ImageIndex = 14
+      OnExecute = File_CmPrintExecute
+    end
+    object File_CmView: TAction
+      Category = 'File'
+      Caption = '&Visualizar'
+      ImageIndex = 12
+      OnExecute = File_CmViewExecute
+    end
+    object CmProcess: TAction
+      Category = 'Edit'
+      Caption = '&Finalizar...'
+      ImageIndex = 8
+      OnExecute = CmProcessExecute
+      ShortCut = 32838
+    end
+  end
+  object ImageList1: TImageList
+    Left = 522
+    Top = 59
+    Bitmap = {
+      4C7A0F0000001000000010000000730300000000000078DAED5BCDB1D4300CF6
+      81139D5103576ED4C0A016A88236B60DAA317888F3145BFF4ADE4B32F18C26BB
+      DE7C92655B8A2C654B39AC55E5FB15F095F81C19434DCC614DE033B20B2CB221
+      C8A3E360E161E533DE8F711A0FEADE8FC6639D3CFA97EBB4CA90193F36270F12
+      8FF898F05D66FF0C0C59E4B706443FC363D47995CFF11C7888F2B15E8C2E66F9
+      237F8F7C4C239E22877CD68E8CF2457C46BE46E59ECDEB07E6356AEBC6ACDD84
+      05A8F08FDA75C5623E6DAE97DFA1DF83F080FA5FAF174998C7881FF8B204827C
+      AC837665E5E3ABBCE754F920D83418E54B3E01DBBE249FB2D94917877CC27ECD
+      F23DFECB213FEC3B6EEC3F4ED1FEFCFE517F7E2D1B6A7DD4BDBFBE7FAE140EDF
+      DFFB291E0DDF48BA07F3A0F0ADBFF390F492F09D8717FFEDCBA73A9207FFB4A7
+      5DC9DE392C65EF633F655F169B6FD7EE27BC36D5B19C7D6B78CD3F48788F6F78
+      DA2D62FE687ECEC243FA5DE311398F78B1524EE43DF37FA97C4C42FFCCFC5BD7
+      3F7BE6AC27C8B5D61BDB7F64EFB1E724EB9A4A78432ED0225FF43D96F6E0EF8B
+      77D0131BC4FD64DDC17F72CFB6C8F3ADF69D23E42BD57D8779905769DF6958C3
+      BE77E840E66A37D89EA79468AC3DC4B06593EFF563DFD633867DECDE3F07746C
+      A9E4DF711EBE5FA3F8AC7C2E077F79BCA18651841A848BA2F283E3CFEA7F30BE
+      24EDE768DB0DC5DDC6D85DC513F61E91CFFA6F6B8BE033F2CB529BEA7B07987D
+      23619727EB8AA7EA8FD2BC776CC753BE57C263F2E2B1EE6D1C9EF12BF35713EB
+      37C57F81FD537779669E3FA6607500BD7E29D7E265FC2656A008B6B5F0C9576B
+      3C309EF255128F61FC1396E3C5CCDFF48E0F359E8CFFCAF83FABFF2C842E65A8
+      B7DF55FEC5CF10EA98407E6F41D40BF4771FD8B961E48DFDECFC06F17507BC69
+      3E0CFBC7321FA6FD06BCCF358DDD808F3ED3AAA5C600F67766B2F83D9ECD1F69
+      EBA99A9170DE16B1FF63D5B736C68DF63344D9C4ACC338D858A1630DB98343F0
+      163A08AFF2B0D44E709C3D620DEB47EE9F8E0DDADE1A67E1780D027675561E11
+      E386F47B8390F44B0D1FE1D1719822638EC81FF15EBF0926FFE7F07798EFC677
+      EA3C265D58FF45EB41E3759FC1AEDFE43B789FC1AEDDCA036341D55FF61B595B
+      D993C70DEB01A17CA0B58EEF3CC3BDA76CF67F0C16D94C0DC47476E4F2099EF8
+      41C84954CF38309ECDD1F477F1917FA07467C7BB468355AAFF84C63FE6E2BCF3
+      77963AE25FBD007ABB
+    }
+  end
+  object OpenDialog: TOpenDialog
+    Filter = 'All Files (*.*)|*.*'
+    Left = 691
+    Top = 59
+  end
+  object SaveDialog: TSaveDialog
+    Filter = 'All Files (*.*)|*.*'
+    Left = 747
+    Top = 59
+  end
+end

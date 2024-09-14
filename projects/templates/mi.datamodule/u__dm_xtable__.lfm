@@ -1,0 +1,25 @@
+inherited __dm_xtable__: T__dm_xtable__
+  OnCreate = DataModuleCreate
+  Height = 174
+  HorizontalOffset = 524
+  VerticalOffset = 281
+  Width = 455
+  inherited DmxScroller_Form1: TDmxScroller_Form
+    Alias = 'Cadastro de  __dm_xtable__'
+    OnAddTemplate = DmxScroller_Form1AddTemplate
+    onEnter = DmxScroller_Form1Enter
+    onEnterField = DmxScroller_Form1EnterField
+    TableName = '__dm_xtable__'
+    Top = 24
+  end
+  inherited ActionList1: TActionList
+    Left = 80
+    inherited CmRefresh: TAction
+      Caption = 'CmRefresh'
+    end
+  end
+  inherited Mi_SQLQuery1: TMi_SQLQuery
+    Left = 344
+    Top = 80
+  end
+end

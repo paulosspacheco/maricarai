@@ -1,0 +1,47 @@
+inherited expediente_do_medico_horas: Texpediente_do_medico_horas
+  OnCreate = DataModuleCreate
+  Height = 174
+  HorizontalOffset = 524
+  VerticalOffset = 281
+  Width = 455
+  inherited DmxScroller_Form1: TDmxScroller_Form
+    Alias = 'Cadastro de  Horas do expediente do médico'
+    OnAddTemplate = DmxScroller_Form1AddTemplate
+    onEnter = DmxScroller_Form1Enter
+    TableName = 'expediente_do_medico_horas'
+    Top = 24
+  end
+  inherited ActionList1: TActionList
+    Left = 80
+    inherited CmRefresh: TAction
+      Caption = 'CmRefresh'
+    end
+  end
+  inherited Mi_SQLQuery1: TMi_SQLQuery
+    IndexName = 'DEFAULT_ORDER'
+    FieldDefs = <    
+      item
+        Name = 'id_expediente_do_medico_data'
+        DataType = ftInteger
+        Precision = -1
+      end    
+      item
+        Name = 'datatime_inicial'
+        DataType = ftDateTime
+        Precision = -1
+      end    
+      item
+        Name = 'datatime_final'
+        DataType = ftDateTime
+        Precision = -1
+      end>
+    Active = True
+    SQL.Strings = (
+      'select * from expediente_do_medico_horas'
+    )
+    Options = [sqoKeepOpenOnCommit, sqoAutoApplyUpdates, sqoAutoCommit, sqoRefreshUsingSelect]
+    MacroCheck = True
+    Left = 328
+    Top = 16
+  end
+end

@@ -77,10 +77,10 @@ Begin
     If (Key1 <> nil) and (AnsiChar(Key1^) in ['D','I'])
     Then Begin
             If AnsiChar(Key1^) = 'D' {DataFile}
-            Then sKey1 :=  FMaiuscula(TTb_Access.DataFile(Key1^).Filename)
+            Then sKey1 :=  UpperCase(TTb_Access.DataFile(Key1^).Filename)
             ELSE If AnsiChar(Key1^) = 'I' {IndexFile}
-                 Then sKey1 :=  FMaiuscula(TTb_Access.IndexFile(Key1^).NomeArqDados)+
-                                FMaiuscula(TTb_Access.IndexFile(Key1^).DataF.Filename)
+                 Then sKey1 :=  UpperCase(TTb_Access.IndexFile(Key1^).NomeArqDados)+
+                                UpperCase(TTb_Access.IndexFile(Key1^).DataF.Filename)
                   Else sKey1 :=  '';
          End
     Else sKey1 :=  '';
@@ -89,10 +89,10 @@ Begin
     If (Key2 <> nil) and (AnsiChar(Key2^) in ['D','I'])
     Then Begin
             If AnsiChar(Key2^) = 'D' {DataFile}
-            Then sKey2 :=  FMaiuscula(TTb_Access.DataFile(Key2^).Filename)
+            Then sKey2 :=  UpperCase(TTb_Access.DataFile(Key2^).Filename)
             else If AnsiChar(Key2^) = 'I' {IndexFile}
-                 THEN sKey2 := FMaiuscula(TTb_Access.IndexFile(Key2^).NomeArqDados)+
-                               FMaiuscula(TTb_Access.IndexFile(Key2^).DataF.FileName)
+                 THEN sKey2 := UpperCase(TTb_Access.IndexFile(Key2^).NomeArqDados)+
+                               UpperCase(TTb_Access.IndexFile(Key2^).DataF.FileName)
                  ELSE SKey2 := '';
          End
     ELSE SKey2 := '';
@@ -121,11 +121,11 @@ Begin
     If IsValidPtr(Items^[i])  And
        (AnsiChar(PItemList(Items)^[i]^) = 'I')
     Then
-       WriteLn('Index......:',TTb_Access.FMinuscula(TTb_Access.IndexFile(PItemList(Items)^[i]^).DataF.F.FileName))
+       WriteLn('Index......:',TTb_Access.Lowcase(TTb_Access.IndexFile(PItemList(Items)^[i]^).DataF.F.FileName))
     else
       If IsValidPtr(Items^[i])  And
        (AnsiChar(PItemList(Items)^[i]^) = 'D') Then
-       WriteLn('Tabela.....:',FMaiuscula(TTb_Access.DataFile(PItemList(Items)^[i]^).F.FileName))
+       WriteLn('Tabela.....:',UpperCase(TTb_Access.DataFile(PItemList(Items)^[i]^).F.FileName))
      else
      Begin
        TaStatus := Objeto_Nao_Inicializado;
@@ -183,13 +183,13 @@ Var I        : SmallInt;
 Begin
 //  {$IFDEF TADebug} Application.Push_MsgErro('Tb_Access.TFilesOpens.FOkCodigo',ListaDeChamadas);{$ENDIF}
   WOk := ok;
-  NomeIxF := FMaiuscula(NomeIxF);
+  NomeIxF := UpperCase(NomeIxF);
   If IsValidPtr(Items) Then
   For i := 0 to Count-1 do
   Begin
     If IsValidPtr(Items^[i])  And
        (AnsiChar(PItemList(Items)^[i]^) = 'I') And
-       (FMaiuscula(TTb_Access.IndexFile(PItemList(Items)^[i]^).DataF.F.FileName) = NomeIxF )
+       (UpperCase(TTb_Access.IndexFile(PItemList(Items)^[i]^).DataF.F.FileName) = NomeIxF )
     Then
     Begin
       FOkCodigo := TTb_Access.FExisteCodigo(TTb_Access.IndexFile(PItemList(Items)^[i]^),codigo);
@@ -538,12 +538,12 @@ Begin
     END;
     ListaSItem   := Lista.PListSItem;
     ItemSelecionado.Selection := 0;
-
-    with MI_MsgBox do
-      MessageBox_ListBoxRec_PSItem('Total de arquivos aberto: '+IStr(Count-1,'BBB'),
-                   ListaSItem,
-                   ItemSelecionado.Selection,
-                   mtInformation,mbokButton,mbOK);
+    if Assigned(MI_MsgBox)
+    then with MI_MsgBox do
+          MessageBox_ListBoxRec_PSItem('Total de arquivos aberto: '+IStr(Count-1,'BBB'),
+                       ListaSItem,
+                       ItemSelecionado.Selection,
+                       mtInformation,mbokButton,mbOK);
     DisposeSItems(ListaSItem);
   End;
   Discard(TObject(Lista));

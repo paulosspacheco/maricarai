@@ -19,7 +19,7 @@
 <div class="one_section"><a class="section" href="#PasDoc-Description">Descrição</a></div><div class="one_section"><a class="section" href="#PasDoc-Uses">Uses</a></div><div class="one_section"><a class="section" href="#PasDoc-Classes">Classes, Interfaces, Objetos e Registros</a></div><div class="one_section"><a class="section" href="#PasDoc-FuncsProcs">Funções e Procedimentos</a></div><div class="one_section"><a class="section" href="#PasDoc-Types">Tipos</a></div><div class="one_section"><a class="section" href="#PasDoc-Constants">Constantes</a></div><div class="one_section">Variáveis</div></div>
 <span id="PasDoc-Description"></span><h2 class="description">Descrição</h2>
 <p>
-A unit <strong><code>mi_rtl_ui_dmxscroller_form</code></strong> implementa a classe <a class="normal" href="mi_rtl_ui_dmxscroller_form.TDmxScroller_Form.html">TDmxScroller_Form</a>.
+A unit <strong><code>mi_rtl_ui_dmxscroller_form</code></strong> implementa a classe <a class="normal" href="mi_rtl_ui_dmxscroller_form.TDmxScroller_Form.html">TDmxScroller_Form</a> cuja a sua função é vincular o componente <a class="normal" href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html">TUiDmxScroller</a> ao componentes visualais tais como TMi_lcl_ui_Form, TMi_lcl_ui_ds_Form e TMi_lcl_ui_js_Form..
 
 <p></p>
 
@@ -28,7 +28,7 @@ A unit <strong><code>mi_rtl_ui_dmxscroller_form</code></strong> implementa a cla
   <li><p><strong>VERSÃO</strong> </p>
 
 <ul class="paragraph_spacing">
-  <li><p>Alpha - Alpha - 0.9.0</p></li>
+  <li><p>Alpha - 1.0.0</p></li>
 </ul>
 
 <p></p></li>
@@ -49,7 +49,7 @@ A unit <strong><code>mi_rtl_ui_dmxscroller_form</code></strong> implementa a cla
   <li><p><strong>PENDÊNCIAS</strong> </p>
 
 <ul class="paragraph_spacing">
-  <li><p>T12 Documentar a unit.</p></li>
+  <li><p>T12 Criar método public procedure DoCreateForm();</p></li>
   <li><p>T12 Criar propriedade UiDmxScroller_Buttons:<a class="normal" href="mi_rtl_ui_DmxScroller_Buttons.TUiDmxScroller_Buttons.html">TUiDmxScroller_Buttons</a></p></li>
 </ul>
 
@@ -57,6 +57,11 @@ A unit <strong><code>mi_rtl_ui_dmxscroller_form</code></strong> implementa a cla
   <li><p><strong>CONCLUÍDO</strong> </p>
 
 <ul class="paragraph_spacing">
+  <li><p>T12 Implementar o método: Procedure Select_First_Field_Normal; virtual;abstract;✅</p></li>
+  <li><p>Criar método procedure LockUpdates;virtual;✅</p></li>
+  <li><p>Criar método procedure UnlockUpdate;virtual;✅</p></li>
+  <li><p>T12 O método <strong>PutBuffers</strong> se DataSource for &lt;&gt; nil, com o buffer da propriedade dataSource.DataSet deve atualizar o buffer da propriedade <strong><a class="normal" href="mi_rtl_ui_dmxscroller_form.TDmxScroller_Form.html">TDmxScroller_Form</a></strong>. ✅</p></li>
+  <li><p>T12 O método <strong>PutBuffers</strong> se DataSource for &lt;&gt; nil, com o buffer da classe <strong><a class="normal" href="mi_rtl_ui_dmxscroller_form.TDmxScroller_Form.html">TDmxScroller_Form</a></strong> deve atualizar a buffer da propriedade dataSource.DataSet. ✅</p></li>
   <li><p>Criar atributo private FirstDataRow : integer; ✅</p></li>
   <li><p>Criar atributo private PrevRec : integer; ✅</p></li>
   <li><p>Criar atributo protected DMXFields : TFPList; ✅</p></li>
@@ -78,6 +83,7 @@ A unit <strong><code>mi_rtl_ui_dmxscroller_form</code></strong> implementa a cla
   <li><p>Criar método public procedure Refresh;override; ✅</p></li>
   <li><p>Criar método protected procedure SetActiveTarget(aActive : Boolean);override; ✅</p></li>
   <li><p>Criar método protected procedure SetActive(aActive : Boolean);override; ✅</p></li>
+  <li><p>T12 Documentar a unit. ✅</p></li>
 </ul>
 
 <p></p></li>
@@ -85,7 +91,7 @@ A unit <strong><code>mi_rtl_ui_dmxscroller_form</code></strong> implementa a cla
 
 <p></p>
 <span id="PasDoc-Uses"></span><h2 class="uses">Uses</h2>
-<ul class="useslist"><li>Classes</li><li>SysUtils</li><li>typInfo</li><li><a href="mi.rtl.Consts.html">mi.rtl.Consts</a></li><li><a href="mi_rtl_ui_Dmxscroller.html">mi_rtl_ui_Dmxscroller</a></li></ul><h2 class="overview">Visão Geral</h2>
+<ul class="useslist"><li>Classes</li><li>SysUtils</li><li>Dialogs</li><li>db</li><li>LResources</li><li>Contnrs</li><li>ActnList</li><li>typInfo</li><li><a href="mi.rtl.Objects.Consts.Mi_MsgBox.html">mi.rtl.Objects.Consts.Mi_MsgBox</a></li><li><a href="mi.rtl.Objects.Methods.Exception.html">mi.rtl.Objects.Methods.Exception</a></li><li><a href="mi.rtl.Consts.html">mi.rtl.Consts</a></li><li><a href="mi_rtl_ui_Dmxscroller.html">mi_rtl_ui_Dmxscroller</a></li></ul><h2 class="overview">Visão Geral</h2>
 <span id="PasDoc-Classes"></span><h3 class="cio">Classes, Interfaces, Objetos e Registros</h3>
 <table class="classestable wide_list">
 <tr class="listheader">
@@ -93,7 +99,15 @@ A unit <strong><code>mi_rtl_ui_dmxscroller_form</code></strong> implementa a cla
 <th class="itemdesc">Descrição</th>
 </tr>
 <tr class="list">
-<td class="itemname">Classe&nbsp;<a class="bold" href="mi_rtl_ui_dmxscroller_form.TDmxScroller_Form_Atributos.html"><code>TDmxScroller_Form_Atributos</code></a></td>
+<td class="itemname">Classe&nbsp;<a class="bold" href="mi_rtl_ui_dmxscroller_form.TMi_rtl_ui_Form_abstract.html"><code>TMi_rtl_ui_Form_abstract</code></a></td>
+<td class="itemdesc">&nbsp;</td>
+</tr>
+<tr class="list2">
+<td class="itemname">Classe&nbsp;<a class="bold" href="mi_rtl_ui_dmxscroller_form._TDmxScroller_Form_Atributos.html"><code>_TDmxScroller_Form_Atributos</code></a></td>
+<td class="itemdesc">&nbsp;</td>
+</tr>
+<tr class="list">
+<td class="itemname">Classe&nbsp;<a class="bold" href="mi_rtl_ui_dmxscroller_form._TDmxScroller_Form.html"><code>_TDmxScroller_Form</code></a></td>
 <td class="itemdesc">&nbsp;</td>
 </tr>
 <tr class="list2">
@@ -110,17 +124,164 @@ A unit <strong><code>mi_rtl_ui_dmxscroller_form</code></strong> implementa a cla
 <span id="PasDoc-Types"></span><h3 class="summary">Tipos</h3>
 <table class="summary wide_list">
 <tr class="list">
-<td class="itemcode"><code><strong><a href="mi_rtl_ui_dmxscroller_form.html#TDmxFieldRec">TDmxFieldRec</a></strong> = <a href="mi_rtl_ui_Dmxscroller.TDmxFieldRec.html">mi_rtl_ui_Dmxscroller.TDmxFieldRec</a>;</code></td>
+<td class="itemcode"><code><strong><a href="mi_rtl_ui_dmxscroller_form.html#TMsgDlgType">TMsgDlgType</a></strong> = <a href="mi.rtl.Objects.Consts.Mi_MsgBox.TMI_MsgBoxTypes.html#TMsgDlgType">TMI_MsgBoxTypes.TMsgDlgType</a>;</code></td>
 </tr>
 <tr class="list2">
-<td class="itemcode"><code><strong><a href="mi_rtl_ui_dmxscroller_form.html#pDmxFieldRec">pDmxFieldRec</a></strong> = <a href="mi_rtl_ui_Dmxscroller.html#pDmxFieldRec">mi_rtl_ui_Dmxscroller.pDmxFieldRec</a>;</code></td>
+<td class="itemcode"><code><strong><a href="mi_rtl_ui_dmxscroller_form.html#TMsgDlgBtn">TMsgDlgBtn</a></strong>  = <a href="mi.rtl.Objects.Consts.Mi_MsgBox.TMI_MsgBoxTypes.html#TMsgDlgBtn">TMI_MsgBoxTypes.TMsgDlgBtn</a>;</code></td>
 </tr>
 <tr class="list">
+<td class="itemcode"><code><strong><a href="mi_rtl_ui_dmxscroller_form.html#TMsgDlgButtons">TMsgDlgButtons</a></strong> = <a href="mi.rtl.Objects.Consts.Mi_MsgBox.TMI_MsgBoxTypes.html#TMsgDlgButtons">TMI_MsgBoxTypes.TMsgDlgButtons</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><strong><a href="mi_rtl_ui_dmxscroller_form.html#TModalResult">TModalResult</a></strong> = <a href="mi.rtl.Objects.Consts.Mi_MsgBox.TMI_MsgBoxTypes.html#TModalResult">TMI_MsgBoxTypes.TModalResult</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><strong><a href="mi_rtl_ui_dmxscroller_form.html#TArray_MsgDlgBtn">TArray_MsgDlgBtn</a></strong> = <a href="mi.rtl.Objects.Consts.Mi_MsgBox.TMI_MsgBoxTypes.html#TArray_MsgDlgBtn">TMI_MsgBoxTypes.TArray_MsgDlgBtn</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><strong><a href="mi_rtl_ui_dmxscroller_form.html#TPanel_Lista_de_Botoes">TPanel_Lista_de_Botoes</a></strong> = <a href="mi.rtl.Objects.Consts.Mi_MsgBox.TMI_MsgBoxTypes.html#TPanel_Lista_de_Botoes">TMI_MsgBoxTypes.TPanel_Lista_de_Botoes</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><strong><a href="mi_rtl_ui_dmxscroller_form.html#TOnGetTemplate">TOnGetTemplate</a></strong> = <a href="mi_rtl_ui_Dmxscroller.html#TOnGetTemplate">mi_rtl_ui_Dmxscroller.TOnGetTemplate</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><strong><a href="mi_rtl_ui_dmxscroller_form.html#TOnAddTemplate">TOnAddTemplate</a></strong> = <a href="mi_rtl_ui_Dmxscroller.html#TOnAddTemplate">mi_rtl_ui_Dmxscroller.TOnAddTemplate</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><strong><a href="mi_rtl_ui_dmxscroller_form.html#TOnEnter">TOnEnter</a></strong> = <a href="mi_rtl_ui_Dmxscroller.html#TOnEnter">mi_rtl_ui_Dmxscroller.TOnEnter</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><strong><a href="mi_rtl_ui_dmxscroller_form.html#TOnExit">TOnExit</a></strong> = <a href="mi_rtl_ui_Dmxscroller.html#TOnExit">mi_rtl_ui_Dmxscroller.TOnExit</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><strong><a href="mi_rtl_ui_dmxscroller_form.html#TOnNewRecord">TOnNewRecord</a></strong> = <a href="mi_rtl_ui_Dmxscroller.html#TOnNewRecord">mi_rtl_ui_Dmxscroller.TOnNewRecord</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><strong><a href="mi_rtl_ui_dmxscroller_form.html#TOnCloseQuery">TOnCloseQuery</a></strong> = <a href="mi_rtl_ui_Dmxscroller.html#TOnCloseQuery">mi_rtl_ui_Dmxscroller.TOnCloseQuery</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><strong><a href="mi_rtl_ui_dmxscroller_form.html#TOnEnterField">TOnEnterField</a></strong> = <a href="mi_rtl_ui_Dmxscroller.html#TOnEnterField">mi_rtl_ui_Dmxscroller.TOnEnterField</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><strong><a href="mi_rtl_ui_dmxscroller_form.html#TOnExitField">TOnExitField</a></strong> = <a href="mi_rtl_ui_Dmxscroller.html#TOnExitField">mi_rtl_ui_Dmxscroller.TOnExitField</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><strong><a href="mi_rtl_ui_dmxscroller_form.html#TOnCalcField">TOnCalcField</a></strong> = <a href="mi_rtl_ui_Dmxscroller.html#TOnCalcField">mi_rtl_ui_Dmxscroller.TOnCalcField</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><strong><a href="mi_rtl_ui_dmxscroller_form.html#TOnChangeField">TOnChangeField</a></strong> = <a href="mi_rtl_ui_Dmxscroller.html#TOnChangeField">mi_rtl_ui_Dmxscroller.TOnChangeField</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><strong><a href="mi_rtl_ui_dmxscroller_form.html#TOnBeforeInsert">TOnBeforeInsert</a></strong> = <a href="mi_rtl_ui_Dmxscroller.html#TOnBeforeInsert">mi_rtl_ui_Dmxscroller.TOnBeforeInsert</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><strong><a href="mi_rtl_ui_dmxscroller_form.html#TOnAfterInsert">TOnAfterInsert</a></strong> = <a href="mi_rtl_ui_Dmxscroller.html#TOnAfterInsert">mi_rtl_ui_Dmxscroller.TOnAfterInsert</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><strong><a href="mi_rtl_ui_dmxscroller_form.html#TOnBeforeUpdate">TOnBeforeUpdate</a></strong> = <a href="mi_rtl_ui_Dmxscroller.html#TOnBeforeUpdate">mi_rtl_ui_Dmxscroller.TOnBeforeUpdate</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><strong><a href="mi_rtl_ui_dmxscroller_form.html#TOnAfterUpdate">TOnAfterUpdate</a></strong> = <a href="mi_rtl_ui_Dmxscroller.html#TOnAfterUpdate">mi_rtl_ui_Dmxscroller.TOnAfterUpdate</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><strong><a href="mi_rtl_ui_dmxscroller_form.html#TOnBeforeDelete">TOnBeforeDelete</a></strong> = <a href="mi_rtl_ui_Dmxscroller.html#TOnBeforeDelete">mi_rtl_ui_Dmxscroller.TOnBeforeDelete</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><strong><a href="mi_rtl_ui_dmxscroller_form.html#TOnAfterDelete">TOnAfterDelete</a></strong> = <a href="mi_rtl_ui_Dmxscroller.html#TOnAfterDelete">mi_rtl_ui_Dmxscroller.TOnAfterDelete</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><strong><a href="mi_rtl_ui_dmxscroller_form.html#TOnCalcFields">TOnCalcFields</a></strong>  = <a href="mi_rtl_ui_Dmxscroller.html#TOnCalcFields">mi_rtl_ui_Dmxscroller.TOnCalcFields</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><strong><a href="mi_rtl_ui_dmxscroller_form.html#TDmxFieldRec">TDmxFieldRec</a></strong> = <a href="mi_rtl_ui_Dmxscroller.TDmxFieldRec.html">mi_rtl_ui_Dmxscroller.TDmxFieldRec</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><strong><a href="mi_rtl_ui_dmxscroller_form.html#pDmxFieldRec">pDmxFieldRec</a></strong> = <a href="mi_rtl_ui_Dmxscroller.html#pDmxFieldRec">mi_rtl_ui_Dmxscroller.pDmxFieldRec</a>;</code></td>
+</tr>
+<tr class="list2">
 <td class="itemcode"><code><strong><a href="mi_rtl_ui_dmxscroller_form.html#SmallWord">SmallWord</a></strong>    = TUiDmxScroller.SmallWord;</code></td>
 </tr>
 </table>
 <span id="PasDoc-Constants"></span><h3 class="summary">Constantes</h3>
 <table class="summary wide_list">
+<tr class="list">
+<td class="itemcode"><code><strong><a href="mi_rtl_ui_dmxscroller_form.html#MaxBufLength">MaxBufLength</a></strong>   = $ff00;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><strong><a href="mi_rtl_ui_dmxscroller_form.html#mbOK">mbOK</a></strong>       = <a href="mi.rtl.Objects.Consts.Mi_MsgBox.TMI_MsgBoxTypes.html#mbOK">TMI_MsgBoxTypes.mbOK</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><strong><a href="mi_rtl_ui_dmxscroller_form.html#mrOK">mrOK</a></strong>       = <a href="mi.rtl.Objects.Consts.Mi_MsgBox.TMI_MsgBoxTypes.html#mrOK">TMI_MsgBoxTypes.mrOK</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><strong><a href="mi_rtl_ui_dmxscroller_form.html#mbCancel">mbCancel</a></strong>   = <a href="mi.rtl.Objects.Consts.Mi_MsgBox.TMI_MsgBoxTypes.html#mbCancel">TMI_MsgBoxTypes.mbCancel</a> ;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><strong><a href="mi_rtl_ui_dmxscroller_form.html#mrCancel">mrCancel</a></strong>   = <a href="mi.rtl.Objects.Consts.Mi_MsgBox.TMI_MsgBoxTypes.html#mrCancel">TMI_MsgBoxTypes.mrCancel</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><strong><a href="mi_rtl_ui_dmxscroller_form.html#mbAbort">mbAbort</a></strong>    = <a href="mi.rtl.Objects.Consts.Mi_MsgBox.TMI_MsgBoxTypes.html#mbAbort">TMI_MsgBoxTypes.mbAbort</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><strong><a href="mi_rtl_ui_dmxscroller_form.html#mrAbort">mrAbort</a></strong>    = <a href="mi.rtl.Objects.Consts.Mi_MsgBox.TMI_MsgBoxTypes.html#mrAbort">TMI_MsgBoxTypes.mrAbort</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><strong><a href="mi_rtl_ui_dmxscroller_form.html#mrIgnore">mrIgnore</a></strong>   = <a href="mi.rtl.Objects.Consts.Mi_MsgBox.TMI_MsgBoxTypes.html#mrIgnore">TMI_MsgBoxTypes.mrIgnore</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><strong><a href="mi_rtl_ui_dmxscroller_form.html#mbYes">mbYes</a></strong>      = <a href="mi.rtl.Objects.Consts.Mi_MsgBox.TMI_MsgBoxTypes.html#mbYes">TMI_MsgBoxTypes.mbYes</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><strong><a href="mi_rtl_ui_dmxscroller_form.html#mrYes">mrYes</a></strong>      = <a href="mi.rtl.Objects.Consts.Mi_MsgBox.TMI_MsgBoxTypes.html#mrYes">TMI_MsgBoxTypes.mrYes</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><strong><a href="mi_rtl_ui_dmxscroller_form.html#mbNo">mbNo</a></strong>       = <a href="mi.rtl.Objects.Consts.Mi_MsgBox.TMI_MsgBoxTypes.html#mbNo">TMI_MsgBoxTypes.mbNo</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><strong><a href="mi_rtl_ui_dmxscroller_form.html#mrNo">mrNo</a></strong>       = <a href="mi.rtl.Objects.Consts.Mi_MsgBox.TMI_MsgBoxTypes.html#mrNo">TMI_MsgBoxTypes.mrNo</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><strong><a href="mi_rtl_ui_dmxscroller_form.html#mbClose">mbClose</a></strong>    = <a href="mi.rtl.Objects.Consts.Mi_MsgBox.TMI_MsgBoxTypes.html#mbClose">TMI_MsgBoxTypes.mbClose</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><strong><a href="mi_rtl_ui_dmxscroller_form.html#mrClose">mrClose</a></strong>    = <a href="mi.rtl.Objects.Consts.Mi_MsgBox.TMI_MsgBoxTypes.html#mrClose">TMI_MsgBoxTypes.mrClose</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><strong><a href="mi_rtl_ui_dmxscroller_form.html#mbAll">mbAll</a></strong>      = <a href="mi.rtl.Objects.Consts.Mi_MsgBox.TMI_MsgBoxTypes.html#mbAll">TMI_MsgBoxTypes.mbAll</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><strong><a href="mi_rtl_ui_dmxscroller_form.html#mrAll">mrAll</a></strong>      = <a href="mi.rtl.Objects.Consts.Mi_MsgBox.TMI_MsgBoxTypes.html#mrAll">TMI_MsgBoxTypes.mrAll</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><strong><a href="mi_rtl_ui_dmxscroller_form.html#mbNoToAll">mbNoToAll</a></strong>  = <a href="mi.rtl.Objects.Consts.Mi_MsgBox.TMI_MsgBoxTypes.html#mbNoToAll">TMI_MsgBoxTypes.mbNoToAll</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><strong><a href="mi_rtl_ui_dmxscroller_form.html#mrNoToAll">mrNoToAll</a></strong>  = <a href="mi.rtl.Objects.Consts.Mi_MsgBox.TMI_MsgBoxTypes.html#mrNoToAll">TMI_MsgBoxTypes.mrNoToAll</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><strong><a href="mi_rtl_ui_dmxscroller_form.html#mbYesToAll">mbYesToAll</a></strong> = <a href="mi.rtl.Objects.Consts.Mi_MsgBox.TMI_MsgBoxTypes.html#mbYesToAll">TMI_MsgBoxTypes.mbYesToAll</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><strong><a href="mi_rtl_ui_dmxscroller_form.html#mrYesToAll">mrYesToAll</a></strong> = <a href="mi.rtl.Objects.Consts.Mi_MsgBox.TMI_MsgBoxTypes.html#mrYesToAll">TMI_MsgBoxTypes.mrYesToAll</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><strong><a href="mi_rtl_ui_dmxscroller_form.html#mrNone">mrNone</a></strong>     = <a href="mi.rtl.Objects.Consts.Mi_MsgBox.TMI_MsgBoxTypes.html#mrNone">TMI_MsgBoxTypes.mrNone</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><strong><a href="mi_rtl_ui_dmxscroller_form.html#mrLast">mrLast</a></strong>     = <a href="mi.rtl.Objects.Consts.Mi_MsgBox.TMI_MsgBoxTypes.html#mrLast">TMI_MsgBoxTypes.mrLast</a>    ;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><strong><a href="mi_rtl_ui_dmxscroller_form.html#mbRetry">mbRetry</a></strong>    = <a href="mi.rtl.Objects.Consts.Mi_MsgBox.TMI_MsgBoxTypes.html#mbRetry">TMI_MsgBoxTypes.mbRetry</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><strong><a href="mi_rtl_ui_dmxscroller_form.html#mrRetry">mrRetry</a></strong>    = <a href="mi.rtl.Objects.Consts.Mi_MsgBox.TMI_MsgBoxTypes.html#mrRetry">TMI_MsgBoxTypes.mrRetry</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><strong><a href="mi_rtl_ui_dmxscroller_form.html#mbIgnore">mbIgnore</a></strong>   = <a href="mi.rtl.Objects.Consts.Mi_MsgBox.TMI_MsgBoxTypes.html#mbIgnore">TMI_MsgBoxTypes.mbIgnore</a> ;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><strong><a href="mi_rtl_ui_dmxscroller_form.html#mbHelp">mbHelp</a></strong>     = <a href="mi.rtl.Objects.Consts.Mi_MsgBox.TMI_MsgBoxTypes.html#mbHelp">TMI_MsgBoxTypes.mbHelp</a>;</code></td>
+</tr>
 <tr class="list">
 <td class="itemcode"><code><strong><a href="mi_rtl_ui_dmxscroller_form.html#accDelimiter">accDelimiter</a></strong>          = <a href="mi.rtl.Consts.TConsts.html#accDelimiter">TConsts.accDelimiter</a> ;</code></td>
 </tr>
@@ -146,7 +307,7 @@ A unit <strong><code>mi_rtl_ui_dmxscroller_form</code></strong> implementa a cla
 <td class="itemcode"><code><strong><a href="mi_rtl_ui_dmxscroller_form.html#CharHintPorque">CharHintPorque</a></strong>        = <a href="mi.rtl.Consts.TConsts.html#CharHintPorque">TConsts.CharHintPorque</a>;</code></td>
 </tr>
 <tr class="list">
-<td class="itemcode"><code><strong><a href="mi_rtl_ui_dmxscroller_form.html#fld_LData">fld_LData</a></strong>             = <a href="mi.rtl.Consts.TConsts.html#fld_LData">TConsts.fld_LData</a>          ;</code></td>
+<td class="itemcode"><code><strong><a href="mi_rtl_ui_dmxscroller_form.html#FldDateTime">FldDateTime</a></strong>             = <a href="mi.rtl.Consts.TConsts.html#FldDateTime">TConsts.FldDateTime</a>          ;</code></td>
 </tr>
 <tr class="list2">
 <td class="itemcode"><code><strong><a href="mi_rtl_ui_dmxscroller_form.html#fld_LHora">fld_LHora</a></strong>             = <a href="mi.rtl.Consts.TConsts.html#fld_LHora">TConsts.fld_LHora</a>          ;</code></td>
@@ -155,7 +316,7 @@ A unit <strong><code>mi_rtl_ui_dmxscroller_form</code></strong> implementa a cla
 <td class="itemcode"><code><strong><a href="mi_rtl_ui_dmxscroller_form.html#fldAnsiChar">fldAnsiChar</a></strong>           = <a href="mi.rtl.Consts.TConsts.html#fldAnsiChar">TConsts.fldAnsiChar</a>          ;</code></td>
 </tr>
 <tr class="list2">
-<td class="itemcode"><code><strong><a href="mi_rtl_ui_dmxscroller_form.html#fldAnsiChar_Minuscula">fldAnsiChar_Minuscula</a></strong> = <a href="mi.rtl.Consts.TConsts.html#fldAnsiChar_Minuscula">TConsts.fldAnsiChar_Minuscula</a>;</code></td>
+<td class="itemcode"><code><strong><a href="mi_rtl_ui_dmxscroller_form.html#fldAnsiChar_LowCase">fldAnsiChar_LowCase</a></strong> = <a href="mi.rtl.Consts.TConsts.html#fldAnsiChar_LowCase">TConsts.fldAnsiChar_LowCase</a>;</code></td>
 </tr>
 <tr class="list">
 <td class="itemcode"><code><strong><a href="mi_rtl_ui_dmxscroller_form.html#fldAnsiCharNUM">fldAnsiCharNUM</a></strong>        = <a href="mi.rtl.Consts.TConsts.html#fldAnsiCharNUM">TConsts.fldAnsiCharNUM</a>     ;</code></td>
@@ -179,31 +340,25 @@ A unit <strong><code>mi_rtl_ui_dmxscroller_form</code></strong> implementa a cla
 <td class="itemcode"><code><strong><a href="mi_rtl_ui_dmxscroller_form.html#fldCONTRACTION">fldCONTRACTION</a></strong>        = <a href="mi.rtl.Consts.TConsts.html#fldCONTRACTION">TConsts.fldCONTRACTION</a>     ;</code></td>
 </tr>
 <tr class="list2">
-<td class="itemcode"><code><strong><a href="mi_rtl_ui_dmxscroller_form.html#fldData">fldData</a></strong>               = <a href="mi.rtl.Consts.TConsts.html#fldData">TConsts.fldData</a>            ;</code></td>
+<td class="itemcode"><code><strong><a href="mi_rtl_ui_dmxscroller_form.html#fldENum">fldENum</a></strong>               = <a href="mi.rtl.Consts.TConsts.html#fldENUM">TConsts.fldENUM</a>            ;</code></td>
 </tr>
 <tr class="list">
-<td class="itemcode"><code><strong><a href="mi_rtl_ui_dmxscroller_form.html#FldDateTimeDos">FldDateTimeDos</a></strong>        = <a href="mi.rtl.Consts.TConsts.html#FldDateTimeDos">TConsts.FldDateTimeDos</a>     ;</code></td>
+<td class="itemcode"><code><strong><a href="mi_rtl_ui_dmxscroller_form.html#fldENum_db">fldENum_db</a></strong>            = <a href="mi.rtl.Consts.TConsts.html#fldENUM_Db">TConsts.fldENum_db</a>          ;</code></td>
 </tr>
 <tr class="list2">
-<td class="itemcode"><code><strong><a href="mi_rtl_ui_dmxscroller_form.html#fldENUM">fldENUM</a></strong>               = <a href="mi.rtl.Consts.TConsts.html#fldENUM">TConsts.fldENUM</a>            ;</code></td>
-</tr>
-<tr class="list">
 <td class="itemcode"><code><strong><a href="mi_rtl_ui_dmxscroller_form.html#CharExecAction">CharExecAction</a></strong>        = <a href="mi.rtl.Consts.TConsts.html#CharExecAction">TConsts.CharExecAction</a>        ;</code></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="itemcode"><code><strong><a href="mi_rtl_ui_dmxscroller_form.html#fldExtended">fldExtended</a></strong>           = <a href="mi.rtl.Consts.TConsts.html#fldExtended">TConsts.fldExtended</a>        ;</code></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="itemcode"><code><strong><a href="mi_rtl_ui_dmxscroller_form.html#CharFieldName">CharFieldName</a></strong>          = <a href="mi.rtl.Consts.TConsts.html#CharFieldName">TConsts.CharFieldName</a>       ;</code></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="itemcode"><code><strong><a href="mi_rtl_ui_dmxscroller_form.html#ChFN">ChFN</a></strong>                 = <a href="mi.rtl.Consts.TConsts.html#ChFN">TConsts.ChFN</a>              ;</code></td>
 </tr>
-<tr class="list">
-<td class="itemcode"><code><strong><a href="mi_rtl_ui_dmxscroller_form.html#fldHexValue">fldHexValue</a></strong>           = <a href="mi.rtl.Consts.TConsts.html#fldHexValue">TConsts.fldHexValue</a>        ;</code></td>
-</tr>
 <tr class="list2">
-<td class="itemcode"><code><strong><a href="mi_rtl_ui_dmxscroller_form.html#fldLData">fldLData</a></strong>              = <a href="mi.rtl.Consts.TConsts.html#fldLData">TConsts.fldLData</a>           ;</code></td>
+<td class="itemcode"><code><strong><a href="mi_rtl_ui_dmxscroller_form.html#fldHexValue">fldHexValue</a></strong>           = <a href="mi.rtl.Consts.TConsts.html#fldHexValue">TConsts.fldHexValue</a>        ;</code></td>
 </tr>
 <tr class="list">
 <td class="itemcode"><code><strong><a href="mi_rtl_ui_dmxscroller_form.html#fldLHora">fldLHora</a></strong>              = <a href="mi.rtl.Consts.TConsts.html#fldLHora">TConsts.fldLHora</a>           ;</code></td>
@@ -242,54 +397,51 @@ A unit <strong><code>mi_rtl_ui_dmxscroller_form</code></strong> implementa a cla
 <td class="itemcode"><code><strong><a href="mi_rtl_ui_dmxscroller_form.html#FldSData">FldSData</a></strong>              = <a href="mi.rtl.Consts.TConsts.html#FldSData">TConsts.FldSData</a>           ;</code></td>
 </tr>
 <tr class="list">
-<td class="itemcode"><code><strong><a href="mi_rtl_ui_dmxscroller_form.html#FldSDateTimeDos">FldSDateTimeDos</a></strong>       = <a href="mi.rtl.Consts.TConsts.html#FldSDateTimeDos">TConsts.FldSDateTimeDos</a>    ;</code></td>
-</tr>
-<tr class="list2">
 <td class="itemcode"><code><strong><a href="mi_rtl_ui_dmxscroller_form.html#FldSHora">FldSHora</a></strong>              = <a href="mi.rtl.Consts.TConsts.html#FldSHora">TConsts.FldSHora</a>           ;</code></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="itemcode"><code><strong><a href="mi_rtl_ui_dmxscroller_form.html#fldSHORTINT">fldSHORTINT</a></strong>           = <a href="mi.rtl.Consts.TConsts.html#fldSHORTINT">TConsts.fldSHORTINT</a>        ;</code></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="itemcode"><code><strong><a href="mi_rtl_ui_dmxscroller_form.html#fldSItems">fldSItems</a></strong>             = <a href="mi.rtl.Consts.TConsts.html#fldSItems">TConsts.fldSItems</a>          ;</code></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="itemcode"><code><strong><a href="mi_rtl_ui_dmxscroller_form.html#fldSmallInt">fldSmallInt</a></strong>           = <a href="mi.rtl.Consts.TConsts.html#fldSmallInt">TConsts.fldSmallInt</a>        ;</code></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="itemcode"><code><strong><a href="mi_rtl_ui_dmxscroller_form.html#fldSmallWORD">fldSmallWORD</a></strong>          = <a href="mi.rtl.Consts.TConsts.html#fldSmallWORD">TConsts.fldSmallWORD</a>       ;</code></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="itemcode"><code><strong><a href="mi_rtl_ui_dmxscroller_form.html#fldSTR">fldSTR</a></strong>                = <a href="mi.rtl.Consts.TConsts.html#fldStr">TConsts.fldSTR</a>          ;</code></td>
 </tr>
-<tr class="list2">
-<td class="itemcode"><code><strong><a href="mi_rtl_ui_dmxscroller_form.html#fldSTR_Minuscula">fldSTR_Minuscula</a></strong>      = <a href="mi.rtl.Consts.TConsts.html#fldSTR_Minuscula">TConsts.fldSTR_Minuscula</a>;</code></td>
-</tr>
 <tr class="list">
+<td class="itemcode"><code><strong><a href="mi_rtl_ui_dmxscroller_form.html#fldstr_Lowcase">fldstr_Lowcase</a></strong>      = <a href="mi.rtl.Consts.TConsts.html#fldstr_Lowcase">TConsts.fldstr_Lowcase</a>;</code></td>
+</tr>
+<tr class="list2">
 <td class="itemcode"><code><strong><a href="mi_rtl_ui_dmxscroller_form.html#fldSTRNUM">fldSTRNUM</a></strong>             = <a href="mi.rtl.Consts.TConsts.html#fldSTRNUM">TConsts.fldSTRNUM</a>       ;</code></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="itemcode"><code><strong><a href="mi_rtl_ui_dmxscroller_form.html#CharUpperlimit">CharUpperlimit</a></strong>         = <a href="mi.rtl.Consts.TConsts.html#CharUpperlimit">TConsts.CharUpperlimit</a>      ;</code></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="itemcode"><code><strong><a href="mi_rtl_ui_dmxscroller_form.html#fldZEROMOD">fldZEROMOD</a></strong>            = <a href="mi.rtl.Consts.TConsts.html#fldZEROMOD">TConsts.fldZEROMOD</a>         ;</code></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="itemcode"><code><strong><a href="mi_rtl_ui_dmxscroller_form.html#CharShowPassword">CharShowPassword</a></strong>          = <a href="mi.rtl.Consts.TConsts.html#CharShowPassword">TConsts.CharShowPassword</a>       ;</code></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="itemcode"><code><strong><a href="mi_rtl_ui_dmxscroller_form.html#CharShowPasswordChar">CharShowPasswordChar</a></strong>      = <a href="mi.rtl.Consts.TConsts.html#CharShowPasswordChar">TConsts.CharShowPasswordChar</a>   ;</code></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="itemcode"><code><strong><a href="mi_rtl_ui_dmxscroller_form.html#TypeDate">TypeDate</a></strong>              = <a href="mi.rtl.Consts.TConsts.html#TypeDate">TConsts.TypeDate</a>           ;</code></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="itemcode"><code><strong><a href="mi_rtl_ui_dmxscroller_form.html#_TypeDate">_TypeDate</a></strong>             = <a href="mi.rtl.Consts.TConsts.html#_TypeDate">TConsts._TypeDate</a>          ;</code></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="itemcode"><code><strong><a href="mi_rtl_ui_dmxscroller_form.html#TypeHora">TypeHora</a></strong>              = <a href="mi.rtl.Consts.TConsts.html#TypeHora">TConsts.TypeHora</a>           ;</code></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="itemcode"><code><strong><a href="mi_rtl_ui_dmxscroller_form.html#TypeMemo">TypeMemo</a></strong>              = <a href="mi.rtl.Consts.TConsts.html#TypeMemo">TConsts.TypeMemo</a>           ;</code></td>
 </tr>
 </table>
@@ -303,6 +455,283 @@ A unit <strong><code>mi_rtl_ui_dmxscroller_form</code></strong> implementa a cla
 &nbsp;</td></tr>
 </table>
 <h3 class="detail">Tipos</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="TMsgDlgType"></span><code><strong>TMsgDlgType</strong> = <a href="mi.rtl.Objects.Consts.Mi_MsgBox.TMI_MsgBoxTypes.html#TMsgDlgType">TMI_MsgBoxTypes.TMsgDlgType</a>;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="TMsgDlgBtn"></span><code><strong>TMsgDlgBtn</strong>  = <a href="mi.rtl.Objects.Consts.Mi_MsgBox.TMI_MsgBoxTypes.html#TMsgDlgBtn">TMI_MsgBoxTypes.TMsgDlgBtn</a>;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="TMsgDlgButtons"></span><code><strong>TMsgDlgButtons</strong> = <a href="mi.rtl.Objects.Consts.Mi_MsgBox.TMI_MsgBoxTypes.html#TMsgDlgButtons">TMI_MsgBoxTypes.TMsgDlgButtons</a>;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="TModalResult"></span><code><strong>TModalResult</strong> = <a href="mi.rtl.Objects.Consts.Mi_MsgBox.TMI_MsgBoxTypes.html#TModalResult">TMI_MsgBoxTypes.TModalResult</a>;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="TArray_MsgDlgBtn"></span><code><strong>TArray_MsgDlgBtn</strong> = <a href="mi.rtl.Objects.Consts.Mi_MsgBox.TMI_MsgBoxTypes.html#TArray_MsgDlgBtn">TMI_MsgBoxTypes.TArray_MsgDlgBtn</a>;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="TPanel_Lista_de_Botoes"></span><code><strong>TPanel_Lista_de_Botoes</strong> = <a href="mi.rtl.Objects.Consts.Mi_MsgBox.TMI_MsgBoxTypes.html#TPanel_Lista_de_Botoes">TMI_MsgBoxTypes.TPanel_Lista_de_Botoes</a>;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="TOnGetTemplate"></span><code><strong>TOnGetTemplate</strong> = <a href="mi_rtl_ui_Dmxscroller.html#TOnGetTemplate">mi_rtl_ui_Dmxscroller.TOnGetTemplate</a>;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+Usado para criar modelos de formulários dinamicamente usando como parâmetro listas de PSItems.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="TOnAddTemplate"></span><code><strong>TOnAddTemplate</strong> = <a href="mi_rtl_ui_Dmxscroller.html#TOnAddTemplate">mi_rtl_ui_Dmxscroller.TOnAddTemplate</a>;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+O tipo <code>TOnAddTemplate</code> é usado para criar modelos de formulários dinamicamente usando o método add
+
+<p></p>
+
+<ul class="paragraph_spacing">
+  <li><p><strong>EXEMPLO</strong>
+
+<p></p>
+
+<pre class="longcode">
+
+<span class="pascal_keyword">Procedure</span> AddTemplate(<span class="pascal_keyword">const</span> aUiDmxScroller:TUiDmxScroller);
+<span class="pascal_keyword">begin</span>
+  <span class="pascal_keyword">with</span> aUiDmxScroller <span class="pascal_keyword">do</span>
+  <span class="pascal_keyword">begin</span>
+    add(<span class="pascal_string">'&tilde;EXEMPLO DE TEMPLATE&tilde;'</span>);
+    add(<span class="pascal_string">''</span>);
+    add(<span class="pascal_string">'&tilde;Alfanumérico maiúscula com 15 posições:&tilde;\SSSSSSSSSSSSSSS'</span>);
+    add(<span class="pascal_string">'&tilde;Alfanumérico maiúscula e minuscula com 30 posições:&tilde;'</span>);
+    add(<span class="pascal_string">'&tilde;&tilde;\ssssssssssssssssssssssssssssssssssssss'</span>);
+    add(<span class="pascal_string">'&tilde;Alfanumérico com a primeira letra maiúscula:&tilde;\Sssssssssssssss'</span>);
+    add(<span class="pascal_string">'&tilde;Valor double.......:&tilde;\RRR,RRR.RR'</span>);
+    add(<span class="pascal_string">'&tilde;Valor SmalInt......:&tilde;\II,III'</span>);
+    add(<span class="pascal_string">'&tilde;Valor Byte.........:&tilde;\BBB'</span>);
+    add(<span class="pascal_string">'&tilde;Valor Smallword....:&tilde;\WW,WWW'</span>);
+    add(<span class="pascal_string">'&tilde;Sexo...............:&tilde;'</span>+ CreateEnumField(TRUE, accNormal, <span class="pascal_numeric">0</span>,
+                                  NewSItem(<span class="pascal_string">' indefinido '</span>,
+                                  NewSItem(<span class="pascal_string">' Masculino'</span>,
+                                  NewSItem(<span class="pascal_string">' Feminino'</span>,
+                                          <span class="pascal_keyword">nil</span>)))));
+    add(<span class="pascal_string">'&tilde;Estado Civil              &tilde;\KA Indefinido  '</span>+chFN+<span class="pascal_string">'Sexo'</span>);
+    add(<span class="pascal_string">'&tilde;&tilde;\X Casado?                \KA Masculino    '</span>);
+    add(<span class="pascal_string">'&tilde;&tilde;\X Pretende se divorciar? \KA Feminino     '</span>);
+    add(<span class="pascal_string">'&tilde;&tilde;\X Tens filhos?          '</span>);
+    add(<span class="pascal_string">''</span>);
+  <span class="pascal_keyword">end</span>;
+<span class="pascal_keyword">end</span>;
+
+<span class="pascal_keyword">procedure</span> TForm1.DmxScroller_Form1AddTemplate(<span class="pascal_keyword">const</span> aUiDmxScroller: TUiDmxScroller);
+<span class="pascal_keyword">begin</span>
+  AddTemplate(aUiDmxScroller);
+<span class="pascal_keyword">end</span>;</pre>
+
+<p></p></li>
+</ul>
+
+<p></p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="TOnEnter"></span><code><strong>TOnEnter</strong> = <a href="mi_rtl_ui_Dmxscroller.html#TOnEnter">mi_rtl_ui_Dmxscroller.TOnEnter</a>;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+O tipo <strong><code>TOnEnter</code></strong> é usado para implementar evento onEnter da classe <a class="normal" href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html">TUiDmxScroller</a></p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="TOnExit"></span><code><strong>TOnExit</strong> = <a href="mi_rtl_ui_Dmxscroller.html#TOnExit">mi_rtl_ui_Dmxscroller.TOnExit</a>;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+O tipo <strong><code>TOnExit</code></strong> é usado para implementar evento onExit da classe <a class="normal" href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html">TUiDmxScroller</a></p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="TOnNewRecord"></span><code><strong>TOnNewRecord</strong> = <a href="mi_rtl_ui_Dmxscroller.html#TOnNewRecord">mi_rtl_ui_Dmxscroller.TOnNewRecord</a>;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+O tipo <strong><code>TOnNewRecord</code></strong> é usado para implementar evento onNewRecord da classe <a class="normal" href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html">TUiDmxScroller</a></p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="TOnCloseQuery"></span><code><strong>TOnCloseQuery</strong> = <a href="mi_rtl_ui_Dmxscroller.html#TOnCloseQuery">mi_rtl_ui_Dmxscroller.TOnCloseQuery</a>;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+O tipo <strong><code>TOnCloseQuery</code></strong> é usado para implementar evento OnCloseQuery da classe <a class="normal" href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html">TUiDmxScroller</a>
+
+<p></p>
+
+<ul class="paragraph_spacing">
+  <li><p><strong>NOTA* </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Este evento é disparado antes de desativar a classe **<a class="normal" href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html">TUiDmxScroller</a></p></li>
+</ul>
+
+<p></strong>. </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Obs: Se o parâmetro <strong>CanClose</strong> for <strong>false</strong>, então a classe <strong><a class="normal" href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html">TUiDmxScroller</a></strong> não é desativado.</p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="TOnEnterField"></span><code><strong>TOnEnterField</strong> = <a href="mi_rtl_ui_Dmxscroller.html#TOnEnterField">mi_rtl_ui_Dmxscroller.TOnEnterField</a>;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+O tipo <strong><code>TOnEnterField</code></strong> é usado no evento OnEnterField e disparado em <a class="normal" href="mi_rtl_ui_Dmxscroller.TDmxFieldRec.html#DoOnEnter">TDmxFieldRec.DoOnEnter</a>()</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="TOnExitField"></span><code><strong>TOnExitField</strong> = <a href="mi_rtl_ui_Dmxscroller.html#TOnExitField">mi_rtl_ui_Dmxscroller.TOnExitField</a>;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+O tipo <strong><code>TOnExitField</code></strong> é usado no evento OnExitField</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="TOnCalcField"></span><code><strong>TOnCalcField</strong> = <a href="mi_rtl_ui_Dmxscroller.html#TOnCalcField">mi_rtl_ui_Dmxscroller.TOnCalcField</a>;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+O tipo <strong><code>TOnCalcField</code></strong> é usado no evento para calcular um campo e é executado em <a class="normal" href="mi_rtl_ui_Dmxscroller.TDmxFieldRec.html#DoOnEnter">TDmxFieldRec.DoOnEnter</a>() e <a class="normal" href="mi_rtl_ui_Dmxscroller.TDmxFieldRec.html#DoOnExit">TDmxFieldRec.DoOnExit</a>()</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="TOnChangeField"></span><code><strong>TOnChangeField</strong> = <a href="mi_rtl_ui_Dmxscroller.html#TOnChangeField">mi_rtl_ui_Dmxscroller.TOnChangeField</a>;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+O tipo <strong><code>TOnChangeField</code></strong> é usado para fazer calculos quando um valor campo é alterado.
+
+<p></p>
+
+<ul class="paragraph_spacing">
+  <li><p>PARÂMETROS: </p>
+
+<ul class="paragraph_spacing">
+  <li><p>aUiDmxScroller : Classi que edita o campo;</p></li>
+  <li><p>Previous_value : Valor do campo antes da auteração</p></li>
+  <li><p>Current_value : Valor do campo atual.</p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="TOnBeforeInsert"></span><code><strong>TOnBeforeInsert</strong> = <a href="mi_rtl_ui_Dmxscroller.html#TOnBeforeInsert">mi_rtl_ui_Dmxscroller.TOnBeforeInsert</a>;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+O tipo <strong><code>TOnBeforeInsert</code></strong> é usado para criar o evento OnBeforeInsert e disparado no método <a class="normal" href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html#AddRec">TUiDmxScroller.AddRec</a></p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="TOnAfterInsert"></span><code><strong>TOnAfterInsert</strong> = <a href="mi_rtl_ui_Dmxscroller.html#TOnAfterInsert">mi_rtl_ui_Dmxscroller.TOnAfterInsert</a>;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+O tipo <strong><code>TOnAfterInsert</code></strong> é usado para criar o evento OnAfterInsert e disparado no método <a class="normal" href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html#AddRec">TUiDmxScroller.AddRec</a></p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="TOnBeforeUpdate"></span><code><strong>TOnBeforeUpdate</strong> = <a href="mi_rtl_ui_Dmxscroller.html#TOnBeforeUpdate">mi_rtl_ui_Dmxscroller.TOnBeforeUpdate</a>;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+O tipo <strong><code>TOnBeforeUpdate</code></strong> é usado para criar o evento OnBeforeUpdate e disparado no método <a class="normal" href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html#PutRec">TUiDmxScroller.PutRec</a></p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="TOnAfterUpdate"></span><code><strong>TOnAfterUpdate</strong> = <a href="mi_rtl_ui_Dmxscroller.html#TOnAfterUpdate">mi_rtl_ui_Dmxscroller.TOnAfterUpdate</a>;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+O tipo <strong><code>TOnAfterUpdate</code></strong> é usado para criar o evento OnAfterUpdate e disparado no método <a class="normal" href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html#PutRec">TUiDmxScroller.PutRec</a></p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="TOnBeforeDelete"></span><code><strong>TOnBeforeDelete</strong> = <a href="mi_rtl_ui_Dmxscroller.html#TOnBeforeDelete">mi_rtl_ui_Dmxscroller.TOnBeforeDelete</a>;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+O tipo <strong><code>TOnBeforeDelete</code></strong> é usado para criar o evento OnBeforeDelete e disparado no método <a class="normal" href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html#PutRec">TUiDmxScroller.PutRec</a></p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="TOnAfterDelete"></span><code><strong>TOnAfterDelete</strong> = <a href="mi_rtl_ui_Dmxscroller.html#TOnAfterDelete">mi_rtl_ui_Dmxscroller.TOnAfterDelete</a>;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+O tipo <strong><code>TOnAfterDelete</code></strong> é usado para criar o evento OnAfterDelete e disparado no método <a class="normal" href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html#PutRec">TUiDmxScroller.PutRec</a></p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="TOnCalcFields"></span><code><strong>TOnCalcFields</strong>  = <a href="mi_rtl_ui_Dmxscroller.html#TOnCalcFields">mi_rtl_ui_Dmxscroller.TOnCalcFields</a>;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+O tipo <strong><code>TOnCalcFields</code></strong> é usado para fazer calculos é executado ao entrar no registro e ao sair do registro</p>
+</td></tr>
+</table>
 <table class="detail wide_list">
 <tr class="list">
 <td class="itemcode"><span id="TDmxFieldRec"></span><code><strong>TDmxFieldRec</strong> = <a href="mi_rtl_ui_Dmxscroller.TDmxFieldRec.html">mi_rtl_ui_Dmxscroller.TDmxFieldRec</a>;</code></td>
@@ -325,6 +754,188 @@ A unit <strong><code>mi_rtl_ui_dmxscroller_form</code></strong> implementa a cla
 &nbsp;</td></tr>
 </table>
 <h3 class="detail">Constantes</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="MaxBufLength"></span><code><strong>MaxBufLength</strong>   = $ff00;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="mbOK"></span><code><strong>mbOK</strong>       = <a href="mi.rtl.Objects.Consts.Mi_MsgBox.TMI_MsgBoxTypes.html#mbOK">TMI_MsgBoxTypes.mbOK</a>;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="mrOK"></span><code><strong>mrOK</strong>       = <a href="mi.rtl.Objects.Consts.Mi_MsgBox.TMI_MsgBoxTypes.html#mrOK">TMI_MsgBoxTypes.mrOK</a>;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="mbCancel"></span><code><strong>mbCancel</strong>   = <a href="mi.rtl.Objects.Consts.Mi_MsgBox.TMI_MsgBoxTypes.html#mbCancel">TMI_MsgBoxTypes.mbCancel</a> ;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="mrCancel"></span><code><strong>mrCancel</strong>   = <a href="mi.rtl.Objects.Consts.Mi_MsgBox.TMI_MsgBoxTypes.html#mrCancel">TMI_MsgBoxTypes.mrCancel</a>;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="mbAbort"></span><code><strong>mbAbort</strong>    = <a href="mi.rtl.Objects.Consts.Mi_MsgBox.TMI_MsgBoxTypes.html#mbAbort">TMI_MsgBoxTypes.mbAbort</a>;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="mrAbort"></span><code><strong>mrAbort</strong>    = <a href="mi.rtl.Objects.Consts.Mi_MsgBox.TMI_MsgBoxTypes.html#mrAbort">TMI_MsgBoxTypes.mrAbort</a>;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="mrIgnore"></span><code><strong>mrIgnore</strong>   = <a href="mi.rtl.Objects.Consts.Mi_MsgBox.TMI_MsgBoxTypes.html#mrIgnore">TMI_MsgBoxTypes.mrIgnore</a>;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="mbYes"></span><code><strong>mbYes</strong>      = <a href="mi.rtl.Objects.Consts.Mi_MsgBox.TMI_MsgBoxTypes.html#mbYes">TMI_MsgBoxTypes.mbYes</a>;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="mrYes"></span><code><strong>mrYes</strong>      = <a href="mi.rtl.Objects.Consts.Mi_MsgBox.TMI_MsgBoxTypes.html#mrYes">TMI_MsgBoxTypes.mrYes</a>;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="mbNo"></span><code><strong>mbNo</strong>       = <a href="mi.rtl.Objects.Consts.Mi_MsgBox.TMI_MsgBoxTypes.html#mbNo">TMI_MsgBoxTypes.mbNo</a>;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="mrNo"></span><code><strong>mrNo</strong>       = <a href="mi.rtl.Objects.Consts.Mi_MsgBox.TMI_MsgBoxTypes.html#mrNo">TMI_MsgBoxTypes.mrNo</a>;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="mbClose"></span><code><strong>mbClose</strong>    = <a href="mi.rtl.Objects.Consts.Mi_MsgBox.TMI_MsgBoxTypes.html#mbClose">TMI_MsgBoxTypes.mbClose</a>;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="mrClose"></span><code><strong>mrClose</strong>    = <a href="mi.rtl.Objects.Consts.Mi_MsgBox.TMI_MsgBoxTypes.html#mrClose">TMI_MsgBoxTypes.mrClose</a>;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="mbAll"></span><code><strong>mbAll</strong>      = <a href="mi.rtl.Objects.Consts.Mi_MsgBox.TMI_MsgBoxTypes.html#mbAll">TMI_MsgBoxTypes.mbAll</a>;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="mrAll"></span><code><strong>mrAll</strong>      = <a href="mi.rtl.Objects.Consts.Mi_MsgBox.TMI_MsgBoxTypes.html#mrAll">TMI_MsgBoxTypes.mrAll</a>;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="mbNoToAll"></span><code><strong>mbNoToAll</strong>  = <a href="mi.rtl.Objects.Consts.Mi_MsgBox.TMI_MsgBoxTypes.html#mbNoToAll">TMI_MsgBoxTypes.mbNoToAll</a>;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="mrNoToAll"></span><code><strong>mrNoToAll</strong>  = <a href="mi.rtl.Objects.Consts.Mi_MsgBox.TMI_MsgBoxTypes.html#mrNoToAll">TMI_MsgBoxTypes.mrNoToAll</a>;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="mbYesToAll"></span><code><strong>mbYesToAll</strong> = <a href="mi.rtl.Objects.Consts.Mi_MsgBox.TMI_MsgBoxTypes.html#mbYesToAll">TMI_MsgBoxTypes.mbYesToAll</a>;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="mrYesToAll"></span><code><strong>mrYesToAll</strong> = <a href="mi.rtl.Objects.Consts.Mi_MsgBox.TMI_MsgBoxTypes.html#mrYesToAll">TMI_MsgBoxTypes.mrYesToAll</a>;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="mrNone"></span><code><strong>mrNone</strong>     = <a href="mi.rtl.Objects.Consts.Mi_MsgBox.TMI_MsgBoxTypes.html#mrNone">TMI_MsgBoxTypes.mrNone</a>;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="mrLast"></span><code><strong>mrLast</strong>     = <a href="mi.rtl.Objects.Consts.Mi_MsgBox.TMI_MsgBoxTypes.html#mrLast">TMI_MsgBoxTypes.mrLast</a>    ;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="mbRetry"></span><code><strong>mbRetry</strong>    = <a href="mi.rtl.Objects.Consts.Mi_MsgBox.TMI_MsgBoxTypes.html#mbRetry">TMI_MsgBoxTypes.mbRetry</a>;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="mrRetry"></span><code><strong>mrRetry</strong>    = <a href="mi.rtl.Objects.Consts.Mi_MsgBox.TMI_MsgBoxTypes.html#mrRetry">TMI_MsgBoxTypes.mrRetry</a>;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="mbIgnore"></span><code><strong>mbIgnore</strong>   = <a href="mi.rtl.Objects.Consts.Mi_MsgBox.TMI_MsgBoxTypes.html#mbIgnore">TMI_MsgBoxTypes.mbIgnore</a> ;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="mbHelp"></span><code><strong>mbHelp</strong>     = <a href="mi.rtl.Objects.Consts.Mi_MsgBox.TMI_MsgBoxTypes.html#mbHelp">TMI_MsgBoxTypes.mbHelp</a>;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
 <table class="detail wide_list">
 <tr class="list">
 <td class="itemcode"><span id="accDelimiter"></span><code><strong>accDelimiter</strong>          = <a href="mi.rtl.Consts.TConsts.html#accDelimiter">TConsts.accDelimiter</a> ;</code></td>
@@ -520,11 +1131,11 @@ A contante <strong><code>CharHintPorque</code></strong> informa que todo texto a
 </table>
 <table class="detail wide_list">
 <tr class="list">
-<td class="itemcode"><span id="fld_LData"></span><code><strong>fld_LData</strong>             = <a href="mi.rtl.Consts.TConsts.html#fld_LData">TConsts.fld_LData</a>          ;</code></td>
+<td class="itemcode"><span id="FldDateTime"></span><code><strong>FldDateTime</strong>             = <a href="mi.rtl.Consts.TConsts.html#FldDateTime">TConsts.FldDateTime</a>          ;</code></td>
 </tr>
 <tr><td colspan="1">
 <p>
-A constante <strong><code>fld_LData</code></strong> é do tipo TDateTime e guarda a data compactada 'dd/dd/dd'</p>
+A constante <strong><code>FldDateTime</code></strong> é do tipo TDateTime e guarda a data compactada 'dd/nn/yy'</p>
 </td></tr>
 </table>
 <table class="detail wide_list">
@@ -570,11 +1181,11 @@ A constante <strong><code>fldAnsiChar</code></strong> (Const <code>fldAnsiChar</
 </table>
 <table class="detail wide_list">
 <tr class="list">
-<td class="itemcode"><span id="fldAnsiChar_Minuscula"></span><code><strong>fldAnsiChar_Minuscula</strong> = <a href="mi.rtl.Consts.TConsts.html#fldAnsiChar_Minuscula">TConsts.fldAnsiChar_Minuscula</a>;</code></td>
+<td class="itemcode"><span id="fldAnsiChar_LowCase"></span><code><strong>fldAnsiChar_LowCase</strong> = <a href="mi.rtl.Consts.TConsts.html#fldAnsiChar_LowCase">TConsts.fldAnsiChar_LowCase</a>;</code></td>
 </tr>
 <tr><td colspan="1">
 <p>
-A constante <strong><code>fldAnsiChar_Minuscula</code></strong> (Const <a class="normal" href="mi_rtl_ui_dmxscroller_form.html#fldAnsiChar">fldAnsiChar</a> = 'c') usado na máscara do Template, informa ao componente <strong><a class="normal" href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html">TUiDmxScroller</a></strong> que a sequência de caracteres 'c' após o caractere <strong>&quot;\&quot;</strong> representa no buffer do formulário um tipo AnsiString que só aceita caractere minúsculo.
+A constante <strong><code>fldAnsiChar_LowCase</code></strong> (Const <a class="normal" href="mi_rtl_ui_dmxscroller_form.html#fldAnsiChar">fldAnsiChar</a> = 'c') usado na máscara do Template, informa ao componente <strong><a class="normal" href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html">TUiDmxScroller</a></strong> que a sequência de caracteres 'c' após o caractere <strong>&quot;\&quot;</strong> representa no buffer do formulário um tipo AnsiString que só aceita caractere minúsculo.
 
 <p></p>
 
@@ -770,7 +1381,7 @@ A constante <strong><code>fldBLOb</code></strong> indica que o campo é não for
 
 <ul class="paragraph_spacing">
   <li><p>Para informar ao buffer do registro que o campo é <strong><code>fldBLOb</code></strong>, a função <strong>CreateBlobField</strong> é necessário.</p></li>
-  <li><p>A <strong>class function <a class="normal" href="mi_rtl_ui_methods.TUiMethods.html#CreateBlobField">TUiMethods.CreateBlobField</a>(Len: integer; AccMode,Default: byte) : DmxIDstr;</strong> reserva espaço para o mesmo.</p></li>
+  <li><p>A <strong>class function TUiMethods.CreateBlobField(Len: integer; AccMode,Default: byte) : TDmxStr_ID;</strong> reserva espaço para o mesmo.</p></li>
   <li><p>Pendência: Preciso criar um exemplo de uso deste tipo de informação.</p></li>
 </ul>
 
@@ -859,29 +1470,11 @@ A constante <strong><code>fldCONTRACTION</code></strong> ...</p>
 </table>
 <table class="detail wide_list">
 <tr class="list">
-<td class="itemcode"><span id="fldData"></span><code><strong>fldData</strong>               = <a href="mi.rtl.Consts.TConsts.html#fldData">TConsts.fldData</a>            ;</code></td>
+<td class="itemcode"><span id="fldENum"></span><code><strong>fldENum</strong>               = <a href="mi.rtl.Consts.TConsts.html#fldENUM">TConsts.fldENUM</a>            ;</code></td>
 </tr>
 <tr><td colspan="1">
 <p>
-A constante <strong><code>fldData</code></strong> ...</p>
-</td></tr>
-</table>
-<table class="detail wide_list">
-<tr class="list">
-<td class="itemcode"><span id="FldDateTimeDos"></span><code><strong>FldDateTimeDos</strong>        = <a href="mi.rtl.Consts.TConsts.html#FldDateTimeDos">TConsts.FldDateTimeDos</a>     ;</code></td>
-</tr>
-<tr><td colspan="1">
-<p>
-A constante <strong><code>FldDateTimeDos</code></strong> ...</p>
-</td></tr>
-</table>
-<table class="detail wide_list">
-<tr class="list">
-<td class="itemcode"><span id="fldENUM"></span><code><strong>fldENUM</strong>               = <a href="mi.rtl.Consts.TConsts.html#fldENUM">TConsts.fldENUM</a>            ;</code></td>
-</tr>
-<tr><td colspan="1">
-<p>
-A constante <strong><code>fldENUM</code></strong> (<code>fldENUM</code>=&circ;E) é um campo do tipo byte(0..255) que contém uma lista de string que são selecionadas por um componente tipo ComboBox.
+A constante <strong><code>fldENum</code></strong> (<code>fldENUM</code>=&circ;E) é um campo do tipo byte(0..255) que contém uma lista de string que são selecionadas por um componente tipo ComboBox.
 
 <p></p>
 
@@ -901,6 +1494,66 @@ A constante <strong><code>fldENUM</code></strong> (<code>fldENUM</code>=&circ;E)
                               <span class="pascal_keyword">nil</span>))))+CharFieldName+<span class="pascal_string">'Midia;
 
   Template = NewSItem('</span>&tilde;  Eu uso &tilde;<span class="pascal_string">'+ tmpMidia + '</span>&tilde; em meu computador.&tilde;</pre>
+
+<p></p></li>
+</ul>
+
+<p></p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="fldENum_db"></span><code><strong>fldENum_db</strong>            = <a href="mi.rtl.Consts.TConsts.html#fldENUM_Db">TConsts.fldENum_db</a>          ;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+A constante <strong><code>fldENum_db</code></strong> (<code>fldENum_db</code>=&circ;D) é um campo do tipo longint associado a um dataSource, uma chave dataSource.dataSet.KeyField e um campo a ser visualizado na liasta dataSource.dataSet.listField.
+
+<p></p>
+
+<ul class="paragraph_spacing">
+  <li><p>Os controles usados para edita-lo são: </p>
+
+<ul class="paragraph_spacing">
+  <li><p>TdbLookupComboBox.</p></li>
+  <li><p><strong>EXEMPLO USO NO TEMPLATE</strong>
+
+<p></p>
+
+<pre class="longcode">
+
+<span class="pascal_keyword">function</span> T__dm_xtable__.DmxScroller_Form1GetTemplate(aNext: PSItem): PSItem;
+<span class="pascal_keyword">begin</span>
+   <span class="pascal_keyword">with</span> DmxScroller_Form1 <span class="pascal_keyword">do</span>
+   <span class="pascal_keyword">begin</span>
+     Result :=
+     NewSItem(GetTemplate_CRUD_Buttons(CmNewRecord,CmUpdateRecord,CmLocate,CmDeleteRecord),
+     NewSItem(<span class="pascal_string">''</span>,
+     NewSItem(<span class="pascal_string">'&tilde;ID:            &tilde;'</span>+CreateEnumField(TRUE, accNormal, <span class="pascal_numeric">1</span>,NewSItem(<span class="pascal_string">'ssssssssssssssssssssssssssssssssssssssssssssssssss'</span>,<span class="pascal_keyword">nil</span>),
+                                                  Mi_SQLQuery1.DataSource,<span class="pascal_string">'id'</span>,<span class="pascal_string">'nome'</span>)+
+                                   ChFN+<span class="pascal_string">'id'</span>+
+                                   CharHint+<span class="pascal_string">'Campo enumero lookup'</span>,
+     NewSItem(<span class="pascal_string">'&tilde;Nome:          &tilde;\ssssssssssssssssssssssssssssssssssssssssssssssssss'</span>+chFN+<span class="pascal_string">'nome'</span>+CharHint+<span class="pascal_string">'Campo alfanumérico aceita maiuscula e minuscula'</span>,
+     NewSItem(<span class="pascal_string">'&tilde;endereco       &tilde;\ssssssssssssssssssssssssssssssssssssssssssssssssss'</span>+chFN+<span class="pascal_string">'endereco'</span>,
+     NewSItem(<span class="pascal_string">'&tilde;cnpj           &tilde;\##.###.###/####-##'</span>+chFN+<span class="pascal_string">'cnpj'</span>,
+     NewSItem(<span class="pascal_string">'&tilde;cpf            &tilde;\###.###.###-##'</span>+chFN+<span class="pascal_string">'cpf'</span>,
+     NewSItem(<span class="pascal_string">'&tilde;cep            &tilde;\##.###-###'</span>+chFN+<span class="pascal_string">'cep'</span>,
+     NewSItem(<span class="pascal_string">'&tilde;valor_SMALLINT &tilde;\IIIII'</span>+chFN+<span class="pascal_string">'valor_SMALLINT'</span>,
+     NewSItem(<span class="pascal_string">'&tilde;valor_Integer  &tilde;\LLLLLLLLLL'</span>+chFN+<span class="pascal_string">'valor_Integer'</span>,<span class="pascal_comment">//Maximo:2.147.483.647</span>
+
+     NewSItem(<span class="pascal_string">'&tilde;valor_FLOAT8   &tilde;\RRR,RRR.ZZ'</span>+chFN+<span class="pascal_string">'valor_FLOAT8'</span>,
+     NewSItem(<span class="pascal_string">'&tilde;Data_1         &tilde;\Ddd/mm/yy'</span>+chFN+<span class="pascal_string">'Data_1'</span>,
+     NewSItem(<span class="pascal_string">'&tilde;hora_1         &tilde;\Dhh:nn:ss'</span>+chFN+<span class="pascal_string">'hora_1'</span>,
+     NewSItem(<span class="pascal_string">'&tilde;hora_2         &tilde;\Dhh:nn'</span>+chFN+<span class="pascal_string">'hora_2'</span>,
+     NewSItem(<span class="pascal_string">''</span>,
+     NewSItem(GetTemplate_DbNavigator_Buttons(CmGoBof,CmNextRecord,CmPrevRecord,CmGoEof,CmRefresh),
+     NewSItem(<span class="pascal_string">''</span>,
+     aNext)))))))))))))))));
+   <span class="pascal_keyword">end</span>;
+<span class="pascal_keyword">end</span>;</pre>
+
+<p></p></li>
+</ul>
 
 <p></p></li>
 </ul>
@@ -1041,15 +1694,6 @@ A constante <strong><code>fldHexValue</code></strong> ...</p>
 </table>
 <table class="detail wide_list">
 <tr class="list">
-<td class="itemcode"><span id="fldLData"></span><code><strong>fldLData</strong>              = <a href="mi.rtl.Consts.TConsts.html#fldLData">TConsts.fldLData</a>           ;</code></td>
-</tr>
-<tr><td colspan="1">
-<p>
-A constante <strong><code>fldLData</code></strong> ...</p>
-</td></tr>
-</table>
-<table class="detail wide_list">
-<tr class="list">
 <td class="itemcode"><span id="fldLHora"></span><code><strong>fldLHora</strong>              = <a href="mi.rtl.Consts.TConsts.html#fldLHora">TConsts.fldLHora</a>           ;</code></td>
 </tr>
 <tr><td colspan="1">
@@ -1158,15 +1802,6 @@ A constante <strong><code>FldSData</code></strong> ...</p>
 </table>
 <table class="detail wide_list">
 <tr class="list">
-<td class="itemcode"><span id="FldSDateTimeDos"></span><code><strong>FldSDateTimeDos</strong>       = <a href="mi.rtl.Consts.TConsts.html#FldSDateTimeDos">TConsts.FldSDateTimeDos</a>    ;</code></td>
-</tr>
-<tr><td colspan="1">
-<p>
-A constante <strong><code>FldSDateTimeDos</code></strong> ...</p>
-</td></tr>
-</table>
-<table class="detail wide_list">
-<tr class="list">
 <td class="itemcode"><span id="FldSHora"></span><code><strong>FldSHora</strong>              = <a href="mi.rtl.Consts.TConsts.html#FldSHora">TConsts.FldSHora</a>           ;</code></td>
 </tr>
 <tr><td colspan="1">
@@ -1244,11 +1879,11 @@ A constante <strong><code>fldSTR</code></strong> (Const <code>fldStr</code> = 'S
 </table>
 <table class="detail wide_list">
 <tr class="list">
-<td class="itemcode"><span id="fldSTR_Minuscula"></span><code><strong>fldSTR_Minuscula</strong>      = <a href="mi.rtl.Consts.TConsts.html#fldSTR_Minuscula">TConsts.fldSTR_Minuscula</a>;</code></td>
+<td class="itemcode"><span id="fldstr_Lowcase"></span><code><strong>fldstr_Lowcase</strong>      = <a href="mi.rtl.Consts.TConsts.html#fldstr_Lowcase">TConsts.fldstr_Lowcase</a>;</code></td>
 </tr>
 <tr><td colspan="1">
 <p>
-A constante <strong><code>fldSTR_Minuscula</code></strong> (Const <code>fldSTR_Minuscula</code> = 's') usado na máscara do Template, informa ao componente <strong><a class="normal" href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html">TUiDmxScroller</a></strong> que a sequência de caracteres 's' após o caractere <strong>&quot;\&quot;</strong> representa no buffer do formulário um tipo ShortString que só aceita caractere minúscula.
+A constante <strong><code>fldstr_Lowcase</code></strong> (Const <code>fldstr_Lowcase</code> = 's') usado na máscara do Template, informa ao componente <strong><a class="normal" href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html">TUiDmxScroller</a></strong> que a sequência de caracteres 's' após o caractere <strong>&quot;\&quot;</strong> representa no buffer do formulário um tipo ShortString que só aceita caractere minúscula.
 
 <p></p>
 

@@ -1,0 +1,12 @@
+[PROJECT]
+  name=Aplicação /\/\ar/\carai LCL
+  author=Paulo Pacheco <paulosspacheco@yahoo.com.br>
+  description=Unit forms configurado para editar o datanodule dm_xtable.
+  recurse=1
+  exclude=.gitignore,lpi,ico,lpr,res
+
+
+[VARIABLES]   
+  uForm_dm_xtable2=Nome da unidade que implementa o datamodule modelo para acesso das tabelas|uForm_dm_xtable2
+    Form_dm_xtable2=Nome do TdataModule|Form_dm_xtable2
+

@@ -2,7 +2,7 @@ Unit mi_rtl_ui_custom_application;
 {:< A unit **@name** implementa a classe TMI_ui_Custom_Application.
 
   - **VERSÃO**
-    - Alpha - Alpha - 0.9.0
+    - Alpha - 1.0.0
 
   - **CÓDIGO FONTE**:
     - @html(<a href="../units/mi_ui_custom_application.pas">mi_ui_Custom_Application.pas</a>)
@@ -79,13 +79,17 @@ Unit mi_rtl_ui_custom_application;
 Interface
 
 Uses
-  Classes, SysUtils,SqlDb, DB,BufDataset , PQConnection  ,CustApp//, dialogs
+  Classes, SysUtils
+  ,SqlDb
+  , DB
+  ,BufDataset
+  , PQConnection
+  ,CustApp//, dialogs
   ,mi.rtl.Types
   ,mi_rtl_ui_Dmxscroller
   ,mi.rtl.Objects.Methods.Paramexecucao.Application
   ,mi.rtl.ui.dmxscroller.inputbox
-
-
+  ,mi.rtl.Objects.Methods.Db.Tb__Access
   ;
 
   type
@@ -104,64 +108,68 @@ Uses
          - O evento **OnValidUser** é usado para validar o nome do usuário e senha.
     }
      TMI_ui_Custom_Application = Class(TApplication)
+       type
+         TTb_Access = mi.rtl.Objects.Methods.Db.Tb__Access.TTb__Access;
+
+
        public MI_UI_InputBox : TMI_UI_InputBox;
 
-      {: O atributo **@name** é usado para salvar em disco local no arquivo **FileName_Parameters** os parâmetros informados 
-         pelo formulário **Get_Parameters**}   
-      BufDataSet1 : TBufDataSet;
+       {: O atributo **@name** é usado para salvar em disco local no arquivo **FileName_Parameters** os parâmetros informados
+          pelo formulário **Get_Parameters**}
+       BufDataSet1 : TBufDataSet;
 
-      {: O atributo **@name** permite integrar os dados da classe **TMiDmxScroller** com os componentes da LCL com DbGrid, DbEdit etc...}
-      DataSource1 : TDataSource;
+       {: O atributo **@name** permite integrar os dados da classe **TMiDmxScroller** com os componentes da LCL com DbGrid, DbEdit etc...}
+       DataSource1 : TDataSource;
 
-      {: A constante **@name** se **true** executa o método **CreateDataBase** se ExisteCreateDataBase = false }
-      const
-         OkCreateDataBase : boolean = false;
+       {: A constante **@name** se **true** executa o método **CreateDataBase** se ExisteCreateDataBase = false }
+       const
+          OkCreateDataBase : boolean = false;
 
-      {: O Método **@name** retorna **true** se o banco de dados existe e **false** se não existir.}
-      function ExistDataBase:Boolean;
+       {: O Método **@name** retorna **true** se o banco de dados existe e **false** se não existir.}
+       function ExistDataBase:Boolean;
 
-      {: O método **@name** cria o banco de dados se a constante OkCreateDataBase = true}
-      function CreateDataBase:boolean;
+       {: O método **@name** cria o banco de dados se a constante OkCreateDataBase = true}
+       function CreateDataBase:boolean;
 
-      {: O método **@name** é usado pela classe **Get_Parameters**.
-         - Esse evento cria o arquivo de parâmetros usando os dados das propriedades de
-           **TMI_ui_Custom_Application** definidas no tempo de projeto.
-      }
-      procedure Get_ParametersEnter(aDmxScroller: TUiDmxScroller);
+       {: O método **@name** é usado pela classe **Get_Parameters**.
+          - Esse evento cria o arquivo de parâmetros usando os dados das propriedades de
+            **TMI_ui_Custom_Application** definidas no tempo de projeto.
+       }
+       procedure Get_ParametersEnter(aDmxScroller: TUiDmxScroller);
 
-      procedure Get_ParametersExit(aDmxScroller: TUiDmxScroller);
+       procedure Get_ParametersExit(aDmxScroller: TUiDmxScroller);
 
-      {: O método **@name** é usado para confirmar o fechamento do formulário Get_Parameters com botão **MrOK** caso os campos de **Get_Parameters**
-         sejam válidos.
+       {: O método **@name** é usado para confirmar o fechamento do formulário Get_Parameters com botão **MrOK** caso os campos de **Get_Parameters**
+          sejam válidos.
 
          - **NOTA**
            - Método **@name** executa o evento **DoOnValidUser**, se o mesmo for assinalado na aplicação com objetivo
              de não permitir fechar o formulário modal com botão MrOK caso ** DoOnValidUser** retornar false.
 
            - Pode ser usado para checar se usuário e senha são válidos bem como se os parâmetros estão compatíveis com os bancos de dados instalados.
-      }
-      Procedure Get_ParametersCloseQuery(aDmxScroller:TUiDmxScroller; var CanClose:boolean);
+       }
+       Procedure Get_ParametersCloseQuery(aDmxScroller:TUiDmxScroller; var CanClose:boolean);
 
-      {: O método **@name** retorna um Template usado para criar o formulário de entrada de dados para a conexão. }
-      Function Login_GetTemplate ( aNext : PSItem ) : PSItem;
+       {: O método **@name** retorna um Template usado para criar o formulário de entrada de dados para a conexão. }
+       Function Login_GetTemplate ( aNext : PSItem ) : PSItem;
 
-//   ('MYSQL40','MYSQL41','MYSQL50','MYSQL51','MYSQL55','MYSQL56','MYSQL57','MYSQL80','POSTGRESQL','INTERBASE','ODBC','ORACLE','SQLITE3','MSSQL','SYBASE');
+//     ('MYSQL40','MYSQL41','MYSQL50','MYSQL51','MYSQL55','MYSQL56','MYSQL57','MYSQL80','POSTGRESQL','INTERBASE','ODBC','ORACLE','SQLITE3','MSSQL','SYBASE');
 
-      {: A constante **@name** contém a lista de nomes dos tipo de bancos de dados testados pelo componente
-        **TMI_ui_Custom_Application**}
-      Const Const_ConnectorType : Array[TUiDmxScroller.TConnectorType] of AnsiString =('PostgreSQL','SqLite3');
+       {: A constante **@name** contém a lista de nomes dos tipo de bancos de dados testados pelo componente
+         **TMI_ui_Custom_Application**}
+       Const Const_ConnectorType : Array[TUiDmxScroller.TConnectorType] of AnsiString =('PostgreSQL','SqLite3');
 
-      {: A constante **@name** contém o nome do arquivo de parâmetros
-         - A constante **@name** é inicializado em **TMI_ui_Custom_Application.create** onde:
-           -  FileName_Parameters := ParamStr(0)+'_Parameters.bds';
-      }
-      Const FileName_Parameters : AnsiString = '';
+       {: A constante **@name** contém o nome do arquivo de parâmetros
+          - A constante **@name** é inicializado em **TMI_ui_Custom_Application.create** onde:
+            -  FileName_Parameters := ParamStr(0)+'_Parameters.bds';
+       }
+       Const FileName_Parameters : AnsiString = '';
 
-      {$REGION '--> Property SQLConnectorOptions'}
-        private _SQLConnectorOptions : TSQLConnectionOptions;
-        private Procedure SetSQLConnectorOptions(aSQLConnectorOptions:TSQLConnectionOptions);
+       {$REGION '--> Property SQLConnectorOptions'}
+         private _SQLConnectorOptions : TSQLConnectionOptions;
+         private Procedure SetSQLConnectorOptions(aSQLConnectorOptions:TSQLConnectionOptions);
 
-        {: A propriedade **@name** é usada para controlar o comportamento do SqlDb para esta conexão.
+         {: A propriedade **@name** é usada para controlar o comportamento do SqlDb para esta conexão.
 
            - As seguintes opções podem ser definidas:
              - Type TSQLConnectionOption = (scoExplicitConnect, scoApplyUpdatesChecksRowsAffected);
@@ -178,16 +186,16 @@ Uses
            - **REFERÊNCIAS**
              - [tsqltransaction.options](https://www.freepascal.org/docs-html/fcl/sqldb/tsqltransaction.options.html)
         }
-        published Property SQLConnectorOptions : TSQLConnectionOptions Read _SQLConnectorOptions write SetSQLConnectorOptions default [];
+         published Property SQLConnectorOptions : TSQLConnectionOptions Read _SQLConnectorOptions write SetSQLConnectorOptions default [];
 
-      {$ENDREGION '<-- Property SQLConnectorOptions'}
+       {$ENDREGION '<-- Property SQLConnectorOptions'}
 
-      {$REGION '--> Property SQLTransactionOptions'}
-        private _SQLTransactionOptions : TSQLTransactionOptions;
+       {$REGION '--> Property SQLTransactionOptions'}
+         private _SQLTransactionOptions : TSQLTransactionOptions;
 
-        private Procedure SetSQLTransactionOptions(aSQLTransactionOptions:TSQLTransactionOptions);
+         private Procedure SetSQLTransactionOptions(aSQLTransactionOptions:TSQLTransactionOptions);
 
-        {: A propriedade **@name** é usada para  controlar o comportamento do SqlDb para esta transação.
+         {: A propriedade **@name** é usada para  controlar o comportamento do SqlDb para esta transação.
 
            - As seguintes opções podem ser definidas:
              - Type TSQLTransactionOption = (stoUseImplicit, stoExplicitStart);
@@ -206,93 +214,93 @@ Uses
 
            - **REFERÊNCIAS**
              - [tsqltransaction.options](https://www.freepascal.org/docs-html/fcl/sqldb/tsqltransaction.options.html)
-        }
-        published Property SQLTransactionOptions : TSQLTransactionOptions Read _SQLTransactionOptions write SetSQLTransactionOptions default [];
+         }
+         published Property SQLTransactionOptions : TSQLTransactionOptions Read _SQLTransactionOptions write SetSQLTransactionOptions default [];
 
-      {$ENDREGION '<-- Property SQLTransactionOptions'}
+       {$ENDREGION '<-- Property SQLTransactionOptions'}
 
-      {$REGION '--> Property connected'}
+       {$REGION '--> Property connected'}
 
-        private Procedure SetConnected(aConnected:Boolean);
-        private function GetConnected:Boolean;
+         private Procedure SetConnected(aConnected:Boolean);
+         private function GetConnected:Boolean;
 
-        {: A propriedade **@name** conecta ao banco de dados selecionado.
+         {: A propriedade **@name** conecta ao banco de dados selecionado.
 
-           - True = Conecta ao banco;
-           - False = Desconecta do banco;
-        }
-        published Property Connected : Boolean Read GetConnected write SetConnected;
+            - True = Conecta ao banco;
+            - False = Desconecta do banco;
+         }
+         published Property Connected : Boolean Read GetConnected write SetConnected;
 
-      {$ENDREGION '<-- Property connected'}
+       {$ENDREGION '<-- Property connected'}
 
-      {$REGION '--> Property ConnectorType'}
-        private _ConnectorType : TUiDmxScroller.TConnectorType;
+       {$REGION '--> Property ConnectorType'}
+         private _ConnectorType : TUiDmxScroller.TConnectorType;
 
-        {: O evento **@name** seleciona o tipo de banco de dados a ser conectado}
-        published Property ConnectorType : TUiDmxScroller.TConnectorType Read _ConnectorType write _ConnectorType;
-      {$ENDREGION '<-- Property ConnectorType'}
+         {: O evento **@name** seleciona o tipo de banco de dados a ser conectado}
+         published Property ConnectorType : TUiDmxScroller.TConnectorType Read _ConnectorType write _ConnectorType;
+       {$ENDREGION '<-- Property ConnectorType'}
 
-      {$REGION '--> Property HostName'}
+       {$REGION '--> Property HostName'}
 
-        private Procedure SetHostName(aHostName:AnsiString);
-        private function GetHostName:AnsiString;
-        {: A propriedade **@name** informa ao **SQLConnector** o **IP** ou domínimo onde o banco de dados foi hospedado.
-        }
-        published Property HostName : AnsiString Read GetHostName write SetHostName;
+          private Procedure SetHostName(aHostName:AnsiString);
+          private function GetHostName:AnsiString;
+          {: A propriedade **@name** informa ao **SQLConnector** o **IP** ou domínimo onde o banco de dados foi hospedado.
+          }
+          published Property HostName : AnsiString Read GetHostName write SetHostName;
 
-      {$ENDREGION '<-- Property HostName'}
+       {$ENDREGION '<-- Property HostName'}
 
-      {$REGION '--> Property DirDataBaseName'}
+       {$REGION '--> Property DirDataBaseName'}
 
-        private Procedure SetDirDataBaseName(aDirDataBaseName:AnsiString);
-        private function GetDirDataBaseName:AnsiString;
+          private Procedure SetDirDataBaseName(aDirDataBaseName:AnsiString);
+          private function GetDirDataBaseName:AnsiString;
 
-        {: A propriedade **@name** contém a pasta do HD do servidor onde o banco de  banco foi hospedado.
+          {: A propriedade **@name** contém a pasta do HD do servidor onde o banco de  banco foi hospedado.
 
-           - **Não foi implementado ainda**
-             - Preciso de mais informações de como alterar a pasta dos bancos de dados PostgreSQL e SQLite3.
-        }
-        published Property DirDataBaseName : AnsiString Read GetDirDataBaseName write SetDirDataBaseName;
+             - **Não foi implementado ainda**
+               - Preciso de mais informações de como alterar a pasta dos bancos de dados PostgreSQL e SQLite3.
+          }
+          published Property DirDataBaseName : AnsiString Read GetDirDataBaseName write SetDirDataBaseName;
 
-      {$ENDREGION '<-- Property DirDataBaseName'}
+       {$ENDREGION '<-- Property DirDataBaseName'}
 
-      {$REGION '--> Property DatabaseName'}
+       {$REGION '--> Property DatabaseName'}
 
-        private Procedure SetDatabaseName(aDatabaseName:AnsiString);
-        private function GetDatabaseName:AnsiString;
+          private Procedure SetDatabaseName(aDatabaseName:AnsiString);
+          private function GetDatabaseName:AnsiString;
 
-        {: A propriedade **@name** contém o nome do Banco de Dados dentro do PostegresSQL ou do SQLite3.
+          {: A propriedade **@name** contém o nome do Banco de Dados dentro do PostegresSQL ou do SQLite3.
 
-        }
-        published Property DatabaseName : AnsiString Read GetDatabaseName write SetDatabaseName;
+          }
+          published Property DatabaseName : AnsiString Read GetDatabaseName write SetDatabaseName;
 
-      {$ENDREGION '<-- Property DatabaseName'}
+       {$ENDREGION '<-- Property DatabaseName'}
 
-      {: O método **@name** retorna o nome do banco de dados de acordo com o tipo de banco de dados.
-      }
-      Function NameDataBase:AnsiString;
+       {: O método **@name** retorna o nome do banco de dados de acordo com o tipo de banco de dados.
+       }
+       Function NameDataBase:AnsiString;
 
-      {$REGION '--> Property UserName'}
+       {$REGION '--> Property UserName'}
 
-        private Procedure SetUserName(aUserName:AnsiString);
-        private function GetUserName:AnsiString;
+         private Procedure SetUserName(aUserName:AnsiString);
+         private function GetUserName:AnsiString;
 
-        {: A propriedade **@name** contém o nome do usuário conectado ao banco de dados.        }
-        published Property UserName : AnsiString Read GetUserName write SetUserName;
+         {: A propriedade **@name** contém o nome do usuário conectado ao banco de dados.        }
+         published Property UserName : AnsiString Read GetUserName write SetUserName;
 
-      {$ENDREGION '<-- Property UserName'}
+       {$ENDREGION '<-- Property UserName'}
 
-      {$REGION '--> Property Password'}
-        private Procedure SetPassword(aPassword:AnsiString);
-        private function GetPassword:AnsiString;
+       {$REGION '--> Property Password'}
+         private Procedure SetPassword(aPassword:AnsiString);
+         private function GetPassword:AnsiString;
 
-        {: A propriedade **@name** contém a senha do usuário conectado ao banco de dados.
-        }
-        published Property Password : AnsiString Read GetPassword write SetPassword;
+         {: A propriedade **@name** contém a senha do usuário conectado ao banco de dados.
+         }
+         published Property Password : AnsiString Read GetPassword write SetPassword;
 
-      {$ENDREGION '<-- Property Password'}
+       {$ENDREGION '<-- Property Password'}
 
-      {$REGION '--> Property CharSet'}
+       {$REGION '--> Property CharSet'}
 
           private Procedure SetCharSet(aCharSet:AnsiString);
           private function GetCharSet:AnsiString;
@@ -307,34 +315,33 @@ Uses
           }
           published Property CharSet : AnsiString Read GetCharSet write SetCharSet;
 
-      {$ENDREGION '<-- Property CharSet'}
+       {$ENDREGION '<-- Property CharSet'}
 
-      {$REGION '--> Property onValidUser'}
-        private _OnValidUser : TOnValidUser;
+       {$REGION '--> Property onValidUser'}
+         private _OnValidUser : TOnValidUser;
 
-        {: O evento **@name** é disparado toda vez que o TUiDmxScroller ativado.}
-        published Property onValidUser : TOnValidUser Read _OnValidUser write _onValidUser;
+         {: O evento **@name** é disparado toda vez que o TUiDmxScroller ativado.}
+         published Property onValidUser : TOnValidUser Read _OnValidUser write _onValidUser;
         
-        {: O método **@name** executa o evento **onValidUser** se o mesmo for assinalado na aplicação ou retorna true se **onValidUser = nil** }
-        public function DoOnValidUser(aDmxScroller:TUiDmxScroller;aUserName:AnsiString;aPassword:AnsiString):boolean;virtual;
+         {: O método **@name** executa o evento **onValidUser** se o mesmo for assinalado na aplicação ou retorna true se **onValidUser = nil** }
+         public function DoOnValidUser(aDmxScroller:TUiDmxScroller;aUserName:AnsiString;aPassword:AnsiString):boolean;virtual;
 
-      {$ENDREGION '<-- Property onValidUser'}
+       {$ENDREGION '<-- Property onValidUser'}
 
-      {$REGION '--> Property SQLConnector'}
+       {$REGION '--> Property SQLConnector'}
 
         private _SQLConnector   : TSQLConnector;
 
-        {: A propriedade **@name** é um componente conector de banco de dados versátil
-           para uso com qualquer banco de dados suportado.
+          {: A propriedade **@name** é um componente conector de banco de dados versátil
+             para uso com qualquer banco de dados suportado.
 
-           - A incluir uma aplicação **TMi_UI_Application** na aplicação corrente automáticamente
-             é disponibilizado um conector de acesso o banco de dados.
+             - A incluir uma aplicação **TMi_UI_Application** na aplicação correnteautomaticamente               é disponibilizado um conector de acesso o banco de dados.
 
-           - **REFERÊNCIAS**
-             - [TSQLConnector](https://wiki.freepascal.org/TSQLConnector)
-             - [sqldb/tsqlconnector](https://www.freepascal.org/docs-html/fcl/sqldb/tsqlconnector.html)
-        }
-        published property SQLConnector : TSQLConnector read _SQLConnector;
+             - **REFERÊNCIAS**
+               - [TSQLConnector](https://wiki.freepascal.org/TSQLConnector)
+               - [sqldb/tsqlconnector](https://www.freepascal.org/docs-html/fcl/sqldb/tsqlconnector.html)
+          }
+          published property SQLConnector : TSQLConnector read _SQLConnector;
       {$ENDREGION '--> Property SQLConnector'}
 
       {$REGION '--> Property SQLTransaction'}
@@ -388,6 +395,8 @@ Uses
       }
       public destructor Destroy; override;
 
+      {: O Método **@name** genrencia as transações do projeto MarIcarai}
+      public Mi_Transaction : TUiDmxScroller.TMi_Transaction;
     End;
 
 
@@ -407,6 +416,9 @@ var
 function Mi_ui_Custom_Application : TMI_ui_Custom_Application;
 begin
   result := _Mi_ui_Custom_Application;
+  if result = nil
+  Then  raise Exception.CreateFmt('O método '+{$I %CURRENTROUTINE%}+' falhou: %s', [Result]);
+
 end;
 
 Function Set_Mi_ui_Custom_Application(aMi_ui_Custom_Application : TMI_ui_Custom_Application): TMI_ui_Custom_Application;
@@ -422,6 +434,10 @@ end;
 constructor TMI_ui_Custom_Application.Create(AOwner: TComponent);
 Begin
   Inherited Create ( AOwner ) ;
+
+  TTb_Access.create;
+
+
   FileName_Parameters := ParamStr(0)+'_Parameters.bds';
 //  FileName_Parameters := ParamStr(0)+'.xml'; não funciona
 
@@ -461,7 +477,8 @@ Begin
   freeandnil(_Get_Parameters);
   freeandnil(_SQLConnector);
   freeandnil(_SQLTransaction);
-
+  Freeandnil(Mi_Transaction);
+  with TUiDmxScroller do TTb_Access.Destroy;
   Inherited Destroy;
 End;
 
@@ -537,10 +554,8 @@ procedure TMI_ui_Custom_Application.Get_ParametersEnter(
   Procedure  SetField(aFielName,s:AnsiString);
   begin
     fld := BufDataSet1.FieldByName(aFielName);
-    if fld <> nil
-    Then Begin
-           Fld.AsString :=  s;
-         End;
+    if Assigned(fld)
+    Then fld.AsString :=  s;
   end;
 
   //SQLConnector.CharSet:='UTF8';
@@ -569,13 +584,13 @@ begin
                 SetField('Password',Password);
 
                 BufDataSet1.post;
-                BufDataSet1.SaveToFile(FileName_Parameters,dfBinary);
+                BufDataSet1.SaveToFile(FileName_Parameters,TDataPacketFormat.dfBinary);
                 BufDataSet1.First;
                 BufDataSet1.Edit;
               End
          else begin
                 BufDataSet1.close;
-                BufDataSet1.LoadFromFile(FileName_Parameters,dfBinary);
+                BufDataSet1.LoadFromFile(FileName_Parameters,TDataPacketFormat.dfBinary);
                 BufDataSet1.open;
                 BufDataSet1.First;
                 BufDataSet1.Edit;
@@ -583,14 +598,12 @@ begin
        end;
 end;
 
-procedure TMI_ui_Custom_Application.Get_ParametersExit(
-  aDmxScroller: TUiDmxScroller);
+procedure TMI_ui_Custom_Application.Get_ParametersExit(aDmxScroller: TUiDmxScroller);
 Begin
 
 End;
 
-procedure TMI_ui_Custom_Application.Get_ParametersCloseQuery(
-  aDmxScroller: TUiDmxScroller; var CanClose: boolean);
+procedure TMI_ui_Custom_Application.Get_ParametersCloseQuery(aDmxScroller: TUiDmxScroller; var CanClose: boolean);
   //Var
   //  aUserName,aPassword : AnsiString;
 Begin
@@ -614,7 +627,7 @@ Begin
                        end;
 
                        BufDataSet1.post;
-                       BufDataSet1.SaveToFile(FileName_Parameters,dfBinary);
+                       BufDataSet1.SaveToFile(FileName_Parameters,TDataPacketFormat.dfBinary);
                        CanClose := true;
                      End
                 else CanClose := false;
@@ -625,7 +638,7 @@ function TMI_ui_Custom_Application.Login_GetTemplate(aNext: PSItem): PSItem;
 Begin
   with Get_Parameters do
   begin
-    AlignmentLabels:= taRightJustify;// taCenter;//taLeftJustify;
+    AlignmentLabels:= taLeftJustify;//taRightJustify;// taCenter;
     result :=
      NewSItem('~ CharSet:         ~\ssssssssssssssssssss'+CharFieldName+'CharSet',
      NewSItem('~ Host name:       ~\ssssssssssssssssssss`ssssssssssssssssssssssssssssss'+CharFieldName+'HostName',
@@ -703,25 +716,25 @@ End;
 procedure TMI_ui_Custom_Application.SetDirDataBaseName(aDirDataBaseName: AnsiString);
 Begin
   if  ParamExecucao <> nil
-  Then ParamExecucao.NomeDeArquivosGenericos.DirDatabaseName := ADirDatabaseName;
+  Then ParamExecucao.EnvironmentVariables.DirDatabaseName := ADirDatabaseName;
 End;
 
 function TMI_ui_Custom_Application.GetDirDataBaseName: AnsiString;
 Begin
   if  ParamExecucao <> nil
-  Then Result := ParamExecucao.NomeDeArquivosGenericos.DirDatabaseName;
+  Then Result := ParamExecucao.EnvironmentVariables.DirDatabaseName;
 End;
 
 procedure TMI_ui_Custom_Application.SetDatabaseName(aDatabaseName: AnsiString);
 Begin
   if  ParamExecucao <> nil
-  Then ParamExecucao.NomeDeArquivosGenericos.DatabaseName := ADatabaseName;
+  Then ParamExecucao.EnvironmentVariables.DatabaseName := ADatabaseName;
 End;
 
 function TMI_ui_Custom_Application.GetDatabaseName: AnsiString;
 Begin
   if  ParamExecucao <> nil
-  Then Result := ParamExecucao.NomeDeArquivosGenericos.DatabaseName;
+  Then Result := ParamExecucao.EnvironmentVariables.DatabaseName;
 End;
 
 function TMI_ui_Custom_Application.NameDataBase: AnsiString;

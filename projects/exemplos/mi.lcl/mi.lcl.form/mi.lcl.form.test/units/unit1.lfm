@@ -1,0 +1,53 @@
+object Form1: TForm1
+  Left = 360
+  Height = 416
+  Top = 181
+  Width = 484
+  Caption = 'Form1'
+  ClientHeight = 416
+  ClientWidth = 484
+  Font.Height = -16
+  Font.Name = 'Liberation Mono'
+  OnCreate = FormCreate
+  object Mi_LCL_Scrollbox1: TMi_LCL_Scrollbox
+    Left = 8
+    Height = 288
+    Top = 120
+    Width = 468
+    Anchors = [akTop, akLeft, akRight, akBottom]
+    AutoScroll = False
+    Font.Height = -13
+    Font.Name = 'Serif'
+    ParentFont = False
+    TabOrder = 0
+    TabStop = True
+  end
+  object Panel1: TPanel
+    Left = 8
+    Height = 24
+    Hint = 'Este formulário é um teste de edição sem usar os componentes dataware do lazarus.'
+    Top = 0
+    Width = 468
+    Anchors = [akTop, akLeft, akRight]
+    Caption = 'TDataModule - Exemplo da unit TMi_lcl_Form'
+    ParentShowHint = False
+    ShowHint = True
+    TabOrder = 1
+  end
+  object Label1: TLabel
+    Left = 8
+    Height = 56
+    Top = 32
+    Width = 460
+    Alignment = taCenter
+    Anchors = [akTop, akLeft, akRight]
+    AutoSize = False
+    Caption = 'Este formulário é um teste de edição sem usar os componentes dataware do lazarus.'
+    WordWrap = True
+  end
+  object Mi_lcl_ui_Form1: TMi_lcl_ui_Form
+    Active = False
+    Left = 248
+    Top = 72
+  end
+end

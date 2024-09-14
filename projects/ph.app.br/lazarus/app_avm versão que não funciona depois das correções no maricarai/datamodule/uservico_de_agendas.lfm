@@ -1,0 +1,29 @@
+inherited servico_de_agendas: Tservico_de_agendas
+  OnCreate = DataModuleCreate
+  Height = 174
+  HorizontalOffset = 524
+  VerticalOffset = 281
+  Width = 455
+  inherited DmxScroller_Form1: TDmxScroller_Form
+    Alias = 'Cadastro serviço de agendas'
+    OnAddTemplate = DmxScroller_Form1AddTemplate
+    onEnter = DmxScroller_Form1Enter
+    TableName = 'servico_de_agendas'
+    Top = 24
+  end
+  inherited ActionList1: TActionList
+    Left = 80
+    inherited CmRefresh: TAction
+      Caption = 'CmRefresh'
+    end
+  end
+  inherited Mi_SQLQuery1: TMi_SQLQuery
+    SQL.Strings = (
+      'select * from servico_de_agendas order by id asc'
+    )
+    Options = [sqoKeepOpenOnCommit, sqoAutoApplyUpdates, sqoAutoCommit, sqoRefreshUsingSelect]
+    Params = <>
+    Left = 328
+    Top = 16
+  end
+end

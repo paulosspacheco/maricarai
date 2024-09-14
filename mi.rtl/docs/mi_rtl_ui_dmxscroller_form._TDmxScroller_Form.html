@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<title>mi_rtl_ui_dmxscroller_form: Classe _TDmxScroller_Form</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="generator" content="PasDoc 0.16.0">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<link rel="stylesheet" type="text/css" href="tipuesearch/tipuesearch.css">
+
+<link rel="StyleSheet" type="text/css" href="pasdoc.css">
+</head>
+<body>
+<div class="container"><div class="navigation">
+<ul><li><a href="AllUnits.html">Units</a></li><li><a href="ClassHierarchy.html">Hierarquia de Classes</a></li><li><a href="AllClasses.html">Classes, Interfaces, Objetos e Registros</a></li><li><a href="AllTypes.html">Tipos</a></li><li><a href="AllVariables.html">Variáveis</a></li><li><a href="AllConstants.html">Constantes</a></li><li><a href="AllFunctions.html">Funções e Procedimentos</a></li><li><a href="AllIdentifiers.html">Identificadores</a></li><li><form class="search-form" action="tipue_results.html"><div class="search-input"><input type="text" name="q" id="tipue_search_input" pattern=".{3,}" title="At least 3 characters" required><div class="search-button"><input type="button" id="tipue_search_button" onclick="this.form.submit();"></div></div></form>
+<div style="clear: both"></div>
+</li></ul></div><div class="content">
+<span id="_TDmxScroller_Form"></span><h1 class="cio">Classe _TDmxScroller_Form</h1>
+<div class="sections">
+<div class="one_section"><a class="section" href="#PasDoc-Description">Descrição</a></div><div class="one_section"><a class="section" href="#PasDoc-Hierarchy">Hierarquia</a></div><div class="one_section">Campos</div><div class="one_section"><a class="section" href="#PasDoc-Methods">Métodos</a></div><div class="one_section"><a class="section" href="#PasDoc-Properties">Propriedades</a></div></div>
+<span id="PasDoc-Description"></span><h2 class="unit">Unit</h2>
+<p class="unitlink">
+<a href="mi_rtl_ui_dmxscroller_form.html">mi_rtl_ui_dmxscroller_form</a></p>
+<h2 class="declaration">Declaração</h2>
+<p class="declaration">
+<code>type _TDmxScroller_Form = class(<a class="normal" href="mi_rtl_ui_dmxscroller_form._TDmxScroller_Form_Atributos.html">_TDmxScroller_Form_Atributos</a>)</code></p>
+<h2 class="description">Descrição</h2>
+<p>
+A classe <strong><code>_TDmxScroller_Form</code></strong> implementa a construção de formulários usando uma lista de Templates do tipo TDmxScroller</p>
+<span id="PasDoc-Hierarchy"></span><h2 class="hierarchy">Hierarquia</h2>
+<ul class="hierarchy"><li class="ancestor">TUiConsts</li>
+<li class="ancestor"><a class="normal" href="mi_rtl_ui_methods.TUiMethods.html">TUiMethods</a></li>
+<li class="ancestor"><a class="normal" href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html">TUiDmxScroller</a></li>
+<li class="ancestor"><a class="normal" href="mi_rtl_ui_dmxscroller_form._TDmxScroller_Form_Atributos.html">_TDmxScroller_Form_Atributos</a></li>
+<li class="thisitem">_TDmxScroller_Form</li></ul><h2 class="overview">Visão Geral</h2>
+<span id="PasDoc-Methods"></span><h3 class="summary">Métodos</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>constructor <strong><a href="mi_rtl_ui_dmxscroller_form._TDmxScroller_Form.html#Create">Create</a></strong>(aOwner:TComponent); Override;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>procedure <strong><a href="mi_rtl_ui_dmxscroller_form._TDmxScroller_Form.html#AfterConstruction">AfterConstruction</a></strong>; override;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>destructor <strong><a href="mi_rtl_ui_dmxscroller_form._TDmxScroller_Form.html#destroy">destroy</a></strong>; override;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>procedure <strong><a href="mi_rtl_ui_dmxscroller_form._TDmxScroller_Form.html#CreateStruct">CreateStruct</a></strong>(var ATemplate : <a href="mi_rtl_ui_Dmxscroller.html#PSItem">PSItem</a>); override; overload;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>procedure <strong><a href="mi_rtl_ui_dmxscroller_form._TDmxScroller_Form.html#DestroyStruct">DestroyStruct</a></strong>; Override;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="mi_rtl_ui_dmxscroller_form._TDmxScroller_Form.html#GetTemplate">GetTemplate</a></strong>(aNext: <a href="mi_rtl_ui_Dmxscroller.html#PSItem">PSItem</a>) : <a href="mi_rtl_ui_Dmxscroller.html#PSItem">PSItem</a>; overload; override;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>procedure <strong><a href="mi_rtl_ui_dmxscroller_form._TDmxScroller_Form.html#LockUpdates">LockUpdates</a></strong>; virtual;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>procedure <strong><a href="mi_rtl_ui_dmxscroller_form._TDmxScroller_Form.html#UnlockUpdate">UnlockUpdate</a></strong>; virtual;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>procedure <strong><a href="mi_rtl_ui_dmxscroller_form._TDmxScroller_Form.html#UpdateBuffers_Controls">UpdateBuffers_Controls</a></strong>; virtual;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>procedure <strong><a href="mi_rtl_ui_dmxscroller_form._TDmxScroller_Form.html#UpdateBuffers">UpdateBuffers</a></strong>; override;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>procedure <strong><a href="mi_rtl_ui_dmxscroller_form._TDmxScroller_Form.html#DoBeforeSetActiveTarget">DoBeforeSetActiveTarget</a></strong>; virtual;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="mi_rtl_ui_dmxscroller_form._TDmxScroller_Form.html#DoAddTemplate">DoAddTemplate</a></strong>:Boolean; Override;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>procedure <strong><a href="mi_rtl_ui_dmxscroller_form._TDmxScroller_Form.html#SetActiveTarget">SetActiveTarget</a></strong>(aActive: Boolean); virtual;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>procedure <strong><a href="mi_rtl_ui_dmxscroller_form._TDmxScroller_Form.html#SetActive">SetActive</a></strong>(aActive : Boolean); override;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="mi_rtl_ui_dmxscroller_form._TDmxScroller_Form.html#GetBuffers">GetBuffers</a></strong>: Boolean; override;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="mi_rtl_ui_dmxscroller_form._TDmxScroller_Form.html#PutBuffers">PutBuffers</a></strong>: Boolean; override;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>procedure <strong><a href="mi_rtl_ui_dmxscroller_form._TDmxScroller_Form.html#Scroll_it_inview">Scroll_it_inview</a></strong>(AControl: <a href="mi_rtl_ui_dmxscroller_form.html#pDmxFieldRec">pDmxFieldRec</a>); override;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>procedure <strong><a href="mi_rtl_ui_dmxscroller_form._TDmxScroller_Form.html#ShowControlState">ShowControlState</a></strong>; override;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>procedure <strong><a href="mi_rtl_ui_dmxscroller_form._TDmxScroller_Form.html#RefreshInternal">RefreshInternal</a></strong>; override;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="mi_rtl_ui_dmxscroller_form._TDmxScroller_Form.html#isValueDbChanged">isValueDbChanged</a></strong>(Sender: TComponent): Boolean; override;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>Procedure <strong><a href="mi_rtl_ui_dmxscroller_form._TDmxScroller_Form.html#SetLocked">SetLocked</a></strong>(aLocked:Boolean); override;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>Procedure <strong><a href="mi_rtl_ui_dmxscroller_form._TDmxScroller_Form.html#Select_First_Field_Normal">Select_First_Field_Normal</a></strong>; override;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="mi_rtl_ui_dmxscroller_form._TDmxScroller_Form.html#Locate">Locate</a></strong>(): TMi_MsgBox.TModalResult; override; overload;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>procedure <strong><a href="mi_rtl_ui_dmxscroller_form._TDmxScroller_Form.html#RewriteFileClients">RewriteFileClients</a></strong>(aEnClientsApplication:<a href="mi_rtl_ui_Dmxscroller.html#TEnClientsApplication">TEnClientsApplication</a>);</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>procedure <strong><a href="mi_rtl_ui_dmxscroller_form._TDmxScroller_Form.html#BuildCustomerFormFromTemplate">BuildCustomerFormFromTemplate</a></strong>(); overload;</code></td>
+</tr>
+</table>
+<span id="PasDoc-Properties"></span><h3 class="summary">Propriedades</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><code>property <strong><a href="mi_rtl_ui_dmxscroller_form._TDmxScroller_Form.html#DataSource">DataSource</a></strong> ;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="mi_rtl_ui_dmxscroller_form._TDmxScroller_Form.html#ClientsTemplatesDataModule">ClientsTemplatesDataModule</a></strong> : AnsiString
+               read _ClientsTemplatesDataModule write _ClientsTemplatesDataModule;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="mi_rtl_ui_dmxscroller_form._TDmxScroller_Form.html#ClientsPathName">ClientsPathName</a></strong>[AppType:<a href="mi_rtl_ui_Dmxscroller.html#TEnClientsApplication">TEnClientsApplication</a>]: AnsiString  read GetClientsPathName;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="mi_rtl_ui_dmxscroller_form._TDmxScroller_Form.html#ClientsTemplatesDataModuleFileName">ClientsTemplatesDataModuleFileName</a></strong>[AppType:<a href="mi_rtl_ui_Dmxscroller.html#TEnClientsApplication">TEnClientsApplication</a>]: AnsiString read GetClientsTemplatesDataModuleFileName;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="mi_rtl_ui_dmxscroller_form._TDmxScroller_Form.html#ClientsTemplatesFormFileName">ClientsTemplatesFormFileName</a></strong>[AppType:<a href="mi_rtl_ui_Dmxscroller.html#TEnClientsApplication">TEnClientsApplication</a>]: AnsiString read GetClientsTemplatesFormFileName   ;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="mi_rtl_ui_dmxscroller_form._TDmxScroller_Form.html#ClientsApplicationsDataModuleFileName">ClientsApplicationsDataModuleFileName</a></strong>[AppType:<a href="mi_rtl_ui_Dmxscroller.html#TEnClientsApplication">TEnClientsApplication</a>]: AnsiString read GetClientsApplicationsDataModuleFileName   ;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="mi_rtl_ui_dmxscroller_form._TDmxScroller_Form.html#ClientsApplicationsFormFileName">ClientsApplicationsFormFileName</a></strong>[AppType:<a href="mi_rtl_ui_Dmxscroller.html#TEnClientsApplication">TEnClientsApplication</a>]: AnsiString read GetClientsApplicationsFormFileName   ;</code></td>
+</tr>
+</table>
+<h2 class="description">Descrição</h2>
+<h3 class="detail">Métodos</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Create"></span><code>constructor <strong>Create</strong>(aOwner:TComponent); Override;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+Constrói o componente</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="AfterConstruction"></span><code>procedure <strong>AfterConstruction</strong>; override;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="destroy"></span><code>destructor <strong>destroy</strong>; override;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+O método <strong><code>destroy</code></strong> destrói o componente</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="CreateStruct"></span><code>procedure <strong>CreateStruct</strong>(var ATemplate : <a href="mi_rtl_ui_Dmxscroller.html#PSItem">PSItem</a>); override; overload;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+O método <strong><code>CreateStruct</code></strong> interpreta uma lista de <a class="normal" href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html#Strings">strings</a> do tipo <strong><a class="normal" href="mi_rtl_ui_Dmxscroller.html#PSItem">PSItem</a></strong> e adiciona os layout de cada campo em <a class="normal" href="mi_rtl_ui_dmxscroller_form.html#pDmxFieldRec">pDmxFieldRec</a>, em seguida adiciona <strong><a class="normal" href="mi_rtl_ui_dmxscroller_form.html#pDmxFieldRec">pDmxFieldRec</a></strong> em <strong><a class="normal" href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html#DMXFields">DMXFields</a></strong> com todos os campos de formação de formulário visual.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="DestroyStruct"></span><code>procedure <strong>DestroyStruct</strong>; Override;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+O método <strong><code>DestroyStruct</code></strong> destrói os dados criados em <strong><a class="normal" href="mi_rtl_ui_dmxscroller_form._TDmxScroller_Form.html#CreateStruct">CreateStruct</a>()</strong>.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="GetTemplate"></span><code>function <strong>GetTemplate</strong>(aNext: <a href="mi_rtl_ui_Dmxscroller.html#PSItem">PSItem</a>) : <a href="mi_rtl_ui_Dmxscroller.html#PSItem">PSItem</a>; overload; override;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+O método <strong><code>GetTemplate</code></strong> retorna uma lista de <strong><a class="normal" href="mi_rtl_ui_Dmxscroller.html#PSItem">PSItem</a></strong> (Lista de <a class="normal" href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html#Strings">strings</a>) com o modelo usado para criar a tela.
+
+<p></p>
+
+<ul class="paragraph_spacing">
+  <li><p><strong>NOTA</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>O Evento <a class="normal" href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html#onGetTemplate">onGetTemplate</a> só é iniciado em tempo de execução, por isso o formulário não pode ser criado em tempo de desenho do aplicativo.</p></li>
+  <li><p>Caso o evento <a class="normal" href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html#onGetTemplate">onGetTemplate</a> seja nil, então não posso ativar a tela.</p></li>
+  <li><p>Esse método pode ser anulado, caso se queira ignorar o evento <a class="normal" href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html#onGetTemplate">onGetTemplate</a> e definir o Template em uma método pai herdado desta classe.</p></li>
+  <li><p>O modelo cria um formulário usando os tipos de dados primitivos.</p></li>
+</ul>
+
+<p></p></li>
+  <li><p><strong>EXEMPLO</strong>
+
+<p></p>
+
+<pre class="longcode">
+
+<span class="pascal_comment">// Implementação de um modelo no Alvo LCL</span>
+<span class="pascal_keyword">function</span> TDMAlunos.DmxScroller_Form_AlunoGetTemplate(aNext: PSItem): PSItem;
+<span class="pascal_keyword">begin</span>
+  <span class="pascal_keyword">with</span> DmxScroller_Form_Aluno <span class="pascal_keyword">do</span>
+  <span class="pascal_keyword">begin</span>
+    <span class="pascal_comment">// AlignmentLabels:= taCenter;</span>
+    AlignmentLabels := taLeftJustify;
+    <span class="pascal_comment">// AlignmentLabels := taRightJustify ;</span>
+    Result :=
+      NewSItem(<span class="pascal_string">'&tilde;     Matrícula &tilde;\LLLLL'</span>+CharFieldName+<span class="pascal_string">'matricula'</span>+CharAccReadOnly+CharPfInKeyPrimary+CharPfInAutoIncrement,
+      NewSItem(<span class="pascal_string">'&tilde;Nome do aluno: &tilde;\ssssssssssssssssssss`sssssss'</span>+CharFieldName+<span class="pascal_string">'Nome'</span>+CharPfInKey,
+      NewSItem(<span class="pascal_string">''</span>,
+      NewSItem(<span class="pascal_string">'&tilde;     Endereço: &tilde;\ssssssssssssssssssss`sssssssssss'</span>+CharFieldName+<span class="pascal_string">'Endereco'</span>,
+      NewSItem(<span class="pascal_string">'&tilde;P. Referência: &tilde;\ssssssssssssssssssss`sssss'</span>+CharFieldName+<span class="pascal_string">'PontoDeReferencia'</span>,
+      NewSItem(<span class="pascal_string">'&tilde;          Cep: &tilde;\##.###-###'</span>+CharFieldName+<span class="pascal_string">'cep'</span>,
+      NewSItem(<span class="pascal_string">'&tilde;       Estado: &tilde;\SS'</span>+CharFieldName+<span class="pascal_string">'Estado'</span>+CharForeignKeyN_Um_false+<span class="pascal_string">'Estados,Estado'</span>,
+      NewSItem(<span class="pascal_string">'&tilde;       Cidade: &tilde;\ssssssssssssssssssss`sssss'</span>+CharFieldName+<span class="pascal_string">'cidade'</span>+CharForeignKeyN_Um_false+<span class="pascal_string">'Cidades,Estado;Cidade'</span>,
+      NewSItem(<span class="pascal_string">''</span>,
+      aNext)))))))));
+  <span class="pascal_keyword">end</span>;
+<span class="pascal_keyword">end</span>;</pre>
+
+<p></p></li>
+</ul>
+
+<p></p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="LockUpdates"></span><code>procedure <strong>LockUpdates</strong>; virtual;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="UnlockUpdate"></span><code>procedure <strong>UnlockUpdate</strong>; virtual;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="UpdateBuffers_Controls"></span><code>procedure <strong>UpdateBuffers_Controls</strong>; virtual;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="UpdateBuffers"></span><code>procedure <strong>UpdateBuffers</strong>; override;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="DoBeforeSetActiveTarget"></span><code>procedure <strong>DoBeforeSetActiveTarget</strong>; virtual;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+O Método <strong>name</strong> deve checar ser _ScroolingForm lementar</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="DoAddTemplate"></span><code>function <strong>DoAddTemplate</strong>:Boolean; Override;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+O método <strong><code>DoAddTemplate</code></strong> ler o arquivo de extenção tableName.mi_lfm e coloca na string <strong>_Strings</strong> que é capturada em <a class="normal" href="mi_rtl_ui_dmxscroller_form._TDmxScroller_Form.html#GetTemplate">getTemplate</a> se não houver definição de template em tempo de execução.
+
+<p></p>
+
+<ul class="paragraph_spacing">
+  <li><p><strong>OBJETIVO</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Criar formulário baseado em recursos tipo maricarai em arquivo.</p></li>
+  <li><p>Nome do arquivo: TableName.mi_lfm</p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="SetActiveTarget"></span><code>procedure <strong>SetActiveTarget</strong>(aActive: Boolean); virtual;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+A procedure <strong><code>SetActiveTarget</code></strong> seta a propriedade <a class="normal" href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html#Active">active</a> e criar um formulário na plataforma alvo</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="SetActive"></span><code>procedure <strong>SetActive</strong>(aActive : Boolean); override;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+A procedure <strong><code>SetActive</code></strong> seta a propriedade <a class="normal" href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html#Active">active</a> e criar um formulário LCL ou HTML dependendo do tipo de aplicação</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="GetBuffers"></span><code>function <strong>GetBuffers</strong>: Boolean; override;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="PutBuffers"></span><code>function <strong>PutBuffers</strong>: Boolean; override;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Scroll_it_inview"></span><code>procedure <strong>Scroll_it_inview</strong>(AControl: <a href="mi_rtl_ui_dmxscroller_form.html#pDmxFieldRec">pDmxFieldRec</a>); override;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+O método <strong><code>Scroll_it_inview</code></strong> é usado para da o scroller na janela onde esse componente for inserido. </p>
+
+<ul class="paragraph_spacing">
+  <li><p><strong>NOTA</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>A LCL não rola a tela com a tecla tab e o controle não estiver visível.</p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="ShowControlState"></span><code>procedure <strong>ShowControlState</strong>; override;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="RefreshInternal"></span><code>procedure <strong>RefreshInternal</strong>; override;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="isValueDbChanged"></span><code>function <strong>isValueDbChanged</strong>(Sender: TComponent): Boolean; override;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="SetLocked"></span><code>Procedure <strong>SetLocked</strong>(aLocked:Boolean); override;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="Select_First_Field_Normal"></span><code>Procedure <strong>Select_First_Field_Normal</strong>; override;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+O Método <strong><code>Select_First_Field_Normal</code></strong> deve ser implementado na visão para que selecione o primeiro campo que pode ser editado do formulário.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Locate"></span><code>function <strong>Locate</strong>(): TMi_MsgBox.TModalResult; override; overload;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="RewriteFileClients"></span><code>procedure <strong>RewriteFileClients</strong>(aEnClientsApplication:<a href="mi_rtl_ui_Dmxscroller.html#TEnClientsApplication">TEnClientsApplication</a>);</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+O método <strong><code>RewriteFileClients</code></strong> é usuado para criar pasta da aplicação cliente e pasta de seu template.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="BuildCustomerFormFromTemplate"></span><code>procedure <strong>BuildCustomerFormFromTemplate</strong>(); overload;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<h3 class="detail">Propriedades</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><span id="DataSource"></span><code>property <strong>DataSource</strong> ;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="ClientsTemplatesDataModule"></span><code>property <strong>ClientsTemplatesDataModule</strong> : AnsiString
+               read _ClientsTemplatesDataModule write _ClientsTemplatesDataModule;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+A propriedade contém o nome do DataModule usado como modelo para criação de novas aplicações clientes.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="ClientsPathName"></span><code>property <strong>ClientsPathName</strong>[AppType:<a href="mi_rtl_ui_Dmxscroller.html#TEnClientsApplication">TEnClientsApplication</a>]: AnsiString  read GetClientsPathName;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="ClientsTemplatesDataModuleFileName"></span><code>property <strong>ClientsTemplatesDataModuleFileName</strong>[AppType:<a href="mi_rtl_ui_Dmxscroller.html#TEnClientsApplication">TEnClientsApplication</a>]: AnsiString read GetClientsTemplatesDataModuleFileName;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="ClientsTemplatesFormFileName"></span><code>property <strong>ClientsTemplatesFormFileName</strong>[AppType:<a href="mi_rtl_ui_Dmxscroller.html#TEnClientsApplication">TEnClientsApplication</a>]: AnsiString read GetClientsTemplatesFormFileName   ;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="ClientsApplicationsDataModuleFileName"></span><code>property <strong>ClientsApplicationsDataModuleFileName</strong>[AppType:<a href="mi_rtl_ui_Dmxscroller.html#TEnClientsApplication">TEnClientsApplication</a>]: AnsiString read GetClientsApplicationsDataModuleFileName   ;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="ClientsApplicationsFormFileName"></span><code>property <strong>ClientsApplicationsFormFileName</strong>[AppType:<a href="mi_rtl_ui_Dmxscroller.html#TEnClientsApplication">TEnClientsApplication</a>]: AnsiString read GetClientsApplicationsFormFileName   ;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<hr><span class="appinfo"><em>Gerado por <a href="https://pasdoc.github.io/">PasDoc 0.16.0</a>. </em>
+</span>
+</div></div></body></html>

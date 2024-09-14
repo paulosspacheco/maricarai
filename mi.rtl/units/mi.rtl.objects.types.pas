@@ -5,7 +5,7 @@ unit mi.rtl.objects.types;
       - Esta unit foi testada nas plataformas: win32, win64 e linux.
 
     - **VERSÃO**
-      - Alpha - Alpha - 0.9.0
+      - Alpha - 1.0.0
 
     - **CÓDIGO FONTE**:
       - @html(<a href="../units/mi.rtl.objects.types.pas">mi.rtl.objects.types.pas</a>)
@@ -116,11 +116,29 @@ uses
       type TypeData  = Record dia:byte;mes:Byte;ano : byte; End;
       type PTypeData = ^TypeData;
 
+       {: Esse tipo é usado pelo interpretar o tipo TDateTime}
+     public Type TMask = ( Mask_yy_mm_dd,   //00
+                           Mask_yyyy_mm_dd, //01
+                           Mask_dd_mm_yy,   //02
+                           Mask_dd_mm_yyyy, //03
+//                           Mask_mm_yy,      //04
+                           Mask_dd_mm_yyyy_hh_nn, //04
+                           Mask_mm_yyyy,    //05
+                           Mask_dd_mm_yy_hh_nn_ss,   //06
+                           Mask_dd_mm_yy_hh_nn,      //07
+                           Mask_dd_mm_yyyy_hh_nn_ss, //08
+                           Mask_hh_nn ,              //09
+                           Mask_hh_nn_ss,            //10
+                           Mask_hh_nn_ss_zzz,        //11
+                           Mask_Extenco,             //12
+                           Mask_Invalid              //13
+                         );
 
 
      {: - O tipo enumerado @name controla as ações caso o sistema fique ocioso
      }
       Type TOkProcessingTime_Action = (OkProcessingTime_Action_Abort,OkProcessingTime_Action_Password);
+
 
   end;
 

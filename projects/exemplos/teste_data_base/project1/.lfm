@@ -1,0 +1,17 @@
+inherited : T
+  Left = 473
+  Height = 304
+  Top = 209
+  Caption = ''
+  ClientHeight = 304
+  object Memo1: TMemo[0]
+    Left = 0
+    Height = 40
+    Top = 0
+    Width = 320
+    Lines.Strings = (
+      'memo1'
+    )
+    TabOrder = 0
+  end
+end

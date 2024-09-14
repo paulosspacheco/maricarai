@@ -1,0 +1,86 @@
+object DataModule_Exemplo: TDataModule_Exemplo
+  OnCreate = DataModuleCreate
+  OldCreateOrder = False
+  Height = 165
+  HorizontalOffset = 547
+  VerticalOffset = 233
+  Width = 331
+  object ActionList1: TActionList
+    Left = 224
+    Top = 16
+    object CmNewRecord: TAction
+      Category = 'dbCRUD'
+      Caption = '&Novo'
+      OnExecute = CmNewRecordExecute
+    end
+    object CmLocate: TAction
+      Category = 'dbNavigator'
+      Caption = 'Pesquisar'
+      OnExecute = CmLocateExecute
+    end
+    object CmUpdateRecord: TAction
+      Category = 'dbCRUD'
+      Caption = '&Gravar'
+      OnExecute = CmUpdateRecordExecute
+    end
+    object CmDeleteRecord: TAction
+      Category = 'dbCRUD'
+      Caption = '&Excluir'
+      OnExecute = CmDeleteRecordExecute
+    end
+    object CmGoBof: TAction
+      Category = 'dbNavigator'
+      Caption = 'Inicio'
+      OnExecute = CmGoBofExecute
+    end
+    object CmNextRecord: TAction
+      Category = 'dbNavigator'
+      Caption = 'Próximo'
+      OnExecute = CmNextRecordExecute
+    end
+    object CmPrevRecord: TAction
+      Category = 'dbNavigator'
+      Caption = 'Anterior'
+      OnExecute = CmPrevRecordExecute
+    end
+    object CmGoEof: TAction
+      Category = 'dbNavigator'
+      Caption = 'Fim'
+      OnExecute = CmGoEofExecute
+    end
+    object CmRefresh: TAction
+      Category = 'dbNavigator'
+      Caption = 'Atualizar'
+      OnExecute = CmRefreshExecute
+    end
+    object CmCancel: TAction
+      Category = 'dbCRUD'
+      Caption = '&Cancelar'
+      OnExecute = CmCancelExecute
+    end
+    object Action_TestJson: TAction
+      Caption = 'Action_TestJson'
+      OnExecute = Action_TestJsonExecute
+    end
+    object Cm_Pesquisa_em_outra_tabela: TAction
+      Category = 'dbNavigator'
+      Caption = 'Cm_Pesquisa_em_outra_tabela'
+      OnExecute = Cm_Pesquisa_em_outra_tabelaExecute
+    end
+  end
+  object DmxScroller_Form1: TDmxScroller_Form
+    Alias = 'TDmxScroller_Form'
+    Active = False
+    MiDataPacketFormat_Default = dfBinary
+    AlignmentLabels = taRightJustify
+    onCloseQuery = DmxScroller_Form1CloseQuery
+    onGetTemplate = DmxScroller_Form1GetTemplate
+    TableName = 'DataModule_Exemplo'
+    OnCalcFields = DmxScroller_Form1CalcFields
+    Mi_ActionList = ActionList1
+    ShouldSaveTemplate = True
+    ClientsTemplatesDataModule = 'mi.rtl.web.module'
+    Left = 88
+    Top = 16
+  end
+end

@@ -1,0 +1,65 @@
+object form_Exe01: Tform_Exe01
+  Left = 394
+  Height = 510
+  Top = 162
+  Width = 501
+  Caption = 'form_Exe01'
+  ClientHeight = 510
+  ClientWidth = 501
+  Font.Height = -16
+  Font.Name = 'Liberation Mono'
+  OnCreate = FormCreate
+  OnDestroy = FormDestroy
+  LCLVersion = '3.4.0.0'
+  object Panel1: TPanel
+    Left = 0
+    Height = 32
+    Top = 0
+    Width = 489
+    Anchors = [akTop, akLeft, akRight]
+    Caption = 'Exemplo de de uso do componente TMi_lcl_ui_ds_Form'
+    TabOrder = 0
+  end
+  object DBNavigator1: TDBNavigator
+    Left = 8
+    Height = 25
+    Top = 367
+    Width = 241
+    Anchors = [akLeft, akBottom]
+    BevelOuter = bvNone
+    ChildSizing.EnlargeHorizontal = crsScaleChilds
+    ChildSizing.EnlargeVertical = crsScaleChilds
+    ChildSizing.ShrinkHorizontal = crsScaleChilds
+    ChildSizing.ShrinkVertical = crsScaleChilds
+    ChildSizing.Layout = cclLeftToRightThenTopToBottom
+    ChildSizing.ControlsPerLine = 100
+    ClientHeight = 25
+    ClientWidth = 241
+    Options = []
+    TabOrder = 1
+  end
+  object DBGrid1: TDBGrid
+    Left = 8
+    Height = 119
+    Top = 391
+    Width = 489
+    Anchors = [akLeft, akRight, akBottom]
+    Color = clWindow
+    Columns = <>
+    Font.Height = -11
+    Font.Name = 'Liberation Mono'
+    ParentFont = False
+    TabOrder = 2
+  end
+  object Panel2: TPanel
+    Left = 8
+    Height = 312
+    Top = 40
+    Width = 481
+    Anchors = [akTop, akLeft, akRight, akBottom]
+    Caption = 'Panel2'
+    ParentBackground = False
+    ParentColor = False
+    TabOrder = 3
+  end
+end

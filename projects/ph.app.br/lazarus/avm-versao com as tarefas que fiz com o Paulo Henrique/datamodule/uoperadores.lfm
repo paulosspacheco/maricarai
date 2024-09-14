@@ -1,0 +1,46 @@
+object operadores: Toperadores
+  OnCreate = DataModuleCreate
+  OldCreateOrder = False
+  Height = 273
+  HorizontalOffset = 568
+  VerticalOffset = 218
+  Width = 360
+  object DmxScroller_Form1: TDmxScroller_Form
+    Alias = 'TDmxScroller_Form'
+    OnAddTemplate = DmxScroller_Form1AddTemplate
+    Active = False
+    AlignmentLabels = taLeftJustify
+    TableName = 'operadores'
+    Left = 32
+    Top = 32
+  end
+  object ActionList1: TActionList
+    Left = 32
+    Top = 104
+    object Novo: TAction
+      Category = 'operadores'
+      Caption = 'Novo'
+      OnExecute = NovoExecute
+    end
+    object Pesquisar: TAction
+      Category = 'operadores'
+      Caption = 'Pesquisar'
+      OnExecute = PesquisarExecute
+    end
+    object Gravar: TAction
+      Category = 'operadores'
+      Caption = 'Gravar'
+      OnExecute = GravarExecute
+    end
+    object Excluir: TAction
+      Category = 'operadores'
+      Caption = 'Excluir'
+      OnExecute = ExcluirExecute
+    end
+    object Consultar: TAction
+      Category = 'operadores'
+      Caption = 'Consultar'
+      OnExecute = ConsultarExecute
+    end
+  end
+end

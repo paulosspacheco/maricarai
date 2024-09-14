@@ -1,0 +1,65 @@
+#   File generated automatically by Lazarus Package Manager
+#
+#   Makefile.fpc for mi.ui.lcl.form 0.9.0.687
+#
+#   This file was generated on 25-7-24
+
+[package]
+name=mi.ui.lcl.form
+version=0.9.0.687
+
+[compiler]
+unittargetdir=lib/$(CPU_TARGET)-$(OS_TARGET)
+unitdir=. units ../../../../../Área de Trabalho/temp/project1/teste ../../../../Lazarus/lazarus-main/lazarus/packager/units/$(CPU_TARGET)-$(OS_TARGET) ../../../../Lazarus/lazarus-main/lazarus/components/lazdebuggers/lazdebuggerintf/lib/$(CPU_TARGET)-$(OS_TARGET) ../../../../Lazarus/lazarus-main/lazarus/components/lazutils/lib/$(CPU_TARGET)-$(OS_TARGET) ../../../../Lazarus/lazarus-main/lazarus/components/buildintf/units/$(CPU_TARGET)-$(OS_TARGET) ../../../../Lazarus/lazarus-main/lazarus/components/codetools/units/$(CPU_TARGET)-$(OS_TARGET) ../../../../Lazarus/lazarus-main/lazarus/components/debuggerintf/lib/$(CPU_TARGET)-$(OS_TARGET) ../../../../Lazarus/lazarus-main/lazarus/components/freetype/lib/$(CPU_TARGET)-$(OS_TARGET) ../../../../Lazarus/lazarus-main/lazarus/components/lazedit/lib/$(CPU_TARGET)-$(OS_TARGET) ../../../../Lazarus/lazarus-main/lazarus/lcl/units/$(CPU_TARGET)-$(OS_TARGET) ../../../../Lazarus/lazarus-main/lazarus/lcl/units/$(CPU_TARGET)-$(OS_TARGET)/$(LCL_PLATFORM) ../../../../Lazarus/lazarus-main/lazarus/components/lazcontrols/lib/$(CPU_TARGET)-$(OS_TARGET)/$(LCL_PLATFORM) ../../../../Lazarus/lazarus-main/lazarus/components/synedit/units/$(CPU_TARGET)-$(OS_TARGET)/$(LCL_PLATFORM) ../../../../Lazarus/lazarus-main/lazarus/components/ideintf/units/$(CPU_TARGET)-$(OS_TARGET)/$(LCL_PLATFORM) ../../../../Lazarus/lazarus-main/lazarus/components/sqldb/lib/$(CPU_TARGET)-$(OS_TARGET)/$(LCL_PLATFORM) ../mi.rtl/bin/units/$(CPU_TARGET)-$(OS_TARGET)/units
+includedir=units/inc
+options=-MObjFPC -Scghi -O1 -g -gl -l -vewnhibq -dLCL -dLCL$(LCL_PLATFORM) $(DBG_OPTIONS)
+
+[target]
+units=mi.ui.lcl.form.pas
+
+[clean]
+files=$(wildcard $(COMPILER_UNITTARGETDIR)/*$(OEXT)) \
+      $(wildcard $(COMPILER_UNITTARGETDIR)/*$(PPUEXT)) \
+      $(wildcard $(COMPILER_UNITTARGETDIR)/*$(RSTEXT)) \
+      $(wildcard $(COMPILER_UNITTARGETDIR)/*.lfm) \
+      $(wildcard $(COMPILER_UNITTARGETDIR)/*.res) \
+      $(wildcard $(COMPILER_UNITTARGETDIR)/*.compiled) \
+      $(wildcard *$(OEXT)) $(wildcard *$(PPUEXT)) $(wildcard *$(RSTEXT))
+
+[prerules]
+# LCL Platform
+ifndef LCL_PLATFORM
+ifeq ($(OS_TARGET),win32)
+LCL_PLATFORM=win32
+else
+ifeq ($(OS_TARGET),win64)
+LCL_PLATFORM=win32
+else
+ifeq ($(OS_TARGET),darwin)
+LCL_PLATFORM=cocoa
+else
+LCL_PLATFORM=gtk2
+endif
+endif
+endif
+endif
+export LCL_PLATFORM
+
+DBG_OPTIONS=
+ifeq ($(OS_TARGET),darwin)
+DBG_OPTIONS=-gw
+endif
+
+[rules]
+.PHONY: cleartarget compiled all
+
+cleartarget:
+        -$(DEL) $(COMPILER_UNITTARGETDIR)/mi.ui.lcl.form$(PPUEXT)
+
+compiled:
+        $(CPPROG) -f Makefile.compiled $(COMPILER_UNITTARGETDIR)/mi.ui.lcl.form.compiled
+
+all: cleartarget $(COMPILER_UNITTARGETDIR) mi.ui.lcl.form$(PPUEXT) compiled
+
+distclean: clean
+        ${DELTREE} lib/*

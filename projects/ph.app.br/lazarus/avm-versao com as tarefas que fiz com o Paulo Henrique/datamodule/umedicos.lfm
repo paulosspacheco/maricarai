@@ -1,0 +1,40 @@
+object DataModule1: TMedicos
+  OnCreate = DataModuleCreate
+  OldCreateOrder = False
+  Height = 150
+  HorizontalOffset = 886
+  VerticalOffset = 377
+  Width = 326
+  object ActionList1: TActionList
+    Left = 56
+    Top = 56
+    object Novo: TAction
+      Category = 'operadores'
+      Caption = 'Novo'
+    end
+    object Pesquisar: TAction
+      Category = 'operadores'
+      Caption = 'Pesquisar'
+    end
+    object Gravar: TAction
+      Category = 'operadores'
+      Caption = 'Gravar'
+    end
+    object Excluir: TAction
+      Category = 'operadores'
+      Caption = 'Excluir'
+    end
+    object Consultar: TAction
+      Category = 'operadores'
+      Caption = 'Consultar'
+    end
+  end
+  object DmxScroller_Form1: TDmxScroller_Form
+    Alias = 'TDmxScroller_Form'
+    OnAddTemplate = DmxScroller_Form1AddTemplate
+    Active = False
+    AlignmentLabels = taLeftJustify
+    Left = 189
+    Top = 39
+  end
+end

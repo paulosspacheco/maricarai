@@ -1,0 +1,35 @@
+object Tb__Table: TTb__Table
+  OnCreate = DataModuleCreate
+  OldCreateOrder = False
+  Height = 164
+  HorizontalOffset = 600
+  VerticalOffset = 255
+  Width = 308
+  object SQLQuery1: TSQLQuery
+    FileName = 'NomeDatabela'
+    IndexName = 'DEFAULT_ORDER'
+    MaxIndexesCount = 4
+    FieldDefs = <>
+    SQL.Strings = (
+      'select * from NomeDatabela'
+    )
+    Params = <>
+    Macros = <>
+    DataSource = DataSource1
+    Sequence.FieldName = 'id'
+    Left = 240
+    Top = 16
+  end
+  object DataSource1: TDataSource
+    Left = 240
+    Top = 80
+  end
+  object DmxScroller_Form1: TDmxScroller_Form
+    Alias = 'TDmxScroller_Form'
+    DataSource = DataSource1
+    Active = False
+    AlignmentLabels = taLeftJustify
+    Left = 112
+    Top = 48
+  end
+end

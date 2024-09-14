@@ -1,0 +1,24 @@
+inherited dm_create_data_modules: Tdm_create_data_modules
+  OnCreate = DataModuleCreate
+  OnDestroy = DataModuleDestroy
+  inherited Mi_SQLQuery1: TMi_SQLQuery
+    SQL.Strings = (
+      'SELECT'
+      '  cols.column_name,'
+      '  pgd.description AS column_comment'
+      'FROM'
+      '  pg_catalog.pg_statio_all_tables AS st'
+      '  INNER JOIN pg_catalog.pg_description pgd ON (pgd.objoid = st.relid)'
+      '        RIGHT OUTER JOIN information_schema.columns cols ON (pgd.objsubid = cols.ordinal_position'
+      '         AND  cols.table_schema = st.schemaname AND cols.table_name = st.relname)'
+      '       WHERE'
+      '         cols.table_name = ''__dm_xtable__'''
+      '         AND cols.table_schema = public;'
+      ''
+    )
+  end
+  inherited DmxScroller_Form1: TDmxScroller_Form
+    onGetTemplate = DmxScroller_Form1GetTemplate
+    TableName = '___dm_xtable___'
+  end
+end

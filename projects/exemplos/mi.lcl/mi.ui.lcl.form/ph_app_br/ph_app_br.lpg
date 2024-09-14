@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CONFIG>
+  <ProjectGroup FileVersion="2">
+    <Targets>
+      <Target FileName="avm/dm/test_postgresql/TestPostGresSql.lpi">
+        <BuildModes>
+          <Mode Name="Default"/>
+        </BuildModes>
+      </Target>
+      <Target FileName="avm/dm/test_dm.lpi">
+        <BuildModes>
+          <Mode Name="Default"/>
+        </BuildModes>
+      </Target>
+      <Target FileName="../../../../templates/lcl/main_lcl.lpi">
+        <BuildModes>
+          <Mode Name="Default" Compile="True"/>
+          <Mode Name="i386-win32"/>
+        </BuildModes>
+      </Target>
+    </Targets>
+  </ProjectGroup>
+</CONFIG>

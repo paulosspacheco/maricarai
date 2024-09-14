@@ -1,0 +1,93 @@
+inherited form_convenios: Tform_convenios
+  Left = 648
+  Height = 469
+  Top = 306
+  Width = 866
+  Caption = 'form_convenios'
+  ClientHeight = 469
+  ClientWidth = 866
+  inherited Panel1: TPanel
+    Width = 860
+    ClientWidth = 860
+    inherited Label_title: TLabel
+      Height = 24
+      Width = 860
+      Anchors = [akTop, akLeft, akRight]
+    end
+    inherited ToolBar1: TToolBar
+      Height = 36
+      Width = 858
+      inherited BitBtn2: TBitBtn
+        Height = 34
+        Width = 69
+      end
+      inherited BitBtn1: TBitBtn
+        Left = 74
+        Height = 34
+        Width = 101
+      end
+      inherited BitBtn3: TBitBtn
+        Left = 175
+        Height = 34
+        Width = 76
+      end
+      inherited BitBtn7: TBitBtn
+        Left = 251
+        Height = 34
+        Width = 92
+      end
+      inherited BitBtn4: TBitBtn
+        Left = 343
+        Height = 34
+        Width = 75
+      end
+      inherited BitBtn6: TBitBtn
+        Left = 418
+        Height = 34
+        Width = 92
+      end
+      inherited BitBtn5: TBitBtn
+        Left = 510
+        Height = 34
+        Width = 95
+      end
+    end
+  end
+  inherited PageControl1: TPageControl
+    Height = 373
+    Width = 866
+    inherited Lista: TTabSheet
+      ClientHeight = 341
+      ClientWidth = 856
+      inherited DBGrid1: TDBGrid
+        Height = 268
+        Width = 854
+      end
+      inherited DBNavigator1: TDBNavigator
+        Hints.Strings = (        )
+        VisibleButtons = [nbFirst, nbPrior, nbNext, nbLast, nbCancel, nbRefresh]
+      end
+      inherited Panel2: TPanel
+        Width = 860
+        ClientWidth = 860
+        inherited Label1: TLabel
+          Height = 18
+          Width = 96
+        end
+        inherited Edit_Pesquisar: TEdit
+          Height = 35
+        end
+      end
+    end
+    inherited Cadastra: TTabSheet
+      ClientHeight = 341
+      ClientWidth = 856
+      inherited Mi_LCL_Scrollbox1: TMi_LCL_Scrollbox
+        Height = 341
+        Width = 856
+        Font.Name = 'Arial'
+        ParentFont = False
+      end
+    end
+  end
+end

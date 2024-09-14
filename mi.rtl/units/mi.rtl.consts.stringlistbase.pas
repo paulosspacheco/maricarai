@@ -359,10 +359,13 @@ end;
     AddSItem(P,TConsts.ConvertIdioma_Nil,true); { Default deve destruir a lista passada}
   end;
 
-    function TStringListBase.CloneSItems(const Items: TConsts.PSItem
-    ): TConsts.PSItem;
-  var
-    S : TStringListBase;
+  function TStringListBase.CloneSItems(const Items: TConsts.PSItem    ): TConsts.PSItem;
+    var
+      S : TStringListBase;
+      Ds : TDataSource;
+      KeyField   : Ansistring;
+      ListFields : Ansistring;
+      Default : Longint;
   Begin
     S := TStringListBase.Create;
     s.AddSItem(Items);
@@ -381,25 +384,32 @@ end;
     If aTemplate <> ''
     Then with TConsts do
          Case aTemplate[1] of
-
              //<Os Campos abaixo pode ser uma lista de PSItem
-             fldENUM   : Begin
-                           {$ifdef CPU32}
-                               system.Move(ATemplate[2],P1,4);
-                               Result := TConsts.CreateEnumField({ShowZ  } boolean(Byte(aTemplate[6])),
-                                                         {AccMode} Byte(aTemplate[7]),
-                                                         {Default} longint(aTemplate[8]),
-                                                         {AItems}  CloneSItems(P1));
+             fldENUM,
+             fldENUm_db: Begin
 
-                           {$ENDIF}
-                           {$ifdef CPU64}
-                               system.Move(ATemplate[2],P1,4+4);
-                               Result := TConsts.CreateEnumField({ShowZ  } boolean(Byte(aTemplate[6+4])),
-                                                         {AccMode} Byte(aTemplate[7+4]),
-                                                         {Default} Longint(aTemplate[8+4]),
-                                                         {AItems}  CloneSItems(P1));
+                           Move(aTemplate[EnumField_ofs.TypeField],P1,sizeof(pSitem));
 
-                           {$ENDIF}
+                           move(aTemplate[EnumField_ofs.Default],Default,Sizeof(TEnumField.Default));
+
+                           if aTemplate[1] = fldENUM
+                           Then Result := CreateEnumField({ShowZ  } boolean(Byte(aTemplate[EnumField_ofs.ShowZ])),
+                                                          {AccMode} Byte(aTemplate[EnumField_ofs.AccMode]),
+                                                          {Default} Default,
+                                                          {AItems}  CloneSItems(P1))
+                           else begin
+                                  move(aTemplate[EnumField_ofs.DataSource],Ds,Sizeof(TEnumField.DataSource));
+                                  move(aTemplate[EnumField_ofs.KeyField],KeyField,Sizeof(TEnumField.KeyField));
+                                  move(aTemplate[EnumField_ofs.ListField],ListFields,Sizeof(TEnumField.ListField));
+
+                                  Result := CreateEnumField({ShowZ  } boolean(Byte(aTemplate[EnumField_ofs.ShowZ])),
+                                                          {AccMode}   Byte(aTemplate[EnumField_ofs.AccMode]),
+                                                          {Default}   Default,
+                                                          {AItems}    CloneSItems(P1),
+                                                          {DataSource}DS,
+                                                          {KeyField}  KeyField,
+                                                          {ListField} ListFields);
+                                 end;
 
                           if length(aTemplate) > Length(Result)
                           then Begin

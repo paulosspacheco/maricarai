@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="pt-br">
+
+<head>
+  <meta charset="utf-8">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>~title</title>
+  <meta name="createDate" content="~createDate" />
+  <meta name="createDateUpdate" content="~createDateUpdate" />
+  <meta name="description" content="~description" />
+  <meta name="keywords" content="~keywords" />
+
+  <link type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+  <link type="text/css" href="../css/defaulttheme.css" rel="stylesheet" />
+
+  <script type="application/x-javascript" src="../js/generic.js"></script>
+  <script type="application/x-javascript" src="../js/tgeneric.js"></script>
+  <!-- <script type="application/x-javascript" src="../js/tincludehtml.js" defer="defer"></script>  -->
+</head>
+
+<body onmouseover="generic.display()">
+
+
+  <main>
+    <!-- Menu de opções -->
+    <div class="topnav" id="myTopnav">
+      <script type="application/x-javascript" src="../js/menu/index.js"></script>
+
+      <!-- input tag -->
+      <div w3-include-html="../js/search_children.inc"></div>
+    </div>
+
+    <!-- <div w3-include-html="../js/title.inc"></div> -->
+    <div class="title">
+      <script>
+        document.write(document.title);
+      </script>
+    </div>
+
+    <!-- Conteúdo da página <div class="col-12"> -->
+    <div class="col-12">
+      <ol>
+        ~conteudo
+      </ol>      
+      
+        
+  </main>
+
+  <!--<script type="application/x-javascript" src="../js/treeview_xhtml.js"></script> -->
+  <script type="application/x-javascript" src="../js/treeview_xhtml.js"></script>
+
+  <!-- RODAPÉ DA PÁGINA  -->
+  <div class="footer">
+    <div w3-include-html="../js/footer.inc"></div>
+  </div>
+  <!--<script> includeHTML();</script>  -->
+  <script>
+    includeHTML();
+  </script>
+
+
+
+
+</body>
+
+</html>

@@ -1,0 +1,117 @@
+/*
+ <!-- title="Estilo responsivo principal - padrão" -->
+  Theme: Light Green Custom RGB rgb(216, 226, 220) */
+
+
+
+/* pre {
+  border-radius: 5px;
+  overflow: auto hidden;
+  border: 1px solid  black;
+
+  background-color: #282c34;
+   color : #90BF03;
+  overflow-y: auto;
+  overflow-x: auto;
+  max-height: 200px;
+  max-width: 100%;
+  cursor: text;
+  resize: vertical;
+  overflow: auto;
+  padding: 5px; 
+  word-wrap: normal;
+} */
+
+pre {
+  border-radius: 5px;
+  overflow: auto hidden;
+  border: 1px solid  #333;
+  color : #90BF03;
+  
+  background-color:#282c34;
+  max-width: 100%; 
+  max-height: 100%; 
+  overflow-x: auto;
+  
+  /* word-wrap: normal;  */
+}  
+/* A classe pre1 troca a cor de de fundo da tag pre para 
+   ficar claro a tela já que essa classe eu não uso para
+   representar um console do Linux  
+   
+   */
+.pre1 {
+  background-color: #f2f2f2;
+  color: black;
+
+}
+
+blockquote {
+  background-color: #f2f2f2;
+  color: black;
+  border-radius: 15px;
+  overflow: auto hidden;
+  overflow-y: auto;
+  overflow-x: auto;
+  max-height: 200px;
+  max-width: 100%;
+
+  /*font-family: "Courier New",Courier;    */
+
+  resize: vertical;
+  overflow: auto;
+  padding: 15px;
+}
+
+ol {
+  padding-left: 20px;
+  list-style-position: inside;
+
+}
+
+
+/*<!-- inicio title="Implementação de tree view usando css" -->
+<style>*/
+
+/* Treeview-xhtml.cc body {
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+} */
+
+/*     ul,
+    #treeUL {
+      list-style-type: none;
+    }
+
+    #treeUL {
+      margin: 0;
+      padding: 0;
+    }
+*/
+
+
+/* As duas linhas abaixo faz com que o 
+sublinhado do link só apareça se o mouse se posicionar em cima do link*/
+a {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/*tipesearch: 
+  isso fornece algum espaço seguro para caber sempre mesmo em telas muito estreitas */
+.search-input input, .search-button {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+/*tipesearch: */
+.search-form {
+  white-space: nowrap;
+}
+
+/*tipesearch: */
+.search-input input {
+  max-width: 80%;
+}

@@ -1,0 +1,97 @@
+object Mi_lcl_inputbox: TMi_lcl_inputbox
+  Left = 567
+  Height = 392
+  Top = 221
+  Width = 745
+  BorderIcons = [biSystemMenu]
+  Caption = 'Mi_lcl_inputbox'
+  ClientHeight = 392
+  ClientWidth = 745
+  OnClose = FormClose
+  OnCreate = FormCreate
+  OnDestroy = FormDestroy
+  Position = poOwnerFormCenter
+  LCLVersion = '3.4.0.0'
+  object Mi_LCL_Scrollbox1: TMi_LCL_Scrollbox
+    Left = 0
+    Height = 344
+    Top = 0
+    Width = 770
+    Anchors = [akTop, akLeft, akRight, akBottom]
+    AutoScroll = False
+    Font.Height = -16
+    Font.Name = 'Courier New'
+    ParentFont = False
+    TabOrder = 0
+    TabStop = True
+  end
+  object ButtonPanel1: TButtonPanel
+    Left = 6
+    Height = 46
+    Top = 340
+    Width = 733
+    OKButton.Name = 'OKButton'
+    OKButton.DefaultCaption = True
+    HelpButton.Name = 'HelpButton'
+    HelpButton.DefaultCaption = True
+    CloseButton.Name = 'CloseButton'
+    CloseButton.DefaultCaption = True
+    CancelButton.Name = 'CancelButton'
+    CancelButton.DefaultCaption = True
+    TabOrder = 1
+    ShowButtons = [pbOK, pbCancel]
+  end
+  object MI_UI_InputBox1: TMI_UI_InputBox
+    OnFree_form_owner = MI_UI_InputBox1Free_form_owner
+    onInputBox = MI_UI_InputBox1InputBox
+    Left = 128
+    Top = 32
+  end
+  object ActionList1: TActionList
+    Left = 236
+    Top = 44
+    object CmNewRecord: TAction
+      Category = 'dbCRUD'
+      Caption = '&Novo'
+    end
+    object CmLocate: TAction
+      Category = 'dbNavigator'
+      Caption = 'Pesquisar'
+    end
+    object CmUpdateRecord: TAction
+      Category = 'dbCRUD'
+      Caption = '&Gravar'
+    end
+    object CmDeleteRecord: TAction
+      Category = 'dbCRUD'
+      Caption = '&Excluir'
+    end
+    object CmGoBof: TAction
+      Category = 'dbNavigator'
+      Caption = 'Inicio'
+    end
+    object CmNextRecord: TAction
+      Category = 'dbNavigator'
+      Caption = 'Próximo'
+    end
+    object CmPrevRecord: TAction
+      Category = 'dbNavigator'
+      Caption = 'Anterior'
+    end
+    object CmGoEof: TAction
+      Category = 'dbNavigator'
+      Caption = 'Fim'
+    end
+    object CmRefresh: TAction
+      Category = 'dbNavigator'
+      Caption = 'Atualizar'
+    end
+    object CmCancel: TAction
+      Category = 'dbCRUD'
+      Caption = '&Cancelar'
+    end
+    object CmOk: TAction
+      Caption = 'CmOk'
+    end
+  end
+end

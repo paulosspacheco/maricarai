@@ -16,13 +16,13 @@
 </li></ul></div><div class="content">
 <span id="TDmxScroller_Form"></span><h1 class="cio">Classe TDmxScroller_Form</h1>
 <div class="sections">
-<div class="one_section"><a class="section" href="#PasDoc-Description">Descrição</a></div><div class="one_section"><a class="section" href="#PasDoc-Hierarchy">Hierarquia</a></div><div class="one_section">Campos</div><div class="one_section"><a class="section" href="#PasDoc-Methods">Métodos</a></div><div class="one_section"><a class="section" href="#PasDoc-Properties">Propriedades</a></div></div>
+<div class="one_section"><a class="section" href="#PasDoc-Description">Descrição</a></div><div class="one_section"><a class="section" href="#PasDoc-Hierarchy">Hierarquia</a></div><div class="one_section">Campos</div><div class="one_section">Métodos</div><div class="one_section"><a class="section" href="#PasDoc-Properties">Propriedades</a></div></div>
 <span id="PasDoc-Description"></span><h2 class="unit">Unit</h2>
 <p class="unitlink">
 <a href="mi_rtl_ui_dmxscroller_form.html">mi_rtl_ui_dmxscroller_form</a></p>
 <h2 class="declaration">Declaração</h2>
 <p class="declaration">
-<code>type TDmxScroller_Form = class(<a class="normal" href="mi_rtl_ui_dmxscroller_form.TDmxScroller_Form_Atributos.html">TDmxScroller_Form_Atributos</a>)</code></p>
+<code>type TDmxScroller_Form = class(<a class="normal" href="mi_rtl_ui_dmxscroller_form._TDmxScroller_Form.html">_TDmxScroller_Form</a>)</code></p>
 <h2 class="description">Descrição</h2>
 <p>
 A classe <strong><code>TDmxScroller_Form</code></strong> implementa a construção de formulários usando uma lista de Templates do tipo TDmxScroller</p>
@@ -30,51 +30,9 @@ A classe <strong><code>TDmxScroller_Form</code></strong> implementa a construç�
 <ul class="hierarchy"><li class="ancestor">TUiConsts</li>
 <li class="ancestor"><a class="normal" href="mi_rtl_ui_methods.TUiMethods.html">TUiMethods</a></li>
 <li class="ancestor"><a class="normal" href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html">TUiDmxScroller</a></li>
-<li class="ancestor"><a class="normal" href="mi_rtl_ui_dmxscroller_form.TDmxScroller_Form_Atributos.html">TDmxScroller_Form_Atributos</a></li>
+<li class="ancestor"><a class="normal" href="mi_rtl_ui_dmxscroller_form._TDmxScroller_Form_Atributos.html">_TDmxScroller_Form_Atributos</a></li>
+<li class="ancestor"><a class="normal" href="mi_rtl_ui_dmxscroller_form._TDmxScroller_Form.html">_TDmxScroller_Form</a></li>
 <li class="thisitem">TDmxScroller_Form</li></ul><h2 class="overview">Visão Geral</h2>
-<span id="PasDoc-Methods"></span><h3 class="summary">Métodos</h3>
-<table class="summary wide_list">
-<tr class="list">
-<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
-<td class="itemcode"><code>constructor <strong><a href="mi_rtl_ui_dmxscroller_form.TDmxScroller_Form.html#Create">Create</a></strong>(aOwner:TComponent); Override;</code></td>
-</tr>
-<tr class="list2">
-<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
-<td class="itemcode"><code>procedure <strong><a href="mi_rtl_ui_dmxscroller_form.TDmxScroller_Form.html#AfterConstruction">AfterConstruction</a></strong>; override;</code></td>
-</tr>
-<tr class="list">
-<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
-<td class="itemcode"><code>destructor <strong><a href="mi_rtl_ui_dmxscroller_form.TDmxScroller_Form.html#destroy">destroy</a></strong>; override;</code></td>
-</tr>
-<tr class="list2">
-<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
-<td class="itemcode"><code>procedure <strong><a href="mi_rtl_ui_dmxscroller_form.TDmxScroller_Form.html#CreateStruct">CreateStruct</a></strong>(var ATemplate : <a href="mi_rtl_ui_Dmxscroller.html#PSItem">PSItem</a>); override; overload;</code></td>
-</tr>
-<tr class="list">
-<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
-<td class="itemcode"><code>procedure <strong><a href="mi_rtl_ui_dmxscroller_form.TDmxScroller_Form.html#DestroyStruct">DestroyStruct</a></strong>; Override;</code></td>
-</tr>
-<tr class="list2">
-<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
-<td class="itemcode"><code>function <strong><a href="mi_rtl_ui_dmxscroller_form.TDmxScroller_Form.html#GetTemplate">GetTemplate</a></strong>(aNext: <a href="mi_rtl_ui_Dmxscroller.html#PSItem">PSItem</a>) : <a href="mi_rtl_ui_Dmxscroller.html#PSItem">PSItem</a>; overload; override;</code></td>
-</tr>
-<tr class="list">
-<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
-<td class="itemcode"><code>procedure <strong><a href="mi_rtl_ui_dmxscroller_form.TDmxScroller_Form.html#UpdateBuffers_Controls">UpdateBuffers_Controls</a></strong>; virtual;</code></td>
-</tr>
-<tr class="list2">
-<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
-<td class="itemcode"><code>procedure <strong><a href="mi_rtl_ui_dmxscroller_form.TDmxScroller_Form.html#UpdateBuffers">UpdateBuffers</a></strong>; override;</code></td>
-</tr>
-<tr class="list">
-<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
-<td class="itemcode"><code>procedure <strong><a href="mi_rtl_ui_dmxscroller_form.TDmxScroller_Form.html#SetActiveTarget">SetActiveTarget</a></strong>(aActive: Boolean); virtual;</code></td>
-</tr>
-<tr class="list2">
-<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
-<td class="itemcode"><code>procedure <strong><a href="mi_rtl_ui_dmxscroller_form.TDmxScroller_Form.html#SetActive">SetActive</a></strong>(aActive : Boolean); override;</code></td>
-</tr>
-</table>
 <span id="PasDoc-Properties"></span><h3 class="summary">Propriedades</h3>
 <table class="summary wide_list">
 <tr class="list">
@@ -87,7 +45,7 @@ A classe <strong><code>TDmxScroller_Form</code></strong> implementa a construç�
 </tr>
 <tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
-<td class="itemcode"><code>property <strong><a href="mi_rtl_ui_dmxscroller_form.TDmxScroller_Form.html#Strings">Strings</a></strong>;</code></td>
+<td class="itemcode"><code>property <strong><a href="mi_rtl_ui_dmxscroller_form.TDmxScroller_Form.html#AlignmentLabels">AlignmentLabels</a></strong>;</code></td>
 </tr>
 <tr class="list2">
 <td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
@@ -123,155 +81,62 @@ A classe <strong><code>TDmxScroller_Form</code></strong> implementa a construç�
 </tr>
 <tr class="list2">
 <td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
-<td class="itemcode"><code>property <strong><a href="mi_rtl_ui_dmxscroller_form.TDmxScroller_Form.html#Active">Active</a></strong>;</code></td>
+<td class="itemcode"><code>property <strong><a href="mi_rtl_ui_dmxscroller_form.TDmxScroller_Form.html#TableName">TableName</a></strong>;</code></td>
 </tr>
 <tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
-<td class="itemcode"><code>property <strong><a href="mi_rtl_ui_dmxscroller_form.TDmxScroller_Form.html#AlignmentLabels">AlignmentLabels</a></strong>;</code></td>
+<td class="itemcode"><code>property <strong><a href="mi_rtl_ui_dmxscroller_form.TDmxScroller_Form.html#DoOnNewRecord_FillChar">DoOnNewRecord_FillChar</a></strong>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><code>property <strong><a href="mi_rtl_ui_dmxscroller_form.TDmxScroller_Form.html#onBeforeInsert">onBeforeInsert</a></strong>;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><code>property <strong><a href="mi_rtl_ui_dmxscroller_form.TDmxScroller_Form.html#onAfterInsert">onAfterInsert</a></strong>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><code>property <strong><a href="mi_rtl_ui_dmxscroller_form.TDmxScroller_Form.html#onBeforeUpdate">onBeforeUpdate</a></strong>;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><code>property <strong><a href="mi_rtl_ui_dmxscroller_form.TDmxScroller_Form.html#onAfterUpdate">onAfterUpdate</a></strong>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><code>property <strong><a href="mi_rtl_ui_dmxscroller_form.TDmxScroller_Form.html#onBeforeDelete">onBeforeDelete</a></strong>;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><code>property <strong><a href="mi_rtl_ui_dmxscroller_form.TDmxScroller_Form.html#onAfterDelete">onAfterDelete</a></strong>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><code>property <strong><a href="mi_rtl_ui_dmxscroller_form.TDmxScroller_Form.html#OnCalcFields">OnCalcFields</a></strong>;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><code>property <strong><a href="mi_rtl_ui_dmxscroller_form.TDmxScroller_Form.html#OnCalcField">OnCalcField</a></strong>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><code>property <strong><a href="mi_rtl_ui_dmxscroller_form.TDmxScroller_Form.html#OnChangeField">OnChangeField</a></strong>;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><code>property <strong><a href="mi_rtl_ui_dmxscroller_form.TDmxScroller_Form.html#Mi_ActionList">Mi_ActionList</a></strong>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><code>property <strong><a href="mi_rtl_ui_dmxscroller_form.TDmxScroller_Form.html#ShouldSaveTemplate">ShouldSaveTemplate</a></strong>;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><code>property <strong><a href="mi_rtl_ui_dmxscroller_form.TDmxScroller_Form.html#ClientsTemplatesDataModule">ClientsTemplatesDataModule</a></strong>;</code></td>
 </tr>
 </table>
 <h2 class="description">Descrição</h2>
-<h3 class="detail">Métodos</h3>
-<table class="detail wide_list">
-<tr class="list">
-<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
-<td class="itemcode"><span id="Create"></span><code>constructor <strong>Create</strong>(aOwner:TComponent); Override;</code></td>
-</tr>
-<tr><td colspan="2">
-<p>
-Constrói o componente</p>
-</td></tr>
-</table>
-<table class="detail wide_list">
-<tr class="list">
-<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
-<td class="itemcode"><span id="AfterConstruction"></span><code>procedure <strong>AfterConstruction</strong>; override;</code></td>
-</tr>
-<tr><td colspan="2">
-&nbsp;</td></tr>
-</table>
-<table class="detail wide_list">
-<tr class="list">
-<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
-<td class="itemcode"><span id="destroy"></span><code>destructor <strong>destroy</strong>; override;</code></td>
-</tr>
-<tr><td colspan="2">
-<p>
-Destrói o componente</p>
-</td></tr>
-</table>
-<table class="detail wide_list">
-<tr class="list">
-<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
-<td class="itemcode"><span id="CreateStruct"></span><code>procedure <strong>CreateStruct</strong>(var ATemplate : <a href="mi_rtl_ui_Dmxscroller.html#PSItem">PSItem</a>); override; overload;</code></td>
-</tr>
-<tr><td colspan="2">
-<p>
-O método <strong><code>CreateStruct</code></strong> interpreta uma lista de <a class="normal" href="mi_rtl_ui_dmxscroller_form.TDmxScroller_Form.html#Strings">strings</a> do tipo <strong><a class="normal" href="mi_rtl_ui_Dmxscroller.html#PSItem">PSItem</a></strong> e adiciona os layout de cada campo em <a class="normal" href="mi_rtl_ui_dmxscroller_form.html#pDmxFieldRec">pDmxFieldRec</a>, em seguida adiciona <strong><a class="normal" href="mi_rtl_ui_dmxscroller_form.html#pDmxFieldRec">pDmxFieldRec</a></strong> em <strong><a class="normal" href="mi_rtl_ui_dmxscroller_form.TDmxScroller_Form_Atributos.html#DMXFields">DMXFields</a></strong> com todos os campos de formação de formulário visual.</p>
-</td></tr>
-</table>
-<table class="detail wide_list">
-<tr class="list">
-<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
-<td class="itemcode"><span id="DestroyStruct"></span><code>procedure <strong>DestroyStruct</strong>; Override;</code></td>
-</tr>
-<tr><td colspan="2">
-<p>
-O método <strong><code>DestroyStruct</code></strong> destrói os dados criados em <strong><a class="normal" href="mi_rtl_ui_dmxscroller_form.TDmxScroller_Form.html#CreateStruct">CreateStruct</a>()</strong>.</p>
-</td></tr>
-</table>
-<table class="detail wide_list">
-<tr class="list">
-<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
-<td class="itemcode"><span id="GetTemplate"></span><code>function <strong>GetTemplate</strong>(aNext: <a href="mi_rtl_ui_Dmxscroller.html#PSItem">PSItem</a>) : <a href="mi_rtl_ui_Dmxscroller.html#PSItem">PSItem</a>; overload; override;</code></td>
-</tr>
-<tr><td colspan="2">
-<p>
-O método <strong><code>GetTemplate</code></strong> retorna uma lista de <strong><a class="normal" href="mi_rtl_ui_Dmxscroller.html#PSItem">PSItem</a></strong> (Lista de <a class="normal" href="mi_rtl_ui_dmxscroller_form.TDmxScroller_Form.html#Strings">strings</a>) com o modelo usado para criar a tela.
-
-<p></p>
-
-<ul class="paragraph_spacing">
-  <li><p><strong>NOTA</strong> </p>
-
-<ul class="paragraph_spacing">
-  <li><p>O Evento <a class="normal" href="mi_rtl_ui_dmxscroller_form.TDmxScroller_Form.html#onGetTemplate">onGetTemplate</a> só é iniciado em tempo de execução, por isso o formulário não pode ser criado em tempo de desenho do aplicativo.</p></li>
-  <li><p>Caso o evento <a class="normal" href="mi_rtl_ui_dmxscroller_form.TDmxScroller_Form.html#onGetTemplate">onGetTemplate</a> seja nil, então não posso ativar a tela.</p></li>
-  <li><p>Esse método pode ser anulado, caso se queira ignorar o evento <a class="normal" href="mi_rtl_ui_dmxscroller_form.TDmxScroller_Form.html#onGetTemplate">onGetTemplate</a> e definir o Template em uma método pai herdado desta classe.</p></li>
-  <li><p>O modelo cria um formulário usando os tipos de dados primitivos.</p></li>
-</ul>
-
-<p></p></li>
-  <li><p><strong>EXEMPLO</strong>
-
-<p></p>
-
-<pre class="longcode">
-
-<span class="pascal_comment">// Implementação de um modelo no Alvo LCL</span>
-<span class="pascal_keyword">function</span> TDMAlunos.DmxScroller_Form_AlunoGetTemplate(aNext: PSItem): PSItem;
-<span class="pascal_keyword">begin</span>
-  <span class="pascal_keyword">with</span> DmxScroller_Form_Aluno <span class="pascal_keyword">do</span>
-  <span class="pascal_keyword">begin</span>
-    <span class="pascal_comment">// AlignmentLabels:= taCenter;</span>
-    AlignmentLabels := taLeftJustify;
-    <span class="pascal_comment">// AlignmentLabels := taRightJustify ;</span>
-    Result :=
-      NewSItem(<span class="pascal_string">'&tilde;     Matrícula &tilde;\LLLLL'</span>+CharFieldName+<span class="pascal_string">'matricula'</span>+CharAccReadOnly+CharPfInKeyPrimary+CharPfInAutoIncrement,
-      NewSItem(<span class="pascal_string">'&tilde;Nome do aluno: &tilde;\ssssssssssssssssssss`sssssss'</span>+CharFieldName+<span class="pascal_string">'Nome'</span>+CharPfInKey,
-      NewSItem(<span class="pascal_string">''</span>,
-      NewSItem(<span class="pascal_string">'&tilde;     Endereço: &tilde;\ssssssssssssssssssss`sssssssssss'</span>+CharFieldName+<span class="pascal_string">'Endereco'</span>,
-      NewSItem(<span class="pascal_string">'&tilde;P. Referência: &tilde;\ssssssssssssssssssss`sssss'</span>+CharFieldName+<span class="pascal_string">'PontoDeReferencia'</span>,
-      NewSItem(<span class="pascal_string">'&tilde;          Cep: &tilde;\##.###-###'</span>+CharFieldName+<span class="pascal_string">'cep'</span>,
-      NewSItem(<span class="pascal_string">'&tilde;       Estado: &tilde;\SS'</span>+CharFieldName+<span class="pascal_string">'Estado'</span>+CharForeignKeyN_Um_false+<span class="pascal_string">'Estados,Estado'</span>,
-      NewSItem(<span class="pascal_string">'&tilde;       Cidade: &tilde;\ssssssssssssssssssss`sssss'</span>+CharFieldName+<span class="pascal_string">'cidade'</span>+CharForeignKeyN_Um_false+<span class="pascal_string">'Cidades,Estado;Cidade'</span>,
-      NewSItem(<span class="pascal_string">''</span>,
-      aNext)))))))));
-  <span class="pascal_keyword">end</span>;
-<span class="pascal_keyword">end</span>;</pre>
-
-<p></p></li>
-</ul>
-
-<p></p>
-</td></tr>
-</table>
-<table class="detail wide_list">
-<tr class="list">
-<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
-<td class="itemcode"><span id="UpdateBuffers_Controls"></span><code>procedure <strong>UpdateBuffers_Controls</strong>; virtual;</code></td>
-</tr>
-<tr><td colspan="2">
-&nbsp;</td></tr>
-</table>
-<table class="detail wide_list">
-<tr class="list">
-<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
-<td class="itemcode"><span id="UpdateBuffers"></span><code>procedure <strong>UpdateBuffers</strong>; override;</code></td>
-</tr>
-<tr><td colspan="2">
-&nbsp;</td></tr>
-</table>
-<table class="detail wide_list">
-<tr class="list">
-<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
-<td class="itemcode"><span id="SetActiveTarget"></span><code>procedure <strong>SetActiveTarget</strong>(aActive: Boolean); virtual;</code></td>
-</tr>
-<tr><td colspan="2">
-<p>
-A procedure <strong><code>SetActiveTarget</code></strong> seta a propriedade <a class="normal" href="mi_rtl_ui_dmxscroller_form.TDmxScroller_Form.html#Active">active</a> e criar um formulário na plataforma alvo</p>
-</td></tr>
-</table>
-<table class="detail wide_list">
-<tr class="list">
-<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
-<td class="itemcode"><span id="SetActive"></span><code>procedure <strong>SetActive</strong>(aActive : Boolean); override;</code></td>
-</tr>
-<tr><td colspan="2">
-<p>
-A procedure <strong><code>SetActive</code></strong> seta a propriedade <a class="normal" href="mi_rtl_ui_dmxscroller_form.TDmxScroller_Form.html#Active">active</a> e criar um formulário LCL ou HTML dependendo do tipo de aplicação</p>
-</td></tr>
-</table>
 <h3 class="detail">Propriedades</h3>
 <table class="detail wide_list">
 <tr class="list">
@@ -292,7 +157,7 @@ A procedure <strong><code>SetActive</code></strong> seta a propriedade <a class=
 <table class="detail wide_list">
 <tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
-<td class="itemcode"><span id="Strings"></span><code>property <strong>Strings</strong>;</code></td>
+<td class="itemcode"><span id="AlignmentLabels"></span><code>property <strong>AlignmentLabels</strong>;</code></td>
 </tr>
 <tr><td colspan="2">
 &nbsp;</td></tr>
@@ -364,7 +229,7 @@ A procedure <strong><code>SetActive</code></strong> seta a propriedade <a class=
 <table class="detail wide_list">
 <tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
-<td class="itemcode"><span id="Active"></span><code>property <strong>Active</strong>;</code></td>
+<td class="itemcode"><span id="TableName"></span><code>property <strong>TableName</strong>;</code></td>
 </tr>
 <tr><td colspan="2">
 &nbsp;</td></tr>
@@ -372,10 +237,108 @@ A procedure <strong><code>SetActive</code></strong> seta a propriedade <a class=
 <table class="detail wide_list">
 <tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
-<td class="itemcode"><span id="AlignmentLabels"></span><code>property <strong>AlignmentLabels</strong>;</code></td>
+<td class="itemcode"><span id="DoOnNewRecord_FillChar"></span><code>property <strong>DoOnNewRecord_FillChar</strong>;</code></td>
 </tr>
 <tr><td colspan="2">
 &nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><span id="onBeforeInsert"></span><code>property <strong>onBeforeInsert</strong>;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><span id="onAfterInsert"></span><code>property <strong>onAfterInsert</strong>;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><span id="onBeforeUpdate"></span><code>property <strong>onBeforeUpdate</strong>;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><span id="onAfterUpdate"></span><code>property <strong>onAfterUpdate</strong>;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><span id="onBeforeDelete"></span><code>property <strong>onBeforeDelete</strong>;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><span id="onAfterDelete"></span><code>property <strong>onAfterDelete</strong>;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><span id="OnCalcFields"></span><code>property <strong>OnCalcFields</strong>;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><span id="OnCalcField"></span><code>property <strong>OnCalcField</strong>;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><span id="OnChangeField"></span><code>property <strong>OnChangeField</strong>;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><span id="Mi_ActionList"></span><code>property <strong>Mi_ActionList</strong>;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><span id="ShouldSaveTemplate"></span><code>property <strong>ShouldSaveTemplate</strong>;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><span id="ClientsTemplatesDataModule"></span><code>property <strong>ClientsTemplatesDataModule</strong>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+A proprieade <strong><code>ClientsTemplatesDataModule</code></strong> contém o nome do dataModule base a ser usado nos templates para gerar aplicações clientes</p>
+</td></tr>
 </table>
 <hr><span class="appinfo"><em>Gerado por <a href="https://pasdoc.github.io/">PasDoc 0.16.0</a>. </em>
 </span>

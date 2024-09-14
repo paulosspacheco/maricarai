@@ -1,0 +1,93 @@
+object Mi_rtl_WebModule: TMi_rtl_WebModule
+  OnCreate = DataModuleCreate
+  OnDestroy = DataModuleDestroy
+  OldCreateOrder = False
+  Actions = <  
+    item
+      Name = 'locate'
+      Default = False
+      OnRequest = locateRequest
+      Template.AllowTagParams = False
+    end>
+  CreateSession = False
+  CORS.Enabled = False
+  CORS.Options = [coAllowCredentials, coEmptyDomainToOrigin]
+  CORS.AllowedMethods = 'GET, PUT, POST, OPTIONS, HEAD'
+  CORS.AllowedOrigins = '*'
+  CORS.AllowedHeaders = 'x-requested-with, content-type, authorization'
+  CORS.MaxAge = 0
+  Height = 187
+  HorizontalOffset = 618
+  VerticalOffset = 310
+  Width = 329
+  object ActionList1: TActionList
+    Left = 208
+    Top = 16
+    object CmNewRecord: TAction
+      Category = 'dbCRUD'
+      Caption = '&Novo'
+      OnExecute = CmNewRecordExecute
+    end
+    object CmLocate: TAction
+      Category = 'dbNavigator'
+      Caption = 'Pesquisar'
+      OnExecute = CmLocateExecute
+    end
+    object CmUpdateRecord: TAction
+      Category = 'dbCRUD'
+      Caption = '&Gravar'
+      OnExecute = CmUpdateRecordExecute
+    end
+    object CmDeleteRecord: TAction
+      Category = 'dbCRUD'
+      Caption = '&Excluir'
+      OnExecute = CmDeleteRecordExecute
+    end
+    object CmGoBof: TAction
+      Category = 'dbNavigator'
+      Caption = 'Inicio'
+      OnExecute = CmGoBofExecute
+    end
+    object CmNextRecord: TAction
+      Category = 'dbNavigator'
+      Caption = 'Próximo'
+      OnExecute = CmNextRecordExecute
+    end
+    object CmPrevRecord: TAction
+      Category = 'dbNavigator'
+      Caption = 'Anterior'
+      OnExecute = CmPrevRecordExecute
+    end
+    object CmGoEof: TAction
+      Category = 'dbNavigator'
+      Caption = 'Fim'
+      OnExecute = CmGoEofExecute
+    end
+    object CmRefresh: TAction
+      Category = 'dbNavigator'
+      Caption = 'Atualizar'
+      OnExecute = CmRefreshExecute
+    end
+    object CmCancel: TAction
+      Category = 'dbCRUD'
+      Caption = '&Cancelar'
+      OnExecute = CmCancelExecute
+    end
+  end
+  object Mi_SQLQuery1: TMi_SQLQuery
+    FieldDefs = <>
+    Params = <>
+    Macros = <>
+    Left = 136
+    Top = 104
+  end
+  object DmxScroller_Form1: TDmxScroller_Form
+    Alias = 'TDmxScroller_Form'
+    MiDataPacketFormat_Default = dfBinary
+    AlignmentLabels = taLeftJustify
+    Mi_ActionList = ActionList1
+    ShouldSaveTemplate = False
+    Left = 64
+    Top = 24
+  end
+end

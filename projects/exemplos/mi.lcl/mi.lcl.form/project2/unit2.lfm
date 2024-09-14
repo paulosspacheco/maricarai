@@ -1,0 +1,10 @@
+inherited dm_table1: Tdm_table1
+  inherited DmxScroller_Form1: TDmxScroller_Form
+    TableName = 'teste'
+  end
+  inherited ActionList1: TActionList
+    object Action1: TAction[10]
+      Caption = 'Action1'
+    end
+  end
+end

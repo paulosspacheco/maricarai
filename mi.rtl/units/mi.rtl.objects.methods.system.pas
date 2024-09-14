@@ -94,14 +94,16 @@ Implementation
 
             if (error = 0) and ((SomaDad+SomaIx) < DiscoLivre)
             Then Existe_Espaco_em_Dobro := true
-            Else with Mi_MsgBox do Begin
-                   Existe_Espaco_em_Dobro := false;
-                   MessageBox('Disco cheio. Sao Necessário pelo menos: '+
-                              Istr((SomaDad+SomaIx) div 1024,'LLLLLLLLLL')+' KBytes',
-                              mtError,
-                              mbOKButton,
-                              mbok);
-                 end;
+            Else if Assigned(MI_MsgBox)
+                 then with Mi_MsgBox do
+                      Begin
+                         Existe_Espaco_em_Dobro := false;
+                         MessageBox('Disco cheio. Sao Necessário pelo menos: '+
+                                    Istr((SomaDad+SomaIx) div 1024,'LLLLLLLLLL')+' KBytes',
+                                    mtError,
+                                    mbOKButton,
+                                    mbok);
+                      end;
 
     end
     else Result := false;
@@ -189,7 +191,8 @@ Implementation
       TeclaF  := -ord(readKey);
       IF TeclaF = -18{TAltE}   THEN
       BEGIN
-        Mi_MsgBox.InputBox('TEMPO DE ESPERA','Quanto tempo em segundos devo ficar tentando ? ',TempoDeTentativas,'~~\LLLL');
+        TempoDeTentativas := 60000;
+        //Mi_MsgBox.InputBox('TEMPO DE ESPERA','Quanto tempo em segundos devo ficar tentando ? ',TempoDeTentativas,'~~\LLLL');
       END;
     END
   END;

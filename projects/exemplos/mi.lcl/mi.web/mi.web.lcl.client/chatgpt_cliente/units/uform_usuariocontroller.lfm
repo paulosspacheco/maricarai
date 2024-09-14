@@ -1,0 +1,119 @@
+object Form_UsuarioController: TForm_UsuarioController
+  Left = 471
+  Height = 425
+  Top = 120
+  Width = 471
+  Caption = 'Form_UsuarioController'
+  ClientHeight = 425
+  ClientWidth = 471
+  LCLVersion = '3.4.0.0'
+  object ButtonCreate: TButton
+    Left = 16
+    Height = 25
+    Top = 136
+    Width = 64
+    Caption = 'Create'
+    TabOrder = 0
+    OnClick = ButtonCreateClick
+  end
+  object ButtonUpdate: TButton
+    Left = 88
+    Height = 25
+    Top = 136
+    Width = 75
+    Caption = 'Update'
+    TabOrder = 1
+    OnClick = ButtonUpdateClick
+  end
+  object ButtonDelete: TButton
+    Left = 168
+    Height = 25
+    Top = 136
+    Width = 75
+    Caption = 'Delete'
+    TabOrder = 2
+    OnClick = ButtonDeleteClick
+  end
+  object Label_id: TLabel
+    Left = 24
+    Height = 17
+    Top = 48
+    Width = 20
+    Caption = 'Id:  '
+  end
+  object label_login: TLabel
+    Left = 24
+    Height = 17
+    Top = 72
+    Width = 39
+    Caption = 'Login:  '
+  end
+  object Label_nome: TLabel
+    Left = 24
+    Height = 17
+    Top = 104
+    Width = 43
+    Caption = 'Nome:  '
+  end
+  object Edit_id: TEdit
+    Left = 72
+    Height = 25
+    Top = 40
+    Width = 40
+    AutoSize = False
+    TabOrder = 3
+  end
+  object Edit_login: TEdit
+    Left = 72
+    Height = 25
+    Top = 72
+    Width = 130
+    AutoSize = False
+    TabOrder = 4
+  end
+  object Edit_nome: TEdit
+    Left = 72
+    Height = 25
+    Top = 104
+    Width = 200
+    AutoSize = False
+    TabOrder = 5
+  end
+  object ScrollBox1: TScrollBox
+    Left = 8
+    Height = 232
+    Top = 184
+    Width = 456
+    HorzScrollBar.Page = 52
+    VertScrollBar.Page = 17
+    Anchors = [akTop, akLeft, akRight, akBottom]
+    ClientHeight = 230
+    ClientWidth = 454
+    TabOrder = 6
+    object LabelStatus: TLabel
+      Left = 8
+      Height = 17
+      Top = 0
+      Width = 44
+      Caption = 'Status:  '
+    end
+  end
+  object ButtonGet: TButton
+    Left = 248
+    Height = 25
+    Top = 136
+    Width = 75
+    Caption = 'Get'
+    TabOrder = 7
+    OnClick = ButtonGetClick
+  end
+  object Panel1: TPanel
+    Left = 0
+    Height = 24
+    Top = 0
+    Width = 471
+    Align = alTop
+    Caption = 'Teste do tipo TUsuarioController'
+    TabOrder = 8
+  end
+end

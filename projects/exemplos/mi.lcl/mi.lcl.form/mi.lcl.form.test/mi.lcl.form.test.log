@@ -1,0 +1,39 @@
+ [2024-03-15 19:40:27.339 Error] 
+Aplicação.......: mi.lcl.form.test
+Error...........:   Error : Chamada inválida ao método! INFORMAÇÔES TÉCNICAS  Unit.....: mi_rtl_ui_dmxscroller_form  Classe...: TDmxScroller_Form  Método...: Refresh
+
+USUÁRIO LOGADO
+  Filial........: 0
+  Matrícula.....: 1
+  Login.........: 
+  Nome Completo.: 
+ 
+PASTA DO LOG....: /home/paulosspacheco/v/paulosspacheco/LazarusProjects/maricarai_fixe-3.0/projects/exemplos/mi.lcl/mi.lcl.form/project1
+ARQUIVO DE LOG..: mi.lcl.form.test.log
+
+ [2024-03-15 19:40:30.337 Error] 
+Aplicação.......: mi.lcl.form.test
+Error...........:   Error : Chamada inválida ao método! INFORMAÇÔES TÉCNICAS  Unit.....: mi_rtl_ui_dmxscroller_form  Classe...: TDmxScroller_Form  Método...: Refresh
+
+USUÁRIO LOGADO
+  Filial........: 0
+  Matrícula.....: 1
+  Login.........: 
+  Nome Completo.: 
+ 
+PASTA DO LOG....: /home/paulosspacheco/v/paulosspacheco/LazarusProjects/maricarai_fixe-3.0/projects/exemplos/mi.lcl/mi.lcl.form/project1
+ARQUIVO DE LOG..: mi.lcl.form.test.log
+
+ [2024-03-15 19:40:31.691 Error] 
+Aplicação.......: mi.lcl.form.test
+Error...........:   Error : Chamada inválida ao método! INFORMAÇÔES TÉCNICAS  Unit.....: mi_rtl_ui_dmxscroller_form  Classe...: TDmxScroller_Form  Método...: Edit
+
+USUÁRIO LOGADO
+  Filial........: 0
+  Matrícula.....: 1
+  Login.........: 
+  Nome Completo.: 
+ 
+PASTA DO LOG....: /home/paulosspacheco/v/paulosspacheco/LazarusProjects/maricarai_fixe-3.0/projects/exemplos/mi.lcl/mi.lcl.form/project1
+ARQUIVO DE LOG..: mi.lcl.form.test.log
+

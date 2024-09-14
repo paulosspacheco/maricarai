@@ -1,0 +1,25 @@
+object form_default: Tform_default
+  Left = 283
+  Height = 437
+  Hint = 'Hint Form'
+  Top = 123
+  Width = 771
+  Anchors = []
+  Caption = 'form_default'
+  Font.Height = -11
+  Font.Name = 'Tahoma'
+  KeyPreview = True
+  Position = poOwnerFormCenter
+  ShowHint = True
+  LCLVersion = '3.99.0.0'
+  OnClose = FormClose
+  OnCloseQuery = FormCloseQuery
+  OnKeyDown = FormKeyDown
+  OnKeyPress = FormKeyPress
+  OnPaint = FormPaint
+  object ApplicationEvents1: TApplicationProperties
+    OnHint = ApplicationEvents1Hint
+    Left = 48
+    Top = 24
+  end
+end

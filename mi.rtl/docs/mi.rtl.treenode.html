@@ -16,13 +16,13 @@
 </li></ul></div><div class="content">
 <h1 class="unit">Unit mi.rtl.treenode</h1>
 <div class="sections">
-<div class="one_section"><a class="section" href="#PasDoc-Description">Descrição</a></div><div class="one_section"><a class="section" href="#PasDoc-Uses">Uses</a></div><div class="one_section"><a class="section" href="#PasDoc-Classes">Classes, Interfaces, Objetos e Registros</a></div><div class="one_section"><a class="section" href="#PasDoc-FuncsProcs">Funções e Procedimentos</a></div><div class="one_section">Tipos</div><div class="one_section">Constantes</div><div class="one_section">Variáveis</div></div>
+<div class="one_section"><a class="section" href="#PasDoc-Description">Descrição</a></div><div class="one_section"><a class="section" href="#PasDoc-Uses">Uses</a></div><div class="one_section"><a class="section" href="#PasDoc-Classes">Classes, Interfaces, Objetos e Registros</a></div><div class="one_section"><a class="section" href="#PasDoc-FuncsProcs">Funções e Procedimentos</a></div><div class="one_section"><a class="section" href="#PasDoc-Types">Tipos</a></div><div class="one_section">Constantes</div><div class="one_section">Variáveis</div></div>
 <span id="PasDoc-Description"></span><h2 class="description">Descrição</h2>
 <p>
 </p>
 
 <ul class="paragraph_spacing">
-  <li><p>A Unit <strong><code>mi.rtl.treenode</code></strong> implementa a classe <strong><a class="normal" href="mi.rtl.treenode.TTreeNode.html">TTreeNode</a></strong> do pacote <strong><a class="normal" href="mi.rtl.html">mi.rtl</a></strong>.
+  <li><p>A Unit <strong><code>mi.rtl.treenode</code></strong> implementa a classe <strong>TTreeNode</strong> do pacote <strong><a class="normal" href="mi.rtl.html">mi.rtl</a></strong>.
 
 <p></p>
 
@@ -30,14 +30,20 @@
   <li><p><strong>NOTAS</strong> </p>
 
 <ul class="paragraph_spacing">
-  <li><p>Esta unit foi testada nas plataformas: linux.</p></li>
+  <li><p>Este documento descreve a unidade TTreeNode escrita em FreePascal. </p>
+
+<ul class="paragraph_spacing">
+  <li><p>A unidade define uma classe TTreeNode que representa um nó em uma árvore hierárquica.</p></li>
+</ul>
+
+<p></p></li>
 </ul>
 
 <p></p></li>
   <li><p><strong>VERSÃO</strong> </p>
 
 <ul class="paragraph_spacing">
-  <li><p>Alpha - Alpha - 0.9.0</p></li>
+  <li><p>Alpha - 1.0.0</p></li>
 </ul>
 
 <p></p></li>
@@ -47,7 +53,26 @@
   <li><p>Criado por: Paulo Sérgio da Silva Pacheco e-mail: paulosspacheco@yahoo.com.br</p></li>
   <li><p><strong>06/11/2023</strong> - Inicio do projeto unit mi.rtl.treenode.pas</p></li>
   <li><p><strong>07/11/2023</strong> - Fim do projeto unit mi.rtl.treenode.pas</p></li>
-  <li><p><strong>09/11/2023</strong> - Idetifiquei um erro no código html gerado no método TreeToStringListHtml FindNodeWithText</p></li>
+  <li><p><strong>09/11/2023</strong> - Idetifiquei um erro no código html gerado no método TreeToStringListHtml</p></li>
+  <li><p><strong>16/08/2024</strong> - Transformar test1 e test2 em teste(aaListaHtml:Boolesn).</p></li>
+  <li><p><strong>17/08/2024</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Documentar a unit usando como auxilia o Gemini do Google.</p></li>
+  <li><p>Criar método function CompareNodes(const Node1, Node2: TObject): integer;</p></li>
+  <li><p>Criar método function AddChildOrdered</p></li>
+  <li><p>Criar método AddChildAction para criar arvore de menus</p></li>
+  <li><p>Criar objeto <a class="normal" href="mi.rtl.treenode.TPathAction.html">TPathAction</a> para ser usando em AddChildAction</p></li>
+  <li><p>Criar exemplos </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Test_AddChildFileName -</p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p></li>
 </ul>
 
 <p></p></li>
@@ -65,7 +90,7 @@
 
 <p></p>
 <span id="PasDoc-Uses"></span><h2 class="uses">Uses</h2>
-<ul class="useslist"><li>Classes</li><li>SysUtils</li><li>LResources</li></ul><h2 class="overview">Visão Geral</h2>
+<ul class="useslist"><li>Classes</li><li>SysUtils</li><li>LResources</li><li>Contnrs</li><li>ActnList</li></ul><h2 class="overview">Visão Geral</h2>
 <span id="PasDoc-Classes"></span><h3 class="cio">Classes, Interfaces, Objetos e Registros</h3>
 <table class="classestable wide_list">
 <tr class="listheader">
@@ -73,11 +98,19 @@
 <th class="itemdesc">Descrição</th>
 </tr>
 <tr class="list">
-<td class="itemname">Classe&nbsp;<a class="bold" href="mi.rtl.treenode.TTreeNodes.html"><code>TTreeNodes</code></a></td>
+<td class="itemname">Classe&nbsp;<a class="bold" href="mi.rtl.treenode.TMi_rtl_treenode.html"><code>TMi_rtl_treenode</code></a></td>
 <td class="itemdesc">&nbsp;</td>
 </tr>
 <tr class="list2">
-<td class="itemname">Classe&nbsp;<a class="bold" href="mi.rtl.treenode.TTreeNode.html"><code>TTreeNode</code></a></td>
+<td class="itemname">Classe&nbsp;<a class="bold" href="mi.rtl.treenode.TPath.html"><code>TPath</code></a></td>
+<td class="itemdesc">&nbsp;</td>
+</tr>
+<tr class="list">
+<td class="itemname">Classe&nbsp;<a class="bold" href="mi.rtl.treenode.TPathAction.html"><code>TPathAction</code></a></td>
+<td class="itemdesc">&nbsp;</td>
+</tr>
+<tr class="list2">
+<td class="itemname">Classe&nbsp;<a class="bold" href="mi.rtl.treenode.TMi_rtl_treenodeComponent.html"><code>TMi_rtl_treenodeComponent</code></a></td>
 <td class="itemdesc">&nbsp;</td>
 </tr>
 </table>
@@ -85,6 +118,12 @@
 <table class="summary wide_list">
 <tr class="list">
 <td class="itemcode"><code>procedure <strong><a href="mi.rtl.treenode.html#Register">Register</a></strong>;</code></td>
+</tr>
+</table>
+<span id="PasDoc-Types"></span><h3 class="summary">Tipos</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="itemcode"><code><strong><a href="mi.rtl.treenode.html#TCompareNodes">TCompareNodes</a></strong> = function(const Node1, Node2: TObject): integer of object;</code></td>
 </tr>
 </table>
 <h2 class="description">Descrição</h2>
@@ -95,6 +134,16 @@
 </tr>
 <tr><td colspan="1">
 &nbsp;</td></tr>
+</table>
+<h3 class="detail">Tipos</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="TCompareNodes"></span><code><strong>TCompareNodes</strong> = function(const Node1, Node2: TObject): integer of object;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+P tipo <strong><code>TCompareNodes</code></strong> é usado para comparação na ordenação de nós</p>
+</td></tr>
 </table>
 <hr><span class="appinfo"><em>Gerado por <a href="https://pasdoc.github.io/">PasDoc 0.16.0</a>. </em>
 </span>

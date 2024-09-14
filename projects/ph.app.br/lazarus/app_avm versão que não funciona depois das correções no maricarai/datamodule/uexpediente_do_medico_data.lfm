@@ -1,0 +1,44 @@
+inherited expediente_do_medico_data: Texpediente_do_medico_data
+  OnCreate = DataModuleCreate
+  Height = 174
+  HorizontalOffset = 524
+  VerticalOffset = 281
+  Width = 455
+  inherited DmxScroller_Form1: TDmxScroller_Form
+    Alias = 'Cadastro de  expediente_do_medico_data'
+    OnAddTemplate = DmxScroller_Form1AddTemplate
+    onEnter = DmxScroller_Form1Enter
+    TableName = 'expediente_do_medico_data'
+    Top = 24
+  end
+  inherited ActionList1: TActionList
+    Left = 80
+    inherited CmRefresh: TAction
+      Caption = 'CmRefresh'
+    end
+  end
+  inherited Mi_SQLQuery1: TMi_SQLQuery
+    FieldDefs = <    
+      item
+        Name = 'id'
+        DataType = ftInteger
+        Precision = -1
+      end    
+      item
+        Name = 'id_medico'
+        DataType = ftInteger
+        Precision = -1
+      end    
+      item
+        Name = 'datatime'
+        DataType = ftDate
+        Precision = -1
+      end>
+    SQL.Strings = (
+      'select * from expediente_do_medico_data order by id_medico'
+    )
+    Options = [sqoKeepOpenOnCommit, sqoAutoApplyUpdates, sqoAutoCommit, sqoRefreshUsingSelect]
+    Left = 328
+    Top = 16
+  end
+end

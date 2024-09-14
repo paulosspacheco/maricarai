@@ -1,0 +1,71 @@
+^A 
+^A~ ~
+^A~~
+^A~➕ &Novo      ~^TCmNewRecord~✔️ &Gravar   ~^TCmUpdateRecord~🔍 &Pesquisar~^TCmLocate~➖ &Excluir   ~^TCmDeleteRecord~❌ &Cancelar  ~^TcmCancel
+^A~⬅️ P&rimeiro ~^TCmGoBof~➡️ Pró&ximo  ~^TCmNextRecord~⬅️ &Anterior ~^TCmPrevRecord~➡️ Ú&ltimo   ~^TCmGoEof~🔄 A&tualizar~^TCmRefresh
+^A~~
+^A~Status:    ~\ssssssssssssssssssssssssssssssssss`ssssssssssssssssssssssssssssssssssssssssssssssssssssss^Bstatus
+^A~ ~
+^A~Idade:     ~\BB^Bidade^U@^NA idade do aluno. Valores válidos 1 a 64^N0Este campo é necessário para que se agrupe o alunos baseado em sua faixa etária^N1Ele será usado pelo coordenador ao classificar a turma^BIdade~🔍~^TIdade.Cm_Pesquisa_em_outra_tabela
+^A~Valor:     ~\R$ EEE,EEE,EEE,EEE.EE^Bvalor_extended
+^A~Senha:     ~ \sssssssssssssss^W^Bsenha^NCampo alfanumerico com 15 posicoes
+^A~~
+^A~Qt:        ~\IIIII^K5^Bqt
+^A~Preço:     ~\RRR,RRR.zz^S^R^Bpreco^K10
+^A~Total:     ~\RRR,RRR,RRR.ZZ^R^Bvalor_total
+^A 
+^A~Versão :~\##.##.##.####^Bversao
+^A 
+^A~List tools that you use:       
+^A   \X AnsiView                  ^BAnsiView
+^A   \X Blaise                    ^BBlaise
+^A   \X Btrieve                   ^BBtrieve
+^A   \X Paradox Engine            ^BParadox Engine
+^A   \X Topaz                     ^BTopaz
+^A   \X Turbo Pascal for Windows  ^BTurbo Pascal for Windows
+^A   \X TurboPower                ^BTurboPower
+^A 
+^A 
+^A~     Others:~\ssssssssssssssssssssssssssssssssssssssssssss^Boutros1
+^A~            ~\ssssssssssssssssssssssssssssssssssssssssssss^Boutros2
+^A~            ~\ssssssssssssssssssssssssssssssssssssssssssss^Boutros3
+^A~ ~
+^A~Nome do aluno: ~\ssssssssssssssssssssssssssss^BNome
+^A 
+^A~     Endereço: ~\ssssssssssssssssssssssssssss^BEndereco
+^A~          Cep: ~\##.###-###^Bcep
+^A~       Cidade: ~\sssssssssssssssssssssssss^Bcidade
+^A~       Estado: ~\SS^BEstado
+^A 
+^A~~\Ka Indefinido ^Bsexo
+^A~~\Ka Maculino   
+^A~~\Ka Feminino   
+^A 
+^A~~\Kb Casado    ^BEstadoCivil
+^A~~\Kb solteiro  
+^A~~\Kb divorciado
+^A 
+^A~ ~
+^A~TESTE DE DATAS E HORAS~
+^A~ ~
+^A~ Data: dia/mes/ano ~
+^A~    Data_1         ~\Ddd/mm/yy^BData_1
+^A~    Data_2         ~\Ddd/mm/yyyy^BData_2
+^A~ ~
+^A~ Data: ano/mes/dia ~
+^A~    Data_3         ~\Dyy/mm/dd^BData_3
+^A~    Data_4         ~\Dyyyy/mm/dd^BData_4
+^A~ ~
+^A~ Horas: dia/mes/ano ~
+^A~    hora_1         ~\Dhh:nn:ss^Bhora_1
+^A~    hora_2         ~\Dhh:nn^Bhora_2^NCampo hora e minutos
+^A~ ~
+^A~ Data e Horas: dia/mes/ano hora:minutos:segundos~
+^A~    dd/mm/yy hh:nn:ss:   ~\Ddd/mm/yy hh:nn:ss^BDateTime_1
+^A~    dd/mm/yyyy hh:nn:ss: ~\Ddd/mm/yyyy hh:nn:ss^BDateTime_2
+^A 
+^A~ Data e Horas: dia/mes/ano hora:minutos~
+^A~    dd/mm/yy hh:nn:      ~\Ddd/mm/yy hh:nn^BDateTime_3
+^A~    dd/mm/yyyy hh:nn:ss    ~\Ddd/mm/yyyy hh:nn:ss^BDateTime_4
+^A~ ~
+

@@ -20,26 +20,23 @@ uses
     { TUiMethods }
 
     TUiMethods = class(TUiConsts)
-      {: A class function **@name** é usado para encandear Templates do tipo TString}
-      public class function CreateAppendFields(ATemplate: ptString) : DmxIDstr;
 
-      {: A class function **@name** é usado para encandear campos do tipo blob}
-      public class function CreateBlobField(Len: integer; AccMode,Default: byte) : DmxIDstr;
+      //{: A class function **@name** é usado para encandear Templates do tipo enumerado}
+      //public class function CreateEnumField(aShowZ: boolean; aAccMode:Byte;aDefault: LongInt;aItems: PSItem) : TDmxStr_ID;overload;
+      //{: A class function **@name** é usado para encandear Templates do tipo enumerado}
+      //public class function CreateEnumField(ShowZ: boolean; AccMode:Byte;Default: LongInt;AItems: PSItem;
+      //                                     aDataSouce: TDataSource;aKeyField,aListField:AnsiString) : TDmxStr_ID;overload;
 
-      {: A class function **@name** é usado para encandear Templates do tipo enumerado}
-      public class function CreateEnumField(ShowZ: boolean; AccMode,Default: LongInt;AItems: PSItem) : DmxIDstr;
 
-      {: A class function **@name** é usado para encandear Templates do tipo checkbox}
-      public class function CreateCheckBoxField(CharNumberField: AnsiChar;ShowZ: boolean; AccMode,Default: byte;AItems: PSItem) : AnsiString;
 
-      {: A class function **@name** é usado para encandear Templates do tipo PSItem}
-      public class function CreateTSItemFields(ATemplates: PSItem) : DmxIDstr;
+
+
 
       {: A class function **@name** é usado para informar uma lista de opções para o campo.
 
          - **NOTA**
            O campo que pode receber uma lista pode ser de qualquer tipo, exceto os tipos:
-           - FldEnum,FldBoolean e FldRadioButton.
+           - fldENum,fldENum_db,FldBoolean e FldRadioButton.
 
          - **EXEMPLO DE USO**
 
@@ -67,7 +64,7 @@ uses
             ```
 
       }
-      public class function CreateOptions(Default: LongInt;AItems: PSItem) : DmxIDstr;
+//      public class function CreateOptions(access:byte;AItems: PSItem) : TDmxStr_ID;
 
       public class Function GetMaxTViRect : TViRect;
       public class Function AnsiString_to_TCollectionString(Msg: AnsiString): TCollectionString;
@@ -78,7 +75,7 @@ uses
 
       {: O método **@name** verifica se o componente fornecido tem uma relação com
          **db** e seu conteúdo foi alterado}
-      public class function isValueDbChanged(Sender: TComponent): Boolean;virtual;
+      public function isValueDbChanged(Sender: TComponent): Boolean;virtual;
 
 
       {: O método **@name** retorna o mapa de bits da posição aBit. Ou seja:
@@ -99,126 +96,6 @@ uses
 
 
 implementation
-
-  class function TUiMethods.CreateAppendFields(ATemplate: ptString) : DmxIDstr; 
-     var  S : DmxIDstr;
-  begin
-    {$IFDEF CPU32}
-      //Length(Result) = 8 bytes
-       S := fldAPPEND + #0#0#0#0#0#0#0;
-       Move(ATemplate, S[2], 4);
-    {$ENDIF}
-
-    {$IFDEF CPU64}
-      //Length(Result) = 8+4=13 bytes
-      S := fldAPPEND + #0#0#0#0#0#0#0#0#0#0#0;
-      Move(ATemplate, S[2], 8);
-    {$ENDIF}
-    result := S;
-  end;
-
-  class function TUiMethods.CreateBlobField(Len: integer; AccMode,Default: byte) : DmxIDstr;
-    var  S : DmxIDstr;
-  begin
-    {$IFDEF CPU32}
-        //Length(Result) = 7 bytes
-        S := fldBLOb + #0#0#0#0#0 + chr(AccMode) + chr(Default);
-        Move(Len, S[2], sizeof(Len));
-    {$ENDIF}
-
-    {$IFDEF CPU64}    //8 bytes para um ponteiro com os dados do campo memo por ser um stringlist.
-       //Length(Result) = 7 bytes    
-       S := fldBLOb + #0#0#0#0#0#0#0#0#0 + chr(AccMode) + chr(Default);
-       Move(Len, S[2], sizeof(Len));
-    {$ENDIF}
-    result := S;
-  end;
-
-  class function  TUiMethods.CreateEnumField(ShowZ: boolean; AccMode,Default: LongInt;AItems: PSItem) : DmxIDstr;
-  begin
-    {$IFDEF CPU32}
-      //Length(result) = 11   
-//       Result := fldENUM + #0#0#0#0 + AnsiChar(ShowZ) + chr(AccMode) + IntToStr(Default);
-       Result := fldENUM + #0#0#0#0 + AnsiChar(ShowZ) + chr(AccMode) + #0#0#0#0;;
-       Move(AItems, Result[2], 4);
-    {$ENDIF}
-    {$IFDEF CPU64}
-       //Length(result) = 15
-//       Result := fldENum + #0#0#0#0#0#0#0#0 + AnsiChar(ShowZ) + chr(AccMode) + IntToStr(Default);
-       Result := fldENum + #0#0#0#0#0#0#0#0 + AnsiChar(ShowZ) + chr(AccMode) + #0#0#0#0;
-       Move(AItems, Result[2], 8);
-       Move(Default, Result[12], 4);
-    {$ENDIF}
-  end;
-
-  class function TUiMethods.CreateCheckBoxField(CharNumberField: AnsiChar;ShowZ: boolean; AccMode,Default: byte;AItems: PSItem) : AnsiString;
-     {
-       AItems deve retorna um templete com o seguinte formato:
-
-       fldCheckBox + #0#0#0#0 + AnsiChar(ShowZ) + chr(AccMode) + chr(Default) +
-        \[KA] ~Usuário auxiliar                ~'^R+#0
-        \[KA] ~Usuário lider                   ~'^R+#0
-        \[KA] ~Operador do sistema             ~'^R+#0
-        \[KA] ~Operador do sistema: modo ajuste~'^R+#0
-        \[KA] ~Usuário diretor                 ~'^R+#0
-     }
-
-    Var
-      P : PSItem;
-//      S : AnsiString;
-  begin
-    {Formata a lista aItems com o modelo acima }
-    P := AItems;
-
-    result := '';
-    while P <> nil do
-    Begin
-
-      result := result + '\[K'+CharNumberField+ '] ~' + P.Value^+ '~' + char(AccMode);
-
-  //    NNewStr(P.Value,S);
-      P := P.Next;
-    end;
-
-    DisposeSItems(P);
-  end;
-
-  class function TUiMethods.CreateTSItemFields(ATemplates: PSItem) : DmxIDstr;
-  begin
-    {$IFDEF CPU32}
-      //Length(result)=5
-      Result := fldSItems + #0#0#0#0;//#0#0#0;
-      Move(ATemplates, Result[2], 4);
-    {$ENDIF}
-    {$IFDEF CPU64}
-     //Length(result)=9
-      Result := fldSItems + #0#0#0#0#0#0#0#0;//#0#0#0;
-      Move(ATemplates, Result[2], 4+4);
-
-    {$ENDIF}
-
-   // Result := S;
-  end;
-
-  class function TUiMethods.CreateOptions(Default: LongInt; AItems: PSItem): DmxIDstr;
-  begin
-    {$IFDEF CPU32}
-      //Length(Result) = 9
-       Result := CharListComboBox + #0#0#0#0 + #0#0#0#0;
-      //Move o poneiro de SItem para a posição 2
-       Move(AItems, Result[2], 4);
-       //Move o poneiro de default para a posição 6
-       Move(Default, Result[6], sizeof(Default));
-    {$ENDIF}
-    {$IFDEF CPU64}
-       //Length(Result) = 13
-       Result := CharListComboBox + #0#0#0#0#0#0#0#0 + #0#0#0#0;
-       //Move o poneiro de SItem para a posição 2
-       Move(AItems, Result[2], 8);
-       //Move o poneiro de default para a posição 10
-       Move(Default, Result[10], sizeof(Default));
-    {$ENDIF}
-  end;
 
 
   class function TUiMethods.GetMaxTViRect: TViRect;
@@ -395,7 +272,7 @@ implementation
   end;
 
   //Verifica se o componente fornecido possui uma relação db e se o conteúdo foi alterado
-  class function TUiMethods.isValueDbChanged(Sender: TComponent): Boolean;
+  function TUiMethods.isValueDbChanged(Sender: TComponent): Boolean;
   begin
     result := false;
   end;

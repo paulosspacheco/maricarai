@@ -1,0 +1,53 @@
+inherited form_xtable: Tform_xtable
+  Left = 280
+  Height = 433
+  Top = 125
+  Width = 773
+  Caption = 'form_xtable'
+  ClientHeight = 433
+  ClientWidth = 773
+  inherited Panel1: TPanel
+    Width = 767
+  end
+  inherited PageControl1: TPageControl
+    Height = 385
+    Width = 773
+    inherited Lista: TTabSheet
+      ClientHeight = 353
+      ClientWidth = 763
+      inherited DBGrid1: TDBGrid
+        Height = 268
+        Width = 761
+      end
+      inherited DBNavigator1: TDBNavigator
+        Hints.Strings = (        )
+      end
+      inherited Panel2: TPanel
+        Width = 767
+        ClientWidth = 767
+      end
+    end
+    inherited Cadastra: TTabSheet
+      ClientHeight = 353
+      ClientWidth = 763
+      inherited Mi_LCL_Scrollbox1: TMi_LCL_Scrollbox
+        Height = 353
+        Width = 763
+        Font.Name = 'Arial'
+        ParentFont = False
+      end
+    end
+  end
+  inherited ApplicationEvents1: TApplicationProperties
+    Left = 608
+    Top = 80
+  end
+  inherited OpenDialog: TOpenDialog
+    Left = 691
+    Top = 59
+  end
+  inherited SaveDialog: TSaveDialog
+    Left = 747
+    Top = 59
+  end
+end

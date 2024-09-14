@@ -1,0 +1,52 @@
+object Form2: TForm2
+  Left = 359
+  Height = 240
+  Top = 227
+  Width = 536
+  Caption = 'Form2'
+  ClientHeight = 240
+  ClientWidth = 536
+  OnCreate = FormCreate
+  OnDestroy = FormDestroy
+  object Panel1: TPanel
+    Left = 4
+    Height = 24
+    Hint = 'Este formulário é um teste de edição sem usar os componentes dataware do lazarus.'
+    Top = 0
+    Width = 528
+    Anchors = [akTop, akLeft, akRight]
+    Caption = 'TMi_rtl_WebModule_Custom - Exemplo da unit TMi_lcl_Form'
+    ParentShowHint = False
+    ShowHint = True
+    TabOrder = 0
+  end
+  object Label1: TLabel
+    Left = 0
+    Height = 24
+    Top = 32
+    Width = 568
+    Alignment = taCenter
+    Anchors = [akTop, akLeft, akRight]
+    AutoSize = False
+    Caption = 'Este formulário é um teste de edição sem usar os componentes dataware do lazarus.'
+    WordWrap = True
+  end
+  object Mi_LCL_Scrollbox1: TMi_LCL_Scrollbox
+    Left = 0
+    Height = 176
+    Top = 64
+    Width = 532
+    Anchors = [akTop, akLeft, akRight, akBottom]
+    AutoScroll = False
+    TabOrder = 1
+    TabStop = True
+  end
+  object Mi_lcl_ui_Form1: TMi_lcl_ui_Form
+    Alias = 'TMi_rtl_ui_Form_abstract'
+    DmxScroller_Form = DataModule1.DmxScroller_Form1
+    Active = False
+    ParentLCL = Mi_LCL_Scrollbox1
+    Left = 168
+    Top = 88
+  end
+end

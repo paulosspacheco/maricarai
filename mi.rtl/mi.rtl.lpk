@@ -8,16 +8,30 @@
       <Version Value="11"/>
       <SearchPaths>
         <IncludeFiles Value="$(ProjOutDir);units/inc/linux;units/inc/windows;units;units/fcl-base/src"/>
-        <Libraries Value="lib/$(TargetCPU)-$(TargetOS)/lib"/>
-        <OtherUnitFiles Value="units;units/fcl-base/src"/>
-        <UnitOutputDirectory Value="lib/$(TargetCPU)-$(TargetOS)/units"/>
+        <Libraries Value="bin/$(TargetCPU)/$(TargetOS)/lib"/>
+        <OtherUnitFiles Value="units;units/fcl-base/src;units/img"/>
+        <UnitOutputDirectory Value="bin/$(TargetCPU)/$(TargetOS)/units"/>
       </SearchPaths>
       <Parsing>
         <SyntaxOptions>
           <SyntaxMode Value="Delphi"/>
+          <IncludeAssertionCode Value="True"/>
         </SyntaxOptions>
       </Parsing>
+      <CodeGeneration>
+        <Checks>
+          <IOChecks Value="True"/>
+          <RangeChecks Value="True"/>
+          <OverflowChecks Value="True"/>
+          <StackChecks Value="True"/>
+        </Checks>
+        <VerifyObjMethodCallValidity Value="True"/>
+      </CodeGeneration>
       <Other>
+        <CustomOptions Value="-dFPC_DOTTEDUNITS"/>
+        <OtherDefines Count="1">
+          <Define0 Value="FPC_DOTTEDUNITS"/>
+        </OtherDefines>
         <CreateMakefileOnBuild Value="True"/>
       </Other>
     </CompilerOptions>
@@ -64,6 +78,11 @@ A permissão é concedida, gratuitamente, a qualquer pessoa que obtenha uma cóp
         <UnitName Value="mi.rtl.treenode"/>
       </Item>
       <Item>
+        <Filename Value="units/mi_sqlquery.pas"/>
+        <HasRegisterProc Value="True"/>
+        <UnitName Value="Mi_SQLQuery"/>
+      </Item>
+      <Item>
         <Filename Value="units/fcl-base/src/fptemplate.md"/>
         <Type Value="Text"/>
       </Item>
@@ -100,6 +119,10 @@ A permissão é concedida, gratuitamente, a qualquer pessoa que obtenha uma cóp
         <UnitName Value="mi.rtl.Consts"/>
       </Item>
       <Item>
+        <Filename Value="units/mi.rtl.consts.transaction.pas"/>
+        <UnitName Value="mi.rtl.Consts.transaction"/>
+      </Item>
+      <Item>
         <Filename Value="units/mi.rtl.files.pas"/>
         <UnitName Value="mi.rtl.files"/>
       </Item>
@@ -126,7 +149,6 @@ A permissão é concedida, gratuitamente, a qualquer pessoa que obtenha uma cóp
       </Item>
       <Item>
         <Filename Value="units/mi.rtl.objects.consts.progressdlg_if.pas"/>
-        <HasRegisterProc Value="True"/>
         <UnitName Value="mi.rtl.Objects.Consts.ProgressDlg_If"/>
       </Item>
       <Item>
@@ -136,6 +158,10 @@ A permissão é concedida, gratuitamente, a qualquer pessoa que obtenha uma cóp
       <Item>
         <Filename Value="units/mi.rtl.objects.methods.dates.pas"/>
         <UnitName Value="mi.rtl.objects.Methods.dates"/>
+      </Item>
+      <Item>
+        <Filename Value="units/mi.rtl.objects.methods.html.tags.pas"/>
+        <UnitName Value="mi.rtl.objects.methods.html.tags"/>
       </Item>
       <Item>
         <Filename Value="units/mi.rtl.objects.methods.exception.pas"/>
@@ -216,7 +242,6 @@ A permissão é concedida, gratuitamente, a qualquer pessoa que obtenha uma cóp
       </Item>
       <Item>
         <Filename Value="units/mi.rtl.objectss.pas"/>
-        <HasRegisterProc Value="True"/>
         <UnitName Value="mi.rtl.Objectss"/>
       </Item>
       <Item>
@@ -232,16 +257,21 @@ A permissão é concedida, gratuitamente, a qualquer pessoa que obtenha uma cóp
         <UnitName Value="mi_rtl_ui_methods"/>
       </Item>
       <Item>
+        <Filename Value="units/mi_rtl_ui_dmxscroller.pas"/>
+        <UnitName Value="mi_rtl_ui_Dmxscroller"/>
+      </Item>
+      <Item>
+        <Filename Value="units/mi_rtl_ui_dmxscroller_form.pas"/>
+        <HasRegisterProc Value="True"/>
+        <UnitName Value="mi_rtl_ui_dmxscroller_form"/>
+      </Item>
+      <Item>
         <Filename Value="units/mi_rtl_ui_dmxscroller_buttons.pas"/>
         <UnitName Value="mi_rtl_ui_DmxScroller_Buttons"/>
       </Item>
       <Item>
         <Filename Value="units/mi_rtl_ui_dmxscroller_consts_inc.pas"/>
         <Type Value="Include"/>
-      </Item>
-      <Item>
-        <Filename Value="units/mi_rtl_ui_dmxscroller.pas"/>
-        <UnitName Value="mi_rtl_ui_Dmxscroller"/>
       </Item>
       <Item>
         <Filename Value="units/mi_rtl_ui_dmxscroller_historico.md"/>
@@ -269,11 +299,6 @@ A permissão é concedida, gratuitamente, a qualquer pessoa que obtenha uma cóp
         <UnitName Value="mi.rtl.ui.dmxscroller.inputbox"/>
       </Item>
       <Item>
-        <Filename Value="units/mi_rtl_ui_dmxscroller_form.pas"/>
-        <HasRegisterProc Value="True"/>
-        <UnitName Value="mi_rtl_ui_dmxscroller_form"/>
-      </Item>
-      <Item>
         <Filename Value="units/mi_rtl_ui_dmxscroller_form_historico.md"/>
         <Type Value="Text"/>
       </Item>
@@ -283,10 +308,22 @@ A permissão é concedida, gratuitamente, a qualquer pessoa que obtenha uma cóp
       </Item>
       <Item>
         <Filename Value="units/mi.rtl.all.pas"/>
+        <HasRegisterProc Value="True"/>
         <UnitName Value="mi.rtl.all"/>
+      </Item>
+      <Item>
+        <Filename Value="units/umiconnectionsdb.pas"/>
+        <UnitName Value="uMiConnectionsDb"/>
+      </Item>
+      <Item>
+        <Filename Value="units/umidatamodule.pas"/>
+        <UnitName Value="uMiDataModule"/>
       </Item>
     </Files>
     <RequiredPkgs>
+      <Item>
+        <PackageName Value="SQLDBLaz"/>
+      </Item>
       <Item>
         <PackageName Value="LCL"/>
       </Item>

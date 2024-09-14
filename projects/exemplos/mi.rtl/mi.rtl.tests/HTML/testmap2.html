@@ -1,0 +1,64 @@
+Tenta isso <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerador de Código de Mapa</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<bodY>
+    <div class="container mt-5">
+        <h1>Gerador de Código de Mapa</h1>
+        
+        <form id="mapGeneratorForm">
+            <div class="form-group">
+                <label for="shape">Tipo de Forma:</label>
+                <select class="form-control" id="shape" name="shape">
+                    <option value="rect">Retangular</option>
+                    <option value="circle">Circular</option>
+                    <option value="poly">Poligonal</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="coords">Coordenadas (separadas por vírgula):</label>
+                <input type="text" class="form-control" id="coords" name="coords" placeholder="Exemplo: 50,50,150,150">
+            </div>
+            <div class="form-group">
+                <label for="href">URL de Destino:</label>
+                <input type="text" class="form-control" id="href" name="href" placeholder="Exemplo: https://exemplo.com">
+            </div>
+            <button type="button" class="btn btn-primary" onclick="gerarCodigo()">Gerar Código</button>
+        </form>
+
+        <hr>
+
+        <h2>Código HTML Gerado:</h2>
+        <pre id="codigoGerado"></pre>
+    </div>
+
+    <script>
+    function gerarCodigo() {
+        const form = document.getElementById("mapGeneratorForm");
+        const shape = form.elements["shape"].value;
+        const coords = form.elements["coords"].value;
+        const href = form.elements["href"].value;
+
+        const codigoGerado = <area shape="${shape}" coords="${coords}" href="${href}" alt="Área mapeada">;
+
+        // Copia o código gerado para a área de transferência
+        const textarea = document.createElement("textarea");
+        textarea.value = codigoGerado;
+        document.body.appendChild(textarea);
+        textarea.select();
+        document.execCommand("copy");
+        document.body.removeChild(textarea);
+
+        // Exibe uma mensagem informando que o código foi copiado
+        alert("Código copiado para a área de transferência!");
+
+        document.getElementById("codigoGerado").textContent = codigoGerado;
+    }
+</script>
+
+ </body>
+</html>

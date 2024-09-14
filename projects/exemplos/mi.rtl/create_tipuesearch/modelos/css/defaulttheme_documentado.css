@@ -1,0 +1,733 @@
+/*
+ <!-- title="Estilo responsivo principal - padrão" -->
+  Theme: Light Green Custom RGB rgb(216, 226, 220) */
+
+
+/* - A classe **@name**  define a propriedade scroll-behavior para o elemento <html>. Vamos 
+     explicar o que isso faz:
+     - Essa técnica é frequentemente usada para melhorar a experiência do usuário, proporcionando 
+       uma transição suave entre as seções de uma página web, em vez de um salto abrupto. Isso é 
+       particularmente útil em páginas longas, onde a navegação interna é facilitada pela rolagem 
+       suave para as diferentes seções da página. */  
+html {
+  /* - A propriedade **#name** controla como o scroll (rolagem) é animado. Quando scroll-behavior é 
+       definido como smooth, o navegador rolará suavemente até o destino ao qual um link de ancoragem 
+       aponta. Em outras palavras, quando você clicar em um link de âncora que leva a uma seção 
+       diferente da mesma página, a rolagem será suavizada e animada em vez de ser instantânea. */
+  scroll-behavior: smooth;
+  /* scroll lento*/
+}
+
+/* - A classe **@name** aplica estilos ao elemento body (corpo) da página HTML. */
+body {
+  /* - A propriedade **#name** remove as margens padrão do corpo. Os navegadores geralmente aplicam 
+       margens padrão ao corpo, e esse estilo está definindo essas margens para zero. Isso é útil para 
+       garantir que não haja espaçamento indesejado ao redor do corpo da página.*/  
+  margin: 0;
+
+  /* - A propriedade **@name** define a família de fontes para o corpo da página como Arial. Isso significa 
+       que o texto no corpo da página será exibido usando a fonte Arial, se estiver disponível no sistema 
+       do usuário. Isso é uma escolha de estilo de fonte e pode ser ajustado conforme desejado. */  
+  font-family: Arial
+}
+
+/* - A classe **@name** estiliza uma barra de navegação (topnav) ocultando qualquer conteúdo que 
+     ultrapasse suas dimensões e definindo sua cor de fundo como um tom escuro de cinza (#333). 
+     Essa abordagem é comum para criar barras de navegação simples e estilizadas em páginas web.*/
+.topnav {
+  /* - A propriedade **#name** é usada para lidar com o conteúdo que excede as dimensões 
+       do contêiner. Neste caso, overflow: hidden; é aplicado à classe .topnav, o que significa que 
+       qualquer conteúdo que ultrapasse as dimensões do contêiner será ocultado.*/  
+  overflow: hidden;
+
+  /* - A propriedade **#name** define a cor de fundo da classe **.topnav** como #333, que é um  
+       tom escuro de cinza. Isso define a cor de fundo da barra de navegação (nav) ou menu superior.:} */
+  background-color: #333;
+}
+
+/* - O código **@name**- estiliza os links (<a>) que estão dentro de elementos com a classe .topnav. 
+   - Essas regras estilizam os links dentro da barra de navegação, proporcionando uma aparência 
+     consistente e atraente aos itens do menu.
+*/
+.topnav a {
+    
+  /* - A propriedade **@name** define os links para flutuar à esquerda. Isso é comum em barras de navegação horizontais, 
+       onde os itens de menu ficam alinhados horizontalmente.*/  
+  float: left;
+
+  /* - A propriedade **@name** faz com que os links se comportem como blocos, ocupando toda a largura 
+       disponível dentro de seus contêineres. Isso é comum para garantir que a área clicável abranja 
+       todo o espaço do item de menu.*/
+  display: block;
+
+  /* - A propriedade **@name** define a cor do texto dos links como uma tonalidade de cinza claro.*/
+  color: #f2f2f2;
+
+  /* - A propriedade **@name** centraliza o texto dos links horizontalmente dentro de seus contêineres. */
+  text-align: center;
+
+  /* - A propriedade **@name** adiciona preenchimento interno (espaço interno) aos links. O primeiro 
+       valor (4px) se refere ao preenchimento superior e inferior, enquanto o segundo valor (4px) se 
+       refere ao preenchimento esquerdo e direito.  */
+  padding: 4px 4px;
+
+  /* - A propriedade **@name** remove a decoração de texto padrão dos links, como sublinhado. */
+  text-decoration: none;
+
+  /* - A propriedade **@name** define o tamanho da fonte dos links como 17 pixels. */
+  font-size: 17px;
+}
+
+/*
+.active {
+  background-color: #4CAF50;
+  color: white; 
+}*/
+
+/* - A classe **@name** está estilizando um elemento com a classe .icon que está contido dentro de um 
+     elemento com a classe .topnav.*/
+.topnav .icon {
+
+  /* - A propriedade **@name** define que qualquer elemento com a classe .icon dentro de um elemento 
+       com a classe .topnav não será exibido na página. A propriedade display: none; é comumente usada 
+       para ocultar elementos no layout da página. Isso pode ser útil, por exemplo, se você desejar 
+       esconder um ícone ou elemento específico em determinadas condições ou tamanhos de tela. */  
+  display: none;
+}
+
+/* - O código **@name** está estilizando um elemento com a classe .dropdown.  
+   - Em resumo, essas regras são comuns em implementações de menus dropdown, onde o elemento 
+     com a classe .dropdown é configurado para flutuar à esquerda, colocando-o ao lado dos outros 
+     elementos, e a propriedade overflow: hidden; pode ser usada para evitar que problemas de 
+     layout ocorram devido ao uso de floats. 
+*/
+.dropdown {
+  /* - A propriedade **@name** define que o elemento com a classe .dropdown deve flutuar à esquerda. 
+      Flutuar à esquerda é comumente usado para criar layouts em linha, onde os elementos ficam ao 
+      lado uns dos outros horizontalmente. */  
+  float: left;
+
+  /* - A propriedade **@name** é usada para lidar com o conteúdo que excede as dimensões do contêiner. 
+       Neste caso, overflow: hidden; é aplicado ao elemento com a classe .dropdown, o que significa 
+       que qualquer conteúdo que ultrapasse as dimensões do contêiner será ocultado. Essa propriedade 
+       é frequentemente usada em conjunto com o uso de floats para evitar problemas de layout.*/
+  overflow: hidden;
+}
+ 
+
+/* - A classe **@name** está estilizando um elemento com a classe .dropbtn que está contido dentro 
+     de um elemento com a classe .dropdown. Vamos analisar o que cada parte faz: 
+   - Essas regras são comuns ao estilizar botões em menus dropdown, proporcionando uma aparência 
+     consistente e integrada aos elementos do menu.  
+*/    
+.dropdown .dropbtn {
+  
+  /* - A propriedade **@name** ddefine o tamanho da fonte do texto dentro do elemento para 17 pixels. */  
+  font-size: 17px;
+
+  /* - A propriedade **@name** remove a borda do elemento. Isso pode ser útil para garantir que não 
+       haja uma borda visível ao redor do botão. */
+  border: none;
+
+  /* - A propriedade **@name** remove a borda de foco do elemento quando ele é clicado. A borda de 
+       foco é a borda que aparece ao redor de um elemento quando ele está em foco, por exemplo, 
+       quando é clicado. Às vezes, os desenvolvedores optam por remover essa borda para questões 
+       estéticas ou de design. */
+  outline: none;
+
+  /* - A propriedade **@name** define a cor do texto dentro do elemento como branco. */
+  color: white;
+
+  /* - A propriedade **@name** adiciona preenchimento interno (espaço interno) ao elemento. 
+       O primeiro valor (4px) se refere ao preenchimento superior e inferior, enquanto o segundo 
+       valor (4px) se refere ao preenchimento esquerdo e direito. */
+  padding: 4px 4px;
+
+  /* - A propriedade **@name** define a cor de fundo do elemento como herdada do elemento pai. Isso 
+       permite que o botão tenha a mesma cor de fundo que o elemento .dropdown ao qual pertence. */
+  background-color: inherit;
+
+  /* - A propriedade **@name** define a família de fontes do texto como herdada do elemento pai. Isso 
+       significa que o botão terá a mesma fonte que o elemento .dropdown ao qual pertence.*/
+  font-family: inherit;
+
+  /* - A propriedade **@name** Define a margem do elemento como zero. Isso é usado para garantir que 
+       não haja margem ao redor do botão. */
+  margin: 0;
+}
+
+/* - A classe **@name**- são comuns ao estilizar um dropdown, definindo sua aparência básica, posição e 
+    propriedades visuais, como cor de fundo e sombra. */
+.dropdown-content {
+
+  /* - A propriedade **@name** inicialmente, define que o elemento não será exibido. Isso significa que, 
+       por padrão, o conteúdo do dropdown não será visível na página. A exibição será controlada 
+       dinamicamente, por exemplo, por meio de JavaScript, quando o usuário interagir com o elemento 
+       pai (por exemplo, passando o mouse sobre o botão dropdown). */  
+  display: none;
+
+  /* - A propriedade **@name** define que o posicionamento do elemento será absoluto em relação ao seu 
+       contêiner pai mais próximo com uma propriedade de posicionamento diferente de static. Isso geralmente 
+       é usado para posicionar o dropdown em relação ao botão ou elemento pai. */
+  position: absolute;
+
+  /* - A propriedade **@name** define a cor de fundo do dropdown como um tom claro de cinza (#f9f9f9). Isso 
+       é a cor de fundo que será exibida quando o dropdown estiver visível. */
+  background-color: #f9f9f9;
+
+  /* - A propriedade **@name** define a largura mínima do dropdown como 160 pixels. Isso garante que 
+       o dropdown tenha pelo menos essa largura, mas pode se expandir se o conteúdo exigir mais espaço.*/
+  min-width: 160px;
+
+  /* - A propriedade **@name** adiciona uma sombra ao dropdown. A sombra é gerada pela função box-shadow 
+       e tem 0 pixels de deslocamento horizontal, 8 pixels de deslocamento vertical, 16 pixels de desfoque, 
+       e uma cor preta semitransparente (rgba(0, 0, 0, 0.2)).*/
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+
+  /* - A propriedade **@name** define a camada de empilhamento do dropdown. O valor 1 sugere que o dropdown 
+       estará acima de elementos com uma camada de empilhamento menor. A propriedade z-index é usada para 
+       controlar a ordem de empilhamento dos elementos na página.*/
+  z-index: 1;
+}
+
+/* - A classeo **@name** está estilizando os links (<a>) que estão dentro de um elemento com a classe 
+     .dropdown-content. */
+.dropdown-content a {
+    
+  /* - A propriedade **@name** Remove qualquer flutuação que pode ter sido aplicada aos links. No contexto 
+       de dropdowns, é comum remover a flutuação para garantir que os links sejam exibidos como blocos 
+       empilhados verticalmente, em vez de flutuarem à esquerda.  */  
+  float: none;
+
+  /* - A propriedade **@name** define a cor do texto dos links como preto. */
+  color: black;
+
+  /* - A propriedade **@name** adiciona preenchimento interno (espaço interno) aos links. O primeiro 
+       valor (4px) se refere ao preenchimento superior e inferior, enquanto o segundo valor (4px) se 
+       refere ao preenchimento esquerdo e direito. */
+  padding: 4px 4px;
+
+  /* - A propriedade **@name** Remove a decoração de texto padrão dos links, como sublinhado. */
+  text-decoration: none;
+
+  /* - A propriedade **@name** faz com que os links se comportem como blocos, ocupando toda a 
+       largura disponível dentro de seus contêineres. Isso é comum para garantir que a área clicável 
+       abranja todo o espaço do item de menu.*/
+  display: block;
+
+  /* - A propriedade **@name** alinha o texto dos links à esquerda dentro de seus contêineres. Isso é 
+       útil para garantir que o texto dos links seja alinhado corretamente, especialmente se houver várias 
+       linhas de texto.*/
+  text-align: left;
+}
+
+/* - Esse trecho de código CSS está estilizando os links da classe .topnav quando estão no estado de hover 
+     (quando o mouse está sobre eles) e o botão .dropbtn dentro de um elemento com a classe .dropdown quando 
+     esse elemento .dropdown está no estado de hover. */
+.topnav a:hover, /* Essa parte estiliza os links da classe .topnav quando estão no estado de hover. 
+                    Quando um link da barra de navegação superior é destacado pelo mouse, o fundo*/
+.dropdown:hover .dropbtn /* Esta parte estiliza o botão (.dropbtn) dentro de um elemento com a 
+                            classe .dropdown quando esse elemento está no estado de hover. Quando o 
+                            botão dropdown é destacado pelo mouse, o fundo (background-color) do botão 
+                            é alterado para #555 e a cor do texto (color) é alterada para branco*/
+{
+
+  /* - A propriede **@name** altera a cor de fundo para #555 (um tom escuro de cinza).*/  
+  background-color: #555;
+
+  /* A propriede **@name** altera a cor do texto para branco */
+  color: white;
+}
+
+/* - O código **@name** está estilizando os links (<a>) dentro de um elemento com a classe .dropdown-content 
+     quando esses links estão no estado de hover (quando o mouse está sobre eles). */
+.dropdown-content a:hover {
+
+  /* - A propriede **@name** define a cor de fundo dos links para #ddd (um tom claro de cinza) quando 
+       estão no estado de hover. Isso altera o fundo do link quando o mouse está sobre ele.*/  
+  background-color: #ddd;
+
+  /* - A propriede **@name** define a cor do texto dos links como preto quando estão no estado de hover. 
+       Isso altera a cor do texto do link quando o mouse está sobre ele. */
+  color: black;
+}
+
+/* - O código **@name** está controlando a exibição dos elementos com a classe .dropdown-content quando 
+     o elemento com a classe .dropdown está no estado de hover (quando o mouse está sobre ele).  
+   - Em resumo, esta regra é usada em menus dropdown. Quando o usuário passa o mouse sobre o botão ou 
+     área associada ao elemento com a classe .dropdown, os elementos do dropdown (.dropdown-content) 
+     tornam-se visíveis, permitindo que o usuário veja e interaja com as opções do menu. Quando o mouse 
+     é retirado, o dropdown volta a ficar oculto.  
+*/
+.dropdown:hover .dropdown-content {
+  /*  Quando o elemento .dropdown está no estado de hover, o estilo display dos elementos com a 
+      classe .dropdown-content deve ser alterado para block. Isso faz com que os elementos com a 
+      classe .dropdown-content se tornem visíveis, pois a propriedade display: block; os torna elementos 
+      de bloco, ocupando espaço na página.*/
+  display: block;
+}
+
+/* - Este trecho de código CSS está estilizando a barra de navegação (.topnav) quando a largura 
+     da tela é igual ou inferior a 600 pixels. Ele faz parte de uma abordagem responsiva para 
+     adaptar a aparência e o layout da barra de navegação em telas menores. 
+*/    
+@media screen and (max-width: 600px) {
+
+  /*: Oculta os links da classe .topnav que não são o primeiro filho (:not(:first-child)) e o botão 
+      dropdown (.dropbtn dentro de um elemento com a classe .dropdown). Isso significa que, em telas 
+      menores ou igual a 600 pixels de largura, alguns itens do menu superior e o botão dropdown 
+      serão ocultados.
+      */  
+  .topnav a:not(:first-child),
+  .dropdown .dropbtn 
+  {
+    display: none;
+  }
+  /* - Mostra um link com a classe .icon na barra de navegação superior. Este link é provavelmente 
+       usado para acionar a exibição do menu em telas menores. Ele é alinhado à direita (float: right;) 
+       e exibido como bloco (display: block;), o que geralmente é feito para que ele apareça em uma 
+       linha separada.*/
+  .topnav a.icon {
+    float: right;
+    display: block;
+  }
+
+/*}
+
+@media screen and (max-width: 600px) {*/
+  /* - A propriede **@name** define a posição da barra de navegação para relativa. Isso pode ser necessário 
+       para ajustar o posicionamento de alguns elementos filhos.*/
+  .topnav.responsive {
+    position: relative;
+  }
+
+  /* - A propriede **@name** posiciona o ícone (provavelmente usado para abrir o menu) absolutamente no 
+       canto superior direito da barra de navegação.*/
+  .topnav.responsive .icon {
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+
+  /* - A propriede **@name** remove a flutuação dos links, fazendo com que eles se comportem como blocos 
+       e alinhando o texto à esquerda.*/
+  .topnav.responsive a {
+    float: none;
+    display: block;
+    text-align: left;
+  }
+
+  /* A propriede **@name** remove a flutuação dos elementos com a classe .dropdown.*/
+  .topnav.responsive .dropdown {
+    float: none;
+  }
+
+  /* - A propriede **@name** define a posição dos conteúdos do dropdown como relativa.*/
+  .topnav.responsive .dropdown-content {
+    position: relative;
+  }
+
+  /* - A propriede **@name** configura o botão do dropdown para ser exibido como bloco, ocupando 100% da 
+       largura disponível, e alinhando o texto à esquerda.*/
+  .topnav.responsive .dropdown .dropbtn {
+    display: block;
+    width: 100%;
+    text-align: left;
+  }
+}
+
+/*
+  Estilo responsivo contém : Cabeçalho , menu, principal, direita e rodapé
+<style>*/
+
+/* A regra * { box-sizing: border-box; } é uma regra CSS que afeta todos os elementos (* representa 
+   todos os elementos) em uma página HTML.*/
+* {
+
+  /* A propriede **@name** afeta o modelo de caixa do elemento. Quando box-sizing é definido como border-box, 
+     a largura e a altura do elemento incluem o conteúdo, o padding e a borda, mas não a margem. Isso 
+     significa que a largura e a altura do elemento são calculadas incluindo o preenchimento e a borda, 
+     em vez de serem adicionadas a eles. Isso facilita o dimensionamento e o alinhamento de elementos, 
+     especialmente em layouts responsivos.*/  
+  box-sizing: border-box;
+}
+
+/* - Esse trecho de código CSS é frequentemente usado para limpar floats em layouts que utilizam a 
+     técnica de clearfix. - Essa abordagem de clearfix é comumente usada para garantir que o contêiner 
+     (no caso, .row) envolva completamente seus elementos filhos flutuantes, evitando problemas de layout 
+     indesejados. Essa técnica é particularmente útil em layouts que fazem uso extensivo de floats.
+   - As seguintes regras ao pseudo-elemento ::after de elementos com a classe .row.         
+*/
+.row::after {
+  /* A propriede **@name** adiciona um conteúdo vazio ao pseudo-elemento. Isso é necessário para que o 
+     pseudo-elemento seja gerado e, assim, aplicar estilos a ele.*/  
+  content: "";
+
+  /* A propriede **@name** limpa os floats que podem estar presentes antes do elemento com a classe .row. 
+     Essa propriedade garante que o elemento .row seja renderizado abaixo de quaisquer elementos flutuantes 
+     à esquerda e à direita.*/
+  clear: both;
+
+  /* A propriede **@name** define o modo de exibição do pseudo-elemento como uma tabela. Isso é uma 
+     técnica de clearfix que cria um novo contexto de formatação, efetivamente forçando o elemento .row a 
+     conter seus elementos filhos flutuantes.*/
+  display: table;
+
+}
+
+[class*="col-"] {
+  float: left;
+  padding: 15px;
+}
+
+.menu ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.menu li {
+  padding: 8px;
+  margin-bottom: 7px;
+  background-color: rgb(216, 226, 220);
+  color: black;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+}
+
+.menu li:hover {
+  background-color: #0099cc;
+}
+
+.aside {
+  background-color: rgb(216, 226, 220);
+  color: white;
+
+  padding: 15px;
+
+  text-align: lefet;
+  font-size: 14px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+}
+
+
+.title {
+  overflow: hidden;
+  background-color: lightgray;
+  color: black;
+  align-content: center;
+  text-align: center;
+
+  font-size: 20px;
+  font-style: italic;
+  font-weight: bold;
+  /*padding: 35px;*/
+}
+
+.referencia {
+  background-color: rgb(216, 226, 220);
+  color: black;
+  padding: 15px;
+}
+
+.footer {
+  background-color: rgb(216, 226, 220);
+  color: black;
+  text-align: left;
+  /*font-family: 'Courier New', Courier, monospace;
+    font-size: 12px;*/
+  padding: 15px;
+  display: table;
+  width: 100%;
+}
+
+/* For mobile phones: */
+[class*="col-"] {
+  width: 100%;
+}
+
+@media only screen and (min-width: 600px) {
+
+  /* For tablets: */
+  .col-s-1 {
+    width: 8.33%;
+  }
+
+  .col-s-2 {
+    width: 16.66%;
+  }
+
+  .col-s-3 {
+    width: 25%;
+  }
+
+  .col-s-4 {
+    width: 33.33%;
+  }
+
+  .col-s-5 {
+    width: 41.66%;
+  }
+
+  .col-s-6 {
+    width: 50%;
+  }
+
+  .col-s-7 {
+    width: 58.33%;
+  }
+
+  .col-s-8 {
+    width: 66.66%;
+  }
+
+  .col-s-9 {
+    width: 75%;
+  }
+
+  .col-s-10 {
+    width: 83.33%;
+  }
+
+  .col-s-11 {
+    width: 91.66%;
+  }
+
+  .col-s-12 {
+    width: 100%;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+
+  /* For desktop: */
+  .col-1 {
+    width: 8.33%;
+  }
+
+  .col-2 {
+    width: 16.66%;
+  }
+
+  .col-3 {
+    width: 25%;
+  }
+
+  .col-4 {
+    width: 33.33%;
+  }
+
+  .col-5 {
+    width: 41.66%;
+  }
+
+  .col-6 {
+    width: 50%;
+  }
+
+  .col-7 {
+    width: 58.33%;
+  }
+
+  .col-8 {
+    width: 66.66%;
+  }
+
+  .col-9 {
+    width: 75%;
+  }
+
+  .col-10 {
+    width: 83.33%;
+  }
+
+  .col-11 {
+    width: 91.66%;
+  }
+
+  .col-12 {
+    width: 100%;
+  }
+}
+
+/* pre {
+  border-radius: 5px;
+  overflow: auto hidden;
+  border: 1px solid  black;
+
+  background-color: #282c34;
+   color : #90BF03;
+  overflow-y: auto;
+  overflow-x: auto;
+  max-height: 200px;
+  max-width: 100%;
+  cursor: text;
+  resize: vertical;
+  overflow: auto;
+  padding: 5px; 
+  word-wrap: normal;
+} */
+
+pre {
+  border-radius: 5px;
+  overflow: auto hidden;
+  border: 1px solid  #333;
+  color : #90BF03;
+  
+  background-color:#282c34;
+  max-width: 100%; 
+  max-height: 100%; 
+  overflow-x: auto;
+  /* word-wrap: normal;  */
+}  
+/* A classe pre1 troca a cor de de fundo da tag pre para 
+   ficar claro a tela já que essa classe eu não uso para
+   representar um console do Linux  
+   
+   */
+.pre1 {
+  background-color: #f2f2f2;
+  color: black;
+
+}
+
+blockquote {
+  background-color: #f2f2f2;
+  color: black;
+  border-radius: 15px;
+  overflow: auto hidden;
+  overflow-y: auto;
+  overflow-x: auto;
+  max-height: 200px;
+  max-width: 100%;
+
+  /*font-family: "Courier New",Courier;    */
+
+  resize: vertical;
+  overflow: auto;
+  padding: 15px;
+}
+/* - A classe @name define um estilo para uma lista ordenada (elemento HTML <ol> */
+ol {
+  /* - A propriedade @name define o espaço de preenchimento obrigatório no lado esquerdo da 
+       lista como 20 pixels*/
+  padding-left: 20px;
+
+  /* - A propriedade @name define a posição do marcador da lista como dentro do elemento <ol>*/
+  list-style-position: inside;
+
+}
+
+
+/*<!-- inicio title="Implementação de tree view usando css" -->
+<style>*/
+
+/* Treeview-xhtml.cc body {
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+} */
+
+/*     ul,
+    #treeUL {
+      list-style-type: none;
+    }
+
+    #treeUL {
+      margin: 0;
+      padding: 0;
+    }
+*/
+
+
+.rootTree {
+  /* A propriedade @name define o tipo de cursor do mouse que será exibido quando o 
+     ponteiro do mouse estiver sobre o elemento. No caso, o valor pointer indica que o 
+     cursor do mouse será exibido como uma mãozinha, indicando que o elemento é clicável.*/
+  cursor: pointer;
+
+  /*A propriedade @name é comentada no código, mas normalmente é usada para definir 
+    se o texto pode ser selecionado pelo usuário ou não.*/
+  /* user-select: none; */
+
+
+  /* A propriedade @name define a espessura da fonte do texto. O valor bold indica que 
+     o texto será exibido em negrito.*/
+  font-weight: bold;
+
+  /*A propriedade @name define a cor do texto. O valor blue indica que o texto será 
+    exibido na cor azul.*/
+  color: blue;
+}
+
+/* - Esse código CSS cria um pseudo-elemento que é o primeiro filho do elemento HTML 
+     com a classe .rootTree. O pseudo-elemento é criado usando o seletor ::before. 
+   - Em resumo, esse código adiciona um triângulo preto apontando para a direita antes 
+     do elemento HTML com a classe .rootTree.*/
+.rootTree::before {
+  /* - O conteúdo do pseudo-elemento é definido como o caractere Unicode "\25B6", 
+   que representa um triângulo preto apontando para a direita*/
+  content: "\25B6";   
+  
+  /* - A propriedade color define a cor do triângulo como preto*/
+  color: black;
+
+  /* - A propriedade display define o elemento como um bloco em linha.*/
+  display: inline-block;
+
+  /*A propriedade margin-right define a margem direita do elemento como 6 pixels.*/
+  margin-right: 6px;
+}
+
+/* - Esse código CSS cria um pseudo-elemento que é o primeiro filho do elemento HTML 
+     com a classe .rootTree-down. O pseudo-elemento é criado usando o seletor ::before. 
+   - Em resumo, esse código adiciona um triângulo preto apontando para baixo antes do 
+     elemento HTML com a classe .rootTree-down.*/
+.rootTree-down::before {
+
+  /* - A propriedade transform é usada para girar o pseudo-elemento em torno de um ponto 
+       fixo no plano 2D. O valor rotate(90deg) é usado para girar o pseudo-elemento em 90 
+       graus no sentido horário.*/
+  transform: rotate(90deg);
+}
+
+.children {
+  display: none;
+}
+
+.childrenDefault {
+  display: block;
+  background-color: white;
+  color: black;
+}
+
+.active {
+  background-color: white;
+  color: black;
+  font-style: italic;
+  display: block;
+}
+
+/* As duas linhas abaixo faz com que o 
+sublinhado do link só apareça se o mouse se posicionar em cima do link*/
+a {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/*tipesearch: 
+  isso fornece algum espaço seguro para caber sempre mesmo em telas muito estreitas */
+.search-input input, .search-button {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+/*tipesearch: */
+.search-form {
+  white-space: nowrap;
+}
+
+/*tipesearch: */
+.search-input input {
+  max-width: 80%;
+}

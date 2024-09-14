@@ -1,0 +1,59 @@
+object form_Exe02: Tform_Exe02
+  Left = 960
+  Height = 340
+  Top = 250
+  Width = 577
+  Caption = 'form_Exe02'
+  ClientHeight = 340
+  ClientWidth = 577
+  OnCreate = FormCreate
+  Position = poMainFormCenter
+  LCLVersion = '3.4.0.0'
+  object Panel1: TPanel
+    Left = 0
+    Height = 32
+    Top = 0
+    Width = 577
+    Align = alTop
+    Caption = 'Exemplo 02'
+    TabOrder = 0
+  end
+  object Mi_LCL_Scrollbox1: TMi_LCL_Scrollbox
+    Left = 0
+    Height = 184
+    Top = 32
+    Width = 576
+    Anchors = [akTop, akLeft, akRight, akBottom]
+    AutoScroll = False
+    TabOrder = 1
+    TabStop = True
+  end
+  object DBNavigator1: TDBNavigator
+    Left = 0
+    Height = 25
+    Top = 216
+    Width = 241
+    Anchors = [akLeft, akBottom]
+    BevelOuter = bvNone
+    ChildSizing.EnlargeHorizontal = crsScaleChilds
+    ChildSizing.EnlargeVertical = crsScaleChilds
+    ChildSizing.ShrinkHorizontal = crsScaleChilds
+    ChildSizing.ShrinkVertical = crsScaleChilds
+    ChildSizing.Layout = cclLeftToRightThenTopToBottom
+    ChildSizing.ControlsPerLine = 100
+    Options = []
+    TabOrder = 2
+    VisibleButtons = []
+  end
+  object DBGrid1: TDBGrid
+    Left = 0
+    Height = 100
+    Top = 240
+    Width = 576
+    Anchors = [akLeft, akRight, akBottom]
+    Color = clWindow
+    Columns = <>
+    ReadOnly = True
+    TabOrder = 3
+  end
+end

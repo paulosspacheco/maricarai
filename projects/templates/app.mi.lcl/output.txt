@@ -1,0 +1,11 @@
+Unit name is mi.rtl.all
+Name is Print_info_compile
+This program was compiled 20:35:36 on 2024/08/02
+By paulosspacheco
+Compiler version: 3.2.2
+Target CPU: x86_64
+HOME: /home/paulosspacheco
+Free heap size: 336384 bytes
+Used heap size: 646656 bytes
+
+Raise TException.Create(DoOnEnter

@@ -2,7 +2,7 @@ unit mi_rtl_ui_DmxScroller_Buttons;
 {:< A unit **@name** implementa a classe TUiDmxScroller_Buttons.
 
   - **VERSÃO**
-    - Alpha - Alpha - 0.9.0
+    - Alpha - 1.0.0
 
   - **CÓDIGO FONTE**:
     - @html(<a href="../units/mi_rtl_ui_dmxscroller_buttons.pas">mi_rtl_ui_DmxScroller_Buttons.pas</a>)
@@ -248,8 +248,8 @@ type
              If High(aCommands) < 2
              Then Raise TException.Create(self,'Create_RCommands_Buttons()',ParametroInvalido);
 
-             Create_RCommand('CmDbGoBof'  ,CmDbGoBof   ,'&Inicio'   ,'',kbNoKey,0,0,Mb_Cm_Bof   ,bfNormal ,aCommands[1]);
-             Create_RCommand('CmDbPrevRec',CmDbPrevRec ,'&Anterior' ,'',kbNoKey,0,0,Mb_Cm_Prev  ,bfNormal ,aCommands[2]);
+             Create_RCommand('CmGoBof'  ,CmGoBof   ,'&Inicio'   ,'',kbNoKey,0,0,Mb_Cm_Bof   ,bfNormal ,aCommands[1]);
+             Create_RCommand('CmPrevRecord',CmPrevRecord ,'&Anterior' ,'',kbNoKey,0,0,Mb_Cm_Prev  ,bfNormal ,aCommands[2]);
 
            end;
          ```
@@ -351,13 +351,13 @@ Begin
   then aCmNovoStr := 'CmNewRecord';
 
   if aCmAlteracaoStr = ''
-  then aCmAlteracaoStr := 'CmEvaluateRecord' ;
+  then aCmAlteracaoStr := 'CmUpdateRecord' ;
 
   if aCmExclusaoStr = ''
-  then aCmExclusaoStr := 'CmZeroizeRecord';
+  then aCmExclusaoStr := 'CmDeleteRecord';
 
   if ACmLocalizaStr = ''
-  then ACmLocalizaStr := 'CmDbLocaliza';
+  then ACmLocalizaStr := 'CmLocate';
 
   Create_RCommand(ACmLocalizaStr    ,'~P~esquisar' ,'',kbNoKey,0,0,Mb_Cm_Localiza    ,BfDefault,Commands_Buttons[0]); {Comando default}
   Create_RCommand(aCmNovoStr        ,'~N~ovo'      ,'',kbNoKey,0,0,Mb_Cm_Novo        ,bfNormal ,Commands_Buttons[1]);
@@ -366,18 +366,18 @@ Begin
   Create_RCommand('CmProcess'       ,'~F~inalizar' ,'',kbNoKey,0,0,Mb_Cm_Process     ,bfNormal ,Commands_Buttons[4]);
   Create_RCommand(aCmExclusaoStr    ,'~E~xcluir'   ,'',kbNoKey,0,0,Mb_Cm_Exclusao    ,bfNormal ,Commands_Buttons[5]);
   Create_RCommand(ACmLocalizaStr    ,'~P~esquisar' ,'',kbNoKey,0,0,Mb_Cm_Localiza    ,BfDefault,Commands_Buttons[6]); {Comando default}
-  Create_RCommand('CmDbFindRe'      ,'~A~tualizar' ,'',kbNoKey,0,0,Mb_Cm_FindRec     ,bfNormal ,Commands_Buttons[7]);
-  Create_RCommand('CmVisualizar'    ,'~V~isualizar','',kbNoKey,0,0,Mb_Cm_Visualizar  ,bfNormal ,Commands_Buttons[8]);
+  Create_RCommand('CmFindRe'      ,'~A~tualizar' ,'',kbNoKey,0,0,Mb_Cm_FindRec     ,bfNormal ,Commands_Buttons[7]);
+  Create_RCommand('CmView'    ,'~V~isualizar','',kbNoKey,0,0,Mb_Cm_Visualizar  ,bfNormal ,Commands_Buttons[8]);
   Create_RCommand('CmPrint'         ,'I~m~primir'  ,'',kbNoKey,0,0,Mb_Cm_Print       ,bfNormal ,Commands_Buttons[9]);
   Create_RCommand('CmOk'            ,'O~K~'        ,'',kbNoKey,0,0,Mb_Cm_ok          ,bfNormal ,Commands_Buttons[10]);
   Create_RCommand('CmCancel'        ,'~C~ancelar'  ,'',kbNoKey,0,0,Mb_Cm_Cancel      ,bfNormal ,Commands_Buttons[11]);
   Create_RCommand('CmMyCancel'      ,'~S~air'      ,'',kbNoKey,0,0,Mb_Cm_Sair        ,bfNormal ,Commands_Buttons[12]);
-  Create_RCommand('CmDbGoBof'       ,'~1~ Início'  ,'',kbNoKey,0,0,Mb_Cm_Bof         ,bfNormal ,Commands_Buttons[13]);
-  Create_RCommand('CmDbPrevRec'     ,'~2~ Anterior','',kbNoKey,0,0,Mb_Cm_Prev        ,bfNormal ,Commands_Buttons[14]);
-  Create_RCommand('CmDbNextRec'     ,'~3~ Pr¢ximo' ,'',kbNoKey,0,0,Mb_Cm_Next        ,bfNormal ,Commands_Buttons[15]);
-  Create_RCommand('CmDbGoEof'       ,'~4~ éltimo'  ,'',kbNoKey,0,0,Mb_Cm_Eof         ,bfNormal ,Commands_Buttons[16]);
-  Create_RCommand('CmDbNextRec'     ,'~3~ Pr¢ximo' ,'',kbNoKey,0,0,Mb_Cm_Next        ,bfNormal ,Commands_Buttons[17]);
-  Create_RCommand('CmDbGoEof'       ,'~4~ éltimo'  ,'',kbNoKey,0,0,Mb_Cm_Eof         ,bfNormal ,Commands_Buttons[18]);
+  Create_RCommand('CmGoBof'       ,'~1~ Início'  ,'',kbNoKey,0,0,Mb_Cm_Bof         ,bfNormal ,Commands_Buttons[13]);
+  Create_RCommand('CmPrevRecord'     ,'~2~ Anterior','',kbNoKey,0,0,Mb_Cm_Prev        ,bfNormal ,Commands_Buttons[14]);
+  Create_RCommand('CmNextRecord'     ,'~3~ Pr¢ximo' ,'',kbNoKey,0,0,Mb_Cm_Next        ,bfNormal ,Commands_Buttons[15]);
+  Create_RCommand('CmGoEof'       ,'~4~ éltimo'  ,'',kbNoKey,0,0,Mb_Cm_Eof         ,bfNormal ,Commands_Buttons[16]);
+  Create_RCommand('CmNextRecord'     ,'~3~ Pr¢ximo' ,'',kbNoKey,0,0,Mb_Cm_Next        ,bfNormal ,Commands_Buttons[17]);
+  Create_RCommand('CmGoEof'       ,'~4~ éltimo'  ,'',kbNoKey,0,0,Mb_Cm_Eof         ,bfNormal ,Commands_Buttons[18]);
 
   _Commands_Buttons_High  := 18;
   Create_RCommands_Buttons :=   Commands_Buttons_High;
@@ -542,23 +542,23 @@ end.
 //  {Inicialização da lista de butões de navegação de registros do banco dados}
 //  If Ok_Buttons_por_extenco
 //  Then Begin
-//    Create_RCommand('CmDbNextRec' ,'<&3> Próximo '  ,'',kbNoKey,0,0,Mb_Cm_Next  ,BfDefault,aCommands[0]);{Comando default}
-//    Create_RCommand('CmDbGoBof'   ,'<&1> Início  '  ,'',kbNoKey,0,0,Mb_Cm_Bof   ,bfNormal ,aCommands[1]);
-//    Create_RCommand('CmDbPrevRec' ,'<&2> Anterior ' ,'',kbNoKey,0,0,Mb_Cm_Prev  ,bfNormal ,aCommands[2]);
-//    Create_RCommand('CmDbNextRec' ,'<&3> Próximo '  ,'',kbNoKey,0,0,Mb_Cm_Next  ,bfNormal ,aCommands[3]); {Comando default}
-//    Create_RCommand('CmDbGoEof'   ,'<&4> Último  '  ,'',kbNoKey,0,0,Mb_Cm_Eof   ,bfNormal ,aCommands[4]);
-//    Create_RCommand('CmDbLocaliza','<&5> Pesquisa'  ,'',kbNoKey,0,0,mb_Cm_Locate,bfNormal ,aCommands[5]);
-//    Create_RCommand('CmDbFindRec' ,'<&6> Atualiza'  ,'',kbNoKey,0,0,mb_Cm_Find  ,bfNormal ,aCommands[6]);
+//    Create_RCommand('CmNextRecord' ,'<&3> Próximo '  ,'',kbNoKey,0,0,Mb_Cm_Next  ,BfDefault,aCommands[0]);{Comando default}
+//    Create_RCommand('CmGoBof'   ,'<&1> Início  '  ,'',kbNoKey,0,0,Mb_Cm_Bof   ,bfNormal ,aCommands[1]);
+//    Create_RCommand('CmPrevRecord' ,'<&2> Anterior ' ,'',kbNoKey,0,0,Mb_Cm_Prev  ,bfNormal ,aCommands[2]);
+//    Create_RCommand('CmNextRecord' ,'<&3> Próximo '  ,'',kbNoKey,0,0,Mb_Cm_Next  ,bfNormal ,aCommands[3]); {Comando default}
+//    Create_RCommand('CmGoEof'   ,'<&4> Último  '  ,'',kbNoKey,0,0,Mb_Cm_Eof   ,bfNormal ,aCommands[4]);
+//    Create_RCommand('CmLocate','<&5> Pesquisa'  ,'',kbNoKey,0,0,mb_Cm_Locate,bfNormal ,aCommands[5]);
+//    Create_RCommand('CmFindRecord' ,'<&6> Atualiza'  ,'',kbNoKey,0,0,mb_Cm_Find  ,bfNormal ,aCommands[6]);
 //  End
 //  else Begin
 ////  ⏭️<1> ⏩<2> ⏪<3> ⏮️<4>
-//    Create_RCommand('CmDbNextRec' ,'⏩<&3> '  ,'',kbNoKey,0,0,Mb_Cm_Next  ,BfDefault,aCommands[0]);//Comando default
-//    Create_RCommand('CmDbGoBof'   ,'⏭️<&1> '  ,'',kbNoKey,0,0,Mb_Cm_Bof   ,bfNormal ,aCommands[1]);
-//    Create_RCommand('CmDbPrevRec' ,'⏪<&2> '  ,'',kbNoKey,0,0,Mb_Cm_Prev  ,bfNormal ,aCommands[2]);
-//    Create_RCommand('CmDbNextRec' ,'⏩<&3> '  ,'',kbNoKey,0,0,Mb_Cm_Next  ,bfNormal or bfBroadcast ,aCommands[3]); //Comando default
-//    Create_RCommand('CmDbGoEof'   ,'⏮️<&4> '  ,'',kbNoKey,0,0,Mb_Cm_Eof   ,bfNormal ,aCommands[4]);
-//    Create_RCommand('CmDbLocaliza','🔍<&5>'   ,'',kbNoKey,0,0,mb_Cm_Locate,bfNormal ,aCommands[5]);
-//    Create_RCommand('CmDbFindRec' ,'🔃<~6>'   ,'',kbNoKey,0,0,mb_Cm_Find  ,bfNormal ,aCommands[6]);
+//    Create_RCommand('CmNextRecord' ,'⏩<&3> '  ,'',kbNoKey,0,0,Mb_Cm_Next  ,BfDefault,aCommands[0]);//Comando default
+//    Create_RCommand('CmGoBof'   ,'⏭️<&1> '  ,'',kbNoKey,0,0,Mb_Cm_Bof   ,bfNormal ,aCommands[1]);
+//    Create_RCommand('CmPrevRecord' ,'⏪<&2> '  ,'',kbNoKey,0,0,Mb_Cm_Prev  ,bfNormal ,aCommands[2]);
+//    Create_RCommand('CmNextRecord' ,'⏩<&3> '  ,'',kbNoKey,0,0,Mb_Cm_Next  ,bfNormal or bfBroadcast ,aCommands[3]); //Comando default
+//    Create_RCommand('CmGoEof'   ,'⏮️<&4> '  ,'',kbNoKey,0,0,Mb_Cm_Eof   ,bfNormal ,aCommands[4]);
+//    Create_RCommand('CmLocate','🔍<&5>'   ,'',kbNoKey,0,0,mb_Cm_Locate,bfNormal ,aCommands[5]);
+//    Create_RCommand('CmFindRecord' ,'🔃<~6>'   ,'',kbNoKey,0,0,mb_Cm_Find  ,bfNormal ,aCommands[6]);
 //  end;
 //
 //  _Commands_Buttons_High := 6;

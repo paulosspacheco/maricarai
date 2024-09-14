@@ -2,7 +2,7 @@ unit mi_rtl_ui_consts;
 {:< A unit **@name** implementa a classe TUiConsts.
 
     - **VERSÃO**
-      - Alpha - Alpha - 0.9.0
+      - Alpha - 1.0.0
 
     - **CÓDIGO FONTE**:
       - @html(<a href="../units/mi_ui_consts.pas">mi_ui_consts.pas</a>)
@@ -24,13 +24,27 @@ interface
 
 uses
   Classes, SysUtils
+  //,mi.rtl.ActionList
+  ,ActnList
   ,mi_rtl_Ui_Types  ;
 
   type
     { TUiConsts }
     {: A classe **@name** contém as contantes globais do pacote **mi.ui**}
     TUiConsts = class(TUiTypes )
-      public Const CharAlfanumeric = 'abcdefghijlmnopgrstuvxaABCDEFGHIJLMNOPQRSTUVXZ0123456789';//🔍❌
+      //public const asNormal = mi.rtl.ActionList.asNormal;
+      //public const asEnable = mi.rtl.ActionList.asEnable;
+      //public const asDisable = mi.rtl.ActionList.asDisable;
+      public const asNormal = TActionListState.asNormal;
+      public const asEnable = TActionListState. asSuspended;
+      public const asDisable = TActionListState. asSuspended;
+
+
+      public Const CharAlfanumeric = 'abcdefghijlmnopgrstuvxaABCDEFGHIJLMNOPQRSTUVXZ0123456789🔍❌';
+      public Const space_between_lines : byte = 5;
+
+
+
          {Usado para controlar o estado do objeto }
       public const State  : int64 = 0;
 
@@ -184,7 +198,7 @@ uses
 
             {:0=nao Inicializado ou inicializado        ;
               1=Inicializado    }
-            Mb_St_Creating          = Mb_Bit16;
+            Mb_St_Creating          = Mb_Bit16; //Igual a db.dsOpening
 
             {: 0=Nao esta criando index;
                1=Esta criando o Index}
@@ -204,11 +218,11 @@ uses
 
             {: 0=Tabela Fechada         ;
                1=Tabela aberta      }
-            Mb_St_Active             = Mb_Bit21;
+            Mb_St_Active             = Mb_Bit21; //se 0 então = db.dsInactive
 
             {: 0=Nao esta sendo editada ;
                1=Esta sendo editada.}
-            Mb_St_Edit               = Mb_Bit22;
+            Mb_St_Edit               = Mb_Bit22; //se 1 então = db.dsEdit
 
             {:0=Nao esta esta travado para edicao;
               1=Esta esta travado para edicao  }
@@ -279,12 +293,31 @@ uses
               - **Motivo**:
                 - A Class TArqParametros é criado automaticamente porém quando está desconectando o mesmo não deve ser criado.
            }
-            Mb_St_DB_connecting                = Mb_Bit32;
+            Mb_St_DB_connecting  = Mb_Bit32;
 
            {: - 0 = Não está no modo insert.
               - 1 = Está nom modo insert. Este modo e ligado em DoOnNewrecord
            }
-           Mb_St_Insert               = Mb_Bit33;
+           Mb_St_Insert = Mb_Bit33;  //se 1 então: Igual a db.dsInsert
+
+           {: - 0 = Não está no modo consulta.
+              - 1 = Está nom modo consulta. Este modo e ligado em Gobof, Gonext, Goprev e Goeof
+           }
+           Mb_St_Browse = Mb_Bit34; //Se 1 então: Igual db.dsBrowse
+
+           {: O mapa de bits **@name** usado para controlar o acesso aos
+              controles associados ao campo TDmxFieldRec.LinkEdit.
+
+              - **ESTADOS**
+                - 0 = Os controles não estão ativados
+                - 1 = Os controles estão ativados
+
+              - **NOTAS**
+                - O Comando EnableControls seta **@name** para 1
+                - O Comando DisableControls seta **@name** para 0
+                -
+           }
+           Mb_St_ControlsEnabled = Mb_Bit35;
 
       {$EndRegion '//*** MB_St = Constantes usadas para indicar o estado (State) do objeto  . ***'}
       //====================================================================================================

@@ -559,7 +559,7 @@ CONST
       (aReg_Transaction.IDReg_Transaction.TamReg >= TTb_Access.MinDataRecSize)  and
       (aReg_Transaction.IDReg_Transaction.TamReg <= TTb_Access.maxDataRecSize) and
 {          (TamReg <= DatF.ItemSize) and}
-      ((aReg_Transaction.IDReg_Transaction.Data.Ano >= 1980) and (aReg_Transaction.IDReg_Transaction.Data.Ano <= 2000+TDates.AnoLimit  )) And
+      ((aReg_Transaction.IDReg_Transaction.Data.Ano >= 1980) and (aReg_Transaction.IDReg_Transaction.Data.Ano <= 2000+DefaultFormatSettings.TwoDigitYearCenturyWindow{AnoLimit}  )) And
       ((aReg_Transaction.IDReg_Transaction.Data.Mes >= 1   ) and (aReg_Transaction.IDReg_Transaction.Data.Mes <= 12             )) And
       ((aReg_Transaction.IDReg_Transaction.Data.Dia >= 1   ) and (aReg_Transaction.IDReg_Transaction.Data.Dia <= 31             )) and
       (aReg_Transaction.IDReg_Transaction.Hora.Hora <= 24  ) and
@@ -572,7 +572,7 @@ CONST
   Function TTransaction.Init_CollDatFsNaTransacao: Integer;
    {  ATENÇÃO:
       Caso a maquina tenha sido desligada e o scanDisk nao foi executado;
-      entao FileSize(datF) retornara mais registros do que realmente existe
+      então FileSize(datF) retornara mais registros do que realmente existe
       em DatF e o ultimo seek_Nr retornara error 5=Acesso negado.
    }
   Var

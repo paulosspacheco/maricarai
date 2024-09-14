@@ -1,0 +1,9 @@
+inherited __dm_xtable__: T__dm_xtable__
+  Height = 174
+  HorizontalOffset = 537
+  VerticalOffset = 254
+  Width = 455
+  inherited DmxScroller_Form1: TDmxScroller_Form
+    TableName = '__dm_xtable__ '
+  end
+end

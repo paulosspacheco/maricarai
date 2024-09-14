@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CONFIG>
+  <ProjectGroup FileVersion="2">
+    <Targets>
+      <Target FileName="../../../../home/paulosspacheco/v/paulosspacheco/LazarusProjects/fcl-web/helloworld/servhttp/helloworld.lpi">
+        <BuildModes>
+          <Mode Name="Default"/>
+        </BuildModes>
+      </Target>
+      <Target FileName="../../../../home/paulosspacheco/v/paulosspacheco/Documentos/blogger/blog.pssp.app.br/programacao/pascal/lazarus/fcl-web/examples/routing/IRouteInterface/appirouteinterface.lpi">
+        <BuildModes>
+          <Mode Name="Default"/>
+        </BuildModes>
+      </Target>
+      <Target FileName="../../../../home/paulosspacheco/v/Lazarus/Lazarus_fixe-3.0/avm/dm/test_dm.lpi">
+        <BuildModes>
+          <Mode Name="Default"/>
+        </BuildModes>
+      </Target>
+    </Targets>
+  </ProjectGroup>
+</CONFIG>

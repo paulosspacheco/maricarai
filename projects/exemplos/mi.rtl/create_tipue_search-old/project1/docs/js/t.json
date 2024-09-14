@@ -1,0 +1,13 @@
+
+
+{
+    "Clientes": [
+        id  : 1,
+        "nome": "Paulo Pacheco",
+        "rua" : "Rua Francisco oliveira de Souza",
+        "numero": 15,
+        "bairro" : "Icarai",
+        "municipio": "caucaia",
+        "estado": "ceara"
+   ]
+}

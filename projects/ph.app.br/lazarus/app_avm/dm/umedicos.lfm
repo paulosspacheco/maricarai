@@ -1,0 +1,51 @@
+inherited medicos: Tmedicos
+  OnCreate = DataModuleCreate
+  OnDestroy = DataModuleDestroy
+  Height = 174
+  HorizontalOffset = 679
+  VerticalOffset = 319
+  Width = 455
+  inherited DmxScroller_Form1: TDmxScroller_Form
+    Alias = 'Cadastro de  médicos'
+    OnAddTemplate = DmxScroller_Form1AddTemplate
+    onEnter = DmxScroller_Form1Enter
+    onEnterField = DmxScroller_Form1EnterField
+    TableName = 'medicos'
+    Top = 24
+  end
+  inherited ActionList1: TActionList
+    Left = 80
+    inherited CmNewRecord: TAction
+      OnExecute = CmNewRecordExecute
+    end
+    inherited CmLocate: TAction
+      OnExecute = CmLocateExecute
+    end
+    inherited CmUpdateRecord: TAction
+      OnExecute = CmUpdateRecordExecute
+    end
+    inherited CmDeleteRecord: TAction
+      OnExecute = CmDeleteRecordExecute
+    end
+    inherited CmGoBof: TAction
+      OnExecute = CmGoBofExecute
+    end
+    inherited CmNextRecord: TAction
+      OnExecute = CmNextRecordExecute
+    end
+    inherited CmPrevRecord: TAction
+      OnExecute = CmPrevRecordExecute
+    end
+    inherited CmGoEof: TAction
+      OnExecute = CmGoEofExecute
+    end
+    inherited CmRefresh: TAction
+      Caption = 'CmRefresh'
+      OnExecute = CmRefreshExecute
+    end
+  end
+  inherited Mi_SQLQuery1: TMi_SQLQuery
+    Left = 328
+    Top = 24
+  end
+end

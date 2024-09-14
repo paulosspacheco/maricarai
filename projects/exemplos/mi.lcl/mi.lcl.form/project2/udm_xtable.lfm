@@ -1,0 +1,30 @@
+inherited dm_xtable: Tdm_xtable
+  OnCreate = DataModuleCreate
+  Height = 174
+  HorizontalOffset = 494
+  VerticalOffset = 250
+  Width = 455
+  inherited Mi_SQLQuery1: TMi_SQLQuery
+    PacketRecords = 1
+    IndexName = 'DEFAULT_ORDER'
+    SQL.Strings = (
+      ''
+    )
+    Left = 224
+    Top = 64
+  end
+  inherited DmxScroller_Form1: TDmxScroller_Form
+    Alias = 'Cadastro de  dm_xtable'
+    TableName = 'dm_xtable'
+    DoOnNewRecord_FillChar = False
+    onBeforeDelete = DmxScroller_Form1BeforeDelete
+    onAfterDelete = DmxScroller_Form1AfterDelete
+    OnCalcFields = DmxScroller_Form1CalcFields
+    OnCalcField = DmxScroller_Form1CalcField
+    ShouldSaveTemplate = True
+    Left = 80
+  end
+  inherited ActionList1: TActionList
+    Left = 336
+  end
+end

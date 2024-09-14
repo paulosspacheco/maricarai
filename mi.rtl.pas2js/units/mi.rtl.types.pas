@@ -6,7 +6,7 @@ unit mi.rtl.Types;
     - O Método **TTypes.TPointer.Get_Mem** ignora alocação de memória real porque não sei como fazer nas plataformas diferentes do Windows.
 
   - **VERSÃO**
-    - Alpha - Alpha - 0.9.0
+    - Alpha - 1.0.0
 
   - **CÓDIGO FONTE**:
     - @html(<a href="../units/mi.rtl.types.pas">mi.rtl.types.pas</a>)          
@@ -68,7 +68,7 @@ uses
                                  Alinhamento_Justificado);
 
      {: - A constant **@name** indica se o processo está dentro de uma transação.}
-     public const ok_Set_Transaction   : BOOLEAN = false;
+    // public const ok_Set_Transaction   : BOOLEAN = false;
 
      public constructor Create(aowner:TComponent);Overload;Override;
      {$IFDEF Windows}

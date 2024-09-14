@@ -1,0 +1,7 @@
+inherited __form_xtable__: T__form_xtable__
+  Left = 526
+  Height = 304
+  Top = 219
+  Width = 462
+  Caption = '__xtable__'
+end

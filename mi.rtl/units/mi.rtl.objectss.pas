@@ -5,7 +5,7 @@ unit mi.rtl.Objectss;
       - Esta unit foi testada nas plataformas: win32, win64 e linux.
 
     - **VERSÃO**
-      - Alpha - Alpha - 0.9.0
+      - Alpha - 1.0.0
 
     - **HISTÓRICO**
       - Criado por: Paulo Sérgio da Silva Pacheco e-mail: paulosspacheco@@yahoo.com.br
@@ -61,9 +61,9 @@ unit mi.rtl.Objectss;
     ,mi.rtl.objects.methods.db.tb__access
     ,mi.rtl.objects.methods.db.tb___access
     ,mi.rtl.objects.methods.pageproducer
+    ,mi.rtl.objects.methods.html.tags
 
     ;
-
 
      type
 
@@ -85,10 +85,10 @@ unit mi.rtl.Objectss;
      }
      TObjectss =
        class(TObjectsMethods)
-         public type TApplication = mi.rtl.Objects.Methods.Paramexecucao.Application.TApplication;
-         public const Application : TApplication =  nil;
+         public class function Application: TApplication;
          public Class Procedure Set_MI_MsgBox(aMI_MsgBox: TMI_MsgBox);Virtual;
-
+         public type TMI_MsgBox       = mi.rtl.objects.consts.MI_MsgBox.TMI_MsgBox;
+         public type TMI_MsgBoxConsts = mi.rtl.objects.consts.MI_MsgBox.TMI_MsgBoxConsts;
          public type TTypes          = mi.rtl.types.TTypes;
          public type TConsts         = mi.rtl.Consts.TConsts;
          public type TStringListBase = mi.rtl.MiStringListBase.TStringListBase;
@@ -137,6 +137,7 @@ unit mi.rtl.Objectss;
                      end;
 
          public type TPageProducer = mi.rtl.objects.methods.pageproducer.TPageProducer;
+         public type Thtml_tags = mi.rtl.objects.methods.html.tags.Thtml_tags;
 
 //         public Type IDialogs = mi.rtl.objects.methods.ui.Interfaces.IDialogs;
 //         public Type ITable   = mi.rtl.objects.methods.ui.Interfaces.ITable;
@@ -192,21 +193,30 @@ unit mi.rtl.Objectss;
          //published Property ObjectsTemplate : TObjectsTemplate Read _ObjectsTemplate Write SetObjectsTemplate;
        end;
 
-procedure register;
+//procedure register;
 
 implementation
 
-procedure register;
-begin
-  RegisterComponents('Mi.Rtl', [TObjectss]);
-end;
+  //procedure register;
+  //begin
+  //  RegisterComponents('Mi.Rtl', [TObjectss]);
+  //end;
 
-class procedure TObjectss.Set_MI_MsgBox(aMI_MsgBox: TMI_MsgBox);
+  class function TObjectss.Application: TApplication;
   begin
-    MI_MsgBox := aMI_MsgBox;
-    if Assigned(application)
-    Then application.MI_MsgBox := MI_MsgBox;
+    if Assigned(FuncApplication)
+    Then result := FuncApplication
+    else result :=  mi.rtl.Objects.Methods.Paramexecucao.Application.Application;
   end;
+
+  class procedure TObjectss.Set_MI_MsgBox(aMI_MsgBox: TMI_MsgBox);
+  begin
+    _MI_MsgBox := aMI_MsgBox;
+    if Assigned(application)
+    then Application.MI_MsgBox := MI_MsgBox;
+  end;
+
+
 
   class procedure TObjectss.ProcStreamError(const S: TStreambase);
     Var msg:AnsiString;
@@ -349,7 +359,7 @@ class procedure TObjectss.Set_MI_MsgBox(aMI_MsgBox: TMI_MsgBox);
   end;
 
   var
-    MessageError_vidis :Boolean = False;
+    MessageError_reintrance :Boolean = False;
   class procedure TObjectss.MessageError;
     {: < Este procedimento imprime a sequencia de mesagems de erro}
 
@@ -357,6 +367,7 @@ class procedure TObjectss.Set_MI_MsgBox(aMI_MsgBox: TMI_MsgBox);
       I               : Integer;
       ItemSelecionado : TListBoxRec;
       Wok             : Boolean;
+//      Msg : AnsiString;
 
   Begin
     If MessageBoxOff or (Self = nil)
@@ -364,27 +375,35 @@ class procedure TObjectss.Set_MI_MsgBox(aMI_MsgBox: TMI_MsgBox);
 
     try
       Wok := ok;
-      If (Not ok_Set_Transaction) and (not MessageError_vidis)
+      If (Not get_ok_Set_Transaction)
+         and (Not Get_ok_Set_Server_Http)
+         and (not MessageError_reintrance)
       Then Begin
              Try
-               MessageError_vidis := true;
+               MessageError_reintrance := true;
                 If ListaDeMsgErro <>  nil Then
                 Begin
                   ItemSelecionado.Selection := 0;
 
-                  with MI_MsgBox do
-                    MessageBox_ListBoxRec_PSItem('ATENÇÃO',
-                                                 ListaDeMsgErro,
-                                                 ItemSelecionado.Selection,
-                                                 MtWarning,
-                                                 MbOKButton,
-                                                 mbOK);
+                  if Assigned(MI_MsgBox)
+                  Then with MI_MsgBox do
+                       BEGIN
+                         //Msg :=  SItemToString(ListaDeMsgErro);
+                          MessageBox_ListBoxRec_PSItem('ATENÇÃO',
+                                                       ListaDeMsgErro,
+                                                       ItemSelecionado.Selection,
+                                                       MtWarning,
+                                                       MbOKButton,
+                                                       mbOK);
+
+                         //SysMessageBox(msg,'ATENÇÃO',true);
+                       end;
 
                   DisposeSItems(ListaDeMsgErro);
                 End;
 
              Finally
-               MessageError_vidis := false;
+               MessageError_reintrance := false;
              End;
           End;
 
@@ -397,21 +416,28 @@ class procedure TObjectss.Set_MI_MsgBox(aMI_MsgBox: TMI_MsgBox);
 
 {: - Inicializa a unit}
 Initialization
-  with TObjectss do  begin
+
+
+  with TObjectss do
+  begin
+    C_MessageError := @TObjectss.MessageError;
     if _Logs = nil
     then _Logs :=  TFilesLogs.Create(nil);
-    Application := mi.rtl.Objects.Methods.Paramexecucao.Application.Application;
+    //Application := mi.rtl.Objects.Methods.Paramexecucao.Application.Application;
   end;
+
 
 {: - Finaliza a unit}
 finalization
 
   with TObjectss do
+  begin
     if _Logs <> nil
     then begin
            FreeAndNIl(_Logs)
          end;
-
+    C_MessageError := nil;
+  end;
 end.
 
 

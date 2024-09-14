@@ -1,0 +1,79 @@
+object dm_table: Tdm_table
+  OnCreate = DataModuleCreate
+  OldCreateOrder = False
+  Height = 164
+  HorizontalOffset = 600
+  VerticalOffset = 292
+  Width = 308
+  object SQLQuery1: TSQLQuery
+    PacketRecords = -1
+    IndexName = 'DEFAULT_ORDER'
+    MaxIndexesCount = 4
+    FieldDefs = <>
+    Database = DM_Connections.SQLConnector1
+    Transaction = DM_Connections.SQLTransaction1
+    SQL.Strings = (
+      'select * from'
+    )
+    Options = [sqoKeepOpenOnCommit, sqoAutoApplyUpdates, sqoAutoCommit, sqoCancelUpdatesOnRefresh, sqoRefreshUsingSelect]
+    Params = <>
+    Macros = <>
+    Sequence.FieldName = 'id'
+    Left = 240
+    Top = 16
+  end
+  object DataSource1: TDataSource
+    DataSet = SQLQuery1
+    Left = 240
+    Top = 80
+  end
+  object DmxScroller_Form1: TDmxScroller_Form
+    Alias = 'TDmxScroller_Form'
+    DataSource = DataSource1
+    Active = False
+    AlignmentLabels = taLeftJustify
+    TableName = 'operadores'
+    Left = 112
+    Top = 48
+  end
+  object ActionList1: TActionList
+    Left = 72
+    Top = 8
+    object Action_novo: TAction
+      Category = 'cadastra'
+      Caption = '&Novo'
+      OnExecute = Action_novoExecute
+    end
+    object Action_pesquisar: TAction
+      Category = 'cadastra'
+      Caption = '&Pesquisar'
+      OnExecute = Action_pesquisarExecute
+    end
+    object Action_gravar: TAction
+      Category = 'cadastra'
+      Caption = '&Gravar'
+      OnExecute = Action_gravarExecute
+    end
+    object Action_excluir: TAction
+      Category = 'cadastra'
+      Caption = '&Excluir'
+      OnExecute = Action_excluirExecute
+    end
+    object Action_bof: TAction
+      Category = 'cadastra'
+      Caption = 'Primeiro registro'
+    end
+    object Action_next: TAction
+      Category = 'cadastra'
+      Caption = 'Próximo Registro'
+    end
+    object Action_prev: TAction
+      Category = 'cadastra'
+      Caption = 'Registro anterior'
+    end
+    object Action_eof: TAction
+      Category = 'cadastra'
+      Caption = 'Ultimo Registro'
+    end
+  end
+end

@@ -2,7 +2,7 @@ unit mi.rtl.MiStringlistbase;
 {:< -A unit **@name** implementa a classe TStringListBase do pacote mi.rtl.
 
     - **VERSÃO**:
-      - Alpha - Alpha - 0.9.0
+      - Alpha - 1.0.0
 
     - **CÓDIGO FONTE**:
       - @html(<a href="../units/mi.rtl.MiStringListBase.pas">mi.rtl.MiStringListBase.pas</a>)
@@ -14,6 +14,9 @@ unit mi.rtl.MiStringlistbase;
 
       - **2022-05-17**
         - T12 Criar método CopyFrom
+
+      - **22/05/2024**
+        - 11:20 a 11:30 - IMplementar campo fldEnum_db
 }
 
 {$H+}
@@ -25,7 +28,7 @@ unit mi.rtl.MiStringlistbase;
 interface
 
 uses
-  Classes, SysUtils
+  Classes, SysUtils,db
   ,mi.rtl.Consts;
 
   Type
@@ -73,7 +76,7 @@ uses
                         public constructor Create(Const aTags:String);overload;virtual;
 
                         public constructor Create(ALimit: longint;AOrdem:Boolean {:< - Se True insere em ordem alfabética}
-                                                  );overload;virtual;
+                                                 );overload;virtual;
 
                         Private _OkDestroy_Object : Boolean;
                         Private _OkInsert : Boolean;
@@ -106,12 +109,11 @@ uses
                          destructor Destroy; override;
                          function Find(const S: string; Out Index: Integer): Boolean; override;
                          Function FindKey(WKey:String):Boolean;
-
                          Function NextKey  : Boolean; //<  Posiciona no proximo registro do tipo default
+                         Function getRec(aNRec:PtrInt):PtrInt;virtual;overload;
                          Function SearchKey(WKey:String):Boolean;
                          Function NewStr(S : String):Boolean;overload;
                          Function Append(S : String):Boolean;
-
 
                          procedure AddSItem(P : TConsts.PSItem;
                                             ConvertIdioma : TConsts.TConvertIdioma;
@@ -132,7 +134,6 @@ implementation
 
   { TStringListBase }
 
-
   function TStringListBase.IndexOf(const S: string): Integer;
     var ws : string;
   begin
@@ -144,7 +145,6 @@ implementation
     end;
     Result := -1;
   end;
-
 
   procedure TStringListBase.Delete(Index: Integer);
     Var
@@ -167,30 +167,30 @@ implementation
     Inherited Destroy;
   end;
 
-function TStringListBase.Find(const S: string; out Index: Integer): Boolean;
-  Var
-    i : Integer;
-    CompareRes: PtrInt;
-    ws : String;
-begin
-  if Sorted
-  then Result:=inherited Find(S, Index)
-  else begin //Busca sequencial
-         Result := false;
-         Index:=-1;
-         For i := 0 to Count-1 do
-         begin
-           ws := Get(I);
-           CompareRes := DoCompareText(S, ws);
-           if (CompareRes=0) then
+  function TStringListBase.Find(const S: string; out Index: Integer): Boolean;
+    Var
+      i : Integer;
+      CompareRes: PtrInt;
+      ws : String;
+  begin
+    if Sorted
+    then Result:=inherited Find(S, Index)
+    else begin //Busca sequencial
+           Result := false;
+           Index:=-1;
+           For i := 0 to Count-1 do
            begin
-             Index:= i;
-             Result := true;
-             break;
+             ws := Get(I);
+             CompareRes := DoCompareText(S, ws);
+             if (CompareRes=0) then
+             begin
+               Index:= i;
+               Result := true;
+               break;
+             end;
            end;
          end;
-       end;
-end;
+  end;
 
   function TStringListBase.FindKey(WKey: String): Boolean;
   //  Var  WIndex_Currente : Longint;
@@ -238,13 +238,11 @@ end;
       //posiciona no primeiro;
       Result := True;
       Index_Currente := 0;
-
-
       If Count-1 >= 0
       Then Begin
              Nr := PtrInt(Objects[Index_Currente]);
              Result := true;
-      end
+           end
       else Begin
              Nr     := 0;
              Result := false;
@@ -257,23 +255,23 @@ end;
 
   end;
 
-procedure TStringListBase.Clear;
-begin
-  inherited Clear;
-  ClearKey;
-end;
+  procedure TStringListBase.Clear;
+  begin
+    inherited Clear;
+    ClearKey;
+  end;
 
-procedure TStringListBase.SaveToFile(const FileName: string);
-begin
-  if DirectoryExists(ExtractFileDir(FileName))
-  then inherited SaveToFile(FileName)
-  else begin
-         if ForceDirectories(ExtractFileDir(FileName))
-         then inherited SaveToFile(FileName)
-         else raise Exception.Create('Não posso criar a pasta: '+ExtractFileDir(FileName));
-       end;
+  procedure TStringListBase.SaveToFile(const FileName: string);
+  begin
+    if DirectoryExists(ExtractFileDir(FileName))
+    then inherited SaveToFile(FileName)
+    else begin
+           if ForceDirectories(ExtractFileDir(FileName))
+           then inherited SaveToFile(FileName)
+           else raise Exception.Create('Não posso criar a pasta: '+ExtractFileDir(FileName));
+         end;
 
-end;
+  end;
 
   procedure TStringListBase.AddTag(const aTags: String);
     var
@@ -330,50 +328,50 @@ end;
       i : Integer;
       s : string;
       okAspa:Boolean;
- begin
-   Clear;
-   if aTagValues <> ''
-   Then begin
-          s := '';
-          okAspa := false;
-          for i := 1 to length(aTagValues) do
-          begin
-            case aTagValues[i] of
-              '"' : begin
-                      okAspa := not okAspa;
-                      //s := s+aTagValues[i];
-                    end;
-//            ';'
-              ',' : Begin
-                      if not okAspa
-                      Then begin
-                             add(s);
-                             s:= '';
-                           end
-                      else s := s+aTagValues[i];
-                    end;
+   begin
+     Clear;
+     if aTagValues <> ''
+     Then begin
+            s := '';
+            okAspa := false;
+            for i := 1 to length(aTagValues) do
+            begin
+              case aTagValues[i] of
+                '"' : begin
+                        okAspa := not okAspa;
+                        //s := s+aTagValues[i];
+                      end;
+  //            ';'
+                ',' : Begin
+                        if not okAspa
+                        Then begin
+                               add(s);
+                               s:= '';
+                             end
+                        else s := s+aTagValues[i];
+                      end;
 
-              '[',
-              ']',
-              ^M,
-              ^j  : Begin
-                      //ignora
-                     end;
-              ' '  : begin
-                       if okAspa
-                       then s := s+aTagValues[i];
-                     end
-              else  begin
-                      s := s+aTagValues[i]
-                    end;
-            end
-          end;//for
+                '[',
+                ']',
+                ^M,
+                ^j  : Begin
+                        //ignora
+                       end;
+                ' '  : begin
+                         if okAspa
+                         then s := s+aTagValues[i];
+                       end
+                else  begin
+                        s := s+aTagValues[i]
+                      end;
+              end
+            end;//for
 
-          if s <> ''
-          Then add(s);
+            if s <> ''
+            Then add(s);
 
-        end;
-  end;
+          end;
+   end;
 
   constructor TStringListBase.Create(const aTags: String);
   begin
@@ -442,7 +440,7 @@ end;
   end;
 
   function TStringListBase.NextKey: Boolean;
-  //<  Posiciona no proximo registro do tipo default
+  //<  Posiciona no próximo registro do tipo default
 
   Begin
     Result := okEof;
@@ -466,7 +464,18 @@ end;
 
   end;
 
-    function TStringListBase.SearchKey(WKey: String): Boolean;
+    function TStringListBase.getRec(aNRec: PtrInt): PtrInt;
+  begin
+    if (aNRec >=0 ) and (aNRec <= Count-1)
+    then begin
+           Index_Currente := aNRec;
+           Nr := PtrInt(Objects[Index_Currente]);
+           result := Nr;
+         end
+    else Result := -1;
+  end;
+
+  function TStringListBase.SearchKey(WKey: String): Boolean;
   Begin
     Result := FindKey(WKey);
     If Not Result Then
@@ -481,7 +490,7 @@ end;
     end;
   end;
 
-    function TStringListBase.NewStr(S: String): Boolean;
+  function TStringListBase.NewStr(S: String): Boolean;
 
       Function Insert_Not_Duplicates:Boolean;
         var I: Integer;
@@ -511,13 +520,14 @@ end;
     End;
   End;
 
-    function TStringListBase.Append(S: String): Boolean;
+  function TStringListBase.Append(S: String): Boolean;
   Begin
     Result := Add(S)=0;
   end;
 
-    procedure TStringListBase.AddSItem(P: TConsts.PSItem;
-    ConvertIdioma: TConsts.TConvertIdioma; OkDisposeSItems: Boolean);
+  procedure TStringListBase.AddSItem(P: TConsts.PSItem;
+                                     ConvertIdioma: TConsts.TConvertIdioma;
+                                     OkDisposeSItems: Boolean);
 
     class procedure DisposeSItems(var AItems: TConsts.PSItem);var  P : TConsts.PSItem;
     begin
@@ -553,13 +563,12 @@ end;
     Then DisposeSItems(P);
   End;
 
-    procedure TStringListBase.AddSItem(P: TConsts.PSItem);
+  procedure TStringListBase.AddSItem(P: TConsts.PSItem);
   Begin
     AddSItem(P,TConsts.ConvertIdioma_Nil,true); { Default deve destruir a lista passada}
   end;
 
-    function TStringListBase.CloneSItems(const Items: TConsts.PSItem
-    ): TConsts.PSItem;
+  function TStringListBase.CloneSItems(const Items: TConsts.PSItem    ): TConsts.PSItem;
   var
     S : TStringListBase;
   Begin
@@ -573,32 +582,40 @@ end;
     else Result := nil;
   End;
 
-    function TStringListBase.CopyTemplateFrom(const aTemplate: TConsts.tString
-    ): TConsts.tString;
+  function TStringListBase.CopyTemplateFrom(const aTemplate: TConsts.tString    ): TConsts.tString;
      Var P1  : TConsts.PSItem;
+          Ds : TDataSource;
+          KeyField   : Ansistring;
+          ListFields : Ansistring;
+          Default : Longint;
   Begin
     If aTemplate <> ''
     Then with TConsts do
          Case aTemplate[1] of
-
              //<Os Campos abaixo pode ser uma lista de PSItem
-             fldENUM   : Begin
-                           {$ifdef CPU32}
-                               system.Move(ATemplate[2],P1,4);
-                               Result := TConsts.CreateEnumField({ShowZ  } boolean(Byte(aTemplate[6])),
-                                                         {AccMode} Byte(aTemplate[7]),
-                                                         {Default} longint(aTemplate[8]),
-                                                         {AItems}  CloneSItems(P1));
+             fldENum,
+             fldENum_db: Begin
+                           system.Move(aTemplate[EnumField_ofs.TypeField],P1,sizeof(pSitem));
+                           system.move(aTemplate[EnumField_ofs.Default],Default,Sizeof(TEnumField.Default));
 
-                           {$ENDIF}
-                           {$ifdef CPU64}
-                               system.Move(ATemplate[2],P1,4+4);
-                               Result := TConsts.CreateEnumField({ShowZ  } boolean(Byte(aTemplate[6+4])),
-                                                         {AccMode} Byte(aTemplate[7+4]),
-                                                         {Default} Longint(aTemplate[8+4]),
-                                                         {AItems}  CloneSItems(P1));
+                           if aTemplate[1] = fldENUM
+                           Then Result := CreateEnumField({ShowZ  } boolean(Byte(aTemplate[EnumField_ofs.ShowZ])),
+                                                          {AccMode} Byte(aTemplate[EnumField_ofs.AccMode]),
+                                                          {Default} Default,
+                                                          {AItems}  CloneSItems(P1))
+                           else begin
+                                  system.move(aTemplate[EnumField_ofs.DataSource],Ds,Sizeof(TEnumField.DataSource));
+                                  system.move(aTemplate[EnumField_ofs.KeyField],KeyField,Sizeof(TEnumField.KeyField));
+                                  system.move(aTemplate[EnumField_ofs.ListField],ListFields,Sizeof(TEnumField.ListField));
 
-                           {$ENDIF}
+                                  Result := CreateEnumField({ShowZ  } boolean(Byte(aTemplate[EnumField_ofs.ShowZ])),
+                                                          {AccMode}   Byte(aTemplate[EnumField_ofs.AccMode]),
+                                                          {Default}   Default,
+                                                          {AItems}    CloneSItems(P1),
+                                                          {DataSource}DS,
+                                                          {KeyField}  KeyField,
+                                                          {ListField} ListFields);
+                                 end;
 
                           if length(aTemplate) > Length(Result)
                           then Begin
@@ -626,7 +643,7 @@ end;
     else Result := '';
   End;
 
-    function TStringListBase.PListSItem: TConsts.PSItem;
+  function TStringListBase.PListSItem: TConsts.PSItem;
 
     function NewStr(const S: AnsiString): TConsts.ptstring;
     BEGIN
@@ -667,7 +684,5 @@ end;
       Result := NewSitem(CopyTemplateFrom(S),Result);
     End;
   end;
-
-
 
 end.

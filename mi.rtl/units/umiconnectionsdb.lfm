@@ -1,0 +1,29 @@
+object MiConnectionsDb: TMiConnectionsDb
+  OnCreate = DataModuleCreate
+  OldCreateOrder = False
+  Height = 150
+  HorizontalOffset = 731
+  VerticalOffset = 276
+  Width = 579
+  object SQLTransaction1: TSQLTransaction
+    Active = False
+    Action = caNone
+    Database = SQLConnector1
+    Left = 232
+    Top = 16
+  end
+  object SQLConnector1: TSQLConnector
+    Connected = False
+    LoginPrompt = True
+    OnLogin = SQLConnector1Login
+    DatabaseName = 'avm'
+    KeepConnection = True
+    Password = 'masterkey'
+    Transaction = SQLTransaction1
+    UserName = 'postgres'
+    HostName = '45.160.125.12'
+    ConnectorType = 'PostgreSQL'
+    Left = 56
+    Top = 16
+  end
+end

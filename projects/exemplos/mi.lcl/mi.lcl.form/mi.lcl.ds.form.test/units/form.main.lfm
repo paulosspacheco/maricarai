@@ -1,0 +1,39 @@
+object form_main: Tform_main
+  Left = 520
+  Height = 240
+  Top = 279
+  Width = 320
+  Caption = 'form_main'
+  ClientHeight = 240
+  ClientWidth = 320
+  object Button1: TButton
+    Left = 16
+    Height = 25
+    Top = 24
+    Width = 112
+    Action = Action_form_exe01
+    TabOrder = 0
+  end
+  object Button2: TButton
+    Left = 16
+    Height = 25
+    Top = 56
+    Width = 107
+    Action = Action_form_Exe02
+    TabOrder = 1
+  end
+  object ActionList1: TActionList
+    Left = 232
+    Top = 16
+    object Action_form_exe01: TAction
+      Category = 'Exemplos'
+      Caption = 'Form exemplo 01'
+      OnExecute = Action_form_exe01Execute
+    end
+    object Action_form_Exe02: TAction
+      Category = 'Exemplos'
+      Caption = 'Form exemplo 02'
+      OnExecute = Action_form_Exe02Execute
+    end
+  end
+end

@@ -1,0 +1,6 @@
+Name is InfoDemo
+This program was compiled 19:43:04 on 2024/07/11
+By paulosspacheco
+Compiler version: 3.2.2
+Target CPU: x86_64
+HOME: /home/paulosspacheco

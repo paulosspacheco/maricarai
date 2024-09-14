@@ -1,0 +1,84 @@
+inherited form_consulta: Tform_consulta
+  Left = 459
+  Height = 469
+  Top = 242
+  Width = 866
+  Caption = 'form_consulta'
+  ClientHeight = 469
+  ClientWidth = 866
+  inherited Panel1: TPanel
+    Width = 860
+    ClientWidth = 860
+    inherited Label_title: TLabel
+      Width = 860
+    end
+    inherited ToolBar1: TToolBar
+      Height = 35
+      Width = 858
+      inherited BitBtn2: TBitBtn
+        Height = 33
+        Width = 70
+      end
+      inherited BitBtn1: TBitBtn
+        Left = 75
+        Height = 33
+        Width = 109
+      end
+      inherited BitBtn3: TBitBtn
+        Left = 184
+        Height = 33
+        Width = 80
+      end
+      inherited BitBtn7: TBitBtn
+        Left = 264
+        Height = 33
+        Width = 102
+      end
+      inherited BitBtn4: TBitBtn
+        Left = 366
+        Height = 33
+        Width = 79
+      end
+      inherited BitBtn6: TBitBtn
+        Left = 445
+        Height = 33
+        Width = 100
+      end
+      inherited BitBtn5: TBitBtn
+        Left = 545
+        Height = 33
+        Width = 103
+      end
+    end
+  end
+  inherited PageControl1: TPageControl
+    Height = 818
+    Width = 860
+    inherited Lista: TTabSheet
+      ClientHeight = 787
+      ClientWidth = 850
+      inherited DBGrid1: TDBGrid
+        Height = 268
+        Width = 848
+      end
+      inherited DBNavigator1: TDBNavigator
+        Hints.Strings = (        )
+      end
+      inherited Panel2: TPanel
+        Width = 854
+        ClientWidth = 854
+        inherited Edit_Pesquisar: TEdit
+          Height = 34
+        end
+      end
+    end
+    inherited Cadastra: TTabSheet
+      ClientHeight = 787
+      ClientWidth = 850
+      inherited Mi_LCL_Scrollbox1: TMi_LCL_Scrollbox
+        Height = 349
+        Width = 844
+      end
+    end
+  end
+end

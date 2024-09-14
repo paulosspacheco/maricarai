@@ -167,7 +167,6 @@
       {ApCLiSvr.pas}
       223: Result := '223: Evento executado por outro processo';
       224: Result := '224: Servidor de API não instalado';
-
       225: Result := '225: TTransaction.Commit esperado.';//TTransaction
       226: Result := '226: Não é uma expressão válida';
       227: Result := '227: Muitos parentese na expressão';

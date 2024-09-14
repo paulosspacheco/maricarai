@@ -2,7 +2,7 @@ unit mi.rtl.objects.Methods.dates;
  {:< -A Unit **@name** implementa a classe **TDates**.
 
     - **VERSÃO**
-      - Alpha - Alpha - 0.9.0
+      - Alpha - 1.0.0
 
     - **CÓDIGO FONTE**:
       - @html(<a href="../units/mi.rtl.objects.Methods.dates.pas">mi.rtl.objects.Methods.dates.pas</a>)
@@ -25,8 +25,11 @@ unit mi.rtl.objects.Methods.dates;
 
 interface
 Uses
-  Classes,SysUtils,DateUtils,dos
+  Classes,SysUtils,DateUtils,dos,StrUtils
+  ,mi.rtl.Types
+  ,mi.rtl.objects.types
   ,mi.rtl.objects.Methods
+
   ,mi.rtl.objects.consts.MI_MsgBox
 
   ;
@@ -40,16 +43,18 @@ Uses
        - Type TData_e_Hora_Compactada = Longint;
 }
 type
+
+  { TDates }
+
   TDates = class(TObjectsMethods)
     public type TypeData  = Record dia:byte;mes:Byte;ano : byte; End;
     public type PTypeData = ^TypeData;
 
-    public const AnoLimit : Byte = 30; //1930 a 2030
+    //public const AnoLimit : Byte = 30; //1930 a 2030
 
     private const _AnoLimit = 30;
     public  const DataMinima : TypeData = (dia:1;mes:1  ;ano:_AnoLimit);
     public  const DataMaxima : TypeData = (dia:31;mes:12;ano:_AnoLimit-1);
-
 
     public type TipoHora = record
                              H,M,S,S100 : SmallWord;
@@ -57,36 +62,37 @@ type
 
     public type TVarGetDate = Record Dia,Mes,Ano,DiaDaSemana : SmallWord;  end;
     public type TVarGetTime = record Hora,Minuto,Segundo,S100 : SmallWord; end;
-    public Type TDateMask = (DateMask_AA_MM_DD,
-                              DateMask_AAAA_MM_DD,
-                              DateMask_DD_MM_AA,// DD/MM/AA
-                              DateMask_DDMMAA, // DDMMAA
-                              DateMask_DD_MM_AAAA,
-                              DateMask_MM_AA,
-                              DateMask_MM_AAAA,
-                              DateMask_NomeMM_AA,
-                              DateMask_NomeMM_AAAA,
+    public Type TDateMask = (DateMask_yy_mm_dd,
+                              DateMask_yyyy_mm_dd,
+                              DateMask_dd_mm_yy,// dd/mm/yy
+                              DateMask_ddmmyy, // ddmmyy
+                              DateMask_dd_mm_yyyy,
+                              DateMask_mm_yy,
+                              DateMask_mm_yyyy,
+                              DateMask_Nomemm_yy,
+                              DateMask_Nomemm_yyyy,
 
                               DateMask_MM_NomeMM,
-                              DateMask_MM_NomeMM_AA,
-                              DateMask_MM_NomeMM_AAAA,
+                              DateMask_MM_Nomemm_yy,
+                              DateMask_MM_Nomemm_yyyy,
                               DateMask_Extenco,
 
-                              DateMask_DD_MM_AA_HH_MM_SS,   // DD/MM/AA HH:MM:SS
-                              DateMask_DDMMAAHHMMSS,        // DDMMAAHHMMSS
+                              DateMask_dd_mm_yy_hh_nn_ss,   // dd/mm/yy hh:nn:ss
+                              DateMask_ddmmyyhhnnss,        // ddmmyyhhnnss
 
-                              DateMask_DD_MM_AA_HH_MM,      // DD/MM/AA HH:MM
-                              DateMask_DDMMAAHHMM,          // DDMMAAHHMM
+                              DateMask_dd_mm_yy_hh_nn,      // dd/mm/yy hh:nn
+                              DateMask_ddmmyyhhnn,          // ddmmyyhhnn
 
-                              DateMask_DD_MM_AAAA_HH_MM_SS,  // DD/MM/AAAA HH:MM:SS
-                              DateMask_DDMMAAAAHHMMSS,       // DD/MM/AAAA HH:MM:SS
+                              DateMask_dd_mm_yyyy_hh_nn_ss,  // dd/mm/yyyy hh:nn:ss
+                              DateMask_ddmmyyyyhhnnss,       // dd/mm/yyyy hh:nn:ss
 
-                              DateMask_AAAAMMDDHHMMSS        // AAAAMMDDHHMMSS
+                              DateMask_yyyymmddhhnnss        // yyyymmddhhnnss
+                            );
+    public type THourMask = (HourMask_hh_nn ,
+                             HourMask_hh_nn_ss,
+                             HourMask_hh_nn_ss_zzz);
 
-                              );
-    public type THourMask = (HourMask_HH_MM ,
-                             HourMask_HH_MM_SS,
-                             HourMask_HH_MM_SS_S100);
+
 
     public type TMeses = (MesNulo,
                           Janeiro,
@@ -171,9 +177,12 @@ type
 
     class function GetDataSistOp(Var Buff;const Separador:AnsiChar{Pode Ser: '/',':',' '}):String;
     class function FGetDataSistOp(const Separador:AnsiChar{Pode Ser: '/',':',' '}):String;
+
     class function GetDateSystem(const DateMask:TDateMask):String;
     class function GetHourSystem(const HourMask :THourMask):String;
 
+    class function GetDateTimeSystem():TDateTime;overload;
+    class function GetDateTimeSystem(aMask:TMask):String;overload;
 
     {Funcoes a seguir sao usadas para atualiza o tempo dos registro de dados}
     {------------------------------------------------------------------------}
@@ -222,8 +231,10 @@ type
 
 
     class function DateTimeToDate(aDateTime:TDateTime):TypeData;Overload;
+
     class function DateTimeToDateStr(aDateTime:TDateTime):String;Overload;
     class function DateTimeToTimeStr(aDateTime:TDateTime):String;
+
     class function DateTimeToDateTimeDos(aDateTime:TDateTime):Longint;Overload;
     class function DateTimeDosToStr(aTimePack:Longint;Mask:TDateMask):String;
 
@@ -275,6 +286,63 @@ type
 
     class function getDateStr :tstring ;
     class function getTimeStr :tstring ;
+
+    class function DateTimeValid(aDate:AnsiString):Boolean;
+
+    public class function MaskEdit_to_Mask(const aMaskEdit: AnsiString ): TMask;override;
+
+    {: O método **@name** recebe a mascara definida em aMask e retorna um
+       string esperado pelo registro DefaultFormatSettings.
+    }
+    class function Mask_to_MaskDateTime(const aMask: TMask): AnsiString;
+
+    class function MaskDateTime_to_Mask(const aMaskDateTime: AnsiString):TMask;overload;
+//    class function MaskDateTime_to_Mask(const aTemplate: TTypes.TDmxStr_ID):TMask;overload;
+
+    class function MaskDateTime_to_MaskEdit(const aMaskDateTime: AnsiString): AnsiString;
+
+    class function Mask_to_MaskEdit(const aMask: TMask): AnsiString;
+
+    {: O método **@name** retorna s compatível com aMaskDateTime se s for um campo
+       TDateTime válido e vazio caso contrário
+    }
+    class function FormatMask( S: AnsiString;const aMask: TMask):AnsiString;
+
+    class function DeleteMask(s:AnsiString):AnsiString;
+
+    {: O método **@name** seta o registro DefaultFormatSettings para a mascara
+       definida em Mask e retorna o estado anterior de DefaultFormatSettings.
+
+       - **PARÂMETROS**
+         - Mask : Mascara com formatação de datas
+         - DestDataBase:
+           - True  : A formatação será gravada em arquivo ou lida de um aquivo.
+           - False : A formação está sendo usado na edição de datas.
+    }
+    class function SetDefaultFormatSettings(Mask: TMask;DestDataBase: Boolean): TFormatSettings;overload;
+
+    {: O método **@name** seta o registro DefaultFormatSettings para a mascara
+       definida em Mask e retorna o estado anterior de DefaultFormatSettings.
+
+       - **PARÂMETROS**
+         - Mask : Mascara com formatação de datas
+       - **OBS**
+         - Executa o método SetDefaultFormatSettings(Mask,false);
+    }
+    class function SetDefaultFormatSettings(Mask: TMask): TFormatSettings;overload;
+
+    class function yymmdd_to_ddmmyy(S: AnsiString):AnsiString;
+    class function yyyymmdd_to_ddmmyyyy(S: AnsiString):AnsiString;
+
+    class function StrToDateTime(S: AnsiString;Const Mask: TMask;DestDataBase:Boolean):TDateTime;overload;
+    class function StrToDateTime( const S: AnsiString):TDateTime;overload;
+
+    {: O método **@name** receber uma data e hora compactada e retorna uma data
+       e hora em string de acordo com a mascara passada em mask}
+    class function DateTimeToStr(d:TDateTime; Mask:  TMask;DestDataBase:Boolean ): AnsiString;overload;
+    class function DateTimeToStr(d:TDateTime):AnsiString;Overload;
+
+//    class function IsDateTime(const aTemplate: tString): Boolean;
   end;
 
 Implementation
@@ -301,7 +369,7 @@ Implementation
   end;
 
 
-    class function TDates.DifHoraEmSegundos(const HAtu, HAnt: TipoHora): Longint;
+ class function TDates.DifHoraEmSegundos(const HAtu, HAnt: TipoHora): Longint;
   Var
     tempoSegAtu,
     tempoSegAnt  : Longint;
@@ -436,38 +504,38 @@ Implementation
     end;
   end;}
 
-    class function TDates.DateMask_to_Str(const aDateMask: TDateMask): String;
+  class function TDates.DateMask_to_Str(const aDateMask: TDateMask): String;
   Begin
     Case aDateMask of
-      DateMask_AA_MM_DD,
-      DateMask_DD_MM_AA       : DateMask_to_Str := '##/##/##';
-      DateMask_DDMMAA         : DateMask_to_Str := '######';
+      DateMask_yy_mm_dd,
+      DateMask_dd_mm_yy       : DateMask_to_Str := '##/##/##';
+      DateMask_ddmmyy         : DateMask_to_Str := '## ## ##';
 
-      DateMask_AAAA_MM_DD     : DateMask_to_Str := '####/##/##';
+      DateMask_yyyy_mm_dd     : DateMask_to_Str := '####/##/##';
 
-      DateMask_DD_MM_AAAA     : DateMask_to_Str := '##/##/####';
+      DateMask_dd_mm_yyyy     : DateMask_to_Str := '##/##/####';
 
-      DateMask_MM_AA          : DateMask_to_Str := '##/##';
-      DateMask_MM_AAAA        : DateMask_to_Str := '##/####';
+      DateMask_mm_yy          : DateMask_to_Str := '##/##';
+      DateMask_mm_yyyy        : DateMask_to_Str := '##/####';
 
-      DateMask_NomeMM_AA      : DateMask_to_Str := 'ssssssssss/##';
-      DateMask_NomeMM_AAAA    : DateMask_to_Str := 'ssssssssss/####';
+      DateMask_Nomemm_yy      : DateMask_to_Str := 'ssssssssss/##';
+      DateMask_Nomemm_yyyy    : DateMask_to_Str := 'ssssssssss/####';
 
       DateMask_MM_NomeMM      : DateMask_to_Str := '##/ssssssssss';
-      DateMask_MM_NomeMM_AA   : DateMask_to_Str := '##/ssssssssss/##';
-      DateMask_MM_NomeMM_AAAA : DateMask_to_Str := '##/ssssssssss/####';
+      DateMask_MM_Nomemm_yy   : DateMask_to_Str := '##/ssssssssss/##';
+      DateMask_MM_Nomemm_yyyy : DateMask_to_Str := '##/ssssssssss/####';
       DateMask_Extenco        : DateMask_to_Str := 'ssssssssssssssssssssssssss';
 
-      DateMask_DD_MM_AA_HH_MM_SS : Result := 'DD/MM/AA HH:MM:SS';
-      DateMask_DDMMAAHHMMSS      : Result := 'DDMMAAHHMMSS';
+      DateMask_dd_mm_yy_hh_nn_ss : Result := 'dd/mm/yy hh:nn:ss';
+      DateMask_ddmmyyhhnnss      : Result := 'ddmmyyhhnnss';
 
-      DateMask_DD_MM_AA_HH_MM    : Result := 'DD/MM/AA HH:MM';
-      DateMask_DDMMAAHHMM        : Result := 'DDMMAAHHMM';
+      DateMask_dd_mm_yy_hh_nn    : Result := 'dd/mm/yy hh:nn';
+      DateMask_ddmmyyhhnn        : Result := 'ddmmyyhhnn';
 
-      DateMask_DD_MM_AAAA_HH_MM_SS : Result := 'DD/MM/AAAA HH:MM:SS';
-      DateMask_DDMMAAAAHHMMSS      : Result := 'DDMMAAAAHHMMSS';
+      DateMask_dd_mm_yyyy_hh_nn_ss : Result := 'dd/mm/yyyy hh:nn:ss';
+      DateMask_ddmmyyyyhhnnss      : Result := 'ddmmyyyyhhnnss';
 
-      DateMask_AAAAMMDDHHMMSS      : Result := 'AAAAMMDDHHMMSS';
+      DateMask_yyyymmddhhnnss      : Result := 'yyyymmddhhnnss';
 
 
       Else Begin
@@ -482,26 +550,26 @@ Implementation
       aDateTimeDos : Longint;
   Begin
     //Analisa se o len de aStrDate é válido.
-    if (Length(aStrDate) in [14,//length('DDMMAAAAHHMMSS'),                       length('AAAAMMDDHHMMSS'),
-                             12, //length('DDMMAAHHMMSS'),
-                             10 //length('DDMMAAHHMM')
+    if (Length(aStrDate) in [14,//length('ddmmyyyyhhnnss'),                       length('yyyymmddhhnnss'),
+                             12, //length('ddmmyyhhnnss'),
+                             10 //length('ddmmyyhhnn')
                             ])
     Then begin
-           if Length(aStrDate) in [14 //length('DDMMAAAAHHMMSS'), length('AAAAMMDDHHMMSS')
+           if Length(aStrDate) in [14 //length('ddmmyyyyhhnnss'), length('yyyymmddhhnnss')
                                   ]
            then Begin
                   Try
-                    aDateTimeDos := StrToDateTimeDos(aStrDate,DateMask_DDMMAAAAHHMMSS);
-                    Result := DateMask_DDMMAAAAHHMMSS;
+                    aDateTimeDos := StrToDateTimeDos(aStrDate,DateMask_ddmmyyyyhhnnss);
+                    Result := DateMask_ddmmyyyyhhnnss;
                   Except
-                    aDateTimeDos := StrToDateTimeDos(aStrDate,DateMask_AAAAMMDDHHMMSS);
-                    Result := DateMask_AAAAMMDDHHMMSS;
+                    aDateTimeDos := StrToDateTimeDos(aStrDate,DateMask_yyyymmddhhnnss);
+                    Result := DateMask_yyyymmddhhnnss;
                   End;
                 End
            Else Begin
-                  if Length(aStrDate) = length('DDMMAAHHMMSS')
-                  Then Result := DateMask_DDMMAAHHMMSS
-                  Else Result := DateMask_DDMMAAHHMM;
+                  if Length(aStrDate) = length('ddmmyyhhnnss')
+                  Then Result := DateMask_ddmmyyhhnnss
+                  Else Result := DateMask_ddmmyyhhnn;
                end;
          end
     Else Raise EArgumentException.Create(TStrError.ErrorMessage5('mi.rtl','mi.rtl.dates','Tdates','Str_to_DateMask',ParametroInvalido ));
@@ -513,12 +581,12 @@ Implementation
   End;
 
 
-    class function TDates.HourMask_to_Str(const aHourMask: THourMask): String;
+  class function TDates.HourMask_to_Str(const aHourMask: THourMask): String;
   Begin
     Case aHourMask of
-      HourMask_HH_MM          : HourMask_to_Str := '##:##';
-      HourMask_HH_MM_SS       : HourMask_to_Str := '##:##:##';
-      HourMask_HH_MM_SS_S100   : HourMask_to_Str := '##:##:##:###';
+      HourMask_hh_nn          : HourMask_to_Str := '##:##';
+      HourMask_hh_nn_ss       : HourMask_to_Str := '##:##:##';
+      HourMask_hh_nn_ss_zzz   : HourMask_to_Str := '##:##:##:###';
       Else Begin
              Raise EArgumentException.Create(TStrError.ErrorMessage5('mi.rtl','mi.rtl.dates','Tdates','HourMask_to_Str','A data está com formato inválido!.' ));
              //Raise TException.Create(Name_Type_App_MarIcaraiV1,
@@ -556,9 +624,9 @@ Implementation
     StrDataAux : string;
     D,M,A      : String[4];
   begin
-    str(aDate.dia:1,D);
-    str(aDate.mes:1,M);
-    str(aDate.ano:1,A);
+    system.str(aDate.dia:1,D);
+    system.str(aDate.mes:1,M);
+    system.str(aDate.ano:1,A);
 
     if Byte(D[0]) < 2 then insert('0',D,1);
     if Byte(M[0]) < 2 then insert('0',M,1);
@@ -566,9 +634,9 @@ Implementation
 
 
     case Mask of
-      DateMask_AA_MM_DD :
+      DateMask_yy_mm_dd :
       Begin
-        If (aDate.Ano >= AnoLimit) or (aDate.Dia = 0)
+        If (aDate.Ano >= DefaultFormatSettings.TwoDigitYearCenturyWindow {AnoLimit}) or (aDate.Dia = 0)
         Then strDataAux := Concat(A,M,D)
         Else Begin
                strDataAux := Chr(100+aDate.Ano)+M+D;
@@ -577,68 +645,68 @@ Implementation
               End;
       end;
 
-      DateMask_AAAA_MM_DD : {Retorna a data dia/mes/ano com 4 digitos}
+      DateMask_yyyy_mm_dd : {Retorna a data dia/mes/ano com 4 digitos}
       Begin
-        If aDate.Ano >= AnoLimit
+        If aDate.Ano >= DefaultFormatSettings.TwoDigitYearCenturyWindow {AnoLimit}
         Then strDataAux := concat('19'+A,'/',M,'/',D)
         Else strDataAux := concat('20'+A,'/',M,'/',D);
       End;
 
-      DateMask_DD_MM_AA   : strDataAux := concat(D,'/',M,'/',A);
-      DateMask_DDMMAA     : strDataAux := concat(D,M,A);
+      DateMask_dd_mm_yy   : strDataAux := concat(D,'/',M,'/',A);
+      DateMask_ddmmyy     : strDataAux := concat(D,M,A);
 
-      DateMask_DD_MM_AAAA : {Retorna a data dia/mes/ano com 4 digitos}
+      DateMask_dd_mm_yyyy : {Retorna a data dia/mes/ano com 4 digitos}
       Begin
-        If aDate.Ano >= AnoLimit
+        If aDate.Ano >= DefaultFormatSettings.TwoDigitYearCenturyWindow {AnoLimit}
         Then strDataAux := concat(D,'/',M,'/','19'+A)
         Else strDataAux := concat(D,'/',M,'/','20'+A);
       End;
 
       DateMask_Extenco:
       Begin
-        If aDate.Ano >= AnoLimit
+        If aDate.Ano >= DefaultFormatSettings.TwoDigitYearCenturyWindow {AnoLimit}
         Then StrDataAux := concat(D,' de ',StrMes(aDate.mes),' de ','19',A)
         Else StrDataAux := concat(D,' de ',StrMes(aDate.mes),' de ','20',A)
       End;
 
-      DateMask_NomeMM_AAAA :
-        If aDate.Ano >= AnoLimit
+      DateMask_Nomemm_yyyy :
+        If aDate.Ano >= DefaultFormatSettings.TwoDigitYearCenturyWindow {AnoLimit}
         Then StrDataAux := StrMes(aDate.Mes)+'/'+'19'+A
         Else StrDataAux := StrMes(aDate.Mes)+'/'+'20'+A;
 
 
-      DateMask_NomeMM_AA  : StrDataAux := StrMes(aDate.Mes)+'/'+A;
+      DateMask_Nomemm_yy  : StrDataAux := StrMes(aDate.Mes)+'/'+A;
 
       DateMask_MM_NomeMM  : StrDataAux := M+'='+StrMes(aDate.Mes);
 
-      DateMask_MM_NomeMM_AAAA :
-        If aDate.Ano >= AnoLimit
+      DateMask_MM_Nomemm_yyyy :
+        If aDate.Ano >= DefaultFormatSettings.TwoDigitYearCenturyWindow {AnoLimit}
         Then StrDataAux := M+'='+StrMes(aDate.Mes)+'/'+'19'+A
         Else StrDataAux := M+'='+StrMes(aDate.Mes)+'/'+'20'+A;
 
-      DateMask_MM_NomeMM_AA  : StrDataAux := M+'='+StrMes(aDate.Mes)+'/'+A;
+      DateMask_MM_Nomemm_yy  : StrDataAux := M+'='+StrMes(aDate.Mes)+'/'+A;
 
   {Mes/ano}   {  StrCampo := Istr(Data.Mes,'BB')+'='+StrMes(Data.Mes)+'/'+IStr(FAno(Data.ano),'IIII');}
   {Dia}       {StrCampo := Istr(Data.Dia,'BB');}
   {Ano}         {StrCampo := IStr(FAno(Data.ano),'IIII');}
 
   {
-      DateMask_DD_MM_AA_HH_MM_SS,   // DD/MM/AA HH:MM:SS
-      DateMask_DDMMAAHHMMSS,        // DDMMAAHHMMSS
+      DateMask_dd_mm_yy_hh_nn_ss,   // dd/mm/yy hh:nn:ss
+      DateMask_ddmmyyhhnnss,        // ddmmyyhhnnss
 
-      DateMask_DD_MM_AA_HH_MM,      // DD/MM/AA HH:MM
-      DateMask_DDMMAAHHMM,          // DDMMAAHHMM
+      DateMask_dd_mm_yy_hh_nn,      // dd/mm/yy hh:nn
+      DateMask_ddmmyyhhnn,          // ddmmyyhhnn
 
-      DateMask_DD_MM_AAAA_HH_MM_SS,  // DD/MM/AAAA HH:MM:SS
-      DateMask_DDMMAAAAHHMMSS,       // DD/MM/AAAA HH:MM:SS
+      DateMask_dd_mm_yyyy_hh_nn_ss,  // dd/mm/yyyy hh:nn:ss
+      DateMask_ddmmyyyyhhnnss,       // dd/mm/yyyy hh:nn:ss
 
-      DateMask_AAAAMMDDHHMMSS        // AAAAMMDDHHMMSS
+      DateMask_yyyymmddhhnnss        // yyyymmddhhnnss
                               : Begin
 
                                 End;
 
-      DateMask_MM_AA          : Begin end;
-      DateMask_MM_AAAA        : Begin end;
+      DateMask_mm_yy          : Begin end;
+      DateMask_mm_yyyy        : Begin end;
   }
 
       else Begin
@@ -768,13 +836,13 @@ Implementation
     //Result deve ser:
     {
     TDateTimeMask =
-                (DateMask_DD_MM_AA_HH_MM_SS,   // DD/MM/AA HH:MM:SS
-                 DateMask_DDMMAAHHMMSS,        // DDMMAAHHMMSS
-                 DateMask_DD_MM_AA_HH_MM,      // DD/MM/AA HH:MM
-                 DateMask_DDMMAAHHMM,          // DDMMAAHHMM
-                 DateMask_DD_MM_AAAA_HH_MM_SS, // DD/MM/AAAA HH:MM:SS
-                 DateMask_DDMMAAAAHHMMSS ,     // DD/MM/AAAA HH:MM:SS
-                 DateMask_AAAAMMDDHHMMSS         //AAAAMMDDHHMMSS
+                (DateMask_dd_mm_yy_hh_nn_ss,   // dd/mm/yy hh:nn:ss
+                 DateMask_ddmmyyhhnnss,        // ddmmyyhhnnss
+                 DateMask_dd_mm_yy_hh_nn,      // dd/mm/yy hh:nn
+                 DateMask_ddmmyyhhnn,          // ddmmyyhhnn
+                 DateMask_dd_mm_yyyy_hh_nn_ss, // dd/mm/yyyy hh:nn:ss
+                 DateMask_ddmmyyyyhhnnss ,     // dd/mm/yyyy hh:nn:ss
+                 DateMask_yyyymmddhhnnss         //yyyymmddhhnnss
                 );
     }
     Var
@@ -790,9 +858,9 @@ Implementation
                             Hora);
 
            //Calcula os separadores de data e hora.
-           if Mask in [DateMask_DD_MM_AA_HH_MM_SS,   // DD/MM/AA HH:MM:SS
-                       DateMask_DD_MM_AA_HH_MM,      // DD/MM/AA HH:MM
-                       DateMask_DD_MM_AAAA_HH_MM_SS  // DD/MM/AAAA HH:MM:SS
+           if Mask in [DateMask_dd_mm_yy_hh_nn_ss,   // dd/mm/yy hh:nn:ss
+                       DateMask_dd_mm_yy_hh_nn,      // dd/mm/yy hh:nn
+                       DateMask_dd_mm_yyyy_hh_nn_ss  // dd/mm/yyyy hh:nn:ss
                       ]
            Then Begin
                   SeparadorData  := '/';
@@ -804,7 +872,7 @@ Implementation
                 End;
 
            //Calcula o resultado baseado na mascara passada por: Mask
-           if Mask = DateMask_DD_MM_AAAA_HH_MM_SS
+           if Mask = DateMask_dd_mm_yyyy_hh_nn_ss
            then Begin
                    //Inicia a data
                    Result := IStr(Data.dia,'ZB')+SeparadorData+ IStr(Data.Mes,'ZB')+SeparadorData+ IStr(FAno(Data.Ano),'ZZZI');
@@ -813,7 +881,7 @@ Implementation
                    Result := Result + ' '+ Istr(Hora.H,'ZB')+SeparadorHora+Istr(Hora.M,'ZB')+SeparadorHora+Istr(Hora.S,'ZB');
                 end
            Else
-           if Mask = DateMask_DD_MM_AA_HH_MM_SS
+           if Mask = DateMask_dd_mm_yy_hh_nn_ss
            then Begin
                    //Inicia a data
                    Result := IStr(Data.dia,'ZB')+SeparadorData+ IStr(Data.Mes,'ZB')+SeparadorData+ IStr(Data.Ano,'ZB');
@@ -822,8 +890,8 @@ Implementation
                    Result := Result + ' '+ Istr(Hora.H,'ZB')+SeparadorHora+Istr(Hora.M,'ZB')+SeparadorHora+Istr(Hora.S,'ZB');
                 end
            Else
-           if Mask = DateMask_DD_MM_AA_HH_MM_SS
-           then Begin //DateMask_DD_MM_AA_HH_MM
+           if Mask = DateMask_dd_mm_yy_hh_nn_ss
+           then Begin //DateMask_dd_mm_yy_hh_nn
                    //Inicia a data
                    Result := IStr(Data.dia,'ZB')+SeparadorData+ IStr(Data.Mes,'ZB')+SeparadorData+ IStr(Data.Ano,'ZB');
 
@@ -831,7 +899,7 @@ Implementation
                    Result := Result + ' '+ Istr(Hora.H,'ZB')+SeparadorHora+Istr(Hora.M,'ZB');
                 end
            Else
-           if Mask = DateMask_AAAAMMDDHHMMSS
+           if Mask = DateMask_yyyymmddhhnnss
            then Begin
                    //Inicia a data
                    Result := IStr(FAno(Data.Ano),'ZZZI') + IStr(Data.Mes,'ZB')+IStr(Data.dia,'ZB');
@@ -847,35 +915,35 @@ Implementation
 
   Var
     TempStrToDate : TDates.TypeData; {Usado com pbuffer de retorno da funcao StrToDate}
-    Vidis_StrToDate : Boolean = false;
+    reintrance_StrToDate : Boolean = false;
     class function TDates.StrToDate(aStrDate: String; const Mask: TDateMask
     ): PTypeData;
   {
-    TDateMask = (DateMask_AA_MM_DD,
-                 DateMask_AAAA_MM_DD,
-                 DateMask_DD_MM_AA,// DD/MM/AA
-                 DateMask_DDMMAA, // DDMMAA
-                 DateMask_DD_MM_AAAA,
-                 DateMask_MM_AA,
-                 DateMask_MM_AAAA,
-                 DateMask_NomeMM_AA,
-                 DateMask_NomeMM_AAAA,
+    TDateMask = (DateMask_yy_mm_dd,
+                 DateMask_yyyy_mm_dd,
+                 DateMask_dd_mm_yy,// dd/mm/yy
+                 DateMask_ddmmyy, // ddmmyy
+                 DateMask_dd_mm_yyyy,
+                 DateMask_mm_yy,
+                 DateMask_mm_yyyy,
+                 DateMask_Nomemm_yy,
+                 DateMask_Nomemm_yyyy,
 
                  DateMask_MM_NomeMM,
-                 DateMask_MM_NomeMM_AA,
-                 DateMask_MM_NomeMM_AAAA,
+                 DateMask_MM_Nomemm_yy,
+                 DateMask_MM_Nomemm_yyyy,
                  DateMask_Extenco,
 
-                 DateMask_DD_MM_AA_HH_MM_SS,   // DD/MM/AA HH:MM:SS
-                 DateMask_DDMMAAHHMMSS,        // DDMMAAHHMMSS
+                 DateMask_dd_mm_yy_hh_nn_ss,   // dd/mm/yy hh:nn:ss
+                 DateMask_ddmmyyhhnnss,        // ddmmyyhhnnss
 
-                 DateMask_DD_MM_AA_HH_MM,      // DD/MM/AA HH:MM
-                 DateMask_DDMMAAHHMM,          // DDMMAAHHMM
+                 DateMask_dd_mm_yy_hh_nn,      // dd/mm/yy hh:nn
+                 DateMask_ddmmyyhhnn,          // ddmmyyhhnn
 
-                 DateMask_DD_MM_AAAA_HH_MM_SS,  // DD/MM/AAAA HH:MM:SS
-                 DateMask_DDMMAAAAHHMMSS,       // DD/MM/AAAA HH:MM:SS
+                 DateMask_dd_mm_yyyy_hh_nn_ss,  // dd/mm/yyyy hh:nn:ss
+                 DateMask_ddmmyyyyhhnnss,       // dd/mm/yyyy hh:nn:ss
 
-                 DateMask_AAAAMMDDHHMMSS        // AAAAMMDDHHMMSS
+                 DateMask_yyyymmddhhnnss        // yyyymmddhhnnss
 
                  );
                 xcl
@@ -908,15 +976,15 @@ Implementation
       if aStrDate[i] in ['0'..'9','/']
       then Aux  := Aux + aStrDate[i];
 
-    if (pos('/',Aux)<>0) and (Mask in [DateMask_DD_MM_AA,// DD/MM/AA
-                                       DateMask_DDMMAA, // DDMMAA
-                                       DateMask_DD_MM_AAAA,
-                                       DateMask_DD_MM_AA_HH_MM_SS,   // DD/MM/AA HH:MM:SS
-                                       DateMask_DDMMAAHHMMSS,        // DDMMAAHHMMSS
-                                       DateMask_DD_MM_AA_HH_MM,      // DD/MM/AA HH:MM
-                                       DateMask_DDMMAAHHMM,          // DDMMAAHHMM
-                                       DateMask_DD_MM_AAAA_HH_MM_SS,  // DD/MM/AAAA HH:MM:SS
-                                       DateMask_DDMMAAAAHHMMSS       // DD/MM/AAAA HH:MM:SS
+    if (pos('/',Aux)<>0) and (Mask in [DateMask_dd_mm_yy,// dd/mm/yy
+                                       DateMask_ddmmyy, // ddmmyy
+                                       DateMask_dd_mm_yyyy,
+                                       DateMask_dd_mm_yy_hh_nn_ss,   // dd/mm/yy hh:nn:ss
+                                       DateMask_ddmmyyhhnnss,        // ddmmyyhhnnss
+                                       DateMask_dd_mm_yy_hh_nn,      // dd/mm/yy hh:nn
+                                       DateMask_ddmmyyhhnn,          // ddmmyyhhnn
+                                       DateMask_dd_mm_yyyy_hh_nn_ss,  // dd/mm/yyyy hh:nn:ss
+                                       DateMask_ddmmyyyyhhnnss       // dd/mm/yyyy hh:nn:ss
                                       ])
     Then Begin //A data tem um seprador portando pode ter mes ou dia com 1 digito.
             //Pega o dia de AUX e Preenche com zero a esquerda os dias de 1 a 9
@@ -973,30 +1041,30 @@ Implementation
 
 
     //Analisa se o len de aStrDate é válido.
-    if (Length(aStrDate) in [14, //length('DDMMAAAAHHMMSS'), length('AAAAMMDDHHMMSS'),
-                             12, //length('DDMMAAHHMMSS'),
-                             10 //length('DDMMAAHHMM')
+    if (Length(aStrDate) in [14, //length('ddmmyyyyhhnnss'), length('yyyymmddhhnnss'),
+                             12, //length('ddmmyyhhnnss'),
+                             10 //length('ddmmyyhhnn')
                             ])
     Then begin //
-           if Length(aStrDate) in  [14 //length('DDMMAAAAHHMMSS'),      length('AAAAMMDDHHMMSS')
+           if Length(aStrDate) in  [14 //length('ddmmyyyyhhnnss'),      length('yyyymmddhhnnss')
                                    ]
            then Begin
                   Try
-                   aDateTimeDos := StrToDateTimeDos(aStrDate,DateMask_DDMMAAAAHHMMSS);
+                   aDateTimeDos := StrToDateTimeDos(aStrDate,DateMask_ddmmyyyyhhnnss);
                   Except
-                    aDateTimeDos := StrToDateTimeDos(aStrDate,DateMask_AAAAMMDDHHMMSS);
+                    aDateTimeDos := StrToDateTimeDos(aStrDate,DateMask_yyyymmddhhnnss);
                   End;
                 End
            Else Begin
-                  if Length(aStrDate) = length('DDMMAAHHMMSS')
-                  Then aDateTimeDos := StrToDateTimeDos(aStrDate,DateMask_DDMMAAHHMMSS)
-                  Else aDateTimeDos := StrToDateTimeDos(aStrDate,DateMask_DDMMAAHHMM);
+                  if Length(aStrDate) = length('ddmmyyhhnnss')
+                  Then aDateTimeDos := StrToDateTimeDos(aStrDate,DateMask_ddmmyyhhnnss)
+                  Else aDateTimeDos := StrToDateTimeDos(aStrDate,DateMask_ddmmyyhhnn);
                end;
            TempStrToDate := UnPackDate(aDateTimeDos);
            exit;
          end
     Else
-    If Not (length(aStrDate) in [6,8]) Then //ddmmaa or ddmmaaaa
+    If Not (length(aStrDate) in [6,8]) Then //ddmmyy or ddmmyyaa
     Begin
       If aStrDate <> '' Then
          Raise EArgumentException.Create(TStrError.ErrorMessage5('mi.rtl','mi.rtl.dates','Tdates','StrToDate','A data '+aStrDate+' está com formato inválido!. Corrija-o por favor.' ));
@@ -1025,42 +1093,48 @@ Implementation
     End;
 
     Case Mask of
-      DateMask_AA_MM_DD :
+      DateMask_yy_mm_dd :
       Begin {AAMMDD = AnoMesDia}
 
        If Byte(aStrDate[1]) >= 100 {Ao acima de 2000 a 2000+ AnoLimite}
        Then Begin
                TempStrToDate.Ano := Byte(aStrDate[1]) - 100
             End
-       else Val(Copy(aStrDate,1,2),TempStrToDate.ano,err);
+       else TempStrToDate.ano := StrToInt(Copy(aStrDate,1,2));//Val(Copy(aStrDate,1,2),TempStrToDate.ano,err);
 
-       If Err = 0 Then Val(Copy(aStrDate,3,2),TempStrToDate.mes,err);
-       If Err = 0 Then Val(Copy(aStrDate,5,2),TempStrToDate.dia,err);
-       If Err<> 0 Then
-       TaStatus :=  Tipo_em_memoria_incompativel_com_o_tipo_do_campo_no_arquivo ;
+       //If Err = 0 Then Val(Copy(aStrDate,3,2),TempStrToDate.mes,err);
+       TempStrToDate.mes := StrToInt(Copy(aStrDate,3,2));
+
+       //If Err = 0 Then Val(Copy(aStrDate,5,2),TempStrToDate.dia,err);
+       TempStrToDate.dia := strToInt(Copy(aStrDate,5,2));
       End;
 
-      DateMask_AAAA_MM_DD :
+      DateMask_yyyy_mm_dd :
       Begin
-        Val(Copy(aStrDate,1,4),Aano,err);
-        If Err = 0
-        Then If aAno < 2000
-            Then TempStrToDate.ano := aAno - 1900
-            Else TempStrToDate.ano := aAno - 2000;
+        //Val(Copy(aStrDate,1,4),Aano,err);
+        aAno := StrToInt(Copy(aStrDate,1,4));
+        If aAno < 2000
+        Then TempStrToDate.ano := aAno - 1900
+        Else TempStrToDate.ano := aAno - 2000;
 
+        //If Err = 0 Then Val(Copy(aStrDate,5,2),TempStrToDate.mes,err);
+        TempStrToDate.mes := StrToInt(Copy(aStrDate,5,2));
 
-        If Err = 0 Then Val(Copy(aStrDate,5,2),TempStrToDate.mes,err);
-        If Err = 0 Then Val(Copy(aStrDate,7,2),TempStrToDate.dia,err);
-        If Err<> 0 Then
-        TaStatus :=  Tipo_em_memoria_incompativel_com_o_tipo_do_campo_no_arquivo ;
+        //If Err = 0 Then Val(Copy(aStrDate,7,2),TempStrToDate.dia,err);
+        TempStrToDate.dia := StrToInt(Copy(aStrDate,7,2));
+
+        //If Err<> 0 Then
+        //TaStatus :=  Tipo_em_memoria_incompativel_com_o_tipo_do_campo_no_arquivo ;
         End;
 
-      DateMask_DDMMAA, //??? Esta rotina foi feita a mascara ###### e nao ##/##/##
-      DateMask_DD_MM_AA:
+      DateMask_ddmmyy, //??? Esta rotina foi feita a mascara ###### e nao ##/##/##
+      DateMask_dd_mm_yy:
       Begin
-      Val(Copy(aStrDate,1,2),TempStrToDate.dia,err);
-      If Err = 0
-      Then Val(Copy(aStrDate,3,2),TempStrToDate.mes,err);
+      //Val(Copy(aStrDate,1,2),TempStrToDate.dia,err);
+      TempStrToDate.dia := StrToInt(Copy(aStrDate,1,2));
+      //If Err = 0
+      //Then Val(Copy(aStrDate,3,2),TempStrToDate.mes,err);
+      TempStrToDate.mes := StrToInt(Copy(aStrDate,3,2));
 
       if Length(aStrDate) = 6
       then Begin
@@ -1068,38 +1142,53 @@ Implementation
              Then Begin  {Ao acima de 2000 a 2000+ AnoLimite}
                     If Byte(aStrDate[5]) >= 100
                     Then TempStrToDate.Ano := Byte(aStrDate[5]) - 100
-                    else Val(Copy(aStrDate,5,2),TempStrToDate.ano,err);
+                    else //Val(Copy(aStrDate,5,2),TempStrToDate.ano,err);
+                         TempStrToDate.ano := StrToInt(Copy(aStrDate,5,2));
                  End;
           End
       Else Begin
-            Val(Copy(aStrDate,5,4),aAno,err);
-            if err=0
-            then TempStrToDate.Ano := FAno2Digito(aAno);
+            //Val(Copy(aStrDate,5,4),aAno,err);
+            aAno := StrToInt(Copy(aStrDate,5,4));
+            //if err=0
+            //then
+            TempStrToDate.Ano := FAno2Digito(aAno);
           End;
-      If Err<> 0 Then
-      TaStatus :=  Tipo_em_memoria_incompativel_com_o_tipo_do_campo_no_arquivo ;
+      //If Err<> 0 Then
+      //TaStatus :=  Tipo_em_memoria_incompativel_com_o_tipo_do_campo_no_arquivo ;
       End;
 
-      DateMask_DD_MM_AAAA :
+      DateMask_dd_mm_yyyy :
       Begin
       If length(aStrDate) = 6
       Then Begin
-            Val(Copy(aStrDate,5,2),aAno,err);
-            If Err = 0
-            Then aStrDate := Copy(aStrDate,1,4)+IStr(FAno(aAno),'IIII')
-            Else RunError(201);
+            //Val(Copy(aStrDate,5,2),aAno,err);
+            aAno := StrToInt(Copy(aStrDate,5,2));
+            //If Err = 0
+            //Then
+            aStrDate := Copy(aStrDate,1,4)+IStr(FAno(aAno),'IIII')
+            //Else RunError(201);
           end;
 
-      Val(Copy(aStrDate,1,2),TempStrToDate.dia,err);
-      If Err = 0 Then Val(Copy(aStrDate,3,2),TempStrToDate.mes,err);
-      If Err = 0
-      Then Begin  {Ao acima de 2000 a 2000+ AnoLimite}
-            Val(Copy(aStrDate,5,4),aAno,err);
-            If Err = 0
-            Then If aAno < 2000
-                 Then TempStrToDate.ano := aAno - 1900
-                 Else TempStrToDate.ano := aAno - 2000;
-         End;
+      //Val(Copy(aStrDate,1,2),TempStrToDate.dia,err);
+      TempStrToDate.dia  := StrToInt(Copy(aStrDate,1,2));
+
+      //If Err = 0 Then
+      //Val(Copy(aStrDate,3,2),TempStrToDate.mes,err);
+
+      TempStrToDate.mes  := StrToInt(Copy(aStrDate,3,2));
+
+      //If Err = 0
+      //Then
+//        Begin  {Ao acima de 2000 a 2000+ AnoLimite}
+          //Val(Copy(aStrDate,5,4),aAno,err);
+          aAno  := StrToInt(Copy(aStrDate,5,4));
+          //If Err = 0
+          //Then
+          If aAno < 2000
+          Then TempStrToDate.ano := aAno - 1900
+          Else TempStrToDate.ano := aAno - 2000;
+//         End;
+
       If err <> 0
       Then Begin
             FillChar(TempStrToDate,sizeof(TempStrToDate),0);
@@ -1107,16 +1196,16 @@ Implementation
           end;
       End;
       {
-      DateMask_MM_AA      : Begin end;
-      DateMask_MM_AAAA    : Begin end;
-      DateMask_NomeMM_AA  : Begin end;
-      DateMask_NomeMM_AAAA : Begin end;
+      DateMask_mm_yy      : Begin end;
+      DateMask_mm_yyyy    : Begin end;
+      DateMask_Nomemm_yy  : Begin end;
+      DateMask_Nomemm_yyyy : Begin end;
       DateMask_MM_NomeMM      : Begin end;
-      DateMask_MM_NomeMM_AA   : Begin end;
-      DateMask_MM_NomeMM_AAAA : Begin end;
+      DateMask_MM_Nomemm_yy   : Begin end;
+      DateMask_MM_Nomemm_yyyy : Begin end;
       DateMask_Extenco        : Begin end;
       }
-      DateMask_DD_MM_AA_HH_MM_SS : Begin
+      DateMask_dd_mm_yy_hh_nn_ss : Begin
 
                                  end;
 
@@ -1131,9 +1220,9 @@ Implementation
     Then Begin
            Case ValidDate(TempStrToDate) of
              1 :  Begin
-                    if not Vidis_StrToDate
+                    if not reintrance_StrToDate
                     then TRY
-                           Vidis_StrToDate := TRUE;
+                           reintrance_StrToDate := TRUE;
                            Raise EArgumentException.Create(TStrError.ErrorMessage5('mi.rtl','mi.rtl.dates','Tdates','StrToDate','O dia esta inválido!. Corrija-o por favor.' ));
                            //Raise TException.Create(Name_Type_App_MarIcaraiV1,
                            //              'D_Datas.pas',
@@ -1141,14 +1230,14 @@ Implementation
                            //              sgc('O dia esta inválido!. Corrija-o por favor.')
                            //               );
                          fINALLY
-                           Vidis_StrToDate := FALSE;
+                           reintrance_StrToDate := FALSE;
                          end;
                   End;
 
              2 :  Begin
-                    if not Vidis_StrToDate
+                    if not reintrance_StrToDate
                     then TRY
-                           Vidis_StrToDate := TRUE;
+                           reintrance_StrToDate := TRUE;
                            Raise EArgumentException.Create(TStrError.ErrorMessage5('mi.rtl','mi.rtl.dates','Tdates','StrToDate','O mês esta inválido!. Corrija-o por favor.' ));
                            //Raise TException.Create(Name_Type_App_MarIcaraiV1,
                            //              'D_Datas.pas',
@@ -1156,7 +1245,7 @@ Implementation
                            //              sgc('O mês esta inválido!. Corrija-o por favor.')
                            //               );
                          fINALLY
-                           Vidis_StrToDate := FALSE;
+                           reintrance_StrToDate := FALSE;
                          end;
                   End;
            End;
@@ -1206,16 +1295,16 @@ Implementation
 
     {
     TDateTimeMask =
-                 DateMask_DD_MM_AA_HH_MM_SS,   // DD/MM/AA HH:MM:SS
-                 DateMask_DDMMAAHHMMSS,        // DDMMAAHHMMSS
+                 DateMask_dd_mm_yy_hh_nn_ss,   // dd/mm/yy hh:nn:ss
+                 DateMask_ddmmyyhhnnss,        // ddmmyyhhnnss
 
-                 DateMask_DD_MM_AA_HH_MM,      // DD/MM/AA HH:MM
-                 DateMask_DDMMAAHHMM,          // DDMMAAHHMM
+                 DateMask_dd_mm_yy_hh_nn,      // dd/mm/yy hh:nn
+                 DateMask_ddmmyyhhnn,          // ddmmyyhhnn
 
-                 DateMask_DD_MM_AAAA_HH_MM_SS,  // DD/MM/AAAA HH:MM:SS
-                 DateMask_DDMMAAAAHHMMSS,       // DD/MM/AAAA HH:MM:SS
+                 DateMask_dd_mm_yyyy_hh_nn_ss,  // dd/mm/yyyy hh:nn:ss
+                 DateMask_ddmmyyyyhhnnss,       // dd/mm/yyyy hh:nn:ss
 
-                 DateMask_AAAAMMDDHHMMSS        // AAAAMMDDHHMMSS
+                 DateMask_yyyymmddhhnnss        // yyyymmddhhnnss
     }
     Var
       S : String;
@@ -1228,9 +1317,9 @@ Implementation
       then S := S + aDataTime[i];
 
     //Analisa se o len de aDataTime é válido.
-    if not (Length(S) in [14,//length('DDMMAAAAHHMMSS'),length('AAAAMMDDHHMMSS'),
-                          12, //length('DDMMAAHHMMSS'),
-                          10 //length('DDMMAAHHMM')
+    if not (Length(S) in [14,//length('ddmmyyyyhhnnss'),length('yyyymmddhhnnss'),
+                          12, //length('ddmmyyhhnnss'),
+                          10 //length('ddmmyyhhnn')
                                   ])
     then Raise EArgumentException.Create(TStrError.ErrorMessage5('mi.rtl','mi.rtl.dates','Tdates','StrToDateTimeDos',ParametroInvalido ));
     //Raise TException.Create(Name_Type_App_MarIcaraiV1,
@@ -1238,37 +1327,37 @@ Implementation
     //                               'StrToDateTimeDos()',
     //                                ParametroInvalido);
 
-    if (Length(S) = length('DDMMAAAAHHMMSS'))  and
-       ((Mask in [DateMask_DD_MM_AAAA_HH_MM_SS,DateMask_DDMMAAAAHHMMSS] ))
+    if (Length(S) = length('ddmmyyyyhhnnss'))  and
+       ((Mask in [DateMask_dd_mm_yyyy_hh_nn_ss,DateMask_ddmmyyyyhhnnss] ))
     then Begin
           //Inicia a data
-           Data := StrToDate(Copy(S,1,8),DateMask_DD_MM_AAAA)^;
+           Data := StrToDate(Copy(S,1,8),DateMask_dd_mm_yyyy)^;
 
            //Inicia a hora
-           Hora := StrToHora(Copy(S,9,6),HourMask_HH_MM_SS);
+           Hora := StrToHora(Copy(S,9,6),HourMask_hh_nn_ss);
          End
     Else
-    If  (Length(S) = length('AAAAMMDDHHMMSS')) and
-       ((Mask in [DateMask_AAAAMMDDHHMMSS] ))
+    If  (Length(S) = length('yyyymmddhhnnss')) and
+       ((Mask in [DateMask_yyyymmddhhnnss] ))
     Then Begin
           //Inicia a data
-           Data := StrToDate(Copy(S,1,8),DateMask_AAAA_MM_DD)^;
+           Data := StrToDate(Copy(S,1,8),DateMask_yyyy_mm_dd)^;
 
            //Inicia a hora
-           Hora := StrToHora(Copy(S,9,6),HourMask_HH_MM_SS);
+           Hora := StrToHora(Copy(S,9,6),HourMask_hh_nn_ss);
 
          End
     Else
-    if ((Mask in [DateMask_DD_MM_AA_HH_MM_SS,DateMask_DD_MM_AA_HH_MM,
-                  DateMask_DDMMAAHHMMSS,DateMask_DDMMAAHHMM] ))
+    if ((Mask in [DateMask_dd_mm_yy_hh_nn_ss,DateMask_dd_mm_yy_hh_nn,
+                  DateMask_ddmmyyhhnnss,DateMask_ddmmyyhhnn] ))
     Then Begin
           //Inicia a data
-           Data := StrToDate(Copy(S,1,6),DateMask_DD_MM_AA)^;
+           Data := StrToDate(Copy(S,1,6),DateMask_dd_mm_yy)^;
 
            //Inicia a hora
-           if Length(S) = length('DDMMAAHHMMSS')
-           then Hora := StrToHora(Copy(S,7,6),HourMask_HH_MM_SS)
-           Else Hora := StrToHora(Copy(S,7,4),HourMask_HH_MM);
+           if Length(S) = length('ddmmyyhhnnss')
+           then Hora := StrToHora(Copy(S,7,6),HourMask_hh_nn_ss)
+           Else Hora := StrToHora(Copy(S,7,4),HourMask_hh_nn);
          End
     Else Raise EArgumentException.Create(TStrError.ErrorMessage5('mi.rtl','mi.rtl.dates','Tdates','StrToDateTimeDos',ParametroInvalido ));
 
@@ -1287,8 +1376,9 @@ Implementation
     class function TDates.StrToHora(aStrHora: String; const Mask: THourMask
     ): TipoHora;
     Var
-      Err:Integer;
+      Err:Integer =0;
   Begin
+
     //Deleta branco da string aStrHora
     While (length(aStrHora )>0) and (Pos(' ',aStrHora ) <> 0) do
       Delete(aStrHora ,Pos(' ',aStrHora ),1);
@@ -1311,26 +1401,46 @@ Implementation
            exit;
          end;
 
-    if (Mask = HourMask_HH_MM_SS_S100) and (Length(aStrHora) = Length('HHMMSS100'))
+    if (Mask = HourMask_hh_nn_ss_zzz) and (Length(aStrHora) = Length('hhnnss100'))
     then Begin
-           Val(Copy(aStrHora,1,2),result.H,err);
-           if Err=0 then Val(Copy(aStrHora,3,2),result.M,err);
-           if Err=0 then Val(Copy(aStrHora,5,2),result.S,err);
-           if Err=0 then Val(Copy(aStrHora,7,3),result.S100,err);
+           //Val(Copy(aStrHora,1,2),result.H,err);
+           result.H := StrToInt(Copy(aStrHora,1,2));
+
+           //if Err=0 then
+           //Val(Copy(aStrHora,3,2),result.M,err);
+           result.M := StrToInt(Copy(aStrHora,3,2));
+
+           //if Err=0 then
+           //Val(Copy(aStrHora,5,2),result.S,err);
+           result.S:= StrToInt(Copy(aStrHora,5,2));
+
+           //if Err=0 then
+           //Val(Copy(aStrHora,7,3),result.S100,err);
+           result.S100 := StrToInt(Copy(aStrHora,7,3));
          end
     Else
-    if (Mask = HourMask_HH_MM_SS) and (Length(aStrHora) = Length('HHMMSS'))
+    if (Mask = HourMask_hh_nn_ss) and (Length(aStrHora) = Length('hhnnss'))
     then Begin
-           Val(Copy(aStrHora,1,2),result.H,err);
-           if Err=0 then Val(Copy(aStrHora,3,2),result.M,err);
-           if Err=0 then Val(Copy(aStrHora,5,2),result.S,err);
+           //Val(Copy(aStrHora,1,2),result.H,err);
+           result.H:= StrToInt(Copy(aStrHora,1,2));
+           //if Err=0 then
+           //Val(Copy(aStrHora,3,2),result.M,err);
+           result.M := StrToInt(Copy(aStrHora,3,2));
+
+           //if Err=0 then
+           //Val(Copy(aStrHora,5,2),result.S,err);
+           result.S := StrToInt(Copy(aStrHora,5,2));
            result.S100 := 0;
          end
     Else
-    if (Mask = HourMask_HH_MM)  and (Length(aStrHora) = Length('HHMM'))
+    if (Mask = HourMask_hh_nn)  and (Length(aStrHora) = Length('HHMM'))
     then Begin
-           Val(Copy(aStrHora,1,2),result.H,err);
-           if Err=0 then Val(Copy(aStrHora,3,2),result.M,err);
+           //Val(Copy(aStrHora,1,2),result.H,err);
+           result.H := StrToInt(Copy(aStrHora,1,2));
+
+           //if Err=0 then
+           //Val(Copy(aStrHora,3,2),result.M,err);
+           result.M := StrToInt(Copy(aStrHora,3,2));
            result.S    := 0;
            result.S100 := 0;
          end
@@ -1416,8 +1526,8 @@ Implementation
   begin
     with Hora Do
     Begin
-      str(H:1,SH);
-      str(M:1,SM);
+      system.str(H:1,SH);
+      system.str(M:1,SM);
       if Byte(SH[0]) < 2 then insert('0',SH,1);
       if Byte(SM[0]) < 2 then insert('0',SM,1);
 
@@ -1425,9 +1535,9 @@ Implementation
       Then Result := SH+':'+SM
       Else Result := SH+SM;
 
-      If mask in [HourMask_HH_MM_SS,HourMask_HH_MM_SS_S100]
+      If mask in [HourMask_hh_nn_ss,HourMask_hh_nn_ss_zzz]
       Then Begin
-             str(S:1,SS);
+             system.str(S:1,SS);
              if Byte(SS[0]) < 2 then insert('0',SS,1);
 
              If  OkSpc
@@ -1435,9 +1545,9 @@ Implementation
              Else Result := Result+SS;
 
 
-             If mask = HourMask_HH_MM_SS_S100
+             If mask = HourMask_hh_nn_ss_zzz
              Then Begin
-                    str(S100:1,SS100);
+                    system.str(S100:1,SS100);
                     While Length(SS100)<3 do insert('0',SS100,1);
 
                     If  OkSpc
@@ -1496,7 +1606,7 @@ Implementation
       Result := 00
     Else Begin
            Result := Ano+1;
-           If Ano >= AnoLimit
+           If Ano >= DefaultFormatSettings.TwoDigitYearCenturyWindow {AnoLimit}
            Then Result := 0;
          End
   End;
@@ -1510,11 +1620,11 @@ Implementation
 
   End;
 
-  class function TDates. FAno(Ano:SmallWord) : SmallWord;
+  class function TDates.FAno(Ano:SmallWord) : SmallWord;
   Begin
     If ano < 100 then
     Begin
-      If Ano >= AnoLimit
+      If Ano >= DefaultFormatSettings.TwoDigitYearCenturyWindow {AnoLimit}
       then Fano := Ano + 1900
       Else Fano := 2000+Ano;
     End
@@ -1558,13 +1668,13 @@ Implementation
     FAnoDoIndex := SAno;
   End;
   *)
-    class function TDates.FAnoDoIndex(const Dia, Ano: byte): String;
+  class function TDates.FAnoDoIndex(const Dia, Ano: byte): String;
   {Devolve o ano exatamente como esta no arquivo de index}
   Var
     SAno : String[2];
   Begin
-    If (Ano >= AnoLimit) or (Dia = 0)  Then
-      Str(Ano:1,Sano)
+    If (Ano >= DefaultFormatSettings.TwoDigitYearCenturyWindow {AnoLimit}) or (Dia = 0)  Then
+      system.Str(Ano:1,Sano)
     Else
     Begin
       sAno := Chr(100+Ano);
@@ -1574,11 +1684,11 @@ Implementation
     FAnoDoIndex := SAno;
   End;
 
-    class function TDates.StrAno(ano: SmallInt): String;
+  class function TDates.StrAno(ano: SmallInt): String;
   Var
     A  : String[4];
   Begin
-    Str(FAno(ano):1,A);
+    system.Str(FAno(ano):1,A);
     StrAno := A;
   End;
 
@@ -1588,7 +1698,7 @@ Implementation
   begin
     if a < 100 then
     Begin
-      If a >= AnoLimit
+      If a >= DefaultFormatSettings.TwoDigitYearCenturyWindow {AnoLimit}
       then a := a + 1900
       Else a := 2000+a;
     End;
@@ -1662,7 +1772,7 @@ Implementation
     x   := int(m/11);
     mes := trunc(m + 2 - 12 * x);
 
-    if WAno >= AnoLimit Then
+    if WAno >= DefaultFormatSettings.TwoDigitYearCenturyWindow {AnoLimit} Then
     Begin
       If WAno <= 99
       Then Begin
@@ -1700,7 +1810,7 @@ Implementation
   class function TDates. FSomaData(Buff:TypeData;Prazo: Integer):TString ;Overload;
   Begin
     SomaData(Buff,Prazo);
-    Result := DateToStr(Buff,DateMask_DD_MM_AA);
+    Result := DateToStr(Buff,DateMask_dd_mm_yy);
   End;
 
     class function TDates.DifeData(const DatAnterior: TypeData;
@@ -1994,9 +2104,9 @@ Implementation
     ): string;
   { Ch =
       ' ' : Retorna AA/MM/DD para ser usado em indices
-      '/' : Retorna DD/MM/AA
-      ':' : Retorna HH:MM:AA onde DD=Hora e MM=Minutos e AA=Segundos
-      'S' : Retorna DDMMAA
+      '/' : Retorna dd/mm/yy
+      ':' : Retorna hh:nn:AA onde DD=Hora e MM=Minutos e AA=Segundos
+      'S' : Retorna ddmmyy
       'C' : Retorna a data dia/mes/ano com 4 digitos
       'D' : Retorna a data Ano/mes/dia com o ano de 4 digitos
   }
@@ -2004,16 +2114,16 @@ Implementation
     StrDataAux : string;
     D,M,A      : String[2];
   begin
-    str(dia:1,D);
-    str(mes:1,M);
-    str(ano:1,A);
+    system.str(dia:1,D);
+    system.str(mes:1,M);
+    system.str(ano:1,A);
     while Length(D) < 2 do insert('0',D,1);
     while Length(M) < 2 do insert('0',M,1);
     while Length(A) < 2 do insert('0',A,1);
 
     If Ch = ' ' Then
     Begin
-      If (ano >= AnoLimit) {or (Dia = 0)}  Then
+      If (ano >= DefaultFormatSettings.TwoDigitYearCenturyWindow {AnoLimit}) {or (Dia = 0)}  Then
         strDataAux := Concat(A,M,D)
       Else
       Begin
@@ -2027,15 +2137,15 @@ Implementation
       '/' : strDataAux := concat(D,'/',M,'/',A);
       ':' : strDataAux := concat(D,':',M,':',A);
       'S' : strDataAux := concat(D,M,A); {Dia mes ano sem separador}
-      'C' : If Ano >= AnoLimit Then {Retorna a data dia/mes/ano com 4 digitos}
+      'C' : If Ano >= DefaultFormatSettings.TwoDigitYearCenturyWindow {AnoLimit} Then {Retorna a data dia/mes/ano com 4 digitos}
               strDataAux := concat(D,'/',M,'/','19'+A)
             Else
               strDataAux := concat(D,'/',M,'/','20'+A);
-      'D' : If Ano >= AnoLimit Then {Retorna a data dia/mes/ano com 4 digitos}
+      'D' : If Ano >= DefaultFormatSettings.TwoDigitYearCenturyWindow {AnoLimit} Then {Retorna a data dia/mes/ano com 4 digitos}
               strDataAux := concat('19'+A,'/',M,'/',D)
             Else
               strDataAux := concat('20'+A,'/',M,'/',D);
-      'E' : If Ano >= AnoLimit  Then
+      'E' : If Ano >= DefaultFormatSettings.TwoDigitYearCenturyWindow {AnoLimit}  Then
               StrDataAux := concat(D,' de ',StrMes(mes),' de ','19',A)
             Else
               StrDataAux := concat(D,' de ',StrMes(mes),' de ','20',A)
@@ -2058,15 +2168,13 @@ Implementation
       StringData  := StrData(dia,mes,ano,Ch);
   End;
                         {Buff:TypeData}
-    class function TDates.GetDataSistOp(var Buff; const Separador: AnsiChar
-    ): String;
+  class function TDates.GetDataSistOp(var Buff; const Separador: AnsiChar    ): String;
 
-    var Dia,Mes,Ano,DiaDaSemana : SmallWord;
+     var Dia,Mes,Ano,DiaDaSemana : SmallWord;
 
   {    Data : Record diaS,MesS,AnoS : Byte End Absolute Buff;}
 
   Begin
-
     GetDate(Ano, Mes, Dia, DiaDaSemana);
     If Ano < 2000
     Then Ano := Ano - 1900
@@ -2076,9 +2184,9 @@ Implementation
     TypeData(Buff).Mes := Byte(Mes);
     TypeData(Buff).Ano := Byte(Ano);
 
-
     GetDataSistOp := StringData(TypeData(Buff),Separador);
   End;
+
   class function TDates. FGetDataSistOp(const Separador:AnsiChar{Pode Ser: '/',':',' '}):String;
     Var
       Data : TypeData;
@@ -2095,6 +2203,16 @@ Implementation
   Begin
     Result := HourToStr(GetFTimeDos,HourMask,true);
   End;
+
+  class function TDates.GetDateTimeSystem(): TDateTime;
+  begin
+    result := Now;
+  end;
+
+  class function TDates.GetDateTimeSystem(aMask: TMask): String;
+  begin
+    result := DateTimeToStr(now,aMask,false ) ;
+  end;
 
   class function TDates. GetFTimeDos:Longint;Overload;
   Var
@@ -2165,17 +2283,17 @@ Implementation
          end;
   end;
 
-    class function TDates.PackDate(const Data: TypeData): Longint;
-    Var Time : DateTime;
+  class function TDates.PackDate(const Data: TypeData): Longint;  Var Time : DateTime;
   Begin
-    With Data,Time do
+    result := 0;
+    With Data do
     Begin
-      if Ano >= AnoLimit
-      Then Year := Ano + 1900
-      Else Year := Ano + 2000;
+      if Ano >= DefaultFormatSettings.TwoDigitYearCenturyWindow {AnoLimit}
+      Then Time.Year := Ano + 1900
+      Else Time.Year := Ano + 2000;
 
-      Month := Mes;
-      Day:=Dia;
+      Time.Month := Mes;
+      Time.Day:=Dia;
 
       {Hour:=H; Min:= M; Sec := S ; S100:=0;}
     End;
@@ -2235,9 +2353,8 @@ Implementation
   End;
 
 
-    class procedure TDates.UnPackHora(const TimePack: Longint; var Hora: TipoHora
-    );
-  Var Time : DateTime;
+  class procedure TDates.UnPackHora(const TimePack: Longint; var Hora: TipoHora  );
+    Var Time : DateTime;
   Begin
     UnPackTime(TimePack,Time);
     With Hora,Time do
@@ -2246,7 +2363,7 @@ Implementation
     End;
   End;
 
-    class procedure TDates.PackHora(const Hora: TipoHora; var TimePack: Longint);
+  class procedure TDates.PackHora(const Hora: TipoHora; var TimePack: Longint);
     Var
       Time : DateTime;
       Data : TypeData;
@@ -2254,7 +2371,7 @@ Implementation
     GetDataSistOp(Data,'/');
     With Hora,Time do
     Begin
-      if Data.Ano >= AnoLimit
+      if Data.Ano >= DefaultFormatSettings.TwoDigitYearCenturyWindow {AnoLimit}
       Then Year := Data.Ano + 1900
       Else Year := Data.Ano + 2000;
       Month := Data.Mes;
@@ -2268,13 +2385,13 @@ Implementation
     PackTime(Time,TimePack);
   end;
 
-    class procedure TDates.PackDateHora(Data: TypeData; Hora: TipoHora;
+  class procedure TDates.PackDateHora(Data: TypeData; Hora: TipoHora;
     var TimePack: Longint);
-  Var Time : DateTime;
+    Var Time : DateTime;
   Begin
     With Data,Hora,Time do
     Begin
-      if Ano >= AnoLimit
+      if Ano >= DefaultFormatSettings.TwoDigitYearCenturyWindow {AnoLimit}
       Then Year := Ano + 1900
       Else Year := Ano + 2000;
 
@@ -2285,9 +2402,9 @@ Implementation
     PackTime(Time,TimePack);
   End;
 
-    class procedure TDates.UnPackDateHora(const TimePack: Longint;
+  class procedure TDates.UnPackDateHora(const TimePack: Longint;
     var Data: TypeData; var Hora: TipoHora);
-  Var Time : DateTime;
+    Var Time : DateTime;
   Begin
     UnPackTime(TimePack,Time);
     With Data,Hora,Time do
@@ -2310,13 +2427,14 @@ Implementation
     with Data Do StringTimeD := StrData(dia,mes,ano,Ch);
   End;
 
-    class function TDates.StringTimeH(const TimePack: Longint): String;
+  class function TDates.StringTimeH(const TimePack: Longint): String;
   Var  Hora : TipoHora;
   Begin
     UnPackHora(TimePack,Hora);
     with Hora Do StringTimeH := StrData(H,M,S,':');
   End;
-    class function TDates.StringTimeHSemPonto(const TimePack: Longint): String;
+
+  class function TDates.StringTimeHSemPonto(const TimePack: Longint): String;
   Var  Hora : TipoHora;
   Begin
     UnPackHora(TimePack,Hora);
@@ -2350,7 +2468,7 @@ Implementation
 
   class function TDates. str2jul(DateStr:string): longint;
   var m,d,y:SmallInt;
-      Err  : Integer;
+      Err  : Integer =0;
   begin
     if length(datestr)=8
     then Datestr := Datestr[1]+Datestr[2]+Datestr[4]+Datestr[5]+Datestr[7]+Datestr[8];
@@ -2362,9 +2480,14 @@ Implementation
             d:=0;
             y:=0;
 
-            val(copy(DateStr,1,2),m,Err);
-            val(copy(DateStr,3,2),d,Err);
-            val(copy(DateStr,5,2),y,Err);
+            //val(copy(DateStr,1,2),m,Err);
+            m := StrToInt(copy(DateStr,1,2));
+
+            //val(copy(DateStr,3,2),d,Err);
+            d := StrToInt(copy(DateStr,3,2));
+
+            //val(copy(DateStr,5,2),y,Err);
+            y := StrToInt(copy(DateStr,5,2));
 
             str2jul:= julian(y,m,d);
           end;
@@ -2401,13 +2524,14 @@ Implementation
       M     := trunc (M + 2.0 - 12.0 * Tmp_A);
       Y     := trunc(100.0 * (Tmp_B - 49.0) + Y + Tmp_A) MOD 100;
 
-      str(m,tstr1); tstr1:=copy('00'+tstr1,length(tstr1)+1,2);
+      system.str(m,tstr1);
+      tstr1:=copy('00'+tstr1,length(tstr1)+1,2);
       tstr2:=tstr1;
 
-      str(d,tstr1); tstr1:=copy('00'+tstr1,length(tstr1)+1,2);
+      system.str(d,tstr1); tstr1:=copy('00'+tstr1,length(tstr1)+1,2);
       tstr2:=tstr2+tstr1;
 
-      str(y,tstr1); tstr1:=copy('00'+tstr1,length(tstr1)+1,2);
+      system.str(y,tstr1); tstr1:=copy('00'+tstr1,length(tstr1)+1,2);
 
       jul2str:=tstr2+tstr1;
     end;
@@ -2489,30 +2613,820 @@ Implementation
                  istr (second,'ss');
   end ;
 
+  class function TDates.DateTimeValid(aDate: AnsiString): Boolean;
+  begin
+    result := (aDate<>'') and
+              (aDate<>'00:00:00') and
+              (aDate<>'00:00') and
+              (aDate<>' //:00:00') and
+              (aDate<>'  /  /    ') and
+              (aDate<>'/     :  :' ) and
+              (aDate<>'  /  /     :  :  ') and
+              (aDate<>'/       :  :') and
+              (aDate<>'/') and
+              (aDate<>' //') and
+
+              (aDate<>'Null');
+  end;
+
+
+
+  class function TDates.MaskEdit_to_Mask(const aMaskEdit: AnsiString): TMask;
+  begin
+    Result:=inherited MaskEdit_to_Mask(aMaskEdit);
+  end;
+
+  class function TDates.Mask_to_MaskDateTime(const aMask: TMask): AnsiString;
+  Begin
+    Case aMask of
+      TMask.Mask_yy_mm_dd       : Result := 'yy/mm/dd';
+      TMask.Mask_yyyy_mm_dd     : Result := 'yyyy/mm/dd';
+
+      TMask.Mask_dd_mm_yy       : Result := 'dd/mm/yy';
+      TMask.Mask_dd_mm_yyyy     : Result := 'dd/mm/yyyy';
+
+      //TMask.Mask_mm_yy          : Result := 'dd/mm/yyyy hh:nn';
+      TMask.Mask_dd_mm_yyyy_hh_nn : Result := 'dd/mm/yyyy hh:nn';
+
+      TMask.Mask_mm_yyyy        : Result := 'mm/yyyy';
+
+
+      TMask.Mask_dd_mm_yy_hh_nn_ss   : Result := 'dd/mm/yy hh:nn:ss';
+      TMask.Mask_dd_mm_yy_hh_nn      : Result := 'dd/mm/yy hh:nn';
+      TMask.Mask_dd_mm_yyyy_hh_nn_ss : Result := 'dd/mm/yyyy hh:nn:ss';
+
+      TMask.Mask_hh_nn        : Result := 'hh:nn';
+      TMask.Mask_hh_nn_ss     : Result := 'hh:nn:ss';
+      TMask.Mask_hh_nn_ss_zzz: Result := 'hh:nn:ss.zzz';
+
+      TMask.Mask_Extenco         : Result := 'ddd of mmm of yyyy';
+      Else Begin
+             Result := '';
+           End;
+
+    End;
+  end;
+
+  class function TDates.MaskDateTime_to_Mask(const aMaskDateTime: AnsiString):TMask;
+  begin
+    case AnsiIndexStr(aMaskDateTime,
+                      [
+                      'yy/mm/dd',  //00
+                      'yyyy/mm/dd', //01
+                      'dd/mm/yy',   //02
+                      'dd/mm/yyyy', //03
+                      'dd/mm/yyyy hh:nn',      //04
+                      'mm/yyyy',    //05
+                      'dd/mm/yy hh:nn:ss',   //06
+                      'dd/mm/yy hh:nn',      //07
+                      'dd/mm/yyyy hh:nn:ss', //08
+                      'hh:nn' ,              //09
+                      'hh:nn:ss',            //10
+                      'hh:nn:ss.zzz',      //11
+                      'ssssssssssssssssssssssssssssssssss' //12
+                      ])
+
+
+
+      of
+         0 : result := TMask.Mask_yy_mm_dd;
+         1 : result := TMask.Mask_yyyy_mm_dd;
+         2 : result := TMask.Mask_dd_mm_yy;
+         3 : result := TMask.Mask_dd_mm_yyyy;
+//         4 : result := TMask.Mask_mm_yy;
+         4 : result := TMask.Mask_dd_mm_yyyy_hh_nn;
+         5 : result := TMask.Mask_mm_yyyy;
+         6 : result := TMask.Mask_dd_mm_yy_hh_nn_ss;
+         7 : result := TMask.Mask_dd_mm_yy_hh_nn;
+         8 : result := TMask.Mask_dd_mm_yyyy_hh_nn_ss;
+         9 : result := TMask.Mask_hh_nn;
+        10 : result := TMask.Mask_hh_nn_ss;
+        11 : Result := TMask.Mask_hh_nn_ss_zzz;
+        12 : result := TMask.Mask_Extenco;
+      else Result := TMask.Mask_Invalid;
+     end;
+
+  end;
+
+  //class function TDates.MaskDateTime_to_Mask(const aTemplate: TTypes.TDmxStr_ID  ): TMask;
+  //  var
+  //    s:AnsiString;
+  //begin
+  //  s:= copy(aTemplate,2,length(aTemplate)-1);
+  //  result := MaskDateTime_to_Mask(s);
+  //end;
+
+  class function TDates.MaskDateTime_to_MaskEdit(const aMaskDateTime: AnsiString): AnsiString;
+  begin
+    case AnsiIndexStr(aMaskDateTime,
+                      [
+                      'yy/mm/dd',  //00
+                      'yyyy/mm/dd', //01
+                      'dd/mm/yy',   //02
+                      'dd/mm/yyyy', //03
+                      //'mm/yy',      //04
+                      'dd/mm/yyyy hh:nn', //04
+                      'mm/yyyy',    //05
+                      'dd/mm/yy hh:nn:ss',   //06
+                      'dd/mm/yy hh:nn',      //07
+                      'dd/mm/yyyy hh:nn:ss', //08
+                      'hh:nn' ,              //09
+                      'hh:nn:ss',            //10
+                      'hh:nn:ss.zzz',      //11
+                      'ssssssssssssssssssssssssssssssssss' //12
+                      ])
+
+
+
+      of
+       0 : result := '##/99/99';
+       1 : result := '####/99/99' ;
+       2 : result := '99/99/##';
+       3 : result := '99/99/####';
+       4 : result := '99/99/#### 99:99';
+       5 : result := '99/####';
+       6 : result := '99/99/## 99:99:99';
+       7 : result := '99/99/## 99:99';
+       8 : result := '99/99/#### 99:99:99';
+       9 : result := '99:99';
+      10 : result := '99:99:99';
+      11 : Result := '99:99:99.999';
+      12 : result := 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa';
+       else Result := '';
+     end;
+
+  end;
+
+  class function TDates.Mask_to_MaskEdit(const aMask: TMask ): AnsiString;
+    // O char # usado identificar o ano
+    // O campo ano aceita o sinal de  + ou -
+  begin
+    Case aMask of
+      TMask.Mask_yy_mm_dd            : Result := '##/99/99';
+      TMask.Mask_yyyy_mm_dd          : Result := '####/99/99';
+
+      TMask.Mask_dd_mm_yy            : Result := '99/99/##';
+      TMask.Mask_dd_mm_yyyy          : Result := '99/99/####';
+
+//      TMask.Mask_mm_yy               : Result := '99/##';
+      TMask.Mask_dd_mm_yyyy_hh_nn : Result := '99/99/#### 99:99';
+
+      TMask.Mask_mm_yyyy             : Result := '99/####';
+
+      TMask.Mask_dd_mm_yy_hh_nn_ss   : Result := '99/99/## 99:99:99';
+      TMask.Mask_dd_mm_yy_hh_nn      : Result := '##/99/99 99:99';
+
+      TMask.Mask_dd_mm_yyyy_hh_nn_ss : Result := '99/99/#### 99:99:99';
+
+      TMask.Mask_hh_nn               : Result := '99:99';
+      TMask.Mask_hh_nn_ss            : Result := '99:99:99';
+      TMask.Mask_hh_nn_ss_zzz        : Result := '99:99:99.999';
+
+      TMask.Mask_Extenco             : Result := 'ssssssssssssssssssssssssssssssssss';
+
+      Else Begin
+             Result := '';
+           End;
+    End;
+  end;
+
+  class function TDates.FormatMask(S: AnsiString; const aMask: TMask    ): AnsiString;
+
+      Function FormatData(s:AnsiString ; const aMask: TMask):String;
+
+         function s_Valid:boolean;
+         begin
+           if (length(s) < 6) and (pos('/',s)=0)
+           then result := false
+           else begin
+                  if copy(s,1,2) ='00'
+                  then result := false
+                  else result := true;
+               end;
+         end;
+
+         var
+           Dia, Mes, Ano: string;
+           PosDia, PosMes,PosAno: Integer;
+      begin
+        case aMask of
+          TMask.Mask_yy_mm_dd :begin
+                                  if not s_Valid
+                                  Then begin
+                                         result := '';
+                                         exit;
+                                       end
+                                  else begin
+                                         if (length(s) = 6) and (pos('/',s)=0)
+                                         Then begin
+                                                Ano := copy(s, 1,2);
+                                                Mes := copy(s, 3,2);
+                                                Dia := copy(s, 5,2);
+                                              end
+                                         else Begin
+                                                 PosAno := Pos('/', s, 1);
+                                                 PosMes := Pos('/', s, PosAno + 1);
+
+                                                 Ano := copy(s, 1,PosAno -1);
+                                                 Mes := copy(s, PosAno + 1, PosMes - PosAno - 1);
+                                                 Dia := copy(s, PosMes+1,2);
+                                              end;
+
+                                         // Formata a data com zeros à esquerda
+                                         Result := IStr(Ano,'zz')+'/'+IStr(Mes,'zz') +'/'+ Istr(Dia,'zz');
+                                       end;
+                               end;
+
+          TMask.Mask_dd_mm_yy : begin
+                                    if not s_Valid
+                                  Then begin
+                                         result := '';
+                                         exit;
+                                       end
+                                  else begin
+                                          if (length(s) = 6) and (pos('/',s)=0)
+                                          Then begin
+                                                 Dia := copy(s, 1,2);
+                                                 Mes := copy(s, 3,2);
+                                                 Ano := copy(s, 5,2);
+                                               end
+                                          else if (length(s) = 8) and (pos('/',s)=0)
+                                               then begin
+                                                       Dia := copy(s, 1,2);
+                                                       Mes := copy(s, 3,2);
+                                                       Ano := copy(s, 5,4);
+                                                    end
+                                               else Begin
+                                                       PosDia := Pos('/', s, 1);
+                                                       PosMes := Pos('/', s, PosDia + 1);
+
+                                                       Dia := copy(s, 1, PosDia - 1);
+                                                       Mes := copy(s, PosDia + 1, PosMes - PosDia - 1);
+                                                       Ano := copy(s, length(s)-1, 2);
+                                                    end;
+
+                                         // Formata a data com zeros à esquerda
+                                         Result := Istr(Dia,'zz')+'/'+IStr(Mes,'zz') +'/'+ IStr(Ano,'zz');
+                                       end;
+                                end;
+
+//          TMask.Mask_mm_yy,
+          TMask.Mask_mm_yyyy        : Begin
+
+                                      end;
+
+          TMask.Mask_yyyy_mm_dd : begin
+                                     if not s_Valid
+                                     Then begin
+                                            result := '';
+                                            exit;
+                                          end
+                                     else begin
+                                             if (length(s) = 8) and (pos('/',s)=0)
+                                             Then begin
+                                                    Ano := copy(s, 1,2);
+                                                    Mes := copy(s, 3,2);
+                                                    Dia := copy(s, 5,4);
+                                                  end
+                                             else Begin
+                                                     PosAno := Pos('/', s, 1);
+                                                     PosMes := Pos('/', s, PosAno + 1);
+
+                                                     Ano := copy(s, 1,PosAno -1);
+                                                     Mes := copy(s, PosAno + 1, PosMes - PosAno - 1);
+                                                     Dia := copy(s, PosMes+1,4);
+                                                  end;
+
+                                             // Formata a data com zeros à esquerda
+                                             Result := IStr(Ano,'zzzz')+'/'+IStr(Mes,'zz') +'/'+ Istr(Dia,'zz');
+                                          end;
+                                  end;
+
+          TMask.Mask_dd_mm_yyyy : begin
+                                      if not s_Valid
+                                    Then begin
+                                           result := '';
+                                           exit;
+                                         end
+                                    else begin
+                                           if (length(s) = 8) and (posex('/',s)=0)
+                                           Then begin
+                                                  Dia := copy(s, 1,2);
+                                                  Mes := copy(s, 3,2);
+                                                  Ano := copy(s, 5,4);
+                                                end
+                                           else Begin
+                                                  PosDia := Pos('/', s, 1);
+                                                  PosMes := Pos('/', s, PosDia + 1);
+
+                                                  Dia := copy(s, 1, PosDia - 1);
+                                                  Mes := copy(s, PosDia + 1, PosMes - PosDia - 1);
+                                                  Ano := copy(s, PosMes + 1, 4);
+                                                end;
+
+                                           // Formata a data com zeros à esquerda
+                                           Result := Istr(Dia,'zz')+'/'+IStr(Mes,'zz') +'/'+ IStr(Ano,'zzzz');
+                                         end;
+
+                                   end;
+
+
+        end;
+
+      end;
+
+      Function FormatHora(s:AnsiString;const aMask: TMask):String;
+         var
+           Hora, Minuto,segundo,Milesimo: string;
+           PosH, PosM,PosS,PosS100: Integer;
+      begin
+        if (s='') or (Pos('-',s)<>0)
+        Then begin
+               Result := '';
+               exit;
+             end;
+
+        case aMask of
+          TMask.Mask_hh_nn        : Begin
+                                       if (length(s) < 4) and (pos(':',s)=0)
+                                       Then Raise Exception.Create('Hora inválida!')
+                                       else  if (length(s) = 4) or(length(s) = 6) and (pos(':',s)=0)
+                                             Then begin
+                                                    Hora := copy(s, 1,2);
+                                                    Minuto := copy(s, 3,2);
+                                                  end
+                                             else begin
+                                                    // Encontra a posição do próximo caractere separador
+                                                    PosH := 1;//
+                                                    PosM := PosEx(':', s, 1);
+
+                                                    // Extrai os campos H, M e S
+                                                    Hora := copy(s, 1, PosM - 1);
+                                                    Minuto := copy(s, PosM + 1, 2);
+                                                  end;
+
+                                             // Formata a hora com zeros à esquerda
+                                              Result := Istr(Hora,'zz')+':'+IStr(Minuto,'zz')+':00';
+                                    end;
+
+          TMask.Mask_hh_nn_ss     : Begin
+                                      if (length(s) < 6) and (pos(':',s)=0)
+                                      Then Raise Exception.Create('Hora inválida!')
+                                      else  if (length(s) = 6) and (pos(':',s)=0)
+                                            Then begin
+                                                   Hora := copy(s, 1,2);
+                                                   Minuto := copy(s, 3,2);
+                                                   Segundo := copy(s, 5,2);
+                                                 end
+                                            else begin
+                                                   // Encontra a posição do próximo caractere separador
+                                                   PosH := PosEx(':', s, 1);
+                                                   PosM := PosEx(':', s, PosH + 1);
+
+                                                   // Extrai os campos H, M e S
+                                                   Hora    := copy(s, 1, PosH - 1);
+                                                   Minuto  := copy(s, PosH + 1, PosM - PosH - 1);
+                                                   Segundo := copy(s, length(S)-1,2);
+                                                 end;
+
+                                            // Formata a hora com zeros à esquerda
+                                             Result := Istr(Hora,'zz')+':'+IStr(Minuto,'zz') +':'+ IStr(Segundo,'zz');
+                                     end;
+
+          TMask.Mask_hh_nn_ss_zzz : Begin //12:30:60:100 ou 12306001
+                                        if (length(s) < 9) and (pos(':',s)=0)
+                                        Then Raise Exception.Create('Hora inválida!')
+                                        else  if (length(s) = 9) and (pos(':',s)=0)
+                                              Then begin
+                                                     Hora := copy(s, 1,2);
+                                                     Minuto := copy(s, 3,2);
+                                                     Segundo := copy(s, 5,2);
+                                                     Milesimo := copy(s, 7,3);
+                                                   end
+                                              else begin
+                                                     // Encontra a posição do próximo caractere separador
+                                                     PosH := PosEx(':', s, 1);
+                                                     PosM := PosEx(':', s, PosH + 1);
+                                                     PosS100 := PosEx('.', s, PosM + 1);
+
+                                                     // Extrai os campos H, M e S
+                                                     Hora := copy(s, 1, PosH - 1);
+                                                     Minuto := copy(s, PosH + 1, PosM - PosH - 1);
+                                                     Segundo := copy(s, 5,2);
+                                                     Milesimo := copy(s, PosS100 + 1, 3);
+                                                   end;
+
+                                              // Formata a hora com zeros à esquerda
+                                               Result := Istr(Hora,'zz')+':'+IStr(Minuto,'zz') +':'+ IStr(Segundo,'zz') + '.'+Istr(Milesimo,'zzz');
+                                     end;
+        end;
+
+      end;
+
+      Var
+        Data:AnsiString = '';
+        Hora:AnsiString = '';
+        posSpace : Integer;
+   begin
+     Case aMask of
+       TMask.Mask_yy_mm_dd,
+       TMask.Mask_dd_mm_yy,
+
+       TMask.Mask_yyyy_mm_dd,
+       TMask.Mask_dd_mm_yyyy,
+
+//       TMask.Mask_mm_yy,
+       TMask.Mask_mm_yyyy        : Begin
+                                     Result := FormatData(s,aMask);
+                                   end;
+
+       TMask.Mask_dd_mm_yy_hh_nn_ss,
+       TMask.Mask_dd_mm_yy_hh_nn,
+       TMask.Mask_dd_mm_yyyy_hh_nn_ss,
+       TMask.Mask_dd_mm_yyyy_hh_nn: Begin
+                                      posSpace := Pos(' ',s);
+                                      if posSpace <> 0
+                                      Then begin
+                                             Data := Copy(s,1,PosSpace-1);
+                                             Hora := Copy(s,PosSpace+1,Length(s)-PosSpace);
+                                             Case aMask of
+                                               TMask.Mask_dd_mm_yy_hh_nn_ss : begin
+                                                                                Result := FormatData(Data,TMask.Mask_dd_mm_yy);
+                                                                                Result := Result +' '+FormatHora(Hora,TMask.Mask_hh_nn_ss);
+                                                                              end;
+
+                                               TMask.Mask_dd_mm_yy_hh_nn : begin
+                                                                             Result := FormatData(Data,TMask.Mask_dd_mm_yy);
+                                                                             Result := Result +' '+FormatHora(Hora,TMask.Mask_hh_nn);
+                                                                            end;
+
+                                               TMask.Mask_dd_mm_yyyy_hh_nn : begin
+                                                                                Result := FormatData(Data,TMask.Mask_dd_mm_yyyy);
+                                                                                Result := Result +' '+FormatHora(Hora,TMask.Mask_hh_nn);
+                                                                              end;
+
+                                               TMask.Mask_dd_mm_yyyy_hh_nn_ss : begin
+                                                                                Result := FormatData(Data,TMask.Mask_dd_mm_yyyy);
+                                                                                Result := Result +' '+FormatHora(Hora,TMask.Mask_hh_nn_ss);
+                                                                              end;
+                                             end;
+                                           end
+                                      else Result := '';
+//                                          else Raise Exception.create('Valor de datetme incompativel com maskDateTime!');
+                                    end;
+
+       TMask.Mask_hh_nn,
+       TMask.Mask_hh_nn_ss,
+       TMask.Mask_hh_nn_ss_zzz: Begin
+                                   Result := FormatHora(s,aMask);
+                                 end;
+
+       TMask.Mask_Extenco : Begin
+
+                            end;
+       else Raise Exception.Create('Formato de data inválido!')
+     end
+  End;
+
+  class function TDates.DeleteMask(s: AnsiString): AnsiString;
+    var
+      i : Integer;
+  begin
+    result := '';
+    for i := 1 to length(s) do
+      if s[i] in ['0'..'9',' ']
+      then Result := Result +s[i];
+  end;
+
+  class function TDates.SetDefaultFormatSettings(Mask: TMask;DestDataBase: Boolean): TFormatSettings;
+
+     function SetDefaultFormatSettings_DestDataBase_true : TFormatSettings;
+     begin
+       Result := DefaultFormatSettings;
+       with DefaultFormatSettings do
+       begin
+         DateSeparator := '/';
+         TimeSeparator := ':';
+         Case Mask of
+           TMask.Mask_dd_mm_yy,
+           TMask.Mask_dd_mm_yyyy        : begin
+                                            ShortDateFormat := 'dd/mm/yyyy';
+                                            LongDateFormat  := 'dd/mm/yyyy';
+                                          end;
+
+           TMask.Mask_yy_mm_dd,
+           TMask.Mask_yyyy_mm_dd        : begin
+                                            ShortDateFormat := 'yyyy/mm/dd';
+                                            LongDateFormat  := 'yyyy/mm/dd';
+                                          end;
+
+           TMask.Mask_dd_mm_yy_hh_nn_ss,
+           TMask.Mask_dd_mm_yyyy_hh_nn,
+           TMask.Mask_dd_mm_yyyy_hh_nn_ss
+                                       : begin
+                                           ShortDateFormat := 'dd/mm/yyyy hh:nn:ss';
+                                           LongDateFormat  := 'dd/mm/yyyy hh:nn:ss';
+                                         end;
+
+           TMask.Mask_hh_nn_ss,
+           TMask.Mask_hh_nn        : begin
+                                       ShortTimeFormat := 'hh:nn:ss';
+                                       LongTimeFormat  := 'hh:nn:ss';
+                                     end;
+
+           TMask.Mask_hh_nn_ss_zzz : begin
+                                       LongTimeFormat  := 'hh:nn:ss.zzz';
+                                     end;
+
+           TMask.Mask_Extenco      : begin
+                                       ShortDateFormat := 'hh:nn:ss';
+                                       LongDateFormat  := 'ddd of mmm of yyyy';
+                                     end;
+
+           //        TMask.Mask_mm_yyyy        : Result := 'mm/yyyy';
+         end;//case
+       end;
+
+     end;
+
+     function SetDefaultFormatSettings_DestDataBase_false : TFormatSettings;
+     begin
+       Result := DefaultFormatSettings;
+       with DefaultFormatSettings do
+       begin
+         DateSeparator := '/';
+         TimeSeparator := ':';
+         Case Mask of
+           TMask.Mask_dd_mm_yy,
+           TMask.Mask_dd_mm_yyyy        : begin
+                                            ShortDateFormat := 'dd/mm/yy';
+                                            LongDateFormat  := 'dd/mm/yyyy';
+                                          end;
+
+           TMask.Mask_yy_mm_dd,
+           TMask.Mask_yyyy_mm_dd        : begin
+                                            ShortDateFormat := 'yy/mm/dd';
+                                            LongDateFormat  := 'yyyy/mm/dd';
+                                          end;
+
+           TMask.Mask_dd_mm_yyyy_hh_nn : begin
+                                           ShortDateFormat := 'yyyy/mm/dd hh:nn';
+                                           LongDateFormat  := 'yyyy/mm/dd hh:nn:ss';
+                                         end;
+           TMask.Mask_dd_mm_yy_hh_nn_ss,
+           TMask.Mask_dd_mm_yyyy_hh_nn_ss
+                                       : begin
+                                           ShortDateFormat := 'yyyy/mm/dd hh:nn';
+                                           LongDateFormat  := 'yyyy/mm/dd hh:nn:ss';
+                                         end;
+
+
+           TMask.Mask_hh_nn_ss,
+           TMask.Mask_hh_nn        : begin
+                                       ShortTimeFormat := 'hh:nn';
+                                       LongTimeFormat  := 'hh:nn:ss';
+                                     end;
+
+           TMask.Mask_hh_nn_ss_zzz : begin
+                                       LongTimeFormat  := 'hh:nn:ss.zzz';
+                                     end;
+
+           TMask.Mask_Extenco      : begin
+                                       ShortDateFormat := 'hh:nn:ss';
+                                       LongDateFormat  := 'ddd of mmm of yyyy';
+                                     end;
+
+           //        TMask.Mask_mm_yyyy        : Result := 'mm/yyyy';
+         end;//case
+       end;
+
+     end;
+
+
+  begin
+    if DestDataBase
+    then Result := SetDefaultFormatSettings_DestDataBase_true
+    else Result := SetDefaultFormatSettings_DestDataBase_false;
+  end;
+
+  class function TDates.SetDefaultFormatSettings(Mask: TMask): TFormatSettings;
+  begin
+    result := SetDefaultFormatSettings(Mask,false);
+  end;
+
+  class function TDates.yymmdd_to_ddmmyy(S: AnsiString):AnsiString;
+    var
+      Ano,mes,dia: AnsiString;
+  begin //yy/mm/dd
+    if Length(s)=8
+    then begin
+           Ano := copy(s,1,2);
+           mes := copy(s,4,2);
+           dia := copy(s,7,2);
+           result := dia+'/'+mes+'/'+ano;
+         end
+    else Raise EArgumentException.Create(TStrError.ErrorMessage5('mi.rtl','mi.rtl.dates','Tdates','yymmdd_to_ddmmyy',ParametroInvalido ));
+  end;
+
+  class function TDates.yyyymmdd_to_ddmmyyyy(S: AnsiString):AnsiString;
+    var
+      Ano,mes,dia: AnsiString;
+  begin //yyyy/mm/dd
+    if Length(s)=10
+    then begin
+           Ano := copy(s,1,4);
+           mes := copy(s,6,2);
+           dia := copy(s,9,2);
+           result := dia+'/'+mes+'/'+ano;
+        end
+    else Raise EArgumentException.Create(TStrError.ErrorMessage5('mi.rtl','mi.rtl.dates','Tdates','yyyymmdd_to_ddmmyyyy',ParametroInvalido ));
+  end;
+
+  class function TDates.StrToDateTime(S: AnsiString; const Mask: TMask;DestDataBase: Boolean): TDateTime;
+    Var
+      W,y : TFormatSettings;
+      ano: string;
+      ws :string;
+    var
+      DateTimeValue: TDateTime;
+  begin
+    try
+      w:=SetDefaultFormatSettings(Mask,DestDataBase);
+      case Mask of
+        Mask_dd_mm_yyyy : begin //dd/mm/yyyy
+                            if (copy(s,7,2)= '00') //o ano está com dois digitos
+                            Then begin
+                                   ws := copy(s,1,6);
+                                   ano:= StrAno(strToInt(copy(s,7,2)));
+                                   s := ws+copy(ano,1,2)+copy(s,9,2);
+                                 end;
+                            if TryStrToDate(S, DateTimeValue)
+                            then Result := DateTimeValue
+                            else Result := 0;
+                          end;
+        Mask_dd_mm_yy : begin
+                          if(length(s) = 8) //o ano está com dois digitos
+                          then begin
+                                 ws := copy(s,Length(s)-1,2);
+                                 ano:= StrAno(strToInt(ws));
+                                 ws := copy(s,1,6);
+                                 s := ws+Ano;
+                               end;
+                          if TryStrToDate(S, DateTimeValue)
+                          then Result := DateTimeValue
+                          else Result := 0;
+                        end;
+        Mask_yy_mm_dd : begin
+                          if(length(s) = 8)
+                          Then begin //yy/mm/dd
+                                 ws := copy(s,1,2);
+                                 ano:= StrAno(strToInt(ws));
+                                 s := ano+copy(s,3,6);
+                               end;
+                          if TryStrToDate(S, DateTimeValue)
+                          then Result := DateTimeValue
+                          else Result := 0;
+                        end;
+                                //1234567890
+        Mask_yyyy_mm_dd : begin //yyyy/mm/dd
+                            //Caso o ano seja 00 adiciona o ano usando a função strAno
+                            if copy(s,1,2)= '00' //o ano está com dois digitos
+                            Then begin
+                                   ws := copy(s,3,2);
+                                   ano:= StrAno(strToInt(ws));
+                                   s := Ano+copy(s,5,6);
+                                 end;
+                            if TryStrToDate(S, DateTimeValue)
+                            then Result := DateTimeValue
+                            else Result := 0;
+                          end;
+        Mask_hh_nn      : begin
+                            if (length(s)=5)
+                            Then S:= S+':00';
+                            if TryStrToTime(S, DateTimeValue)
+                            then Result := DateTimeValue
+                            else Result := 0;
+                          end;
+        Mask_hh_nn_ss   : begin
+                            if TryStrToTime(S, DateTimeValue)
+                            then Result := DateTimeValue
+                            else Result := 0;
+                          end;
+       //    12345678901234567
+        Mask_dd_mm_yy_hh_nn_ss : begin
+                                   if DestDataBase and (s<>'//:00:00')
+                                   Then begin
+                                          ano := StrAno(StrToInt(copy(s,7,2)));
+                                          delete(s,7,2);
+                                          system.insert(ano,s,7);
+                                        end;
+                                    if TryStrToDateTime(S, DateTimeValue)
+                                    then Result := DateTimeValue
+                                    else Result := 0;
+                                  end;
+
+        else  begin
+                if TryStrToDateTime(S, DateTimeValue)
+                then Result := DateTimeValue
+                else Result := 0.
+//                Result := SysUtils.StrToDateTime(s,DefaultFormatSettings);
+             end
+      end;
+//
+
+    finally
+      //y := DefaultFormatSettings;
+      DefaultFormatSettings := w;
+    end;
+  end;
+
+  class function TDates.StrToDateTime(const S: AnsiString): TDateTime;overload;
+  begin
+    Result := SysUtils.StrToDateTime(s,DefaultFormatSettings);
+  end;
+
+  class function TDates.DateTimeToStr(d: TDateTime; Mask: TMask;DestDataBase: Boolean): AnsiString;
+    Var
+      W : TFormatSettings;
+      s : AnsiString;
+  begin
+    try
+      w := SetDefaultFormatSettings(Mask,DestDataBase);
+      case Mask of
+        Mask_dd_mm_yy : begin
+                          Result := SysUtils.FormatDateTime(Mask_to_MaskDateTime(Mask),d);
+                        end;
+        Mask_yy_mm_dd : begin
+                          Result := SysUtils.FormatDateTime(Mask_to_MaskDateTime(Mask),d) ;
+                        end;
+        Mask_dd_mm_yy_hh_nn_ss : begin
+                                   Result := SysUtils.FormatDateTime(Mask_to_MaskDateTime(Mask),d) ;
+                                 end;
+
+        Mask_hh_nn      : begin
+                            Result := SysUtils.TimeToStr(d,DefaultFormatSettings);
+                          end;
+        else begin
+               Result := SysUtils.FormatDateTime(Mask_to_MaskDateTime(Mask),d) ;
+             end;
+      end;
+    finally
+      DefaultFormatSettings := w;
+    end;
+
+  end;
+
+  class function TDates.DateTimeToStr(d: TDateTime): AnsiString;
+  begin
+    Result := SysUtils.DateTimeToStr(d,DefaultFormatSettings);
+  end;
+
+
+
+  //class function TDates.IsDateTime(const aTemplate: AnsiString): Boolean;
+  //begin
+  //  result := MaskEdit_to_Mask(aTemplate) <> TMask.Mask_Invalid ;
+  //end;
+
 
   {Fim funcoes que tratam datas com longint }
 
 
 
+var
+  SMonthNames : TMonthNameArray = ('Jan','Fev','Mar','Abr','Mai','Jun','Jul','Ago','Set','Out','Nov','Dez');
+  LMonthNames : TMonthNameArray = ('Janeiro','Fevereiro','Março','Abril','Maio','Junho', 'Julio','Agosto','Setembro','Outubro','Novembro','Dezembro');
+
+  SDayNames   : TWeekNameArray = ('Dom','Seg','Ter','Qua','Qui','Sex','Sab');
+  LDayNames   : TWeekNameArray = ('Domingo','Segunda','Terça','Quarta','Quinta','Sexta','Sábado');
 
 initialization
-
   with TDates do
   begin
     GetDataSistOp(DataSistOp,'/');
-  //  MoveData(DataSistOp,DataAtual);
-  //  DateAtual := @DataAtual;
-
     With DataMinima do Begin dia := 1;
                              mes := 1;
-                             Ano := AnoLimit
+                             Ano := DefaultFormatSettings.TwoDigitYearCenturyWindow {AnoLimit}
                        End;
 
     With DataMaxima do Begin dia := 31;
                              mes := 12;
-                             Ano := AnoLimit-1;
+                             Ano := DefaultFormatSettings.TwoDigitYearCenturyWindow {AnoLimit}-1;
                        End;
   end;
+
+  //with DefaultFormatSettings do
+  //begin
+  //  DateSeparator := '/';
+  //  TimeSeparator := ':';
+  //  ShortTimeFormat := 'dd/mm/yyyy';
+  //  ShortMonthNames := SMonthNames;
+  //  LongMonthNames  := LMonthNames;
+  //
+  //  ShortDayNames   := SDayNames;
+  //  LongDayNames    := LDayNames;
+  //end;
+  //
 
 
 end.

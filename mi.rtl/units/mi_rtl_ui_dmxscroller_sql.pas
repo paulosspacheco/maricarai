@@ -2,7 +2,7 @@ Unit mi_rtl_ui_Dmxscroller_sql;
 {:< A unit **@name** implementa a classe TUiDmxScroller_sql.
 
   - **VERSÃO**
-    - Alpha - Alpha - 0.9.0
+    - Alpha - 1.0.0
 
   - **CÓDIGO FONTE**:
     - @html(<a href="../units/mi_ui_Dmxscroller_sql.pas">mi_ui_Dmxscroller_sql.pas</a>)
@@ -1033,6 +1033,7 @@ Begin
        End;
 End;
 
+
 procedure TUiDmxScroller_sql.CreateCustomBufDataset_FieldDefs;
 
    procedure SetAtributosDosFields;
@@ -1226,9 +1227,9 @@ begin
              if CurrentField.IsNumber
              then begin
                     //Incluir máscara
-                    if pos(DecPt ,s)<>0
+                    if pos(DecimalSeparator  ,s)<>0
                     then begin
-                           s := Change_AnsiChar(s,DecPt,showDecPt);
+                           s := Change_AnsiChar(s,DecimalSeparator ,showDecimalSeparator );
                          end;
                  end;
              CurrentField.AsString:= s;
@@ -1253,10 +1254,10 @@ function TUiDmxScroller_sql.PutBuffers: Boolean;
     if CurrentField.IsNumber
     then begin
            //Excluir máscara
-           s := DeleteMask(S,['0'..'9','-','+',showDecPt]);
-           if pos(showDecPt ,s)<>0
+           s := DeleteMask(S,['0'..'9','-','+',showDecimalSeparator ]);
+           if pos(showDecimalSeparator  ,s)<>0
            then begin
-                  s := Change_AnsiChar(s,showDecPt,DecPt);
+                  s := Change_AnsiChar(s,showDecimalSeparator ,DecimalSeparator );
                 end;
         end;
 

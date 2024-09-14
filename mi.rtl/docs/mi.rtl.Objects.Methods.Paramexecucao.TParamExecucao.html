@@ -47,7 +47,7 @@
 </tr>
 <tr class="list2">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
-<td class="itemcode"><code><strong><a href="mi.rtl.Objects.Methods.Paramexecucao.TParamExecucao.html#NomeDeArquivosGenericos">NomeDeArquivosGenericos</a></strong>: <a href="mi.rtl.Objects.Methods.Paramexecucao.TParamExecucao_types.TNomeDeArquivosGenericos.html">TNomeDeArquivosGenericos</a>;</code></td>
+<td class="itemcode"><code><strong><a href="mi.rtl.Objects.Methods.Paramexecucao.TParamExecucao.html#EnvironmentVariables">EnvironmentVariables</a></strong>: <a href="mi.rtl.Objects.Methods.Paramexecucao.TParamExecucao_types.TEnvironmentVariables.html">TEnvironmentVariables</a>;</code></td>
 </tr>
 <tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
@@ -90,11 +90,11 @@
 <table class="summary wide_list">
 <tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
-<td class="itemcode"><code>Constructor <strong><a href="mi.rtl.Objects.Methods.Paramexecucao.TParamExecucao.html#Create">Create</a></strong>(aPathRaiz:Ansistring); overload; Virtual;</code></td>
+<td class="itemcode"><code>Constructor <strong><a href="mi.rtl.Objects.Methods.Paramexecucao.TParamExecucao.html#Create">Create</a></strong>(aOwner:TComponent); overload; override;</code></td>
 </tr>
 <tr class="list2">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
-<td class="itemcode"><code>Constructor <strong><a href="mi.rtl.Objects.Methods.Paramexecucao.TParamExecucao.html#Create">Create</a></strong>(aOwner:TComponent); overload; override;</code></td>
+<td class="itemcode"><code>Procedure <strong><a href="mi.rtl.Objects.Methods.Paramexecucao.TParamExecucao.html#SetParamametros">SetParamametros</a></strong>(aPathRaiz:Ansistring); Virtual;</code></td>
 </tr>
 <tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
@@ -102,7 +102,7 @@
 </tr>
 <tr class="list2">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
-<td class="itemcode"><code>Function <strong><a href="mi.rtl.Objects.Methods.Paramexecucao.TParamExecucao.html#Set_NomeDeArquivosGenericos">Set_NomeDeArquivosGenericos</a></strong>() :boolean;</code></td>
+<td class="itemcode"><code>Function <strong><a href="mi.rtl.Objects.Methods.Paramexecucao.TParamExecucao.html#Set_EnvironmentVariables">Set_EnvironmentVariables</a></strong>() :boolean;</code></td>
 </tr>
 <tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
@@ -114,65 +114,21 @@
 </tr>
 <tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
-<td class="itemcode"><code>procedure <strong><a href="mi.rtl.Objects.Methods.Paramexecucao.TParamExecucao.html#Set_ParamStr">Set_ParamStr</a></strong>(wFilial,WUsuario,wPassword: <a href="mi_rtl_ui_Dmxscroller.html#tString">tString</a>); Overload;</code></td>
+<td class="itemcode"><code>procedure <strong><a href="mi.rtl.Objects.Methods.Paramexecucao.TParamExecucao.html#Set_ParamStr">Set_ParamStr</a></strong>(); Overload;</code></td>
 </tr>
 <tr class="list2">
-<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
-<td class="itemcode"><code>procedure <strong><a href="mi.rtl.Objects.Methods.Paramexecucao.TParamExecucao.html#Set_ParamStr">Set_ParamStr</a></strong>(wFilial:Byte;WUsuario:SmallInt;wPassword:<a href="mi_rtl_ui_Dmxscroller.html#tString">tString</a>); Overload;</code></td>
-</tr>
-<tr class="list">
-<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
-<td class="itemcode"><code>procedure <strong><a href="mi.rtl.Objects.Methods.Paramexecucao.TParamExecucao.html#Set_ParamStr">Set_ParamStr</a></strong>(wFilial,WUsuario,wPassword,wCommand : <a href="mi_rtl_ui_Dmxscroller.html#tString">tString</a>); Overload;</code></td>
-</tr>
-<tr class="list2">
-<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
-<td class="itemcode"><code>procedure <strong><a href="mi.rtl.Objects.Methods.Paramexecucao.TParamExecucao.html#Set_ParamStr">Set_ParamStr</a></strong>(wFilial:Byte;WUsuario:SmallInt;wPassword:<a href="mi_rtl_ui_Dmxscroller.html#tString">tString</a>;wCommand : SmallInt); Overload;</code></td>
-</tr>
-<tr class="list">
-<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
-<td class="itemcode"><code>procedure <strong><a href="mi.rtl.Objects.Methods.Paramexecucao.TParamExecucao.html#Set_ParamStr">Set_ParamStr</a></strong>(wFilial:Byte;WUsuario:SmallInt;wNome_Compreto_do_Usuario : <a href="mi_rtl_ui_Dmxscroller.html#tString">tString</a>;wPassword:<a href="mi_rtl_ui_Dmxscroller.html#tString">tString</a>); Overload;</code></td>
-</tr>
-<tr class="list2">
-<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
-<td class="itemcode"><code>procedure <strong><a href="mi.rtl.Objects.Methods.Paramexecucao.TParamExecucao.html#Set_ParamStr">Set_ParamStr</a></strong>(wFilial:Byte;WUsuario:SmallInt;wNome_Compreto_do_Usuario : <a href="mi_rtl_ui_Dmxscroller.html#tString">tString</a>;wPassword:<a href="mi_rtl_ui_Dmxscroller.html#tString">tString</a>;aUsername: <a href="mi_rtl_ui_Dmxscroller.html#tString">tString</a>); Overload;</code></td>
-</tr>
-<tr class="list">
-<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
-<td class="itemcode"><code>procedure <strong><a href="mi.rtl.Objects.Methods.Paramexecucao.TParamExecucao.html#Set_ParamStr">Set_ParamStr</a></strong>(wFilial,WUsuario,wPassword,wModulo,wCommand : <a href="mi_rtl_ui_Dmxscroller.html#tString">tString</a>); Overload;</code></td>
-</tr>
-<tr class="list2">
-<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
-<td class="itemcode"><code>procedure <strong><a href="mi.rtl.Objects.Methods.Paramexecucao.TParamExecucao.html#Set_ParamStr">Set_ParamStr</a></strong>(wFilial,WUsuario,wPassword,wModulo,wCommand,a_DataAtual : <a href="mi_rtl_ui_Dmxscroller.html#tString">tString</a>); Overload;</code></td>
-</tr>
-<tr class="list">
-<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
-<td class="itemcode"><code>procedure <strong><a href="mi.rtl.Objects.Methods.Paramexecucao.TParamExecucao.html#Set_ParamStr">Set_ParamStr</a></strong>(wFilial,WUsuario,wPassword,wModulo,wCommand,a_DataAtual : <a href="mi_rtl_ui_Dmxscroller.html#tString">tString</a>;wAcao_Form: AnsiString); Overload;</code></td>
-</tr>
-<tr class="list2">
-<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
-<td class="itemcode"><code>procedure <strong><a href="mi.rtl.Objects.Methods.Paramexecucao.TParamExecucao.html#Set_ParamStr">Set_ParamStr</a></strong>(wFilial,WUsuario,wPassword,wModulo,wCommand,a_DataAtual : <a href="mi_rtl_ui_Dmxscroller.html#tString">tString</a>;wAcao_Form: AnsiString;wList_Value_Default:AnsiString); Overload;</code></td>
-</tr>
-<tr class="list">
-<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
-<td class="itemcode"><code>procedure <strong><a href="mi.rtl.Objects.Methods.Paramexecucao.TParamExecucao.html#Set_ParamStr">Set_ParamStr</a></strong>(wFilial:Byte; WUsuario:SmallInt; wPassword:<a href="mi_rtl_ui_Dmxscroller.html#tString">tString</a>; wModulo:SmallInt; wCommand : SmallInt); Overload;</code></td>
-</tr>
-<tr class="list2">
-<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
-<td class="itemcode"><code>procedure <strong><a href="mi.rtl.Objects.Methods.Paramexecucao.TParamExecucao.html#Set_ParamStr">Set_ParamStr</a></strong>(wFilial:AnsiString; WUsuario:SmallInt; wPassword:<a href="mi_rtl_ui_Dmxscroller.html#tString">tString</a>; wModulo:SmallInt; wCommand : SmallInt); Overload;</code></td>
-</tr>
-<tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
 <td class="itemcode"><code>function <strong><a href="mi.rtl.Objects.Methods.Paramexecucao.TParamExecucao.html#Check_Se_Comando_autorizado">Check_Se_Comando_autorizado</a></strong>:Boolean;</code></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
 <td class="itemcode"><code>Function <strong><a href="mi.rtl.Objects.Methods.Paramexecucao.TParamExecucao.html#Get_Password_do_Comando">Get_Password_do_Comando</a></strong>(aModulo: Byte; aComando : SmallInt):<a href="mi_rtl_ui_Dmxscroller.html#tString">tString</a>;</code></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
 <td class="itemcode"><code>class Function <strong><a href="mi.rtl.Objects.Methods.Paramexecucao.TParamExecucao.html#Param_Execucao">Param_Execucao</a></strong>: <a href="mi.rtl.Objects.Methods.Paramexecucao.TParamExecucao.html">TParamExecucao</a>;</code></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
 <td class="itemcode"><code>class Procedure <strong><a href="mi.rtl.Objects.Methods.Paramexecucao.TParamExecucao.html#Set_ParamExecucao">Set_ParamExecucao</a></strong>(aParamExecucao : <a href="mi.rtl.Objects.Methods.Paramexecucao.TParamExecucao.html">TParamExecucao</a>);</code></td>
 </tr>
@@ -197,7 +153,7 @@
 <table class="detail wide_list">
 <tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
-<td class="itemcode"><span id="NomeDeArquivosGenericos"></span><code><strong>NomeDeArquivosGenericos</strong>: <a href="mi.rtl.Objects.Methods.Paramexecucao.TParamExecucao_types.TNomeDeArquivosGenericos.html">TNomeDeArquivosGenericos</a>;</code></td>
+<td class="itemcode"><span id="EnvironmentVariables"></span><code><strong>EnvironmentVariables</strong>: <a href="mi.rtl.Objects.Methods.Paramexecucao.TParamExecucao_types.TEnvironmentVariables.html">TEnvironmentVariables</a>;</code></td>
 </tr>
 <tr><td colspan="2">
 &nbsp;</td></tr>
@@ -278,7 +234,7 @@
 <table class="detail wide_list">
 <tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
-<td class="itemcode"><span id="Create"></span><code>Constructor <strong>Create</strong>(aPathRaiz:Ansistring); overload; Virtual;</code></td>
+<td class="itemcode"><span id="Create"></span><code>Constructor <strong>Create</strong>(aOwner:TComponent); overload; override;</code></td>
 </tr>
 <tr><td colspan="2">
 &nbsp;</td></tr>
@@ -286,7 +242,7 @@
 <table class="detail wide_list">
 <tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
-<td class="itemcode"><span id="Create"></span><code>Constructor <strong>Create</strong>(aOwner:TComponent); overload; override;</code></td>
+<td class="itemcode"><span id="SetParamametros"></span><code>Procedure <strong>SetParamametros</strong>(aPathRaiz:Ansistring); Virtual;</code></td>
 </tr>
 <tr><td colspan="2">
 &nbsp;</td></tr>
@@ -302,7 +258,7 @@
 <table class="detail wide_list">
 <tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
-<td class="itemcode"><span id="Set_NomeDeArquivosGenericos"></span><code>Function <strong>Set_NomeDeArquivosGenericos</strong>() :boolean;</code></td>
+<td class="itemcode"><span id="Set_EnvironmentVariables"></span><code>Function <strong>Set_EnvironmentVariables</strong>() :boolean;</code></td>
 </tr>
 <tr><td colspan="2">
 &nbsp;</td></tr>
@@ -326,95 +282,7 @@
 <table class="detail wide_list">
 <tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
-<td class="itemcode"><span id="Set_ParamStr"></span><code>procedure <strong>Set_ParamStr</strong>(wFilial,WUsuario,wPassword: <a href="mi_rtl_ui_Dmxscroller.html#tString">tString</a>); Overload;</code></td>
-</tr>
-<tr><td colspan="2">
-&nbsp;</td></tr>
-</table>
-<table class="detail wide_list">
-<tr class="list">
-<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
-<td class="itemcode"><span id="Set_ParamStr"></span><code>procedure <strong>Set_ParamStr</strong>(wFilial:Byte;WUsuario:SmallInt;wPassword:<a href="mi_rtl_ui_Dmxscroller.html#tString">tString</a>); Overload;</code></td>
-</tr>
-<tr><td colspan="2">
-&nbsp;</td></tr>
-</table>
-<table class="detail wide_list">
-<tr class="list">
-<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
-<td class="itemcode"><span id="Set_ParamStr"></span><code>procedure <strong>Set_ParamStr</strong>(wFilial,WUsuario,wPassword,wCommand : <a href="mi_rtl_ui_Dmxscroller.html#tString">tString</a>); Overload;</code></td>
-</tr>
-<tr><td colspan="2">
-&nbsp;</td></tr>
-</table>
-<table class="detail wide_list">
-<tr class="list">
-<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
-<td class="itemcode"><span id="Set_ParamStr"></span><code>procedure <strong>Set_ParamStr</strong>(wFilial:Byte;WUsuario:SmallInt;wPassword:<a href="mi_rtl_ui_Dmxscroller.html#tString">tString</a>;wCommand : SmallInt); Overload;</code></td>
-</tr>
-<tr><td colspan="2">
-&nbsp;</td></tr>
-</table>
-<table class="detail wide_list">
-<tr class="list">
-<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
-<td class="itemcode"><span id="Set_ParamStr"></span><code>procedure <strong>Set_ParamStr</strong>(wFilial:Byte;WUsuario:SmallInt;wNome_Compreto_do_Usuario : <a href="mi_rtl_ui_Dmxscroller.html#tString">tString</a>;wPassword:<a href="mi_rtl_ui_Dmxscroller.html#tString">tString</a>); Overload;</code></td>
-</tr>
-<tr><td colspan="2">
-&nbsp;</td></tr>
-</table>
-<table class="detail wide_list">
-<tr class="list">
-<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
-<td class="itemcode"><span id="Set_ParamStr"></span><code>procedure <strong>Set_ParamStr</strong>(wFilial:Byte;WUsuario:SmallInt;wNome_Compreto_do_Usuario : <a href="mi_rtl_ui_Dmxscroller.html#tString">tString</a>;wPassword:<a href="mi_rtl_ui_Dmxscroller.html#tString">tString</a>;aUsername: <a href="mi_rtl_ui_Dmxscroller.html#tString">tString</a>); Overload;</code></td>
-</tr>
-<tr><td colspan="2">
-&nbsp;</td></tr>
-</table>
-<table class="detail wide_list">
-<tr class="list">
-<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
-<td class="itemcode"><span id="Set_ParamStr"></span><code>procedure <strong>Set_ParamStr</strong>(wFilial,WUsuario,wPassword,wModulo,wCommand : <a href="mi_rtl_ui_Dmxscroller.html#tString">tString</a>); Overload;</code></td>
-</tr>
-<tr><td colspan="2">
-&nbsp;</td></tr>
-</table>
-<table class="detail wide_list">
-<tr class="list">
-<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
-<td class="itemcode"><span id="Set_ParamStr"></span><code>procedure <strong>Set_ParamStr</strong>(wFilial,WUsuario,wPassword,wModulo,wCommand,a_DataAtual : <a href="mi_rtl_ui_Dmxscroller.html#tString">tString</a>); Overload;</code></td>
-</tr>
-<tr><td colspan="2">
-&nbsp;</td></tr>
-</table>
-<table class="detail wide_list">
-<tr class="list">
-<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
-<td class="itemcode"><span id="Set_ParamStr"></span><code>procedure <strong>Set_ParamStr</strong>(wFilial,WUsuario,wPassword,wModulo,wCommand,a_DataAtual : <a href="mi_rtl_ui_Dmxscroller.html#tString">tString</a>;wAcao_Form: AnsiString); Overload;</code></td>
-</tr>
-<tr><td colspan="2">
-&nbsp;</td></tr>
-</table>
-<table class="detail wide_list">
-<tr class="list">
-<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
-<td class="itemcode"><span id="Set_ParamStr"></span><code>procedure <strong>Set_ParamStr</strong>(wFilial,WUsuario,wPassword,wModulo,wCommand,a_DataAtual : <a href="mi_rtl_ui_Dmxscroller.html#tString">tString</a>;wAcao_Form: AnsiString;wList_Value_Default:AnsiString); Overload;</code></td>
-</tr>
-<tr><td colspan="2">
-&nbsp;</td></tr>
-</table>
-<table class="detail wide_list">
-<tr class="list">
-<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
-<td class="itemcode"><span id="Set_ParamStr"></span><code>procedure <strong>Set_ParamStr</strong>(wFilial:Byte; WUsuario:SmallInt; wPassword:<a href="mi_rtl_ui_Dmxscroller.html#tString">tString</a>; wModulo:SmallInt; wCommand : SmallInt); Overload;</code></td>
-</tr>
-<tr><td colspan="2">
-&nbsp;</td></tr>
-</table>
-<table class="detail wide_list">
-<tr class="list">
-<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
-<td class="itemcode"><span id="Set_ParamStr"></span><code>procedure <strong>Set_ParamStr</strong>(wFilial:AnsiString; WUsuario:SmallInt; wPassword:<a href="mi_rtl_ui_Dmxscroller.html#tString">tString</a>; wModulo:SmallInt; wCommand : SmallInt); Overload;</code></td>
+<td class="itemcode"><span id="Set_ParamStr"></span><code>procedure <strong>Set_ParamStr</strong>(); Overload;</code></td>
 </tr>
 <tr><td colspan="2">
 &nbsp;</td></tr>

@@ -5,7 +5,7 @@ unit mi.rtl.Objects.Methods.StreamBase.Stream.MemoryStream;
     - Implementa um fluxo de dados em memória.
 
   - **VERSÃO**
-    - Alpha - Alpha - 0.9.0
+    - Alpha - 1.0.0
 
   - **HISTÓRICO**
     - Criado por: Paulo Sérgio da Silva Pacheco e-mail: paulosspacheco@@yahoo.com.br
@@ -66,15 +66,6 @@ TYPE
 
      Public PROCEDURE Write (Var Buf; Count: Sw_Word;Var BytesWrite:Sw_Word);Overload;override;
      Public PROCEDURE Write (Var Buf; Count: Sw_Word);Overload;Override;
-
-     //{: A classe **@name** deve ser implementada no pacote mi.ui.
-     //
-     //   - **NOTA**
-     //     - Anular **@name** box anterior e implementar messabox para controlar a constante
-     //       ok_Set_Transaction := false porque não existe transações em memória.
-     //}
-     //Public function MessageBox(const Msg: AnsiString): Word;override;
-
    END;
 
 
@@ -391,7 +382,8 @@ implementation
 
   //function TMemoryStream.MessageBox(const Msg: AnsiString): Word;
   //begin
-  //  with Mi_MsgBox do
+  //  if Assigned(MI_MsgBox)
+  //  then with Mi_MsgBox do
   //  begin
   //    Result := MessageBox(Msg,nil,MtError, [mbOK]);
   //  end;

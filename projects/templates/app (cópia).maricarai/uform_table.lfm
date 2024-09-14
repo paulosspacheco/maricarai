@@ -1,0 +1,144 @@
+inherited form_table: Tform_table
+  Left = 439
+  Height = 435
+  Top = 209
+  Width = 776
+  HelpContext = 446
+  AllowDropFiles = True
+  AutoSize = True
+  BorderIcons = []
+  Caption = 'form_table'
+  ClientHeight = 435
+  ClientWidth = 776
+  Font.Height = -13
+  Font.Name = 'System'
+  OnCreate = FormCreate
+  object Panel1: TPanel[0]
+    Left = 16
+    Height = 34
+    Top = 8
+    Width = 740
+    Anchors = [akTop, akLeft, akRight]
+    Caption = 'Nome da página ativa'
+    ParentBackground = False
+    TabOrder = 0
+  end
+  object PageControl1: TPageControl[1]
+    Left = 0
+    Height = 387
+    Top = 48
+    Width = 776
+    ActivePage = Lista
+    Align = alBottom
+    Anchors = [akTop, akLeft, akRight, akBottom]
+    TabIndex = 0
+    TabOrder = 1
+    object Lista: TTabSheet
+      Caption = 'Lista'
+      ClientHeight = 355
+      ClientWidth = 766
+      object DBGrid1: TDBGrid
+        Left = 0
+        Height = 511
+        Top = 102
+        Width = 764
+        Anchors = [akTop, akLeft, akRight]
+        Color = clWindow
+        Columns = <>
+        ReadOnly = True
+        TabOrder = 0
+      end
+      object DBNavigator1: TDBNavigator
+        AnchorSideRight.Side = asrCenter
+        Left = 8
+        Height = 32
+        Top = 64
+        Width = 256
+        BevelOuter = bvNone
+        ChildSizing.EnlargeHorizontal = crsScaleChilds
+        ChildSizing.EnlargeVertical = crsScaleChilds
+        ChildSizing.ShrinkHorizontal = crsScaleChilds
+        ChildSizing.ShrinkVertical = crsScaleChilds
+        ChildSizing.Layout = cclLeftToRightThenTopToBottom
+        ChildSizing.ControlsPerLine = 100
+        ClientHeight = 32
+        ClientWidth = 256
+        Options = []
+        TabOrder = 1
+        VisibleButtons = [nbFirst, nbPrior, nbNext, nbLast]
+      end
+      object Panel2: TPanel
+        Left = 0
+        Height = 44
+        Top = 8
+        Width = 766
+        Anchors = [akTop, akLeft, akRight]
+        ClientHeight = 44
+        ClientWidth = 766
+        TabOrder = 2
+        object Label1: TLabel
+          Left = 62
+          Height = 18
+          Top = 15
+          Width = 96
+          Caption = 'Localizar nome?'
+        end
+        object Edit_Pesquisar: TEdit
+          Left = 177
+          Height = 35
+          Top = 12
+          Width = 152
+          TabOrder = 0
+        end
+        object Button_Pesquisar: TButton
+          Left = 336
+          Height = 32
+          Top = 8
+          Width = 75
+          Caption = 'Pesquisar'
+          TabOrder = 1
+          OnClick = Button_PesquisarClick
+        end
+      end
+    end
+    object Cadastra: TTabSheet
+      Caption = 'Cadastra'
+      ClientHeight = 355
+      ClientWidth = 766
+      object Mi_LCL_Scrollbox1: TMi_LCL_Scrollbox
+        Left = 0
+        Height = 355
+        Top = 0
+        Width = 766
+        Align = alClient
+        AutoScroll = False
+        Color = clDefault
+        ParentBackground = False
+        ParentColor = False
+        TabOrder = 0
+        TabStop = True
+      end
+    end
+  end
+  inherited ApplicationEvents1: TApplicationProperties[2]
+    Left = 216
+    Top = 104
+  end
+  object OpenDialog: TOpenDialog[3]
+    Filter = 'All Files (*.*)|*.*'
+    Left = 608
+    Top = 72
+  end
+  object SaveDialog: TSaveDialog[4]
+    Filter = 'All Files (*.*)|*.*'
+    Left = 696
+    Top = 72
+  end
+  object Mi_lcl_ui_ds_Form1: TMi_lcl_ui_ds_Form[5]
+    Alias = 'TDmxScroller_Form'
+    ParentLCL = Mi_LCL_Scrollbox1
+    DmxScroller_Form = dm_table.DmxScroller_Form1
+    Left = 173
+    Top = 198
+  end
+end

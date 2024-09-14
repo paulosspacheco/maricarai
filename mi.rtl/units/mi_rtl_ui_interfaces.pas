@@ -299,24 +299,24 @@ Caso o campo selecionado executar o método TDmxEditor.EditViewHelpCtx() com a o
 //      Function GetSize():Variant;//=n specifies the number of AnsiCharacters to display
 //      Property Size:Variant read GetSize;
 //
-//      {$REGION ' ---> Property vidis_OnEnter : Boolean '}
-//      Function  Getvidis_OnEnter : Boolean;
-//      Procedure Setvidis_OnEnter (avidis_OnEnter : Boolean );
+//      {$REGION ' ---> Property reintrance_OnEnter : Boolean '}
+//      Function  Getreintrance_OnEnter : Boolean;
+//      Procedure Setreintrance_OnEnter (areintrance_OnEnter : Boolean );
 //                    ///<since>
-//                    ///  . Propriedade vidis_OnEnter : Boolean
+//                    ///  . Propriedade reintrance_OnEnter : Boolean
 //                    ///  . Objetivo: Usado para evitar reentrancia do evento DoOnEnter()
 //                    ///</since>
-//        property  vidis_OnEnter: Boolean Read Getvidis_OnEnter   Write  Setvidis_OnEnter;
+//        property  reintrance_OnEnter: Boolean Read Getreintrance_OnEnter   Write  Setreintrance_OnEnter;
 //      {$ENDREGION}
 //
-//      {$REGION ' ---> Property vidis_OnExit : Boolean '}
-//      Function  Getvidis_OnExit : Boolean;
-//      Procedure Setvidis_OnExit (avidis_OnExit : Boolean );
+//      {$REGION ' ---> Property reintrance_OnExit : Boolean '}
+//      Function  Getreintrance_OnExit : Boolean;
+//      Procedure Setreintrance_OnExit (areintrance_OnExit : Boolean );
 //                    ///<since>
-//                    ///  . Propriedade vidis_OnExit : Boolean
+//                    ///  . Propriedade reintrance_OnExit : Boolean
 //                    ///  . Objetivo: Usado para evitar reentrancia do evento DoOnExit()
 //                    ///</since>
-//        property  vidis_OnExit: Boolean Read Getvidis_OnExit   Write  Setvidis_OnExit;
+//        property  reintrance_OnExit: Boolean Read Getreintrance_OnExit   Write  Setreintrance_OnExit;
 //      {$ENDREGION}
 //
 //
@@ -1030,7 +1030,7 @@ Caso o campo selecionado executar o método TDmxEditor.EditViewHelpCtx() com a o
 //            <p>
 //                <form method   ="POST" name="TesteSub"
 //                      onSubmit ="return TestaVal()"
-//                       action  ="http://10.0.5.2/scripts/isapielo.dll/vbloja.loja.action">
+//                       action  ="http://10.0.5.2/scripts/FastCgielo.dll/vbloja.loja.action">
 //
 //                      Digite um Texto
 //                        <input type=text size=10 maxlength=10 name="Teste" value="">
@@ -1042,7 +1042,7 @@ Caso o campo selecionado executar o método TDmxEditor.EditViewHelpCtx() com a o
 //
 //            No exemplo acima, o formulário está sendo submetido a URL "10.0.5.2" (que é o endereço IP
 //            de um "Server"). Este servidor está rodando o "Microsoft Internet Information Server". Estamos
-//            enviando os dados a um "OLE", que está no subdiretório "scripts", chamado "isapielo.dll", que tem
+//            enviando os dados a um "OLE", que está no subdiretório "scripts", chamado "FastCgielo.dll", que tem
 //            por objetivo fazer a conecção com aplicações escritas em VB. A aplicação VB que está sendo
 //            chamada, é um OLE de nome "vbloja" no qual estamos acionando a classe "loja" e o método
 //            "action".

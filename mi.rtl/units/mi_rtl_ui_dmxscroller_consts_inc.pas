@@ -1,5 +1,175 @@
 {Essa Include contém todas as constantes usadas e: mi_rtl_ui_Dmxscroller.pas}
 
+
+{$REGION ' --->  Constantes '}
+  // Used for ModalResult
+  const
+    MaxBufLength   = $ff00;
+    mbOK       = TMI_MsgBoxTypes.mbOK;
+    mrOK       = TMI_MsgBoxTypes.mrOK;
+
+    mbCancel   = TMI_MsgBoxTypes.mbCancel ;
+    mrCancel   = TMI_MsgBoxTypes.mrCancel;
+
+    mbAbort    = TMI_MsgBoxTypes.mbAbort;
+    mrAbort    = TMI_MsgBoxTypes.mrAbort;
+    mrIgnore   = TMI_MsgBoxTypes.mrIgnore;
+
+    mbYes      = TMI_MsgBoxTypes.mbYes;
+    mrYes      = TMI_MsgBoxTypes.mrYes;
+
+    mbNo       = TMI_MsgBoxTypes.mbNo;
+    mrNo       = TMI_MsgBoxTypes.mrNo;
+
+    mbClose    = TMI_MsgBoxTypes.mbClose;
+    mrClose    = TMI_MsgBoxTypes.mrClose;
+
+    mbAll      = TMI_MsgBoxTypes.mbAll;
+    mrAll      = TMI_MsgBoxTypes.mrAll;
+
+    mbNoToAll  = TMI_MsgBoxTypes.mbNoToAll;
+    mrNoToAll  = TMI_MsgBoxTypes.mrNoToAll;
+
+    mbYesToAll = TMI_MsgBoxTypes.mbYesToAll;
+    mrYesToAll = TMI_MsgBoxTypes.mrYesToAll;
+
+    // Used for ModalResult
+    mrNone     = TMI_MsgBoxTypes.mrNone;
+
+    mrLast     = TMI_MsgBoxTypes.mrLast    ;
+    mbRetry    = TMI_MsgBoxTypes.mbRetry;
+    mrRetry    = TMI_MsgBoxTypes.mrRetry;
+
+    mbIgnore   = TMI_MsgBoxTypes.mbIgnore ;
+    mbHelp     = TMI_MsgBoxTypes.mbHelp;
+{$ENDREGION ' --->  Constantes '}
+
+{$REGION ' --->  Tipos'}
+  // Message dialog related
+  Type TMsgDlgType = TMI_MsgBoxTypes.TMsgDlgType;
+  Type TMsgDlgBtn  = TMI_MsgBoxTypes.TMsgDlgBtn;
+  Type TMsgDlgButtons = TMI_MsgBoxTypes.TMsgDlgButtons;
+
+  // ModalResult
+  type TModalResult = TMI_MsgBoxTypes.TModalResult;
+  Type TArray_MsgDlgBtn = TMI_MsgBoxTypes.TArray_MsgDlgBtn;
+  Type TPanel_Lista_de_Botoes = TMI_MsgBoxTypes.TPanel_Lista_de_Botoes;
+
+{$ENDREGION ' --->  Tipos e constantes '}
+
+{$REGION '<-- declaração do tipo de eventos'}
+  {: Usado para criar modelos de formulários dinamicamente usando como parâmetro
+  listas de PSItems.}
+  TOnGetTemplate = mi_rtl_ui_Dmxscroller.TOnGetTemplate;
+
+  {: O tipo @name é usado para criar modelos de formulários dinamicamente usando o método add
+
+       - **EXEMPLO**
+
+         ```pascal
+
+           Procedure AddTemplate(const aUiDmxScroller:TUiDmxScroller);
+           begin
+             with aUiDmxScroller do
+             begin
+               add('~EXEMPLO DE TEMPLATE~');
+               add('');
+               add('~Alfanumérico maiúscula com 15 posições:~\SSSSSSSSSSSSSSS');
+               add('~Alfanumérico maiúscula e minuscula com 30 posições:~');
+               add('~~\ssssssssssssssssssssssssssssssssssssss');
+               add('~Alfanumérico com a primeira letra maiúscula:~\Sssssssssssssss');
+               add('~Valor double.......:~\RRR,RRR.RR');
+               add('~Valor SmalInt......:~\II,III');
+               add('~Valor Byte.........:~\BBB');
+               add('~Valor Smallword....:~\WW,WWW');
+               add('~Sexo...............:~'+ CreateEnumField(TRUE, accNormal, 0,
+                                             NewSItem(' indefinido ',
+                                             NewSItem(' Masculino',
+                                             NewSItem(' Feminino',
+                                                     nil)))));
+               add('~Estado Civil              ~\KA Indefinido  '+chFN+'Sexo');
+               add('~~\X Casado?                \KA Masculino    ');
+               add('~~\X Pretende se divorciar? \KA Feminino     ');
+               add('~~\X Tens filhos?          ');
+               add('');
+             end;
+           end;
+
+           procedure TForm1.DmxScroller_Form1AddTemplate(const aUiDmxScroller: TUiDmxScroller);
+           begin
+             AddTemplate(aUiDmxScroller);
+           end;
+
+         ```
+    }
+  TOnAddTemplate = mi_rtl_ui_Dmxscroller.TOnAddTemplate;
+
+  {: O tipo **@name** é usado para implementar evento onEnter da classe TUiDmxScroller
+  }
+  TOnEnter = mi_rtl_ui_Dmxscroller.TOnEnter;
+
+  {: O tipo **@name** é usado para implementar evento onExit da classe TUiDmxScroller
+  }
+  TOnExit = mi_rtl_ui_Dmxscroller.TOnExit;
+
+  {: O tipo **@name** é usado para implementar evento onNewRecord da classe TUiDmxScroller
+  }
+  TOnNewRecord = mi_rtl_ui_Dmxscroller.TOnNewRecord;
+
+  {: O tipo **@name** é usado para implementar evento OnCloseQuery da classe TUiDmxScroller
+
+     - **NOTA*
+       - Este evento é disparado antes de desativar a classe **TUiDmxScroller**.
+         - Obs: Se o parâmetro **CanClose** for **false**, então a classe **TUiDmxScroller** não é desativado.
+
+  }
+  TOnCloseQuery = mi_rtl_ui_Dmxscroller.TOnCloseQuery;
+
+  {: O tipo **@name** é usado no evento OnEnterField e disparado em TDmxFieldRec.DoOnEnter()}
+  TOnEnterField = mi_rtl_ui_Dmxscroller.TOnEnterField;
+
+  {: O tipo **@name** é usado no evento OnExitField}
+  TOnExitField = mi_rtl_ui_Dmxscroller.TOnExitField;
+
+  {: O tipo **@name** é usado no evento para calcular um campo e é executado
+     em TDmxFieldRec.DoOnEnter() e TDmxFieldRec.DoOnExit()}
+  TOnCalcField = mi_rtl_ui_Dmxscroller.TOnCalcField;
+
+  {: O tipo **@name** é usado para fazer calculos quando um valor campo é alterado.
+
+     - PARÂMETROS:
+       - aUiDmxScroller : Classi que edita o campo;
+       - Previous_value : Valor do campo antes da auteração
+       - Current_value  : Valor do campo atual.
+  }
+  TOnChangeField = mi_rtl_ui_Dmxscroller.TOnChangeField;
+
+
+  {: O tipo **@name** é usado para criar o evento OnBeforeInsert e disparado no método TUiDmxScroller.AddRec}
+  TOnBeforeInsert = mi_rtl_ui_Dmxscroller.TOnBeforeInsert;
+
+  {: O tipo **@name** é usado para criar o evento OnAfterInsert e disparado no método TUiDmxScroller.AddRec}
+  TOnAfterInsert = mi_rtl_ui_Dmxscroller.TOnAfterInsert;
+
+  {: O tipo **@name** é usado para criar o evento OnBeforeUpdate e disparado no método TUiDmxScroller.PutRec}
+  TOnBeforeUpdate = mi_rtl_ui_Dmxscroller.TOnBeforeUpdate;
+
+  {: O tipo **@name** é usado para criar o evento OnAfterUpdate e disparado no método TUiDmxScroller.PutRec}
+  TOnAfterUpdate = mi_rtl_ui_Dmxscroller.TOnAfterUpdate;
+
+
+  {: O tipo **@name** é usado para criar o evento OnBeforeDelete e disparado no método TUiDmxScroller.PutRec}
+  TOnBeforeDelete = mi_rtl_ui_Dmxscroller.TOnBeforeDelete;
+
+  {: O tipo **@name** é usado para criar o evento OnAfterDelete e disparado no método TUiDmxScroller.PutRec}
+  TOnAfterDelete = mi_rtl_ui_Dmxscroller.TOnAfterDelete;
+
+  {: O tipo **@name** é usado para fazer calculos é executado ao entrar no registro e ao sair do registro}
+  TOnCalcFields  = mi_rtl_ui_Dmxscroller.TOnCalcFields;
+{$ENDREGION '<-- declaração do tipo de eventos'}
+
+
+
 { As constantes abaixo são declaradas fora das classes para que os componentes não 
   derivados da classe possam reconhece-los sem declarar o nome da classe.}
 
@@ -54,7 +224,6 @@ const AccNormal             = TConsts.AccNormal;
 }
 Const accReadOnly           = TConsts.accReadOnly  ;
 
-{: A constante **@name** informa que o campo pode ser visualizado mas não deve receber o focus}
 {: A constante **@name** (Const accSkip = 4;) é um mapa de bits usado para identificar o
    bit do campo TDmxFieldRec.access que informa se o campo pode receber o focus.
    - **EXEMPLO**
@@ -100,8 +269,8 @@ Const CharHintOnde          = TConsts.CharHintOnde;
    contém informações para o campo HelpCtx_Porque}
 Const CharHintPorque        = TConsts.CharHintPorque;
 
-{: A constante **@name** é do tipo TDateTime e guarda a data compactada 'dd/dd/dd'}
-Const fld_LData             = TConsts.fld_LData          ;
+{: A constante **@name** é do tipo TDateTime e guarda a data compactada 'dd/nn/yy'}
+Const FldDateTime             = TConsts.FldDateTime          ;
 
 {: A constante **@name** é do tipo TDateTime e guarda a hora compactada  ##:##:##}
 Const fld_LHora             = TConsts.fld_LHora          ;
@@ -141,7 +310,7 @@ Const fldAnsiChar           = TConsts.fldAnsiChar          ;
 
        ```
 }
-Const fldAnsiChar_Minuscula = TConsts.fldAnsiChar_Minuscula;
+Const fldAnsiChar_LowCase = TConsts.fldAnsiChar_LowCase;
 
 {: A constante **@name** informa que o campo é do tipo AnsiCharacter, 
   ou seja: O último caractere da string contém #0 e contém somente caracteres numéricos}
@@ -246,7 +415,7 @@ Const fldAPPEND             = TConsts.fldAPPEND          ;
      - Para informar ao buffer do registro que o campo é **@name**,
        a função **CreateBlobField** é necessário.
 
-     - A **class function TUiMethods.CreateBlobField(Len: integer; AccMode,Default: byte) : DmxIDstr;**
+     - A **class function TUiMethods.CreateBlobField(Len: integer; AccMode,Default: byte) : TDmxStr_ID;**
        reserva espaço para o mesmo.
 
      - Pendência: Preciso criar um exemplo de uso deste tipo de informação.  
@@ -292,11 +461,9 @@ Const fldBoolean          =   TConsts.fldBoolean;
 {: A constante **@name** ...}
 Const fldCONTRACTION        = TConsts.fldCONTRACTION     ;
 
-{: A constante **@name** ...}
-Const fldData               = TConsts.fldData            ;
 
 {: A constante **@name** ...}
-Const FldDateTimeDos        = TConsts.FldDateTimeDos     ;
+//Const FldDateTimeDos        = TConsts.FldDateTimeDos     ;
 
 {: A constante **@name** (fldENUM=^E) é um campo do tipo byte(0..255) que contém
    uma lista de string que são selecionadas por um componente tipo ComboBox.
@@ -319,7 +486,52 @@ Const FldDateTimeDos        = TConsts.FldDateTimeDos     ;
 
      ```
 }
-Const fldENUM               = TConsts.fldENUM            ;
+Const fldENum               = TConsts.fldENUM            ;
+
+{: A constante **@name** (fldENum_db=^D) é um campo do tipo longint associado
+   a um dataSource, uma chave dataSource.dataSet.KeyField e um campo a ser
+   visualizado na liasta dataSource.dataSet.listField.
+
+     - Os controles usados para edita-lo são:
+       - TdbLookupComboBox.
+
+       - **EXEMPLO USO NO TEMPLATE**
+
+         ```pascal
+
+           function T__dm_xtable__.DmxScroller_Form1GetTemplate(aNext: PSItem): PSItem;
+           begin
+              with DmxScroller_Form1 do
+              begin
+                Result :=
+                NewSItem(GetTemplate_CRUD_Buttons(CmNewRecord,CmUpdateRecord,CmLocate,CmDeleteRecord),
+                NewSItem('',
+                NewSItem('~ID:            ~'+CreateEnumField(TRUE, accNormal, 1,NewSItem('ssssssssssssssssssssssssssssssssssssssssssssssssss',nil),
+                                                             Mi_SQLQuery1.DataSource,'id','nome')+
+                                              ChFN+'id'+
+                                              CharHint+'Campo enumero lookup',
+                NewSItem('~Nome:          ~\ssssssssssssssssssssssssssssssssssssssssssssssssss'+chFN+'nome'+CharHint+'Campo alfanumérico aceita maiuscula e minuscula',
+                NewSItem('~endereco       ~\ssssssssssssssssssssssssssssssssssssssssssssssssss'+chFN+'endereco',
+                NewSItem('~cnpj           ~\##.###.###/####-##'+chFN+'cnpj',
+                NewSItem('~cpf            ~\###.###.###-##'+chFN+'cpf',
+                NewSItem('~cep            ~\##.###-###'+chFN+'cep',
+                NewSItem('~valor_SMALLINT ~\IIIII'+chFN+'valor_SMALLINT',
+                NewSItem('~valor_Integer  ~\LLLLLLLLLL'+chFN+'valor_Integer',//Maximo:2.147.483.647
+
+                NewSItem('~valor_FLOAT8   ~\RRR,RRR.ZZ'+chFN+'valor_FLOAT8',
+                NewSItem('~Data_1         ~\Ddd/mm/yy'+chFN+'Data_1',
+                NewSItem('~hora_1         ~\Dhh:nn:ss'+chFN+'hora_1',
+                NewSItem('~hora_2         ~\Dhh:nn'+chFN+'hora_2',
+                NewSItem('',
+                NewSItem(GetTemplate_DbNavigator_Buttons(CmGoBof,CmNextRecord,CmPrevRecord,CmGoEof,CmRefresh),
+                NewSItem('',
+                aNext)))))))))))))))));
+              end;
+           end;
+
+         ```
+}
+Const fldENum_db            = TConsts.fldENum_db          ;
 
 {: A contante **@name** é usado para associar ao campo atual uma classe **TAction**.
 
@@ -389,9 +601,6 @@ Const ChFN                 = TConsts.ChFN              ;
 Const fldHexValue           = TConsts.fldHexValue        ;
 
 {: A constante **@name** ...}
-Const fldLData              = TConsts.fldLData           ;
-
-{: A constante **@name** ...}
 Const fldLHora              = TConsts.fldLHora           ;
 
 {: A constante **@name** ...}
@@ -428,7 +637,7 @@ Const fldRealNum_Positivo   = TConsts.fldRealNum_Positivo;
 Const FldSData              = TConsts.FldSData           ;
 
 {: A constante **@name** ...}
-Const FldSDateTimeDos       = TConsts.FldSDateTimeDos    ;
+//Const FldSDateTimeDos       = TConsts.FldSDateTimeDos    ;
 
 {: A constante **@name** ...}
 Const FldSHora              = TConsts.FldSHora           ;
@@ -465,7 +674,7 @@ Const fldSmallWORD          = TConsts.fldSmallWORD       ;
 }
 Const fldSTR                = TConsts.fldSTR          ;
 
-{: A constante **@name** (Const fldSTR_Minuscula = 's') usado na máscara do Template,
+{: A constante **@name** (Const fldstr_Lowcase = 's') usado na máscara do Template,
    informa ao componente **TUiDmxScroller** que a sequência de caracteres 's'
    após o caractere **"\"** representa no buffer do formulário um tipo ShortString
    que só aceita caractere minúscula.
@@ -481,7 +690,7 @@ Const fldSTR                = TConsts.fldSTR          ;
             Nome := '\Ssssssssss' //Paulo sérg
        ```
 }
-Const fldSTR_Minuscula      = TConsts.fldSTR_Minuscula;
+Const fldstr_Lowcase      = TConsts.fldstr_Lowcase;
 
 {: A constante **@name** (Const fldSTRNUM = '#') usado na máscara do Template,
    informa ao componente **TUiDmxScroller** que a sequência de caracteres '#'
@@ -521,8 +730,6 @@ Const fldSTRNUM             = TConsts.fldSTRNUM       ;
         ```
 }
 Const CharUpperlimit         = TConsts.CharUpperlimit      ;
-
-
 
 {: A constante **@name** ...}
 Const fldZEROMOD            = TConsts.fldZEROMOD         ;

@@ -1,0 +1,11 @@
+Unit name is mi.rtl.all
+Name is Print_info_compile
+This program was compiled 20:39:16 on 2024/09/02
+By paulosspacheco
+Compiler version: 3.2.2
+Target CPU: x86_64
+HOME: /home/paulosspacheco
+Free heap size: 335744 bytes
+Used heap size: 647296 bytes
+
+{ "KeyFie

@@ -1,0 +1,10 @@
+inherited Mi_rtl_WebModule_Custom: TMi_rtl_WebModule_Custom
+  OnCreate = DataModuleCreate
+  Height = 172
+  HorizontalOffset = 627
+  VerticalOffset = 273
+  Width = 330
+  inherited DmxScroller_Form1: TDmxScroller_Form
+    onGetTemplate = DmxScroller_Form1GetTemplate
+  end
+end

@@ -1,0 +1,74 @@
+object mi_rtl_web_module_form: Tmi_rtl_web_module_form
+  Left = 411
+  Height = 371
+  Top = 273
+  Width = 482
+  Caption = 'mi_rtl_web_module_form'
+  ClientHeight = 371
+  ClientWidth = 482
+  OnCreate = FormCreate
+  LCLVersion = '3.4.0.0'
+  object Panel1: TPanel
+    Left = 0
+    Height = 26
+    Top = 0
+    Width = 482
+    Align = alTop
+    Caption = 'Server Mi_Rtl_WebModule '
+    ClientHeight = 26
+    ClientWidth = 482
+    TabOrder = 0
+    object Button1: TButton
+      Left = 320
+      Height = 25
+      Top = 0
+      Width = 160
+      Action = Mi_rtl_WebModule_base.CmBuildFormFromTemplate
+      TabOrder = 0
+    end
+  end
+  object Mi_LCL_Scrollbox1: TMi_LCL_Scrollbox
+    Left = 0
+    Height = 192
+    Top = 32
+    Width = 480
+    Anchors = [akTop, akLeft, akRight, akBottom]
+    AutoScroll = False
+    TabOrder = 1
+    TabStop = True
+  end
+  object DBGrid1: TDBGrid
+    Left = 0
+    Height = 112
+    Top = 256
+    Width = 482
+    Anchors = [akTop, akLeft, akRight]
+    Color = clWindow
+    Columns = <>
+    DataSource = DataSource1
+    TabOrder = 2
+  end
+  object DBNavigator1: TDBNavigator
+    Left = 0
+    Height = 25
+    Top = 224
+    Width = 241
+    BevelOuter = bvNone
+    ChildSizing.EnlargeHorizontal = crsScaleChilds
+    ChildSizing.EnlargeVertical = crsScaleChilds
+    ChildSizing.ShrinkHorizontal = crsScaleChilds
+    ChildSizing.ShrinkVertical = crsScaleChilds
+    ChildSizing.Layout = cclLeftToRightThenTopToBottom
+    ChildSizing.ControlsPerLine = 100
+    ClientHeight = 25
+    ClientWidth = 241
+    DataSource = DataSource1
+    Options = []
+    TabOrder = 3
+    VisibleButtons = [nbFirst, nbPrior, nbNext, nbLast, nbRefresh]
+  end
+  object DataSource1: TDataSource
+    Left = 312
+    Top = 72
+  end
+end

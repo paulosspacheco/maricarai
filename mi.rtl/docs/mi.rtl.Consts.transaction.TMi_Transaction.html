@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<title>mi.rtl.Consts.transaction: Classe TMi_Transaction</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="generator" content="PasDoc 0.16.0">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<link rel="stylesheet" type="text/css" href="tipuesearch/tipuesearch.css">
+
+<link rel="StyleSheet" type="text/css" href="pasdoc.css">
+</head>
+<body>
+<div class="container"><div class="navigation">
+<ul><li><a href="AllUnits.html">Units</a></li><li><a href="ClassHierarchy.html">Hierarquia de Classes</a></li><li><a href="AllClasses.html">Classes, Interfaces, Objetos e Registros</a></li><li><a href="AllTypes.html">Tipos</a></li><li><a href="AllVariables.html">Variáveis</a></li><li><a href="AllConstants.html">Constantes</a></li><li><a href="AllFunctions.html">Funções e Procedimentos</a></li><li><a href="AllIdentifiers.html">Identificadores</a></li><li><form class="search-form" action="tipue_results.html"><div class="search-input"><input type="text" name="q" id="tipue_search_input" pattern=".{3,}" title="At least 3 characters" required><div class="search-button"><input type="button" id="tipue_search_button" onclick="this.form.submit();"></div></div></form>
+<div style="clear: both"></div>
+</li></ul></div><div class="content">
+<span id="TMi_Transaction"></span><h1 class="cio">Classe TMi_Transaction</h1>
+<div class="sections">
+<div class="one_section"><a class="section" href="#PasDoc-Description">Descrição</a></div><div class="one_section"><a class="section" href="#PasDoc-Hierarchy">Hierarquia</a></div><div class="one_section"><a class="section" href="#PasDoc-Fields">Campos</a></div><div class="one_section"><a class="section" href="#PasDoc-Methods">Métodos</a></div><div class="one_section">Propriedades</div></div>
+<span id="PasDoc-Description"></span><h2 class="unit">Unit</h2>
+<p class="unitlink">
+<a href="mi.rtl.Consts.transaction.html">mi.rtl.Consts.transaction</a></p>
+<h2 class="declaration">Declaração</h2>
+<p class="declaration">
+<code>type TMi_Transaction = class(<a class="normal" href="mi.rtl.Consts.TConsts.html">TConsts</a>)</code></p>
+<h2 class="description">Descrição</h2>
+<p>
+A class <strong>name</strong> usada para gerenciar se uma transação esta ativa ou não porque várias tabelas poder ser abertas dentro de uma transação porém o startransaction deve ser chamado somente uma vêz.</p>
+<span id="PasDoc-Hierarchy"></span><h2 class="hierarchy">Hierarquia</h2>
+<ul class="hierarchy"><li class="ancestor">TObject</li>
+<li class="ancestor">TPersistent</li>
+<li class="ancestor">TComponent</li>
+<li class="ancestor"><a class="normal" href="mi.rtl.Types.TTypes.html">TTypes</a></li>
+<li class="ancestor"><a class="normal" href="mi.rtl.Consts.TConsts.html">TConsts</a></li>
+<li class="thisitem">TMi_Transaction</li></ul><h2 class="overview">Visão Geral</h2>
+<span id="PasDoc-Fields"></span><h3 class="summary">Campos</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code><strong><a href="mi.rtl.Consts.transaction.TMi_Transaction.html#SQLTransaction">SQLTransaction</a></strong>:TSQLTransaction;</code></td>
+</tr>
+</table>
+<span id="PasDoc-Methods"></span><h3 class="summary">Métodos</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>constructor <strong><a href="mi.rtl.Consts.transaction.TMi_Transaction.html#Create">Create</a></strong>(aowner:TComponent); Overload; Override;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="mi.rtl.Consts.transaction.TMi_Transaction.html#StartTransaction">StartTransaction</a></strong>:Boolean; Overload;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="mi.rtl.Consts.transaction.TMi_Transaction.html#COMMIT">COMMIT</a></strong>:Boolean; Overload;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>procedure <strong><a href="mi.rtl.Consts.transaction.TMi_Transaction.html#Rollback">Rollback</a></strong>;</code></td>
+</tr>
+</table>
+<h2 class="description">Descrição</h2>
+<h3 class="detail">Campos</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="SQLTransaction"></span><code><strong>SQLTransaction</strong>:TSQLTransaction;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+O atributo <strong><code>SQLTransaction</code></strong> deve ser assinalado pela aplicação principal onde as trasações são definidas</p>
+</td></tr>
+</table>
+<h3 class="detail">Métodos</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Create"></span><code>constructor <strong>Create</strong>(aowner:TComponent); Overload; Override;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="StartTransaction"></span><code>function <strong>StartTransaction</strong>:Boolean; Overload;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+O método <strong><code>StartTransaction</code></strong> inicia uma transação se puder.
+
+<p></p>
+
+<ul class="paragraph_spacing">
+  <li><p><strong>RESULT</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>True </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Se a transação atual for false;</p></li>
+</ul>
+
+<p></p></li>
+  <li><p>false </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Se a transação atual for true;</p></li>
+</ul>
+
+<p></p></li>
+  <li><p>**Objetivo: </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Permitir que após o processamento, só executar <a class="normal" href="mi.rtl.Consts.transaction.TMi_Transaction.html#COMMIT">commit</a> ou <a class="normal" href="mi.rtl.Consts.transaction.TMi_Transaction.html#Rollback">rollback</a> se <code>StartTransaction</code> tenha retornado true;</p></li>
+</ul>
+
+<p></p></li>
+  <li><p>EXEMPLO DE USO
+
+<p></p>
+
+<pre class="longcode">
+
+<span class="pascal_keyword">Function</span> AddRec:Boolean;
+<span class="pascal_keyword">Var</span>
+  Finalize : boolean;
+<span class="pascal_keyword">begin</span>
+  <span class="pascal_keyword">try</span> <span class="pascal_comment">//Excepet</span>
+
+    Finalize := StartTransaction;
+
+    AddRec;
+
+    <span class="pascal_keyword">if</span> Finalize
+    <span class="pascal_keyword">then</span> Commit
+
+  <span class="pascal_keyword">Except</span>
+    <span class="pascal_keyword">On</span> E : Exception <span class="pascal_keyword">do</span>
+    <span class="pascal_keyword">begin</span>
+      <span class="pascal_keyword">if</span> finalize
+      <span class="pascal_keyword">then</span> Roolback;
+
+      <span class="pascal_keyword">Raise</span> TException.Create(Self,<span class="pascal_string">'AddRec'</span>,E.<span class="pascal_keyword">Message</span>);
+    <span class="pascal_keyword">end</span>;
+<span class="pascal_keyword">end</span>;</pre>
+
+<p></p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="COMMIT"></span><code>function <strong>COMMIT</strong>:Boolean; Overload;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+O método <strong><code>COMMIT</code></strong> confirme a transação no banco de dados</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Rollback"></span><code>procedure <strong>Rollback</strong>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+O método <strong><code>Rollback</code></strong> anula a transação do banco de dados</p>
+</td></tr>
+</table>
+<hr><span class="appinfo"><em>Gerado por <a href="https://pasdoc.github.io/">PasDoc 0.16.0</a>. </em>
+</span>
+</div></div></body></html>

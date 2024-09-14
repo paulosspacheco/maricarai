@@ -1,0 +1,40 @@
+object Hospitais: THospitais
+  OnCreate = DataModuleCreate
+  OldCreateOrder = False
+  Height = 309
+  HorizontalOffset = 512
+  VerticalOffset = 298
+  Width = 449
+  object DmxScroller_Form1: TDmxScroller_Form
+    Alias = 'TDmxScroller_Form'
+    OnAddTemplate = DmxScroller_Form1AddTemplate
+    Active = False
+    AlignmentLabels = taLeftJustify
+    Left = 112
+    Top = 32
+  end
+  object ActionList1: TActionList
+    Left = 296
+    Top = 40
+    object Novo: TAction
+      Category = 'operadores'
+      Caption = 'Novo'
+    end
+    object Pesquisar: TAction
+      Category = 'operadores'
+      Caption = 'Pesquisar'
+    end
+    object Gravar: TAction
+      Category = 'operadores'
+      Caption = 'Gravar'
+    end
+    object Excluir: TAction
+      Category = 'operadores'
+      Caption = 'Excluir'
+    end
+    object Consultar: TAction
+      Category = 'operadores'
+      Caption = 'Consultar'
+    end
+  end
+end

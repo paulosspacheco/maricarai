@@ -170,7 +170,7 @@
 </p>
 
 <ul class="paragraph_spacing">
-  <li><p>O tipo <strong><code>TLogType</code></strong> é usado pra direcionar o destino das mensagens de <a class="normal" href="bbdebugtools.html#log">log</a>.
+  <li><p>O tipo <strong><code>TLogType</code></strong> é usado pra direcionar o destino das mensagens de log.
 
 <p></p>
 
@@ -178,16 +178,16 @@
   <li><p><code>TLogType</code> </p>
 
 <ul class="paragraph_spacing">
-  <li><p><strong>ltSystem</strong> : Envia as mensagens de <a class="normal" href="bbdebugtools.html#log">log</a> para <strong>/var/syslog</strong> no linux ou o arquivo de <a class="normal" href="bbdebugtools.html#log">log</a> do sistema operacional. </p>
+  <li><p><strong>ltSystem</strong> : Envia as mensagens de log para <strong>/var/syslog</strong> no linux ou o arquivo de log do sistema operacional. </p>
 
 <ul class="paragraph_spacing">
-  <li><p>Obs: O windows não tem esse arquivo de <a class="normal" href="bbdebugtools.html#log">log</a> padrão, por isso não funciona na plataforma windows.</p></li>
+  <li><p>Obs: O windows não tem esse arquivo de log padrão, por isso não funciona na plataforma windows.</p></li>
 </ul>
 
 <p></p></li>
-  <li><p><strong>ltFile</strong> : Envia as mensagens de <a class="normal" href="bbdebugtools.html#log">log</a> para <strong>NomeDoArquivo.log</strong> definido por <strong><a class="normal" href="mi.rtl.Objects.Consts.Logs.TFilesLogs.html#FileName">FileName</a></strong>.</p></li>
-  <li><p><strong>ltStdOut</strong> : Envia as mensagens de <a class="normal" href="bbdebugtools.html#log">log</a> para o monitor de vídeo.</p></li>
-  <li><p><strong>ltStdErr</strong> : Envia as mensagens de <a class="normal" href="bbdebugtools.html#log">log</a> para o monitor de vídeo.</p></li>
+  <li><p><strong>ltFile</strong> : Envia as mensagens de log para <strong>NomeDoArquivo.log</strong> definido por <strong><a class="normal" href="mi.rtl.Objects.Consts.Logs.TFilesLogs.html#FileName">FileName</a></strong>.</p></li>
+  <li><p><strong>ltStdOut</strong> : Envia as mensagens de log para o monitor de vídeo.</p></li>
+  <li><p><strong>ltStdErr</strong> : Envia as mensagens de log para o monitor de vídeo.</p></li>
 </ul>
 
 <p></p></li>
@@ -718,7 +718,7 @@ O constructor <strong><code>Create</code></strong> cria uma instância da classe
 </tr>
 <tr><td colspan="2">
 <p>
-A propriedade <strong><code>FileName</code></strong> armazena o nome do arquivo de <a class="normal" href="bbdebugtools.html#log">log</a> necessário quando a propriedade <strong><a class="normal" href="mi.rtl.Objects.Consts.Logs.TFilesLogs.html#LogType">LogType</a>=ltFile</strong></p>
+A propriedade <strong><code>FileName</code></strong> armazena o nome do arquivo de log necessário quando a propriedade <strong><a class="normal" href="mi.rtl.Objects.Consts.Logs.TFilesLogs.html#LogType">LogType</a>=ltFile</strong></p>
 </td></tr>
 </table>
 <table class="detail wide_list">
@@ -728,7 +728,7 @@ A propriedade <strong><code>FileName</code></strong> armazena o nome do arquivo 
 </tr>
 <tr><td colspan="2">
 <p>
-A propriedade <strong><code>Active</code></strong> ativa e desativa a gravação de mensagens no arquivo de <a class="normal" href="bbdebugtools.html#log">log</a>.</p>
+A propriedade <strong><code>Active</code></strong> ativa e desativa a gravação de mensagens no arquivo de log.</p>
 </td></tr>
 </table>
 <table class="detail wide_list">
@@ -741,7 +741,7 @@ A propriedade <strong><code>Active</code></strong> ativa e desativa a gravação
 </p>
 
 <ul class="paragraph_spacing">
-  <li><p>A propriedade <strong><code>LogType</code></strong> redireciona o destino das mensagens de <a class="normal" href="bbdebugtools.html#log">log</a>.
+  <li><p>A propriedade <strong><code>LogType</code></strong> redireciona o destino das mensagens de log.
 
 <p></p>
 
@@ -765,7 +765,7 @@ A propriedade <strong><code>Active</code></strong> ativa e desativa a gravação
 </p>
 
 <ul class="paragraph_spacing">
-  <li><p>A propriedade <strong><code>AppendContent</code></strong> é usada para indicar ao sistema que o arquivo de <a class="normal" href="bbdebugtools.html#log">log</a> deve ser único ou acumulativo
+  <li><p>A propriedade <strong><code>AppendContent</code></strong> é usada para indicar ao sistema que o arquivo de log deve ser único ou acumulativo
 
 <p></p>
 
@@ -773,8 +773,8 @@ A propriedade <strong><code>Active</code></strong> ativa e desativa a gravação
   <li><p><strong>PARÂMETROS</strong> </p>
 
 <ul class="paragraph_spacing">
-  <li><p><strong>True</strong> : A abertura do arquivo de <a class="normal" href="bbdebugtools.html#log">log</a> é aberto com o comando <strong>append</strong></p></li>
-  <li><p><strong>False</strong> : A abertura do arquivo de <a class="normal" href="bbdebugtools.html#log">log</a> é aberto com o comando <strong>rewrite</strong></p></li>
+  <li><p><strong>True</strong> : A abertura do arquivo de log é aberto com o comando <strong>append</strong></p></li>
+  <li><p><strong>False</strong> : A abertura do arquivo de log é aberto com o comando <strong>rewrite</strong></p></li>
   <li><p><strong>Código usado na abertura do arquivo</strong>
 
 <p></p>
@@ -808,7 +808,7 @@ A propriedade <strong><code>Active</code></strong> ativa e desativa a gravação
 </p>
 
 <ul class="paragraph_spacing">
-  <li><p>A propriedade <strong><code>RaiseExceptionOnError</code></strong> informa ao sistema se deve gerar exceções quando houver erro ao gravar o <a class="normal" href="bbdebugtools.html#log">log</a>.
+  <li><p>A propriedade <strong><code>RaiseExceptionOnError</code></strong> informa ao sistema se deve gerar exceções quando houver erro ao gravar o log.
 
 <p></p>
 

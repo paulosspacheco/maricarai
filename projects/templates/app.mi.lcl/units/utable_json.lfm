@@ -1,0 +1,18 @@
+inherited Table_Json: TTable_Json
+  OnCreate = DataModuleCreate
+  OnDestroy = DataModuleDestroy
+  Height = 150
+  HorizontalOffset = 487
+  VerticalOffset = 296
+  Width = 390
+  inherited ActionList1: TActionList
+    object Cm_Pesquisa_em_outra_tabela: TAction[10]
+      Caption = 'Cm_Pesquisa_em_outra_tabela'
+    end
+  end
+  inherited DmxScroller_Form1: TDmxScroller_Form
+    onGetTemplate = DmxScroller_Form1GetTemplate
+    TableName = 'Table_Json'
+    Top = 8
+  end
+end

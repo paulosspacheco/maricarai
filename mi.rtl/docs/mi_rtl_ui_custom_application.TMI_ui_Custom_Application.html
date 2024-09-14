@@ -16,7 +16,7 @@
 </li></ul></div><div class="content">
 <span id="TMI_ui_Custom_Application"></span><h1 class="cio">Classe TMI_ui_Custom_Application</h1>
 <div class="sections">
-<div class="one_section"><a class="section" href="#PasDoc-Description">Descrição</a></div><div class="one_section"><a class="section" href="#PasDoc-Hierarchy">Hierarquia</a></div><div class="one_section"><a class="section" href="#PasDoc-Fields">Campos</a></div><div class="one_section"><a class="section" href="#PasDoc-Methods">Métodos</a></div><div class="one_section"><a class="section" href="#PasDoc-Properties">Propriedades</a></div></div>
+<div class="one_section"><a class="section" href="#PasDoc-Description">Descrição</a></div><div class="one_section"><a class="section" href="#PasDoc-Hierarchy">Hierarquia</a></div><div class="one_section"><a class="section" href="#PasDoc-NestedTypes">Tipos Aninhados</a></div><div class="one_section"><a class="section" href="#PasDoc-Fields">Campos</a></div><div class="one_section"><a class="section" href="#PasDoc-Methods">Métodos</a></div><div class="one_section"><a class="section" href="#PasDoc-Properties">Propriedades</a></div></div>
 <span id="PasDoc-Description"></span><h2 class="unit">Unit</h2>
 <p class="unitlink">
 <a href="mi_rtl_ui_custom_application.html">mi_rtl_ui_custom_application</a></p>
@@ -49,6 +49,13 @@ A classe <strong><code>TMI_ui_Custom_Application</code></strong> concentra as pr
 <li class="ancestor"><a class="normal" href="mi.rtl.Objects.Methods.Paramexecucao.Application.TApplicationConsts.html">TApplicationConsts</a></li>
 <li class="ancestor"><a class="normal" href="mi.rtl.Objects.Methods.Paramexecucao.Application.TApplication.html">TApplication</a></li>
 <li class="thisitem">TMI_ui_Custom_Application</li></ul><h2 class="overview">Visão Geral</h2>
+<span id="PasDoc-NestedTypes"></span><h3 class="summary">Tipos Aninhados</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code><strong><a href="mi_rtl_ui_custom_application.TMI_ui_Custom_Application.html#TTb_Access">TTb_Access</a></strong> = mi.rtl.Objects.Methods.Db.Tb__Access.TTb__Access;</code></td>
+</tr>
+</table>
 <span id="PasDoc-Fields"></span><h3 class="summary">Campos</h3>
 <table class="summary wide_list">
 <tr class="list">
@@ -78,6 +85,10 @@ A classe <strong><code>TMI_ui_Custom_Application</code></strong> concentra as pr
 <tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
 <td class="itemcode"><code><strong><a href="mi_rtl_ui_custom_application.TMI_ui_Custom_Application.html#_Get_Parameters">_Get_Parameters</a></strong>: <a href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html">TUiDmxScroller</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code><strong><a href="mi_rtl_ui_custom_application.TMI_ui_Custom_Application.html#Mi_Transaction">Mi_Transaction</a></strong>: TUiDmxScroller.TMi_Transaction;</code></td>
 </tr>
 </table>
 <span id="PasDoc-Methods"></span><h3 class="summary">Métodos</h3>
@@ -187,6 +198,15 @@ A classe <strong><code>TMI_ui_Custom_Application</code></strong> concentra as pr
 </tr>
 </table>
 <h2 class="description">Descrição</h2>
+<h3 class="detail">Tipos Aninhados</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="TTb_Access"></span><code><strong>TTb_Access</strong> = mi.rtl.Objects.Methods.Db.Tb__Access.TTb__Access;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
 <h3 class="detail">Campos</h3>
 <table class="detail wide_list">
 <tr class="list">
@@ -276,6 +296,16 @@ Este atributo é usado pelas classes filhas para implementar classes herdadas de
 <p></p>
 </td></tr>
 </table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Mi_Transaction"></span><code><strong>Mi_Transaction</strong>: TUiDmxScroller.TMi_Transaction;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+O Método <strong><code>Mi_Transaction</code></strong> genrencia as transações do projeto MarIcarai</p>
+</td></tr>
+</table>
 <h3 class="detail">Métodos</h3>
 <table class="detail wide_list">
 <tr class="list">
@@ -328,7 +358,7 @@ O método <strong><code>Get_ParametersEnter</code></strong> é usado pela classe
 </tr>
 <tr><td colspan="2">
 <p>
-O método <strong><code>Get_ParametersCloseQuery</code></strong> é usado para confirmar o fechamento do formulário <a class="normal" href="mi_rtl_ui_custom_application.TMI_ui_Custom_Application.html#Get_Parameters">Get_Parameters</a> com botão <strong>MrOK</strong> caso os campos de <strong><a class="normal" href="mi_rtl_ui_custom_application.TMI_ui_Custom_Application.html#Get_Parameters">Get_Parameters</a></strong> sejam válidos.
+O método <strong><code>Get_ParametersCloseQuery</code></strong> é usado para confirmar o fechamento do formulário <a class="normal" href="mi_rtl_ui_custom_application.TMI_ui_Custom_Application.html#Get_Parameters">Get_Parameters</a> com botão <strong><a class="normal" href="mi_rtl_ui_dmxscroller_form.html#mrOK">MrOK</a></strong> caso os campos de <strong><a class="normal" href="mi_rtl_ui_custom_application.TMI_ui_Custom_Application.html#Get_Parameters">Get_Parameters</a></strong> sejam válidos.
 
 <p></p>
 
@@ -336,7 +366,7 @@ O método <strong><code>Get_ParametersCloseQuery</code></strong> é usado para c
   <li><p><strong>NOTA</strong> </p>
 
 <ul class="paragraph_spacing">
-  <li><p>Método <strong><code>Get_ParametersCloseQuery</code></strong> executa o evento <strong><a class="normal" href="mi_rtl_ui_custom_application.TMI_ui_Custom_Application.html#DoOnValidUser">DoOnValidUser</a></strong>, se o mesmo for assinalado na aplicação com objetivo de não permitir fechar o formulário modal com botão MrOK caso <strong> <a class="normal" href="mi_rtl_ui_custom_application.TMI_ui_Custom_Application.html#DoOnValidUser">DoOnValidUser</a></strong> retornar false.</p></li>
+  <li><p>Método <strong><code>Get_ParametersCloseQuery</code></strong> executa o evento <strong><a class="normal" href="mi_rtl_ui_custom_application.TMI_ui_Custom_Application.html#DoOnValidUser">DoOnValidUser</a></strong>, se o mesmo for assinalado na aplicação com objetivo de não permitir fechar o formulário modal com botão <a class="normal" href="mi_rtl_ui_dmxscroller_form.html#mrOK">MrOK</a> caso <strong> <a class="normal" href="mi_rtl_ui_custom_application.TMI_ui_Custom_Application.html#DoOnValidUser">DoOnValidUser</a></strong> retornar false.</p></li>
   <li><p>Pode ser usado para checar se usuário e senha são válidos bem como se os parâmetros estão compatíveis com os bancos de dados instalados.</p></li>
 </ul>
 
@@ -656,7 +686,7 @@ A propriedade <strong><code>SQLConnector</code></strong> é um componente conect
 <p></p>
 
 <ul class="paragraph_spacing">
-  <li><p>A incluir uma aplicação <strong>TMi_UI_Application</strong> na aplicação corrente automáticamente é disponibilizado um conector de acesso o banco de dados.</p></li>
+  <li><p>A incluir uma aplicação <strong>TMi_UI_Application</strong> na aplicação correnteautomaticamente é disponibilizado um conector de acesso o banco de dados.</p></li>
   <li><p><strong>REFERÊNCIAS</strong> </p>
 
 <ul class="paragraph_spacing">

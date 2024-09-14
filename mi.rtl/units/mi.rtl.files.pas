@@ -6,7 +6,7 @@ unit mi.rtl.files;
         windows e por isso mantenho o mesmo comportamento do windows.
 
       - **VERSÃO**:
-        - Alpha - Alpha - 0.9.0
+        - Alpha - 1.0.0
 
       - **NOTA**:
         - [Veja o link de como escrever código portátil em relação à arquitetura do processador?](https://wiki.freepascal.org/Writing_portable_code_regarding_the_processor_architecture);
@@ -125,9 +125,9 @@ unit mi.rtl.files;
             - 2022-04-22
               - 15:46 - Criar método TFiles.AppVersionInfo
 
-            - 2023=07-18
+            - 2023-07-18
               - 16:00 - Criar a classe método FindFilesAll
-            - 2023=07-27
+            - 2023-07-27
               - 08:25 - Em mi.rtl.files.findFileAll adicionar o parâmetro apath.
 
   }
@@ -812,9 +812,9 @@ uses
       {: - A classe método @name checa se o diretório passado no parâmetro existe}
       public class Function DirectoryExists(Const Directory : AnsiString) : Boolean;
 
-      {: - A classe método @name cria diretório passado no parâmetro
+      {: - A classe método @name cria diretório passado pelo parâmetro NewDir
       }
-      public class Function CreateDir(Const NewDir : AnsiString) : Boolean;
+      public class Function CreateDirectory(Const NewDir : AnsiString) : Boolean;
 
       {: A classe método **@name** retorna o nome de um arquivo temporário no diretório Dir.
 
@@ -889,7 +889,7 @@ uses
       {: - A classe método @name destrava a região travada por **LockFile**.
 
          - **NOTA**
-           - Funciona no linux mais não funciona do linux.
+           - Funciona no windows mais não funciona do linux.
       }
       public class function UnLockFile(_Handle:THandle; _LockStart, _LockLength: Int64): LongInt;
 
@@ -1122,7 +1122,7 @@ uses
 
              ```
       }
-      class procedure FindFilesAll(aPath,Mask : AnsiString; FileAttrs : Cardinal;aRelative:Boolean; var List : TStringList);
+      class procedure FindFilesAll(aPath,Mask : AnsiString; FileAttrs : Cardinal;aRelative:Boolean; var List : TStringList;aSorted:boolean);
       //      class procedure FindFilesAll(Mask: AnsiString; FileAttrs: Cardinal;var List: TStringList);
 
       {: A classe método **@name** retorna o corrente pasta.
@@ -1227,6 +1227,10 @@ uses
 
       class Function ByteDrive(Const NomeArquivo:AnsiString) : Byte;
 
+      {: A classe método **@name** cria as pastas e arquivo em disco se o mesmo
+         não existir.
+      }
+      Class function RewriteFile(aFilePath:AnsiString):Boolean;
     end;
 
 implementation
@@ -1234,7 +1238,7 @@ implementation
 
 {$REGION  'implementation' }
 
-  class function TFiles.IsFileOpen(VAR F:FILE):BOOLEAN ;
+    class function TFiles.IsFileOpen(var F: File): BOOLEAN;
   BEGIN
     Result  := (FILEREC (F ).MODE = System.FmInOut )  OR
                (FILEREC (F ).MODE = System.FmOutput ) OR
@@ -1242,7 +1246,7 @@ implementation
 
   END ;
 
-  class function TFiles.IsFileOpen(VAR F:Text):BOOLEAN ;
+    class function TFiles.IsFileOpen(var F: Text): BOOLEAN;
   BEGIN
     Result := (TextRec(F).MODE = System.FmInOut )  OR
               (TextRec(F).MODE = System.FmOutput ) OR
@@ -1436,6 +1440,7 @@ implementation
   class function TFiles.FileSize( FileName: string; out Count : int64):longint; overload;
       var F : file of byte;
     begin
+
       Filename := ExpandFileName(Filename);
       if SysUtils.FileExists(Filename) // Precisei fazer o teste se o arquivo existe porque Reset não identifica. Bug.
       Then Begin
@@ -1549,7 +1554,7 @@ implementation
     result := SysUtils.DirectoryExists(FExpand(Directory),true);
   end;
 
-  class function TFiles.CreateDir(const NewDir: AnsiString): Boolean;
+  class function TFiles.CreateDirectory(const NewDir: AnsiString): Boolean;
     var Dir: DirStr = '';
     var Name: NameStr ='';
     var Ext: ExtStr='';
@@ -1588,7 +1593,7 @@ implementation
     else SetLastError(0);
   end;
 
-    class function TFiles.GetTempDir(const env: String; out path: PathStr
+  class function TFiles.GetTempDir(const env: String; out path: PathStr
     ): SmallInt;
      var Dir: DirStr;
      var Name: NameStr;
@@ -1596,16 +1601,16 @@ implementation
   Begin
     taStatus := 0;
     Path := GetEnv(env);
-    if path = ''
-    Then begin
-           raise EArgumentException.Create('GetEven não localizou o parâmetro: '+env);
-         end;
+    //if path = ''
+    //Then begin
+    //       raise EArgumentException.Create('GetEven não localizou o parâmetro: '+env);
+    //     end;
 
     Path := FExpand(Path)+PathDelim+'tmp'+PathDelim;
     ok   := DirectoryExists(Path);
     IF Not ok
     Then Begin
-           ok := CreateDir(Path);
+           ok := CreateDirectory(Path);
          end;
     Result := taStatus;
   end;
@@ -1652,9 +1657,9 @@ implementation
   end;
 
 
+
   class function TFiles.DuplicateHandle(var hSource: File;   var lpTarge: File): Longint;
   begin
-
      {$IFDEF WINDOWS}
        Result := DuplicateHandle(TFileRec(hSource).Handle,TFileRec(lpTarge).Handle);
      {$ELSE}
@@ -1716,9 +1721,6 @@ implementation
     then Result := SetResult(aHandle,false)
     else Result := 0;
   end;
-
-
-
 
   class function TFiles.LockFile(_Handle:THandle; _LockStart, _LockLength: Int64): LongInt;
      var err:Longint;
@@ -1799,7 +1801,9 @@ implementation
   end;
 
 //  class procedure TFiles.FindFilesAll(Mask: AnsiString; FileAttrs: Cardinal;var List: TStringList);
-  class procedure TFiles.FindFilesAll(aPath,Mask: AnsiString; FileAttrs: Cardinal;aRelative:Boolean;var List: TStringList);
+    class procedure TFiles.FindFilesAll(aPath, Mask: AnsiString;
+    FileAttrs: Cardinal; aRelative: Boolean; var List: TStringList;
+    aSorted: boolean);
       var FileAtual : string;
 
       procedure ListarArquivosNaPasta( Pasta:string; const Padrao: string);
@@ -1879,8 +1883,8 @@ implementation
         // Por exemplo, '*.txt' irá listar todos os arquivos com a extensão .txt
         // Chamar a função para listar arquivos com o mask especificado
         ListarArquivosNaPasta(aPath, mask);
-
-        List.Sort;
+        if aSorted
+        Then List.Sort;
       end;
 
 
@@ -1899,7 +1903,7 @@ implementation
    result := SysUtils.DirectoryExists(Directory);
   end;
 
-    class function TFiles.FPrimeiroHandleLivre: SmallInt;
+  class function TFiles.FPrimeiroHandleLivre: SmallInt;
     Var F   : File;
     {$I-}
   Begin
@@ -1943,9 +1947,9 @@ implementation
   end;
 
 
-    class function TFiles.ByteDrive(const NomeArquivo: AnsiString): Byte;
+  class function TFiles.ByteDrive(const NomeArquivo: AnsiString): Byte;
     Var DriveStr : AnsiChar;
-    Begin
+  Begin
       if pos(':',NomeArquivo) > 0 then
       begin
         DriveStr := NomeArquivo[pos(':',NomeArquivo) -1];
@@ -1984,6 +1988,46 @@ implementation
       else ByteDrive := 0;
   End;
 
+
+  class function TFiles.RewriteFile(aFilePath: AnsiString): Boolean;
+    var
+     DirPath: string;
+     f      : File;
+  begin
+    TaStatus := 0;
+    DirPath := ExtractFilePath(aFilePath);
+    // Criar o diretório e subdiretórios, se necessário
+    if not DirectoryExists(DirPath)
+    Then if not CreateDirectory(DirPath)
+         then begin
+                Result := false;
+                exit;
+              end;
+
+    if Not FileExists(aFilePath)
+    then begin
+           AssignFile(f,aFilePath);
+           {$i-}
+           Rewrite(f);
+           {$i+}
+           TaStatus := IoResult;
+           if TaStatus = 0
+           Then begin
+                  result := true;
+                  //{$i-}
+                  //writeLn(f,^Z);
+                  //{$i+}ErrIo := IoResult;
+                  //if ErrIo = 0
+                  //Then begin
+                  //        {$i-}
+                  //        CloseFile(f);
+                  //        {$i+}ErrIo := IoResult;
+                  //     end;
+                end
+           else Result := false;
+         end
+    else Result := false;
+  end;
 
 end.
 

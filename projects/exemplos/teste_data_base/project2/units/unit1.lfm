@@ -1,0 +1,111 @@
+object Form1: TForm1
+  Left = 448
+  Height = 251
+  Top = 263
+  Width = 541
+  Caption = 'Form1'
+  ClientHeight = 251
+  ClientWidth = 541
+  LCLVersion = '3.1.0.0'
+  object DBNavigator1: TDBNavigator
+    Left = 0
+    Height = 25
+    Top = 0
+    Width = 541
+    Align = alTop
+    BevelOuter = bvNone
+    ChildSizing.EnlargeHorizontal = crsScaleChilds
+    ChildSizing.EnlargeVertical = crsScaleChilds
+    ChildSizing.ShrinkHorizontal = crsScaleChilds
+    ChildSizing.ShrinkVertical = crsScaleChilds
+    ChildSizing.Layout = cclLeftToRightThenTopToBottom
+    ChildSizing.ControlsPerLine = 100
+    ClientHeight = 25
+    ClientWidth = 541
+    DataSource = DataSource1
+    Options = []
+    TabOrder = 0
+  end
+  object DBGrid1: TDBGrid
+    Left = 0
+    Height = 226
+    Top = 25
+    Width = 541
+    Align = alClient
+    Color = clWindow
+    Columns = <>
+    DataSource = DataSource1
+    TabOrder = 1
+  end
+  object SQLConnector1: TSQLConnector
+    Connected = True
+    LoginPrompt = False
+    DatabaseName = 'assistente_virtual'
+    KeepConnection = False
+    Password = 'masterkey'
+    Transaction = SQLTransaction1
+    UserName = 'postgres'
+    HostName = '45.160.125.12'
+    ConnectorType = 'PostgreSQL'
+    Left = 152
+    Top = 16
+  end
+  object SQLTransaction1: TSQLTransaction
+    Active = True
+    Action = caCommit
+    Database = SQLConnector1
+    Left = 256
+    Top = 16
+  end
+  object SQLQuery1: TSQLQuery
+    PacketRecords = -1
+    IndexName = 'DEFAULT_ORDER'
+    MaxIndexesCount = 4
+    FieldDefs = <    
+      item
+        Name = 'id'
+        DataType = ftInteger
+        Precision = -1
+      end    
+      item
+        Name = 'nome'
+        DataType = ftString
+        Precision = -1
+        Size = 50
+      end    
+      item
+        Name = 'telefone'
+        DataType = ftString
+        Precision = -1
+        Size = 20
+      end    
+      item
+        Name = 'password'
+        DataType = ftString
+        Precision = -1
+        Size = 50
+      end    
+      item
+        Name = 'login'
+        DataType = ftString
+        Precision = -1
+        Size = 50
+      end>
+    Active = True
+    Database = SQLConnector1
+    Transaction = SQLTransaction1
+    SQL.Strings = (
+      'select * from operadores'
+    )
+    Options = [sqoKeepOpenOnCommit, sqoAutoApplyUpdates, sqoAutoCommit, sqoCancelUpdatesOnRefresh, sqoRefreshUsingSelect]
+    Params = <>
+    Macros = <>
+    Left = 144
+    Top = 104
+  end
+  object DataSource1: TDataSource
+    DataSet = SQLQuery1
+    Left = 272
+    Top = 104
+  end
+end

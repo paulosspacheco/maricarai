@@ -1,0 +1,46 @@
+inherited form_operadores: Tform_operadores
+  Left = 490
+  Height = 469
+  Top = 247
+  Width = 866
+  Caption = 'form_operadores'
+  ClientHeight = 469
+  ClientWidth = 866
+  inherited Panel1: TPanel
+    Width = 866
+    ClientWidth = 866
+    inherited Label_title: TLabel
+      Width = 850
+    end
+    inherited ToolBar1: TToolBar
+      Width = 864
+    end
+  end
+  inherited PageControl1: TPageControl
+    Height = 818
+    Width = 866
+    inherited Lista: TTabSheet
+      ClientHeight = 787
+      ClientWidth = 856
+      inherited DBGrid1: TDBGrid
+        Height = 268
+        Width = 854
+      end
+      inherited DBNavigator1: TDBNavigator
+        Hints.Strings = (        )
+      end
+      inherited Panel2: TPanel
+        Width = 856
+        ClientWidth = 856
+      end
+    end
+    inherited Cadastra: TTabSheet
+      ClientHeight = 787
+      ClientWidth = 856
+      inherited Mi_LCL_Scrollbox1: TMi_LCL_Scrollbox
+        Height = 349
+        Width = 850
+      end
+    end
+  end
+end

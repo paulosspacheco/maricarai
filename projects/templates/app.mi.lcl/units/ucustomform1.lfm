@@ -1,0 +1,66 @@
+inherited CustomForm1: TCustomForm1
+  Left = 353
+  Height = 510
+  Top = 134
+  Width = 776
+  Caption = 'CustomForm1'
+  ClientHeight = 510
+  ClientWidth = 776
+  Font.Height = -16
+  Font.Name = 'Liberation Mono'
+  object Panel1: TPanel[0]
+    Left = 0
+    Height = 32
+    Top = 0
+    Width = 764
+    Anchors = [akTop, akLeft, akRight]
+    Caption = 'Exemplo de como criar um formulário'
+    TabOrder = 0
+  end
+  object Mi_LCL_Scrollbox1: TMi_LCL_Scrollbox[1]
+    Left = 8
+    Height = 319
+    Top = 40
+    Width = 755
+    Anchors = [akTop, akLeft, akRight, akBottom]
+    AutoScroll = False
+    Font.Height = -13
+    Font.Name = 'DejaVu Serif'
+    ParentFont = False
+    TabOrder = 1
+    TabStop = True
+  end
+  object DBNavigator1: TDBNavigator[2]
+    Left = 8
+    Height = 25
+    Top = 367
+    Width = 241
+    Anchors = [akLeft, akBottom]
+    BevelOuter = bvNone
+    ChildSizing.EnlargeHorizontal = crsScaleChilds
+    ChildSizing.EnlargeVertical = crsScaleChilds
+    ChildSizing.ShrinkHorizontal = crsScaleChilds
+    ChildSizing.ShrinkVertical = crsScaleChilds
+    ChildSizing.Layout = cclLeftToRightThenTopToBottom
+    ChildSizing.ControlsPerLine = 100
+    ClientHeight = 25
+    ClientWidth = 241
+    Options = []
+    TabOrder = 2
+  end
+  object DBGrid1: TDBGrid[3]
+    Left = 8
+    Height = 119
+    Top = 391
+    Width = 764
+    Anchors = [akLeft, akRight, akBottom]
+    Color = clWindow
+    Columns = <>
+    Font.Height = -11
+    Font.Name = 'Liberation Mono'
+    ParentFont = False
+    TabOrder = 3
+  end
+  inherited ApplicationEvents1: TApplicationProperties[4]
+  end
+end

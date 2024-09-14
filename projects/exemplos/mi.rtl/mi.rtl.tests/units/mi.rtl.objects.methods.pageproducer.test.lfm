@@ -1,0 +1,118 @@
+object Form_pageproducer_test: TForm_pageproducer_test
+  Left = 629
+  Height = 240
+  Top = 388
+  Width = 320
+  ActiveControl = PageControl1
+  Caption = 'Form_pageproducer_test'
+  ClientHeight = 240
+  ClientWidth = 320
+  OnCreate = FormCreate
+  OnDestroy = FormDestroy
+  LCLVersion = '3.4.0.0'
+  object PageControl1: TPageControl
+    Left = 0
+    Height = 206
+    Top = 34
+    Width = 320
+    ActivePage = TabSheet1
+    Align = alClient
+    TabIndex = 0
+    TabOrder = 0
+    object TabSheet1: TTabSheet
+      Caption = 'TabSheet1'
+      ClientHeight = 172
+      ClientWidth = 310
+      object ScrollBox1: TScrollBox
+        Left = 0
+        Height = 176
+        Top = 0
+        Width = 310
+        HorzScrollBar.Page = 1
+        VertScrollBar.Page = 1
+        Align = alClient
+        TabOrder = 0
+      end
+    end
+    object TabSheet2: TTabSheet
+      Caption = 'TabSheet2'
+      ClientHeight = 172
+      ClientWidth = 310
+      object ScrollBox2: TScrollBox
+        Left = 0
+        Height = 176
+        Top = 0
+        Width = 310
+        HorzScrollBar.Page = 1
+        VertScrollBar.Page = 1
+        Align = alClient
+        TabOrder = 0
+      end
+    end
+  end
+  object Panel1: TPanel
+    Left = 0
+    Height = 34
+    Top = 0
+    Width = 320
+    Align = alTop
+    BorderStyle = bsSingle
+    Caption = 'Panel1'
+    ClientHeight = 32
+    ClientWidth = 318
+    TabOrder = 1
+    object Button_Open: TButton
+      Left = 0
+      Height = 25
+      Top = -1
+      Width = 80
+      Caption = 'Open'
+      TabOrder = 0
+      OnClick = Button_OpenClick
+    end
+    object Button1: TButton
+      Left = 96
+      Height = 25
+      Top = 0
+      Width = 75
+      Caption = 'Button1'
+      TabOrder = 1
+      OnClick = Button1Click
+    end
+  end
+  object HTMLHelpDatabase1: THTMLHelpDatabase
+    BaseURL = 'file://html'
+    AutoRegister = True
+    KeywordPrefix = 'html/'
+    Left = 72
+    Top = 136
+  end
+  object HTMLBrowserHelpViewer1: THTMLBrowserHelpViewer
+    BrowserParams = '%s'
+    AutoRegister = True
+    Left = 208
+    Top = 64
+  end
+  object OpenDialog1: TOpenDialog
+    Left = 184
+    Top = 32
+  end
+  object PageProducer1: TPageProducer
+    Alias = 'TPageProducer'
+    StartDelimiter = '<!--#'
+    EndDelimiter = '#-->'
+    ParamStartDelimiter = '[-'
+    ParamEndDelimiter = '-]'
+    ParamValueSeparator = '='
+    AllowTagParams = True
+    OnHTMLTag_tgCustom = PageProducer1HTMLTag_tgCustom
+    OnHTMLTag_tgLink = PageProducer1HTMLTag_tgLink
+    OnHTMLTag_tgImage = PageProducer1HTMLTag_tgImage
+    OnHTMLTag_tgTable = PageProducer1HTMLTag_tgTable
+    OnHTMLTag_tgImageMap = PageProducer1HTMLTag_tgImageMap
+    OnHTMLTag_tgObject = PageProducer1HTMLTag_tgObject
+    OnHTMLTag_Undefined = PageProducer1HTMLTag_Undefined
+    Left = 48
+    Top = 88
+  end
+end

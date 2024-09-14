@@ -688,7 +688,7 @@ interface
                                              aRecSize           : SmallWord);Overload;
 
       public class function UpperCase(str:AnsiString):AnsiString;
-      public class function FMinuscula(str:AnsiString):AnsiString;
+      public class function Lowcase(str:AnsiString):AnsiString;
 
       public class function Int2str(Const L : LongInt) : TTb_Access.tString;
       public class procedure Beep;
@@ -703,20 +703,28 @@ interface
       public class function StartTransaction(Const aDelta : SmallWord):Integer; Overload;
       public class function StartTransaction(Const DatF : DataFile ; Var aok_Set_Transaction : Boolean): Integer;Overload;
 
+      public class function SetTransaction  (const OnOff:Boolean;out WOK : Boolean):Boolean;Overload; // Retorna true se sucesso e false se houve fracasso na chamada
+
       public class function COMMIT:Boolean;Overload;
       public class function COMMIT(Const Wok_Set_Transaction : Boolean):Boolean;Overload;
 
+
       public class Procedure Rollback;
 
-      public class function SetTransaction(const OnOff:Boolean;
-                              Var WOK : Boolean // False =
-                              ):Boolean;Overload; // Retorna true se sucesso e false se houve fracasso na chamada
 
-      public class function SetTransaction(const OnOff:Boolean;
-                              Var WOK,
-                              { Retorna true se a transacao foi inicializada e false caso contrario
-                               usado para executar rollback ou commite se o processo criou a trasacao}
-                             Wok_Set_Transaction:Boolean):Boolean;Overload;
+      {: O Método **@name** inicia uma transação.
+
+        - PARÂMETROS
+          - OnOff
+            - True  : Inicia a transação;
+            - False : Executa Rollback  se na chamada anterior;
+          - Var WOK  :
+            - Retorna true se a transacao foi inicializada e false caso contrario,
+              usado para executar rollback ou commite se o processo criou a trasacao
+
+          - Var Wok_Set_Transaction
+      }
+      public class function SetTransaction(const OnOff:Boolean; out wok, Wok_Set_Transaction:Boolean):Boolean;Overload;
 
       public class function GetFileName_Transaction(): tString;
       public class function Assign_Transaction(Const aFileName : PathStr):SmallWord;
@@ -876,7 +884,7 @@ class function TTb_access. SetOkTransaction(Const aOkTransaction: Boolean):Boole
 Begin
   if aOkTransaction = False Then
   Begin
-    If (Not OkCreateTransaction) and (Transaction<>nil) and (not ok_Set_Transaction)
+    If (Not OkCreateTransaction) and (Transaction<>nil) and (not Get_ok_Set_Transaction)
     Then Begin
            If Transaction.TransactionPendant=0
            Then Transaction.Rollback
@@ -915,7 +923,7 @@ End;
 
 class function TTb_access. StartTransaction(Const DatF : DataFile ; Var aok_Set_Transaction : Boolean): Integer;
 Begin
-  aok_Set_Transaction := ok_Set_Transaction;
+  aok_Set_Transaction := get_ok_Set_Transaction;
 {  If (Not OkCreateTransaction) and (Transaction<>nil) and (not ok_Set_Transaction)
   Then Begin
          If Transaction.TransactionPendant=0
@@ -924,7 +932,7 @@ Begin
          If TaStatus <> 0 Then Abort;
        End; }
 
-  If OkTransaction and (Not OkCreateTransaction)  and  (not ok_Set_Transaction) and (Not DatF.okTemporario) And (Transaction<>nil)
+  If OkTransaction and (Not OkCreateTransaction)  and  (not get_ok_Set_Transaction) and (Not DatF.okTemporario) And (Transaction<>nil)
   Then Result := Transaction.StartTransaction(1)
   else Result := 0;
 
@@ -939,7 +947,7 @@ End;
 
 class function TTb_access. COMMIT(Const Wok_Set_Transaction : Boolean):Boolean;Overload;
 Begin
-  If OkTransaction and (Not Wok_Set_Transaction) And ok_Set_Transaction and  (Transaction<>nil)
+  If OkTransaction and (Not Wok_Set_Transaction) And get_ok_Set_Transaction and  (Transaction<>nil)
   Then Begin
          If TaStatus = 0
          Then Result := Transaction.COMMIT
@@ -953,7 +961,7 @@ class procedure TTb_access. Rollback;
 Begin
   If OkTransaction and (Transaction<>nil) Then
   Begin
-    If (ok_Set_Transaction) and (Transaction.DatF.Handle<>HANDLE_INVALID) Then
+    If (get_ok_Set_Transaction) and (Transaction.DatF.Handle<>HANDLE_INVALID) Then
       Transaction.Rollback;
 {    else Begin
            TaStatus := Objeto_Nao_Inicializado;
@@ -973,25 +981,18 @@ Begin
     ok_Set_Transaction := false;
 End;}
 
-class function TTb_access. SetTransaction(const OnOff:Boolean;
-                        Var WOK,
-                        { Retorna true se a transacao foi inicializada e false caso contrario
-                         usado para executar rollback ou commite se o processo criou a trasacao}
-                       Wok_Set_Transaction:Boolean):Boolean;Overload;
-{Var
-  WWok : Boolean;}
+class function TTb_access. SetTransaction(const OnOff:Boolean;OUT wok,       Wok_Set_Transaction:Boolean):Boolean;Overload;
 Begin
-{  WWok := ok;}  {Salva a variável ok para que ele nao seja trocado com a chamada desta funcao}
   If OnOff
   Then Begin
-         If (OkTransaction) and  (Not ok_Set_Transaction)
+         If (OkTransaction) and  (Not get_ok_Set_Transaction)
          Then Begin
                 wOK := StartTransaction(1)=0;
                 Wok_Set_Transaction := WOK;
               End
          else BEGIN
                 Wok_Set_Transaction := False;
-                WOK := ok_Set_Transaction or (Not OkTransaction);
+                WOK := get_ok_Set_Transaction or (Not OkTransaction);
               END;
        End
   Else Begin
@@ -1001,18 +1002,15 @@ Begin
                 Then Wok := Commit
                 Else Begin
                        Rollback;
-{                       If (NrCurrent = NrCurrentAnt) and (Not AppendIng) And (NrCurrent>0)
-                       Then FindKeyAtual;}
                      end;
-                MessageError; {Se alguma mensagem de error tiver pendente imprimirar aqui}
+                MessageError;//Se alguma mensagem de error tiver pendente imprimirar aqui
               End;
 
        End;
   Result := wok;
 End;
 
-class function TTb_access. SetTransaction(const OnOff:Boolean;
-                        Var WOK : Boolean // False =
+class function TTb_access. SetTransaction(const OnOff:Boolean;out WOK : Boolean // False =
                         ):Boolean; // Retorna true se sucesso e false se houve fracasso na chamada
   Var
     Result_Set_Transaction : Boolean;
@@ -1279,7 +1277,7 @@ class function TTb_access. Int2str(Const L : LongInt) : tString;
 var
   S : tString;
 begin
-  Str(L:0, S);
+  system.Str(L:0, S);
   Int2Str := S;
 end; { Int2Str }
 
@@ -1453,7 +1451,7 @@ begin
   Result := AnsiUpperCase(Str);
 end;
 
-class function TTb_access. FMinuscula(str:AnsiString):AnsiString;
+class function TTb_access. Lowcase(str:AnsiString):AnsiString;
 var
   i:Integer;
   S : tString;
@@ -1472,7 +1470,7 @@ begin
   Else Result := '';
 end;
 
-{class function TTb_access. FMinuscula(str:AnsiString):AnsiString;
+{class function TTb_access. Lowcase(str:AnsiString):AnsiString;
 var
   i:Integer;
 begin
@@ -1486,7 +1484,7 @@ begin
       If Byte(str[i]) in [65..90] then
         str[i] := AnsiChar(Byte(str[i])+32);
   End;
-  FMinuscula := str;
+  Lowcase := str;
 end;}
 
 
@@ -1563,7 +1561,7 @@ BEGIN
       SetTransaction(true,OK,Wok_Set_Transaction);
       If ok And OkTransaction and (Transaction<>nil) and (Not OkCreateTransaction)
       Then Begin
-             If  ok_Set_Transaction and (Not DatF.OkTemporario)
+             If  get_ok_Set_Transaction and (Not DatF.OkTemporario)
              Then Begin
                     If (Transaction_Current <>  Tra_AddRec) {(R < FileSize(DatF)) and ok}
                     Then Begin {esta alterando o arquivo}
@@ -2063,8 +2061,9 @@ Begin
   End
   Else
   Begin
-    with Mi_MsgBox do
-      MessageBox(TStrError.ErrorMessage7('','Tb_Access','TTb_access','FileShared',Fname,'',TaStatus));
+    if Assigned(MI_MsgBox)
+    then with Mi_MsgBox do
+         MessageBox(TStrError.ErrorMessage7('','Tb_Access','TTb_access','FileShared',Fname,'',TaStatus));
 
     Ok := false;
   End;
@@ -4451,10 +4450,10 @@ Begin
 
 Initialization
 
-   TTb_Access.create;
+//   TTb_Access.create;
 
 Finalization
-   TTb_access.Destroy;
+//   TTb_access.Destroy;
 
 end.
 

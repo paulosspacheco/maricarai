@@ -1,0 +1,14 @@
+inherited form_create_data_modules: Tform_create_data_modules
+  Left = 417
+  Top = 163
+  inherited PageControl1: TPageControl
+    inherited Lista: TTabSheet
+      inherited DBNavigator1: TDBNavigator
+        Hints.Strings = (        )
+      end
+    end
+  end
+  inherited Mi_lcl_ui_ds_Form1: TMi_lcl_ui_ds_Form
+    DmxScroller_Form = dm_create_data_modules.DmxScroller_Form1
+  end
+end

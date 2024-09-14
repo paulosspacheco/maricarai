@@ -1,0 +1,48 @@
+object DataModule1: TDataModule1
+  OnCreate = DataModuleCreate
+  OldCreateOrder = False
+  Height = 165
+  HorizontalOffset = 618
+  VerticalOffset = 285
+  Width = 331
+  object ActionList1: TActionList
+    Left = 200
+    Top = 40
+    object Novo: TAction
+      Category = 'cadastra'
+      Caption = 'Novo'
+      OnExecute = NovoExecute
+    end
+    object Gravar: TAction
+      Category = 'cadastra'
+      Caption = 'Gravar'
+      OnExecute = GravarExecute
+    end
+    object Pesquisar: TAction
+      Category = 'cadastra'
+      Caption = 'Pesquisar'
+      OnExecute = PesquisarExecute
+    end
+    object Excluir: TAction
+      Category = 'cadastra'
+      Caption = 'Excluir'
+      OnExecute = ExcluirExecute
+    end
+  end
+  object DmxScroller_Form1: TDmxScroller_Form
+    Alias = 'TMi_rtl_ui_Form_abstract'
+    Active = False
+    MiDataPacketFormat_Default = dfBinary
+    AlignmentLabels = taRightJustify
+    onExitField = DmxScroller_Form1ExitField
+    onGetTemplate = DmxScroller_Form1GetTemplate
+    TableName = 'DataModule1'
+    OnCalcFields = DmxScroller_Form1CalcFields
+    OnCalcField = DmxScroller_Form1CalcField
+    OnChangeField = DmxScroller_Form1ChangeField
+    Mi_ActionList = ActionList1
+    ShouldSaveTemplate = True
+    Left = 56
+    Top = 24
+  end
+end

@@ -2,7 +2,7 @@ unit mi.rtl.Consts.StrError;
 {:< -A unit **@name** implementa a classe TStrError do pacote mi.rtl.
 
     - **VERSÃO**:
-      - Alpha - Alpha - 0.9.0
+      - Alpha - 1.0.0
 
     - **CÓDIGO FONTE**:
       - @html(<a href="../units/mi.rtl.tstrerror.pas">mi.rtl.tStrError.pas</a>)
@@ -576,6 +576,7 @@ implementation
     Begin
       Result := ErrorMessage8(aModule,aUnit,aObjectName,aMethodName ,'','',ErrorMessage(aCodError),'');
     end;
+
     class function TStrError.ErrorMessage5(aModule,
                                            aUnit,
                                            aObjectName,

@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+    <html dir="ltr" lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <title>Teste do componente TPageProducer</title>
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <!-- CSS markdown  -->
+        <link type="text/css" href="/css/defaultthemeMarkdown.css"  rel="stylesheet"/>
+            
+        <!-- CSS da página /index.html -->
+        <link type="text/css" href="/css/defaulttheme.css" rel="stylesheet"/>
+
+        <style>
+
+         thead {
+            display: block;
+            background-color: #bfc2c4;         
+            border: 1px solid #333;
+            padding: 3px;
+            border-radius: 5px;
+   
+         }
+   
+         tbody {
+            display: block;
+            background-color: #eaedef;
+            border: 1px solid #333;
+            overflow-y: scroll;
+            overflow-x: hidden;
+            height: 100px;
+            padding: 3px;
+            /*color:blue;*/
+            border-radius: 5px;
+   
+         }
+   
+         tfoot {
+            display: block;         
+            background-color: #bfc2c4;         
+            border: 1px solid #333;
+            padding: 3px;
+            border-radius: 5px;
+      
+         }
+   
+         table {
+            font-family: "Times New Roman", Times, serif;   
+            table-layout: fixed;
+            border-collapse: collapse;
+            /*width: 0%;*/
+            /*margin-bottom : .5em;*/
+            /*table-layout: fixed;*/
+            text-align: center;      
+         }
+   
+         th, td {
+            border: solid 1px;
+            padding: 0
+         }
+
+         table th {
+            background-color: #bfc2c4;
+         }
+         
+         Table tr:nth-child(even){background-color: #f2f2f2;}   
+         Table tr:hover {background-color: #ddd;}
+         
+      </style>
+   
+      <style>
+      
+         #miTable1 {
+            font-family: "Times New Roman", Times, serif;
+            border-collapse: collapse;
+            /* width: 100%; */
+         }
+   
+         #miTable1 td, #miTable1 th {
+            border: 1px solid #ddd;
+            padding:3px;
+         }
+         #miTable1 th {
+            background-color: #bfc2c4;
+         }
+         
+   
+         #miTable1 tr:nth-child(even){background-color: #f2f2f2;} 
+         #miTable1 tr:hover {background-color: #ddd;}
+   
+         #miTable1 th {
+            padding-top: 3px;
+            padding-bottom: 3px;
+            text-align: left;         
+            background-color: #bfc2c4;                        
+            text-align: right;
+         }
+   
+      </style>
+   
+      <link type="text/css" href="./css/Alunos.css"  rel="stylesheet"/>
+      <link type="text/css" href="./css/Alunos2.css"  rel="stylesheet"/>
+      <link type="text/css" href="./css/Professores.css" rel="stylesheet" />        
+
+    </head>
+    <body class="vscode-body vscode-dark">
+        <h1 id="teste-do-componente-tpageproducer">Teste do componente TPageProducer</h1>
+<ul>
+<li><a href="#teste-do-componente-tpageproducer">Teste do componente TPageProducer</a>
+<ul>
+<li><a href="#tag-gen%C3%A9rica-podendo-ser-qualquer-tipo-de-c%C3%B3digo">Tag genérica podendo ser qualquer tipo de código</a></li>
+<li><a href="#tag-tgcustom">Tag TgCustom</a></li>
+<li><a href="#teste-da-tag-tglink"><strong>Teste da tag TgLink</strong></a></li>
+<li><a href="#tag-tgtable">Tag TgTable</a></li>
+<li><a href="#tag-tgimage">Tag TgImage</a></li>
+<li><a href="#tag-tgmapimage">Tag TgMapImage</a></li>
+</ul>
+</li>
+</ul>
+<h2 id="tag-genérica-podendo-ser-qualquer-tipo-de-código">Tag genérica podendo ser qualquer tipo de código</h2>
+<ol>
+<li>A tag abaixo preenche a data e hora atual no formato: <strong>&quot;dd/nn/yyyy hh:nn:ss&quot;</strong>
+<ol>
+<li>&lt;--# DATETIME [-FORMAT=MM/DD hh:nn:ss-] #--&gt;
+<ol>
+<li><strong>Resultado não definida:</strong>
+<ol>
+<li>Data e hora: <!--# DATETIME [-FORMAT=dd/nn/yyyy hh:nn:ss-] #--></li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+<h2 id="tag-tgcustom">Tag TgCustom</h2>
+<ol>
+<li>
+<p>A tag abaixo informa ao componente <em>TPageProduce</em> que deve executar o método ListFilesText.</p>
+<ol>
+<li>
+<p>&lt;--# tgCustom [- ListFilesText=Arquivo: -&quot;~ListFilesText&quot; -] #--&gt;</p>
+<ul>
+<li>Formato de saída:
+<ul>
+<li>Arquivo: - xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</li>
+<li>Arquivo: - xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</li>
+<li>...</li>
+<li>Arquivo: - xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Resultado TgCustom com parâmetro ListFilesText :</strong></p>
+<pre><code class="hljs language-html">
+   <span class="hljs-comment"><!--# tgCustom [- ListFilesText=
+        Arquivo:
+        -"~ListFilesText" -]
+   #--></span>
+
+</code></pre>
+</li>
+</ol>
+</li>
+<li>
+<p><strong>NOTA:</strong></p>
+<ol>
+<li>A tag <em>ListFilesText</em> executa o código TPageProducer.ListFilesText() no qual retorna uma lista de nomes de arquivos da pasta corrente e subpastas no formato informado pela tag.</li>
+</ol>
+</li>
+</ol>
+<h2 id="teste-da-tag-tglink"><strong>Teste da tag TgLink</strong></h2>
+<ol>
+<li>
+<p>A tag <strong>TgLink</strong> com parâmetro <strong>BlogPsspAppBr</strong> deve ser preenchida com o link para: <a href="http://www.pssp.app.br">http://www.pssp.app.br</a>, onde o destino da visualização é uma nova aba do browser.</p>
+<ol>
+<li>&lt;!--# tgLink [- BlogPsspAppBr=[a href=&quot;~url&quot; target=&quot;_blank&quot; title=&quot;~title&quot;] ~text [/a]  -] #--&gt;</li>
+<li><strong>Resultado da combinação de tag TgLink e BlogPsspAppBr:</strong>
+<ol>
+<li>
+<!--# tgLink [- BlogPsspAppBr=[a href="~url" target="_blank" title="~title"] ~text [/a]  -] #-->
+</li>
+</ol>
+</li>
+</ol>
+</li>
+<li>
+<p>A tag <strong>TgLink</strong> com parâmetro <strong>PsspAppB</strong> deve ser preenchida com o endereço: <a href="http://www.pssp.app.br">http://www.pssp.app.br</a>. onde o destino da visualização é uma variável definida no ato da produção da página:</p>
+<ol>
+<li>&lt;!--# tgLink [-  PsspAppBr=[a href=&quot;~url&quot; target=&quot;~target&quot; title=&quot;~title&quot;] ~text [/a]  -] #--&gt;</li>
+<li><strong>Resultado da combinação de tag TgLink e PsspAppBr:</strong>
+<ol>
+<li>
+<!--# tgLink [-  PsspAppBr=[a href="~url" target="~target" title="~title"] ~text [/a]  -] #-->
+</li>
+</ol>
+</li>
+</ol>
+</li>
+<li>
+<p>A tag <strong>TgLink</strong> com parâmetro <strong>FindFileAll</strong> para listar links de nomes dos arquivos da pasta atual e subpastas**.</p>
+<ol>
+<li>Tag FindFilesAll
+<ol>
+<li>&lt;--# tgLink [- FindFilesAll=[a href=&quot;~url&quot; target=&quot;_blank&quot; title=&quot;~title&quot;] ~text [/a]  -] --&gt;
+<ol>
+<li>Resultado da combinação de tag TgLink e FindFilesAll:
+<ol>
+<li>
+<!--# tgLink [- FindFilesAll=[a href="~url" target="_blank" title="~title"] ~text [/a]  -] #-->
+</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+<h2 id="tag-tgtable">Tag TgTable</h2>
+<ol>
+<li>
+<p>Template para preencher os dados da tabela <em>ALUNOS</em>, onde o <em>id=&quot;table&quot;</em>.</p>
+<ol>
+<li>Esse modelo de tabela tem rodapé.</li>
+</ol>
+<pre><code class="hljs language-html">   <span class="hljs-comment">&lt;!--# tgTable [- ALUNOS=[Alias="Cadastro de Alunos";
+                            Header="Column1:      ",":Column2:     ",":Column3      ",":Column4    ";
+                            widths="300px"         ,"250px"         ,"150px"         ,"180px";
+                            OneRow=["1 Paulo Sérgio","Marcos Pacheco","George Bruno  ","George Bruno",/,
+                                    "2 José Carlos" ,"Antônio       ","Paulo Henrique","George Bruno",/,
+                                   ];
+                            Footer="soma Columm1","soma Columm2","soma Columm3","soma Columm4";
+                            NotFound="Mensagem em caso de erro";
+                            template="&lt;Table id="table"&gt;
+                                          &lt;thead id="theadAlunos"&gt;
+                                             &lt;tr&gt;&lt;th colspan="4"&gt; &lt;p  style="text-align: center"&gt;  ~Alias  &lt;/p&gt; &lt;/th&gt;  &lt;/tr&gt; 
+                                             &lt;tr&gt;~HeaderCols&lt;/tr&gt; 
+                                          &lt;/thead&gt;
+                                          &lt;tbody id="tbodyAlunos"&gt;
+                                             ~OneRowCols 
+                                          &lt;/tbody&gt;
+                                          &lt;tfoot id="tfootAlunos"&gt;
+                                             ~FooterCols 
+                                          &lt;/tfoot&gt;
+                                      &lt;/Table&gt;"
+                           ]
+                  -]
+   #--&gt;</span>
+
+</code></pre>
+<!--# tgTable [- ALUNOS=[Alias="Cadastro de Alunos";
+                         Header="Column1:      ",":Column2:     ",":Column3      ",":Column4    ";
+                         widths="300px"         ,"250px"         ,"150px"         ,"180px";
+                         OneRow=["1 Paulo Sérgio","Marcos Pacheco","George Bruno  ","George Bruno",/,
+                                 "2 José Carlos" ,"Antônio       ","Paulo Henrique","George Bruno",/,
+                                ];
+                         Footer="soma Columm1","soma Columm2","soma Columm3","soma Columm4";
+                         NotFound="Mensagem em caso de erro";
+                         template="<Table id="table">
+                                       <thead id="theadAlunos">
+                                          <tr><th colspan="4"> <p  style="text-align: center">  ~Alias  </p> </th>  </tr> 
+                                          <tr>~HeaderCols</tr> 
+                                       </thead>
+                                       <tbody id="tbodyAlunos">
+                                          ~OneRowCols 
+                                       </tbody>
+                                       <tfoot id="tfootAlunos">
+                                          ~FooterCols 
+                                       </tfoot>
+                                   </Table>"
+                        ]
+               -]
+      #-->
+</li>
+<li>
+<p>Template para preencher os dados da tabela <em>ALUNOS2</em>, onde o <em>id=&quot;~TypeTable&quot;</em>.</p>
+<ol>
+<li>Esse modelo de tabela não tem rodapé.</li>
+</ol>
+<pre><code class="hljs language-html">   <span class="hljs-comment">&lt;!--# tgTable [- ALUNOS2=[Alias="Cadastro de Alunos 2";
+                              Header="Column1",":Column2:",":Column3",":Column4","Column5";
+                              widths="200px"  ,"150px"    ,"150px"   ,"120px","150px";
+                              OneRow=["1 Paulo Sérgio","Marcos Pacheco","George Bruno  ","George Bruno","1",/,
+                                       "2 José Carlos" ,"Antônio       ","Paulo Henrique","George Bruno","2",/,
+                                     ];
+                              Footer="soma Columm1","soma Columm2","soma Columm3","soma Columm4","soma Columm5";
+                              NotFound="Mensagem em caso de erro";
+                              template="&lt;Table id="~TypeTable"&gt;
+                                             &lt;thead id="theadAlunos2" &gt;
+                                                &lt;tr&gt;&lt;th colspan="5"&gt; &lt;p  style="text-align: center"&gt;  ~Alias  &lt;/p&gt; &lt;/th&gt;  &lt;/tr&gt; 
+                                                &lt;tr&gt;~HeaderCols&lt;/tr&gt; 
+                                             &lt;/thead &gt;
+                                             &lt;tbody id="tbodyAlunos2"&gt;
+                                                ~OneRowCols 
+                                             &lt;/tbody&gt;                                                
+                                       &lt;/Table&gt;"
+                            ]
+                 -]
+   #--&gt;</span>
+
+</code></pre>
+<!--# tgTable [- ALUNOS2=[Alias="Cadastro de Alunos 2";
+                           Header="Column1",":Column2:",":Column3",":Column4","Column5";
+                           widths="200px"  ,"150px"    ,"150px"   ,"120px","150px";
+                           OneRow=["1 Paulo Sérgio","Marcos Pacheco","George Bruno  ","George Bruno","1",/,
+                                    "2 José Carlos" ,"Antônio       ","Paulo Henrique","George Bruno","2",/,
+                                    ];
+                           Footer="soma Columm1","soma Columm2","soma Columm3","soma Columm4","soma Columm5";
+                           NotFound="Mensagem em caso de erro";
+                           template="<Table id="~TypeTable">
+                                          <thead id="theadAlunos2" >
+                                             <tr><th colspan="5"> <p  style="text-align: center">  ~Alias  </p> </th>  </tr> 
+                                             <tr>~HeaderCols</tr> 
+                                          </thead >
+                                          <tbody id="tbodyAlunos2">
+                                             ~OneRowCols 
+                                          </tbody>                                                
+                                    </Table>"
+                           ]
+               -]
+#-->
+</li>
+<li>
+<p>Template para preencher os dados da tabela <em>PROFESSORES</em>, onde o id=&quot;table&quot;.</p>
+<ol>
+<li>Esse modelo de tabela tem rodapé, porém o conteúdo do mesmo não é informando.</li>
+</ol>
+<pre><code class="hljs language-html">
+   <span class="hljs-comment">&lt;!--# tgTable [- PROFESSORES=[Alias="Cadastro de Professores";
+                                 Header="Column1:      ",":Column2:     ",":Column3      ",":Column4    ";
+                                 widths="300px"         ,"250px"         ,"150px"         ,"180px";
+                                 OneRow=["A11","A12","A13","A14",/,
+                                         "A21","A22","A23","A24",/,
+                                         "A31","A32","A33","A34",/,
+                                         "A41","A42","A43","A44",/,
+                                       ];
+                                 template="&lt;Table id="table"&gt;
+                                             &lt;thead id="theadProfessores"&gt;
+                                                &lt;tr&gt;&lt;th colspan="4"&gt; &lt;p  style="text-align: center"&gt;  ~Alias  &lt;/p&gt; &lt;/th&gt;  &lt;/tr&gt; 
+                                                &lt;tr&gt;~HeaderCols&lt;/tr&gt; 
+                                             &lt;/thead&gt;
+                                             &lt;tbody id="tbodyProfessores"&gt;
+                                                ~OneRowCols 
+                                             &lt;/tbody&gt;
+
+                                          &lt;/Table&gt;"
+                                ]
+                 -]
+   #--&gt;</span>
+
+</code></pre>
+<!--# tgTable [- PROFESSORES=[Alias="Cadastro de Professores";
+                              Header="Column1:      ",":Column2:     ",":Column3      ",":Column4    ";
+                              widths="300px"         ,"250px"         ,"150px"         ,"180px";
+                              OneRow=["A11","A12","A13","A14",/,
+                                       "A21","A22","A23","A24",/,
+                                       "A31","A32","A33","A34",/,
+                                       "A41","A42","A43","A44",/,
+                                    ];
+                              template="<Table id="table">
+                                          <thead id="theadProfessores">
+                                             <tr><th colspan="4"> <p  style="text-align: center">  ~Alias  </p> </th>  </tr> 
+                                             <tr>~HeaderCols</tr> 
+                                          </thead>
+                                          <tbody id="tbodyProfessores">
+                                             ~OneRowCols 
+                                          </tbody>
+                                          <tfoot id="tfootProfessores">
+                                             ~FooterCols 
+                                          </tfoot>
+                                       </Table>"
+                              ]
+               -]
+#-->
+</li>
+</ol>
+<h2 id="tag-tgimage">Tag TgImage</h2>
+<ol>
+<li>
+<p>Template para preencher os dados referente a uma imagem.</p>
+<pre><code class="hljs language-html">
+   <span class="hljs-comment">&lt;!--# tgImage [- NomeDaFigura=[ &lt;figure&gt;
+                                     &lt;img src="~src" alt="~alt" title="~title" style="width:10%; height:10%"&gt;
+                                     &lt;figcaption&gt;~figcaption&lt;/figcaption&gt;
+                                   &lt;/figure&gt;  ]
+               -]      
+   #--&gt;</span>
+   
+</code></pre>
+<!--# tgImage [- NomeDaFigura=[ <figure>
+                                   <img src="~src" alt="~alt" title="~title" style="width:10%; height:10%">
+                                   <figcaption>~figcaption</figcaption>
+                                </figure>  ]
+              -]      
+#-->
+</li>
+</ol>
+<h2 id="tag-tgmapimage">Tag TgMapImage</h2>
+<ol>
+<li>Template para gerar a imagem clicável em vários pontos.
+<ol>
+<li>
+<p>O parâmetro  <em>oneRowArea</em> do template abaixo, foi feito com ajuda do site <a href="https://www.image-map.net/">https://www.image-map.net/</a>.</p>
+<pre><code class="hljs language-html">   <span class="hljs-comment">&lt;!--# tgImageMap [- img_map=[src="./img/img_map.jpg"; 
+                                Alt="Imagem teste de imagens clicáveis";
+                                useMap="img_map";
+                                oneRowArea="["target" , "alt_rect"   , "title_rect"   , "href_rect.html"   , "19,53,66,107", "rect",
+                                             "target" , "alt_circle" , "title_circle" , "href_circle.html" , "126,85,34","circle", 
+                                             "target" , "alt_poly"   , "title_poly"   , "href_poly.html"   , "202,54,266,52,265,98,247,93,233,97,222,101,207,103,198,98","poly"
+                                            ]";
+                                 templateOneRowArea="&lt;area target="~target" alt="~alt" title="~title" href="~href" coords="~coords" shape="~shape"&gt;";
+                                 templateImageMap="&lt;img src="~src" Alt="~alt" usemap="#~useMap"&gt;
+                                                   &lt;map name="~useMap" Alt="~Alt"&gt;
+                                                        &lt;area shape="default" nohref /&gt;
+                                                        ~oneRowArea
+                                                   &lt;/map&gt;"
+                               ]
+                -] 
+   #--&gt;</span>
+
+</code></pre>
+</li>
+<li>
+<!--# tgImageMap [- img_map=[src="./img/img_map.jpg"; 
+                             Alt="Imagem teste de imagens clicáveis";
+                             useMap="img_map";
+                             oneRowArea="["target" , "alt_rect"   , "title_rect"   , "href_rect.html"   , "19,53,66,107", "rect",
+                                          "target" , "alt_circle" , "title_circle" , "href_circle.html" , "126,85,34","circle", 
+                                          "target" , "alt_poly"   , "title_poly"   , "href_poly.html"   , "202,54,266,52,265,98,247,93,233,97,222,101,207,103,198,98","poly"
+                                         ]";
+                              templateOneRowArea="<area target="~target" alt="~alt" title="~title" href="~href" coords="~coords" shape="~shape">";
+                              templateImageMap="<img src="~src" Alt="~alt" usemap="#~useMap">
+                                                 <map name="~useMap" Alt="~Alt">
+                                                    <area shape="default" nohref />
+                                                    ~oneRowArea
+                                                 </map>"
+                            ]
+                -] 
+#-->
+</li>
+<li>
+<p>Notas:</p>
+<ol>
+<li><a href="https://developer.mozilla.org/pt-BR/docs/Web/HTML/Element/area">Documentação da tag &lt;map&gt;</a></li>
+<li><a href="https://www.image-map.net">Clique aqui para gerar coords da área do mapa</a></li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+<!-- O código abaixo deve ser inserido na tag <head></head>.
+
+
+-->
+
+        
+        
+     </body>
+    </html>

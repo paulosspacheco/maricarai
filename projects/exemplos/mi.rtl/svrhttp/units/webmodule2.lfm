@@ -1,0 +1,23 @@
+object FPWebModule2: TFPWebModule2
+  OnCreate = DataModuleCreate
+  OnDestroy = DataModuleDestroy
+  OldCreateOrder = False
+  Actions = <  
+    item
+      Name = 'func1call'
+      Default = True
+      OnRequest = func1callRequest
+      Template.AllowTagParams = False
+    end>
+  CreateSession = False
+  CORS.Enabled = False
+  CORS.Options = [coAllowCredentials, coEmptyDomainToOrigin]
+  CORS.AllowedMethods = 'GET, PUT, POST, OPTIONS, HEAD'
+  CORS.AllowedOrigins = '*'
+  CORS.AllowedHeaders = 'x-requested-with, content-type, authorization'
+  CORS.MaxAge = 0
+  Height = 240
+  HorizontalOffset = 365
+  VerticalOffset = 165
+  Width = 320
+end

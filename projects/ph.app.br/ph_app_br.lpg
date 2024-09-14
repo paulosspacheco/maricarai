@@ -2,19 +2,15 @@
 <CONFIG>
   <ProjectGroup FileVersion="2">
     <Targets>
-      <Target FileName="lazarus/apps/app_avm_desktop/app_avm.lpi">
+      <Target FileName="../../mi.rtl/mi.rtl.lpk"/>
+      <Target FileName="../../mi.ui.lcl.form/mi.ui.lcl.form.lpk"/>
+      <Target FileName="../../../../v/paulosspacheco/LazarusProjects/maricarai_fixe-3.3/projects/ph.app.br/lazarus/app_avm/lcl/avm.lpi">
         <BuildModes>
           <Mode Name="Default" Compile="True"/>
           <Mode Name="i386-win32"/>
           <Mode Name="x86_64-win64"/>
         </BuildModes>
       </Target>
-      <Target FileName="../../../../../../LazarusProjects/maricarai_fixe-3.0/projects/ph.app.br/lazarus/apps/datamodule/Test_dataModule.lpi">
-        <BuildModes>
-          <Mode Name="Default"/>
-        </BuildModes>
-      </Target>
-      <Target FileName="../../mi.rtl/mi.rtl.lpk"/>
     </Targets>
   </ProjectGroup>
 </CONFIG>

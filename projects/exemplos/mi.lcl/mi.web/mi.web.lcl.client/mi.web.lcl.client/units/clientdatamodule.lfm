@@ -1,0 +1,21 @@
+object DataModule1: TDataModule1
+  OldCreateOrder = False
+  Height = 150
+  HorizontalOffset = 960
+  VerticalOffset = 250
+  Width = 150
+  object FPHTTPClient1: TFPHTTPClient
+    KeepConnection = False
+    IOTimeout = 0
+    ConnectTimeout = 3000
+    HTTPversion = '1.1'
+    AllowRedirect = False
+    Left = 51
+    Top = 24
+  end
+  object JSONDataSet1: TJSONDataSet
+    FieldDefs = <>
+    Left = 58
+    Top = 88
+  end
+end

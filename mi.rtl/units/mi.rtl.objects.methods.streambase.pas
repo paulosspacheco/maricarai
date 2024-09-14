@@ -5,7 +5,7 @@ unit mi.rtl.Objects.Methods.StreamBase;
     - O Use da classe @name não deve ser instanciada antes de implementar os métodos abstratos;
 
   - **VERSÃO**
-    - Alpha - Alpha - 0.9.0
+    - Alpha - 1.0.0
 
   - **HISTÓRICO**
     - Criado por: Paulo Sérgio da Silva Pacheco e-mail: paulosspacheco@@yahoo.com.br

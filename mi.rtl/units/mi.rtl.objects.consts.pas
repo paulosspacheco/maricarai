@@ -5,13 +5,14 @@ unit mi.rtl.Objects.Consts;
       - Esta unit foi testada nas plataformas: win32, win64 e linux.
 
     - **VERSÃO**
-      - Alpha - Alpha - 0.9.0
+      - Alpha - 1.0.0
 
     - **HISTÓRICO**
       - Criado por: Paulo Sérgio da Silva Pacheco e-mail: paulosspacheco@@yahoo.com.br
         - **18/11/2021** 10:56 a ?? - Criar a unit mi.rtl.objects.Consts.pas
         - **19/11/2021** 20:35 a 21:22 - Conclusão da classe **TObjectsConsts**
         - **13/12/2021** 21:00 a 22:10 - Documentar unidade.
+        - **22/05/2024** 08:00 a 11:30 - Implementação do campo FldENum_db
 
     - **CÓDIGO FONTE**:
       - @html(<a href="../units/mi.rtl.objects.consts.pas">mi.rtl.objects.consts.pas</a>)          
@@ -26,9 +27,15 @@ unit mi.rtl.Objects.Consts;
 interface
 
 uses
-  Classes, SysUtils, mi.rtl.objects.types,mi.rtl.MiStringListBase;
+  Classes, SysUtils,db, mi.rtl.objects.types
+  ,mi.rtl.MiStringListBase
 
+  ;
 
+  type
+    TPushMsgErro = Procedure (const Str: AnsiString);
+  var
+    PushMsgErro : TPushMsgErro = nil;
 
   {: - A class **@name** usada para separar as contantes da unit **TObjects** do pacote **mi.rtl**.
   }
@@ -91,14 +98,6 @@ uses
          //---------------------------------------------------------------------------
          {$REGION 'As variáveis abaixo indica o modo como a aplicação foi compilada.'}
 
-            {: - A constante **@name** indica se a aplicação gráfica é turbo vision.
-            }
-            {$IFDEF App_Tv}
-              IsApp_TV  : Boolean = True; 
-            {$ELSE}
-              IsApp_TV  : Boolean = False;
-            {$ENDIF}
-
             {: - A constante **@name** indica se a aplicação  CGI deve ser compilado no modo console.
             }
             {$IFDEF CONSOLE} 
@@ -110,57 +109,46 @@ uses
             {: - A constante **@name** indica se a aplicação é gráfica independente de usar vcl ou não.
             } 
             {$IFDEF GUI} 
-              IsApp_Gui         : Boolean = True;
+              IsApp_ServerHttp         : Boolean = True;
             {$ELSE}
-              IsApp_Gui          : Boolean = false;
+              IsApp_ServerHttp          : Boolean = false;
             {$ENDIF}
 
-            {: - A constante **@name** indica se a aplicação web é compilada como dll deve ser executada em conjunto com browser.}
-            {$IFDEF App_ISAPI} 
-              IsApp_ISAPI  : Boolean = True;
-            {$ELSE}
-              IsApp_ISAPI  : Boolean = False;
-            {$ENDIF}
-
-            {: - A constante **@name** indica se a aplicação web é publicado com serviço XML com Protocolo Soap}
-            {$IFDEF App_WS_Soap}  
-              IsApp_App_WS_Soap  : Boolean = True;
-            {$ELSE}
-              IsApp_App_WS_Soap  : Boolean = False;
-            {$ENDIF}
-
-            {: - A constante **@name** indica se a aplicação VCL pode ser mista console e gráfica.}
-            {$IFDEF App_VCL} 
-              IsApp_VCL           : Boolean = True;
-            {$ELSE}
-              IsApp_VCL          : Boolean = false;
-            {$ENDIF}
-
-            {: - A constante **@name** indica se a aplicação gráfica usa os componentes VCL e webBrowser como entrada de dados. }
-            {$IFDEF App_VCL_IE} 
-              IsApp_VCL_IE  : Boolean = True;
-            {$ELSE}
-              IsApp_VCL_IE  : Boolean = False;
-            {$ENDIF}
-
-            {: - A constante **@name** indica se a Aplicação é CGI. 
+            {: - A constante **@name** indica se a Aplicação é CGI.
                - **NOTA**
-                 -Ignora todo acesso do teclado e video do console usada como aplicações web, console 
+                 -Ignora todo acesso do teclado e video do console usada como aplicações web, console
                   ou GUI quando usado como pacote em tempo de designer.}
-            {$IFDEF App_CGI} 
+            {$IFDEF App_CGI}
               IsApp_Cgi          : Boolean = True;
             {$ELSE}
               IsApp_Cgi          : Boolean = false;
             {$ENDIF}
 
-            {: - A constante **@name** indica se a Aplicação App_DSServerModule. 
+
+            {: - A constante **@name** indica se a aplicação web é compilada como dll deve ser executada em conjunto com browser.}
+            {$IFDEF App_FastCgi}
+              IsApp_FastCgi  : Boolean = True;
+            {$ELSE}
+              IsApp_FastCgi  : Boolean = False;
+            {$ENDIF}
+
+
+            {: - A constante **@name** indica se a aplicação LCL.}
+            {$IFDEF App_LCL}
+              IsApp_LCL           : Boolean = True;
+            {$ELSE}
+              IsApp_LCL          : Boolean = false;
+            {$ENDIF}
+
+
+            {: - A constante **@name** indica se a Aplicação App_RestApi.
                  - **NOTA**
                    - Ignora todo acesso ao teclado e video do console usada como 
                      aplicações servidor de dados.}
-            {$IFDEF App_DSServerModule} 
-              IsApp_DSServerModule : Boolean = True;
+            {$IFDEF App_RestApi}
+              IsApp_RestApi : Boolean = True;
             {$ELSE}
-              IsApp_DSServerModule : Boolean = false;
+              IsApp_RestApi : Boolean = false;
             {$ENDIF}
 
          {$ENDREGION}
@@ -252,7 +240,7 @@ uses
 
 
           const  StreamTypes: PStreamRec = Nil; //:< Stream types reg
-          Const AnsiChar_Control_Template : AnsiCharSet = [#0..#31,'`']; //:< AnsiChar_Control_Template : AnsiCharSet = [#0..#31,'`',^a..^z,^A..^Z];
+          Const AnsiChar_Control_Template : AnsiCharSet = [#0..#31,fldCONTRACTION]; //:< AnsiChar_Control_Template : AnsiCharSet = [#0..#31,fldCONTRACTION,^a..^z,^A..^Z];
 
 
           // Variaveis usada no controle do acesso a pessoas não autorizada caso o usuario com acesso esqueça um formulário aberto.
@@ -284,6 +272,8 @@ uses
 
         public Class Function SetOkprocessing(aOkprocessing : Boolean) : Boolean;
         public class procedure FreeAndNil(var Obj);
+        public class procedure FreeAndNilSafe(var aObj);
+
         {: -
         }
         public class function NewStr (Const S: AnsiString): ptstring;
@@ -295,53 +285,67 @@ uses
         }
         public class Function CopyTemplateFrom(Const aTemplate:tString): tString;
 
-        public class Procedure PushSItem( Str: AnsiString; Var ANext: PSItem);
+        public class Procedure PushSItem(Const Str: AnsiString; Var ANext: PSItem);
 
         {: Coloca uma string na pilha  }
-        public class Procedure Push_MsgErro( Str: AnsiString);
+        public class Procedure Push_MsgErro(Const Str: AnsiString);virtual;
 
        end;
 
 implementation
 
-  class function TObjectsConsts.SetOkprocessing(aOkprocessing: Boolean
-    ): Boolean;
+  class function TObjectsConsts.SetOkprocessing(aOkprocessing: Boolean  ): Boolean;
   Begin
     Result := Okprocessing;
     Okprocessing := aOkprocessing;
   end;
 
   class procedure TObjectsConsts.FreeAndNil(var Obj);
-  var
-    Temp: TObject;
+    //var
+    //  Temp: TObject;
   begin
-    Try
-      Temp := TObject(Obj);
-      Pointer(Obj) := nil;
-      Temp.Free;
-
-    Except
-      Pointer(Obj) := nil;
-    end;
+    FreeAndNilSafe(Obj);
+//    SysUtils.FreeAndNil(Obj);
+    //Try
+    //  Temp := TObject(Obj);
+    //  Pointer(Obj) := nil;
+    //  Temp.Free;
+    //
+    //Except
+    //  Pointer(Obj) := nil;
+    //end;
 
   end;
 
+  class procedure TObjectsConsts.FreeAndNilSafe(var aObj);
+  begin
+    //SysUtils.FreeAndNilSafe(aObj);
+
+    if TObject(aObj) = nil then
+      exit;
+    try // slower but paranoidically safe
+      TObject(aObj).Destroy;
+    except
+    end;
+    TObject(aObj) := nil; // we could do it AFTER destroy
+  end;
+
+
   class function TObjectsConsts.NewStr(const S: AnsiString): ptstring;
+    Var
+      Len : Byte;
   BEGIN
-    if Length(S)> 255
-    then Begin
-            raise  EArgumentException.Create('Exceção em Objects.function NewStr(): String maior que 255');
-           end;
+    if Length(S) > 255
+    then Len := 254
+    else Len := Length(S);
 
      If (S = '')
      Then Result := Nil
-     Else Begin               { Empty returns nil }
-            GetMem(Result, Length(S) + 1);                        { Allocate memory }
+     Else Begin               // Empty returns nil
+            GetMem(Result, Len + 1); // Allocate memory
             Result^[0] := Ansichar(Length(S));
             Move(S[1],Result^[1],Length(S));
-          //If (Result <> Nil) Then Result^ := S;                      { Transfer string }
      End;
-  //   NewStr := P;                                       { Return result }
   END;
 
   class function TObjectsConsts.NewSItem(const Str: tString; ANext: PSItem): PSItem;
@@ -370,27 +374,38 @@ implementation
 
   class Function TObjectsConsts.CopyTemplateFrom(Const aTemplate:tString): tString;
      Var P1  : PSItem;
+         Ds : TDataSource;
+         KeyField   : Ansistring;
+         ListFields : Ansistring;
+         Default : Longint;
   Begin
     If aTemplate <> ''
     Then Case aTemplate[1] of
              //<Os Campos abaixo pode ser uma lista de PSItem
-             fldENUM   : Begin
-                           {$IFDEF CPU32}
-                             Move(ATemplate[2],P1,4);
-                             Result := CreateEnumField({ShowZ  } boolean(Byte(aTemplate[6])),
-                                                       {AccMode} Byte(aTemplate[7]),
-                                                       {Default} Longint(aTemplate[8]),
-                                                       {AItems}  CloneSItems(P1));
+             fldENum,
+             fldENum_db: Begin
+                           Move(aTemplate[EnumField_ofs.TypeField],P1,sizeof(pSitem));
 
-                           {$ENDIF}
-                           {$IFDEF CPU64}
-                             Move(ATemplate[2],P1,4+4);
-                             Result := CreateEnumField({ShowZ  } boolean(Byte(aTemplate[6+4])),
-                                                       {AccMode} Byte(aTemplate[7+4]),
-                                                       {Default} Longint(aTemplate[8+4]),
-                                                       {AItems}  CloneSItems(P1));
+                           move(aTemplate[EnumField_ofs.Default],Default,Sizeof(TEnumField.Default));
 
-                           {$ENDIF}
+                           if aTemplate[1] = fldENUM
+                           Then Result := CreateEnumField({ShowZ  } boolean(Byte(aTemplate[EnumField_ofs.ShowZ])),
+                                                          {AccMode} Byte(aTemplate[EnumField_ofs.AccMode]),
+                                                          {Default} Default,
+                                                          {AItems}  CloneSItems(P1))
+                           else begin
+                                  move(aTemplate[EnumField_ofs.DataSource],Ds,Sizeof(TEnumField.DataSource));
+                                  move(aTemplate[EnumField_ofs.KeyField],KeyField,Sizeof(TEnumField.KeyField));
+                                  move(aTemplate[EnumField_ofs.ListField],ListFields,Sizeof(TEnumField.ListField));
+
+                                  Result := CreateEnumField({ShowZ  } boolean(Byte(aTemplate[EnumField_ofs.ShowZ])),
+                                                          {AccMode}   Byte(aTemplate[EnumField_ofs.AccMode]),
+                                                          {Default}   Default,
+                                                          {AItems}    CloneSItems(P1),
+                                                          {DataSource}DS,
+                                                          {KeyField}  KeyField,
+                                                          {ListField} ListFields);
+                                 end;
 
 
                           if length(aTemplate) > Length(Result)
@@ -418,72 +433,100 @@ implementation
     else Result := '';
   End;
 
-  class procedure TObjectsConsts.PushSItem(Str: AnsiString;
-    var ANext: PSItem);
+  class procedure TObjectsConsts.PushSItem(Const Str: AnsiString; var ANext: PSItem);
     var
       Item     : PSItem;
+
+    Procedure add(St:ShortString);
+    Begin
+      New(Item);
+      Item^.Value := NewStr(St);//mi.Objects.NewStr(S);
+      Item^.Next  := ANext;
+      ANext       := Item;
+    end;
+
+    var
       S        : AnsiString;
-      I    : Integer;
-      Primeiro_CrtlM : Boolean;
+      i,len    : Integer;
   begin
-      Repeat
-        CtrlSleep(0);
+    s := '';
+    len := length(str);
+    For i := Len downto 1 do
+    begin
+      case str[i] of
+       ^M : begin
+              add(s);
+              s := '';
+            end;
+      else begin
+             s:= str[i]+s;
+           end;
+      end;
+    end;
 
-  {      Len := Length(Str);
-        If Len > 255 // Item.Value e shortstring por isso e preciso gerar particionar o string em varios PSItem
-        Then Begin
-               S := copy(Str,Len-255,255);
-               Delete(Str,Len-255,255);
-             End
-        Else Begin
-               S := Str;
-               Str := '';
-             End;}
+    if s = ''
+    Then s := ' ';
 
-        S := '';
-        Primeiro_CrtlM := true;
-
-        If (Str<>'') and (Length(Str) > 0) Then
-        For i := Length(Str) downto 1 do
-        {Pega a ultima linha da string}
-        Begin
-          If Primeiro_CrtlM and (str[i] = ^M)
-          Then Begin
-                 Primeiro_CrtlM := false;
-                 Insert(str[i],S,1);
-               end
-          Else If (Not Primeiro_CrtlM) and (str[i] = ^M)
-               Then Break
-               Else Insert(str[i],S,1);
-        end;
-
-        If S = ''     Then S := ' ';
-
-        If Length(Str)-Length(S) > 0
-        Then Delete(Str,Length(Str)-Length(S)+1,Length(S))
-        Else Str := '';
-
-        If S <> ''
-        Then Begin
-                New(Item);
-                while (Pos(^M,S)<> 0) and (length(S)>0) do
-                   delete(S,Pos(^M,S),1);
-
-                Item^.Value := NewStr(S);//mi.Objects.NewStr(S);
-                Item^.Next  := ANext;
-                ANext       := Item;
-             end;
-
-      Until Str = '';
+    add(s);
 
   end;
 
+  //class procedure TObjectsConsts.PushSItem(Str: AnsiString; var ANext: PSItem);
+  //  var
+  //    Item     : PSItem;
+  //    S        : AnsiString;
+  //    I    : Integer;
+  //    Primeiro_CrtlM : Boolean;
+  //begin
+  //
+  //    Repeat
+  //      CtrlSleep(0);
+  //      S := '';
+  //      Primeiro_CrtlM := true;
+  //
+  //      //Pega a ultima linha da string
+  //      If (Str<>'') and (Length(Str) > 0)
+  //      Then For i := Length(Str) downto 1 do
+  //            Begin
+  //              If Primeiro_CrtlM and (str[i] = ^M)
+  //              Then Begin
+  //                     Primeiro_CrtlM := false;
+  //                     Insert(str[i],S,1);
+  //                   end
+  //              Else If (Not Primeiro_CrtlM) and (str[i] = ^M)
+  //                   Then Break
+  //                   Else Insert(str[i],S,1);
+  //            end;
+  //
+  //      If S = ''
+  //      Then S := ' ';
+  //
+  //      If Length(Str)-Length(S) > 0
+  //      Then Delete(Str,Length(Str)-Length(S)+1,Length(S))
+  //      Else Str := '';
+  //
+  //      If S <> ''
+  //      Then Begin
+  //              New(Item);
+  //              while (Pos(^M,S)<> 0) and (length(S)>0) do
+  //                 delete(S,Pos(^M,S),1);
+  //
+  //              Item^.Value := NewStr(S);//mi.Objects.NewStr(S);
+  //              Item^.Next  := ANext;
+  //              ANext       := Item;
+  //           end;
+  //
+  //    Until Str = '';
+  //
+  //end;
 
-  class procedure TObjectsConsts.Push_MsgErro(Str: AnsiString);
+  class procedure TObjectsConsts.Push_MsgErro(Const Str: AnsiString);
   Begin
     PushSItem(Str,ListaDeMsgErro);
   end;
 
+initialization
+  PushMsgErro := @TObjectsConsts.Push_MsgErro;
 
 end.
 

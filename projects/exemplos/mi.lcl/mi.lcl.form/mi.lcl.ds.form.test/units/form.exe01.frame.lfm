@@ -1,0 +1,29 @@
+object Form_exe01_frame: TForm_exe01_frame
+  Left = 0
+  Height = 439
+  Top = 0
+  Width = 563
+  ClientHeight = 439
+  ClientWidth = 563
+  TabOrder = 0
+  DesignLeft = 278
+  DesignTop = 10
+  object Mi_LCL_Scrollbox1: TMi_LCL_Scrollbox
+    Left = 0
+    Height = 439
+    Top = 0
+    Width = 563
+    Align = alClient
+    AutoScroll = False
+    TabOrder = 0
+    TabStop = True
+  end
+  object Mi_lcl_ui_ds_Form1: TMi_lcl_ui_ds_Form
+    Alias = 'TDmxScroller_Form'
+    DmxScroller_Form = DataModule_Exemplo.DmxScroller_Form1
+    Active = False
+    ParentLCL = Mi_LCL_Scrollbox1
+    Left = 104
+    Top = 32
+  end
+end

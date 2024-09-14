@@ -48,9 +48,13 @@
 </tr>
 <tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
-<td class="itemcode"><code><strong><a href="mi.rtl.Objects.Methods.TObjectsMethods.html#TProgressDlg_If">TProgressDlg_If</a></strong> = mi.rtl.objects.consts.progressdlg_if.TProgressDlg_If;</code></td>
+<td class="itemcode"><code><strong><a href="mi.rtl.Objects.Methods.TObjectsMethods.html#TMi_Transaction">TMi_Transaction</a></strong> = mi.rtl.consts.Transaction.TMi_Transaction;</code></td>
 </tr>
 <tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code><strong><a href="mi.rtl.Objects.Methods.TObjectsMethods.html#TProgressDlg_If">TProgressDlg_If</a></strong> = mi.rtl.objects.consts.progressdlg_if.TProgressDlg_If;</code></td>
+</tr>
+<tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
 <td class="itemcode"><code><strong><a href="mi.rtl.Objects.Methods.TObjectsMethods.html#TProgressDlg_If_Class">TProgressDlg_If_Class</a></strong> = mi.rtl.objects.consts.progressdlg_if.TProgressDlg_If_Class;</code></td>
 </tr>
@@ -59,7 +63,7 @@
 <table class="summary wide_list">
 <tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
-<td class="itemcode"><code>nested const <strong><a href="mi.rtl.Objects.Methods.TObjectsMethods.html#MI_MsgBox">MI_MsgBox</a></strong>: <a href="mi.rtl.Objects.Methods.TObjectsMethods.html#TMI_MsgBox">TMI_MsgBox</a> = nil;</code></td>
+<td class="itemcode"><code><strong><a href="mi.rtl.Objects.Methods.TObjectsMethods.html#Mi_Transaction">Mi_Transaction</a></strong>: <a href="mi.rtl.Objects.Methods.TObjectsMethods.html#TMi_Transaction">TMi_Transaction</a>;</code></td>
 </tr>
 <tr class="list2">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
@@ -68,6 +72,14 @@
 </table>
 <span id="PasDoc-Methods"></span><h3 class="summary">Métodos</h3>
 <table class="summary wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>constructor <strong><a href="mi.rtl.Objects.Methods.TObjectsMethods.html#Create">Create</a></strong>(aOwner:TComponent); override;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>Destructor <strong><a href="mi.rtl.Objects.Methods.TObjectsMethods.html#destroy">destroy</a></strong>; Override;</code></td>
+</tr>
 <tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
 <td class="itemcode"><code>class Function <strong><a href="mi.rtl.Objects.Methods.TObjectsMethods.html#redirectOutput">redirectOutput</a></strong>(Var OutputFile: text;aFileName:TFileName):integer;</code></td>
@@ -82,19 +94,43 @@
 </tr>
 <tr class="list2">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
-<td class="itemcode"><code>class function <strong><a href="mi.rtl.Objects.Methods.TObjectsMethods.html#Logs">Logs</a></strong>: <a href="mi.rtl.Objects.Methods.TObjectsMethods.html#TFilesLogs">TFilesLogs</a>;</code></td>
+<td class="itemcode"><code>Function <strong><a href="mi.rtl.Objects.Methods.TObjectsMethods.html#create_MI_MsgBox">create_MI_MsgBox</a></strong>:<a href="mi.rtl.Objects.Methods.TObjectsMethods.html#TMI_MsgBox">TMI_MsgBox</a>; virtual; abstract;</code></td>
 </tr>
 <tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
-<td class="itemcode"><code>class procedure <strong><a href="mi.rtl.Objects.Methods.TObjectsMethods.html#SysMessageBox">SysMessageBox</a></strong>(Msg, Title: AnsiString; Error: Boolean);</code></td>
+<td class="itemcode"><code>class function <strong><a href="mi.rtl.Objects.Methods.TObjectsMethods.html#MI_MsgBox">MI_MsgBox</a></strong>: <a href="mi.rtl.Objects.Methods.TObjectsMethods.html#TMI_MsgBox">TMI_MsgBox</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="mi.rtl.Objects.Methods.TObjectsMethods.html#StartTransaction">StartTransaction</a></strong>:Boolean; virtual; Overload;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="mi.rtl.Objects.Methods.TObjectsMethods.html#COMMIT">COMMIT</a></strong>:Boolean; virtual; Overload;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>procedure <strong><a href="mi.rtl.Objects.Methods.TObjectsMethods.html#Rollback">Rollback</a></strong>; virtual;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>class function <strong><a href="mi.rtl.Objects.Methods.TObjectsMethods.html#Logs">Logs</a></strong>: <a href="mi.rtl.Objects.Methods.TObjectsMethods.html#TFilesLogs">TFilesLogs</a>;</code></td>
 </tr>
 <tr class="list2">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
-<td class="itemcode"><code>class function <strong><a href="mi.rtl.Objects.Methods.TObjectsMethods.html#MessageBox">MessageBox</a></strong>(const Msg: AnsiString): Word; Virtual; overload;</code></td>
+<td class="itemcode"><code>class procedure <strong><a href="mi.rtl.Objects.Methods.TObjectsMethods.html#SysMessageBox">SysMessageBox</a></strong>(Msg, Title: AnsiString; Error: Boolean);</code></td>
 </tr>
 <tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
-<td class="itemcode"><code>class function <strong><a href="mi.rtl.Objects.Methods.TObjectsMethods.html#MessageBox">MessageBox</a></strong>(const aMsg: AnsiString; DlgType: TMsgDlgType; Buttons: TMsgDlgButtons): <a href="mi.rtl.ui.dmxscroller.inputbox.html#TModalResult">TModalResult</a>; Virtual; overload;</code></td>
+<td class="itemcode"><code>class function <strong><a href="mi.rtl.Objects.Methods.TObjectsMethods.html#MessageBox">MessageBox</a></strong>(const Msg: AnsiString): <a href="mi.rtl.Objects.Consts.Mi_MsgBox.TMI_MsgBoxTypes.html#TModalResult">TMI_MsgBoxTypes.TModalResult</a>; Virtual; overload;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>class function <strong><a href="mi.rtl.Objects.Methods.TObjectsMethods.html#MessageBox">MessageBox</a></strong>(const aMsg: AnsiString; DlgType: <a href="mi.rtl.Objects.Consts.Mi_MsgBox.TMI_MsgBoxTypes.html#TMsgDlgType">TMI_MsgBoxTypes.TMsgDlgType</a>; Buttons: <a href="mi.rtl.Objects.Consts.Mi_MsgBox.TMI_MsgBoxTypes.html#TMsgDlgButtons">TMI_MsgBoxTypes.TMsgDlgButtons</a>): <a href="mi.rtl.Objects.Consts.Mi_MsgBox.TMI_MsgBoxTypes.html#TModalResult">TMI_MsgBoxTypes.TModalResult</a>; Virtual; overload;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>class function <strong><a href="mi.rtl.Objects.Methods.TObjectsMethods.html#MessageBox">MessageBox</a></strong>(const aMsg: AnsiString; DlgType: <a href="mi.rtl.Objects.Consts.Mi_MsgBox.TMI_MsgBoxTypes.html#TMsgDlgType">TMI_MsgBoxTypes.TMsgDlgType</a>; Buttons: <a href="mi.rtl.Objects.Consts.Mi_MsgBox.TMI_MsgBoxTypes.html#TMsgDlgButtons">TMI_MsgBoxTypes.TMsgDlgButtons</a>; ButtonDefault: <a href="mi.rtl.Objects.Consts.Mi_MsgBox.TMI_MsgBoxTypes.html#TMsgDlgBtn">TMI_MsgBoxTypes.TMsgDlgBtn</a>): <a href="mi.rtl.Objects.Consts.Mi_MsgBox.TMI_MsgBoxTypes.html#TModalResult">TMI_MsgBoxTypes.TModalResult</a>; Virtual; overload;</code></td>
 </tr>
 <tr class="list2">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
@@ -130,19 +166,11 @@
 </tr>
 <tr class="list2">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
-<td class="itemcode"><code>class FUNCTION <strong><a href="mi.rtl.Objects.Methods.TObjectsMethods.html#IsValidPtr">IsValidPtr</a></strong>( ADDR:POINTER):BOOLEAN ; overload;</code></td>
-</tr>
-<tr class="list">
-<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
-<td class="itemcode"><code>class FUNCTION <strong><a href="mi.rtl.Objects.Methods.TObjectsMethods.html#IsValidPtr">IsValidPtr</a></strong>( const aClass: Tobject):BOOLEAN ; overload;</code></td>
-</tr>
-<tr class="list2">
-<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
 <td class="itemcode"><code>class Function <strong><a href="mi.rtl.Objects.Methods.TObjectsMethods.html#Name_Type_App_MarIcaraiV1">Name_Type_App_MarIcaraiV1</a></strong>:AnsiString;</code></td>
 </tr>
 <tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
-<td class="itemcode"><code>class Function <strong><a href="mi.rtl.Objects.Methods.TObjectsMethods.html#Set_IsApp_VCL">Set_IsApp_VCL</a></strong>(aIsApp_VCL:Boolean):Boolean;</code></td>
+<td class="itemcode"><code>class Function <strong><a href="mi.rtl.Objects.Methods.TObjectsMethods.html#Set_IsApp_LCL">Set_IsApp_LCL</a></strong>(aIsApp_LCL:Boolean):Boolean;</code></td>
 </tr>
 <tr class="list2">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
@@ -194,30 +222,6 @@
 </tr>
 <tr class="list2">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
-<td class="itemcode"><code>Class function <strong><a href="mi.rtl.Objects.Methods.TObjectsMethods.html#InputValue">InputValue</a></strong>(const aTitle,aLabel: AnsiString;var aValue : Variant): <a href="mi.rtl.ui.dmxscroller.inputbox.html#TModalResult">TModalResult</a>;</code></td>
-</tr>
-<tr class="list">
-<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
-<td class="itemcode"><code>Class Function <strong><a href="mi.rtl.Objects.Methods.TObjectsMethods.html#Prompt">Prompt</a></strong>(aTitle: AnsiString;aPergunta:AnsiString;Var aResult: Variant):Boolean;</code></td>
-</tr>
-<tr class="list2">
-<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
-<td class="itemcode"><code>Class Function <strong><a href="mi.rtl.Objects.Methods.TObjectsMethods.html#InputPassword">InputPassword</a></strong>(aTitle: AnsiString;out aUsername:AnsiString;out apassword:AnsiString):Boolean; Overload;</code></td>
-</tr>
-<tr class="list">
-<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
-<td class="itemcode"><code>Class Function <strong><a href="mi.rtl.Objects.Methods.TObjectsMethods.html#InputPassword">InputPassword</a></strong>(aTitle: AnsiString;out apassword:AnsiString):Boolean; Overload;</code></td>
-</tr>
-<tr class="list2">
-<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
-<td class="itemcode"><code>class procedure <strong><a href="mi.rtl.Objects.Methods.TObjectsMethods.html#DisposeSItems">DisposeSItems</a></strong>(VAR AItems: <a href="mi_rtl_ui_Dmxscroller.html#PSItem">PSItem</a>); overload;</code></td>
-</tr>
-<tr class="list">
-<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
-<td class="itemcode"><code>class procedure <strong><a href="mi.rtl.Objects.Methods.TObjectsMethods.html#DisposeSItems">DisposeSItems</a></strong>(Var AStrItems: <a href="mi_rtl_ui_Dmxscroller.html#ptString">PtString</a>); overload;</code></td>
-</tr>
-<tr class="list2">
-<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
 <td class="itemcode"><code>class function <strong><a href="mi.rtl.Objects.Methods.TObjectsMethods.html#MaxItemStrLen">MaxItemStrLen</a></strong>(AItems: <a href="mi_rtl_ui_Dmxscroller.html#PSItem">PSItem</a>) : integer; Overload;</code></td>
 </tr>
 <tr class="list">
@@ -234,11 +238,19 @@
 </tr>
 <tr class="list2">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>class function <strong><a href="mi.rtl.Objects.Methods.TObjectsMethods.html#MaskEdit_to_Mask">MaskEdit_to_Mask</a></strong>(const aMaskEdit: AnsiString ): TMask; virtual;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>class function <strong><a href="mi.rtl.Objects.Methods.TObjectsMethods.html#isDateTime">isDateTime</a></strong>(Const aTemplate : AnsiString):Boolean;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
 <td class="itemcode"><code>class Function <strong><a href="mi.rtl.Objects.Methods.TObjectsMethods.html#TypeFld">TypeFld</a></strong>(Const aTemplate : <a href="mi_rtl_ui_Dmxscroller.html#tString">tString</a>;Var aSize : <a href="mi_rtl_ui_Dmxscroller.html#SmallWord">SmallWord</a>):AnsiChar; overload;</code></td>
 </tr>
 <tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
-<td class="itemcode"><code>class Function <strong><a href="mi.rtl.Objects.Methods.TObjectsMethods.html#TypeFld">TypeFld</a></strong>(Const aTemplate : ShortString):AnsiChar; overload;</code></td>
+<td class="itemcode"><code>class Function <strong><a href="mi.rtl.Objects.Methods.TObjectsMethods.html#TypeFld">TypeFld</a></strong>(Const aTemplate : <a href="mi_rtl_ui_Dmxscroller.html#tString">tString</a>):AnsiChar; overload;</code></td>
 </tr>
 <tr class="list2">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
@@ -282,123 +294,131 @@
 </tr>
 <tr class="list2">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
-<td class="itemcode"><code>class Function <strong><a href="mi.rtl.Objects.Methods.TObjectsMethods.html#SIF">SIF</a></strong>(Const Logica : Boolean; Const E1 , E2 : AnsiString ) : AnsiString ;</code></td>
+<td class="itemcode"><code>class function <strong><a href="mi.rtl.Objects.Methods.TObjectsMethods.html#IIF">IIF</a></strong>&lt;T&gt;(const Logica: Boolean; const E1, E2: T): T; static;</code></td>
 </tr>
 <tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>class Function <strong><a href="mi.rtl.Objects.Methods.TObjectsMethods.html#SIF">SIF</a></strong>(Const Logica : Boolean; Const E1 , E2 : AnsiString ) : AnsiString ;</code></td>
+</tr>
+<tr class="list2">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
 <td class="itemcode"><code>class function <strong><a href="mi.rtl.Objects.Methods.TObjectsMethods.html#MinL">MinL</a></strong>(Const a,b:Longint):Longint;</code></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
 <td class="itemcode"><code>class function <strong><a href="mi.rtl.Objects.Methods.TObjectsMethods.html#MaxL">MaxL</a></strong>(Const a,b:Longint):Longint;</code></td>
 </tr>
-<tr class="list">
-<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
-<td class="itemcode"><code>class function <strong><a href="mi.rtl.Objects.Methods.TObjectsMethods.html#NumToStr">NumToStr</a></strong>(Const formato : AnsiString;buffer:Variant; Const Tipo : AnsiChar;Const OkSpc:Boolean):AnsiString;</code></td>
-</tr>
 <tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>class function <strong><a href="mi.rtl.Objects.Methods.TObjectsMethods.html#NumToStr">NumToStr</a></strong>(Const formato : AnsiString;const buffer:Variant; Const Tipo : AnsiChar;Const OkSpc:Boolean):AnsiString;</code></td>
+</tr>
+<tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
 <td class="itemcode"><code>class Function <strong><a href="mi.rtl.Objects.Methods.TObjectsMethods.html#InsertCrtlJ">InsertCrtlJ</a></strong>(Const StrMsg:<a href="mi_rtl_ui_Dmxscroller.html#tString">tString</a>):<a href="mi_rtl_ui_Dmxscroller.html#tString">tString</a>;</code></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
 <td class="itemcode"><code>class procedure <strong><a href="mi.rtl.Objects.Methods.TObjectsMethods.html#Create_Progress1Passo">Create_Progress1Passo</a></strong>(ATitle : <a href="mi_rtl_ui_Dmxscroller.html#tString">tstring</a>;Obs:<a href="mi_rtl_ui_Dmxscroller.html#tString">tstring</a> ; ATotal : Longint); Virtual;</code></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
 <td class="itemcode"><code>class procedure <strong><a href="mi.rtl.Objects.Methods.TObjectsMethods.html#Set_Progress1Passo">Set_Progress1Passo</a></strong>(aNumber : Longint); Virtual;</code></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
 <td class="itemcode"><code>class procedure <strong><a href="mi.rtl.Objects.Methods.TObjectsMethods.html#Destroy_Progress1Passo">Destroy_Progress1Passo</a></strong>; Virtual;</code></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
 <td class="itemcode"><code>class procedure <strong><a href="mi.rtl.Objects.Methods.TObjectsMethods.html#LogError">LogError</a></strong>(const Fmt: String; Args: array of const); overload;</code></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
 <td class="itemcode"><code>class procedure <strong><a href="mi.rtl.Objects.Methods.TObjectsMethods.html#LogError">LogError</a></strong>(const Msg:AnsiString ); overload;</code></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
 <td class="itemcode"><code>class function <strong><a href="mi.rtl.Objects.Methods.TObjectsMethods.html#WideStringToString">WideStringToString</a></strong>(const ws: WideString): AnsiString;</code></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
 <td class="itemcode"><code>class Function <strong><a href="mi.rtl.Objects.Methods.TObjectsMethods.html#Set_FileModeDenyALLSalvaAnt">Set_FileModeDenyALLSalvaAnt</a></strong>(Const ModoDoArquivo : Boolean;Var _FileModeDenyALLAnt:Boolean):Boolean;</code></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
 <td class="itemcode"><code>Class Function <strong><a href="mi.rtl.Objects.Methods.TObjectsMethods.html#Set_FileModeDenyALL">Set_FileModeDenyALL</a></strong>(Const ModoDoArquivo : Boolean):Boolean;</code></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
 <td class="itemcode"><code>class Function <strong><a href="mi.rtl.Objects.Methods.TObjectsMethods.html#Sitems_MsgErro">Sitems_MsgErro</a></strong>() : <a href="mi_rtl_ui_Dmxscroller.html#PSItem">PSItem</a>;</code></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
 <td class="itemcode"><code>class Function <strong><a href="mi.rtl.Objects.Methods.TObjectsMethods.html#Pop_MsgErro">Pop_MsgErro</a></strong>:<a href="mi_rtl_ui_Dmxscroller.html#PSItem">PSItem</a>;</code></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
 <td class="itemcode"><code>class function <strong><a href="mi.rtl.Objects.Methods.TObjectsMethods.html#SpcStrD">SpcStrD</a></strong>(Const campo : <a href="mi_rtl_ui_Dmxscroller.html#tString">tString</a>; Const Tam : Byte): <a href="mi_rtl_ui_Dmxscroller.html#tString">tString</a>;</code></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
 <td class="itemcode"><code>class function <strong><a href="mi.rtl.Objects.Methods.TObjectsMethods.html#CentralizaStr">CentralizaStr</a></strong>(Const campo : AnsiString; Const tamanho : Integer) : AnsiString;</code></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
 <td class="itemcode"><code>class function <strong><a href="mi.rtl.Objects.Methods.TObjectsMethods.html#spc">spc</a></strong>(Const campo:AnsiString;Const tam :Longint):AnsiString;</code></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
 <td class="itemcode"><code>class function <strong><a href="mi.rtl.Objects.Methods.TObjectsMethods.html#NumberCharControl">NumberCharControl</a></strong>(s:AnsiString):Integer;</code></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
 <td class="itemcode"><code>class Function <strong><a href="mi.rtl.Objects.Methods.TObjectsMethods.html#StrAlinhado">StrAlinhado</a></strong>(aStrMsg:<a href="mi_rtl_ui_Dmxscroller.html#tString">tString</a>;Colunas : byte;Const Alinhamento:TAlinhamento):<a href="mi_rtl_ui_Dmxscroller.html#tString">tString</a>;</code></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
 <td class="itemcode"><code>class Function <strong><a href="mi.rtl.Objects.Methods.TObjectsMethods.html#StringToSItem">StringToSItem</a></strong>( StrMsg:AnsiString; Alinhamento:TAlinhamento):<a href="mi_rtl_ui_Dmxscroller.html#PSItem">PSItem</a>; virtual; overload;</code></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
 <td class="itemcode"><code>class Function <strong><a href="mi.rtl.Objects.Methods.TObjectsMethods.html#StringToSItem">StringToSItem</a></strong>( StrMsg:AnsiString ):<a href="mi_rtl_ui_Dmxscroller.html#PSItem">PSItem</a>; virtual; overload;</code></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
 <td class="itemcode"><code>class function <strong><a href="mi.rtl.Objects.Methods.TObjectsMethods.html#SItemsLen">SItemsLen</a></strong>(S: <a href="mi_rtl_ui_Dmxscroller.html#PSItem">PSItem</a>) : SmallInt;</code></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
 <td class="itemcode"><code>class Function <strong><a href="mi.rtl.Objects.Methods.TObjectsMethods.html#SItemToString">SItemToString</a></strong>(Items: <a href="mi_rtl_ui_Dmxscroller.html#PSItem">PSItem</a>):AnsiString;</code></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
 <td class="itemcode"><code>class procedure <strong><a href="mi.rtl.Objects.Methods.TObjectsMethods.html#WriteSItems">WriteSItems</a></strong>(var S: <a href="mi.rtl.miStringlist.TMiStringList.html">TMiStringList</a>;const Items: <a href="mi_rtl_ui_Dmxscroller.html#PSItem">PSItem</a>);</code></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
 <td class="itemcode"><code>class Function <strong><a href="mi.rtl.Objects.Methods.TObjectsMethods.html#PSItem_ListaDeMsgErro">PSItem_ListaDeMsgErro</a></strong>:<a href="mi_rtl_ui_Dmxscroller.html#PSItem">PSItem</a>; virtual;</code></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
 <td class="itemcode"><code>class Procedure <strong><a href="mi.rtl.Objects.Methods.TObjectsMethods.html#MessageError">MessageError</a></strong>; virtual;</code></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
 <td class="itemcode"><code>class Function <strong><a href="mi.rtl.Objects.Methods.TObjectsMethods.html#String_ListaDeMsgErro">String_ListaDeMsgErro</a></strong>(Separador:String):AnsiString; Overload;</code></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
 <td class="itemcode"><code>class Procedure <strong><a href="mi.rtl.Objects.Methods.TObjectsMethods.html#Dispose_ListaDeMsgErro">Dispose_ListaDeMsgErro</a></strong>; virtual;</code></td>
 </tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>class Function <strong><a href="mi.rtl.Objects.Methods.TObjectsMethods.html#UpperCase">UpperCase</a></strong>(str:AnsiString):AnsiString;</code></td>
+</tr>
 <tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
-<td class="itemcode"><code>class Function <strong><a href="mi.rtl.Objects.Methods.TObjectsMethods.html#FMaiuscula">FMaiuscula</a></strong>(str:AnsiString):AnsiString;</code></td>
+<td class="itemcode"><code>class function <strong><a href="mi.rtl.Objects.Methods.TObjectsMethods.html#Lowcase">Lowcase</a></strong>(str:AnsiString):AnsiString;</code></td>
 </tr>
 <tr class="list2">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
@@ -526,11 +546,19 @@
 </tr>
 <tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
-<td class="itemcode"><code>class Function <strong><a href="mi.rtl.Objects.Methods.TObjectsMethods.html#IsNumber_Real">IsNumber_Real</a></strong>(Const aTemplate : ShortString):Boolean;</code></td>
+<td class="itemcode"><code>class function <strong><a href="mi.rtl.Objects.Methods.TObjectsMethods.html#IsNumberReal">IsNumberReal</a></strong>(const aTemplate: ShortString): Boolean;</code></td>
 </tr>
 <tr class="list2">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>class function <strong><a href="mi.rtl.Objects.Methods.TObjectsMethods.html#IsNumberInteger">IsNumberInteger</a></strong>(const aTemplate: ShortString): Boolean;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
 <td class="itemcode"><code>class Function <strong><a href="mi.rtl.Objects.Methods.TObjectsMethods.html#IsNumber">IsNumber</a></strong>(Const aTemplate : ShortString):Boolean;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>class Function <strong><a href="mi.rtl.Objects.Methods.TObjectsMethods.html#IsBoolean">IsBoolean</a></strong>(Const aTemplate : ShortString):Boolean;</code></td>
 </tr>
 <tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
@@ -542,11 +570,11 @@
 </tr>
 <tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
-<td class="itemcode"><code>procedure <strong><a href="mi.rtl.Objects.Methods.TObjectsMethods.html#HandleEvent">HandleEvent</a></strong>(var Event: TEvent); Virtual;</code></td>
+<td class="itemcode"><code>procedure <strong><a href="mi.rtl.Objects.Methods.TObjectsMethods.html#HandleEvent">HandleEvent</a></strong>(var Event: <a href="mi_rtl_ui_Dmxscroller.html#TEvent">TEvent</a>); Virtual;</code></td>
 </tr>
 <tr class="list2">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
-<td class="itemcode"><code>procedure <strong><a href="mi.rtl.Objects.Methods.TObjectsMethods.html#ClearEvent">ClearEvent</a></strong>(var Event: TEvent); Virtual;</code></td>
+<td class="itemcode"><code>procedure <strong><a href="mi.rtl.Objects.Methods.TObjectsMethods.html#ClearEvent">ClearEvent</a></strong>(var Event: <a href="mi_rtl_ui_Dmxscroller.html#TEvent">TEvent</a>); Virtual;</code></td>
 </tr>
 <tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
@@ -554,11 +582,11 @@
 </tr>
 <tr class="list2">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
-<td class="itemcode"><code>class Function <strong><a href="mi.rtl.Objects.Methods.TObjectsMethods.html#DeleteMask">DeleteMask</a></strong>(S : <a href="mi_rtl_ui_Dmxscroller.html#tString">tString</a>;ValidSet: AnsiCharSet):AnsiString; overload;</code></td>
+<td class="itemcode"><code>class Function <strong><a href="mi.rtl.Objects.Methods.TObjectsMethods.html#DeleteMask">DeleteMask</a></strong>(S:AnsiString;ValidSet: AnsiCharSet):AnsiString; overload;</code></td>
 </tr>
 <tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
-<td class="itemcode"><code>class function <strong><a href="mi.rtl.Objects.Methods.TObjectsMethods.html#DeleteMask">DeleteMask</a></strong>(S: ShortString;aMask:ShortString): AnsiString; overload;</code></td>
+<td class="itemcode"><code>class function <strong><a href="mi.rtl.Objects.Methods.TObjectsMethods.html#DeleteMask">DeleteMask</a></strong>(S:AnsiString;aMask:<a href="mi_rtl_ui_Dmxscroller.html#tString">TString</a>): AnsiString; overload;</code></td>
 </tr>
 <tr class="list2">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
@@ -570,7 +598,7 @@
 </tr>
 <tr class="list2">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
-<td class="itemcode"><code>class function <strong><a href="mi.rtl.Objects.Methods.TObjectsMethods.html#StrNumberValid">StrNumberValid</a></strong>(S: AnsiString): AnsiString;</code></td>
+<td class="itemcode"><code>class function <strong><a href="mi.rtl.Objects.Methods.TObjectsMethods.html#StrToStrNumberForProcVal">StrToStrNumberForProcVal</a></strong>(S: AnsiString): AnsiString;</code></td>
 </tr>
 <tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
@@ -656,6 +684,70 @@
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
 <td class="itemcode"><code>class function <strong><a href="mi.rtl.Objects.Methods.TObjectsMethods.html#SplitString">SplitString</a></strong>(aInputString:string; aDelimiter: Char):TStringArray;</code></td>
 </tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>class function <strong><a href="mi.rtl.Objects.Methods.TObjectsMethods.html#HTMLToTColor">HTMLToTColor</a></strong>(const HTML: <a href="mi_rtl_ui_Dmxscroller.html#tString">TString</a>): Integer;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>Class function <strong><a href="mi.rtl.Objects.Methods.TObjectsMethods.html#IsEmptyOrNull">IsEmptyOrNull</a></strong>(const aValue: Variant): Boolean;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>class procedure <strong><a href="mi.rtl.Objects.Methods.TObjectsMethods.html#UnlistPublishedProperty">UnlistPublishedProperty</a></strong>(ComponentClass:TPersistentClass; const PropertyName:String);</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>class Procedure <strong><a href="mi.rtl.Objects.Methods.TObjectsMethods.html#str">str</a></strong>(v : variant; var s : String);</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>class Procedure <strong><a href="mi.rtl.Objects.Methods.TObjectsMethods.html#Print_info_compile">Print_info_compile</a></strong>;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>class function <strong><a href="mi.rtl.Objects.Methods.TObjectsMethods.html#VarRecArrayToStr">VarRecArrayToStr</a></strong>(const Args: array of const): string;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>class procedure <strong><a href="mi.rtl.Objects.Methods.TObjectsMethods.html#JsonToDataSet">JsonToDataSet</a></strong>(const JSONString: string; var aJSONDataSet: TJSONDataSet );</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>Class Function <strong><a href="mi.rtl.Objects.Methods.TObjectsMethods.html#DataSetToJson">DataSetToJson</a></strong>(Const aJSONDataSet: TJSONDataSet):String;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>class function <strong><a href="mi.rtl.Objects.Methods.TObjectsMethods.html#JSONToVariantArray">JSONToVariantArray</a></strong>(JSONData: TJSONData): Variant;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>class function <strong><a href="mi.rtl.Objects.Methods.TObjectsMethods.html#ArrayToVariant">ArrayToVariant</a></strong>(aValues: array of string):Variant;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>class function <strong><a href="mi.rtl.Objects.Methods.TObjectsMethods.html#getFieldsKeys">getFieldsKeys</a></strong>(aQueryFields: TStrings;out Values: TArray&lt;string&gt;): AnsiString; overload;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>class function <strong><a href="mi.rtl.Objects.Methods.TObjectsMethods.html#URLEncode">URLEncode</a></strong>(AStr: Ansistring): UTF8String;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>class function <strong><a href="mi.rtl.Objects.Methods.TObjectsMethods.html#JSONObjectToQueryString">JSONObjectToQueryString</a></strong>(const Params: TJSONObject): string;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>class Procedure <strong><a href="mi.rtl.Objects.Methods.TObjectsMethods.html#GetQueryFieldsLocate">GetQueryFieldsLocate</a></strong>(var aRequest: TRequest; out aKeyFields: string; Out aKeyValues: Variant; Out aOptions : TLocateOptions );</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>Class function <strong><a href="mi.rtl.Objects.Methods.TObjectsMethods.html#LocateParamsToJson">LocateParamsToJson</a></strong>(KeyFields: string; KeyValues: Variant; Options: TLocateOptions): TJSONObject;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>Class function <strong><a href="mi.rtl.Objects.Methods.TObjectsMethods.html#ValidateAndNormalizeURL">ValidateAndNormalizeURL</a></strong>(const BaseURL, Action, QueryString: string): string;</code></td>
+</tr>
 </table>
 <span id="PasDoc-Properties"></span><h3 class="summary">Propriedades</h3>
 <table class="summary wide_list">
@@ -721,6 +813,14 @@
 <table class="detail wide_list">
 <tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="TMi_Transaction"></span><code><strong>TMi_Transaction</strong> = mi.rtl.consts.Transaction.TMi_Transaction;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
 <td class="itemcode"><span id="TProgressDlg_If"></span><code><strong>TProgressDlg_If</strong> = mi.rtl.objects.consts.progressdlg_if.TProgressDlg_If;</code></td>
 </tr>
 <tr><td colspan="2">
@@ -738,10 +838,12 @@
 <table class="detail wide_list">
 <tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
-<td class="itemcode"><span id="MI_MsgBox"></span><code>nested const <strong>MI_MsgBox</strong>: <a href="mi.rtl.Objects.Methods.TObjectsMethods.html#TMI_MsgBox">TMI_MsgBox</a> = nil;</code></td>
+<td class="itemcode"><span id="Mi_Transaction"></span><code><strong>Mi_Transaction</strong>: <a href="mi.rtl.Objects.Methods.TObjectsMethods.html#TMi_Transaction">TMi_Transaction</a>;</code></td>
 </tr>
 <tr><td colspan="2">
-&nbsp;</td></tr>
+<p>
+A constante <strong><code>Mi_Transaction</code></strong> deve ser iniciada ao criar conexão com o banco de dados.</p>
+</td></tr>
 </table>
 <table class="detail wide_list">
 <tr class="list">
@@ -760,6 +862,22 @@
 </td></tr>
 </table>
 <h3 class="detail">Métodos</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Create"></span><code>constructor <strong>Create</strong>(aOwner:TComponent); override;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="destroy"></span><code>Destructor <strong>destroy</strong>; Override;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
 <table class="detail wide_list">
 <tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
@@ -785,6 +903,118 @@ A classe método <strong><code>redirectOutput</code></strong> redireciona a said
 </tr>
 <tr><td colspan="2">
 &nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="create_MI_MsgBox"></span><code>Function <strong>create_MI_MsgBox</strong>:<a href="mi.rtl.Objects.Methods.TObjectsMethods.html#TMI_MsgBox">TMI_MsgBox</a>; virtual; abstract;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+O método <strong><code>create_MI_MsgBox</code></strong> deve ser implementado que se possoa criar formulários <a class="normal" href="mi.rtl.Objects.Methods.TObjectsMethods.html#MI_MsgBox">MI_MsgBox</a> diferente do padrão setado por <a class="normal" href="mi.rtl.Objects.Methods.Paramexecucao.Application.TApplication.html">Tapplication</a>.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="MI_MsgBox"></span><code>class function <strong>MI_MsgBox</strong>: <a href="mi.rtl.Objects.Methods.TObjectsMethods.html#TMI_MsgBox">TMI_MsgBox</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="StartTransaction"></span><code>function <strong>StartTransaction</strong>:Boolean; virtual; Overload;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+O método <strong><code>StartTransaction</code></strong> inicia uma transação se puder.
+
+<p></p>
+
+<ul class="paragraph_spacing">
+  <li><p><strong>RESULT</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>True </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Se a transação atual for false;</p></li>
+</ul>
+
+<p></p></li>
+  <li><p>false </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Se a transação atual for true;</p></li>
+</ul>
+
+<p></p></li>
+  <li><p>**Objetivo: </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Permitir que após o processamento, só executar <a class="normal" href="mi.rtl.Objects.Methods.TObjectsMethods.html#COMMIT">commit</a> ou <a class="normal" href="mi.rtl.Objects.Methods.TObjectsMethods.html#Rollback">rollback</a> se <code>StartTransaction</code> tenha retornado true;</p></li>
+</ul>
+
+<p></p></li>
+  <li><p>EXEMPLO DE USO
+
+<p></p>
+
+<pre class="longcode">
+
+<span class="pascal_keyword">Function</span> AddRec:Boolean;
+<span class="pascal_keyword">Var</span>
+  Finalize : boolean;
+<span class="pascal_keyword">begin</span>
+  <span class="pascal_keyword">try</span> /Exepet
+
+    Finalize := StartTransaction;
+
+    AddRec;
+
+    <span class="pascal_keyword">if</span> Finalize
+    <span class="pascal_keyword">then</span> Commit
+
+  <span class="pascal_keyword">Except</span>
+    <span class="pascal_keyword">On</span> E : Exception <span class="pascal_keyword">do</span>
+    <span class="pascal_keyword">begin</span>
+      <span class="pascal_keyword">if</span> finalize
+      <span class="pascal_keyword">then</span> Roolback;
+
+      <span class="pascal_keyword">Raise</span> TException.Create(Self,<span class="pascal_string">'AddRec'</span>,E.<span class="pascal_keyword">Message</span>);
+    <span class="pascal_keyword">end</span>;
+<span class="pascal_keyword">end</span>;</pre>
+
+<p></p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="COMMIT"></span><code>function <strong>COMMIT</strong>:Boolean; virtual; Overload;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+O método <strong><code>COMMIT</code></strong> confirme a transação no banco de dados</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="Rollback"></span><code>procedure <strong>Rollback</strong>; virtual;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+O método <strong><code>Rollback</code></strong> anula a transação do banco de dados</p>
+</td></tr>
 </table>
 <table class="detail wide_list">
 <tr class="list">
@@ -827,7 +1057,7 @@ A classe método <strong><code>redirectOutput</code></strong> redireciona a said
 <table class="detail wide_list">
 <tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
-<td class="itemcode"><span id="MessageBox"></span><code>class function <strong>MessageBox</strong>(const Msg: AnsiString): Word; Virtual; overload;</code></td>
+<td class="itemcode"><span id="MessageBox"></span><code>class function <strong>MessageBox</strong>(const Msg: AnsiString): <a href="mi.rtl.Objects.Consts.Mi_MsgBox.TMI_MsgBoxTypes.html#TModalResult">TMI_MsgBoxTypes.TModalResult</a>; Virtual; overload;</code></td>
 </tr>
 <tr><td colspan="2">
 <p>
@@ -837,7 +1067,15 @@ A classe <strong><code>MessageBox</code></strong> deve ser implementada no pacot
 <table class="detail wide_list">
 <tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
-<td class="itemcode"><span id="MessageBox"></span><code>class function <strong>MessageBox</strong>(const aMsg: AnsiString; DlgType: TMsgDlgType; Buttons: TMsgDlgButtons): <a href="mi.rtl.ui.dmxscroller.inputbox.html#TModalResult">TModalResult</a>; Virtual; overload;</code></td>
+<td class="itemcode"><span id="MessageBox"></span><code>class function <strong>MessageBox</strong>(const aMsg: AnsiString; DlgType: <a href="mi.rtl.Objects.Consts.Mi_MsgBox.TMI_MsgBoxTypes.html#TMsgDlgType">TMI_MsgBoxTypes.TMsgDlgType</a>; Buttons: <a href="mi.rtl.Objects.Consts.Mi_MsgBox.TMI_MsgBoxTypes.html#TMsgDlgButtons">TMI_MsgBoxTypes.TMsgDlgButtons</a>): <a href="mi.rtl.Objects.Consts.Mi_MsgBox.TMI_MsgBoxTypes.html#TModalResult">TMI_MsgBoxTypes.TModalResult</a>; Virtual; overload;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="MessageBox"></span><code>class function <strong>MessageBox</strong>(const aMsg: AnsiString; DlgType: <a href="mi.rtl.Objects.Consts.Mi_MsgBox.TMI_MsgBoxTypes.html#TMsgDlgType">TMI_MsgBoxTypes.TMsgDlgType</a>; Buttons: <a href="mi.rtl.Objects.Consts.Mi_MsgBox.TMI_MsgBoxTypes.html#TMsgDlgButtons">TMI_MsgBoxTypes.TMsgDlgButtons</a>; ButtonDefault: <a href="mi.rtl.Objects.Consts.Mi_MsgBox.TMI_MsgBoxTypes.html#TMsgDlgBtn">TMI_MsgBoxTypes.TMsgDlgBtn</a>): <a href="mi.rtl.Objects.Consts.Mi_MsgBox.TMI_MsgBoxTypes.html#TModalResult">TMI_MsgBoxTypes.TModalResult</a>; Virtual; overload;</code></td>
 </tr>
 <tr><td colspan="2">
 <p>
@@ -978,22 +1216,6 @@ A classe function <strong><code>LongDiv</code></strong> retorna o valor inteiro 
 <table class="detail wide_list">
 <tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
-<td class="itemcode"><span id="IsValidPtr"></span><code>class FUNCTION <strong>IsValidPtr</strong>( ADDR:POINTER):BOOLEAN ; overload;</code></td>
-</tr>
-<tr><td colspan="2">
-&nbsp;</td></tr>
-</table>
-<table class="detail wide_list">
-<tr class="list">
-<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
-<td class="itemcode"><span id="IsValidPtr"></span><code>class FUNCTION <strong>IsValidPtr</strong>( const aClass: Tobject):BOOLEAN ; overload;</code></td>
-</tr>
-<tr><td colspan="2">
-&nbsp;</td></tr>
-</table>
-<table class="detail wide_list">
-<tr class="list">
-<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
 <td class="itemcode"><span id="Name_Type_App_MarIcaraiV1"></span><code>class Function <strong>Name_Type_App_MarIcaraiV1</strong>:AnsiString;</code></td>
 </tr>
 <tr><td colspan="2">
@@ -1002,7 +1224,7 @@ A classe function <strong><code>LongDiv</code></strong> retorna o valor inteiro 
 <table class="detail wide_list">
 <tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
-<td class="itemcode"><span id="Set_IsApp_VCL"></span><code>class Function <strong>Set_IsApp_VCL</strong>(aIsApp_VCL:Boolean):Boolean;</code></td>
+<td class="itemcode"><span id="Set_IsApp_LCL"></span><code>class Function <strong>Set_IsApp_LCL</strong>(aIsApp_LCL:Boolean):Boolean;</code></td>
 </tr>
 <tr><td colspan="2">
 &nbsp;</td></tr>
@@ -1057,7 +1279,7 @@ A classe function <strong><code>LongDiv</code></strong> retorna o valor inteiro 
 </p>
 
 <ul class="paragraph_spacing">
-  <li><p>returns ticks at 18.2 <a class="normal" href="synachar.html#HZ">Hz</a>, just like DOS</p></li>
+  <li><p>returns ticks at 18.2 Hz, just like DOS</p></li>
 </ul>
 
 <p></p>
@@ -1161,105 +1383,6 @@ A função <strong><code>Seg_to_MillSeg</code></strong> converte segundos para m
 <table class="detail wide_list">
 <tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
-<td class="itemcode"><span id="InputValue"></span><code>Class function <strong>InputValue</strong>(const aTitle,aLabel: AnsiString;var aValue : Variant): <a href="mi.rtl.ui.dmxscroller.inputbox.html#TModalResult">TModalResult</a>;</code></td>
-</tr>
-<tr><td colspan="2">
-<p>
-O método <strong><code>InputValue</code></strong> ler um valor na tela e retorna em <strong>aValue</strong> o valor e em result retorna <strong>MrOk</strong> ou <strong>MrCancel</strong></p>
-</td></tr>
-</table>
-<table class="detail wide_list">
-<tr class="list">
-<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
-<td class="itemcode"><span id="Prompt"></span><code>Class Function <strong>Prompt</strong>(aTitle: AnsiString;aPergunta:AnsiString;Var aResult: Variant):Boolean;</code></td>
-</tr>
-<tr><td colspan="2">
-<p>
-</p>
-
-<ul class="paragraph_spacing">
-  <li><p>A função <strong><code>Prompt</code></strong> mostra um dialogo com dois botões <strong>OK</strong> e <strong>Cancel</strong> e um campo input solicitando que o usuário digite um valor.
-
-<p></p>
-
-<ul class="paragraph_spacing">
-  <li><p><strong>RETORNA:</strong> </p>
-
-<ul class="paragraph_spacing">
-  <li><p><strong>True</strong> : Se o botão <strong>ok</strong> foi pŕessionando;</p></li>
-  <li><p><strong>False</strong> : Se o botão <strong>cancel</strong> foi pŕessionando.</p></li>
-  <li><p><strong>aResult</strong> : Retorna a string digitada no formulário;</p></li>
-</ul>
-
-<p></p></li>
-</ul>
-
-<p></p></li>
-</ul>
-
-<p></p>
-</td></tr>
-</table>
-<table class="detail wide_list">
-<tr class="list">
-<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
-<td class="itemcode"><span id="InputPassword"></span><code>Class Function <strong>InputPassword</strong>(aTitle: AnsiString;out aUsername:AnsiString;out apassword:AnsiString):Boolean; Overload;</code></td>
-</tr>
-<tr><td colspan="2">
-<p>
-</p>
-
-<ul class="paragraph_spacing">
-  <li><p>A função <strong><code>InputPassword</code></strong> mostra um dialogo solicitando o login do usuário e a senha e dois botões <strong>OK</strong> e <strong>Cancel</strong>
-
-<p></p>
-
-<ul class="paragraph_spacing">
-  <li><p><strong>RETORNA:</strong> </p>
-
-<ul class="paragraph_spacing">
-  <li><p><strong>True</strong> : Se o botão <strong>ok</strong> foi pŕessionando;</p></li>
-  <li><p><strong>False</strong> : Se o botão <strong>cancel</strong> foi pŕessionando.</p></li>
-  <li><p><strong>aUsername</strong> : Retorna a string com nome do usuário.</p></li>
-  <li><p><strong>apassword</strong> : Retorna a string com a senha do usuário.</p></li>
-</ul>
-
-<p></p></li>
-</ul>
-
-<p></p></li>
-</ul>
-
-<p></p>
-</td></tr>
-</table>
-<table class="detail wide_list">
-<tr class="list">
-<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
-<td class="itemcode"><span id="InputPassword"></span><code>Class Function <strong>InputPassword</strong>(aTitle: AnsiString;out apassword:AnsiString):Boolean; Overload;</code></td>
-</tr>
-<tr><td colspan="2">
-&nbsp;</td></tr>
-</table>
-<table class="detail wide_list">
-<tr class="list">
-<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
-<td class="itemcode"><span id="DisposeSItems"></span><code>class procedure <strong>DisposeSItems</strong>(VAR AItems: <a href="mi_rtl_ui_Dmxscroller.html#PSItem">PSItem</a>); overload;</code></td>
-</tr>
-<tr><td colspan="2">
-&nbsp;</td></tr>
-</table>
-<table class="detail wide_list">
-<tr class="list">
-<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
-<td class="itemcode"><span id="DisposeSItems"></span><code>class procedure <strong>DisposeSItems</strong>(Var AStrItems: <a href="mi_rtl_ui_Dmxscroller.html#ptString">PtString</a>); overload;</code></td>
-</tr>
-<tr><td colspan="2">
-&nbsp;</td></tr>
-</table>
-<table class="detail wide_list">
-<tr class="list">
-<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
 <td class="itemcode"><span id="MaxItemStrLen"></span><code>class function <strong>MaxItemStrLen</strong>(AItems: <a href="mi_rtl_ui_Dmxscroller.html#PSItem">PSItem</a>) : integer; Overload;</code></td>
 </tr>
 <tr><td colspan="2">
@@ -1292,6 +1415,22 @@ O método <strong><code>InputValue</code></strong> ler um valor na tela e retorn
 <table class="detail wide_list">
 <tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="MaskEdit_to_Mask"></span><code>class function <strong>MaskEdit_to_Mask</strong>(const aMaskEdit: AnsiString ): TMask; virtual;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="isDateTime"></span><code>class function <strong>isDateTime</strong>(Const aTemplate : AnsiString):Boolean;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
 <td class="itemcode"><span id="TypeFld"></span><code>class Function <strong>TypeFld</strong>(Const aTemplate : <a href="mi_rtl_ui_Dmxscroller.html#tString">tString</a>;Var aSize : <a href="mi_rtl_ui_Dmxscroller.html#SmallWord">SmallWord</a>):AnsiChar; overload;</code></td>
 </tr>
 <tr><td colspan="2">
@@ -1300,7 +1439,7 @@ O método <strong><code>InputValue</code></strong> ler um valor na tela e retorn
 <table class="detail wide_list">
 <tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
-<td class="itemcode"><span id="TypeFld"></span><code>class Function <strong>TypeFld</strong>(Const aTemplate : ShortString):AnsiChar; overload;</code></td>
+<td class="itemcode"><span id="TypeFld"></span><code>class Function <strong>TypeFld</strong>(Const aTemplate : <a href="mi_rtl_ui_Dmxscroller.html#tString">tString</a>):AnsiChar; overload;</code></td>
 </tr>
 <tr><td colspan="2">
 &nbsp;</td></tr>
@@ -1388,6 +1527,84 @@ O método <strong><code>InputValue</code></strong> ler um valor na tela e retorn
 <table class="detail wide_list">
 <tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="IIF"></span><code>class function <strong>IIF</strong>&lt;T&gt;(const Logica: Boolean; const E1, E2: T): T; static;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+A class método <strong><code>IIF</code></strong> avalia uma condição lógica e retorna um dos dois valores com base no resultado da condição.
+
+<p></p>
+
+<ul class="paragraph_spacing">
+  <li><p>Parâmetros </p>
+
+<ul class="paragraph_spacing">
+  <li><p><code>Logica</code> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Uma expressão booleana que determina qual valor será retornado.</p></li>
+</ul>
+
+<p></p></li>
+  <li><p><code>E1</code> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>O valor a ser retornado se <code>Logica</code> for <code>True</code>.</p></li>
+</ul>
+
+<p></p></li>
+  <li><p><code>E2</code> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>O valor a ser retornado se <code>Logica</code> for <code>False</code>.</p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p></li>
+  <li><p>returns </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Retorna o valor de <code>E1</code> se <code>Logica</code> for <code>True</code>; caso contrário, retorna o valor de <code>E2</code>.</p></li>
+</ul>
+
+<p></p></li>
+  <li><p><dl class="tag note"><dt><strong>Note</strong></dt><dd></dd></dl> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Esta função é genérica e pode ser usada com diferentes tipos de dados, desde que <code>E1</code> e <code>E2</code> sejam do mesmo tipo.</p></li>
+</ul>
+
+<p></p></li>
+  <li><p>Example
+
+<p></p>
+
+<pre class="longcode">
+<span class="pascal_keyword">var</span>
+  intResult: Longint;
+  strResult: AnsiString;
+  boolResult: Boolean;
+  charResult: AnsiChar;
+  enumResult: TDayOfWeek;  <span class="pascal_comment">// Supondo que você tenha uma enumeração chamada TDayOfWeek</span>
+<span class="pascal_keyword">begin</span>
+  intResult := TObjectsMethods.IIF&lt;Longint&gt;(True, <span class="pascal_numeric">10</span>, <span class="pascal_numeric">20</span>);  <span class="pascal_comment">// Retorna 10</span>
+  strResult := TObjectsMethods.IIF&lt;AnsiString&gt;(False, <span class="pascal_string">'Hello'</span>, <span class="pascal_string">'World'</span>);  <span class="pascal_comment">// Retorna 'World'</span>
+  boolResult := TObjectsMethods.IIF&lt;Boolean&gt;(True, True, False);  <span class="pascal_comment">// Retorna True</span>
+  charResult := TObjectsMethods.IIF&lt;AnsiChar&gt;(False, <span class="pascal_string">'A'</span>, <span class="pascal_string">'B'</span>);  <span class="pascal_comment">// Retorna 'B'</span>
+  enumResult := TObjectsMethods.IIF&lt;TDayOfWeek&gt;(True, Sunday, Monday);  <span class="pascal_comment">// Retorna Sunday</span>
+<span class="pascal_keyword">end</span>;</pre>
+
+<p></p></li>
+</ul>
+
+<p></p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
 <td class="itemcode"><span id="SIF"></span><code>class Function <strong>SIF</strong>(Const Logica : Boolean; Const E1 , E2 : AnsiString ) : AnsiString ;</code></td>
 </tr>
 <tr><td colspan="2">
@@ -1412,7 +1629,7 @@ O método <strong><code>InputValue</code></strong> ler um valor na tela e retorn
 <table class="detail wide_list">
 <tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
-<td class="itemcode"><span id="NumToStr"></span><code>class function <strong>NumToStr</strong>(Const formato : AnsiString;buffer:Variant; Const Tipo : AnsiChar;Const OkSpc:Boolean):AnsiString;</code></td>
+<td class="itemcode"><span id="NumToStr"></span><code>class function <strong>NumToStr</strong>(Const formato : AnsiString;const buffer:Variant; Const Tipo : AnsiChar;Const OkSpc:Boolean):AnsiString;</code></td>
 </tr>
 <tr><td colspan="2">
 &nbsp;</td></tr>
@@ -1619,7 +1836,9 @@ A classe procedure <strong><code>WriteSItems</code></strong> retorna um TStringL
 <td class="itemcode"><span id="MessageError"></span><code>class Procedure <strong>MessageError</strong>; virtual;</code></td>
 </tr>
 <tr><td colspan="2">
-&nbsp;</td></tr>
+<p>
+O método <strong><code>MessageError</code></strong> imprime a sequência de mesagems de erro da pilha de mensagens.</p>
+</td></tr>
 </table>
 <table class="detail wide_list">
 <tr class="list">
@@ -1638,13 +1857,21 @@ O Método <code>String_ListaDeMsgErro</code> retorna uma lista de erros da pilha
 </tr>
 <tr><td colspan="2">
 <p>
-A procedure <strong><code>Dispose_ListaDeMsgErro</code></strong> esvazia a pilha de mensagens de <a class="normal" href="slogsend.html#Error">error</a> caso as mensagen não tenhão sido tratadas antes de encerrar TMI_Application.</p>
+A procedure <strong><code>Dispose_ListaDeMsgErro</code></strong> esvazia a pilha de mensagens de error caso as mensagen não tenhão sido tratadas antes de encerrar TMI_Application.</p>
 </td></tr>
 </table>
 <table class="detail wide_list">
 <tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
-<td class="itemcode"><span id="FMaiuscula"></span><code>class Function <strong>FMaiuscula</strong>(str:AnsiString):AnsiString;</code></td>
+<td class="itemcode"><span id="UpperCase"></span><code>class Function <strong>UpperCase</strong>(str:AnsiString):AnsiString;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Lowcase"></span><code>class function <strong>Lowcase</strong>(str:AnsiString):AnsiString;</code></td>
 </tr>
 <tr><td colspan="2">
 &nbsp;</td></tr>
@@ -1997,7 +2224,15 @@ O método <strong><code>DeleteChars</code></strong> exclui de campo os caractere
 <table class="detail wide_list">
 <tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
-<td class="itemcode"><span id="IsNumber_Real"></span><code>class Function <strong>IsNumber_Real</strong>(Const aTemplate : ShortString):Boolean;</code></td>
+<td class="itemcode"><span id="IsNumberReal"></span><code>class function <strong>IsNumberReal</strong>(const aTemplate: ShortString): Boolean;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="IsNumberInteger"></span><code>class function <strong>IsNumberInteger</strong>(const aTemplate: ShortString): Boolean;</code></td>
 </tr>
 <tr><td colspan="2">
 &nbsp;</td></tr>
@@ -2006,6 +2241,14 @@ O método <strong><code>DeleteChars</code></strong> exclui de campo os caractere
 <tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
 <td class="itemcode"><span id="IsNumber"></span><code>class Function <strong>IsNumber</strong>(Const aTemplate : ShortString):Boolean;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="IsBoolean"></span><code>class Function <strong>IsBoolean</strong>(Const aTemplate : ShortString):Boolean;</code></td>
 </tr>
 <tr><td colspan="2">
 &nbsp;</td></tr>
@@ -2029,7 +2272,7 @@ O método <strong><code>DeleteChars</code></strong> exclui de campo os caractere
 <table class="detail wide_list">
 <tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
-<td class="itemcode"><span id="HandleEvent"></span><code>procedure <strong>HandleEvent</strong>(var Event: TEvent); Virtual;</code></td>
+<td class="itemcode"><span id="HandleEvent"></span><code>procedure <strong>HandleEvent</strong>(var Event: <a href="mi_rtl_ui_Dmxscroller.html#TEvent">TEvent</a>); Virtual;</code></td>
 </tr>
 <tr><td colspan="2">
 &nbsp;</td></tr>
@@ -2037,7 +2280,7 @@ O método <strong><code>DeleteChars</code></strong> exclui de campo os caractere
 <table class="detail wide_list">
 <tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
-<td class="itemcode"><span id="ClearEvent"></span><code>procedure <strong>ClearEvent</strong>(var Event: TEvent); Virtual;</code></td>
+<td class="itemcode"><span id="ClearEvent"></span><code>procedure <strong>ClearEvent</strong>(var Event: <a href="mi_rtl_ui_Dmxscroller.html#TEvent">TEvent</a>); Virtual;</code></td>
 </tr>
 <tr><td colspan="2">
 &nbsp;</td></tr>
@@ -2053,7 +2296,7 @@ O método <strong><code>DeleteChars</code></strong> exclui de campo os caractere
 <table class="detail wide_list">
 <tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
-<td class="itemcode"><span id="DeleteMask"></span><code>class Function <strong>DeleteMask</strong>(S : <a href="mi_rtl_ui_Dmxscroller.html#tString">tString</a>;ValidSet: AnsiCharSet):AnsiString; overload;</code></td>
+<td class="itemcode"><span id="DeleteMask"></span><code>class Function <strong>DeleteMask</strong>(S:AnsiString;ValidSet: AnsiCharSet):AnsiString; overload;</code></td>
 </tr>
 <tr><td colspan="2">
 &nbsp;</td></tr>
@@ -2061,7 +2304,7 @@ O método <strong><code>DeleteChars</code></strong> exclui de campo os caractere
 <table class="detail wide_list">
 <tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
-<td class="itemcode"><span id="DeleteMask"></span><code>class function <strong>DeleteMask</strong>(S: ShortString;aMask:ShortString): AnsiString; overload;</code></td>
+<td class="itemcode"><span id="DeleteMask"></span><code>class function <strong>DeleteMask</strong>(S:AnsiString;aMask:<a href="mi_rtl_ui_Dmxscroller.html#tString">TString</a>): AnsiString; overload;</code></td>
 </tr>
 <tr><td colspan="2">
 &nbsp;</td></tr>
@@ -2103,10 +2346,10 @@ A função <strong><code>CreateDB_or_DropDB</code></strong> é usada para criar 
 
 <ul class="paragraph_spacing">
   <li><p>True : Conseguiu criar o banco de dados;</p></li>
-  <li><p>False : <a class="normal" href="slogsend.html#Error">Error</a> na ação </p>
+  <li><p>False : Error na ação </p>
 
 <ul class="paragraph_spacing">
-  <li><p><a class="normal" href="slogsend.html#Error">Error</a> possiveis: </p>
+  <li><p>Error possiveis: </p>
 
 <ul class="paragraph_spacing">
   <li><p>Banco de dados já existe quando se quer criar;</p></li>
@@ -2166,11 +2409,23 @@ A função <strong><code>CreateDB_or_DropDB</code></strong> é usada para criar 
 <table class="detail wide_list">
 <tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
-<td class="itemcode"><span id="StrNumberValid"></span><code>class function <strong>StrNumberValid</strong>(S: AnsiString): AnsiString;</code></td>
+<td class="itemcode"><span id="StrToStrNumberForProcVal"></span><code>class function <strong>StrToStrNumberForProcVal</strong>(S: AnsiString): AnsiString;</code></td>
 </tr>
 <tr><td colspan="2">
 <p>
-O método <code>StrNumberValid</code> remove as mascaras do número e retorna somente números</p>
+O método <code>StrToStrNumberForProcVal</code> converte um string com mascara e ponto decimar default em string com ponto decimal='.'. </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Motivo de sua existência. </p>
+
+<ul class="paragraph_spacing">
+  <li><p>A função system.val e system.str não reconhecem o registro DefaultFormatSettings.</p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p>
 </td></tr>
 </table>
 <table class="detail wide_list">
@@ -2349,6 +2604,675 @@ O método <strong><code>TabIndex</code></strong> retorna o número de ordem do c
 <tr><td colspan="2">
 <p>
 A classe método <strong><code>SplitString</code></strong> recebe em aInputString uma string separada pelo delimitador informado em aDelimiter e retorna um arrey de strings</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="HTMLToTColor"></span><code>class function <strong>HTMLToTColor</strong>(const HTML: <a href="mi_rtl_ui_Dmxscroller.html#tString">TString</a>): Integer;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+O Método <strong><code>HTMLToTColor</code></strong>
+
+<p></p>
+
+<ul class="paragraph_spacing">
+  <li><p>Exemplo de usado da função
+
+<p></p>
+
+<pre class="longcode">
+
+<span class="pascal_keyword">unit</span> Unit1;
+
+  <span class="pascal_keyword">interface</span>
+
+  <span class="pascal_keyword">uses</span>
+    Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+    Dialogs, ExtCtrls, StdCtrls;
+
+  <span class="pascal_keyword">type</span>
+    TForm1 = <span class="pascal_keyword">class</span>(TForm)
+      Edit1: TEdit;
+      Button1: TButton;
+      Shape1: TShape;
+      <span class="pascal_keyword">procedure</span> Button1Click(Sender: TObject);
+    <span class="pascal_keyword">private</span>
+
+    <span class="pascal_keyword">public</span>
+
+    <span class="pascal_keyword">end</span>;
+
+  <span class="pascal_keyword">var</span>
+    Form1: TForm1;
+
+<span class="pascal_keyword">implementation</span>
+
+  <span class="pascal_hex">$</span>R *<span class="pascal_float">.</span>dfm
+
+
+  <span class="pascal_keyword">function</span> HTMLToTColor(<span class="pascal_keyword">const</span> HTML: <span class="pascal_keyword">String</span>): Integer;
+  <span class="pascal_keyword">var</span>
+    Offset: Integer;
+  <span class="pascal_keyword">begin</span>
+    <span class="pascal_keyword">try</span>
+      <span class="pascal_comment">// check for leading '#'</span>
+      <span class="pascal_keyword">if</span> Copy(HTML, <span class="pascal_numeric">1</span>, <span class="pascal_numeric">1</span>) = <span class="pascal_string">'#'</span> <span class="pascal_keyword">then</span>
+        Offset := <span class="pascal_numeric">1</span>
+      <span class="pascal_keyword">else</span>
+        Offset := <span class="pascal_numeric">0</span>;
+      <span class="pascal_comment">// convert hexa-decimal values to RGB</span>
+      Result :=
+        Integer(StrToInt(<span class="pascal_string">'$'</span> + Copy(HTML, Offset + <span class="pascal_numeric">1</span>, <span class="pascal_numeric">2</span>))) +
+        Integer(StrToInt(<span class="pascal_string">'$'</span> + Copy(HTML, Offset + <span class="pascal_numeric">3</span>, <span class="pascal_numeric">2</span>))) <span class="pascal_keyword">shl</span> <span class="pascal_numeric">8</span> +
+        Integer(StrToInt(<span class="pascal_string">'$'</span> + Copy(HTML, Offset + <span class="pascal_numeric">5</span>, <span class="pascal_numeric">2</span>))) <span class="pascal_keyword">shl</span> <span class="pascal_numeric">16</span>;
+    <span class="pascal_keyword">except</span>
+      <span class="pascal_comment">// try for color names</span>
+  <span class="pascal_comment">//    Result := TranslateColorName(LowerCase(HTML));</span>
+    <span class="pascal_keyword">end</span>;
+  <span class="pascal_keyword">end</span>;
+
+
+
+  <span class="pascal_keyword">function</span> RGBToColor(R,G,B:Byte): TColor;
+  <span class="pascal_keyword">begin</span>
+    Result:= B <span class="pascal_keyword">Shl</span> <span class="pascal_numeric">16</span> <span class="pascal_keyword">Or</span>  <span class="pascal_comment">//Blue</span>
+             G <span class="pascal_keyword">Shl</span> <span class="pascal_numeric">8</span>  <span class="pascal_keyword">Or</span>  <span class="pascal_comment">//Verde</span>
+             R;           <span class="pascal_comment">//Vermelho</span>
+  <span class="pascal_keyword">end</span>;
+
+  <span class="pascal_keyword">procedure</span> TForm1.Button1Click(Sender: TObject);
+  <span class="pascal_keyword">begin</span>
+  <span class="pascal_comment">//  Shape1.Brush.Color:= rgbtocolor(107,183,239);</span>
+    Shape1.Brush.Color:= HTMLToTColor(Edit1.Text);
+
+    Shape1.Invalidate;
+  <span class="pascal_keyword">end</span>;</pre>
+
+<p></p></li>
+</ul>
+
+<p></p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="IsEmptyOrNull"></span><code>Class function <strong>IsEmptyOrNull</strong>(const aValue: Variant): Boolean;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+O método <strong><code>IsEmptyOrNull</code></strong> retorna true se avalue for vazio ou null</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="UnlistPublishedProperty"></span><code>class procedure <strong>UnlistPublishedProperty</strong>(ComponentClass:TPersistentClass; const PropertyName:String);</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+O método <strong><code>UnlistPublishedProperty</code></strong> usado para ocultar a propriedade de um componente.
+
+<p></p>
+
+<ul class="paragraph_spacing">
+  <li><p>Criei esse método na minha classe base com objetivo de tornar a propriedade de uma classe invisível.</p></li>
+  <li><p>O mesmo deve se usado ao registrar um componente; </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Exemplo
+
+<p></p>
+
+<pre class="longcode">
+<span class="pascal_keyword">procedure</span> <span class="pascal_keyword">Register</span>;
+ <span class="pascal_keyword">begin</span>
+     RegisterComponents(<span class="pascal_string">'Mi.Rtl'</span>,[TMi_SQLQuery]);
+     Tmi_rtl.UnlistPublishedProperty(TMi_SQLQuery,<span class="pascal_string">'Options'</span>);
+     Tmi_rtl.UnlistPublishedProperty(TMi_SQLQuery,<span class="pascal_string">'FileName'</span>);
+     Tmi_rtl.UnlistPublishedProperty(TMi_SQLQuery,<span class="pascal_string">'DataSource'</span>);
+     Tmi_rtl.UnlistPublishedProperty(TMi_SQLQuery,<span class="pascal_string">'UniDirecional'</span>);
+     Tmi_rtl.UnlistPublishedProperty(TMi_SQLQuery,<span class="pascal_string">'Tag'</span>);
+     Tmi_rtl.UnlistPublishedProperty(TMi_SQLQuery,<span class="pascal_string">'PacketRecords'</span>);
+<span class="pascal_keyword">end</span>;</pre>
+
+<p></p></li>
+</ul>
+
+<p></p></li>
+  <li><p>Se essas propriedades forem alteradas pelo usuário do componente certamente o componente dará problema, por isso precisei remove-lo da lista de propriedade para evitar problema.</p></li>
+  <li><p>Para que não de problema, no constructor <a class="normal" href="mi.rtl.Objects.Methods.TObjectsMethods.html#Create">create</a> da classe seto o que preciso, porém se essa propriedade fossem visíveis o usuário perderia muito tempo para entender porque o que ele informou o que ele queria e o comportamento do componente não mudaria.</p></li>
+</ul>
+
+<p></p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="str"></span><code>class Procedure <strong>str</strong>(v : variant; var s : String);</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Print_info_compile"></span><code>class Procedure <strong>Print_info_compile</strong>;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="VarRecArrayToStr"></span><code>class function <strong>VarRecArrayToStr</strong>(const Args: array of const): string;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+O classe método converte um array of const em um string separado por virgula.
+
+<p></p>
+
+<ul class="paragraph_spacing">
+  <li><p><strong>NOTAS</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Iteração sobre o array: A função <code>VarRecArrayToStr</code> percorre cada elemento do array Args e converte-o em uma string usando um case para identificar o tipo de dado.</p></li>
+  <li><p>Construção da string de resultado: Para cada elemento do array, a string correspondente é concatenada ao Result. Entre os elementos, é adicionada uma vírgula e um espaço.</p></li>
+</ul>
+
+<p></p></li>
+  <li><p><strong>EXMPLO DE USO</strong>
+
+<p></p>
+
+<pre class="longcode">
+
+<span class="pascal_keyword">var</span>
+  S: <span class="pascal_keyword">string</span>;
+<span class="pascal_keyword">begin</span>
+  S := VarRecArrayToStr([<span class="pascal_numeric">1</span>, <span class="pascal_string">'Ola Mundo'</span>, <span class="pascal_float">3.14</span>, True]);
+  WriteLn(S);  <span class="pascal_comment">// Saída: 1, Hello, 3.14, True</span>
+<span class="pascal_keyword">end</span>.</pre>
+
+<p></p></li>
+</ul>
+
+<p></p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="JsonToDataSet"></span><code>class procedure <strong>JsonToDataSet</strong>(const JSONString: string; var aJSONDataSet: TJSONDataSet );</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+O método <strong><code>JsonToDataSet</code></strong> Salva o array JSONString para aJSONDataSet.rows</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="DataSetToJson"></span><code>Class Function <strong>DataSetToJson</strong>(Const aJSONDataSet: TJSONDataSet):String;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="JSONToVariantArray"></span><code>class function <strong>JSONToVariantArray</strong>(JSONData: TJSONData): Variant;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+A classe método <strong><code>JSONToVariantArray</code></strong> converter um jsonData em Variant
+
+<p></p>
+
+<ul class="paragraph_spacing">
+  <li><p><strong>Exemplo de uso</strong>
+
+<p></p>
+
+<pre class="longcode">
+
+<span class="pascal_keyword">program</span> test;
+
+  <span class="pascal_keyword">uses</span>
+    SysUtils, fpjson, jsonparser, Variants;
+
+  <span class="pascal_keyword">var</span>
+    JSONStr: <span class="pascal_keyword">string</span>;
+    JSONData: TJSONData;
+    JSONVariantArray: Variant;
+    i: Integer;
+<span class="pascal_keyword">begin</span>
+  <span class="pascal_comment">// Exemplo de string JSON contendo um array</span>
+  JSONStr := <span class="pascal_string">'[1, &quot;Texto&quot;, true, null,3.56 ]'</span>;
+
+  <span class="pascal_keyword">try</span>
+    <span class="pascal_comment">// Parseando o JSON</span>
+    JSONData := GetJSON(JSONStr);
+
+    <span class="pascal_comment">// Convertendo JSON para array de Variant</span>
+    JSONVariantArray := JSONToVariantArray(JSONData);
+
+    <span class="pascal_comment">// Exibindo os valores convertidos</span>
+    <span class="pascal_keyword">for</span> i := VarArrayLowBound(JSONVariantArray, <span class="pascal_numeric">1</span>) <span class="pascal_keyword">to</span> VarArrayHighBound(JSONVariantArray, <span class="pascal_numeric">1</span>) <span class="pascal_keyword">do</span>
+      WriteLn(<span class="pascal_string">'JSONVariantArray['</span>, i, <span class="pascal_string">'] = '</span>, JSONVariantArray[i]);
+  <span class="pascal_keyword">finally</span>
+    JSONData.Free;
+  <span class="pascal_keyword">end</span>;
+<span class="pascal_keyword">end</span>.</pre>
+
+<p></p></li>
+</ul>
+
+<p></p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="ArrayToVariant"></span><code>class function <strong>ArrayToVariant</strong>(aValues: array of string):Variant;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+A classe método <strong><code>ArrayToVariant</code></strong> recebe em a value um array e retorna um array de string
+
+<p></p>
+
+<ul class="paragraph_spacing">
+  <li><p>**EXEMPLO DE USO
+
+<p></p>
+
+<pre class="longcode">
+
+<span class="pascal_keyword">program</span> ArrayToVariantExample;
+  <span class="pascal_keyword">uses</span>
+    Variants, SysUtils;
+
+  <span class="pascal_keyword">var</span>
+    aKeyValues: <span class="pascal_keyword">array</span> <span class="pascal_keyword">of</span> <span class="pascal_keyword">string</span>;
+    vKeyValues: Variant;
+    i: Integer;
+<span class="pascal_keyword">begin</span>
+  <span class="pascal_comment">// Inicializando o array</span>
+  SetLength(aKeyValues, <span class="pascal_numeric">3</span>);
+  aKeyValues[<span class="pascal_numeric">0</span>] := <span class="pascal_string">'Valor1'</span>;
+  aKeyValues[<span class="pascal_numeric">1</span>] := <span class="pascal_string">'Valor2'</span>;
+  aKeyValues[<span class="pascal_numeric">2</span>] := <span class="pascal_string">'Valor3'</span>;
+
+  vKeyValues := ArrayToVariant(aKeyValues);
+
+  <span class="pascal_comment">// Exemplo de acesso aos valores do Variant</span>
+  <span class="pascal_keyword">for</span> i := VarArrayLowBound(vKeyValues, <span class="pascal_numeric">1</span>) <span class="pascal_keyword">to</span> VarArrayHighBound(vKeyValues, <span class="pascal_numeric">1</span>) <span class="pascal_keyword">do</span>
+    WriteLn(<span class="pascal_string">'vKeyValues['</span>, i, <span class="pascal_string">'] = '</span>, vKeyValues[i]);
+
+  <span class="pascal_comment">// Tentativa de acessar os elementos do array Variant para verificar</span>
+  <span class="pascal_keyword">for</span> i := <span class="pascal_numeric">0</span> <span class="pascal_keyword">to</span> VarArrayHighBound(vKeyValues, <span class="pascal_numeric">1</span>) <span class="pascal_keyword">do</span>
+  <span class="pascal_keyword">begin</span>
+    <span class="pascal_comment">// Atribua cada elemento a uma variável string (s) para teste</span>
+    WriteLn(<span class="pascal_string">'Elemento '</span>, i, <span class="pascal_string">': '</span>, VarToStr(vKeyValues[i])); <span class="pascal_comment">// Exibe os elementos no console para verificação</span>
+  <span class="pascal_keyword">end</span>;
+<span class="pascal_keyword">end</span>.</pre>
+
+<p></p></li>
+</ul>
+
+<p></p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="getFieldsKeys"></span><code>class function <strong>getFieldsKeys</strong>(aQueryFields: TStrings;out Values: TArray&lt;string&gt;): AnsiString; overload;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+A classe método <strong><code>getFieldsKeys</code></strong> percorre a lista de strings fornecida em <code>aQueryFields</code>, que normalmente contém pares chave-valor no formato <code>chave=valor</code>, e separa as chaves e os valores.
+
+<p></p>
+
+<ul class="paragraph_spacing">
+  <li><p>As chaves são concatenadas em uma única string, separadas por ponto e vírgula (<code>;</code>), e retornadas como resultado da função. Os valores correspondentes são armazenados no array <code>Values</code>, que é passado como um parâmetro de saída.</p></li>
+  <li><p>Parâmetros </p>
+
+<ul class="paragraph_spacing">
+  <li><p>param(aQueryFields) </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Uma lista de strings contendo pares chave-valor no formato <code>chave=valor</code>.)</p></li>
+</ul>
+
+<p></p></li>
+  <li><p>param(Values) </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Um array de strings que conterá os valores extraídos dos pares <code>chave=valor</code>.)</p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p></li>
+  <li><p>Returns() </p>
+
+<ul class="paragraph_spacing">
+  <li><p>A string contendo todas as chaves extraídas dos pares, separadas por ponto e vírgula.)</p></li>
+</ul>
+
+<p></p></li>
+  <li><p><strong>Por que foi criado</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>O método locate precisa de uma lista de nome de campos e uma array de variantes</p></li>
+</ul>
+
+<p></p></li>
+  <li><p>Exemplo de uso:
+
+<p></p>
+
+<pre class="longcode">
+
+<span class="pascal_keyword">uses</span>
+  SysUtils, Classes;
+
+<span class="pascal_keyword">procedure</span> TestGetFieldsKeys;
+<span class="pascal_keyword">var</span>
+  QueryFields: TStringList;
+  Values: <span class="pascal_keyword">array</span> <span class="pascal_keyword">of</span> <span class="pascal_keyword">string</span>;  <span class="pascal_comment">// Array dinâmico de strings</span>
+  Keys: AnsiString;
+  I: Integer;
+<span class="pascal_keyword">begin</span>
+  QueryFields := TStringList.Create;
+  <span class="pascal_keyword">try</span>
+    <span class="pascal_comment">// Adicione pares chave=valor</span>
+    QueryFields.Add(<span class="pascal_string">'key1=value1'</span>);
+    QueryFields.Add(<span class="pascal_string">'key2=value2'</span>);
+    QueryFields.Add(<span class="pascal_string">'key3=value3'</span>);
+
+    <span class="pascal_comment">// Chame a função passando a lista e o array dinâmico.</span>
+    Keys := TObjectsMethods.getFieldsKeys(QueryFields, Values);
+
+    <span class="pascal_comment">// Exibir as chaves extraídas</span>
+    Writeln(<span class="pascal_string">'Keys: '</span>, Keys);
+
+    <span class="pascal_comment">// Exibir os valores extraídos</span>
+    <span class="pascal_keyword">for</span> I := Low(Values) <span class="pascal_keyword">to</span> High(Values) <span class="pascal_keyword">do</span>
+    <span class="pascal_keyword">begin</span>
+      Writeln(<span class="pascal_string">'Value '</span>, I, <span class="pascal_string">': '</span>, Values[I]);
+    <span class="pascal_keyword">end</span>;
+  <span class="pascal_keyword">finally</span>
+    QueryFields.Free;
+  <span class="pascal_keyword">end</span>;
+<span class="pascal_keyword">end</span>;
+
+<span class="pascal_keyword">begin</span>
+  TestGetFieldsKeys;
+<span class="pascal_keyword">end</span>.</pre>
+
+<p></p></li>
+</ul>
+
+<p></p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="URLEncode"></span><code>class function <strong>URLEncode</strong>(AStr: Ansistring): UTF8String;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+A classe método <strong><code>URLEncode</code></strong> Codifica uma string para ser usada em uma URL
+
+<p><strong>Parâmetros:</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p><code>AStr</code>: A string que será codificada, do tipo <code>Ansistring</code>.</p></li>
+</ul>
+
+<p> <strong>Retorno:</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Retorna a string codificada no formato <code>UTF8String</code>, onde caracteres especiais são convertidos para sua representação hexadecimal (%XX) conforme o padrão de codificação de URLs.</p></li>
+</ul>
+
+<p> <strong>Descrição:</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Este método percorre a string fornecida e codifica os caracteres que não são seguros para URLs (como espaços e caracteres especiais). A codificação usa o formato hexadecimal, precedido pelo símbolo <code>%</code>. Caracteres dentro da faixa ASCII imprimível (32-126) são mantidos, exceto para <code>[' ', '&amp;', '=', '?', '#', '%']</code>, que são codificados.</p></li>
+  <li><p>A função converte a string de entrada para UTF-8 antes de realizar a codificação, garantindo que seja compatível com a codificação de URL padrão.</p></li>
+</ul>
+
+<p> <strong>Exceções:</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Não lança exceções diretamente, mas pode haver problemas se uma string não for adequadamente codificada para UTF-8.</p></li>
+</ul>
+
+<p> <strong>Exemplo:</strong>
+
+<p></p>
+
+<pre class="longcode">
+<span class="pascal_keyword">var</span>
+  EncodedStr: UTF8String;
+<span class="pascal_keyword">begin</span>
+  EncodedStr := TObjectsMethods.URLEncode(<span class="pascal_string">'name=John Doe &amp; age=30'</span>);
+  <span class="pascal_comment">// EncodedStr resultará em &quot;name=John%20Doe%20%26%20age%3D30&quot;</span>
+<span class="pascal_keyword">end</span>;</pre>
+
+<p></p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="JSONObjectToQueryString"></span><code>class function <strong>JSONObjectToQueryString</strong>(const Params: TJSONObject): string;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+O método <strong><code>JSONObjectToQueryString</code></strong> converte um objeto JSON em uma string de query para URLs
+
+<p><strong>Parâmetros:</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p><code>Params</code>: O objeto JSON do tipo <code>TJSONObject</code> contendo os parâmetros a serem convertidos.</p></li>
+</ul>
+
+<p> <strong>Retorno:</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Retorna uma string formatada como uma query de URL, onde cada chave-valor do JSON é convertido no formato <code>chave=valor</code>, e pares múltiplos são concatenados usando <code>&amp;</code>.</p></li>
+</ul>
+
+<p> <strong>Descrição:</strong> Este método percorre cada par chave-valor de um objeto JSON e o converte para uma string de query. Diferentes tipos de valores JSON são tratados da seguinte forma:
+
+<p></p>
+
+<ul class="paragraph_spacing">
+  <li><p><code>jtNull</code>: A chave é incluída sem valor.</p></li>
+  <li><p><code>jtString</code>: A chave e o valor são codificados para URL.</p></li>
+  <li><p><code>jtNumber</code>: O valor é convertido para string com suporte a números.</p></li>
+  <li><p><code>jtBoolean</code>: O valor booleano é convertido para 'true' ou 'false'.</p></li>
+  <li><p><code>jtArray</code>: Os valores do array são concatenados por vírgulas, como <code>valor1,valor2</code>.</p></li>
+</ul>
+
+<p> <strong>Exceções:</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Uma exceção é lançada se um tipo de valor JSON não suportado for encontrado.</p></li>
+</ul>
+
+<p> <strong>Exemplo:</strong>
+
+<p></p>
+
+<pre class="longcode">
+<span class="pascal_keyword">var</span>
+  JSONObject: TJSONObject;
+  QueryString: <span class="pascal_keyword">string</span>;
+<span class="pascal_keyword">begin</span>
+  JSONObject := TJSONObject.Create;
+  JSONObject.Add(<span class="pascal_string">'name'</span>, <span class="pascal_string">'John'</span>);
+  JSONObject.Add(<span class="pascal_string">'age'</span>, <span class="pascal_numeric">30</span>);
+  JSONObject.Add(<span class="pascal_string">'active'</span>, True);
+
+  QueryString := TObjectsMethods.JSONObjectToQueryString(JSONObject);
+  <span class="pascal_comment">// QueryString resultará em &quot;name=John&amp;age=30&amp;active=true&quot;</span>
+<span class="pascal_keyword">end</span>;</pre>
+
+<p></p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="GetQueryFieldsLocate"></span><code>class Procedure <strong>GetQueryFieldsLocate</strong>(var aRequest: TRequest; out aKeyFields: string; Out aKeyValues: Variant; Out aOptions : TLocateOptions );</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+A classe método <strong><code>GetQueryFieldsLocate</code></strong> extrae de aRequest.QueryFields os parâmetros abaixo:
+
+<p></p>
+
+<ul class="paragraph_spacing">
+  <li><p><strong>PARAMETROS</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>aKeyFields: string; </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Espera uma lista de nome dos campos separados por virgula.</p></li>
+</ul>
+
+<p></p></li>
+  <li><p>aKeyValues: Variant; </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Espera uma lista de valores dos campos separados por virgula.</p></li>
+</ul>
+
+<p></p></li>
+  <li><p>aOptions : TLocateOptions </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Espera uma lista de opções separados por vírgula onde as opções podem ser: 'loCaseInsensitive','loPartialKey' </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Obs: </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Pode ser um ou outros ou ambos.</p></li>
+  <li><p>São parâmetros espardos no função .TDataSet.Locate</p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="LocateParamsToJson"></span><code>Class function <strong>LocateParamsToJson</strong>(KeyFields: string; KeyValues: Variant; Options: TLocateOptions): TJSONObject;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+O método <strong><code>LocateParamsToJson</code></strong> converte os parâmetros de uma chamada TDataSet.Locate() em TJSonObject para ser enviado para o servidor para pesquisar o registro.
+
+<p></p>
+
+<ul class="paragraph_spacing">
+  <li><p><strong>EXEMPLO</strong>
+
+<p></p>
+
+<pre class="longcode">
+
+<span class="pascal_keyword">Procedure</span> LocateParamsToJsonTest;
+<span class="pascal_keyword">var</span>
+  JsonLocateParams: TJSONObject;
+  s:<span class="pascal_keyword">string</span>;
+<span class="pascal_keyword">begin</span>
+  JsonLocateParams := LocateParamsToJson(<span class="pascal_string">'Company;Contact;Phone'</span>,
+    VarArrayOf([<span class="pascal_string">'Sight Diver'</span>, <span class="pascal_string">'P'</span>, <span class="pascal_string">'408-431-1000'</span>]), [loPartialKey]);
+  <span class="pascal_keyword">try</span>
+    s := JsonLocateParams.AsJSON;
+    writeln(JsonLocateParams.AsJSON);
+  <span class="pascal_keyword">finally</span>
+    JsonLocateParams.Free;
+  <span class="pascal_keyword">end</span>;
+<span class="pascal_keyword">end</span>;</pre>
+
+<p></p></li>
+</ul>
+
+<p></p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="ValidateAndNormalizeURL"></span><code>Class function <strong>ValidateAndNormalizeURL</strong>(const BaseURL, Action, QueryString: string): string;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+O método <strong><code>ValidateAndNormalizeURL</code></strong> tem como objetivo construir e validar uma URL a partir de três partes: a URL base (<code>BaseURL</code>), uma ação (<code>Action</code>), e uma string de consulta (<code>QueryString</code>). Ela garante que a junção dessas partes ocorra de maneira correta, removendo duplicações de barras (<code>/</code>) e verificando a formatação da string de consulta.
+
+<p></p>
+
+<ul class="paragraph_spacing">
+  <li><p>Parâmetros </p>
+
+<ul class="paragraph_spacing">
+  <li><p><code>BaseURL</code>: A URL base, geralmente fornecida pelo método <code>GetURL()</code>. Pode ou não terminar com uma barra (<code>/</code>).</p></li>
+  <li><p><code>Action</code>: O caminho ou ação que será anexado à <code>BaseURL</code>. Pode ou não começar com uma barra (<code>/</code>).</p></li>
+  <li><p><code>QueryString</code>: A string de consulta que será anexada à URL final, representando os parâmetros da requisição. Se fornecida, deve começar com um ponto de interrogação (<code>?</code>), o qual será verificado pela função.</p></li>
+</ul>
+
+<p></p></li>
+  <li><p>Retorno </p>
+
+<ul class="paragraph_spacing">
+  <li><p>A função retorna uma <code>string</code> contendo a URL completa e validada, pronta para ser utilizada em requisições HTTP.</p></li>
+</ul>
+
+<p></p></li>
+  <li><p>Exemplo de Uso
+
+<p></p>
+
+<pre class="longcode">
+<span class="pascal_keyword">var</span>
+  CompleteURL: <span class="pascal_keyword">string</span>;
+<span class="pascal_keyword">begin</span>
+  CompleteURL := ValidateAndNormalizeURL(<span class="pascal_string">'http://example.com'</span>, <span class="pascal_string">'/api/resource'</span>, <span class="pascal_string">'?id=123&amp;name=test'</span>);
+  <span class="pascal_comment">// Resultado: http://example.com/api/resource?id=123&amp;name=test</span>
+<span class="pascal_keyword">end</span>;</pre>
+
+<p></p></li>
+</ul>
+
+<p></p>
 </td></tr>
 </table>
 <h3 class="detail">Propriedades</h3>

@@ -3,7 +3,7 @@
   <ProjectGroup FileVersion="2">
     <Targets>
       <Target FileName="../mi.rtl/mi.rtl.lpk"/>
-      <Target FileName="../mi.rtl/examples/mi.rtl.tests/mi.rtl.tests.lpi">
+      <Target FileName="exemplos/mi.rtl/mi.rtl.tests/mi.rtl.tests.lpi">
         <BuildModes>
           <Mode Name="Default" Compile="True"/>
           <Mode Name="i386-win32"/>
@@ -11,37 +11,65 @@
         </BuildModes>
       </Target>
       <Target FileName="../mi.ui.lcl.form/mi.ui.lcl.form.lpk"/>
-      <Target FileName="../mi.ui.lcl.form/examples/mi.ui.lcl.form.tests/mi.ui.lcl.form.test.lpi">
+      <Target FileName="exemplos/mi.lcl/mi.ui.lcl.form/mi.ui.lcl.form.tests/mi.ui.lcl.form.test.lpi">
         <BuildModes>
           <Mode Name="Default" Compile="True"/>
           <Mode Name="i386-win32"/>
           <Mode Name="x86_64-win64"/>
         </BuildModes>
       </Target>
-      <Target FileName="app_mi_rtl_console.lpi">
-        <BuildModes>
-          <Mode Name="Default" Compile="True"/>
-          <Mode Name="i386-win32"/>
-          <Mode Name="x86_64-win64"/>
-        </BuildModes>
-      </Target>
-      <Target FileName="app_mi_rtl_lcl.lpi">
-        <BuildModes>
-          <Mode Name="Default" Compile="True"/>
-          <Mode Name="i386-win32"/>
-          <Mode Name="x86_64-win64"/>
-        </BuildModes>
-      </Target>
-      <Target FileName="templates/app.mi.ui.lcl.form/__projname__.lpi">
-        <BuildModes>
-          <Mode Name="Default" Compile="True"/>
-          <Mode Name="i386-win32"/>
-          <Mode Name="x86_64-win64"/>
-        </BuildModes>
-      </Target>
-      <Target FileName="templates/mi.ui.lcl.form.linux/__projname__.lpi">
+      <Target FileName="../mi.lcl.form/mi.lcl.form.lpk"/>
+      <Target FileName="exemplos/mi.lcl/mi.lcl.form/mi.lcl.form.test/mi.lcl.form.test.lpi">
         <BuildModes>
           <Mode Name="Default"/>
+        </BuildModes>
+      </Target>
+      <Target FileName="exemplos/mi.rtl/create_tipuesearch/create_tipuesearch.lpi">
+        <BuildModes>
+          <Mode Name="Default"/>
+        </BuildModes>
+      </Target>
+      <Target FileName="exemplos/teste_data_base/project1/teste_data_base_project1.lpi">
+        <BuildModes>
+          <Mode Name="Default" Compile="True"/>
+          <Mode Name="i386-win32"/>
+          <Mode Name="x86_64-win64"/>
+        </BuildModes>
+      </Target>
+      <Target FileName="../../fcl-web/pp/simplesRouter/hello.lpi">
+        <BuildModes>
+          <Mode Name="Default"/>
+        </BuildModes>
+      </Target>
+      <Target FileName="../../../../Lazarus/Lazarus_fixe-3.0/fixe-3.0/lazarus/components/anchordocking/minide/miniide1.lpi">
+        <BuildModes>
+          <Mode Name="default"/>
+        </BuildModes>
+      </Target>
+      <Target FileName="exemplos/mi.lcl/mi.lcl.form/Prg_InputBox/Prg_InputBox.lpi">
+        <BuildModes>
+          <Mode Name="Default"/>
+        </BuildModes>
+      </Target>
+      <Target FileName="templates/app.maricarai/__ProjName__.lpi">
+        <BuildModes>
+          <Mode Name="Default" Compile="True"/>
+          <Mode Name="i386-win32"/>
+          <Mode Name="x86_64-win64"/>
+        </BuildModes>
+      </Target>
+      <Target FileName="ph.app.br/lazarus/app_avm/lcl/app_avm_lcl.lpi">
+        <BuildModes>
+          <Mode Name="Default" Compile="True"/>
+          <Mode Name="i386-win32"/>
+          <Mode Name="x86_64-win64"/>
+        </BuildModes>
+      </Target>
+      <Target FileName="../../../../Lazarus/Lazarus_fixe-3.0/fixe-3.0/ccr/WBotCE/demo/Lazarus/Demo.lpi">
+        <BuildModes>
+          <Mode Name="Default" Compile="True"/>
+          <Mode Name="Debug"/>
+          <Mode Name="Release"/>
         </BuildModes>
       </Target>
     </Targets>

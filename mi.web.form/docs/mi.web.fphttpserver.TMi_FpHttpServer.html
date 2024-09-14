@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<title>mi.web.fphttpserver: Classe TMi_FpHttpServer</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="generator" content="PasDoc 0.16.0">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<link rel="stylesheet" type="text/css" href="tipuesearch/tipuesearch.css">
+
+<link rel="StyleSheet" type="text/css" href="pasdoc.css">
+</head>
+<body>
+<div class="container"><div class="navigation">
+<ul><li><a href="AllUnits.html">Units</a></li><li><a href="ClassHierarchy.html">Hierarquia de Classes</a></li><li><a href="AllClasses.html">Classes, Interfaces, Objetos e Registros</a></li><li><a href="AllTypes.html">Tipos</a></li><li><a href="AllVariables.html">Variáveis</a></li><li><a href="AllConstants.html">Constantes</a></li><li><a href="AllFunctions.html">Funções e Procedimentos</a></li><li><a href="AllIdentifiers.html">Identificadores</a></li><li><form class="search-form" action="tipue_results.html"><div class="search-input"><input type="text" name="q" id="tipue_search_input" pattern=".{3,}" title="At least 3 characters" required><div class="search-button"><input type="button" id="tipue_search_button" onclick="this.form.submit();"></div></div></form>
+<div style="clear: both"></div>
+</li></ul></div><div class="content">
+<span id="TMi_FpHttpServer"></span><h1 class="cio">Classe TMi_FpHttpServer</h1>
+<div class="sections">
+<div class="one_section"><a class="section" href="#PasDoc-Description">Descrição</a></div><div class="one_section"><a class="section" href="#PasDoc-Hierarchy">Hierarquia</a></div><div class="one_section">Campos</div><div class="one_section"><a class="section" href="#PasDoc-Methods">Métodos</a></div><div class="one_section"><a class="section" href="#PasDoc-Properties">Propriedades</a></div></div>
+<span id="PasDoc-Description"></span><h2 class="unit">Unit</h2>
+<p class="unitlink">
+<a href="mi.web.fphttpserver.html">mi.web.fphttpserver</a></p>
+<h2 class="declaration">Declaração</h2>
+<p class="declaration">
+<code>type TMi_FpHttpServer = class(TComponent)</code></p>
+<h2 class="description">Descrição</h2>
+<p>
+A classe <strong><code>TMi_FpHttpServer</code></strong> foi criada com propósito de ser registrada na palleta de componentes para ser inserida em um Tform na criação de aplicações hibridas, ou seja LCL e web .</p>
+<span id="PasDoc-Hierarchy"></span><h2 class="hierarchy">Hierarquia</h2>
+<ul class="hierarchy"><li class="ancestor">TObject</li>
+<li class="ancestor">TPersistent</li>
+<li class="ancestor">TComponent</li>
+<li class="thisitem">TMi_FpHttpServer</li></ul><h2 class="overview">Visão Geral</h2>
+<span id="PasDoc-Methods"></span><h3 class="summary">Métodos</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>procedure <strong><a href="mi.web.fphttpserver.TMi_FpHttpServer.html#LoadMimeTypes">LoadMimeTypes</a></strong>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>constructor <strong><a href="mi.web.fphttpserver.TMi_FpHttpServer.html#Create">Create</a></strong>(AOwner: TComponent); override;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>procedure <strong><a href="mi.web.fphttpserver.TMi_FpHttpServer.html#Start">Start</a></strong>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>procedure <strong><a href="mi.web.fphttpserver.TMi_FpHttpServer.html#Stop">Stop</a></strong>;</code></td>
+</tr>
+</table>
+<span id="PasDoc-Properties"></span><h3 class="summary">Propriedades</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="mi.web.fphttpserver.TMi_FpHttpServer.html#HTTPServerThread">HTTPServerThread</a></strong> : <a href="mi.web.fphttpserver.THTTPServerThread.html">THTTPServerThread</a> Read GetHTTPServerThread;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><code>property <strong><a href="mi.web.fphttpserver.TMi_FpHttpServer.html#MimeFile">MimeFile</a></strong> : String Read _MimeFile Write _MimeFile;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><code>property <strong><a href="mi.web.fphttpserver.TMi_FpHttpServer.html#BaseDir">BaseDir</a></strong> : string Read _BaseDir Write _BaseDir;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><code>property <strong><a href="mi.web.fphttpserver.TMi_FpHttpServer.html#Port">Port</a></strong> : Word Read _Port Write SetPort Default 8080;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><code>property <strong><a href="mi.web.fphttpserver.TMi_FpHttpServer.html#UseSSL">UseSSL</a></strong> : Boolean Read _UseSSL Write SetUseSSL;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><code>property <strong><a href="mi.web.fphttpserver.TMi_FpHttpServer.html#HostName">HostName</a></strong> : String Read _HostName Write SetHostName ;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><code>property <strong><a href="mi.web.fphttpserver.TMi_FpHttpServer.html#AllowDefaultModule">AllowDefaultModule</a></strong> : Boolean read _AllowDefaultModule write _AllowDefaultModule;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="mi.web.fphttpserver.TMi_FpHttpServer.html#Active">Active</a></strong> : Boolean Read GetActive Write SetActive;</code></td>
+</tr>
+</table>
+<h2 class="description">Descrição</h2>
+<h3 class="detail">Métodos</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="LoadMimeTypes"></span><code>procedure <strong>LoadMimeTypes</strong>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+O método <strong><code>LoadMimeTypes</code></strong> carrega o arquivo com os tipos mime</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Create"></span><code>constructor <strong>Create</strong>(AOwner: TComponent); override;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+A constructor <strong><code>Create</code></strong> inicia a classe <strong>fphttpapp.Application</strong> se a diretiva <strong>DEFINE STANDALONE</strong> estiver definida, ou inicia a classe <strong>fpfcgi.Application</strong>, se a diretiva <strong>DEFINE FPFCGI</strong> estiver definida, ou inicia a classe fpcgi.Application, se a diretiva <strong>DEFINE FPCGI</strong> estiver defiidida.
+
+<p></p>
+
+<ul class="paragraph_spacing">
+  <li><p><strong>NOTA</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>As diretivas STANDALONE, FPFCGI e FPCGI são multuamente exclisivas, ou seja: ao definir uma as outras precisão estar indefiniddas.</p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Start"></span><code>procedure <strong>Start</strong>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+O método <strong>name</strong> inicia o servidor em uma tarefa separada da atual.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Stop"></span><code>procedure <strong>Stop</strong>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+O método <strong>name</strong> para o servidor de uma tarefa separada da atual.</p>
+</td></tr>
+</table>
+<h3 class="detail">Propriedades</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="HTTPServerThread"></span><code>property <strong>HTTPServerThread</strong> : <a href="mi.web.fphttpserver.THTTPServerThread.html">THTTPServerThread</a> Read GetHTTPServerThread;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+A propiedade <strong><code>HTTPServerThread</code></strong> criar uma aplicação web em uma tarefa a parte com propósto da mesma ser executada em conjunto com outro tipo de aplicação do freeepascal.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><span id="MimeFile"></span><code>property <strong>MimeFile</strong> : String Read _MimeFile Write _MimeFile;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><span id="BaseDir"></span><code>property <strong>BaseDir</strong> : string Read _BaseDir Write _BaseDir;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><span id="Port"></span><code>property <strong>Port</strong> : Word Read _Port Write SetPort Default 8080;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+A propiedade <strong><code>Port</code></strong> guarda a porta onde a aplicação irá executar.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><span id="UseSSL"></span><code>property <strong>UseSSL</strong> : Boolean Read _UseSSL Write SetUseSSL;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+A propiedade <strong><code>UseSSL</code></strong> unforma se a aplicação deve usar o protocolo SSL, ou seja https.
+
+<p></p>
+
+<ul class="paragraph_spacing">
+  <li><p><strong>NOTAS</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>A porta padrão do https é 443, caso seja uma porta diferente a mesma precisa ser referenciada na url cliente no browser.</p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><span id="HostName"></span><code>property <strong>HostName</strong> : String Read _HostName Write SetHostName ;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+A propriedade <strong>name</strong> usada para definir a utl do servior ou número do ip.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><span id="AllowDefaultModule"></span><code>property <strong>AllowDefaultModule</strong> : Boolean read _AllowDefaultModule write _AllowDefaultModule;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+A propriedade <strong>name</strong> é usada no contexto de um servidor HTTP no FCL-Web para controlar se o módulo padrão do servidor deve ser utilizado quando nenhum módulo específico é identificado para processar uma requisição.
+
+<p></p>
+
+<ul class="paragraph_spacing">
+  <li><p><strong>PARÂMETROS</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>true </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Se o servidor não encontrar um módulo específico que corresponda à requisição, ele permitirá que o módulo padrão seja usado para processar essa requisição.</p></li>
+  <li><p>Isso é útil para garantir que mesmo requisições não correspondentes a módulos específicos sejam tratadas de forma genérica, evitando erros de &quot;404 Not Found&quot; ou outras falhas.</p></li>
+</ul>
+
+<p></p></li>
+  <li><p>false </p>
+
+<ul class="paragraph_spacing">
+  <li><p>O servidor não usará o módulo padrão para processar requisições que não correspondem a nenhum módulo específico.</p></li>
+  <li><p>Nesse caso, se nenhuma correspondência for encontrada, a requisição pode falhar, resultando em uma resposta de erro para o cliente.</p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Active"></span><code>property <strong>Active</strong> : Boolean Read GetActive Write SetActive;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+A propriedade <strong><code>Active</code></strong> executa o método <a class="normal" href="mi.web.fphttpserver.TMi_FpHttpServer.html#Start">start</a> se a propriedade for true e executa o método <a class="normal" href="mi.web.fphttpserver.TMi_FpHttpServer.html#Stop">stop</a> se a propriedade for false.</p>
+</td></tr>
+</table>
+<hr><span class="appinfo"><em>Gerado por <a href="https://pasdoc.github.io/">PasDoc 0.16.0</a>. </em>
+</span>
+</div></div></body></html>

@@ -1,0 +1,16 @@
+inherited CustomDataMudule: TCustomDataMudule
+  OnCreate = DataModuleCreate
+  OnDestroy = DataModuleDestroy
+  Height = 150
+  HorizontalOffset = 516
+  VerticalOffset = 219
+  Width = 390
+  inherited ActionList1: TActionList
+    Left = 280
+    Top = 24
+  end
+  inherited DmxScroller_Form1: TDmxScroller_Form
+    Left = 72
+    Top = 16
+  end
+end

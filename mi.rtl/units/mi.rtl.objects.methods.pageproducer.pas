@@ -6,7 +6,7 @@ unit mi.rtl.objects.methods.pageproducer;
     -
 
   - **VERSÃO**
-    - Alpha - Alpha - 0.9.0
+    - Alpha - 1.0.0
 
   - **HISTÓRICO**
     - Criado por: Paulo Sérgio da Silva Pacheco e-mail: paulosspacheco@@yahoo.com.br
@@ -58,7 +58,11 @@ unit mi.rtl.objects.methods.pageproducer;
 interface
 
 uses
-  Classes, SysUtils,StrUtils,FPTemplate
+  Classes, SysUtils,StrUtils
+  ,LResources
+  ,Contnrs
+
+  ,FPTemplate
   ,mi.rtl.Consts
   ,mi.rtl.Objects.Methods
   ,mi.rtl.miStringlist
@@ -1313,6 +1317,7 @@ implementation
 
 procedure register;
 begin
+  {$I mi.rtl.objects.methods.pageproducer_icon.lrs}
   RegisterComponents('Mi.Rtl', [TPageProducer]);
 end;
 
@@ -1355,7 +1360,7 @@ begin
   try
     Result := New_Line;
     // Retorna todos os arquivos da pasta e subpastas
-    FindFilesAll(aPath,aMask,faArchive,true ,ListFiles );
+    FindFilesAll(aPath,aMask,faArchive,true ,ListFiles,true);
     For i := 0 to ListFiles.Count-1 do
     begin
       Result := result + StringReplace(atemplate,'~'+aTagName  , ListFiles.Strings[i]  , [rfReplaceAll]);

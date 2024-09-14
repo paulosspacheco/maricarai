@@ -1,7 +1,6 @@
 unit mi.rtl.Objects.Methods;
 {:< - A Unit **@name** implementa a classe **TObjectsMethods** do pacote **mi.rtl**.
 
-
   - **DESCRIÇÃO**:
     - Está unit é base para a class TObjetss
 
@@ -9,7 +8,7 @@ unit mi.rtl.Objects.Methods;
     - Esta unit foi testada nas plataformas: win32, win64 e linux.
 
   - **VERSÃO**
-    - Alpha - Alpha - 0.9.0
+    - Alpha - 1.0.0
 
   - **HISTÓRICO**
     - Criado por: Paulo Sérgio da Silva Pacheco e-mail: paulosspacheco@@yahoo.com.br
@@ -41,19 +40,24 @@ interface
 uses
   Classes
   ,SysUtils
-//  ,macuuid
+  ,StrUtils
+  ,Variants
   ,System.UITypes
-//  ,StrUtils
+  ,TypInfo
+  ,fpHTTP, HttpProtocol
+  ,fpjson
 
+  ,jsonparser
+  ,fpjsondataset
+  ,PropEdits
   ,Process
-//  ,Math
   ,dos
-
+  ,db
   ,sqlDB
   ,SQLite3Conn
   ,PQConnection
-
   ,FpHttpClient
+  ,HTTPDefs
   ,mi.rtl.Class_Of_Char
   ,mi.rtl.types
   ,mi.rtl.Consts
@@ -62,33 +66,98 @@ uses
   ,mi.rtl.objects.consts.progressdlg_if
   ,mi.rtl.objects.Consts.logs
   ,mi.rtl.MiStringList
+  ,mi.rtl.Consts.Transaction
 
   ;
 
   type
     THTMLTagEvent = mi.rtl.types.TTypes.THTMLTagEvent;
 
-
 //    TObjectsMethods = class;
   {: - A classe **@name** implementa os método de classe comum a todas as classes de TObjects do pacote **mi.rtl**.}
   TObjectsMethods =
   class(TObjectsConsts)
+    public constructor Create(aOwner:TComponent);override;
+    public Destructor destroy;Override;
 
     {: A classe método **@name** redireciona a saida de vídeo para
        arquivo passado como parâmetro.
     }
     public class Function redirectOutput(Var OutputFile: text;aFileName:TFileName):integer;
 
-  //Construção da propriedade Alias
-  {$REGION '--->Construção da propriedade Alias'}
-    Private  _Alias    : AnsiString;
-    Protected Function GetAlias:AnsiString;Virtual;
-    Protected Procedure SetAlias(Const aAlias:AnsiString);Virtual;
-    Published  Property Alias : AnsiString Read GetAlias Write SetAlias;
-  {$ENDREGION}
+    {$REGION '--->Construção da propriedade Alias'}
+      Private  _Alias    : AnsiString;
+      Protected Function GetAlias:AnsiString;Virtual;
+      Protected Procedure SetAlias(Const aAlias:AnsiString);Virtual;
+      Published  Property Alias : AnsiString Read GetAlias Write SetAlias;
+    {$ENDREGION}
     public type TMI_MsgBox = mi.rtl.objects.consts.MI_MsgBox.TMI_MsgBox;
-    public const MI_MsgBox: TMI_MsgBox = nil;
+    private const _MI_MsgBox: TMI_MsgBox = nil;
+
+    {: O método **@name** deve ser implementado que  se possoa criar formulários
+       MI_MsgBox diferente do padrão setado por Tapplication.}
+    public Function create_MI_MsgBox:TMI_MsgBox;virtual;abstract;
+    public class function MI_MsgBox: TMI_MsgBox;
+
+
 //    public Class Procedure Set_MI_MsgBox(aMI_MsgBox: TMI_MsgBox);virtual;abstract;
+
+    public type TMi_Transaction = mi.rtl.consts.Transaction.TMi_Transaction;
+    {: A constante **@name** deve ser iniciada ao criar conexão com o banco de dados.}
+    public Mi_Transaction : TMi_Transaction;
+
+    //{: A constante **@name** deve ser iniciada ao criar conexão com o banco de dados.}
+    //Public const Mi_Transaction : TMi_Transaction = nil;
+
+    {: O método **@name** inicia uma transação se puder.
+
+       - **RESULT**
+         - True
+           - Se a transação atual for false;
+         - false
+           - Se a transação atual for true;
+
+         - **Objetivo:
+           - Permitir que após o processamento, só executar commit ou rollback
+             se StartTransaction tenha retornado true;
+
+         - EXEMPLO DE USO
+
+           ```pascal
+
+              Function AddRec:Boolean;
+              Var
+                Finalize : boolean;
+              begin
+                try /Exepet
+
+                  Finalize := StartTransaction;
+
+                  AddRec;
+
+                  if Finalize
+                  then Commit
+
+                Except
+                  On E : Exception do
+                  begin
+                    if finalize
+                    then Roolback;
+
+                    Raise TException.Create(Self,'AddRec',E.Message);
+                  end;
+              end;
+
+           ```
+
+    }
+    protected function StartTransaction:Boolean;virtual; Overload;
+
+    {: O método **@name** confirme a transação no banco de dados}
+    protected function COMMIT:Boolean;virtual;Overload;
+
+    {: O método **@name** anula a transação do banco de dados}
+    protected procedure Rollback;virtual;
 
     public type TProgressDlg_If = mi.rtl.objects.consts.progressdlg_if.TProgressDlg_If;
     public type TProgressDlg_If_Class = mi.rtl.objects.consts.progressdlg_if.TProgressDlg_If_Class;
@@ -119,7 +188,11 @@ uses
     public class procedure SysMessageBox(Msg, Title: AnsiString; Error: Boolean);
 
     {: A classe **@name** deve ser implementada no pacote mi.ui.}
-    Public class function MessageBox(const Msg: AnsiString): Word;Virtual;overload;
+    Public class function MessageBox(const Msg: AnsiString): TMI_MsgBoxTypes.TModalResult;Virtual;overload;
+
+    public class function MessageBox(const aMsg: AnsiString;
+                                     DlgType: TMI_MsgBoxTypes.TMsgDlgType;
+                                     Buttons: TMI_MsgBoxTypes.TMsgDlgButtons): TMI_MsgBoxTypes.TModalResult;Virtual;overload;
 
     {: O método **@name** recebe 3 parâmetros. Criar um dialogo e retrona as opções escolhidas.
 
@@ -136,8 +209,9 @@ uses
          ```
     }
     public class function MessageBox(const aMsg: AnsiString;
-                                     DlgType: TMsgDlgType;
-                                     Buttons: TMsgDlgButtons): TModalResult;Virtual;overload;
+                                     DlgType: TMI_MsgBoxTypes.TMsgDlgType;
+                                     Buttons: TMI_MsgBoxTypes.TMsgDlgButtons;
+                                     ButtonDefault: TMI_MsgBoxTypes.TMsgDlgBtn): TMI_MsgBoxTypes.TModalResult;Virtual;overload;
 
 
     {: - A classe método **@name** encerra o programa com um erro de tempo de execução 211.
@@ -177,13 +251,9 @@ uses
 
     public class PROCEDURE DisposeStr ( Var P: ptstring);
 
-    public class FUNCTION IsValidPtr( ADDR:POINTER):BOOLEAN ;overload;
-
-    public class FUNCTION IsValidPtr( const aClass: Tobject):BOOLEAN ;overload;
-
     public class  Function Name_Type_App_MarIcaraiV1 :AnsiString;
 
-    public class Function Set_IsApp_VCL(aIsApp_VCL:Boolean):Boolean;
+    public class Function Set_IsApp_LCL(aIsApp_LCL:Boolean):Boolean;
 
     public class Procedure PopSItem(Var Items: PSItem);
 
@@ -207,7 +277,6 @@ uses
 
     public class Procedure RunError(Error:Word);
     Public class Procedure Run_Error(Error:Word;Procedimento_que_Executou:AnsiString);
-
     {: - A procedure **@name** executa um dialogo com botão **OK**
     }
     Public Class Procedure Alert(aTitle: AnsiString;aMsg:AnsiString);
@@ -221,40 +290,6 @@ uses
     }
     Public Class Function Confirm(aTitle: AnsiString;aPergunta:AnsiString):Boolean;
 
-    {: O método **@name** ler um valor na tela e retorna em **aValue** o valor e em result
-       retorna **MrOk** ou **MrCancel**}
-    Public Class function InputValue(const aTitle,aLabel: AnsiString;var aValue : Variant): TModalResult;
-
-    {: - A função **@name** mostra um dialogo com dois botões **OK** e **Cancel** e um campo input solicitando
-         que o usuário digite um valor.
-
-       - **RETORNA:**
-         - **True** : Se o botão **ok** foi pŕessionando;
-         - **False** : Se o botão **cancel** foi pŕessionando.
-         - **aResult** : Retorna a string digitada no formulário;
-    }
-    Public Class Function Prompt(aTitle: AnsiString;aPergunta:AnsiString;Var aResult: Variant):Boolean;
-
-    {: - A função **@name** mostra um dialogo solicitando o login do usuário e a senha e dois botões **OK**
-         e **Cancel**
-
-       - **RETORNA:**
-         - **True** : Se o botão **ok** foi pŕessionando;
-         - **False** : Se o botão **cancel** foi pŕessionando.
-         - **aUsername** : Retorna a string com nome do usuário.
-         - **apassword** : Retorna a string com a senha do usuário.
-    }
-    Public Class Function InputPassword(aTitle: AnsiString;out aUsername:AnsiString;out apassword:AnsiString):Boolean;Overload;
-
-    Public Class Function InputPassword(aTitle: AnsiString;out apassword:AnsiString):Boolean;Overload;
-
-
-
-    public class procedure DisposeSItems(VAR AItems: PSItem);overload;
-
-    public class procedure DisposeSItems(Var AStrItems: PtString);overload;
-
-
     public class function  MaxItemStrLen(AItems: PSItem) : integer; Overload;
 
     public class function  MaxItemStrLen(PSItems: tString) : integer;Overload;
@@ -263,12 +298,15 @@ uses
 
     public class function centralizesStr(Const campo : AnsiString; Const tamanho : Integer) : AnsiString;
 
+    public class function MaskEdit_to_Mask(const aMaskEdit: AnsiString ): TMask;virtual;
+    public class function isDateTime(Const aTemplate : AnsiString):Boolean;
     public class Function TypeFld(Const aTemplate : tString;Var aSize : SmallWord):AnsiChar;overload;
-    public class Function TypeFld(Const aTemplate : ShortString):AnsiChar;overload;
+    public class Function TypeFld(Const aTemplate : tString):AnsiChar;overload;
 
     public class Function IStr   ( Const I : Longint; Const Formato : tString) : tString;Overload;
     public class Function IStr   ( Const I : Longint) : tString;Overload;
     public class Function IStr   ( Const I : tString; Const Formato : tString) : tString;Overload;
+
 
     public class function StrNum(formato : AnsiString;{Var} buffer :Variant; Const Tipo : AnsiChar;Const OkSpc:Boolean) : AnsiString;overload;
     public class function StrNum(formato : AnsiString;{Var} buffer:Variant; Const Tipo : AnsiChar) : AnsiString;overload;
@@ -279,12 +317,52 @@ uses
     public class function IIF(Const Logica : Boolean; Const E1 , E2 : Longint ) : Longint;overload;
     public class function IIF(Const Logica : Boolean; Const E1 , E2 : Extended ) : Extended;overload;
     public class function IIF(Const Logica : Boolean; Const E1 , E2 : AnsiString ) : AnsiString ;overload;
+
+    {:A class método **@name** avalia uma condição lógica e retorna um dos dois
+      valores com base no resultado da condição.
+
+      - Parâmetros
+        - `Logica`
+          - Uma expressão booleana que determina qual valor será retornado.
+        - `E1`
+          - O valor a ser retornado se @code(Logica) for @code(True).
+        - `E2`
+          - O valor a ser retornado se @code(Logica) for @code(False).
+      - returns
+        - Retorna o valor de @code(E1) se @code(Logica) for @code(True);
+          caso contrário, retorna o valor de @code(E2).
+
+      - @note
+        - Esta função é genérica e pode ser usada com diferentes tipos de dados,
+          desde que @code(E1) e @code(E2) sejam do mesmo tipo.
+
+      - Example
+
+        ```pascal
+          var
+            intResult: Longint;
+            strResult: AnsiString;
+            boolResult: Boolean;
+            charResult: AnsiChar;
+            enumResult: TDayOfWeek;  // Supondo que você tenha uma enumeração chamada TDayOfWeek
+          begin
+            intResult := TObjectsMethods.IIF<Longint>(True, 10, 20);  // Retorna 10
+            strResult := TObjectsMethods.IIF<AnsiString>(False, 'Hello', 'World');  // Retorna 'World'
+            boolResult := TObjectsMethods.IIF<Boolean>(True, True, False);  // Retorna True
+            charResult := TObjectsMethods.IIF<AnsiChar>(False, 'A', 'B');  // Retorna 'B'
+            enumResult := TObjectsMethods.IIF<TDayOfWeek>(True, Sunday, Monday);  // Retorna Sunday
+          end;
+        ```
+
+    }
+    public class function IIF<T>(const Logica: Boolean; const E1, E2: T): T; static;
+
     public class Function SIF(Const Logica : Boolean; Const E1 , E2 : AnsiString ) : AnsiString ;
 
     public class function MinL(Const a,b:Longint):Longint;
     public  class function MaxL(Const a,b:Longint):Longint;
 
-    public class function NumToStr(Const formato : AnsiString;buffer:Variant; Const Tipo : AnsiChar;Const OkSpc:Boolean):AnsiString;
+    public class function NumToStr(Const formato : AnsiString;const buffer:Variant; Const Tipo : AnsiChar;Const OkSpc:Boolean):AnsiString;
 
     public class Function InsertCrtlJ(Const StrMsg:tString):tString;
 
@@ -298,6 +376,7 @@ uses
 
     public class procedure LogError(const Fmt: String; Args: array of const);overload;
     public class procedure LogError (const Msg:AnsiString );overload;
+//    public class Procedure Push_MsgErro(Const Str: AnsiString);override;
 
     public class function WideStringToString(const ws: WideString): AnsiString;
 
@@ -334,6 +413,10 @@ uses
       }
       Public class procedure WriteSItems(var S: TMiStringList;const Items: PSItem);
       Public class Function PSItem_ListaDeMsgErro:PSItem;virtual;
+
+      {: O método **@name** imprime a sequência de mesagems de erro da pilha de
+         mensagens.
+      }
       Public class Procedure MessageError;virtual;
 
       {: O Método @name retorna uma lista de erros da pilha de erros;
@@ -347,14 +430,17 @@ uses
 
     {$ENDREGION}
 
-    public class Function FMaiuscula(str:AnsiString):AnsiString;
+    public class Function UpperCase(str:AnsiString):AnsiString;
+
+    public class function Lowcase(str:AnsiString):AnsiString;//inline;
 
     {: A função **@name** remove os acentos do texto pText
 
        - **REFERÊNCIA**
          - Exemplo completo: https://showdelphi.com.br/dica-funcao-para-remover-acentos-de-uma-string-Delphi/
     }
-    public class function AnsiString_to_USASCII(const pText: string): string;
+  public
+    class function AnsiString_to_USASCII(const pText: string): string;
 
     {: A class function **@name** converte caracteres acentuados para caracteres não acentuados
 
@@ -470,19 +556,19 @@ uses
 
     public class function Delspace(campo : Ansistring):AnsiString;
     Public class function GetNameValid(aName:AnsiString):AnsiString;
-    public class Function IsNumber_Real(Const aTemplate : ShortString):Boolean;
+
+    public class function IsNumberReal(const aTemplate: ShortString): Boolean;
+    public class function IsNumberInteger(const aTemplate: ShortString): Boolean;
     public class Function IsNumber(Const aTemplate : ShortString):Boolean;
+    public class Function IsBoolean(Const aTemplate : ShortString):Boolean;
     public class Function IsData(Const aTemplate : ShortString):Boolean;
     public class Function IsHora(Const aTemplate : ShortString):Boolean;
     public procedure HandleEvent(var Event: TEvent); Virtual;
     public procedure ClearEvent(var Event: TEvent);Virtual;
-
     public class Function Change_AnsiChar(campo : AnsiString; Const AnsiChar_Font,AnsiChar_Dest : AnsiChar):AnsiString;
-
-    public class Function DeleteMask(S : tString;ValidSet: AnsiCharSet):AnsiString;overload;
-    public class function DeleteMask(S: ShortString;aMask:ShortString): AnsiString;overload;
+    public class Function DeleteMask(S:AnsiString;ValidSet: AnsiCharSet):AnsiString;overload;
+    public class function DeleteMask(S:AnsiString;aMask:TString): AnsiString;overload;
     public class function AddMask(S: ShortString;aMask:ShortString): AnsiString;
-
 
     {: A função **@name** é usada para criar ou apagar um banco de dados
 
@@ -544,10 +630,15 @@ uses
                                       okCreateDB:Boolean //True cria; False : apaga
                                      ):string;
 
-    {: O método @name remove as mascaras do número e retorna somente números
+    {: O método @name remove as mascaras do número e retorna somente números e seprador decimal default }
+//    class function StrNumberValid(S: AnsiString): AnsiString;
 
+    {: O método @name converte um string com mascara e ponto decimar default em
+       string com ponto decimal='.'.
+       - Motivo de sua existência.
+         - A função system.val e system.str não reconhecem o registro DefaultFormatSettings.
     }
-    class function StrNumberValid(S: AnsiString): AnsiString;
+    class function StrToStrNumberForProcVal(S: AnsiString): AnsiString;
 
     {: o classe método **@name** checa se s está entre aHigh e aLow retorna zero se houver erro
        e em aErr o código do erro.
@@ -643,6 +734,7 @@ uses
       private _Ok_HelpCtx_StrCurrentCommand_Topic_Content_run_Parameter_File: Boolean;
       Protected  Function Get_Ok_HelpCtx_StrCurrentCommand_Topic_Content_run_Parameter_File:Boolean;Virtual;
       Protected  procedure Set_Ok_HelpCtx_StrCurrentCommand_Topic_Content_run_Parameter_File(a_Ok_HelpCtx_StrCurrentCommand_Topic_Content_run_Parameter_File: Boolean);Virtual;
+
       {: A propriedade **@name** é usado para indica a propriedade **HelpCtx_StrCurrentCommand_Topic_Content_Run** que existe documento referente a visão corrente. Ou seja help sencível ao contexto.
          - **NOTAS**
            - Ao criar o objeto inicializa com Db_Global.StrCurrentCommand_topic
@@ -658,11 +750,11 @@ uses
       private _HelpCtx_StrCurrentCommand_Topic_Content: AnsiString;
       protected Function GetHelpCtx_StrCurrentCommand_Topic_Content: AnsiString;virtual;
       protected Procedure SetHelpCtx_StrCurrentCommand_Topic_Content(wHelpCtx_StrCurrentCommand_Topic_Content:AnsiString);virtual;
+
       {: A propriedade **@name** contém o conteúdo do campo no qual será criado um arquivo .html
          - **NOTAS**
            - Ao criar o objeto inicializa com Db_Global.StrCurrentCommand_topic_Content;
       }
-
       Public property HelpCtx_StrCurrentCommand_Topic_Content: AnsiString read GetHelpCtx_StrCurrentCommand_Topic_Content write SetHelpCtx_StrCurrentCommand_Topic_Content;
     {$ENDREGION}
     Public function GetHelpCtx_Doc_HTML: AnsiString;Virtual; //Se quem herdar esta classe não for do tipo campo então este metodo deve ser redefinido.
@@ -670,7 +762,531 @@ uses
     {: A classe método **@name** recebe em aInputString uma string separada pelo delimitador informado em aDelimiter e retorna um arrey de strings }
     public class function SplitString(aInputString:string; aDelimiter: Char):TStringArray;
 
+    {: O Método **@name** converte código HTML em cor da LCL
 
+       - Exemplo de usado da função
+
+         ```pascal
+
+              unit Unit1;
+
+                interface
+
+                uses
+                  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+                  Dialogs, ExtCtrls, StdCtrls;
+
+                type
+                  TForm1 = class(TForm)
+                    Edit1: TEdit;
+                    Button1: TButton;
+                    Shape1: TShape;
+                    procedure Button1Click(Sender: TObject);
+                  private
+
+                  public
+
+                  end;
+
+                var
+                  Form1: TForm1;
+
+              implementation
+
+                $R *.dfm
+
+
+                function HTMLToTColor(const HTML: String): Integer;
+                var
+                  Offset: Integer;
+                begin
+                  try
+                    // check for leading '#'
+                    if Copy(HTML, 1, 1) = '#' then
+                      Offset := 1
+                    else
+                      Offset := 0;
+                    // convert hexa-decimal values to RGB
+                    Result :=
+                      Integer(StrToInt('$' + Copy(HTML, Offset + 1, 2))) +
+                      Integer(StrToInt('$' + Copy(HTML, Offset + 3, 2))) shl 8 +
+                      Integer(StrToInt('$' + Copy(HTML, Offset + 5, 2))) shl 16;
+                  except
+                    // try for color names
+                //    Result := TranslateColorName(LowerCase(HTML));
+                  end;
+                end;
+
+
+
+                function RGBToColor(R,G,B:Byte): TColor;
+                begin
+                  Result:= B Shl 16 Or  //Blue
+                           G Shl 8  Or  //Verde
+                           R;           //Vermelho
+                end;
+
+                procedure TForm1.Button1Click(Sender: TObject);
+                begin
+                //  Shape1.Brush.Color:= rgbtocolor(107,183,239);
+                  Shape1.Brush.Color:= HTMLToTColor(Edit1.Text);
+
+                  Shape1.Invalidate;
+                end;
+
+           ```
+    }
+    class function HTMLToTColor(const HTML: TString): Integer;
+
+    {: O método **@name** retorna true se avalue for vazio ou null }
+    public Class function IsEmptyOrNull(const aValue: Variant): Boolean;
+
+    {: O método **@name** usado para ocultar a propriedade de um componente.
+
+      - Criei esse método na minha classe base com objetivo de tornar a propriedade
+        de uma classe invisível.
+
+      - O mesmo deve se usado ao registrar um componente;
+        - Exemplo
+
+          ```pascal
+               procedure Register;
+                begin
+                    RegisterComponents('Mi.Rtl',[TMi_SQLQuery]);
+                    Tmi_rtl.UnlistPublishedProperty(TMi_SQLQuery,'Options');
+                    Tmi_rtl.UnlistPublishedProperty(TMi_SQLQuery,'FileName');
+                    Tmi_rtl.UnlistPublishedProperty(TMi_SQLQuery,'DataSource');
+                    Tmi_rtl.UnlistPublishedProperty(TMi_SQLQuery,'UniDirecional');
+                    Tmi_rtl.UnlistPublishedProperty(TMi_SQLQuery,'Tag');
+                    Tmi_rtl.UnlistPublishedProperty(TMi_SQLQuery,'PacketRecords');
+               end;
+          ```
+
+      - Se essas propriedades forem alteradas pelo usuário do componente certamente o
+      componente dará problema, por isso precisei remove-lo da lista de propriedade
+      para evitar problema.
+
+      - Para que não de problema, no constructor create da classe seto o que preciso,
+      porém se essa propriedade fossem visíveis  o usuário perderia muito tempo para
+      entender porque o que ele informou o que ele queria e o comportamento do componente
+      não mudaria.
+    }
+    public class procedure UnlistPublishedProperty (ComponentClass:TPersistentClass; const PropertyName:String);
+
+    public class Procedure str(v : variant; var s : String);
+
+    public class Procedure Print_info_compile;
+
+//    public class Function GetPropInfo(AClassInfo: Pointer;AName:String):PPropInfo;
+
+    {:O classe método converte um array of const em um string separado por virgula.
+
+      - **NOTAS**
+        - Iteração sobre o array: A função VarRecArrayToStr percorre cada elemento
+          do array Args e converte-o em uma string usando um case para identificar
+          o tipo de dado.
+
+        - Construção da string de resultado: Para cada elemento do array, a string
+          correspondente é concatenada ao Result. Entre os elementos, é adicionada
+          uma vírgula e um espaço.
+
+      - **EXMPLO DE USO**
+
+        ```pascal
+
+          var
+            S: string;
+          begin
+            S := VarRecArrayToStr([1, 'Ola Mundo', 3.14, True]);
+            WriteLn(S);  // Saída: 1, Hello, 3.14, True
+          end.
+
+        ```
+    }
+    class function VarRecArrayToStr(const Args: array of const): string;
+
+    {: O método **@name** Salva o array JSONString para aJSONDataSet.rows }
+    class procedure JsonToDataSet(const JSONString: string; var aJSONDataSet: TJSONDataSet );
+
+    Class Function DataSetToJson(Const aJSONDataSet: TJSONDataSet):String;
+
+    {:A classe método **@name** converter um jsonData em Variant
+
+      - **Exemplo de uso**
+
+        ```pascal
+
+          program test;
+
+            uses
+              SysUtils, fpjson, jsonparser, Variants;
+
+            var
+              JSONStr: string;
+              JSONData: TJSONData;
+              JSONVariantArray: Variant;
+              i: Integer;
+          begin
+            // Exemplo de string JSON contendo um array
+            JSONStr := '[1, "Texto", true, null,3.56 ]';
+
+            try
+              // Parseando o JSON
+              JSONData := GetJSON(JSONStr);
+
+              // Convertendo JSON para array de Variant
+              JSONVariantArray := JSONToVariantArray(JSONData);
+
+              // Exibindo os valores convertidos
+              for i := VarArrayLowBound(JSONVariantArray, 1) to VarArrayHighBound(JSONVariantArray, 1) do
+                WriteLn('JSONVariantArray[', i, '] = ', JSONVariantArray[i]);
+            finally
+              JSONData.Free;
+            end;
+          end.
+
+        ```
+
+    }
+    class function JSONToVariantArray(JSONData: TJSONData): Variant;
+
+     {:A classe método **@name** recebe em a value um array e retorna um array de string
+
+       - **EXEMPLO DE USO
+
+         ```pascal
+
+           program ArrayToVariantExample;
+             uses
+               Variants, SysUtils;
+
+             var
+               aKeyValues: array of string;
+               vKeyValues: Variant;
+               i: Integer;
+           begin
+             // Inicializando o array
+             SetLength(aKeyValues, 3);
+             aKeyValues[0] := 'Valor1';
+             aKeyValues[1] := 'Valor2';
+             aKeyValues[2] := 'Valor3';
+
+             vKeyValues := ArrayToVariant(aKeyValues);
+
+             // Exemplo de acesso aos valores do Variant
+             for i := VarArrayLowBound(vKeyValues, 1) to VarArrayHighBound(vKeyValues, 1) do
+               WriteLn('vKeyValues[', i, '] = ', vKeyValues[i]);
+
+             // Tentativa de acessar os elementos do array Variant para verificar
+             for i := 0 to VarArrayHighBound(vKeyValues, 1) do
+             begin
+               // Atribua cada elemento a uma variável string (s) para teste
+               WriteLn('Elemento ', i, ': ', VarToStr(vKeyValues[i])); // Exibe os elementos no console para verificação
+             end;
+           end.
+         ```
+     }
+    class function ArrayToVariant(aValues: array of string):Variant;
+
+    {:A classe método **@name** percorre a lista de strings fornecida em `aQueryFields`,
+      que normalmente contém pares chave-valor no formato `chave=valor`, e separa as
+      chaves e os valores.
+
+      - As chaves são concatenadas em uma única string, separadas por ponto e
+        vírgula (`;`), e retornadas como resultado da função. Os valores
+        correspondentes são armazenados no array `Values`, que é passado como um
+        parâmetro de saída.
+
+      - Parâmetros
+        - param(aQueryFields)
+          - Uma lista de strings contendo pares chave-valor no formato `chave=valor`.)
+        - param(Values)
+          - Um array de strings que conterá os valores extraídos dos pares
+            `chave=valor`.)
+      - Returns()
+        - A string contendo todas as chaves extraídas dos pares, separadas por
+          ponto e vírgula.)
+
+      - **Por que foi criado**
+        - O método locate precisa de uma lista de nome de campos e uma array de variantes
+
+      - Exemplo de uso:
+
+         ```pascal
+
+            uses
+              SysUtils, Classes;
+
+            procedure TestGetFieldsKeys;
+            var
+              QueryFields: TStringList;
+              Values: array of string;  // Array dinâmico de strings
+              Keys: AnsiString;
+              I: Integer;
+            begin
+              QueryFields := TStringList.Create;
+              try
+                // Adicione pares chave=valor
+                QueryFields.Add('key1=value1');
+                QueryFields.Add('key2=value2');
+                QueryFields.Add('key3=value3');
+
+                // Chame a função passando a lista e o array dinâmico.
+                Keys := TObjectsMethods.getFieldsKeys(QueryFields, Values);
+
+                // Exibir as chaves extraídas
+                Writeln('Keys: ', Keys);
+
+                // Exibir os valores extraídos
+                for I := Low(Values) to High(Values) do
+                begin
+                  Writeln('Value ', I, ': ', Values[I]);
+                end;
+              finally
+                QueryFields.Free;
+              end;
+            end;
+
+            begin
+              TestGetFieldsKeys;
+            end.
+
+         ```
+    }
+    class function getFieldsKeys(aQueryFields: TStrings;out Values: TArray<string>): AnsiString;overload;
+
+    {:A classe método **@name** Codifica uma string para ser usada em uma URL
+
+      **Parâmetros:**
+        - `AStr`: A string que será codificada, do tipo `Ansistring`.
+
+      **Retorno:**
+        - Retorna a string codificada no formato `UTF8String`, onde caracteres especiais são convertidos para sua representação hexadecimal (%XX) conforme o padrão de codificação de URLs.
+
+      **Descrição:**
+        - Este método percorre a string fornecida e codifica os caracteres que
+          não são seguros para URLs (como espaços e caracteres especiais). A
+          codificação usa o formato hexadecimal, precedido pelo símbolo `%`.
+          Caracteres dentro da faixa ASCII imprimível (32-126) são mantidos,
+          exceto para `[' ', '&', '=', '?', '#', '%']`, que são codificados.
+
+        - A função converte a string de entrada para UTF-8 antes de realizar a
+          codificação, garantindo que seja compatível com a codificação de URL
+          padrão.
+
+      **Exceções:**
+        - Não lança exceções diretamente, mas pode haver problemas se uma string
+          não for adequadamente codificada para UTF-8.
+
+      **Exemplo:**
+
+        ```pascal
+           var
+             EncodedStr: UTF8String;
+           begin
+             EncodedStr := TObjectsMethods.URLEncode('name=John Doe & age=30');
+             // EncodedStr resultará em "name=John%20Doe%20%26%20age%3D30"
+           end;
+        ```
+    }
+    class function URLEncode(AStr: Ansistring): UTF8String;
+
+    {:O método **@name** converte um objeto JSON em uma string de query para URLs
+
+      **Parâmetros:**
+      - `Params`: O objeto JSON do tipo `TJSONObject` contendo os parâmetros a serem convertidos.
+
+      **Retorno:**
+      - Retorna uma string formatada como uma query de URL, onde cada chave-valor do JSON é convertido no formato `chave=valor`, e pares múltiplos são concatenados usando `&`.
+
+      **Descrição:**
+      Este método percorre cada par chave-valor de um objeto JSON e o converte para uma string de query. Diferentes tipos de valores JSON são tratados da seguinte forma:
+
+      - `jtNull`: A chave é incluída sem valor.
+      - `jtString`: A chave e o valor são codificados para URL.
+      - `jtNumber`: O valor é convertido para string com suporte a números.
+      - `jtBoolean`: O valor booleano é convertido para 'true' ou 'false'.
+      - `jtArray`: Os valores do array são concatenados por vírgulas, como `valor1,valor2`.
+
+      **Exceções:**
+      - Uma exceção é lançada se um tipo de valor JSON não suportado for encontrado.
+
+      **Exemplo:**
+
+        ```pascal
+           var
+             JSONObject: TJSONObject;
+             QueryString: string;
+           begin
+             JSONObject := TJSONObject.Create;
+             JSONObject.Add('name', 'John');
+             JSONObject.Add('age', 30);
+             JSONObject.Add('active', True);
+
+             QueryString := TObjectsMethods.JSONObjectToQueryString(JSONObject);
+             // QueryString resultará em "name=John&age=30&active=true"
+           end;
+        ```
+    }
+    class function JSONObjectToQueryString(const Params: TJSONObject): string;
+
+    {:O método **@name** usado para converter strings separadas por vírgulas em
+      um array JSON.
+
+      - **Descrição**
+        - Este método de classe converte uma string no formato CSV
+          (Comma-Separated Values) em um array JSON (`TJSONArray`). A string
+          CSV é dividida usando a vírgula como delimitador, e cada item
+          resultante é adicionado ao array JSON. Espaços extras ao redor dos
+          valores são removidos.
+
+      - **Parâmetros**
+        - **CSV**: `string`
+          - A string no formato CSV que será convertida em um array JSON.
+
+      - **Retorno**
+        - `TJSONArray`
+           - Um array JSON contendo os valores extraídos da string CSV.
+
+      - **Fluxo de Execução**
+        1. Cria um novo objeto `TJSONArray` e um `TStringList`.
+        2. Configura o `TStringList` para usar a vírgula como delimitador e
+           desativa o tratamento de espaços como parte dos valores.
+        3. Divide a string CSV em uma lista de valores.
+        4. Itera sobre a lista e adiciona cada item ao array JSON, removendo
+           espaços extras.
+        5. Libera a memória alocada para o `TStringList`.
+
+      - **Exceções**
+        - Não há tratamento específico de exceções implementado neste método.
+
+      - **Ver Também**
+        - `TJSONArray`
+        - `TStringList`
+        - `DelimitedText`
+    }
+    Class function ConvertCSVToJSONArray(const CSV: string): TJSONArray;
+
+    {:A classe método **@name** extrae de aRequest.QueryFields os parâmetros
+      abaixo:
+
+      - **PARAMETROS**
+        - aKeyFields: string;
+          - Espera uma lista de nome dos campos separados por virgula.
+
+        - aKeyValues: Variant;
+         - Espera uma lista de valores dos campos separados por virgula.
+
+        - aOptions   : TLocateOptions
+          - Espera uma lista de opções separados por vírgula onde as opções podem
+            ser: 'loCaseInsensitive','loPartialKey'
+            - Obs:
+              - Pode ser um ou outros ou ambos.
+              - São parâmetros espardos no função .TDataSet.Locate
+
+    }
+    class Procedure GetQueryFieldsLocate(var aRequest: TRequest;
+                                         out aKeyFields: string;
+                                         Out aKeyValues: Variant;
+                                         Out aOptions   : TLocateOptions
+                                         );
+
+     {:O método **@name** converte os parâmetros de uma chamada TDataSet.Locate()
+      em TJSonObject para ser enviado para o servidor para pesquisar o registro.
+
+      - **EXEMPLO**
+
+        ```pascal
+
+          Procedure LocateParamsToJsonTest;
+          var
+            JsonLocateParams: TJSONObject;
+            s:string;
+          begin
+            JsonLocateParams := LocateParamsToJson('Company;Contact;Phone',
+              VarArrayOf(['Sight Diver', 'P', '408-431-1000']), [loPartialKey]);
+            try
+              s := JsonLocateParams.AsJSON;
+              writeln(JsonLocateParams.AsJSON);
+            finally
+              JsonLocateParams.Free;
+            end;
+          end;
+
+        ```
+    }
+    Class function LocateParamsToJson(KeyFields: string; KeyValues: Variant; Options: TLocateOptions): TJSONObject;
+
+    {:O método **@name** tem como objetivo construir e validar uma URL a partir
+      de três partes: a URL base (`BaseURL`), uma ação (`Action`), e uma string
+      de consulta (`QueryString`). Ela garante que a junção dessas partes ocorra
+      de maneira correta, removendo duplicações de barras (`/`) e verificando a
+      formatação da string de consulta.
+
+      - Parâmetros
+        - `BaseURL`: A URL base, geralmente fornecida pelo método `GetURL()`.
+           Pode ou não terminar com uma barra (`/`).
+        - `Action`: O caminho ou ação que será anexado à `BaseURL`. Pode ou não
+           começar com uma barra (`/`).
+        - `QueryString`: A string de consulta que será anexada à URL final,
+          representando os parâmetros da requisição. Se fornecida, deve começar
+          com um ponto de interrogação (`?`), o qual será verificado pela função.
+
+      - Retorno
+        - A função retorna uma `string` contendo a URL completa e validada,
+          pronta para ser utilizada em requisições HTTP.
+
+      - Exemplo de Uso
+
+        ```pascal
+           var
+             CompleteURL: string;
+           begin
+             CompleteURL := ValidateAndNormalizeURL('http://example.com', '/api/resource', '?id=123&name=test');
+             // Resultado: http://example.com/api/resource?id=123&name=test
+           end;
+        ```
+    }
+    Class function ValidateAndNormalizeURL(const BaseURL, Action, QueryString: string): string;
+
+    {:O método **@name** faz o parsing de uma resposta JSON recebida e extrai os
+      campos de chave e seus respectivos valores. O campo `keyFields` é uma string
+      que contém os nomes dos campos separados por vírgula, e o campo `keyValues`
+      pode ser um array de valores ou um único valor.
+
+      - **Parâmetros**
+        -`AResponse`:
+          - String contendo o JSON da resposta do servidor.
+        - `KeyFields`:
+          - String de saída que armazenará os campos de chave extraídos do JSON.
+        - `KeyValues`: Variável de saída que armazenará os valores dos campos de
+          chave. Pode ser um array de variantes ou um valor único.
+
+      - **Fluxo de Execução**
+        1. Inicializa as variáveis `KeyFields` e `KeyValues` com valores padrão
+           (`''` e `Null`, respectivamente).
+        2. Realiza o parsing do JSON contido em `AResponse`.
+        3. Extrai o valor de `keyFields`, que deve ser uma string no JSON.
+        4. Verifica se `keyValues` é um array:
+           - Se for, cria um array de variantes e itera pelos itens do array,
+             armazenando-os em `KeyValues`.
+           - Se não for, `KeyValues` recebe um único valor extraído do JSON.
+        5. Libera o objeto JSON ao final da execução.
+        6. Caso ocorra um erro durante o parsing, o método captura a exceção e
+           exibe uma mensagem de erro.
+
+      - Exceções
+        - `E: Exception`:
+          - Exceção capturada se ocorrer algum erro durante o processamento do
+            JSON. A mensagem de erro é exibida no console.
+
+      - **Ver Também**
+        - `TJSONObject`
+        - `TJSONArray`
+        - `GetJSON`
+        - `VarArrayCreate`
+    }
+    class procedure ParseServerResponse(const AResponse: string; out KeyFields: string; out KeyValues: Variant);
   end;
 
 
@@ -685,10 +1301,21 @@ uses
 
 implementation
   const
-      vidis : boolean = false;
+      reintrance : boolean = false;
 
-    class function TObjectsMethods.redirectOutput(var OutputFile:text;
-    aFileName:TFileName):integer;
+constructor TObjectsMethods.Create(aOwner: TComponent);
+begin
+  inherited Create(aOwner);
+  Mi_Transaction := TMi_Transaction.Create(self);
+end;
+
+destructor TObjectsMethods.destroy;
+begin
+  FreeAndNil(Mi_Transaction);
+  inherited destroy;
+end;
+
+  class function TObjectsMethods.redirectOutput(var OutputFile:text;  aFileName:TFileName):integer;
   begin
     if not isfileopen(OutputFile)
     Then Begin
@@ -704,7 +1331,6 @@ implementation
     end;
   end;
 
-
   class function TObjectsMethods.Logs: TFilesLogs;
   begin
     if _Logs = nil
@@ -719,26 +1345,50 @@ implementation
     else Alert(title,msg);
   end;
 
-  class function TObjectsMethods.MessageBox(const Msg: AnsiString): Word;
+  class function TObjectsMethods.MessageBox(const Msg: AnsiString): TMI_MsgBoxTypes.TModalResult;
   begin
-    if not vidis then
-      with Mi_MsgBox do
-      begin
-        vidis := true;
-        Result := MessageBox('',Msg,mtWarning, [mbOK],mbOk);
-        vidis := false;
-      end;
+    if reintrance
+    then begin
+           Result := 0;
+         end;
+
+    if Assigned(_MI_MsgBox)
+    then with _MI_MsgBox do
+         begin
+           reintrance := true;
+           Result := MessageBox('',Msg,mtWarning, [mbOK,mbCancel],mbOk);
+           reintrance := false;
+         end
+    else Result := MrOk;
   end;
 
-  class function TObjectsMethods.MessageBox(const aMsg: AnsiString;DlgType: TMsgDlgType; Buttons: TMsgDlgButtons): TModalResult;
+  class function TObjectsMethods.MessageBox(const aMsg: AnsiString;
+                                            DlgType: TMI_MsgBoxTypes.TMsgDlgType;
+                                            Buttons: TMI_MsgBoxTypes.TMsgDlgButtons): TMI_MsgBoxTypes.TModalResult;
   begin
-    if not vidis then
-      with Mi_MsgBox do
-      begin
-        vidis := true;
-        Result := MessageBox(aMsg,DlgType,Buttons);
-        vidis := false;
-      end;
+    if not reintrance and Assigned(_MI_MsgBox)
+    then with _MI_MsgBox do
+         begin
+           reintrance := true;
+           Result := MessageBox(aMsg,DlgType,Buttons);
+           reintrance := false;
+         end
+    else Result := MrCancel;
+  end;
+
+  class function TObjectsMethods.MessageBox(const aMsg: AnsiString;
+                                              DlgType: TMI_MsgBoxTypes.TMsgDlgType;
+                                               Buttons: TMI_MsgBoxTypes.TMsgDlgButtons;
+                                               ButtonDefault: TMI_MsgBoxTypes.TMsgDlgBtn): TMI_MsgBoxTypes.TModalResult;
+  begin
+    if not reintrance and Assigned(_MI_MsgBox)
+    then with _MI_MsgBox do
+         begin
+           reintrance := true;
+           Result := MessageBox(aMsg,DlgType,Buttons,ButtonDefault);
+           reintrance := false;
+         end
+    else Result := MrCancel;
   end;
 
   class procedure TObjectsMethods.Abstracts;
@@ -746,9 +1396,9 @@ implementation
   begin
     s := TStrError.ErrorMessage5('mi.rtl','mi.rtl.Obejcts.Methods','TObjectsMethods','Abstracts','Método abstrato não implementado...' );
     LogError(TStrError.ErrorMessage(s));
-    MessageBox(s);
+    //MessageBox(s);
 
-    //raise EArgumentException.Create(TStrError.ErrorMessage5('mi.rtl','mi.rtl.objects.Methods','TObjectsMethods','Abstract',211 ));
+    raise EArgumentException.Create(TStrError.ErrorMessage5('mi.rtl','mi.rtl.objects.Methods','TObjectsMethods','Abstract',211 ));
      //SysMessageBox(PAnsiChar( '' ),'Error: 211 - Abstract error',true);
   end;
 
@@ -758,7 +1408,7 @@ implementation
      RunError(212);                                     { Register error }
   END;
 
-    class procedure TObjectsMethods.RegisterType(var S: TStreamRec);
+  class procedure TObjectsMethods.RegisterType(var S: TStreamRec);
     VAR P: pStreamRec;
   BEGIN
      P := StreamTypes;                                  { Current reg list }
@@ -810,16 +1460,13 @@ implementation
   ////   NewStr := P;                                       { Return result }
   //END;
 
-    class procedure TObjectsMethods.NNewStr(var PS: ptstring; const S: AnsiString
-    );
-    {Cria um novo string se Ps=nil do contrario troca Ps por S}
+   class procedure TObjectsMethods.NNewStr(var PS: ptstring; const S: AnsiString);
+    //Cria um novo string se Ps=nil do contrario troca Ps por S
   Begin
     if Length(S)> 255
     then Begin
             LogError(TStrError.ErrorMessage('Exceção em Objects..function nNewStr(): String maior que 255'));
             raise  EArgumentException.Create('Exceção em Objects..function nNewStr(): String maior que 255');
-  //         SysMessageBox(PAnsiChar('Exceção em Objects.NNewStr(): String maior que 255'),'Run time error',true);
-  //         abort;
          end;
 
     If Ps = nil Then
@@ -831,23 +1478,19 @@ implementation
     End;
   End;
 
-    class procedure TObjectsMethods.DisposeStr(var P: ptstring);
+  class procedure TObjectsMethods.DisposeStr(var P: ptstring);
   BEGIN
-    Try
-      Try
+    SysUtils.DisposeStr(p);
 
-        If (P <> Nil)
-        Then FreeMem(P, Length(P^) + 1);     { Release memory }
-
-      Finally
-        P  := nil;
-      end;
-    Except
-    End;
+    //If Assigned(P)
+    //Then begin
+    //       FreeMem(P, Length(P^) + 1);     { Release memory }
+    //       P  := nil;
+    //     end;
   END;
 
-    class function TObjectsMethods.CallPointerLocal(Func: codepointer;
-    Frame: Pointer; Param1: pointer): pointer;
+  class function TObjectsMethods.CallPointerLocal(Func: codepointer;
+                           Frame: Pointer; Param1: pointer): pointer;
   begin
     {$ifdef cpui8086}
       CallPointerLocal := PointerLocal(Func)(Ofs(Frame^), Param1)
@@ -856,27 +1499,6 @@ implementation
     {$endif cpui8086}
   end;
 
-
-  class function TObjectsMethods.IsValidPtr(ADDR: POINTER): BOOLEAN;
-  Begin
-   Try
-     Result := (addr <> nil);
-   Except
-     Result := False;
-   end;
-  END;
-
-  class function TObjectsMethods.IsValidPtr(const aClass: Tobject): BOOLEAN;
-  Begin
-   Try
-     Result := (aClass <> nil)
-  //              And (aClass Is TObject)
-               and aClass.ClassNameIs(aClass.ClassName);      //Acessa um metodo do objeto se gerar excessao retorna false
-   Except
-  //    aClass := nil;
-     Result := False;
-   end;
-  END;
 
 
   class function TObjectsMethods.Name_Type_App_MarIcaraiV1: AnsiString;
@@ -911,7 +1533,7 @@ implementation
       Result := '/\/\ar/\carai - App_CGI';
     {$ENDIF}
 
-    {$IFDEF App_ISAPI} // Aplicação web compilada como dll deve ser executada em conjunto com browser.
+    {$IFDEF App_FastCgi} // Aplicação web compilada como dll deve ser executada em conjunto com browser.
       Result := '/\/\ar/\carai - App_CGI '; //
     {$ENDIF}
 
@@ -922,16 +1544,16 @@ implementation
 
   End;
 
-  class function TObjectsMethods.Set_IsApp_VCL(aIsApp_VCL: Boolean): Boolean;
+  class function TObjectsMethods.Set_IsApp_LCL(aIsApp_LCL: Boolean): Boolean;
   Begin
-    Result := IsApp_VCL;
+    Result := IsApp_LCL;
     {$IFDEF GUI} //Aplicação Grafica .
-      IsApp_VCL := aIsApp_VCL;
+      IsApp_LCL := aIsApp_LCL;
       IsApp_TV  := False;
     {$ELSE}
       if IsConsole
       then Begin
-            IsApp_VCL := aIsApp_VCL;
+            IsApp_LCL := aIsApp_LCL;
     //         IsApp_TV  := True;
           end;
     {$ENDIF}
@@ -1066,58 +1688,24 @@ implementation
 
   class procedure TObjectsMethods.Alert(aTitle: AnsiString; aMsg: AnsiString);
   begin
-    if MI_MsgBox <> nil
-    then with MI_MsgBox do
+    if Assigned(_MI_MsgBox)
+    then with _MI_MsgBox do
          begin
-           MI_MsgBox.MessageBox(aTitle,aMsg,mtWarning,[mbOk],mbOk);
+           _MI_MsgBox.MessageBox(aTitle,aMsg,mtWarning,[mbOk],mbOk);
          end;
   end;
 
-    class procedure TObjectsMethods.ShowMessage(const aMsg: string);
+  class procedure TObjectsMethods.ShowMessage(const aMsg: string);
   begin
     Alert('ATENÇÂO', aMsg);
   end;
 
   class function TObjectsMethods.Confirm(aTitle: AnsiString;aPergunta: AnsiString): Boolean;
   begin
-    if MI_MsgBox <> nil
-    then with MI_MsgBox do
+    if Assigned(_MI_MsgBox)
+    then with _MI_MsgBox do
          begin
-           result := MI_MsgBox.MessageBox(aTitle,aPergunta,mtConfirmation,mbYesNo,mbYes)=mrYes;
-         end;
-  end;
-
-  class function TObjectsMethods.InputValue(const aTitle, aLabel: AnsiString;var aValue: Variant): TModalResult;
-  begin
-    if MI_MsgBox <> nil
-        then with MI_MsgBox do
-             begin
-               result := MI_MsgBox.InputValue(aTitle,aLabel,aValue);
-             end;
-  end;
-
-  class function TObjectsMethods.Prompt(aTitle: AnsiString;aPergunta: AnsiString; var aResult: Variant): Boolean;
-  begin
-    Result := InputValue(aTitle,aPergunta,aResult)=MrOk;
-  end;
-
-  class function TObjectsMethods.InputPassword(aTitle: AnsiString; out aUsername: AnsiString; out apassword: AnsiString): Boolean;
-  begin
-    if MI_MsgBox <> nil
-    then with MI_MsgBox do
-         begin
-//           result := MI_MsgBox.InputPassword(aTitle,aUsername,apassword)=MrOk;
-           result := MI_MsgBox.InputPassword(aTitle,apassword)=MrOk;
-         end;
-  end;
-
-  class function TObjectsMethods.InputPassword(aTitle: AnsiString; out apassword: AnsiString): Boolean;
-  begin
-    if MI_MsgBox <> nil
-    then with MI_MsgBox do
-         begin
-//           result := MI_MsgBox.InputPassword(aTitle,aUsername,apassword)=MrOk;
-           result := MI_MsgBox.InputPassword(aTitle,apassword)=MrOk;
+           result := _MI_MsgBox.MessageBox(aTitle,aPergunta,mtConfirmation,mbYesNo,mbYes)=mrYes;
          end;
   end;
 
@@ -1131,58 +1719,8 @@ implementation
   //  NewSItem := Item;
   //end;
 
-  class procedure TObjectsMethods.DisposeSItems(var AItems: PSItem);
-    var  P : PSItem;
-  begin
-    Try
-      While (AItems <> nil) do
-      begin
-        P := AItems^.Next;
-        If (AItems^.Value<>nil) then DisposeStr(AItems^.Value);
-        Dispose(AItems);
 
-        AItems := P;
-      end;
-      AItems := nil;
-    Except
-      AItems := nil;
-      LogError(TStrError.ErrorMessage8('',UnitName,ClassName,'DisposeSItems','','','Error ao desalocar lista PSitem',''));
-      Raise;
-    end;
-  end;
 
-  class procedure TObjectsMethods.DisposeSItems(var AStrItems: PtString);
-    Var
-      P : PSItem;
-  Begin
-    try
-      If (AStrItems <> nil) and (AStrItems^ <> '') and (AStrItems^[1] in [fldSItems,fldENUM])
-      Then Begin
-             Case AStrItems^[1] of
-               fldSItems,
-               fldENUM : Begin
-                            {$IFDEF CPU32}
-                               Move(AStrItems^[2],P,4);
-                            {$ENDIF}
-                            {$IFDEF CPU64}
-                               Move(AStrItems^[2],P,4+4);
-                            {$ENDIF}
-
-                             if IsValidPtr(P)
-                             then DisposeSItems(P);
-                         End;
-              end;
-           end
-      Else DisposeStr(AStrItems);
-
-    AStrItems := nil;
-    Except
-      AStrItems := nil;
-      //Igonora a exceção porque AStrItems pode ter sido desalocador em outro local que nao foi criado.
-      LogError(TStrError.ErrorMessage8('',UnitName,ClassName,'DisposeSItems','','','Error ao desalocar lista PtString',''));
-      Raise;
-    end;
-  end;
 
   class function TObjectsMethods.MaxItemStrLen(AItems: PSItem): integer;
    //Retorna o tamanho da maior length(AItems^.Value^)
@@ -1243,79 +1781,62 @@ implementation
     else centralizesStr := campoAux;
   end;
 
+  class function TObjectsMethods.MaskEdit_to_Mask(const aMaskEdit: AnsiString ): TMask;
+  begin
+    case AnsiIndexStr(aMaskEdit,['##/99/99',                    //0
+                                 '99/99/##',                    //1
+                                 '####/99/99',                  //2
+                                 '99/99/####',                  //3
+                                 '99/##',                       //3
+                                 '99/####',                     //4
+                                 'ssssssssssssssssssssssssss',  //5
+                                 'dd/nn/## hh:nn:ss',           //6
+                                 'dd/nn/## hh:nn',              //7
+                                 'dd/nn/#### hh:nn:ss'          //9
+                                ])
+      of
+       0 : result := TMask.Mask_yy_mm_dd ;
+       1 : result := TMask.Mask_dd_mm_yy;
+       2 : result := TMask.Mask_yyyy_mm_dd;
+       3 : result := TMask.Mask_dd_mm_yyyy;
+       4 : result := TMask.Mask_dd_mm_yyyy_hh_nn;//TMask.Mask_mm_yy;
+       5 : result := TMask.Mask_mm_yyyy;
+       6 : result := TMask.Mask_Extenco;
+       7 : result := TMask.Mask_dd_mm_yy_hh_nn_ss;
+       8 : result := TMask.Mask_dd_mm_yy_hh_nn;
+       9 : result := TMask.Mask_dd_mm_yyyy_hh_nn_ss;
+       else Result := TMask.Mask_Invalid;
+     end;
+
+  end;
+
+  class function TObjectsMethods.isDateTime(const aTemplate: AnsiString): Boolean;
+  begin
+    result := MaskEdit_to_Mask(aTemplate) <> TMask.Mask_Invalid ;
+  end;
+
 
   class function TObjectsMethods.TypeFld(const aTemplate: tString;var aSize: SmallWord): AnsiChar;
-
-      Function If_fldData:Boolean;
-
-        //<  fldData   = 'D';  {< D = TipoData DD/DD/DD}
-        //<  TypeDate = '\ ZB'^F^U+AnsiChar(31)+#0+'/'+'ZB'^U+AnsiChar(12)+#0+'/'+'ZB'+#0+^F;
-        //<  _TypeDate = '\ ZB'^F^U+AnsiChar(31)+#0+'/'+'ZB'^U+AnsiChar(12)+#0+'/'+'ZB'{+#0}+^F;
-
-      Begin
-        Result := (aTemplate=fldData) or
-                  ((Pos('DD/DD/DD',aTemplate) <> 0) OR
-                  (Pos(TypeDate,aTemplate) <> 0) OR
-                  (Pos(_TypeDate,aTemplate) <> 0) OR
-                  (Pos(_TypeDate,aTemplate) <> 0));
-        If Result
-        Then Begin
-               aSize := 3;
-               TypeFld  := fldData;
-             end;
-      end;
-
-      Function If_fld_LData:Boolean;
-          //<  fld_LData = 'd' ;  {< d = Longint;Guarda a data compactada 'dd/dd/dd'}
-      Begin
-        Result := (aTemplate=fld_LData) or (Pos('dd/dd/dd',aTemplate) <> 0);
-        If Result
-        Then Begin
-               aSize := sizeof(Longint);
-               TypeFld  := fld_LData;
-             end
-      end;
-
-      Function If_fld_DateTimeDos:Boolean;
-      Begin
-        Result := (aTemplate = FldDateTimeDos) or (Pos(FldSDateTimeDos,aTemplate) <> 0);
-        If Result
-        Then Begin
-               aSize := sizeof(Longint);
-               TypeFld  := fldDateTimeDos;
-             end;
-      end;
-
-      Function If_fldLData:Boolean;
-        //<  fldLData  = #1  ;  {< #1 = Longint;Guarda a data compactada '##/##/##'=FldSData}
-      Begin
-        Result := (aTemplate = fldLData) or (Pos(FldSData,aTemplate) <> 0);
-        If Result
-        Then Begin
-               aSize := sizeof(Longint);
-               TypeFld  := fldLData;
-             end;
-      end;
-
       Var
         I,j : Byte;
     Begin
-      If Not If_fld_DateTimeDos Then //retorna fldData
-      If Not If_fldData Then // retorna fldData
-      If Not If_fld_LData Then // retorna fld_LData
-      If Not If_fldLData //fldLData
+      If IsDateTime(aTemplate)
       Then Begin
+             aSize := sizeof(TDateTime);
+             Result := FldDateTime;
+           end
+      else Begin
               For i := 1 to length(aTemplate) do
               {$REGION '--->'}
                 If Not (aTemplate[i] in [' ','z','Z',#0]) //Carateres de formatazao e separacao de campos
                 Then
                 Case aTemplate[i] of
                   fldSTRNUM,
-                  fldSTR_Minuscula,
+                  fldSTR_Lowcase,
                   fldSTR             : Begin
                                          aSize := 1;
                                          For j := 1 to Length(aTemplate) do
-                                           If  aTemplate[j] in [fldSTRNUM,fldSTR_Minuscula,fldSTR]
+                                           If  aTemplate[j] in [fldSTRNUM,fldSTR_Lowcase,fldSTR]
                                            then Inc(aSize);
 
                                          Result := aTemplate[i];
@@ -1323,12 +1844,12 @@ implementation
                                        End;
 
                   fldAnsiChar,
-                  fldAnsiChar_Minuscula,
+                  fldAnsiChar_Lowcase,
                   fldAnsiCharNUM,{<'o'. Obs: O "o" minusculo e usado para real Positivo}
                   fldAnsiCharVAL        : Begin
                                          aSize := 0;
                                          For j := 1 to Length(aTemplate) do
-                                           If  aTemplate[j] in [fldAnsiChar,fldAnsiChar_Minuscula,fldAnsiCharNUM,fldAnsiCharVAL]
+                                           If  aTemplate[j] in [fldAnsiChar,fldAnsiChar_Lowcase,fldAnsiCharNUM,fldAnsiCharVAL]
                                            then Inc(aSize);
 
                                          Result := aTemplate[i];
@@ -1359,11 +1880,15 @@ implementation
                   fldAPPEND   ,
                   fldSItems   ,
 
-                  fldLData,
-                  fld_LData,
+                  FldDateTime,
                   fldLHora,
-                  fld_LHora,
-                  fldENUM,
+                  fld_LHora
+                                      : Begin
+                                         aSize := Sizeof(TDateTime);
+                                         Result := aTemplate[i];
+                                         Exit;
+                                       End;
+                  fldENum,fldENum_db,
                   fldLONGINT         : Begin
                                          aSize := Sizeof(Longint);
                                          Result := aTemplate[i];
@@ -1392,7 +1917,7 @@ implementation
 
                   FldRadioButton
                   {fldCheckBox,FldRadioButton}       : Begin
-                                         aSize := SizeOffldCluster ;
+                                         aSize := Sizeof(Byte);
                                          Result := aTemplate[i]; Exit;
                                        end;
                   FldMemo,
@@ -1402,10 +1927,6 @@ implementation
                                          Exit;
                                        End;
 
-                  fldData            : Begin
-                                         aSize := Sizeof(TypeData);
-                                         Result := aTemplate[i]; Exit;
-                                       End;
 
                   CharShowPassword,
 //                  fldXSPACES  ,
@@ -1425,10 +1946,10 @@ implementation
                 End; //<  for;
                 Result := #0; {<Tipo indefinido}
              {$ENDREGION}
-           End; //<  If Not If_fldLData Then Begin.
+           End; //<  If Not If_FldDateTime Then Begin.
   end;
 
-  class function TObjectsMethods.TypeFld(const aTemplate: ShortString): AnsiChar;
+    class function TObjectsMethods.TypeFld(const aTemplate: tString): AnsiChar;
     Var aSize : SmallWord;
   Begin
     Result := TypeFld(aTemplate,aSize);
@@ -1439,7 +1960,7 @@ implementation
     Var IAux : tString;
         Tam  : Longint;
   Begin
-    Str(I:0,Iaux);
+    system.Str(I:0,Iaux);
     Tam := length(formato)-length(IAux);
     If Tam > 0
     Then IStr := ConstStr(Tam,'0') + IAux
@@ -1448,7 +1969,7 @@ implementation
 
   class function TObjectsMethods.IStr(const I: Longint): tString;
   Begin
-    Str(I:0,Result);
+    system.Str(I:0,Result);
   End;
 
   class function TObjectsMethods.IStr(const I: tString; const Formato: tString): tString;
@@ -1460,6 +1981,7 @@ implementation
     While Length(Result) < Length(Formato)
     do Insert('0',Result,1);
   end;
+
 
   class function TObjectsMethods.StrNum(formato: AnsiString;buffer: Variant; const Tipo: AnsiChar; const OkSpc: Boolean): AnsiString;
 
@@ -1475,10 +1997,10 @@ implementation
           NPontos := 0;
 
           For i := 1 to length(Formato) do
-            If Formato[i] = Comma//','{'.'}
+            If Formato[i] = ShowThousandSeparator//','{'.'}
             Then Inc(NPontos);
 
-          PosVirgula := pos(DecPt,Formato);//'.' {','}
+          PosVirgula := pos(ShowDecimalSeparator ,Formato);//'.' {','}
           If PosVirgula <> 0
           Then Begin
                  PI := PosVirgula - NPontos - 1;
@@ -1498,28 +2020,38 @@ implementation
       {Formato: EEE,EEE,EEE,EEE.EE}
     Var
       PiF,PfF,Pontos:Byte;
+      valorExtended : Extended;
+
   Begin
     Try
       divide(PIF,PFF,Pontos) ;
       case Tipo of
-        fldRealNum,
-        fldRealNum_Positivo : str(TRealNum(Buffer):PIF:PFF,Result);
-
         fldReal4,
-        fldReal4P     : str(Real(Buffer):PIF:PFF,Result);
+        fldReal4P,
+        fldExtended,// : str(Extended(Buffer):PIF:PFF,Result);
+        fldRealNum,
+        fldRealNum_Positivo :
+           begin
+            valorExtended := Buffer;
+            //system.str(valorExtended:PIF:PFF,Result); //A função str não obdece o parâmetro DefaultFormatSettings.DecimalSeparator
+            //Result := FloatToStrf(valorExtended,ffGeneral,PIF,PFF);
+//            Result := FloatToStrf(valorExtended,ffNumber,PIF,PFF);
+            Result := FloatToStrf(valorExtended,ffFixed,PIF,PFF);
+           end;
 
-        fldBYTE       : Str(Byte(Buffer):PIF,Result);
+        fldBYTE       : system.Str(Byte(Buffer):PIF,Result);
 
-        fldSHORTINT   : Str(SHORTINT(Buffer):PIF,Result);
-        fldSmallInt   : Str(SmallInt(Buffer):PIF,Result);
+        fldSHORTINT   : system.Str(SHORTINT(Buffer):PIF,Result);
+        fldSmallInt   : system.Str(SmallInt(Buffer):PIF,Result);
 
         {fldWORD}
-        FldSmallWord  : Str(SmallWord(Buffer):PIF,Result);
+        FldSmallWord  : system.Str(SmallWord(Buffer):PIF,Result);
         
-        fldENUM       : Str(LongInt(Buffer):PIF,Result);
-        fldLONGINT    : Str(Longint(Buffer):PIF,Result);
+        fldENum,
+        fldENum_db    : system.Str(LongInt(Buffer):PIF,Result);
+        fldLONGINT    : system.Str(Longint(Buffer):PIF,Result);
 
-        fldExtended : str(Extended(Buffer):PIF:PFF,Result);
+
         else Begin
                Push_MsgErro('Error em: Function StrNum(formato : AnsiString;Var buffer; Const Tipo : AnsiChar) : AnsiString;');
                RunError(ParametroInvalido);
@@ -1533,20 +2065,12 @@ implementation
   //      If Buffer < 0
   //      Then Result := '-'+Result;
 
-     if True then
-
-
-      If (PFF <> 0) and OkSpc {OkSpc foi implementado em tempo diferente do projeto inicial}
-      Then Result[Pos(DecPt,Result)] := showDecPt{','};
+      //If (PFF <> 0) and OkSpc {OkSpc foi implementado em tempo diferente do projeto inicial}
+      //Then Result[Pos(DecimalSeparator ,Result)] := showDecimalSeparator {','};
 
     Except
       LogError(TStrError.ErrorMessage8('',UnitName,ClassName,'StrNum','','','Erro_Excecao_inesperada',''));
       raise EArgumentException.Create(TStrError.ErrorMessage5('mi.rtl','mi.rtl.objects.Methods','TObjectsMethods','StrNum',Erro_Excecao_inesperada));
-      //Raise TException.Create(Name_Type_App_MarIcaraiV1,
-      //                        'Db_Generic.Pas',
-      //                        'StrNum(Formato: '+formato+' ,Valor: '+{buffer+}', Tipo: '+Tipo+')',
-      //                        Erro_Excecao_inesperada);
-      //
     end;
   End;
 
@@ -1580,6 +2104,12 @@ implementation
      If Logica Then Result := E1 Else Result := E2;
   End;
 
+  class function TObjectsMethods.IIF<T>(const Logica: Boolean; const E1, E2: T): T;
+  begin
+    if Logica
+    then Result := E1
+    else Result := E2;
+  end;
   class function TObjectsMethods.SIF(const Logica: Boolean; const E1,
       E2: AnsiString): AnsiString;
   Begin
@@ -1599,7 +2129,9 @@ implementation
   End;
 
 
-  class function TObjectsMethods.NumToStr(const formato: AnsiString;buffer: Variant; const Tipo: AnsiChar; const OkSpc: Boolean): AnsiString;
+    class function TObjectsMethods.NumToStr(const formato: AnsiString;
+    const buffer: Variant; const Tipo: AnsiChar; const OkSpc: Boolean
+    ): AnsiString;
    //Formato   RRR,RRR,RRR,RRR.RR
 
   var
@@ -1619,8 +2151,8 @@ implementation
     j := length(Result);
     for i :=  length(formato) downto 1 do
     begin
-      If Formato[i] = showComma {',''.'}
-      Then Insert(showComma,Result,j+1)
+      If Formato[i] = ShowThousandSeparator {',''.'}
+      Then Insert(ShowThousandSeparator,Result,j+1)
       else Begin
              Dec(j);
              If J <= 0
@@ -1630,7 +2162,7 @@ implementation
 
     Pos_Z := Pos('Z',Formato);
     If Pos_z = 0 Then Pos_Z := Pos('z',Formato);
-    If (Pos_Z <>0) and (Pos_Z < Pos(decPt{'.'},Formato))
+    If (Pos_Z <>0) and (Pos_Z < Pos(ShowDecimalSeparator {'.'},Formato))
     Then Begin
            If length(Formato) - length(Result) <0
            Then Len := 0
@@ -1689,7 +2221,7 @@ implementation
     InsertCrtlJ := aStrMsg;
   End;
 
-        class procedure TObjectsMethods.Create_Progress1Passo(ATitle: tstring;
+  class procedure TObjectsMethods.Create_Progress1Passo(ATitle: tstring;
       Obs: tstring; ATotal: Longint);
   Begin
     Discard(TObject(_Progress1Passo)); {Descarta se tiver pendente}
@@ -1725,6 +2257,12 @@ implementation
    else raise Exception.Create('A constante TObjectss.Logs não inicializada!');
   end;
 
+  //class procedure TObjectsMethods.Push_MsgErro(Const Str: AnsiString);
+  //begin
+  //  inherited Push_MsgErro(Str);
+  //  LogError(str);
+  //end;
+
 
   ///<summary>
   ///  :Converts Unicode string to Ansi string using specified code page.
@@ -1733,8 +2271,7 @@ implementation
   ///  <  @returns Converted Ansi string.
   ///</summary>
 
-        class function TObjectsMethods.WideStringToString(const ws: WideString
-      ): AnsiString;
+  class function TObjectsMethods.WideStringToString(const ws: WideString    ): AnsiString;
   //var
   //  l: integer;
   //  codePage: Word;
@@ -1759,8 +2296,7 @@ implementation
 
 
 
-                class function TObjectsMethods.Set_FileModeDenyALL(
-          const ModoDoArquivo: Boolean): Boolean;
+  class function TObjectsMethods.Set_FileModeDenyALL(      const ModoDoArquivo: Boolean): Boolean;
       Var
         WFmWait,
         WFmMemory,
@@ -1856,7 +2392,7 @@ implementation
       if s<>''
       then For i := 1 to length(s) do
            begin
-             if s[i] in [#0..#31,'\','|','~','`']
+             if s[i] in [#0..#31,'\','|','~',fldCONTRACTION]
              then result := result +1;
            end;
     end;
@@ -1881,105 +2417,81 @@ implementation
 
     class function TObjectsMethods.StringToSItem( StrMsg: AnsiString; Alinhamento: TAlinhamento): PSItem;
 
-      function Colunas:Byte;
-        var
-          i,posAnt,tamLinha : Integer;
-          s : string;
-      begin
-        result := 0;
-        posAnt := 0;
-        i      := 1;
-        while i <= length(StrMsg) do
+        function GetTamCol:Integer;
+          var
+            i,posAnt,tamLinha : Integer;
+            s : string;
         begin
-          case StrMsg[i] of
-           fldENUM  : begin
+          result := 0;
+          posAnt := 0;
+          i      := 1;
+          while i <= length(StrMsg) do
+          begin
+            case StrMsg[i] of
+             fldENum,
+             fldENum_db: begin
 
-                        {$IFDEF CPU32} {$Region cpu32}
-                          inc(i,7);
-                        {$ENDIF} {$EndRegion cpu32}
+                          {$IFDEF CPU32} {$Region cpu32}
+                            inc(i,7);
+                          {$ENDIF} {$EndRegion cpu32}
 
-                        {$IFDEF CPU64} {$Region cpu64}
-                          inc(i,11);
-                        {$ENDIF} {$EndRegion cpu64}
-                        inc(i);
-                        s := system.copy(StrMsg,posAnt,i-posAnt);
-                        tamLinha := length(s);
-                        result := maxL(result,tamLinha) ;
-                        posAnt := i;
+                          {$IFDEF CPU64} {$Region cpu64}
+                            inc(i,11);
+                          {$ENDIF} {$EndRegion cpu64}
+                          inc(i);
+                          s := system.copy(StrMsg,posAnt,i-posAnt);
+                          tamLinha := length(s);
+                          result := maxL(result,tamLinha) ;
+                          posAnt := i;
 
-                      end;
-          ^M : begin
-                 s := system.copy(StrMsg,posAnt,i-posAnt);
-                 tamLinha := length(s);
-                 result := maxL(result,tamLinha) ;
-                 posAnt := i;
-               end;
+                        end;
+            ^M : begin
+                   s := system.copy(StrMsg,posAnt,i-posAnt);
+                   tamLinha := length(s);
+                   result := maxL(result,tamLinha) ;
+                   posAnt := i;
+                 end;
 
+            end;
+            inc(i);
           end;
-          inc(i);
+
+          if result = 0
+          Then result := length(StrMsg);
+        end;
+
+      Var
+        List      : TMiStringList;
+        i,TamCol  : Integer;
+        s         : AnsiString;
+
+    begin
+      List :=  TMiStringList.Create;//<Insere a tString em ordem sequencial
+      s    := '';
+      TamCol := GetTamCol;
+      for i := 1 to Length(StrMsg) do
+      begin
+        case StrMsg[i] of
+          ^M,^Z,^J : begin
+                       s := StrAlinhado(s,TamCol,Alinhamento)+constStr(NumberCharControl(s),#0);
+                       List.Add(s);
+                       s := '';
+                     end;
+          else begin
+                 S := s + StrMsg[i];
+               end;
         end;
       end;
 
-      Var
-        aStrMsg,ws  : AnsiString;
-        MaxCol : Byte;
-        S        : TMiStringList;
-        i,LenStrMsg : Integer;
-    Begin
-      aStrMsg := '';
-      MaxCol  := 0;
-      try
-        S :=  TMiStringList.Create;{<Insere a tString em ordem sequencial}
-        s.Sorted := False;
+      if s<>''
+      Then begin
+             s := StrAlinhado(s,TamCol,Alinhamento)+constStr(NumberCharControl(s),#0);
+             List.Add(s);
+           end;
 
-        If (S=Nil) or (strMsg='') Then
-        Begin
-          result := nil;
-          exit;
-        End;
+      result := List.PListSItem;
+    end;
 
-        LenStrMsg := length(StrMsg);
-        i := 1;
-        While  i <= LenStrMsg do
-        Begin
-          if (strMsg[i] in [#13,#10,^Z{,^C,^M}]) or (MaxCol > Colunas) Then
-          Begin
-            While (aStrMsg<>'') and (aStrMsg[1] = ' ')  do
-            begin
-              Delete(aStrMsg,1,1);
-            end;
-
-            If strMsg[i] in [#13,#10,^Z{<,^C,^M}]
-            Then begin
-                   ws := StrAlinhado(aStrMsg,Colunas,Alinhamento)+constStr(NumberCharControl(aStrMsg),#0);
-                   S.NewStr(ws)
-                 end
-            Else begin
-                   ws := StrAlinhado(aStrMsg+ StrMsg[i],Colunas,Alinhamento)+constStr(NumberCharControl(aStrMsg),#0);
-                   S.NewStr(ws);
-                 end;
-
-            aStrMsg := '';
-            MaxCol := 0;
-          end
-          Else
-          Begin
-            aStrMsg := aStrMsg + StrMsg[i];
-            Inc(MaxCol);
-          End;
-
-          inc(i);
-        End;
-
-      Finally
-        If S <> nil
-        Then Begin
-               S.NewStr(StrAlinhado(aStrMsg,Colunas,Alinhamento)+constStr(NumberCharControl(aStrMsg),#0));
-               result := S.PListSItem;
-             End;
-        Discard(TObject(s));
-      End;
-    End;
 
     class function TObjectsMethods.StringToSItem(StrMsg: AnsiString): PSItem;
     begin
@@ -2086,9 +2598,9 @@ implementation
 
 
     var
-      MessageError_vidis :Boolean = False;
-                class procedure TObjectsMethods.MessageError;
-      {Este procedimento imprime a sequencia de mesagems de erro}
+      MessageError_reintrance :Boolean = False;
+    class procedure TObjectsMethods.MessageError;
+      {Este procedimento imprime a sequência de mesagems de erro}
        Var
          I               : Integer;
          Wok             : Boolean;
@@ -2099,12 +2611,14 @@ implementation
 
       try
         Wok := ok;
-        If (Not ok_Set_Transaction) and (not MessageError_vidis)
+        If (Not Get_ok_Set_Transaction)
+//            and(Not ok_Set_Server_Http)
+           and (not MessageError_reintrance)
         Then Begin
                Try
-                 MessageError_vidis := true;
-                  If ListaDeMsgErro <>  nil Then
-                  with MI_MsgBox do
+                 MessageError_reintrance := true;
+                  If (ListaDeMsgErro <>  nil) and Assigned(_MI_MsgBox) Then
+                  with _MI_MsgBox do
                   Begin
                     s := SitemToString(ListaDeMsgErro);
                     if s <> ''
@@ -2117,7 +2631,7 @@ implementation
                   End;
 
                Finally
-                 MessageError_vidis := false;
+                 MessageError_reintrance := false;
                End;
             End;
 
@@ -2194,10 +2708,15 @@ implementation
 
   {$ENDREGION}
 
-                class function TObjectsMethods.FMaiuscula(str: AnsiString): AnsiString;
+  class function TObjectsMethods.UpperCase(str: AnsiString): AnsiString;
   begin
-    Result := Str;
-    UpperCase(Result);
+//    Result := Str;
+    Result := SysUtils.UpperCase(Str);
+  end;
+
+  class function TObjectsMethods.Lowcase(str: AnsiString): AnsiString;
+  begin
+    result :=  SysUtils.LowerCase(str);
   end;
 
   class function TObjectsMethods.AnsiString_to_USASCII(const pText: string): string;
@@ -2220,7 +2739,7 @@ implementation
       Result := StringReplace(Result, AccentedChars[i], NormalChars[i], [rfReplaceAll]);
   end;
 
-        class function TObjectsMethods.SGI(const S: String): String;
+  class function TObjectsMethods.SGI(const S: String): String;
     {<
      Convert os caracteres acentuados para codigos ASC equivalente em Ingles;
     }
@@ -2354,8 +2873,8 @@ implementation
       s := s + EnvStr(i)+lf;
     end;
 
-    If Mi_MsgBox <> nil
-    Then with Mi_MsgBox do
+    If Assigned(_MI_MsgBox)
+    Then with _MI_MsgBox do
          begin
             MessageBox(s,
                        mtInformation,
@@ -2365,8 +2884,7 @@ implementation
          end
   end;
 
-    class function TObjectsMethods.FGetMem(var Buff; const TamBuff: Word
-    ): Boolean;
+  class function TObjectsMethods.FGetMem(var Buff; const TamBuff: Word   ): Boolean;
   Begin
     try
 
@@ -2387,7 +2905,7 @@ implementation
     End;
   End;
 
-    class procedure TObjectsMethods.FFreeMem(var Buff; const TamBuff: Word);
+  class procedure TObjectsMethods.FFreeMem(var Buff; const TamBuff: Word);
   Begin
   Try
 
@@ -2407,8 +2925,7 @@ implementation
 
   End;
 
-    class function TObjectsMethods.CGetMem(const BuffOriginal: Pointer;
-    const TamBuff: Word): Pointer;
+  class function TObjectsMethods.CGetMem(const BuffOriginal: Pointer;   const TamBuff: Word): Pointer;
   {<Retorna um ponteiro para a memoria alocada e este ponteiro aponta para
   uma copia dos dados passado por BuffOriginal }
   {Var
@@ -2423,7 +2940,7 @@ implementation
     Else Result := nil;
   End;
 
-    class function TObjectsMethods.isfileopen(var f: file): boolean;
+  class function TObjectsMethods.isfileopen(var f: file): boolean;
   begin
     Result  := (FILEREC (F ).MODE = System.FmInOut )  OR
                (FILEREC (F ).MODE = System.FmOutput ) OR
@@ -2437,7 +2954,7 @@ implementation
               (TextRec(F).MODE = System.FmInput );
   end;
 
-    class function TObjectsMethods.CloseLst: SmallInt;
+  class function TObjectsMethods.CloseLst: SmallInt;
   Begin
     If IsFileOpen(Lst)
     Then Begin
@@ -2459,7 +2976,7 @@ implementation
     Else CloseLst   := 0;
   End;
 
-    class procedure TObjectsMethods.RedirecionaParaImpressora;
+  class procedure TObjectsMethods.RedirecionaParaImpressora;
     {$I-}
   Begin
     CloseLst;
@@ -2472,8 +2989,8 @@ implementation
     TaStatus := IoResult;
     If TaStatus <> 0 Then
     Repeat
-      If Mi_MsgBox <> nil
-      Then with Mi_MsgBox do
+      If Assigned(_MI_MsgBox)
+      Then with _MI_MsgBox do
            begin
               MessageBox('Impressora Error',
                          'A impressora não está pronta!.'+^M,
@@ -2503,13 +3020,12 @@ implementation
   end;
 
 
-  class function TObjectsMethods.ChangeSubStr(aSubStrOld: AnsiString;
-      aSubStrNew: AnsiString; S: AnsiString): AnsiString;
+  class function TObjectsMethods.ChangeSubStr(aSubStrOld: AnsiString;    aSubStrNew: AnsiString; S: AnsiString): AnsiString;
 //
 //    Var
 //      Pos1,Pos2  : Integer;
   Begin
-    //Pos1 := Pos(FMaiuscula(aSubStrOld),FMaiuscula(S));
+    //Pos1 := Pos(UpperCase(aSubStrOld),UpperCase(S));
     //If Pos1 <> 0
     //Then begin
     //       if Pos1-1>0
@@ -2527,8 +3043,7 @@ implementation
     result := StringReplace(s, aSubStrOld  , aSubStrNew , [rfReplaceAll])
   end;
 
-        class function TObjectsMethods.Alias_To_Name(AAlias: AnsiString
-      ): AnsiString;
+  class function TObjectsMethods.Alias_To_Name(AAlias: AnsiString     ): AnsiString;
 //  Troca as letras invalidas para nome de componentes por _
 
      const
@@ -2585,7 +3100,7 @@ implementation
   end;
 
   class function TObjectsMethods.ShellExecute(const lpOperation, FileName,
-      Params, DefaultDir: AnsiString; ShowCmd: Integer): THandle;
+                      Params, DefaultDir: AnsiString; ShowCmd: Integer): THandle;
     (*
       SysShellExecute('Z:\GCIC\GCIC_Vcl.exe',{FileName}
                       ''{Params},
@@ -2732,47 +3247,74 @@ implementation
       delete(result,p,1);
       P := pos(' ',result,1);
     end;
+
+    P := pos(#0,result,1);
+    while p <> 0 do
+    begin
+      delete(result,p,1);
+      P := pos(#0,result,1);
+    end;
+
   end;
 
   class function TObjectsMethods.GetNameValid(aName: AnsiString): AnsiString;
   begin
-    Result := RemoveAccents(delspace(aName));
+    Result :=  RemoveAccents(delspace(aName));
+
+    ////Remove espaço do inicio
+    //if Length(Result)>0
+    //then while (Result[1]=' ') do
+    //         System.delete(Result,1,1);
+    //
+    ////Remove espaço do fim
+    //if Length(Result)>0
+    //then while (Result[length(Result)]=' ') do
+    //         System.delete(Result,length(Result),1);
   end;
 
-  class function TObjectsMethods.IsNumber_Real(const aTemplate: ShortString): Boolean;
+  class function TObjectsMethods.IsNumberReal(const aTemplate: ShortString): Boolean;
   Begin
     Case TypeFld(aTemplate) of
       fldExtended,
       fldRealNum         ,
       fldRealNum_Positivo,
+      fldReal4Positivo,
+      fldReal4PPositivo,
       fldReal4           ,
       fldReal4P          : Result := True
       Else                 Result := false;
     End;
   end;
 
-  class function TObjectsMethods.IsNumber(const aTemplate: ShortString): Boolean;
-  Begin
+  class function TObjectsMethods.IsNumberInteger(const aTemplate: ShortString): Boolean;
+  begin
     Case TypeFld(aTemplate) of
       fldBYTE,
       fldSHORTINT,
-      FldSmallWord,
+      fldSmallWORD,
       fldSmallInt,
       fldLONGINT,
-      fldRealNum,
-      fldRealNum_Positivo,
-      fldReal4,
-      fldReal4P,
-      fldENUM,
-
-      FldRadioButton : IsNumber:= True
-      else         IsNumber:= False
+      fldHexValue,
+      fldENum,
+      fldENum_db : Result := true
+      else Result := false;
     end;
+
+  end;
+
+  class function TObjectsMethods.IsNumber(const aTemplate: ShortString): Boolean;
+  Begin
+    result := IsNumberInteger(aTemplate) or IsNumberReal(aTemplate);
+  end;
+
+  class function TObjectsMethods.IsBoolean(const aTemplate: ShortString): Boolean;
+  begin
+    Result := TypeFld(aTemplate) in [fldBoolean];
   end;
 
   class function TObjectsMethods.IsData(const aTemplate: ShortString): Boolean;
   begin
-    Result := TypeFld(aTemplate) in [fldData,fldLData,fld_LData,fldDateTimeDos];
+    Result := TypeFld(aTemplate) in [FldDateTime];
   end;
 
   class function TObjectsMethods.IsHora(const aTemplate: ShortString): Boolean;
@@ -2784,7 +3326,7 @@ implementation
   Begin
     if (Event.What = evCommand) //and (Event.Command = CmTime) // nortsoft implementou o evento time
     then Begin
-           If (Event.Command = CmTime) // nortsoft implementou o evento time
+           If (Event.StrCommand = CmTime) // nortsoft implementou o evento time
            Then Begin
                   CtrlSleep(TimeCmTime);
                   ClearEvent(Event);
@@ -2821,7 +3363,7 @@ implementation
      Result := Campo;
    end;
 
-   class function TObjectsMethods.DeleteMask(S: tString;ValidSet: AnsiCharSet): AnsiString;
+   class function TObjectsMethods.DeleteMask(S: AnsiString;ValidSet: AnsiCharSet): AnsiString;
      {
        inclui um conjunto de caracateres a tString
 
@@ -2844,40 +3386,47 @@ implementation
      end;
    end;
 
-   class function TObjectsMethods.DeleteMask(S: ShortString; aMask: ShortString): AnsiString;
-     {
-      Mask1: ssssssssssssssss    Obs: Cada posição com s ou S aceita [#0..#255] e ignora os digitos da mascara.
-      Mask2: (##) # #### ####    Obs: Cada posição com # aceita ['0'..'9'] e ignora os digitos da mascara.
+   class function TObjectsMethods.DeleteMask(S: AnsiString; aMask: TString): AnsiString;
+      {
+       Mask1: ssssssssssssssss    Obs: Cada posição com s ou S aceita [#0..#255] e ignora os digitos da mascara.
+       Mask2: (##) # #### ####    Obs: Cada posição com # aceita ['0'..'9'] e ignora os digitos da mascara.
 
-      Nota:
-        Se S não tem mascara, o que fazer?
-     }
-     Var
-       I,LenS,Len_aMask : Integer;
+       Nota:
+         Se S não tem mascara, o que fazer?
+      }
+      Var
+        I,LenS,Len_aMask : Integer;
    Begin
-     Result := '';
-     LenS := length(s);
-     Len_aMask := length(aMask);
+      Result := '';
+      LenS := length(s);
+      Len_aMask := length(aMask);
 
-     For i :=  1 to LenS   do
-     Begin
-         if i <= Len_aMask then
-         case aMask[i] of
-           fldAnsiChar,fldAnsiChar_Minuscula,fldAnsiCharVAL
-           ,fldSTRNUM,fldSTR,fldSTR_Minuscula
-                : begin
-                    Result := Result + S[i];
+      if LenS = Len_aMask
+      Then begin
+              For i :=  1 to LenS   do
+              Begin
+                  if i <= Len_aMask then
+                  case aMask[i] of
+                    fldAnsiChar,fldAnsiChar_Lowcase,fldAnsiCharVAL
+                    ,fldSTRNUM,fldSTR,fldSTR_Lowcase
+                         : begin
+                             Result := Result + S[i];
+                           end;
+                     fldRealNum,fldReal4,fldReal4P,
+                     fldReal4Positivo,fldReal4PPositivo,
+                     fldRealNum_Positivo,fldExtended
+                    ,fldENum,fldENum_db,fldBOOLEAN,fldBYTE,fldSHORTINT,
+                     fldSmallWORD,fldSmallInt,fldLONGINT,FldRadioButton
+                    ,FldDateTime
+                    ,fldLHora,fld_LHora
+                         : begin
+                            if S[i] in ['0'..'9']
+                            then Result := Result + S[i];
+                          end;
                   end;
-            fldRealNum,fldReal4,fldReal4P,fldRealNum_Positivo,fldExtended
-           ,fldENUM,fldBOOLEAN,fldBYTE,fldSHORTINT,fldSmallWORD,fldSmallInt,fldLONGINT,FldRadioButton
-           ,fldData,fldLData,fld_LData,FldDateTimeDos
-           ,fldLHora,fld_LHora
-                : begin
-                   if S[i] in ['0'..'9']
-                   then Result := Result + S[i];
-                 end;
-         end;
-     end;
+              end;
+           end
+      else Result := S;
    end;
 
    class function TObjectsMethods.AddMask(S: ShortString;aMask:ShortString): AnsiString;
@@ -2890,35 +3439,56 @@ implementation
       }
       Var
         I,LenS,PosS,Len_aMask : Integer;
+        ws:AnsiString;
     Begin
       Result := '';
-      LenS := length(s);
-      PosS := 0;
-      Len_aMask := length(aMask);
 
-      For i :=  1 to Len_aMask   do
-      Begin
-        case aMask[i] of
-          fldAnsiChar,fldAnsiChar_Minuscula,fldAnsiCharVAL
-          ,fldSTRNUM,fldSTR,fldSTR_Minuscula
-          , fldRealNum,fldReal4,fldReal4P,fldRealNum_Positivo,fldExtended
-          ,fldENUM,fldBOOLEAN,fldBYTE,fldSHORTINT,fldSmallWORD,fldSmallInt,fldLONGINT,FldRadioButton
-          ,fldData,fldLData,fld_LData,FldDateTimeDos
-          ,fldLHora,fld_LHora
-               : begin
-                   inc(posS);
-                   if PosS <= LenS
-                   then result := Result + s[posS];
-//                   else result := Result + aMask[i];
+      if  aMask[1] = FldDateTime
+      then begin
+             //ws := Copy(aMask,2,Length(aMask)-1);
+             //Result := TDates.FormatMask(s,MaskDateTime_to_Mask(ws));
+             Result := s;
+           end
+      else begin
+              LenS := length(s);
+              PosS := 0;
+              Len_aMask := length(aMask);
+
+              For i :=  1 to Len_aMask   do
+              Begin
+                case aMask[i] of
+                  fldAnsiChar,
+                  fldAnsiChar_Lowcase,
+                  fldAnsiCharVAL,
+                  fldSTRNUM,
+                  fldSTR,
+                  fldSTR_Lowcase,
+                  fldRealNum,
+                  fldReal4,
+                  fldReal4P,
+                  fldRealNum_Positivo,
+                  fldExtended,
+                  fldENum,fldENum_db,
+                  fldBOOLEAN,
+                  fldBYTE,
+                  fldSHORTINT,
+                  fldSmallWORD,
+                  fldSmallInt,
+                  fldLONGINT,
+                  FldRadioButton  : begin
+                                      inc(posS);
+                                      if PosS <= LenS
+                                      then result := Result + s[posS];
+                                    end;
+
+                  else begin
+                         if aMask[i] = ' '
+                         then system.Insert('_',result,i)  //O caractere deve ser passado como parâmetro. amanhã eu faço.
+                         else system.Insert(aMask[i],result,i);
+                       end;
                 end;
-          else begin
-                 if aMask[i] = ' '
-                 then system.Insert('_',result,i)  //O caractere deve ser passado como parâmetro. amanhã eu faço.
-                 else system.Insert(aMask[i],result,i);
-
-               end;
-        end;
-      end;
+              end;
+           end;
 
     end;
 
@@ -2950,15 +3520,13 @@ implementation
               conn.CreateDB
 
               except
-              on e : exception do Result := e.Message;
+                on e : exception do Result := e.Message;
               End;
 
             End
        else begin
               try
-
                conn.DropDB;
-
               except
                 on e : exception do Result := e.Message;
               End;
@@ -2970,19 +3538,24 @@ implementation
 
    End;
 
-   class function TObjectsMethods.StrNumberValid(S: AnsiString): AnsiString;
-    begin
-      Result  := DeleteMask(S,['0'..'9','-','+',showDecPt]);
-      if (pos(showDecPt ,Result)<>0) and (showDecPt<>DecPt)
-      then begin
-             Result := Change_AnsiChar(s,showDecPt,DecPt);
-           end;
-   end;
+   //class function TObjectsMethods.StrNumberValid(S: AnsiString): AnsiString;
+   // begin
+   //   Result  := DeleteMask(S,['0'..'9','-','+',showDecimalSeparator ]);
+   //end;
+
+   class function TObjectsMethods.StrToStrNumberForProcVal(S: AnsiString): AnsiString;
+   begin
+     Result  := DeleteMask(S,['0'..'9','-','+',showDecimalSeparator ]);
+     if (pos(showDecimalSeparator  ,Result)<>0) and (showDecimalSeparator <>'.' )
+     then begin
+            Result := Change_AnsiChar(s,showDecimalSeparator ,'.');
+          end;
+  end;
 
    class function TObjectsMethods.CheckRanger(S : AnsiString; aHigh, aLow: Int64; out aErr:Integer): Int64;
    begin
      aErr := 0;
-     s := StrNumberValid(s);
+     s := DeleteMask(s,['0'..'9','-','+',showDecimalSeparator ]);
      If S<>''
      Then begin
             Result := StrToInt(s);
@@ -3005,13 +3578,14 @@ implementation
    begin
      err := 0;
      case TypeCode of
-         fldENUM ,
+         fldENum ,
+         fldENum_db,
          fldLONGINT  : CheckRanger(s,High(Longint),Low(Longint),err);
          fldBOOLEAN,
          fldBYTE     : CheckRanger(s,High(byte),Low(byte),err);
          fldSHORTINT : CheckRanger(s,High(SHORTINT),Low(SHORTINT),err);
          fldSmallWORD: CheckRanger(s,High(SmallWord),Low(SmallWord),err);
-         FldRadioButton: CheckRanger(s,High(TCluster),Low(TCluster),err);
+         FldRadioButton: CheckRanger(s,High(Byte),Low(Byte),err);
          fldSmallInt : CheckRanger(s,High(SmallInt),Low(SmallInt),err);
       end;
      Result := err = 0;
@@ -3152,6 +3726,7 @@ implementation
        wHelpCtx_StrCommand,wHelpCtx_StrCommand_Topic : AnsiString;
 
   Begin
+    result := '';
      //Dar prioride a HelpCtx_StrCommand
      wHelpCtx_StrCommand := HelpCtx_StrCommand;
      if wHelpCtx_StrCommand = ''
@@ -3215,6 +3790,37 @@ implementation
      If aAlias <> ''
      Then _Alias   := AAlias
      else _Alias   := ClassName;
+     //writeLn(ClassName +'--> '+ _Alias);
+   end;
+
+   class function TObjectsMethods.MI_MsgBox: TMI_MsgBox;
+   begin
+     If Assigned(_MI_MsgBox)
+     Then result := _MI_MsgBox
+     else Raise Exception.Create('A class MI_MsgBox precisa ser assinalada com Set_MI_MsgBox na plataforma destino!');
+   end;
+
+   function TObjectsMethods.StartTransaction: Boolean;
+   begin
+     if Assigned(Mi_Transaction)
+     then result := Mi_Transaction.StartTransaction
+     else result := false;
+   end;
+
+
+   function TObjectsMethods.COMMIT: Boolean;
+   begin
+     if Assigned(Mi_Transaction)
+     then begin
+           result := Mi_Transaction.COMMIT
+         end
+     else result := false;
+   end;
+
+   procedure TObjectsMethods.Rollback;
+   begin
+     if Assigned(Mi_Transaction)
+     then Mi_Transaction.Rollback;
    end;
 
    class function TObjectsMethods.ShellScript(aCommand: String): String;
@@ -3252,14 +3858,629 @@ implementation
      end;
    end;
 
+   class function TObjectsMethods.HTMLToTColor(const HTML: TString): Integer;
+     var
+       Offset: Integer;
+   begin
+       // check for leading '#'
+       if Copy(HTML, 1, 1) = '#'
+       then Offset := 1
+       else Offset := 0;
+
+       // convert hexa-decimal values to RGB
+       Result :=
+         Integer(StrToInt('$' + Copy(HTML, Offset + 1, 2))) +
+         Integer(StrToInt('$' + Copy(HTML, Offset + 3, 2))) shl 8 +
+         Integer(StrToInt('$' + Copy(HTML, Offset + 5, 2))) shl 16;
+   end;
+
+   class function TObjectsMethods.IsEmptyOrNull(const aValue: Variant): Boolean;
+
+   begin
+     Result := VarIsClear(aValue) or
+               VarIsEmpty(aValue) or
+               VarIsNull(aValue) or
+               (VarCompareValue(aValue, Unassigned) = vrEqual);
+
+     if (not Result) and VarIsStr(aValue)
+     then Result := aValue = '';
+   end;
+
+   class procedure TObjectsMethods.UnlistPublishedProperty (ComponentClass:TPersistentClass; const PropertyName:String);
+    var
+      pi : PPropInfo;
+    begin
+      pi := TypInfo.GetPropInfo (ComponentClass, PropertyName);
+      if (pi <> nil) then
+        RegisterPropertyEditor (pi^.PropType, ComponentClass, PropertyName, PropEdits.THiddenPropertyEditor);
+    end;
+
+   class procedure TObjectsMethods.str(v: variant; var s: String);
+   begin
+
+   end;
+
+   class procedure TObjectsMethods.Print_info_compile;
+     var
+      HeapStatus: THeapStatus;
+   begin
+     Writeln('Unit name is ',UnitName);
+     Writeln('Name is ', {$I %CURRENTROUTINE%});
+     Writeln ('This program was compiled ',DateCompiler);
+     Writeln ('By ',User);
+     Writeln ('Compiler version: ',FPC_Version);
+     Writeln ('Target CPU: ',FPC_Target);
+     Writeln ('HOME: ',{$I %HOME%});
+     // Obter o status da heap
+     HeapStatus := GetHeapStatus;
+     // Exibir informações sobre a memória heap
+     Writeln('Free heap size: ', HeapStatus.TotalFree, ' bytes');
+     Writeln('Used heap size: ', HeapStatus.TotalAllocated, ' bytes');
+     // Exibir informações sobre a memória heap
+     Writeln('');
+   end;
+
+   //class function TObjectsMethods.GetPropInfo(AClassInfo: Pointer; AName: String     ): PPropInfo;
+   //  var
+   //    PropList: PPropList;
+   //    PropCount, I: Integer;
+   //    PropInfo: PPropInfo;
+   //begin
+   //  if Assigned(aClassInfo)
+   //  Then begin
+   //          PropCount := GetPropList(aClassInfo, PropList);
+   //          try
+   //            for I := 0 to PropCount - 1 do
+   //            begin
+   //              PropInfo := PropList^[I];
+   //              if upCase(PropInfo^.Name)= UpCase(aName)
+   //              Then begin
+   //                     result := PropInfo;
+   //                     exit;
+   //                   end;
+   //            end;
+   //          finally
+   //            FreeMem(PropList);
+   //          end;
+   //       end;
+   //  Result := nil;
+   //end;
+
+  class function TObjectsMethods.VarRecArrayToStr(const Args: array of const): string;
+  var
+    I: Integer;
+    V: TVarRec;
+  begin
+    Result := '';
+    for I := 0 to High(Args) do
+    begin
+      V := Args[I];
+      case V.VType of
+        vtInteger:        Result := Result + IntToStr(V.VInteger);
+        vtBoolean:        Result := Result + BoolToStr(V.VBoolean, True);
+        vtChar:           Result := Result + V.VChar;
+        vtExtended:       Result := Result + FloatToStr(V.VExtended^);
+        vtString:         if V.VString <> nil then Result := Result + string(V.VString^);
+        vtPChar:          if V.VPChar <> nil then Result := Result + string(V.VPChar);
+        vtObject:         if Assigned(V.VObject) then Result := Result + V.VObject.ClassName;
+        vtAnsiString:     if V.VAnsiString <> nil then Result := Result + AnsiString(V.VAnsiString);
+        vtCurrency:       Result := Result + CurrToStr(V.VCurrency^);
+        vtVariant:        if V.VVariant <> nil then Result := Result + string(V.VVariant^);
+        vtWideString:     if V.VWideString <> nil then Result := Result + WideString(V.VWideString);
+        vtInt64:          Result := Result + IntToStr(V.VInt64^);
+        vtUnicodeString:  if V.VUnicodeString <> nil then Result := Result + UnicodeString(V.VUnicodeString);
+      else
+        Result := Result + '[unknown type]';
+      end;
+
+      if I < High(Args) then
+        Result := Result + ', ';
+    end;
+  end;
 
 
+   //class function TObjectsMethods.VarRecArrayToStr(const Args: array of const): string;
+   // var
+   //   I: Integer;
+   //   V: TVarRec;
+   //begin
+   //   Result := '';
+   //   for I := 0 to High(Args) do
+   //   begin
+   //     V := Args[I];
+   //     case V.VType of
+   //       vtInteger:        Result := Result + IntToStr(V.VInteger);
+   //       vtBoolean:        Result := Result + BoolToStr(V.VBoolean, True);
+   //       vtChar:           Result := Result + V.VChar;
+   //       vtExtended:       Result := Result + FloatToStr(V.VExtended^);
+   //       vtString:         if V.VString <> nil then Result := Result + string(V.VString^);
+   //       vtPChar:          if V.VPChar <> nil then Result := Result + string(V.VPChar);
+   //       vtObject:         if Assigned(V.VObject) then Result := Result + V.VObject.ClassName;
+   //       vtAnsiString:     if V.VAnsiString <> nil then Result := Result + AnsiString(V.VAnsiString);
+   //       vtCurrency:       Result := Result + CurrToStr(V.VCurrency^);
+   //       vtVariant:        if V.VVariant <> nil then Result := Result + string(V.VVariant^);
+   //       vtWideString:     if V.VWideString <> nil then Result := Result + WideString(V.VWideString);
+   //       vtInt64:          Result := Result + IntToStr(V.VInt64^);
+   //       vtUnicodeString:  if V.VUnicodeString <> nil then Result := Result + UnicodeString(V.VUnicodeString);
+   //     else
+   //       Result := Result + '[unknown type]';
+   //     end;
+   //
+   //     if I < High(Args) then
+   //       Result := Result + ', ';
+   //   end;
+   //end;
 
 
+  //class function TObjectsMethods.VarRecArrayToStr(const Args: array of const): string;
+  //  var
+  //    I: Integer;
+  //    V: TVarRec;
+  //begin
+  //  Result := '';
+  //  for I := 0 to High(Args) do
+  //  begin
+  //    V := Args[I];
+  //    case V.VType of
+  //      vtInteger:        Result := Result + IntToStr(V.VInteger);
+  //      vtBoolean:        Result := Result + BoolToStr(V.VBoolean, True);
+  //      vtChar:           Result := Result + V.VChar;
+  //      vtExtended:       Result := Result + FloatToStr(V.VExtended^);
+  //      vtString:         Result := Result + string(V.VString^);
+  //      vtPChar:          Result := Result + string(V.VPChar);
+  //      vtObject:         Result := Result + V.VObject.ClassName;
+  //      vtAnsiString:     Result := Result + AnsiString(V.VAnsiString);
+  //      vtCurrency:       Result := Result + CurrToStr(V.VCurrency^);
+  //      vtVariant:        Result := Result + string(V.VVariant^);
+  //      vtWideString:     Result := Result + WideString(V.VWideString);
+  //      vtInt64:          Result := Result + IntToStr(V.VInt64^);
+  //      vtUnicodeString:  Result := Result + UnicodeString(V.VUnicodeString);
+  //    else
+  //      Result := Result + '[unknown type]';
+  //    end;
+  //
+  //    // Adiciona uma vírgula e espaço entre os itens, exceto no último
+  //    if I < High(Args) then
+  //      Result := Result + ', ';
+  //  end;
+  //end;
 
+  class procedure TObjectsMethods.JsonToDataSet(const JSONString: string;var aJSONDataSet: TJSONDataSet);
+  begin
+    aJSONDataSet.Rows.AsString:=JSONString;
+  end;
+
+  class function TObjectsMethods.DataSetToJson(const aJSONDataSet: TJSONDataSet): String;
+  begin
+    Result := aJSONDataSet.Rows.AsString;
+  end;
+
+  class function TObjectsMethods.JSONToVariantArray(JSONData: TJSONData): Variant;
+    var
+      i: Integer;
+      JSONArray: TJSONArray;
+  begin
+    if JSONData.JSONType = jtArray then
+    begin
+      JSONArray := TJSONArray(JSONData);
+      Result := VarArrayCreate([0, JSONArray.Count - 1], varVariant);
+      for i := 0 to JSONArray.Count - 1 do
+      begin
+        case JSONArray.Items[i].JSONType of
+          jtNumber: Result[i] := JSONArray.Items[i].AsFloat;
+          jtString: Result[i] := JSONArray.Items[i].AsString;
+          jtBoolean: Result[i] := JSONArray.Items[i].AsBoolean;
+          jtNull: Result[i] := 'null'; // Representando null como string 'null'
+          jtArray, jtObject:
+            // Recursivamente converte arrays e objetos aninhados.
+            Result[i] := JSONToVariantArray(JSONArray.Items[i]);
+        end;
+      end;
+    end
+    else
+      raise Exception.Create('O JSON fornecido não é um array.');
+  end;
+
+  class function TObjectsMethods.ArrayToVariant(aValues: array of string    ): Variant;
+    var
+      i : Integer;
+      s : String;
+      V : Variant;
+  begin
+    // Criação do Variant com o array
+    Result := VarArrayCreate([0, Length(aValues) - 1],varVariant);
+    for i := 0 to High(aValues) do
+      Result [i] := aValues[i];
+
+    // Tentativa de acessar os elementos do array Variant para verificar
+    //for i := 0 to VarArrayHighBound(Result, 1) do
+    //begin
+    //  // Atribua cada elemento a uma variável string (s) para teste
+    //  WriteLn('Elemento ', i, ': ', VarToStr(Result[i])); // Exibe os elementos no console para verificação
+    //end;
+  end;
+
+  class function TObjectsMethods.getFieldsKeys(aQueryFields: TStrings;out Values: TArray<string>): AnsiString;
+    var
+      posigual: Integer;
+      V_Count: Integer = 0;
+      s: string;
+  begin
+    result := '';
+    SetLength(Values, 0); // Inicializa o array Values
+    for s in aQueryFields do
+    begin
+      posigual := Pos('=', s);
+      if posigual > 0 then
+      begin
+        result := result + System.Copy(s, 1, posigual - 1) + ';';
+        Inc(V_Count);
+        SetLength(Values, V_Count);
+        Values[V_Count - 1] := System.Copy(s, posigual + 1, Length(s) - posigual);
+      end;
+    end;
+
+    // Remove o último ponto e vírgula, se existir.
+    if result <> '' then
+      System.Delete(result, Length(result), 1);
+  end;
+
+
+  class function TObjectsMethods.URLEncode(AStr: Ansistring): UTF8String;
+    const
+      HexMap: array[0..15] of Char = '0123456789ABCDEF';
+    var
+      i: Integer;
+      Code: Word;
+  begin
+    Result := '';
+    AStr := UTF8Encode(AStr);
+    for i := 1 to Length(AStr) do
+    begin
+      Code := Ord(AStr[i]);
+      if (Code >= 32)
+         and (Code <= 126)
+         and not (AStr[i] in [' ', '&', '=', '?', '#', '%'])
+      then Result := Result + AStr[i]
+      else Result := Result + '%' + HexMap[(Code shr 4) and $0F] + HexMap[Code and $0F];
+    end;
+  end;
+
+  class function TObjectsMethods.JSONObjectToQueryString(const Params: TJSONObject): string;
+    var
+      Pair: TJSONEnum;
+      ArrayValue: TJSONArray;
+      i: Integer;
+      TempStr: string;
+  begin
+    Result := '';
+    for Pair in Params do
+    begin
+      if Result <> '' then
+        Result := Result + '&';
+
+      // Tratamento para diferentes tipos de valor JSON
+      case Pair.Value.JSONType of
+        jtNull:
+          Result := Result + URLEncode(Pair.Key) + '=';
+
+        jtString:
+          Result := Result + URLEncode(Pair.Key) + '=' + URLEncode(Pair.Value.AsString);
+
+        jtNumber:
+          Result := Result + URLEncode(Pair.Key) + '=' + URLEncode(FloatToStr(Pair.Value.AsFloat));
+
+        jtBoolean:
+          Result := Result + URLEncode(Pair.Key) + '=' + URLEncode(BoolToStr(Pair.Value.AsBoolean, True));
+
+        jtArray:
+          begin
+            // Trata arrays, concatenando valores separados por vírgula
+            ArrayValue := Pair.Value as TJSONArray;
+            TempStr := '';
+            for i := 0 to ArrayValue.Count - 1 do
+            begin
+              if i > 0 then
+                TempStr := TempStr + ',';
+              TempStr := TempStr + URLEncode(ArrayValue.Items[i].AsString);
+            end;
+            Result := Result + URLEncode(Pair.Key) + '=' + URLEncode(TempStr);
+          end;
+
+        else
+          raise Exception.CreateFmt('Tipo de valor JSON não suportado: %s', [Pair.Key]);
+      end;
+    end;
+  end;
+
+  // Função auxiliar para converter strings separadas por vírgulas em um array JSON
+    class function TObjectsMethods.ConvertCSVToJSONArray(const CSV: string
+    ): TJSONArray;
+  var
+    Items: TStringList;
+    i: Integer;
+  begin
+    Result := TJSONArray.Create;
+    Items := TStringList.Create;
+    try
+      // Divide a string CSV em uma lista usando a vírgula como separador
+      Items.Delimiter := ',';
+      Items.StrictDelimiter := True; // Evita que espaços sejam considerados parte dos valores
+      Items.DelimitedText := CSV;
+
+      // Adiciona cada item da lista ao JSONArray
+      for i := 0 to Items.Count - 1 do
+      begin
+        Result.Add(Items[i].Trim); // Remove espaços extras
+      end;
+    finally
+      Items.Free;
+    end;
+  end;
+
+  class procedure TObjectsMethods.GetQueryFieldsLocate(
+                                    var aRequest: TRequest;
+                                    out aKeyFields: string;
+                                    out aKeyValues: Variant;
+                                    out aOptions: TLocateOptions);
+
+
+      // Função auxiliar para decodificar strings de URL
+      function URLDecode(const AStr: string): string;
+      begin
+        Result := HTTPDecode(AStr);
+      end;
+
+  var
+    JSONArray: TJSONArray;
+    aKeyValuesStr, aOptionsStr: String;
+    i: Integer;
+  begin
+    // Extração dos parâmetros da query string com decodificação de URL
+    aKeyFields := URLDecode(aRequest.QueryFields.Values['KeyFields']);
+    aKeyValuesStr := URLDecode(aRequest.QueryFields.Values['KeyValues']);
+    aOptionsStr := URLDecode(aRequest.QueryFields.Values['Options']);
+
+    // Verificação se o campo de chave foi informado
+    if aKeyFields = '' then
+      raise Exception.Create('O parâmetro "KeyFields" não pode ser vazio!');
+
+    // Parse de KeyValues (tratando como um array de valores)
+    if aKeyValuesStr <> '' then
+    begin
+      JSONArray := ConvertCSVToJSONArray(aKeyValuesStr);
+      if JSONArray.Count = 1 then
+        aKeyValues := JSONArray.Items[0].AsString
+      else
+      begin
+        aKeyValues := VarArrayCreate([0, JSONArray.Count - 1], varVariant);
+        for i := 0 to JSONArray.Count - 1 do
+          aKeyValues[i] := JSONArray.Items[i].AsString;
+      end;
+    end
+    else
+      raise Exception.Create('O parâmetro "KeyValues" não pode ser vazio!');
+
+    // Parse de Options (tratando como um array de opções)
+    aOptions := [];
+    if aOptionsStr <> '' then
+    begin
+      JSONArray := ConvertCSVToJSONArray(aOptionsStr);
+      for i := 0 to JSONArray.Count - 1 do
+      begin
+        if JSONArray.Strings[i] = 'loCaseInsensitive' then
+          Include(aOptions, loCaseInsensitive);
+
+        if JSONArray.Strings[i] = 'loPartialKey' then
+          Include(aOptions, loPartialKey);
+      end;
+    end;
+  end;
+
+  class function TObjectsMethods.LocateParamsToJson(KeyFields: string;
+                     KeyValues: Variant; Options: TLocateOptions): TJSONObject;
+
+    var
+      JsonOptions: TJSONArray;
+      JsonKeyValues: TJSONArray;
+      Option: TLocateOption;
+      i: Integer;
+  begin
+    Result := TJSONObject.Create;
+
+    // Adiciona KeyFields
+    Result.Add('KeyFields', KeyFields);
+
+    // Adiciona KeyValues
+    JsonKeyValues := TJSONArray.Create;
+    if VarIsArray(KeyValues)
+    then begin
+           for i := VarArrayLowBound(KeyValues, 1) to VarArrayHighBound(KeyValues, 1) do
+             JsonKeyValues.Add(VarToStr(KeyValues[i]));
+         end
+    else JsonKeyValues.Add(VarToStr(KeyValues));
+
+    Result.Add('KeyValues', JsonKeyValues);
+
+    // Adiciona Options
+    JsonOptions := TJSONArray.Create;
+    for Option in Options do
+    begin
+      case Option of
+        loCaseInsensitive: JsonOptions.Add('loCaseInsensitive');
+        loPartialKey: JsonOptions.Add('loPartialKey');
+      end;
+    end;
+    Result.Add('Options', JsonOptions);
+  end;
+
+  class function TObjectsMethods.ValidateAndNormalizeURL(const BaseURL, Action,
+    QueryString: string): string;
+  begin
+    Result := BaseURL;
+
+    // Remover '/' duplicadas entre BaseURL e Action
+    if (Result.EndsWith('/')) and (Action.StartsWith('/')) then
+      Result := Result + Action.Substring(1)
+    else if (not Result.EndsWith('/')) and (not Action.StartsWith('/')) then
+      Result := Result + '/' + Action
+    else
+      Result := Result + Action;
+
+    // Adicionar QueryString, garantindo que ela comece com '?'
+    if QueryString <> '' then
+    begin
+      if not QueryString.StartsWith('?') then
+        Result := Result + '?' + QueryString
+      else
+        Result := Result + QueryString;
+    end;
+  end;
+
+  class procedure TObjectsMethods.ParseServerResponse(const AResponse: string;out KeyFields: string; out KeyValues: Variant);
+    var
+      JSONObject: TJSONObject=nil;
+      ValueArray: TJSONArray=nil;
+      i: Integer;
+      TempArray: Variant;
+      s:string;
+  begin
+    // Inicializa os valores
+    KeyFields := '';
+    KeyValues := Null;
+
+    try
+      // Faz o parsing do JSON recebido
+      JSONObject := TJSONObject(GetJSON(AResponse));
+
+      try
+        // Extrai o valor de "keyFields" (uma string)
+        KeyFields := JSONObject.Get('keyFields', '');
+
+        // Extrai o valor de "keyValues" (pode ser um array)
+        if JSONObject.Find('keyValues') is TJSONArray then
+        begin
+          ValueArray := JSONObject.Arrays['keyValues'];
+          if ValueArray.Count > 0 then
+          begin
+            // Cria um array variante para armazenar os valores
+            TempArray := VarArrayCreate([0, ValueArray.Count - 1], varVariant);
+
+            // Itera pelos valores no array JSON e os armazena no array variante
+            for i := 0 to ValueArray.Count - 1 do
+            begin
+              TempArray[i] := ValueArray.Items[i].AsString;
+              s:= TempArray[i];
+            end;
+
+            KeyValues := TempArray;
+          end;
+        end
+        else
+        begin
+          // Se keyValues não for array, trata como valor único
+          KeyValues := JSONObject.Get('keyValues', '');
+        end;
+      finally
+        JSONObject.Free;
+      end;
+    except
+      on E: Exception do
+      begin
+        // Lida com qualquer erro que possa ocorrer durante o parsing
+        Writeln('Erro ao processar o JSON: ' + E.Message);
+      end;
+    end;
+  end;
+
+  //  class procedure TObjectsMethods.GetQueryFieldsLocate(var aRequest: TRequest;
+  //                                                       out aKeyFields: string;
+  //                                                       out aKeyValues: Variant;
+  //                                                       out aOptions: TLocateOptions);
+  //
+  //    //Converte strings separados por virgulas em array json
+  //    function ConvertCSVToJSONArray(const CSV: string): TJSONArray;
+  //    var
+  //      Items: TStringList;
+  //      i: Integer;
+  //      s:string;
+  //    begin
+  //      Result := TJSONArray.Create;
+  //      Items := TStringList.Create;
+  //      try
+  //        // Divide a string CSV em uma lista usando a vírgula como separador
+  //        Items.Delimiter := ',';
+  //        Items.StrictDelimiter := True; // Evita que espaços sejam considerados parte dos valores
+  //        Items.DelimitedText := CSV;
+  //
+  //        // Adiciona cada item da lista ao JSONArray
+  //        for i := 0 to Items.Count - 1 do
+  //        begin
+  //           Result.Add(Items[i].Trim); // Remove espaços extras
+  //        end;
+  //      finally
+  //        Items.Free;
+  //      end;
+  //    end;
+  //
+  //var
+  //  JSONArray: TJSONArray;
+  //  aKeyValuesStr, aOptionsStr: String;
+  //  i: Integer;
+  //begin
+  //  // Extração dos parâmetros da query string
+  //  aKeyFields := aRequest.QueryFields.Values['KeyFields'];
+  //  aKeyValuesStr := aRequest.QueryFields.Values['KeyValues'];
+  //  aOptionsStr := aRequest.QueryFields.Values['Options'];
+  //
+  //  // Parse KeyValues (tratando como um array de valores)
+  //  if aKeyValuesStr <> '' then
+  //  begin
+  //    // Verifica se o KeyValues é um array JSON (começa com '[' e termina com ']')
+  //    JSONArray := ConvertCSVToJSONArray(aKeyValuesStr);
+  //    if JSONArray.Count = 1
+  //    then aKeyValues := JSONArray.Items[0].AsString
+  //    else begin
+  //           aKeyValues := VarArrayCreate([0, JSONArray.Count - 1], varVariant);
+  //           for i := 0 to JSONArray.Count - 1 do
+  //             aKeyValues[i] := JSONArray.Items[i].AsString;
+  //         end;
+  //  end
+  //  else
+  //    raise Exception.Create('O parâmetro "KeyValues" não pode ser vazio!');
+  //
+  //  // Parse Options (tratando como um array de opções)
+  //  aOptions := [];
+  //  if aOptionsStr <> '' then
+  //  begin
+  //    // Verifica se o Options é um array JSON (começa com '[' e termina com ']')
+  //    JSONArray := ConvertCSVToJSONArray(aOptionsStr);
+  //    for i := 0 to JSONArray.Count - 1 do
+  //    begin
+  //      if JSONArray.Strings[i] = 'loCaseInsensitive' then
+  //        Include(aOptions, loCaseInsensitive);
+  //
+  //      if JSONArray.Strings[i] = 'loPartialKey' then
+  //        Include(aOptions, loPartialKey);
+  //    end;
+  //  end;
+  //end;
+
+procedure OnShowException(Msg: ShortString);
+begin
+  TObjectsMethods.MessageBox(Msg);
+end;
+
+
+Procedure Push_MsgErro(Const Str: AnsiString);
+begin
+  TObjectsMethods.Push_MsgErro(str);
+  TObjectsMethods.LogError(str);
+end;
 
 Initialization
-
+  PushMsgErro := @Push_MsgErro;
+//  SysUtils.OnShowException := OnShowException;
   with TObjectsMethods do
   begin
     List_Class_Of_Char     := Get_List_Class_Of_Char;
@@ -3267,6 +4488,8 @@ Initialization
   end;
 
 finalization
+
+
   with TObjectsMethods do
   begin
     freeandnil(List_Class_Of_Char);
@@ -3277,7 +4500,6 @@ finalization
 
 
 end.
-
 
 
 

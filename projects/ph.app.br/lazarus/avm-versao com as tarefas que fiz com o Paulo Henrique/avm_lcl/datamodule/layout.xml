@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CONFIG>
+  <MainConfig>
+    <Nodes ChildCount="1" PixelsPerInch="0">
+      <Item1 Name="AnchorDockPanel1" Type="CustomSite" ChildCount="1" PixelsPerInch="0">
+        <Bounds Top="330" Left="640" Width="320" Height="240"/>
+        <Anchors Align="Client"/>
+        <Item1 Name="" Type="Control">
+          <Bounds Top="33" Left="1" Width="318" Height="188"/>
+          <Anchors Align="Client"/>
+        </Item1>
+      </Item1>
+    </Nodes>
+  </MainConfig>
+  <Restores Count="1">
+    <Item1 Names=",">
+      <Nodes PixelsPerInch="0"/>
+    </Item1>
+  </Restores>
+</CONFIG>

@@ -4885,7 +4885,7 @@ A constante \textbf{\begin{ttfamily}fldBLOb\end{ttfamily}} indica que o campo é
 \begin{itemize}
 \item \textbf{NOTA} \begin{itemize}
 \item Para informar ao buffer do registro que o campo é \textbf{\begin{ttfamily}fldBLOb\end{ttfamily}}, a função \textbf{CreateBlobField} é necessário.
-\item A \textbf{class function \begin{ttfamily}TUiMethods.CreateBlobField\end{ttfamily}(\ref{mi_rtl_ui_methods.TUiMethods-CreateBlobField})(Len: \begin{ttfamily}integer\end{ttfamily}(\ref{mi.rtl.Types.TTypes-Integer}); AccMode,Default: byte) : DmxIDstr;} reserva espaço para o mesmo.
+\item A \textbf{class function \begin{ttfamily}TUiMethods.CreateBlobField\end{ttfamily}(\ref{mi_rtl_ui_methods.TUiMethods-CreateBlobField})(Len: \begin{ttfamily}integer\end{ttfamily}(\ref{mi.rtl.Types.TTypes-Integer}); AccMode,Default: byte) : TDmxStr_ID;} reserva espaço para o mesmo.
 \item Pendência: Preciso criar um exemplo de uso deste tipo de informação.
 \end{itemize}
 \end{itemize}
@@ -5333,7 +5333,7 @@ public const FldlinkAction = {\^{}}L+'2';\end{ttfamily}
 Nome de uma ação da lista actionItens.
 
 \end{list}
-\paragraph*{fldData}\hspace*{\fill}
+\paragraph*{FldDateTime}\hspace*{\fill}
 
 \begin{list}{}{
 \settowidth{\tmplength}{\textbf{Declaração}}
@@ -5348,7 +5348,7 @@ Nome de uma ação da lista actionItens.
 \begin{flushleft}
 \item[\textbf{Declaração}\hfill]
 \begin{ttfamily}
-public const fldData           = 'D';\end{ttfamily}
+public const FldDateTime           = 'D';\end{ttfamily}
 
 
 \end{flushleft}
@@ -6495,7 +6495,7 @@ public const CTypeString     =  [fldSTRNUM,fldSTR,fldSTR{\_}Minuscula];\end{ttfa
 \begin{flushleft}
 \item[\textbf{Declaração}\hfill]
 \begin{ttfamily}
-public const CTypeInteger    =  [fldENUM,fldBOOLEAN,fldBYTE,fldSHORTINT,fldSmallWORD,fldSmallInt,fldLONGINT,FldRadioButton];\end{ttfamily}
+public const CTypeInteger    =  [fldENum,fldENum_db,fldBOOLEAN,fldBYTE,fldSHORTINT,fldSmallWORD,fldSmallInt,fldLONGINT,FldRadioButton];\end{ttfamily}
 
 
 \end{flushleft}
@@ -6515,7 +6515,7 @@ public const CTypeInteger    =  [fldENUM,fldBOOLEAN,fldBYTE,fldSHORTINT,fldSmall
 \begin{flushleft}
 \item[\textbf{Declaração}\hfill]
 \begin{ttfamily}
-public const CTypeDate       =  [fldData,fldLData,fld{\_}LData,FldDateTimeDos];\end{ttfamily}
+public const CTypeDate       =  [FldDateTime,fldLData,fld{\_}LData,FldDateTimeDos];\end{ttfamily}
 
 
 \end{flushleft}
@@ -11086,7 +11086,7 @@ public const CmNulo                =          100 ;\end{ttfamily}
 
 \end{flushleft}
 \end{list}
-\paragraph*{CmDbNextRec}\hspace*{\fill}
+\paragraph*{CmNextRecord}\hspace*{\fill}
 
 \begin{list}{}{
 \settowidth{\tmplength}{\textbf{Declaração}}
@@ -11101,12 +11101,12 @@ public const CmNulo                =          100 ;\end{ttfamily}
 \begin{flushleft}
 \item[\textbf{Declaração}\hfill]
 \begin{ttfamily}
-public const CmDbNextRec           = CmNulo + 01;\end{ttfamily}
+public const CmNextRecord           = CmNulo + 01;\end{ttfamily}
 
 
 \end{flushleft}
 \end{list}
-\paragraph*{CmDbPrevRec}\hspace*{\fill}
+\paragraph*{CmPrevRecord}\hspace*{\fill}
 
 \begin{list}{}{
 \settowidth{\tmplength}{\textbf{Declaração}}
@@ -11121,12 +11121,12 @@ public const CmDbNextRec           = CmNulo + 01;\end{ttfamily}
 \begin{flushleft}
 \item[\textbf{Declaração}\hfill]
 \begin{ttfamily}
-public const CmDbPrevRec           = CmNulo + 02;\end{ttfamily}
+public const CmPrevRecord           = CmNulo + 02;\end{ttfamily}
 
 
 \end{flushleft}
 \end{list}
-\paragraph*{CmDbNextRecValid}\hspace*{\fill}
+\paragraph*{CmNextRecordValid}\hspace*{\fill}
 
 \begin{list}{}{
 \settowidth{\tmplength}{\textbf{Declaração}}
@@ -11141,12 +11141,12 @@ public const CmDbPrevRec           = CmNulo + 02;\end{ttfamily}
 \begin{flushleft}
 \item[\textbf{Declaração}\hfill]
 \begin{ttfamily}
-public const CmDbNextRecValid      = CmNulo + 03;\end{ttfamily}
+public const CmNextRecordValid      = CmNulo + 03;\end{ttfamily}
 
 
 \end{flushleft}
 \end{list}
-\paragraph*{CmDbPrevRecValid}\hspace*{\fill}
+\paragraph*{CmPrevRecordValid}\hspace*{\fill}
 
 \begin{list}{}{
 \settowidth{\tmplength}{\textbf{Declaração}}
@@ -11161,12 +11161,12 @@ public const CmDbNextRecValid      = CmNulo + 03;\end{ttfamily}
 \begin{flushleft}
 \item[\textbf{Declaração}\hfill]
 \begin{ttfamily}
-public const CmDbPrevRecValid      = CmNulo + 04;\end{ttfamily}
+public const CmPrevRecordValid      = CmNulo + 04;\end{ttfamily}
 
 
 \end{flushleft}
 \end{list}
-\paragraph*{CmDbFindRec}\hspace*{\fill}
+\paragraph*{CmFindRecord}\hspace*{\fill}
 
 \begin{list}{}{
 \settowidth{\tmplength}{\textbf{Declaração}}
@@ -11181,12 +11181,12 @@ public const CmDbPrevRecValid      = CmNulo + 04;\end{ttfamily}
 \begin{flushleft}
 \item[\textbf{Declaração}\hfill]
 \begin{ttfamily}
-public const CmDbFindRec           = CmNulo + 05;\end{ttfamily}
+public const CmFindRecord           = CmNulo + 05;\end{ttfamily}
 
 
 \end{flushleft}
 \end{list}
-\paragraph*{CmDbSearchRec}\hspace*{\fill}
+\paragraph*{CmSearchRec}\hspace*{\fill}
 
 \begin{list}{}{
 \settowidth{\tmplength}{\textbf{Declaração}}
@@ -11201,12 +11201,12 @@ public const CmDbFindRec           = CmNulo + 05;\end{ttfamily}
 \begin{flushleft}
 \item[\textbf{Declaração}\hfill]
 \begin{ttfamily}
-public const CmDbSearchRec         = CmNulo + 06;\end{ttfamily}
+public const CmSearchRecord         = CmNulo + 06;\end{ttfamily}
 
 
 \end{flushleft}
 \end{list}
-\paragraph*{CmDbGoEof}\hspace*{\fill}
+\paragraph*{CmGoEof}\hspace*{\fill}
 
 \begin{list}{}{
 \settowidth{\tmplength}{\textbf{Declaração}}
@@ -11221,12 +11221,12 @@ public const CmDbSearchRec         = CmNulo + 06;\end{ttfamily}
 \begin{flushleft}
 \item[\textbf{Declaração}\hfill]
 \begin{ttfamily}
-public const CmDbGoEof             = CmNulo + 07;\end{ttfamily}
+public const CmGoEof             = CmNulo + 07;\end{ttfamily}
 
 
 \end{flushleft}
 \end{list}
-\paragraph*{CmDbGoBof}\hspace*{\fill}
+\paragraph*{CmGoBof}\hspace*{\fill}
 
 \begin{list}{}{
 \settowidth{\tmplength}{\textbf{Declaração}}
@@ -11241,12 +11241,12 @@ public const CmDbGoEof             = CmNulo + 07;\end{ttfamily}
 \begin{flushleft}
 \item[\textbf{Declaração}\hfill]
 \begin{ttfamily}
-public const CmDbGoBof             = CmNulo + 08;\end{ttfamily}
+public const CmGoBof             = CmNulo + 08;\end{ttfamily}
 
 
 \end{flushleft}
 \end{list}
-\paragraph*{CmDbLocaliza}\hspace*{\fill}
+\paragraph*{CmLocate}\hspace*{\fill}
 
 \begin{list}{}{
 \settowidth{\tmplength}{\textbf{Declaração}}
@@ -11261,7 +11261,7 @@ public const CmDbGoBof             = CmNulo + 08;\end{ttfamily}
 \begin{flushleft}
 \item[\textbf{Declaração}\hfill]
 \begin{ttfamily}
-public const CmDbLocaliza          = CmNulo + 09;\end{ttfamily}
+public const CmLocate          = CmNulo + 09;\end{ttfamily}
 
 
 \end{flushleft}
@@ -11286,7 +11286,7 @@ public const CmNewRecord           = CmNulo + 10;\end{ttfamily}
 
 \end{flushleft}
 \end{list}
-\paragraph*{CmZeroizeRecord}\hspace*{\fill}
+\paragraph*{CmDeleteRecord}\hspace*{\fill}
 
 \begin{list}{}{
 \settowidth{\tmplength}{\textbf{Declaração}}
@@ -11301,12 +11301,12 @@ public const CmNewRecord           = CmNulo + 10;\end{ttfamily}
 \begin{flushleft}
 \item[\textbf{Declaração}\hfill]
 \begin{ttfamily}
-public const CmZeroizeRecord       = CmNulo + 11;\end{ttfamily}
+public const CmDeleteRecord       = CmNulo + 11;\end{ttfamily}
 
 
 \end{flushleft}
 \end{list}
-\paragraph*{CmEvaluateRecord}\hspace*{\fill}
+\paragraph*{CmUpdateRecord}\hspace*{\fill}
 
 \begin{list}{}{
 \settowidth{\tmplength}{\textbf{Declaração}}
@@ -11321,7 +11321,7 @@ public const CmZeroizeRecord       = CmNulo + 11;\end{ttfamily}
 \begin{flushleft}
 \item[\textbf{Declaração}\hfill]
 \begin{ttfamily}
-public const CmEvaluateRecord      = CmNulo + 12;\end{ttfamily}
+public const CmUpdateRecord      = CmNulo + 12;\end{ttfamily}
 
 
 \end{flushleft}
@@ -11538,7 +11538,7 @@ public const CmCreate{\_}Shortcut     = CmNulo + 22;\end{ttfamily}
 
 \end{flushleft}
 \end{list}
-\paragraph*{CmVisualizar}\hspace*{\fill}
+\paragraph*{CmView}\hspace*{\fill}
 
 \begin{list}{}{
 \settowidth{\tmplength}{\textbf{Declaração}}
@@ -11553,7 +11553,7 @@ public const CmCreate{\_}Shortcut     = CmNulo + 22;\end{ttfamily}
 \begin{flushleft}
 \item[\textbf{Declaração}\hfill]
 \begin{ttfamily}
-public const CmVisualizar          = CmNulo + 23;\end{ttfamily}
+public const CmView          = CmNulo + 23;\end{ttfamily}
 
 
 \end{flushleft}
@@ -11633,7 +11633,7 @@ public const CmInt                 = CmNulo + 29;\end{ttfamily}
 \begin{flushleft}
 \item[\textbf{Declaração}\hfill]
 \begin{ttfamily}
-public const TCmLivre    = [CmVisualizar..CmInt];\end{ttfamily}
+public const TCmLivre    = [CmView..CmInt];\end{ttfamily}
 
 
 \end{flushleft}
@@ -11658,7 +11658,7 @@ public const TCmCommands = [CmInt..255];\end{ttfamily}
 
 \end{flushleft}
 \end{list}
-\paragraph*{TCmDb}\hspace*{\fill}
+\paragraph*{TCm}\hspace*{\fill}
 
 \begin{list}{}{
 \settowidth{\tmplength}{\textbf{Declaração}}
@@ -11673,21 +11673,21 @@ public const TCmCommands = [CmInt..255];\end{ttfamily}
 \begin{flushleft}
 \item[\textbf{Declaração}\hfill]
 \begin{ttfamily}
-public const TCmDb       = [CmDbNextRec    ,
-                             CmDbPrevRec    ,
-                             CmDbNextRecValid,
-                             CmDbPrevRecValid,
-                             CmDbFindRec    ,
-                             CmDbSearchRec  ,
-                             CmDbGoEof      ,
-                             CmDbGoBof      ,
-                             CmDbLocaliza
+public const TCm       = [CmNextRecord    ,
+                             CmPrevRecord    ,
+                             CmNextRecordValid,
+                             CmPrevRecordValid,
+                             CmFindRecord    ,
+                             CmSearchRecord  ,
+                             CmGoEof      ,
+                             CmGoBof      ,
+                             CmLocate
                             ];\end{ttfamily}
 
 
 \end{flushleft}
 \end{list}
-\paragraph*{TCmDbView}\hspace*{\fill}
+\paragraph*{TCmView}\hspace*{\fill}
 
 \begin{list}{}{
 \settowidth{\tmplength}{\textbf{Declaração}}
@@ -11702,11 +11702,11 @@ public const TCmDb       = [CmDbNextRec    ,
 \begin{flushleft}
 \item[\textbf{Declaração}\hfill]
 \begin{ttfamily}
-public const TCmDbView    = [cmMyOK                  ,
+public const TCmView    = [cmMyOK                  ,
                               cmMyCancel               ,
                               CmEditDlg                ,
-                              CmEvaluateRecord         ,
-                              cmZeroizeRecord          ,
+                              CmUpdateRecord         ,
+                              CmDeleteRecord          ,
                               CmNewRecord,
                               CmProcess,
                               cmPrint,
@@ -11761,7 +11761,7 @@ public const CmNortSoft           = 50000;\end{ttfamily}
 \textbf{}\textbf{}\textbf{}\textbf{}\textbf{}\textbf{}\textbf{}\textbf{}\textbf{}\textbf{}\textbf{}\textbf{}\textbf{}\textbf{}\textbf{}\textbf{}**
 
 \end{list}
-\paragraph*{CmDbAddRec}\hspace*{\fill}
+\paragraph*{CmAddRecord}\hspace*{\fill}
 
 \begin{list}{}{
 \settowidth{\tmplength}{\textbf{Declaração}}
@@ -11776,12 +11776,12 @@ public const CmNortSoft           = 50000;\end{ttfamily}
 \begin{flushleft}
 \item[\textbf{Declaração}\hfill]
 \begin{ttfamily}
-public const CmDbAddRec           = CmNortSoft + 001;\end{ttfamily}
+public const CmAddRecord           = CmNortSoft + 001;\end{ttfamily}
 
 
 \end{flushleft}
 \end{list}
-\paragraph*{CmDbDeleteRec}\hspace*{\fill}
+\paragraph*{CmDeleteRecord}\hspace*{\fill}
 
 \begin{list}{}{
 \settowidth{\tmplength}{\textbf{Declaração}}
@@ -11796,12 +11796,12 @@ public const CmDbAddRec           = CmNortSoft + 001;\end{ttfamily}
 \begin{flushleft}
 \item[\textbf{Declaração}\hfill]
 \begin{ttfamily}
-public const CmDbDeleteRec        = CmNortSoft + 002;\end{ttfamily}
+public const CmDeleteRecord        = CmNortSoft + 002;\end{ttfamily}
 
 
 \end{flushleft}
 \end{list}
-\paragraph*{CmDbGetRec}\hspace*{\fill}
+\paragraph*{CmGetRecord}\hspace*{\fill}
 
 \begin{list}{}{
 \settowidth{\tmplength}{\textbf{Declaração}}
@@ -11816,12 +11816,12 @@ public const CmDbDeleteRec        = CmNortSoft + 002;\end{ttfamily}
 \begin{flushleft}
 \item[\textbf{Declaração}\hfill]
 \begin{ttfamily}
-public const CmDbGetRec           = CmNortSoft + 003;\end{ttfamily}
+public const CmGetRecord           = CmNortSoft + 003;\end{ttfamily}
 
 
 \end{flushleft}
 \end{list}
-\paragraph*{CmDbPutRec}\hspace*{\fill}
+\paragraph*{CmPutRecord}\hspace*{\fill}
 
 \begin{list}{}{
 \settowidth{\tmplength}{\textbf{Declaração}}
@@ -11836,12 +11836,12 @@ public const CmDbGetRec           = CmNortSoft + 003;\end{ttfamily}
 \begin{flushleft}
 \item[\textbf{Declaração}\hfill]
 \begin{ttfamily}
-public const CmDbPutRec           = CmNortSoft + 004;\end{ttfamily}
+public const CmPutRecord           = CmNortSoft + 004;\end{ttfamily}
 
 
 \end{flushleft}
 \end{list}
-\paragraph*{CmDbUpdateRec}\hspace*{\fill}
+\paragraph*{CmUpdateRecord}\hspace*{\fill}
 
 \begin{list}{}{
 \settowidth{\tmplength}{\textbf{Declaração}}
@@ -11856,12 +11856,12 @@ public const CmDbPutRec           = CmNortSoft + 004;\end{ttfamily}
 \begin{flushleft}
 \item[\textbf{Declaração}\hfill]
 \begin{ttfamily}
-public const CmDbUpdateRec        = CmNortSoft + 005;\end{ttfamily}
+public const CmUpdateRecord        = CmNortSoft + 005;\end{ttfamily}
 
 
 \end{flushleft}
 \end{list}
-\paragraph*{CmDbSearchTop}\hspace*{\fill}
+\paragraph*{CmSearchTop}\hspace*{\fill}
 
 \begin{list}{}{
 \settowidth{\tmplength}{\textbf{Declaração}}
@@ -11876,12 +11876,12 @@ public const CmDbUpdateRec        = CmNortSoft + 005;\end{ttfamily}
 \begin{flushleft}
 \item[\textbf{Declaração}\hfill]
 \begin{ttfamily}
-public const CmDbSearchTop        = CmNortSoft + 006;\end{ttfamily}
+public const CmSearchTop        = CmNortSoft + 006;\end{ttfamily}
 
 
 \end{flushleft}
 \end{list}
-\paragraph*{CmDbSearchKey}\hspace*{\fill}
+\paragraph*{CmSearchKey}\hspace*{\fill}
 
 \begin{list}{}{
 \settowidth{\tmplength}{\textbf{Declaração}}
@@ -11896,12 +11896,12 @@ public const CmDbSearchTop        = CmNortSoft + 006;\end{ttfamily}
 \begin{flushleft}
 \item[\textbf{Declaração}\hfill]
 \begin{ttfamily}
-public const CmDbSearchKey        = CmNortSoft + 007;\end{ttfamily}
+public const CmSearchKey        = CmNortSoft + 007;\end{ttfamily}
 
 
 \end{flushleft}
 \end{list}
-\paragraph*{CmDbUsedRecs{\_}Valid}\hspace*{\fill}
+\paragraph*{CmUsedRecs{\_}Valid}\hspace*{\fill}
 
 \begin{list}{}{
 \settowidth{\tmplength}{\textbf{Declaração}}
@@ -11916,7 +11916,7 @@ public const CmDbSearchKey        = CmNortSoft + 007;\end{ttfamily}
 \begin{flushleft}
 \item[\textbf{Declaração}\hfill]
 \begin{ttfamily}
-public const CmDbUsedRecs{\_}Valid    = CmNortSoft + 008;\end{ttfamily}
+public const CmUsedRecs{\_}Valid    = CmNortSoft + 008;\end{ttfamily}
 
 
 \end{flushleft}
@@ -11941,7 +11941,7 @@ public const CmOkEscrevaParametrosDosRelatorios = CmNortSoft + 009;\end{ttfamily
 
 \end{flushleft}
 \end{list}
-\paragraph*{CmDbSelecionaIndice}\hspace*{\fill}
+\paragraph*{CmSelecionaIndice}\hspace*{\fill}
 
 \begin{list}{}{
 \settowidth{\tmplength}{\textbf{Declaração}}
@@ -11956,7 +11956,7 @@ public const CmOkEscrevaParametrosDosRelatorios = CmNortSoft + 009;\end{ttfamily
 \begin{flushleft}
 \item[\textbf{Declaração}\hfill]
 \begin{ttfamily}
-public const CmDbSelecionaIndice   = CmNortSoft + 010;\end{ttfamily}
+public const CmSelecionaIndice   = CmNortSoft + 010;\end{ttfamily}
 
 
 \end{flushleft}
@@ -12021,7 +12021,7 @@ public const CmSobre               = CmNortSoft + 013;\end{ttfamily}
 
 \end{flushleft}
 \end{list}
-\paragraph*{CmDbOnEnter}\hspace*{\fill}
+\paragraph*{CmOnEnter}\hspace*{\fill}
 
 \begin{list}{}{
 \settowidth{\tmplength}{\textbf{Declaração}}
@@ -12036,12 +12036,12 @@ public const CmSobre               = CmNortSoft + 013;\end{ttfamily}
 \begin{flushleft}
 \item[\textbf{Declaração}\hfill]
 \begin{ttfamily}
-public const CmDbOnEnter           = CmNortSoft + 014;\end{ttfamily}
+public const CmOnEnter           = CmNortSoft + 014;\end{ttfamily}
 
 
 \end{flushleft}
 \end{list}
-\paragraph*{CmDbOnExit}\hspace*{\fill}
+\paragraph*{CmOnExit}\hspace*{\fill}
 
 \begin{list}{}{
 \settowidth{\tmplength}{\textbf{Declaração}}
@@ -12056,7 +12056,7 @@ public const CmDbOnEnter           = CmNortSoft + 014;\end{ttfamily}
 \begin{flushleft}
 \item[\textbf{Declaração}\hfill]
 \begin{ttfamily}
-public const CmDbOnExit            = CmNortSoft + 015;\end{ttfamily}
+public const CmOnExit            = CmNortSoft + 015;\end{ttfamily}
 
 
 \end{flushleft}
@@ -12101,7 +12101,7 @@ public const CmF7                  = CmNortSoft + 017;\end{ttfamily}
 
 \end{flushleft}
 \end{list}
-\paragraph*{CmDbLabel{\_}DoubleClick}\hspace*{\fill}
+\paragraph*{CmLabel{\_}DoubleClick}\hspace*{\fill}
 
 \begin{list}{}{
 \settowidth{\tmplength}{\textbf{Declaração}}
@@ -12116,12 +12116,12 @@ public const CmF7                  = CmNortSoft + 017;\end{ttfamily}
 \begin{flushleft}
 \item[\textbf{Declaração}\hfill]
 \begin{ttfamily}
-public const CmDbLabel{\_}DoubleClick = CmNortSoft + 018;\end{ttfamily}
+public const CmLabel{\_}DoubleClick = CmNortSoft + 018;\end{ttfamily}
 
 
 \end{flushleft}
 \end{list}
-\paragraph*{cmDbView{\_}DoubleClick}\hspace*{\fill}
+\paragraph*{CmView{\_}DoubleClick}\hspace*{\fill}
 
 \begin{list}{}{
 \settowidth{\tmplength}{\textbf{Declaração}}
@@ -12136,12 +12136,12 @@ public const CmDbLabel{\_}DoubleClick = CmNortSoft + 018;\end{ttfamily}
 \begin{flushleft}
 \item[\textbf{Declaração}\hfill]
 \begin{ttfamily}
-public const cmDbView{\_}DoubleClick  = CmNortSoft + 019;\end{ttfamily}
+public const CmView{\_}DoubleClick  = CmNortSoft + 019;\end{ttfamily}
 
 
 \end{flushleft}
 \end{list}
-\paragraph*{CmDbOrdemCressante}\hspace*{\fill}
+\paragraph*{CmOrdemCressante}\hspace*{\fill}
 
 \begin{list}{}{
 \settowidth{\tmplength}{\textbf{Declaração}}
@@ -12156,12 +12156,12 @@ public const cmDbView{\_}DoubleClick  = CmNortSoft + 019;\end{ttfamily}
 \begin{flushleft}
 \item[\textbf{Declaração}\hfill]
 \begin{ttfamily}
-public const CmDbOrdemCressante    = CmNortSoft + 020;\end{ttfamily}
+public const CmOrdemCressante    = CmNortSoft + 020;\end{ttfamily}
 
 
 \end{flushleft}
 \end{list}
-\paragraph*{CmDbOrdemDecrescente}\hspace*{\fill}
+\paragraph*{CmOrdemDecrescente}\hspace*{\fill}
 
 \begin{list}{}{
 \settowidth{\tmplength}{\textbf{Declaração}}
@@ -12176,12 +12176,12 @@ public const CmDbOrdemCressante    = CmNortSoft + 020;\end{ttfamily}
 \begin{flushleft}
 \item[\textbf{Declaração}\hfill]
 \begin{ttfamily}
-public const CmDbOrdemDecrescente  = CmNortSoft + 021;\end{ttfamily}
+public const CmOrdemDecrescente  = CmNortSoft + 021;\end{ttfamily}
 
 
 \end{flushleft}
 \end{list}
-\paragraph*{CmDbSelecColunaAtual}\hspace*{\fill}
+\paragraph*{CmSelecColunaAtual}\hspace*{\fill}
 
 \begin{list}{}{
 \settowidth{\tmplength}{\textbf{Declaração}}
@@ -12196,7 +12196,7 @@ public const CmDbOrdemDecrescente  = CmNortSoft + 021;\end{ttfamily}
 \begin{flushleft}
 \item[\textbf{Declaração}\hfill]
 \begin{ttfamily}
-public const CmDbSelecColunaAtual  = CmNortSoft + 022;\end{ttfamily}
+public const CmSelecColunaAtual  = CmNortSoft + 022;\end{ttfamily}
 
 
 \end{flushleft}
@@ -12301,7 +12301,7 @@ public const cmPrintSemFormatar    = CmNortSoft + 027;\end{ttfamily}
 
 \end{flushleft}
 \end{list}
-\paragraph*{CmDbDoBeforeInsert}\hspace*{\fill}
+\paragraph*{CmDoBeforeInsert}\hspace*{\fill}
 
 \begin{list}{}{
 \settowidth{\tmplength}{\textbf{Declaração}}
@@ -12316,12 +12316,12 @@ public const cmPrintSemFormatar    = CmNortSoft + 027;\end{ttfamily}
 \begin{flushleft}
 \item[\textbf{Declaração}\hfill]
 \begin{ttfamily}
-public const CmDbDoBeforeInsert      = CmNortSoft + 028;\end{ttfamily}
+public const CmDoBeforeInsert      = CmNortSoft + 028;\end{ttfamily}
 
 
 \end{flushleft}
 \end{list}
-\paragraph*{CmDbDoBeforePost}\hspace*{\fill}
+\paragraph*{CmDoBeforePost}\hspace*{\fill}
 
 \begin{list}{}{
 \settowidth{\tmplength}{\textbf{Declaração}}
@@ -12336,12 +12336,12 @@ public const CmDbDoBeforeInsert      = CmNortSoft + 028;\end{ttfamily}
 \begin{flushleft}
 \item[\textbf{Declaração}\hfill]
 \begin{ttfamily}
-public const CmDbDoBeforePost        = CmNortSoft + 029;\end{ttfamily}
+public const CmDoBeforePost        = CmNortSoft + 029;\end{ttfamily}
 
 
 \end{flushleft}
 \end{list}
-\paragraph*{CmDbDoBeforeDelete}\hspace*{\fill}
+\paragraph*{CmDoBeforeDelete}\hspace*{\fill}
 
 \begin{list}{}{
 \settowidth{\tmplength}{\textbf{Declaração}}
@@ -12356,12 +12356,12 @@ public const CmDbDoBeforePost        = CmNortSoft + 029;\end{ttfamily}
 \begin{flushleft}
 \item[\textbf{Declaração}\hfill]
 \begin{ttfamily}
-public const CmDbDoBeforeDelete      = CmNortSoft + 030;\end{ttfamily}
+public const CmDoBeforeDelete      = CmNortSoft + 030;\end{ttfamily}
 
 
 \end{flushleft}
 \end{list}
-\paragraph*{CmDbDoAfterInsert}\hspace*{\fill}
+\paragraph*{CmDoAfterInsert}\hspace*{\fill}
 
 \begin{list}{}{
 \settowidth{\tmplength}{\textbf{Declaração}}
@@ -12376,12 +12376,12 @@ public const CmDbDoBeforeDelete      = CmNortSoft + 030;\end{ttfamily}
 \begin{flushleft}
 \item[\textbf{Declaração}\hfill]
 \begin{ttfamily}
-public const CmDbDoAfterInsert       = CmNortSoft + 031;\end{ttfamily}
+public const CmDoAfterInsert       = CmNortSoft + 031;\end{ttfamily}
 
 
 \end{flushleft}
 \end{list}
-\paragraph*{CmDbDoAfterPost}\hspace*{\fill}
+\paragraph*{CmDoAfterPost}\hspace*{\fill}
 
 \begin{list}{}{
 \settowidth{\tmplength}{\textbf{Declaração}}
@@ -12396,12 +12396,12 @@ public const CmDbDoAfterInsert       = CmNortSoft + 031;\end{ttfamily}
 \begin{flushleft}
 \item[\textbf{Declaração}\hfill]
 \begin{ttfamily}
-public const CmDbDoAfterPost         = CmNortSoft + 032;\end{ttfamily}
+public const CmDoAfterPost         = CmNortSoft + 032;\end{ttfamily}
 
 
 \end{flushleft}
 \end{list}
-\paragraph*{CmDbDoAfterDelete}\hspace*{\fill}
+\paragraph*{CmDoAfterDelete}\hspace*{\fill}
 
 \begin{list}{}{
 \settowidth{\tmplength}{\textbf{Declaração}}
@@ -12416,7 +12416,7 @@ public const CmDbDoAfterPost         = CmNortSoft + 032;\end{ttfamily}
 \begin{flushleft}
 \item[\textbf{Declaração}\hfill]
 \begin{ttfamily}
-public const CmDbDoAfterDelete       = CmNortSoft + 033;\end{ttfamily}
+public const CmDoAfterDelete       = CmNortSoft + 033;\end{ttfamily}
 
 
 \end{flushleft}
@@ -12721,7 +12721,7 @@ public const cmHomePage                  = CmNortSoft + 048;\end{ttfamily}
 
 \end{flushleft}
 \end{list}
-\paragraph*{CmDbPack}\hspace*{\fill}
+\paragraph*{CmPack}\hspace*{\fill}
 
 \begin{list}{}{
 \settowidth{\tmplength}{\textbf{Declaração}}
@@ -12736,7 +12736,7 @@ public const cmHomePage                  = CmNortSoft + 048;\end{ttfamily}
 \begin{flushleft}
 \item[\textbf{Declaração}\hfill]
 \begin{ttfamily}
-public const CmDbPack                    = CmNortSoft + 049;\end{ttfamily}
+public const CmPack                    = CmNortSoft + 049;\end{ttfamily}
 
 
 \end{flushleft}
@@ -13721,7 +13721,7 @@ public const cmBlinkMsg          = cmDMX + 57;\end{ttfamily}
 
 \end{flushleft}
 \end{list}
-\paragraph*{cmDbMX{\_}GetBuffer}\hspace*{\fill}
+\paragraph*{CmMX{\_}GetBuffer}\hspace*{\fill}
 
 \begin{list}{}{
 \settowidth{\tmplength}{\textbf{Declaração}}
@@ -13736,12 +13736,12 @@ public const cmBlinkMsg          = cmDMX + 57;\end{ttfamily}
 \begin{flushleft}
 \item[\textbf{Declaração}\hfill]
 \begin{ttfamily}
-public const cmDbMX{\_}GetBuffer    = cmDMX + 58;\end{ttfamily}
+public const CmMX{\_}GetBuffer    = cmDMX + 58;\end{ttfamily}
 
 
 \end{flushleft}
 \end{list}
-\paragraph*{cmDbMX{\_}PutBuffer}\hspace*{\fill}
+\paragraph*{CmMX{\_}PutBuffer}\hspace*{\fill}
 
 \begin{list}{}{
 \settowidth{\tmplength}{\textbf{Declaração}}
@@ -13756,7 +13756,7 @@ public const cmDbMX{\_}GetBuffer    = cmDMX + 58;\end{ttfamily}
 \begin{flushleft}
 \item[\textbf{Declaração}\hfill]
 \begin{ttfamily}
-public const cmDbMX{\_}PutBuffer    = cmDMX + 59;\end{ttfamily}
+public const CmMX{\_}PutBuffer    = cmDMX + 59;\end{ttfamily}
 
 
 \end{flushleft}
@@ -13921,7 +13921,7 @@ public class function CreateTSItemFields(ATemplates: PSItem) : tString;\end{ttfa
 \end{flushleft}
 \end{list}
 \section{Constantes}
-\subsection*{SCmDbNextRec}
+\subsection*{SCmNextRecord}
 \begin{list}{}{
 \settowidth{\tmplength}{\textbf{Declaração}}
 \setlength{\itemindent}{0cm}
@@ -13935,12 +13935,12 @@ public class function CreateTSItemFields(ATemplates: PSItem) : tString;\end{ttfa
 \begin{flushleft}
 \item[\textbf{Declaração}\hfill]
 \begin{ttfamily}
-SCmDbNextRec          = 'Próximo registro';\end{ttfamily}
+SCmNextRecord          = 'Próximo registro';\end{ttfamily}
 
 
 \end{flushleft}
 \end{list}
-\subsection*{SCmDbPrevRec}
+\subsection*{SCmPrevRecord}
 \begin{list}{}{
 \settowidth{\tmplength}{\textbf{Declaração}}
 \setlength{\itemindent}{0cm}
@@ -13954,12 +13954,12 @@ SCmDbNextRec          = 'Próximo registro';\end{ttfamily}
 \begin{flushleft}
 \item[\textbf{Declaração}\hfill]
 \begin{ttfamily}
-SCmDbPrevRec          = 'Registro Anterior';\end{ttfamily}
+SCmPrevRecord          = 'Registro Anterior';\end{ttfamily}
 
 
 \end{flushleft}
 \end{list}
-\subsection*{SCmDbNextRecValid}
+\subsection*{SCmNextRecordValid}
 \begin{list}{}{
 \settowidth{\tmplength}{\textbf{Declaração}}
 \setlength{\itemindent}{0cm}
@@ -13973,12 +13973,12 @@ SCmDbPrevRec          = 'Registro Anterior';\end{ttfamily}
 \begin{flushleft}
 \item[\textbf{Declaração}\hfill]
 \begin{ttfamily}
-SCmDbNextRecValid     = 'Próximo registro válido';\end{ttfamily}
+SCmNextRecordValid     = 'Próximo registro válido';\end{ttfamily}
 
 
 \end{flushleft}
 \end{list}
-\subsection*{SCmDbPrevRecValid}
+\subsection*{SCmPrevRecordValid}
 \begin{list}{}{
 \settowidth{\tmplength}{\textbf{Declaração}}
 \setlength{\itemindent}{0cm}
@@ -13992,12 +13992,12 @@ SCmDbNextRecValid     = 'Próximo registro válido';\end{ttfamily}
 \begin{flushleft}
 \item[\textbf{Declaração}\hfill]
 \begin{ttfamily}
-SCmDbPrevRecValid     = 'Registro válido anterior';\end{ttfamily}
+SCmPrevRecordValid     = 'Registro válido anterior';\end{ttfamily}
 
 
 \end{flushleft}
 \end{list}
-\subsection*{SCmDbFindRec}
+\subsection*{SCmFindRecord}
 \begin{list}{}{
 \settowidth{\tmplength}{\textbf{Declaração}}
 \setlength{\itemindent}{0cm}
@@ -14011,12 +14011,12 @@ SCmDbPrevRecValid     = 'Registro válido anterior';\end{ttfamily}
 \begin{flushleft}
 \item[\textbf{Declaração}\hfill]
 \begin{ttfamily}
-SCmDbFindRec          = 'Atualiza o registro atual';\end{ttfamily}
+SCmFindRecord          = 'Atualiza o registro atual';\end{ttfamily}
 
 
 \end{flushleft}
 \end{list}
-\subsection*{SCmDbSearchRec}
+\subsection*{SCmSearchRec}
 \begin{list}{}{
 \settowidth{\tmplength}{\textbf{Declaração}}
 \setlength{\itemindent}{0cm}
@@ -14030,12 +14030,12 @@ SCmDbFindRec          = 'Atualiza o registro atual';\end{ttfamily}
 \begin{flushleft}
 \item[\textbf{Declaração}\hfill]
 \begin{ttfamily}
-SCmDbSearchRec        = 'SCmDbSearchRec';\end{ttfamily}
+SCmSearchRecord        = 'SCmSearchRec';\end{ttfamily}
 
 
 \end{flushleft}
 \end{list}
-\subsection*{SCmDbGoEof}
+\subsection*{SCmGoEof}
 \begin{list}{}{
 \settowidth{\tmplength}{\textbf{Declaração}}
 \setlength{\itemindent}{0cm}
@@ -14049,12 +14049,12 @@ SCmDbSearchRec        = 'SCmDbSearchRec';\end{ttfamily}
 \begin{flushleft}
 \item[\textbf{Declaração}\hfill]
 \begin{ttfamily}
-SCmDbGoEof            = 'Último registro';\end{ttfamily}
+SCmGoEof            = 'Último registro';\end{ttfamily}
 
 
 \end{flushleft}
 \end{list}
-\subsection*{SCmDbGoBof}
+\subsection*{SCmGoBof}
 \begin{list}{}{
 \settowidth{\tmplength}{\textbf{Declaração}}
 \setlength{\itemindent}{0cm}
@@ -14068,12 +14068,12 @@ SCmDbGoEof            = 'Último registro';\end{ttfamily}
 \begin{flushleft}
 \item[\textbf{Declaração}\hfill]
 \begin{ttfamily}
-SCmDbGoBof            = 'Primeiro registro';\end{ttfamily}
+SCmGoBof            = 'Primeiro registro';\end{ttfamily}
 
 
 \end{flushleft}
 \end{list}
-\subsection*{SCmDbLocaliza}
+\subsection*{SCmLocate}
 \begin{list}{}{
 \settowidth{\tmplength}{\textbf{Declaração}}
 \setlength{\itemindent}{0cm}
@@ -14087,7 +14087,7 @@ SCmDbGoBof            = 'Primeiro registro';\end{ttfamily}
 \begin{flushleft}
 \item[\textbf{Declaração}\hfill]
 \begin{ttfamily}
-SCmDbLocaliza         = 'Localiza registro';\end{ttfamily}
+SCmLocate         = 'Localiza registro';\end{ttfamily}
 
 
 \end{flushleft}
@@ -14111,7 +14111,7 @@ SCmNewRecord          = 'Novo registro';\end{ttfamily}
 
 \end{flushleft}
 \end{list}
-\subsection*{SCmZeroizeRecord}
+\subsection*{SCmDeleteRecord}
 \begin{list}{}{
 \settowidth{\tmplength}{\textbf{Declaração}}
 \setlength{\itemindent}{0cm}
@@ -14125,12 +14125,12 @@ SCmNewRecord          = 'Novo registro';\end{ttfamily}
 \begin{flushleft}
 \item[\textbf{Declaração}\hfill]
 \begin{ttfamily}
-SCmZeroizeRecord      = 'Apaga o registro atual';\end{ttfamily}
+SCmDeleteRecord      = 'Apaga o registro atual';\end{ttfamily}
 
 
 \end{flushleft}
 \end{list}
-\subsection*{SCmEvaluateRecord}
+\subsection*{SCmUpdateRecord}
 \begin{list}{}{
 \settowidth{\tmplength}{\textbf{Declaração}}
 \setlength{\itemindent}{0cm}
@@ -14144,7 +14144,7 @@ SCmZeroizeRecord      = 'Apaga o registro atual';\end{ttfamily}
 \begin{flushleft}
 \item[\textbf{Declaração}\hfill]
 \begin{ttfamily}
-SCmEvaluateRecord     = 'Grava o registro atual';\end{ttfamily}
+SCmUpdateRecord     = 'Grava o registro atual';\end{ttfamily}
 
 
 \end{flushleft}
@@ -14351,7 +14351,7 @@ SCmCreate{\_}Shortcut    = 'Cria atalho no desktop do windows';\end{ttfamily}
 
 \end{flushleft}
 \end{list}
-\subsection*{SCmVisualizar}
+\subsection*{SCmView}
 \begin{list}{}{
 \settowidth{\tmplength}{\textbf{Declaração}}
 \setlength{\itemindent}{0cm}
@@ -14365,7 +14365,7 @@ SCmCreate{\_}Shortcut    = 'Cria atalho no desktop do windows';\end{ttfamily}
 \begin{flushleft}
 \item[\textbf{Declaração}\hfill]
 \begin{ttfamily}
-SCmVisualizar         = 'Visualizar';\end{ttfamily}
+SCmView         = 'Visualizar';\end{ttfamily}
 
 
 \end{flushleft}
@@ -14416,7 +14416,7 @@ SCmExport             = 'Exporta';\end{ttfamily}
 Exporta a consulta seleciona para varios formatos de arquivos a serem implementados
 
 \end{list}
-\subsection*{SCmDbAddRec}
+\subsection*{SCmAddRecord}
 \begin{list}{}{
 \settowidth{\tmplength}{\textbf{Declaração}}
 \setlength{\itemindent}{0cm}
@@ -14430,12 +14430,12 @@ Exporta a consulta seleciona para varios formatos de arquivos a serem implementa
 \begin{flushleft}
 \item[\textbf{Declaração}\hfill]
 \begin{ttfamily}
-SCmDbAddRec             = 'Adicionar registro';\end{ttfamily}
+SCmAddRecord             = 'Adicionar registro';\end{ttfamily}
 
 
 \end{flushleft}
 \end{list}
-\subsection*{SCmDbDeleteRec}
+\subsection*{SCmDeleteRecord}
 \begin{list}{}{
 \settowidth{\tmplength}{\textbf{Declaração}}
 \setlength{\itemindent}{0cm}
@@ -14449,12 +14449,12 @@ SCmDbAddRec             = 'Adicionar registro';\end{ttfamily}
 \begin{flushleft}
 \item[\textbf{Declaração}\hfill]
 \begin{ttfamily}
-SCmDbDeleteRec          = 'Apagar registro selecionado';\end{ttfamily}
+SCmDeleteRecord          = 'Apagar registro selecionado';\end{ttfamily}
 
 
 \end{flushleft}
 \end{list}
-\subsection*{SCmDbGetRec}
+\subsection*{SCmGetRecord}
 \begin{list}{}{
 \settowidth{\tmplength}{\textbf{Declaração}}
 \setlength{\itemindent}{0cm}
@@ -14468,12 +14468,12 @@ SCmDbDeleteRec          = 'Apagar registro selecionado';\end{ttfamily}
 \begin{flushleft}
 \item[\textbf{Declaração}\hfill]
 \begin{ttfamily}
-SCmDbGetRec             = 'Ler registro selecionado';\end{ttfamily}
+SCmGetRecord             = 'Ler registro selecionado';\end{ttfamily}
 
 
 \end{flushleft}
 \end{list}
-\subsection*{SCmDbPutRec}
+\subsection*{SCmPutRecord}
 \begin{list}{}{
 \settowidth{\tmplength}{\textbf{Declaração}}
 \setlength{\itemindent}{0cm}
@@ -14487,12 +14487,12 @@ SCmDbGetRec             = 'Ler registro selecionado';\end{ttfamily}
 \begin{flushleft}
 \item[\textbf{Declaração}\hfill]
 \begin{ttfamily}
-SCmDbPutRec             = 'Gravar registro selecionado';\end{ttfamily}
+SCmPutRecord             = 'Gravar registro selecionado';\end{ttfamily}
 
 
 \end{flushleft}
 \end{list}
-\subsection*{SCmDbUpdateRec}
+\subsection*{SCmUpdateRecord}
 \begin{list}{}{
 \settowidth{\tmplength}{\textbf{Declaração}}
 \setlength{\itemindent}{0cm}
@@ -14506,12 +14506,12 @@ SCmDbPutRec             = 'Gravar registro selecionado';\end{ttfamily}
 \begin{flushleft}
 \item[\textbf{Declaração}\hfill]
 \begin{ttfamily}
-SCmDbUpdateRec          = 'Atualizar registro selecionado caso tenha sido alterado';\end{ttfamily}
+SCmUpdateRecord          = 'Atualizar registro selecionado caso tenha sido alterado';\end{ttfamily}
 
 
 \end{flushleft}
 \end{list}
-\subsection*{SCmDbSearchTop}
+\subsection*{SCmSearchTop}
 \begin{list}{}{
 \settowidth{\tmplength}{\textbf{Declaração}}
 \setlength{\itemindent}{0cm}
@@ -14525,12 +14525,12 @@ SCmDbUpdateRec          = 'Atualizar registro selecionado caso tenha sido altera
 \begin{flushleft}
 \item[\textbf{Declaração}\hfill]
 \begin{ttfamily}
-SCmDbSearchTop          = 'Pesquisar primeira ocorrência a partir do topo da tabela';\end{ttfamily}
+SCmSearchTop          = 'Pesquisar primeira ocorrência a partir do topo da tabela';\end{ttfamily}
 
 
 \end{flushleft}
 \end{list}
-\subsection*{SCmDbSearchKey}
+\subsection*{SCmSearchKey}
 \begin{list}{}{
 \settowidth{\tmplength}{\textbf{Declaração}}
 \setlength{\itemindent}{0cm}
@@ -14544,12 +14544,12 @@ SCmDbSearchTop          = 'Pesquisar primeira ocorrência a partir do topo da ta
 \begin{flushleft}
 \item[\textbf{Declaração}\hfill]
 \begin{ttfamily}
-SCmDbSearchKey          = 'Pesquisar primeira ocorrência a partir do inicio da tabela';\end{ttfamily}
+SCmSearchKey          = 'Pesquisar primeira ocorrência a partir do inicio da tabela';\end{ttfamily}
 
 
 \end{flushleft}
 \end{list}
-\subsection*{SCmDbUsedRecs{\_}Valid}
+\subsection*{SCmUsedRecs{\_}Valid}
 \begin{list}{}{
 \settowidth{\tmplength}{\textbf{Declaração}}
 \setlength{\itemindent}{0cm}
@@ -14563,7 +14563,7 @@ SCmDbSearchKey          = 'Pesquisar primeira ocorrência a partir do inicio da 
 \begin{flushleft}
 \item[\textbf{Declaração}\hfill]
 \begin{ttfamily}
-SCmDbUsedRecs{\_}Valid     = 'CmDbUsedRecs{\_}Valid';\end{ttfamily}
+SCmUsedRecs{\_}Valid     = 'CmUsedRecs{\_}Valid';\end{ttfamily}
 
 
 \end{flushleft}
@@ -14587,7 +14587,7 @@ SCmOkEscrevaParametrosDosRelatorios = 'Escreva parâmetros dos relatórios';\end
 
 \end{flushleft}
 \end{list}
-\subsection*{SCmDbSelecionaIndice}
+\subsection*{SCmSelecionaIndice}
 \begin{list}{}{
 \settowidth{\tmplength}{\textbf{Declaração}}
 \setlength{\itemindent}{0cm}
@@ -14601,7 +14601,7 @@ SCmOkEscrevaParametrosDosRelatorios = 'Escreva parâmetros dos relatórios';\end
 \begin{flushleft}
 \item[\textbf{Declaração}\hfill]
 \begin{ttfamily}
-SCmDbSelecionaIndice    = 'Selecionar indice';\end{ttfamily}
+SCmSelecionaIndice    = 'Selecionar indice';\end{ttfamily}
 
 
 \end{flushleft}
@@ -14663,7 +14663,7 @@ SCmSobre                = 'Sobre';\end{ttfamily}
 
 \end{flushleft}
 \end{list}
-\subsection*{SCmDbOnEnter}
+\subsection*{SCmOnEnter}
 \begin{list}{}{
 \settowidth{\tmplength}{\textbf{Declaração}}
 \setlength{\itemindent}{0cm}
@@ -14677,12 +14677,12 @@ SCmSobre                = 'Sobre';\end{ttfamily}
 \begin{flushleft}
 \item[\textbf{Declaração}\hfill]
 \begin{ttfamily}
-SCmDbOnEnter            = 'CmDbOnEnter';\end{ttfamily}
+SCmOnEnter            = 'CmOnEnter';\end{ttfamily}
 
 
 \end{flushleft}
 \end{list}
-\subsection*{SCmDbOnExit}
+\subsection*{SCmOnExit}
 \begin{list}{}{
 \settowidth{\tmplength}{\textbf{Declaração}}
 \setlength{\itemindent}{0cm}
@@ -14696,7 +14696,7 @@ SCmDbOnEnter            = 'CmDbOnEnter';\end{ttfamily}
 \begin{flushleft}
 \item[\textbf{Declaração}\hfill]
 \begin{ttfamily}
-SCmDbOnExit             = 'CmDbOnExit';\end{ttfamily}
+SCmOnExit             = 'CmOnExit';\end{ttfamily}
 
 
 \end{flushleft}
@@ -14739,7 +14739,7 @@ SCmF7                   = 'Seleciona as opções para o campo selecionado';\end{
 
 \end{flushleft}
 \end{list}
-\subsection*{SCmDbLabel{\_}DoubleClick}
+\subsection*{SCmLabel{\_}DoubleClick}
 \begin{list}{}{
 \settowidth{\tmplength}{\textbf{Declaração}}
 \setlength{\itemindent}{0cm}
@@ -14753,12 +14753,12 @@ SCmF7                   = 'Seleciona as opções para o campo selecionado';\end{
 \begin{flushleft}
 \item[\textbf{Declaração}\hfill]
 \begin{ttfamily}
-SCmDbLabel{\_}DoubleClick  = 'CmDbLabel{\_}DoubleClick';\end{ttfamily}
+SCmLabel{\_}DoubleClick  = 'CmLabel{\_}DoubleClick';\end{ttfamily}
 
 
 \end{flushleft}
 \end{list}
-\subsection*{ScmDbView{\_}DoubleClick}
+\subsection*{SCmView{\_}DoubleClick}
 \begin{list}{}{
 \settowidth{\tmplength}{\textbf{Declaração}}
 \setlength{\itemindent}{0cm}
@@ -14772,12 +14772,12 @@ SCmDbLabel{\_}DoubleClick  = 'CmDbLabel{\_}DoubleClick';\end{ttfamily}
 \begin{flushleft}
 \item[\textbf{Declaração}\hfill]
 \begin{ttfamily}
-ScmDbView{\_}DoubleClick   = 'cmDbView{\_}DoubleClick';\end{ttfamily}
+SCmView{\_}DoubleClick   = 'CmView{\_}DoubleClick';\end{ttfamily}
 
 
 \end{flushleft}
 \end{list}
-\subsection*{SCmDbOrdemCressante}
+\subsection*{SCmOrdemCressante}
 \begin{list}{}{
 \settowidth{\tmplength}{\textbf{Declaração}}
 \setlength{\itemindent}{0cm}
@@ -14791,12 +14791,12 @@ ScmDbView{\_}DoubleClick   = 'cmDbView{\_}DoubleClick';\end{ttfamily}
 \begin{flushleft}
 \item[\textbf{Declaração}\hfill]
 \begin{ttfamily}
-SCmDbOrdemCressante     = 'Ordem cressante';\end{ttfamily}
+SCmOrdemCressante     = 'Ordem cressante';\end{ttfamily}
 
 
 \end{flushleft}
 \end{list}
-\subsection*{SCmDbOrdemDecrescente}
+\subsection*{SCmOrdemDecrescente}
 \begin{list}{}{
 \settowidth{\tmplength}{\textbf{Declaração}}
 \setlength{\itemindent}{0cm}
@@ -14810,12 +14810,12 @@ SCmDbOrdemCressante     = 'Ordem cressante';\end{ttfamily}
 \begin{flushleft}
 \item[\textbf{Declaração}\hfill]
 \begin{ttfamily}
-SCmDbOrdemDecrescente   = 'Ordem decrescente';\end{ttfamily}
+SCmOrdemDecrescente   = 'Ordem decrescente';\end{ttfamily}
 
 
 \end{flushleft}
 \end{list}
-\subsection*{SCmDbSelecColunaAtual}
+\subsection*{SCmSelecColunaAtual}
 \begin{list}{}{
 \settowidth{\tmplength}{\textbf{Declaração}}
 \setlength{\itemindent}{0cm}
@@ -14829,7 +14829,7 @@ SCmDbOrdemDecrescente   = 'Ordem decrescente';\end{ttfamily}
 \begin{flushleft}
 \item[\textbf{Declaração}\hfill]
 \begin{ttfamily}
-SCmDbSelecColunaAtual   = 'CmDbSelecColunaAtual';\end{ttfamily}
+SCmSelecColunaAtual   = 'CmSelecColunaAtual';\end{ttfamily}
 
 
 \end{flushleft}
@@ -14929,7 +14929,7 @@ ScmPrintSemFormatar      = 'cmPrintSemFormatar';\end{ttfamily}
 
 \end{flushleft}
 \end{list}
-\subsection*{SCmDbDoBeforeInsert}
+\subsection*{SCmDoBeforeInsert}
 \begin{list}{}{
 \settowidth{\tmplength}{\textbf{Declaração}}
 \setlength{\itemindent}{0cm}
@@ -14943,12 +14943,12 @@ ScmPrintSemFormatar      = 'cmPrintSemFormatar';\end{ttfamily}
 \begin{flushleft}
 \item[\textbf{Declaração}\hfill]
 \begin{ttfamily}
-SCmDbDoBeforeInsert      = 'CmDbDoBeforeInsert';\end{ttfamily}
+SCmDoBeforeInsert      = 'CmDoBeforeInsert';\end{ttfamily}
 
 
 \end{flushleft}
 \end{list}
-\subsection*{SCmDbDoBeforePost}
+\subsection*{SCmDoBeforePost}
 \begin{list}{}{
 \settowidth{\tmplength}{\textbf{Declaração}}
 \setlength{\itemindent}{0cm}
@@ -14962,12 +14962,12 @@ SCmDbDoBeforeInsert      = 'CmDbDoBeforeInsert';\end{ttfamily}
 \begin{flushleft}
 \item[\textbf{Declaração}\hfill]
 \begin{ttfamily}
-SCmDbDoBeforePost        = 'CmDbDoBeforePost';\end{ttfamily}
+SCmDoBeforePost        = 'CmDoBeforePost';\end{ttfamily}
 
 
 \end{flushleft}
 \end{list}
-\subsection*{SCmDbDoBeforeDelete}
+\subsection*{SCmDoBeforeDelete}
 \begin{list}{}{
 \settowidth{\tmplength}{\textbf{Declaração}}
 \setlength{\itemindent}{0cm}
@@ -14981,12 +14981,12 @@ SCmDbDoBeforePost        = 'CmDbDoBeforePost';\end{ttfamily}
 \begin{flushleft}
 \item[\textbf{Declaração}\hfill]
 \begin{ttfamily}
-SCmDbDoBeforeDelete      = 'CmDbDoBeforeDelete';\end{ttfamily}
+SCmDoBeforeDelete      = 'CmDoBeforeDelete';\end{ttfamily}
 
 
 \end{flushleft}
 \end{list}
-\subsection*{SCmDbDoAfterInsert}
+\subsection*{SCmDoAfterInsert}
 \begin{list}{}{
 \settowidth{\tmplength}{\textbf{Declaração}}
 \setlength{\itemindent}{0cm}
@@ -15000,12 +15000,12 @@ SCmDbDoBeforeDelete      = 'CmDbDoBeforeDelete';\end{ttfamily}
 \begin{flushleft}
 \item[\textbf{Declaração}\hfill]
 \begin{ttfamily}
-SCmDbDoAfterInsert       = 'CmDbDoAfterInsert';\end{ttfamily}
+SCmDoAfterInsert       = 'CmDoAfterInsert';\end{ttfamily}
 
 
 \end{flushleft}
 \end{list}
-\subsection*{SCmDbDoAfterPost}
+\subsection*{SCmDoAfterPost}
 \begin{list}{}{
 \settowidth{\tmplength}{\textbf{Declaração}}
 \setlength{\itemindent}{0cm}
@@ -15019,12 +15019,12 @@ SCmDbDoAfterInsert       = 'CmDbDoAfterInsert';\end{ttfamily}
 \begin{flushleft}
 \item[\textbf{Declaração}\hfill]
 \begin{ttfamily}
-SCmDbDoAfterPost         = 'CmDbDoAfterPost';\end{ttfamily}
+SCmDoAfterPost         = 'CmDoAfterPost';\end{ttfamily}
 
 
 \end{flushleft}
 \end{list}
-\subsection*{SCmDbDoAfterDelete}
+\subsection*{SCmDoAfterDelete}
 \begin{list}{}{
 \settowidth{\tmplength}{\textbf{Declaração}}
 \setlength{\itemindent}{0cm}
@@ -15038,7 +15038,7 @@ SCmDbDoAfterPost         = 'CmDbDoAfterPost';\end{ttfamily}
 \begin{flushleft}
 \item[\textbf{Declaração}\hfill]
 \begin{ttfamily}
-SCmDbDoAfterDelete       = 'CmDbDoAfterDelete';\end{ttfamily}
+SCmDoAfterDelete       = 'CmDoAfterDelete';\end{ttfamily}
 
 
 \end{flushleft}
@@ -15328,7 +15328,7 @@ ScmHomePage                  = 'Gera documento no formato HTML do formulário at
 
 \end{flushleft}
 \end{list}
-\subsection*{SCmDbPack}
+\subsection*{SCmPack}
 \begin{list}{}{
 \settowidth{\tmplength}{\textbf{Declaração}}
 \setlength{\itemindent}{0cm}
@@ -15342,7 +15342,7 @@ ScmHomePage                  = 'Gera documento no formato HTML do formulário at
 \begin{flushleft}
 \item[\textbf{Declaração}\hfill]
 \begin{ttfamily}
-SCmDbPack                    = 'Pack';\end{ttfamily}
+SCmPack                    = 'Pack';\end{ttfamily}
 
 
 \end{flushleft}
@@ -51475,8 +51475,8 @@ O método \textbf{\begin{ttfamily}Create{\_}RCommand\end{ttfamily}} é usado par
 ~~}\textbf{If}\texttt{~High(aCommands)~{$<$}~2\\\nopagebreak[3]
 ~~}\textbf{Then}\texttt{~}\textbf{Raise}\texttt{~TException.Create(self,'Create{\_}RCommands{\_}Buttons()',ParametroInvalido);\\\nopagebreak[3]
 \\\nopagebreak[3]
-~~Create{\_}RCommand('CmDbGoBof'~~,CmDbGoBof~~~,'{\&}Inicio'~~~,'',kbNoKey,0,0,Mb{\_}Cm{\_}Bof~~~,bfNormal~,aCommands[1]);\\\nopagebreak[3]
-~~Create{\_}RCommand('CmDbPrevRec',CmDbPrevRec~,'{\&}Anterior'~,'',kbNoKey,0,0,Mb{\_}Cm{\_}Prev~~,bfNormal~,aCommands[2]);\\\nopagebreak[3]
+~~Create{\_}RCommand('CmGoBof'~~,CmGoBof~~~,'{\&}Inicio'~~~,'',kbNoKey,0,0,Mb{\_}Cm{\_}Bof~~~,bfNormal~,aCommands[1]);\\\nopagebreak[3]
+~~Create{\_}RCommand('CmPrevRecord',CmPrevRecord~,'{\&}Anterior'~,'',kbNoKey,0,0,Mb{\_}Cm{\_}Prev~~,bfNormal~,aCommands[2]);\\\nopagebreak[3]
 \\\nopagebreak[3]
 }\textbf{end}\texttt{;\\
 }
@@ -52959,7 +52959,7 @@ A constante \textbf{\begin{ttfamily}fldBLOb\end{ttfamily}} indica que o campo é
 \begin{itemize}
 \item \textbf{NOTA} \begin{itemize}
 \item Para informar ao buffer do registro que o campo é \textbf{\begin{ttfamily}fldBLOb\end{ttfamily}}, a função \textbf{CreateBlobField} é necessário.
-\item A \textbf{class function \begin{ttfamily}TUiMethods.CreateBlobField\end{ttfamily}(\ref{mi_rtl_ui_methods.TUiMethods-CreateBlobField})(Len: integer; AccMode,Default: byte) : DmxIDstr;} reserva espaço para o mesmo.
+\item A \textbf{class function \begin{ttfamily}TUiMethods.CreateBlobField\end{ttfamily}(\ref{mi_rtl_ui_methods.TUiMethods-CreateBlobField})(Len: integer; AccMode,Default: byte) : TDmxStr_ID;} reserva espaço para o mesmo.
 \item Pendência: Preciso criar um exemplo de uso deste tipo de informação.
 \end{itemize}
 \end{itemize}
@@ -53062,7 +53062,7 @@ fldCONTRACTION        = TConsts.fldCONTRACTION     ;\end{ttfamily}
 A constante \textbf{\begin{ttfamily}fldCONTRACTION\end{ttfamily}} ...
 
 \end{list}
-\subsection*{fldData}
+\subsection*{FldDateTime}
 \begin{list}{}{
 \settowidth{\tmplength}{\textbf{Declaração}}
 \setlength{\itemindent}{0cm}
@@ -53076,13 +53076,13 @@ A constante \textbf{\begin{ttfamily}fldCONTRACTION\end{ttfamily}} ...
 \begin{flushleft}
 \item[\textbf{Declaração}\hfill]
 \begin{ttfamily}
-fldData               = TConsts.fldData            ;\end{ttfamily}
+FldDateTime               = TConsts.FldDateTime            ;\end{ttfamily}
 
 
 \end{flushleft}
 \par
 \item[\textbf{Descrição}]
-A constante \textbf{\begin{ttfamily}fldData\end{ttfamily}} ...
+A constante \textbf{\begin{ttfamily}FldDateTime\end{ttfamily}} ...
 
 \end{list}
 \subsection*{FldDateTimeDos}
@@ -54999,7 +54999,7 @@ TUiMethods {$>$} TUiConsts
 \begin{flushleft}
 \item[\textbf{Declaração}\hfill]
 \begin{ttfamily}
-public class function CreateAppendFields(ATemplate: ptString) : DmxIDstr;\end{ttfamily}
+public class function CreateAppendFields(ATemplate: ptString) : TDmxStr_ID;\end{ttfamily}
 
 
 \end{flushleft}
@@ -55023,7 +55023,7 @@ A class function \textbf{\begin{ttfamily}CreateAppendFields\end{ttfamily}} é us
 \begin{flushleft}
 \item[\textbf{Declaração}\hfill]
 \begin{ttfamily}
-public class function CreateBlobField(Len: integer; AccMode,Default: byte) : DmxIDstr;\end{ttfamily}
+public class function CreateBlobField(Len: integer; AccMode,Default: byte) : TDmxStr_ID;\end{ttfamily}
 
 
 \end{flushleft}
@@ -55047,7 +55047,7 @@ A class function \textbf{\begin{ttfamily}CreateBlobField\end{ttfamily}} é usado
 \begin{flushleft}
 \item[\textbf{Declaração}\hfill]
 \begin{ttfamily}
-public class function CreateEnumField(ShowZ: boolean; AccMode,Default: LongInt;AItems: PSItem) : DmxIDstr;\end{ttfamily}
+public class function CreateEnumField(ShowZ: boolean; AccMode,Default: LongInt;AItems: PSItem) : TDmxStr_ID;\end{ttfamily}
 
 
 \end{flushleft}
@@ -55095,7 +55095,7 @@ A class function \textbf{\begin{ttfamily}CreateCheckBoxField\end{ttfamily}} é u
 \begin{flushleft}
 \item[\textbf{Declaração}\hfill]
 \begin{ttfamily}
-public class function CreateTSItemFields(ATemplates: PSItem) : DmxIDstr;\end{ttfamily}
+public class function CreateTSItemFields(ATemplates: PSItem) : TDmxStr_ID;\end{ttfamily}
 
 
 \end{flushleft}
@@ -55119,7 +55119,7 @@ A class function \textbf{\begin{ttfamily}CreateTSItemFields\end{ttfamily}} é us
 \begin{flushleft}
 \item[\textbf{Declaração}\hfill]
 \begin{ttfamily}
-public class function CreateOptions(Default: LongInt;AItems: PSItem) : DmxIDstr;\end{ttfamily}
+public class function CreateOptions(Default: LongInt;AItems: PSItem) : TDmxStr_ID;\end{ttfamily}
 
 
 \end{flushleft}

@@ -1,0 +1,126 @@
+object DataModule1: TDataModule1
+  OnCreate = DataModuleCreate
+  OldCreateOrder = False
+  Height = 305
+  HorizontalOffset = 492
+  VerticalOffset = 261
+  Width = 322
+  object SQLConnector1: TSQLConnector
+    Connected = True
+    LoginPrompt = False
+    DatabaseName = 'assistente_virtual'
+    KeepConnection = False
+    Password = 'masterkey'
+    Transaction = SQLTransaction1
+    UserName = 'postgres'
+    HostName = '45.160.125.12'
+    ConnectorType = 'PostgreSQL'
+    Left = 122
+    Top = 44
+  end
+  object SQLTransaction1: TSQLTransaction
+    Active = True
+    Action = caCommit
+    Database = SQLConnector1
+    Left = 256
+    Top = 40
+  end
+  object SQLQuery1: TSQLQuery
+    PacketRecords = -1
+    IndexName = 'DEFAULT_ORDER'
+    MaxIndexesCount = 4
+    FieldDefs = <    
+      item
+        Name = 'id'
+        DataType = ftInteger
+        Precision = -1
+      end    
+      item
+        Name = 'nome'
+        DataType = ftString
+        Precision = -1
+        Size = 50
+      end    
+      item
+        Name = 'telefone'
+        DataType = ftString
+        Precision = -1
+        Size = 20
+      end    
+      item
+        Name = 'password'
+        DataType = ftString
+        Precision = -1
+        Size = 50
+      end    
+      item
+        Name = 'login'
+        DataType = ftString
+        Precision = -1
+        Size = 50
+      end>
+    Database = SQLConnector1
+    Transaction = SQLTransaction1
+    SQL.Strings = (
+      'select * from operadores'
+    )
+    Options = [sqoKeepOpenOnCommit, sqoAutoApplyUpdates, sqoAutoCommit, sqoCancelUpdatesOnRefresh, sqoRefreshUsingSelect]
+    Params = <>
+    Macros = <>
+    Left = 120
+    Top = 136
+    object id: TLongintField
+      FieldKind = fkData
+      FieldName = 'id'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object nome: TStringField
+      FieldKind = fkData
+      FieldName = 'nome'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 50
+    end
+    object telefone: TStringField
+      FieldKind = fkData
+      FieldName = 'telefone'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object password: TStringField
+      FieldKind = fkData
+      FieldName = 'password'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 50
+    end
+    object login: TStringField
+      FieldKind = fkData
+      FieldName = 'login'
+      Index = 4
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 50
+    end
+  end
+  object DataSource1: TDataSource
+    DataSet = SQLQuery1
+    Left = 248
+    Top = 144
+  end
+end

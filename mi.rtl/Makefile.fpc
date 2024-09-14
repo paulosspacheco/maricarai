@@ -2,17 +2,17 @@
 #
 #   Makefile.fpc for mi.rtl 0.9.0.621
 #
-#   This file was generated on 03/02/2024
+#   This file was generated on 13/09/2024
 
 [package]
 name=mi.rtl
 version=0.9.0.621
 
 [compiler]
-unittargetdir=lib/$(CPU_TARGET)-$(OS_TARGET)/units
-unitdir=units units/fcl-base/src /usr/local/lazarus/fixe-3.0/lazarus/packager/units/$(CPU_TARGET)-$(OS_TARGET) /usr/local/lazarus/fixe-3.0/lazarus/components/lazutils/lib/$(CPU_TARGET)-$(OS_TARGET) /usr/local/lazarus/fixe-3.0/lazarus/components/freetype/lib/$(CPU_TARGET)-$(OS_TARGET) /usr/local/lazarus/fixe-3.0/lazarus/lcl/units/$(CPU_TARGET)-$(OS_TARGET) /usr/local/lazarus/fixe-3.0/lazarus/lcl/units/$(CPU_TARGET)-$(OS_TARGET)/$(LCL_PLATFORM) .
-includedir=../mi.ui.lcl.form/examples/mi.ui.lcl.form.tests/lib/x86_64-linux/units units/inc/linux units/inc/windows units units/fcl-base/src
-options= -MDelphi -Scghi -O1 -g -gl -l -vewnhibq -dLCL -dLCL$(LCL_PLATFORM) $(DBG_OPTIONS)
+unittargetdir=bin/$(CPU_TARGET)/$(OS_TARGET)/units
+unitdir=units units/fcl-base/src units/img ../../../../Lazarus/fpcupdeluxe/lazarus/packager/units/$(CPU_TARGET)-$(OS_TARGET) ../../../../Lazarus/fpcupdeluxe/lazarus/components/lazutils/lib/$(CPU_TARGET)-$(OS_TARGET) ../../../../Lazarus/fpcupdeluxe/lazarus/components/buildintf/units/$(CPU_TARGET)-$(OS_TARGET) ../../../../Lazarus/fpcupdeluxe/lazarus/components/codetools/units/$(CPU_TARGET)-$(OS_TARGET) ../../../../Lazarus/fpcupdeluxe/lazarus/components/freetype/lib/$(CPU_TARGET)-$(OS_TARGET) ../../../../Lazarus/fpcupdeluxe/lazarus/lcl/units/$(CPU_TARGET)-$(OS_TARGET) ../../../../Lazarus/fpcupdeluxe/lazarus/lcl/units/$(CPU_TARGET)-$(OS_TARGET)/$(LCL_PLATFORM) ../../../../Lazarus/fpcupdeluxe/lazarus/components/lazcontrols/lib/$(CPU_TARGET)-$(OS_TARGET)/$(LCL_PLATFORM) ../../../../Lazarus/fpcupdeluxe/lazarus/components/synedit/units/$(CPU_TARGET)-$(OS_TARGET)/$(LCL_PLATFORM) ../../../../Lazarus/fpcupdeluxe/lazarus/components/ideintf/units/$(CPU_TARGET)-$(OS_TARGET)/$(LCL_PLATFORM) ../../../../Lazarus/fpcupdeluxe/lazarus/components/sqldb/lib/$(CPU_TARGET)-$(OS_TARGET)/$(LCL_PLATFORM) .
+includedir=../projects/exemplos/mi.rtl/mi.rtl.tests/lib/x86_64-linux/units units/inc/linux units/inc/windows units units/fcl-base/src
+options= -MDelphi -Scaghi -CirotR -O1 -g -gl -l -vewnhibq -dLCL -dLCL$(LCL_PLATFORM) -dFPC_DOTTEDUNITS $(DBG_OPTIONS)
 
 [target]
 units=mi.rtl.pas
@@ -62,4 +62,4 @@ compiled:
 all: cleartarget $(COMPILER_UNITTARGETDIR) mi.rtl$(PPUEXT) compiled
 
 distclean: clean
-        ${DELTREE} lib/$(CPU_TARGET)-$(OS_TARGET)/units/*
+        ${DELTREE} bin/$(CPU_TARGET)/$(OS_TARGET)/units/*

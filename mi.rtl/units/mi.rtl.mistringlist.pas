@@ -21,9 +21,12 @@ uses
        - Usando quando quero manter uma lista de registros ordenada.
   }
   Type
+
+    { TMiStringList }
+
     TMiStringList = Class(TStringListBase) //https://wiki.freepascal.org/TListBox#Assignment_of_a_StringList
                     public
-                       Function AddKey(WKey:String;wNr:Longint):Boolean;
+                       Function AddKey(WKey:String; wNr:TObject):Boolean; overload;
                        Function BofKey : Boolean; //:<  Posiciona no inicio do bloco de registro do tipo default
                        Function LastKey: Boolean;//:<  Posiciona no fin do bloco de registro do tipo default
                        Function EofKey : Boolean; //:<  Posiciona no fin do bloco de registro do tipo default
@@ -32,23 +35,29 @@ uses
 
 implementation
 
-
-
-
-
-Function TMiStringList.AddKey(WKey:String;wNr:Longint):Boolean;
+function TMiStringList.AddKey(WKey: String; wNr: TObject): Boolean;
 Begin
   Try
     Result := true;
-    AddObject(UpperCase(WKey),pointer(wNr));
+    AddObject(UpperCase(WKey),wNr);
 
   except
     Result := false;
   end;
 end;
 
+//function TMiStringList.AddKey(WKey: String; wclass: pointer): Boolean;
+//begin
+//  Try
+//    Result := true;
+//    AddObject(UpperCase(WKey),wclass);
+//
+//  except
+//    Result := false;
+//  end;
+//end;
 
-Function TMiStringList.BofKey : Boolean;
+function TMiStringList.BofKey: Boolean;
 //<  Posiciona no inicio do bloco de registro do tipo default
 
   {  Function BofKeyLocal : Boolean;
@@ -66,7 +75,7 @@ Begin
   Result := OkBof;
 end;
 
-Function TMiStringList.LastKey : Boolean;
+function TMiStringList.LastKey: Boolean;
   //<  Posiciona no fin do bloco de registro do tipo default
   Function LastKeyLocal : Boolean;
   Begin
@@ -99,7 +108,7 @@ Begin
   end;
 end;
 
-Function TMiStringList.Eofkey : Boolean;
+function TMiStringList.EofKey: Boolean;
    //<  Checa se o ponteiro está no último registro
 Begin
   // Se relacionando executar ClearKeyLocal
@@ -109,8 +118,7 @@ Begin
   Result := OkEof  ;
 end;
 
-
-Function TMiStringList.PrevKey  : Boolean;
+function TMiStringList.PrevKey: Boolean;
 //<  Posiciona no registro anterior do tipo default
 Begin
   Result := okBof;

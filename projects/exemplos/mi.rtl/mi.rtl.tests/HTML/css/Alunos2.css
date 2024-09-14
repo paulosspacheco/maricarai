@@ -1,0 +1,15 @@
+#theadAlunos2 th:nth-child(1) {width:200px;text-align:Center;}
+#tbodyAlunos2 td:nth-child(1) {width:200px;text-align:Center;}
+#tfootAlunos2 td:nth-child(1) {width:200px;text-align:Center;}
+#theadAlunos2 th:nth-child(2) {width:150px;text-align:Center;}
+#tbodyAlunos2 td:nth-child(2) {width:150px;text-align:Center;}
+#tfootAlunos2 td:nth-child(2) {width:150px;text-align:Center;}
+#theadAlunos2 th:nth-child(3) {width:150px;text-align:Left;}
+#tbodyAlunos2 td:nth-child(3) {width:150px;text-align:Left;}
+#tfootAlunos2 td:nth-child(3) {width:150px;text-align:Left;}
+#theadAlunos2 th:nth-child(4) {width:120px;text-align:Left;}
+#tbodyAlunos2 td:nth-child(4) {width:120px;text-align:Left;}
+#tfootAlunos2 td:nth-child(4) {width:120px;text-align:Left;}
+#theadAlunos2 th:nth-child(5) {width:150px;text-align:Center;}
+#tbodyAlunos2 td:nth-child(5) {width:150px;text-align:Center;}
+#tfootAlunos2 td:nth-child(5) {width:150px;text-align:Center;}

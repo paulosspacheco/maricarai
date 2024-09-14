@@ -1,0 +1,19 @@
+object Form_main: TForm_main
+  Left = 421
+  Height = 240
+  Top = 249
+  Width = 320
+  Caption = 'Form_main'
+  ClientHeight = 240
+  ClientWidth = 320
+  LCLVersion = '3.4.0.0'
+  object Button_mi_rtl_web_module_form: TButton
+    Left = 32
+    Height = 25
+    Top = 32
+    Width = 192
+    Caption = 'Button_mi_rtl_web_module_form'
+    TabOrder = 0
+    OnClick = Button_mi_rtl_web_module_formClick
+  end
+end

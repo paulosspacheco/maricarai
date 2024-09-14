@@ -1,0 +1,18 @@
+object mi_lcl_msgbox: Tmi_lcl_msgbox
+  OnCreate = DataModuleCreate
+  OldCreateOrder = False
+  Height = 150
+  HorizontalOffset = 422
+  VerticalOffset = 250
+  Width = 150
+  object MI_MsgBox1: TMI_MsgBox
+    OnFree_form_owner = MI_MsgBox1Free_form_owner
+    onMessageBox_03 = MI_MsgBox1MessageBox_03
+    onMessageBox_04 = MI_MsgBox1MessageBox_04
+    onMessageBox_05 = MI_MsgBox1MessageBox_05
+    onMessageBox = MI_MsgBox1MessageBox
+    onMessageBox_ListBoxRec_PSItem = MI_MsgBox1MessageBox_ListBoxRec_PSItem
+    Left = 56
+    Top = 24
+  end
+end

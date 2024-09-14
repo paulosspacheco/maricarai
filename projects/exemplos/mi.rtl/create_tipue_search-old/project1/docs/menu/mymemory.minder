@@ -1,0 +1,186 @@
+<?xml version="1.0"?>
+<minder>
+  <theme name="Default" index="5"/>
+  <styles>
+    <style level="0" isset="false" linktype="straight" linkwidth="4" linkarrow="false" linkdash="solid" nodeborder="rounded" nodewidth="200" nodeborderwidth="4" nodefill="false" nodemargin="8" nodepadding="6" nodefont="Sans 11" nodemarkup="true" connectiondash="dotted" connectionwidth="2" connectionarrow="fromto" connectionpadding="3" connectionfont="Sans 10"/>
+    <style level="1" isset="false" linktype="straight" linkwidth="4" linkarrow="false" linkdash="solid" nodeborder="underlined" nodewidth="200" nodeborderwidth="4" nodefill="false" nodemargin="8" nodepadding="6" nodefont="Sans 11" nodemarkup="true" connectiondash="dotted" connectionwidth="2" connectionarrow="fromto" connectionpadding="3" connectionfont="Sans 10"/>
+    <style level="2" isset="false" linktype="straight" linkwidth="4" linkarrow="false" linkdash="solid" nodeborder="underlined" nodewidth="200" nodeborderwidth="4" nodefill="false" nodemargin="8" nodepadding="6" nodefont="Sans 11" nodemarkup="true" connectiondash="dotted" connectionwidth="2" connectionarrow="fromto" connectionpadding="3" connectionfont="Sans 10"/>
+    <style level="3" isset="false" linktype="straight" linkwidth="4" linkarrow="false" linkdash="solid" nodeborder="underlined" nodewidth="200" nodeborderwidth="4" nodefill="false" nodemargin="8" nodepadding="6" nodefont="Sans 11" nodemarkup="true" connectiondash="dotted" connectionwidth="2" connectionarrow="fromto" connectionpadding="3" connectionfont="Sans 10"/>
+    <style level="4" isset="false" linktype="straight" linkwidth="4" linkarrow="false" linkdash="solid" nodeborder="underlined" nodewidth="200" nodeborderwidth="4" nodefill="false" nodemargin="8" nodepadding="6" nodefont="Sans 11" nodemarkup="true" connectiondash="dotted" connectionwidth="2" connectionarrow="fromto" connectionpadding="3" connectionfont="Sans 10"/>
+    <style level="5" isset="false" linktype="straight" linkwidth="4" linkarrow="false" linkdash="solid" nodeborder="underlined" nodewidth="200" nodeborderwidth="4" nodefill="false" nodemargin="8" nodepadding="6" nodefont="Sans 11" nodemarkup="true" connectiondash="dotted" connectionwidth="2" connectionarrow="fromto" connectionpadding="3" connectionfont="Sans 10"/>
+    <style level="6" isset="false" linktype="straight" linkwidth="4" linkarrow="false" linkdash="solid" nodeborder="underlined" nodewidth="200" nodeborderwidth="4" nodefill="false" nodemargin="8" nodepadding="6" nodefont="Sans 11" nodemarkup="true" connectiondash="dotted" connectionwidth="2" connectionarrow="fromto" connectionpadding="3" connectionfont="Sans 10"/>
+    <style level="7" isset="false" linktype="straight" linkwidth="4" linkarrow="false" linkdash="solid" nodeborder="underlined" nodewidth="200" nodeborderwidth="4" nodefill="false" nodemargin="8" nodepadding="6" nodefont="Sans 11" nodemarkup="true" connectiondash="dotted" connectionwidth="2" connectionarrow="fromto" connectionpadding="3" connectionfont="Sans 10"/>
+    <style level="8" isset="false" linktype="straight" linkwidth="4" linkarrow="false" linkdash="solid" nodeborder="underlined" nodewidth="200" nodeborderwidth="4" nodefill="false" nodemargin="8" nodepadding="6" nodefont="Sans 11" nodemarkup="true" connectiondash="dotted" connectionwidth="2" connectionarrow="fromto" connectionpadding="3" connectionfont="Sans 10"/>
+    <style level="9" isset="false" linktype="straight" linkwidth="4" linkarrow="false" linkdash="solid" nodeborder="underlined" nodewidth="200" nodeborderwidth="4" nodefill="false" nodemargin="8" nodepadding="6" nodefont="Sans 11" nodemarkup="true" connectiondash="dotted" connectionwidth="2" connectionarrow="fromto" connectionpadding="3" connectionfont="Sans 10"/>
+    <style level="10" isset="false" linktype="straight" linkwidth="4" linkarrow="false" linkdash="solid" nodeborder="underlined" nodewidth="200" nodeborderwidth="4" nodefill="false" nodemargin="8" nodepadding="6" nodefont="Sans 11" nodemarkup="true" connectiondash="dotted" connectionwidth="2" connectionarrow="fromto" connectionpadding="3" connectionfont="Sans 10"/>
+  </styles>
+  <drawarea x="-278.10865783691406" y="-807.09147644042969" scale="1"/>
+  <images/>
+  <nodes>
+    <node id="0" posx="63.07220458984375" posy="571.54919433593727" maxwidth="200" width="140" height="46" side="right" fold="false" treesize="1058" layout="Para a direita">
+      <style linktype="straight" linkwidth="3" linkarrow="false" linkdash="solid" nodeborder="underlined" nodewidth="200" nodeborderwidth="4" nodefill="false" nodemargin="8" nodepadding="6" nodefont="Sans 11" nodemarkup="true"/>
+      <nodename>MyMemmory</nodename>
+      <nodenote>&#xC1;rea de Conhecimento que eu estudei na minha vida.</nodenote>
+      <nodes>
+        <node id="3" posx="287.07220458984381" posy="134.54919433593727" maxwidth="200" width="73" height="46" side="right" fold="false" treesize="184" color="#f9c440" layout="Para a direita">
+          <style linktype="straight" linkwidth="4" linkarrow="false" linkdash="solid" nodeborder="underlined" nodewidth="200" nodeborderwidth="4" nodefill="false" nodemargin="8" nodepadding="6" nodefont="Sans 11" nodemarkup="true"/>
+          <nodename>Sa&#xFA;de</nodename>
+          <nodenote></nodenote>
+          <nodes>
+            <node id="11" posx="460.07220458984375" posy="65.549194335937273" maxwidth="200" width="93" height="46" side="right" fold="false" treesize="46" color="#f9c440" layout="Para a direita">
+              <style linktype="straight" linkwidth="4" linkarrow="false" linkdash="solid" nodeborder="underlined" nodewidth="200" nodeborderwidth="4" nodefill="false" nodemargin="8" nodepadding="6" nodefont="Sans 11" nodemarkup="true"/>
+              <nodename>Diabetes</nodename>
+              <nodenote></nodenote>
+            </node>
+            <node id="13" posx="460.07220458984375" posy="111.54919433593727" maxwidth="200" width="117" height="46" side="right" fold="false" treesize="46" color="#f9c440" layout="Para a direita">
+              <style linktype="straight" linkwidth="4" linkarrow="false" linkdash="solid" nodeborder="underlined" nodewidth="200" nodeborderwidth="4" nodefill="false" nodemargin="8" nodepadding="6" nodefont="Sans 11" nodemarkup="true"/>
+              <nodename>Hipertens&#xE3;o</nodename>
+              <nodenote></nodenote>
+            </node>
+            <node id="14" posx="460.07220458984375" posy="157.54919433593727" maxwidth="200" width="127" height="46" side="right" fold="false" treesize="46" color="#f9c440" layout="Para a direita">
+              <style linktype="straight" linkwidth="4" linkarrow="false" linkdash="solid" nodeborder="underlined" nodewidth="200" nodeborderwidth="4" nodefill="false" nodemargin="8" nodepadding="6" nodefont="Sans 11" nodemarkup="true"/>
+              <nodename>Dermatologia</nodename>
+              <nodenote></nodenote>
+            </node>
+            <node id="15" posx="460.07220458984375" posy="203.54919433593727" maxwidth="200" width="109" height="46" side="right" fold="false" treesize="46" color="#f9c440" layout="Para a direita">
+              <style linktype="straight" linkwidth="4" linkarrow="false" linkdash="solid" nodeborder="underlined" nodewidth="200" nodeborderwidth="4" nodefill="false" nodemargin="8" nodepadding="6" nodefont="Sans 11" nodemarkup="true"/>
+              <nodename>Pisiquiatria</nodename>
+              <nodenote></nodenote>
+            </node>
+          </nodes>
+        </node>
+        <node id="4" posx="303.07220458984381" posy="295.54919433593727" maxwidth="200" width="139" height="46" side="right" fold="false" treesize="138" color="#68b723" layout="Para a direita">
+          <style linktype="straight" linkwidth="4" linkarrow="false" linkdash="solid" nodeborder="underlined" nodewidth="200" nodeborderwidth="4" nodefill="false" nodemargin="8" nodepadding="6" nodefont="Sans 11" nodemarkup="true"/>
+          <nodename>Contru&#xE7;&#xE3;o Civil</nodename>
+          <nodenote></nodenote>
+          <nodes>
+            <node id="8" posx="542.0722045898433" posy="249.54919433593727" maxwidth="200" width="97" height="46" side="right" fold="false" treesize="46" color="#68b723" layout="Para a direita">
+              <style linktype="straight" linkwidth="4" linkarrow="false" linkdash="solid" nodeborder="underlined" nodewidth="200" nodeborderwidth="4" nodefill="false" nodemargin="8" nodepadding="6" nodefont="Sans 11" nodemarkup="true"/>
+              <nodename>Alvenaria</nodename>
+              <nodenote></nodenote>
+            </node>
+            <node id="9" posx="542.0722045898433" posy="295.54919433593727" maxwidth="200" width="110" height="46" side="right" fold="false" treesize="46" color="#68b723" layout="Para a direita">
+              <style linktype="straight" linkwidth="4" linkarrow="false" linkdash="solid" nodeborder="underlined" nodewidth="200" nodeborderwidth="4" nodefill="false" nodemargin="8" nodepadding="6" nodefont="Sans 11" nodemarkup="true"/>
+              <nodename>Marcenaria</nodename>
+              <nodenote></nodenote>
+            </node>
+            <node id="10" posx="542.0722045898433" posy="341.54919433593727" maxwidth="200" width="80" height="46" side="right" fold="false" treesize="46" color="#68b723" layout="Para a direita">
+              <style linktype="straight" linkwidth="4" linkarrow="false" linkdash="solid" nodeborder="underlined" nodewidth="200" nodeborderwidth="4" nodefill="false" nodemargin="8" nodepadding="6" nodefont="Sans 11" nodemarkup="true"/>
+              <nodename>Pintura</nodename>
+              <nodenote></nodenote>
+            </node>
+          </nodes>
+        </node>
+        <node id="2" posx="287.07220458984381" posy="387.54919433593727" maxwidth="200" width="97" height="46" side="right" fold="false" treesize="46" color="#f37329" layout="Para a direita">
+          <style linktype="straight" linkwidth="4" linkarrow="false" linkdash="solid" nodeborder="underlined" nodewidth="200" nodeborderwidth="4" nodefill="false" nodemargin="8" nodepadding="6" nodefont="Sans 11" nodemarkup="true"/>
+          <nodename>Humanas</nodename>
+          <nodenote></nodenote>
+        </node>
+        <node id="1" posx="303.07220458984381" posy="755.54919433593727" maxwidth="200" width="78" height="46" side="right" fold="false" treesize="690" color="#c6262e" layout="Para a direita">
+          <style linktype="straight" linkwidth="4" linkarrow="false" linkdash="solid" nodeborder="underlined" nodewidth="200" nodeborderwidth="4" nodefill="false" nodemargin="8" nodepadding="6" nodefont="Sans 11" nodemarkup="true"/>
+          <nodename>Exatas</nodename>
+          <nodenote></nodenote>
+          <nodes>
+            <node id="5" posx="481.07220458984375" posy="433.54919433593727" maxwidth="200" width="115" height="46" side="right" fold="false" treesize="46" color="#c6262e" layout="Para a direita">
+              <style linktype="straight" linkwidth="4" linkarrow="false" linkdash="solid" nodeborder="underlined" nodewidth="200" nodeborderwidth="4" nodefill="false" nodemargin="8" nodepadding="6" nodefont="Sans 11" nodemarkup="true"/>
+              <nodename>Matem&#xE1;tica</nodename>
+              <nodenote></nodenote>
+            </node>
+            <node id="6" posx="481.07220458984375" posy="479.54919433593727" maxwidth="200" width="105" height="46" side="right" fold="false" treesize="46" color="#c6262e" layout="Para a direita">
+              <style linktype="straight" linkwidth="4" linkarrow="false" linkdash="solid" nodeborder="underlined" nodewidth="200" nodeborderwidth="4" nodefill="false" nodemargin="8" nodepadding="6" nodefont="Sans 11" nodemarkup="true"/>
+              <nodename>Estat&#xED;stica</nodename>
+              <nodenote></nodenote>
+            </node>
+            <node id="7" posx="481.07220458984375" posy="755.54919433593727" maxwidth="200" width="111" height="46" side="right" fold="false" treesize="506" color="#c6262e" layout="Para a direita">
+              <style linktype="straight" linkwidth="4" linkarrow="false" linkdash="solid" nodeborder="underlined" nodewidth="200" nodeborderwidth="4" nodefill="false" nodemargin="8" nodepadding="6" nodefont="Sans 11" nodemarkup="true"/>
+              <nodename>Inform&#xE1;tica</nodename>
+              <nodenote></nodenote>
+              <nodes>
+                <node id="16" posx="692.0722045898433" posy="686.54919433593727" maxwidth="200" width="125" height="46" side="right" fold="false" treesize="368" color="#c6262e" layout="Para a direita">
+                  <style linktype="straight" linkwidth="4" linkarrow="false" linkdash="solid" nodeborder="underlined" nodewidth="200" nodeborderwidth="4" nodefill="false" nodemargin="8" nodepadding="6" nodefont="Sans 11" nodemarkup="true"/>
+                  <nodename>Programa&#xE7;&#xE3;o</nodename>
+                  <nodenote></nodenote>
+                  <nodes>
+                    <node id="19" posx="917.0722045898433" posy="525.54919433593727" maxwidth="200" width="74" height="46" side="right" fold="false" treesize="46" color="#c6262e" layout="Para a direita">
+                      <style linktype="straight" linkwidth="4" linkarrow="false" linkdash="solid" nodeborder="underlined" nodewidth="200" nodeborderwidth="4" nodefill="false" nodemargin="8" nodepadding="6" nodefont="Sans 11" nodemarkup="true"/>
+                      <nodename>Pascal</nodename>
+                      <nodenote></nodenote>
+                      <nodes>
+                        <node id="20" posx="1091.0722045898433" posy="525.54919433593727" maxwidth="200" width="90" height="46" side="right" fold="false" treesize="46" color="#c6262e" layout="Para a direita">
+                          <style linktype="straight" linkwidth="4" linkarrow="false" linkdash="solid" nodeborder="underlined" nodewidth="200" nodeborderwidth="4" nodefill="false" nodemargin="8" nodepadding="6" nodefont="Sans 11" nodemarkup="true"/>
+                          <nodename>Delphi</nodename>
+                          <nodenote>A linguagem Delphi tem seu pr&#xF3;prio IDE
+</nodenote>
+                        </node>
+                      </nodes>
+                    </node>
+                    <node id="22" posx="917.0722045898433" posy="571.54919433593727" maxwidth="200" width="69" height="46" side="right" fold="false" treesize="46" color="#c6262e" layout="Para a direita">
+                      <style linktype="straight" linkwidth="4" linkarrow="false" linkdash="solid" nodeborder="underlined" nodewidth="200" nodeborderwidth="4" nodefill="false" nodemargin="8" nodepadding="6" nodefont="Sans 11" nodemarkup="true"/>
+                      <nodename>HTML</nodename>
+                      <nodenote></nodenote>
+                    </node>
+                    <node id="23" posx="917.0722045898433" posy="617.54919433593727" maxwidth="200" width="101" height="46" side="right" fold="false" treesize="46" color="#c6262e" layout="Para a direita">
+                      <style linktype="straight" linkwidth="4" linkarrow="false" linkdash="solid" nodeborder="underlined" nodewidth="200" nodeborderwidth="4" nodefill="false" nodemargin="8" nodepadding="6" nodefont="Sans 11" nodemarkup="true"/>
+                      <nodename>JavaScript</nodename>
+                      <nodenote></nodenote>
+                    </node>
+                    <node id="24" posx="917.0722045898433" posy="663.54919433593727" maxwidth="200" width="56" height="46" side="right" fold="false" treesize="46" color="#c6262e" layout="Para a direita">
+                      <style linktype="straight" linkwidth="4" linkarrow="false" linkdash="solid" nodeborder="underlined" nodewidth="200" nodeborderwidth="4" nodefill="false" nodemargin="8" nodepadding="6" nodefont="Sans 11" nodemarkup="true"/>
+                      <nodename>CSS</nodename>
+                      <nodenote></nodenote>
+                    </node>
+                    <node id="25" posx="917.0722045898433" posy="709.54919433593727" maxwidth="200" width="59" height="46" side="right" fold="false" treesize="46" color="#c6262e" layout="Para a direita">
+                      <style linktype="straight" linkwidth="4" linkarrow="false" linkdash="solid" nodeborder="underlined" nodewidth="200" nodeborderwidth="4" nodefill="false" nodemargin="8" nodepadding="6" nodefont="Sans 11" nodemarkup="true"/>
+                      <nodename>Java</nodename>
+                      <nodenote></nodenote>
+                    </node>
+                    <node id="26" posx="917.0722045898433" posy="755.54919433593727" maxwidth="200" width="38" height="46" side="right" fold="false" treesize="46" color="#c6262e" layout="Para a direita">
+                      <style linktype="straight" linkwidth="4" linkarrow="false" linkdash="solid" nodeborder="underlined" nodewidth="200" nodeborderwidth="4" nodefill="false" nodemargin="8" nodepadding="6" nodefont="Sans 11" nodemarkup="true"/>
+                      <nodename>C</nodename>
+                      <nodenote></nodenote>
+                    </node>
+                    <node id="28" posx="917.0722045898433" posy="801.54919433593727" maxwidth="200" width="60" height="46" side="right" fold="false" treesize="46" color="#c6262e" layout="Para a direita">
+                      <style linktype="straight" linkwidth="4" linkarrow="false" linkdash="solid" nodeborder="underlined" nodewidth="200" nodeborderwidth="4" nodefill="false" nodemargin="8" nodepadding="6" nodefont="Sans 11" nodemarkup="true"/>
+                      <nodename>c++</nodename>
+                      <nodenote></nodenote>
+                    </node>
+                    <node id="29" posx="917.0722045898433" posy="847.54919433593727" maxwidth="200" width="79" height="46" side="right" fold="false" treesize="46" color="#c6262e" layout="Para a direita">
+                      <style linktype="straight" linkwidth="4" linkarrow="false" linkdash="solid" nodeborder="underlined" nodewidth="200" nodeborderwidth="4" nodefill="false" nodemargin="8" nodepadding="6" nodefont="Sans 11" nodemarkup="true"/>
+                      <nodename>Python</nodename>
+                      <nodenote></nodenote>
+                    </node>
+                  </nodes>
+                </node>
+                <node id="17" posx="692.0722045898433" posy="893.54919433593727" maxwidth="200" width="81" height="46" side="right" fold="false" treesize="46" color="#c6262e" layout="Para a direita">
+                  <style linktype="straight" linkwidth="4" linkarrow="false" linkdash="solid" nodeborder="underlined" nodewidth="200" nodeborderwidth="4" nodefill="false" nodemargin="8" nodepadding="6" nodefont="Sans 11" nodemarkup="true"/>
+                  <nodename>An&#xE1;lise</nodename>
+                  <nodenote></nodenote>
+                </node>
+                <node id="18" posx="692.0722045898433" posy="939.54919433593727" maxwidth="200" width="93" height="46" side="right" fold="false" treesize="46" color="#c6262e" layout="Para a direita">
+                  <style linktype="straight" linkwidth="4" linkarrow="false" linkdash="solid" nodeborder="underlined" nodewidth="200" nodeborderwidth="4" nodefill="false" nodemargin="8" nodepadding="6" nodefont="Sans 11" nodemarkup="true"/>
+                  <nodename>Hadware</nodename>
+                  <nodenote></nodenote>
+                </node>
+                <node id="30" posx="692.0722045898433" posy="985.54919433593727" maxwidth="200" width="134" height="46" side="right" fold="false" treesize="46" color="#c6262e" layout="Para a direita">
+                  <style linktype="straight" linkwidth="4" linkarrow="false" linkdash="solid" nodeborder="underlined" nodewidth="200" nodeborderwidth="4" nodefill="false" nodemargin="8" nodepadding="6" nodefont="Sans 11" nodemarkup="true"/>
+                  <nodename>Infra Estrutura</nodename>
+                  <nodenote></nodenote>
+                </node>
+              </nodes>
+            </node>
+            <node id="32" posx="481.07220458984375" posy="1031.5491943359373" maxwidth="200" width="128" height="46" side="right" fold="false" treesize="46" color="#c6262e" layout="Para a direita">
+              <style linktype="straight" linkwidth="4" linkarrow="false" linkdash="solid" nodeborder="underlined" nodewidth="200" nodeborderwidth="4" nodefill="false" nodemargin="8" nodepadding="6" nodefont="Sans 11" nodemarkup="true"/>
+              <nodename>Contabilidade</nodename>
+              <nodenote></nodenote>
+            </node>
+            <node id="33" posx="481.07220458984375" posy="1077.5491943359373" maxwidth="200" width="151" height="46" side="right" fold="false" treesize="46" color="#c6262e" layout="Para a direita">
+              <style linktype="straight" linkwidth="4" linkarrow="false" linkdash="solid" nodeborder="underlined" nodewidth="200" nodeborderwidth="4" nodefill="false" nodemargin="8" nodepadding="6" nodefont="Sans 11" nodemarkup="true"/>
+              <nodename>Direito Tribut&#xE1;rio</nodename>
+              <nodenote></nodenote>
+            </node>
+          </nodes>
+        </node>
+      </nodes>
+    </node>
+  </nodes>
+</minder>

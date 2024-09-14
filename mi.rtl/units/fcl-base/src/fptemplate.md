@@ -413,7 +413,7 @@ Creating CGI or Apache applications with WebModule in Lazarus, using HTML templa
       ```
 
       1. Note:
-         1. ex: {+DATETIME [-FORMAT=MM/DD hh:mm:ss-]+}
+         1. ex: {+DATETIME [-FORMAT=MM/DD hh:nn:ss-]+}
    3. Code:
 
       ```pascal

@@ -1,0 +1,21 @@
+object DM_Mapa_site: TDM_Mapa_site
+  OnCreate = DataModuleCreate
+  OnDestroy = DataModuleDestroy
+  OldCreateOrder = False
+  Height = 150
+  HorizontalOffset = 589
+  VerticalOffset = 266
+  Width = 150
+  object PageProducer1: TPageProducer
+    Alias = 'TPageProducer'
+    StartDelimiter = '<!--#'
+    EndDelimiter = '#-->'
+    ParamStartDelimiter = '[-'
+    ParamEndDelimiter = '-]'
+    ParamValueSeparator = '='
+    AllowTagParams = True
+    OnHTMLTag_Undefined = PageProducer1HTMLTag_Undefined
+    Left = 48
+    Top = 40
+  end
+end

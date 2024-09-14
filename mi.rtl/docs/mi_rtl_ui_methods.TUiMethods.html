@@ -31,30 +31,6 @@
 <table class="summary wide_list">
 <tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
-<td class="itemcode"><code>class function <strong><a href="mi_rtl_ui_methods.TUiMethods.html#CreateAppendFields">CreateAppendFields</a></strong>(ATemplate: <a href="mi_rtl_ui_Dmxscroller.html#ptString">ptString</a>) : DmxIDstr;</code></td>
-</tr>
-<tr class="list2">
-<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
-<td class="itemcode"><code>class function <strong><a href="mi_rtl_ui_methods.TUiMethods.html#CreateBlobField">CreateBlobField</a></strong>(Len: integer; AccMode,Default: byte) : DmxIDstr;</code></td>
-</tr>
-<tr class="list">
-<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
-<td class="itemcode"><code>class function <strong><a href="mi_rtl_ui_methods.TUiMethods.html#CreateEnumField">CreateEnumField</a></strong>(ShowZ: boolean; AccMode,Default: LongInt;AItems: <a href="mi_rtl_ui_Dmxscroller.html#PSItem">PSItem</a>) : DmxIDstr;</code></td>
-</tr>
-<tr class="list2">
-<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
-<td class="itemcode"><code>class function <strong><a href="mi_rtl_ui_methods.TUiMethods.html#CreateCheckBoxField">CreateCheckBoxField</a></strong>(CharNumberField: AnsiChar;ShowZ: boolean; AccMode,Default: byte;AItems: <a href="mi_rtl_ui_Dmxscroller.html#PSItem">PSItem</a>) : AnsiString;</code></td>
-</tr>
-<tr class="list">
-<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
-<td class="itemcode"><code>class function <strong><a href="mi_rtl_ui_methods.TUiMethods.html#CreateTSItemFields">CreateTSItemFields</a></strong>(ATemplates: <a href="mi_rtl_ui_Dmxscroller.html#PSItem">PSItem</a>) : DmxIDstr;</code></td>
-</tr>
-<tr class="list2">
-<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
-<td class="itemcode"><code>class function <strong><a href="mi_rtl_ui_methods.TUiMethods.html#CreateOptions">CreateOptions</a></strong>(Default: LongInt;AItems: <a href="mi_rtl_ui_Dmxscroller.html#PSItem">PSItem</a>) : DmxIDstr;</code></td>
-</tr>
-<tr class="list">
-<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
 <td class="itemcode"><code>class Function <strong><a href="mi_rtl_ui_methods.TUiMethods.html#GetMaxTViRect">GetMaxTViRect</a></strong>: TViRect;</code></td>
 </tr>
 <tr class="list2">
@@ -79,7 +55,7 @@
 </tr>
 <tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
-<td class="itemcode"><code>class function <strong><a href="mi_rtl_ui_methods.TUiMethods.html#isValueDbChanged">isValueDbChanged</a></strong>(Sender: TComponent): Boolean; virtual;</code></td>
+<td class="itemcode"><code>function <strong><a href="mi_rtl_ui_methods.TUiMethods.html#isValueDbChanged">isValueDbChanged</a></strong>(Sender: TComponent): Boolean; virtual;</code></td>
 </tr>
 <tr class="list2">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
@@ -88,106 +64,6 @@
 </table>
 <h2 class="description">Descrição</h2>
 <h3 class="detail">Métodos</h3>
-<table class="detail wide_list">
-<tr class="list">
-<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
-<td class="itemcode"><span id="CreateAppendFields"></span><code>class function <strong>CreateAppendFields</strong>(ATemplate: <a href="mi_rtl_ui_Dmxscroller.html#ptString">ptString</a>) : DmxIDstr;</code></td>
-</tr>
-<tr><td colspan="2">
-<p>
-A class function <strong><code>CreateAppendFields</code></strong> é usado para encandear Templates do tipo <a class="normal" href="mi_rtl_ui_Dmxscroller.html#tString">TString</a></p>
-</td></tr>
-</table>
-<table class="detail wide_list">
-<tr class="list">
-<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
-<td class="itemcode"><span id="CreateBlobField"></span><code>class function <strong>CreateBlobField</strong>(Len: integer; AccMode,Default: byte) : DmxIDstr;</code></td>
-</tr>
-<tr><td colspan="2">
-<p>
-A class function <strong><code>CreateBlobField</code></strong> é usado para encandear campos do tipo blob</p>
-</td></tr>
-</table>
-<table class="detail wide_list">
-<tr class="list">
-<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
-<td class="itemcode"><span id="CreateEnumField"></span><code>class function <strong>CreateEnumField</strong>(ShowZ: boolean; AccMode,Default: LongInt;AItems: <a href="mi_rtl_ui_Dmxscroller.html#PSItem">PSItem</a>) : DmxIDstr;</code></td>
-</tr>
-<tr><td colspan="2">
-<p>
-A class function <strong><code>CreateEnumField</code></strong> é usado para encandear Templates do tipo enumerado</p>
-</td></tr>
-</table>
-<table class="detail wide_list">
-<tr class="list">
-<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
-<td class="itemcode"><span id="CreateCheckBoxField"></span><code>class function <strong>CreateCheckBoxField</strong>(CharNumberField: AnsiChar;ShowZ: boolean; AccMode,Default: byte;AItems: <a href="mi_rtl_ui_Dmxscroller.html#PSItem">PSItem</a>) : AnsiString;</code></td>
-</tr>
-<tr><td colspan="2">
-<p>
-A class function <strong><code>CreateCheckBoxField</code></strong> é usado para encandear Templates do tipo checkbox</p>
-</td></tr>
-</table>
-<table class="detail wide_list">
-<tr class="list">
-<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
-<td class="itemcode"><span id="CreateTSItemFields"></span><code>class function <strong>CreateTSItemFields</strong>(ATemplates: <a href="mi_rtl_ui_Dmxscroller.html#PSItem">PSItem</a>) : DmxIDstr;</code></td>
-</tr>
-<tr><td colspan="2">
-<p>
-A class function <strong><code>CreateTSItemFields</code></strong> é usado para encandear Templates do tipo <a class="normal" href="mi_rtl_ui_Dmxscroller.html#PSItem">PSItem</a></p>
-</td></tr>
-</table>
-<table class="detail wide_list">
-<tr class="list">
-<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
-<td class="itemcode"><span id="CreateOptions"></span><code>class function <strong>CreateOptions</strong>(Default: LongInt;AItems: <a href="mi_rtl_ui_Dmxscroller.html#PSItem">PSItem</a>) : DmxIDstr;</code></td>
-</tr>
-<tr><td colspan="2">
-<p>
-A class function <strong><code>CreateOptions</code></strong> é usado para informar uma lista de opções para o campo.
-
-<p></p>
-
-<ul class="paragraph_spacing">
-  <li><p><strong>NOTA</strong> O campo que pode receber uma lista pode ser de qualquer tipo, exceto os tipos: </p>
-
-<ul class="paragraph_spacing">
-  <li><p><a class="normal" href="mi_rtl_ui_dmxscroller_form.html#fldENUM">FldEnum</a>,<a class="normal" href="mi_rtl_ui_dmxscroller_form.html#fldBoolean">FldBoolean</a> e <a class="normal" href="mi_rtl_ui_dmxscroller_form.html#FldRadioButton">FldRadioButton</a>.</p></li>
-</ul>
-
-<p></p></li>
-  <li><p><strong>EXEMPLO DE USO</strong>
-
-<p></p>
-
-<pre class="longcode">
-
-<span class="pascal_keyword">with</span> aUiDmxScroller <span class="pascal_keyword">do</span>
-<span class="pascal_keyword">begin</span>
-  add(<span class="pascal_string">'&tilde;_EXEMPLO DE TEMPLATE________________________________________&tilde;'</span>);
-  add(<span class="pascal_string">''</span>);
-  add(<span class="pascal_string">'&tilde;Vencimento:&tilde;\Ssssss'</span>+ChFN+<span class="pascal_string">'Vencimento'</span>+CreateOptions(<span class="pascal_numeric">1</span>,NewSItem(<span class="pascal_string">'Dia 10'</span>,
-                                                               NewSItem(<span class="pascal_string">'Dia 15'</span>,
-                                                               NewSItem(<span class="pascal_string">'Dia 20'</span>,
-                                                               NewSItem(<span class="pascal_string">'Dia 25'</span>,
-                                                               <span class="pascal_keyword">nil</span>)))))+<span class="pascal_string">'&tilde; dias&tilde;'</span>);
-
-  add(<span class="pascal_string">'&tilde;     Prazo:&tilde;\BB'</span>+ChFN+<span class="pascal_string">'Dias'</span>+CreateOptions(<span class="pascal_numeric">2</span>,NewSItem(<span class="pascal_string">'30'</span>,
-                                                     NewSItem(<span class="pascal_string">'60'</span>,
-                                                     NewSItem(<span class="pascal_string">'90'</span>,
-                                                     NewSItem(<span class="pascal_string">'120'</span>,
-                                                     <span class="pascal_keyword">nil</span>)))))+<span class="pascal_string">'&tilde; dias&tilde;'</span>);
-
-  add(<span class="pascal_string">''</span>);
-<span class="pascal_keyword">end</span>;</pre>
-
-<p></p></li>
-</ul>
-
-<p></p>
-</td></tr>
-</table>
 <table class="detail wide_list">
 <tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
@@ -239,7 +115,7 @@ A class function <strong><code>CreateOptions</code></strong> é usado para infor
 <table class="detail wide_list">
 <tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
-<td class="itemcode"><span id="isValueDbChanged"></span><code>class function <strong>isValueDbChanged</strong>(Sender: TComponent): Boolean; virtual;</code></td>
+<td class="itemcode"><span id="isValueDbChanged"></span><code>function <strong>isValueDbChanged</strong>(Sender: TComponent): Boolean; virtual;</code></td>
 </tr>
 <tr><td colspan="2">
 <p>

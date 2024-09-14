@@ -1,0 +1,76 @@
+object DataModule1: TDataModule1
+  OldCreateOrder = False
+  Height = 197
+  HorizontalOffset = 749
+  VerticalOffset = 269
+  Width = 304
+  object SQLTransaction1: TSQLTransaction
+    Active = True
+    Action = caCommit
+    Database = SQLConnector1
+    Left = 96
+    Top = 16
+  end
+  object SQLConnector1: TSQLConnector
+    Connected = True
+    LoginPrompt = False
+    DatabaseName = 'assistente_virtual'
+    KeepConnection = False
+    Password = 'masterkey'
+    Transaction = SQLTransaction1
+    UserName = 'postgres'
+    HostName = '45.160.125.12'
+    ConnectorType = 'PostgreSQL'
+    Left = 224
+    Top = 16
+  end
+  object SQLQuery1: TSQLQuery
+    PacketRecords = -1
+    MaxIndexesCount = 4
+    FieldDefs = <    
+      item
+        Name = 'id'
+        DataType = ftInteger
+        Precision = -1
+      end    
+      item
+        Name = 'nome'
+        DataType = ftString
+        Precision = -1
+        Size = 50
+      end    
+      item
+        Name = 'telefone'
+        DataType = ftString
+        Precision = -1
+        Size = 20
+      end    
+      item
+        Name = 'password'
+        DataType = ftString
+        Precision = -1
+        Size = 50
+      end    
+      item
+        Name = 'login'
+        DataType = ftString
+        Precision = -1
+        Size = 50
+      end>
+    Database = SQLConnector1
+    Transaction = SQLTransaction1
+    SQL.Strings = (
+      'select * from operadores'
+    )
+    Options = [sqoKeepOpenOnCommit, sqoAutoApplyUpdates, sqoAutoCommit, sqoCancelUpdatesOnRefresh, sqoRefreshUsingSelect]
+    Params = <>
+    Macros = <>
+    Left = 96
+    Top = 96
+  end
+  object DataSource1: TDataSource
+    DataSet = SQLQuery1
+    Left = 224
+    Top = 96
+  end
+end

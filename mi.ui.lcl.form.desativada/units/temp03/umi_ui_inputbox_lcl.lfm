@@ -1,0 +1,10 @@
+object MI_UI_InputBox: TMI_UI_InputBox
+  Left = 357
+  Height = 250
+  Top = 250
+  Width = 600
+  Caption = 'Form - InputBox'
+  Position = poOwnerFormCenter
+  ShowHint = True
+  LCLVersion = '2.2.2.0'
+end

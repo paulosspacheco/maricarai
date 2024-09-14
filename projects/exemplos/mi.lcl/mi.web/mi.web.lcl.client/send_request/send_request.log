@@ -1,0 +1,143 @@
+ [2024-08-31 21:23:30.047 Error] 
+Aplicação.......: send_request
+Error...........: Erro na requisição HTTP: Invalid character at line 2, pos 0: '<'
+
+USUÁRIO LOGADO
+  Filial........: 0
+  Matrícula.....: 1
+  Login.........: 
+  Nome Completo.: 
+ 
+PASTA DO LOG....: /home/paulosspacheco/v/paulosspacheco/LazarusProjects/maricarai-trunk/projects/exemplos/mi.lcl/mi.web/mi.web.lcl.client/send_request
+ARQUIVO DE LOG..: send_request.log
+
+ [2024-08-31 21:38:48.393 Error] 
+Aplicação.......: send_request
+Error...........: Erro na requisição HTTP: Unexpected response status code: 500
+
+USUÁRIO LOGADO
+  Filial........: 0
+  Matrícula.....: 1
+  Login.........: 
+  Nome Completo.: 
+ 
+PASTA DO LOG....: /home/paulosspacheco/v/paulosspacheco/LazarusProjects/maricarai-trunk/projects/exemplos/mi.lcl/mi.web/mi.web.lcl.client/send_request
+ARQUIVO DE LOG..: send_request.log
+
+ [2024-09-01 08:22:32.041 Error] 
+Aplicação.......: send_request
+Error...........: Erro na requisição HTTP: Unexpected response status code: 500
+
+USUÁRIO LOGADO
+  Filial........: 0
+  Matrícula.....: 1
+  Login.........: 
+  Nome Completo.: 
+ 
+PASTA DO LOG....: /home/paulosspacheco/v/paulosspacheco/LazarusProjects/maricarai-trunk/projects/exemplos/mi.lcl/mi.web/mi.web.lcl.client/send_request
+ARQUIVO DE LOG..: send_request.log
+
+ [2024-09-01 08:25:33.918 Error] 
+Aplicação.......: send_request
+Error...........: Erro na requisição HTTP: Unexpected response status code: 500
+
+USUÁRIO LOGADO
+  Filial........: 0
+  Matrícula.....: 1
+  Login.........: 
+  Nome Completo.: 
+ 
+PASTA DO LOG....: /home/paulosspacheco/v/paulosspacheco/LazarusProjects/maricarai-trunk/projects/exemplos/mi.lcl/mi.web/mi.web.lcl.client/send_request
+ARQUIVO DE LOG..: send_request.log
+
+ [2024-09-01 08:32:32.068 Error] 
+Aplicação.......: send_request
+Error...........: Erro na requisição HTTP: Unexpected response status code: 500
+
+USUÁRIO LOGADO
+  Filial........: 0
+  Matrícula.....: 1
+  Login.........: 
+  Nome Completo.: 
+ 
+PASTA DO LOG....: /home/paulosspacheco/v/paulosspacheco/LazarusProjects/maricarai-trunk/projects/exemplos/mi.lcl/mi.web/mi.web.lcl.client/send_request
+ARQUIVO DE LOG..: send_request.log
+
+ [2024-09-01 09:25:08.185 Error] 
+Aplicação.......: send_request
+Error...........: Erro na requisição HTTP: Unexpected response status code: 500
+
+USUÁRIO LOGADO
+  Filial........: 0
+  Matrícula.....: 1
+  Login.........: 
+  Nome Completo.: 
+ 
+PASTA DO LOG....: /home/paulosspacheco/v/paulosspacheco/LazarusProjects/maricarai-trunk/projects/exemplos/mi.lcl/mi.web/mi.web.lcl.client/send_request
+ARQUIVO DE LOG..: send_request.log
+
+ [2024-09-01 14:36:58.730 Error] 
+Aplicação.......: send_request
+Error...........: Erro na requisição HTTP: Unexpected response status code: 500
+
+USUÁRIO LOGADO
+  Filial........: 0
+  Matrícula.....: 1
+  Login.........: 
+  Nome Completo.: 
+ 
+PASTA DO LOG....: /home/paulosspacheco/v/paulosspacheco/LazarusProjects/maricarai-trunk/projects/exemplos/mi.lcl/mi.web/mi.web.lcl.client/send_request
+ARQUIVO DE LOG..: send_request.log
+
+ [2024-09-01 15:39:48.901 Error] 
+Aplicação.......: send_request
+Error...........: Erro na requisição HTTP: Invalid character at line 2, pos 0: '<'
+
+USUÁRIO LOGADO
+  Filial........: 0
+  Matrícula.....: 1
+  Login.........: 
+  Nome Completo.: 
+ 
+PASTA DO LOG....: /home/paulosspacheco/v/paulosspacheco/LazarusProjects/maricarai-trunk/projects/exemplos/mi.lcl/mi.web/mi.web.lcl.client/send_request
+ARQUIVO DE LOG..: send_request.log
+
+ [2024-09-02 17:07:18.420 Error] 
+Aplicação.......: send_request
+Error...........: Erro na requisição HTTP: Unexpected response status code: 404
+
+USUÁRIO LOGADO
+  Filial........: 0
+  Matrícula.....: 1
+  Login.........: 
+  Nome Completo.: 
+ 
+PASTA DO LOG....: /home/paulosspacheco/v/paulosspacheco/LazarusProjects/maricarai-trunk/projects/exemplos/mi.lcl/mi.web/mi.web.lcl.client/send_request
+ARQUIVO DE LOG..: send_request.log
+
+ [2024-09-02 17:08:17.449 Error] 
+Aplicação.......: send_request
+Error...........: Erro na requisição HTTP: Unexpected response status code: 404
+
+USUÁRIO LOGADO
+  Filial........: 0
+  Matrícula.....: 1
+  Login.........: 
+  Nome Completo.: 
+ 
+PASTA DO LOG....: /home/paulosspacheco/v/paulosspacheco/LazarusProjects/maricarai-trunk/projects/exemplos/mi.lcl/mi.web/mi.web.lcl.client/send_request
+ARQUIVO DE LOG..: send_request.log
+
+ [2024-09-02 20:41:30.696 Error] 
+Aplicação.......: send_request
+Error...........: Erro na requisição HTTP: Unexpected response status code: 404
+
+USUÁRIO LOGADO
+  Filial........: 0
+  Matrícula.....: 1
+  Login.........: 
+  Nome Completo.: 
+ 
+PASTA DO LOG....: /home/paulosspacheco/v/paulosspacheco/LazarusProjects/maricarai-trunk/projects/exemplos/mi.lcl/mi.web/mi.web.lcl.client/send_request
+ARQUIVO DE LOG..: send_request.log
+

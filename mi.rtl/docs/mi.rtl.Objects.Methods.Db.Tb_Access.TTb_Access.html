@@ -414,7 +414,7 @@ A classe <strong><code>TTb_Access_consts</code></strong> é usada para declarar 
 </tr>
 <tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
-<td class="itemcode"><code>class function <strong><a href="mi.rtl.Objects.Methods.Db.Tb_Access.TTb_Access.html#FMinuscula">FMinuscula</a></strong>(str:AnsiString):AnsiString;</code></td>
+<td class="itemcode"><code>class function <strong><a href="mi.rtl.Objects.Methods.Db.Tb_Access.TTb_Access.html#Lowcase">Lowcase</a></strong>(str:AnsiString):AnsiString;</code></td>
 </tr>
 <tr class="list2">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
@@ -442,23 +442,23 @@ A classe <strong><code>TTb_Access_consts</code></strong> é usada para declarar 
 </tr>
 <tr class="list2">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
-<td class="itemcode"><code>class function <strong><a href="mi.rtl.Objects.Methods.Db.Tb_Access.TTb_Access.html#COMMIT">COMMIT</a></strong>:Boolean; Overload;</code></td>
+<td class="itemcode"><code>class function <strong><a href="mi.rtl.Objects.Methods.Db.Tb_Access.TTb_Access.html#SetTransaction">SetTransaction</a></strong>(const OnOff:Boolean;out WOK : Boolean):Boolean; Overload;</code></td>
 </tr>
 <tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>class function <strong><a href="mi.rtl.Objects.Methods.Db.Tb_Access.TTb_Access.html#COMMIT">COMMIT</a></strong>:Boolean; Overload;</code></td>
+</tr>
+<tr class="list2">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
 <td class="itemcode"><code>class function <strong><a href="mi.rtl.Objects.Methods.Db.Tb_Access.TTb_Access.html#COMMIT">COMMIT</a></strong>(Const Wok_Set_Transaction : Boolean):Boolean; Overload;</code></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
 <td class="itemcode"><code>class Procedure <strong><a href="mi.rtl.Objects.Methods.Db.Tb_Access.TTb_Access.html#Rollback">Rollback</a></strong>;</code></td>
 </tr>
-<tr class="list">
-<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
-<td class="itemcode"><code>class function <strong><a href="mi.rtl.Objects.Methods.Db.Tb_Access.TTb_Access.html#SetTransaction">SetTransaction</a></strong>(const OnOff:Boolean; Var WOK : Boolean ):Boolean; Overload;</code></td>
-</tr>
 <tr class="list2">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
-<td class="itemcode"><code>class function <strong><a href="mi.rtl.Objects.Methods.Db.Tb_Access.TTb_Access.html#SetTransaction">SetTransaction</a></strong>(const OnOff:Boolean; Var WOK, Wok_Set_Transaction:Boolean):Boolean; Overload;</code></td>
+<td class="itemcode"><code>class function <strong><a href="mi.rtl.Objects.Methods.Db.Tb_Access.TTb_Access.html#SetTransaction">SetTransaction</a></strong>(const OnOff:Boolean; out wok, Wok_Set_Transaction:Boolean):Boolean; Overload;</code></td>
 </tr>
 <tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
@@ -1248,7 +1248,7 @@ A class método <strong><code>OkRecSizeMismatch</code></strong> retorna true se 
 <table class="detail wide_list">
 <tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
-<td class="itemcode"><span id="FMinuscula"></span><code>class function <strong>FMinuscula</strong>(str:AnsiString):AnsiString;</code></td>
+<td class="itemcode"><span id="Lowcase"></span><code>class function <strong>Lowcase</strong>(str:AnsiString):AnsiString;</code></td>
 </tr>
 <tr><td colspan="2">
 &nbsp;</td></tr>
@@ -1304,6 +1304,14 @@ A class método <strong><code>OkRecSizeMismatch</code></strong> retorna true se 
 <table class="detail wide_list">
 <tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="SetTransaction"></span><code>class function <strong>SetTransaction</strong>(const OnOff:Boolean;out WOK : Boolean):Boolean; Overload;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
 <td class="itemcode"><span id="COMMIT"></span><code>class function <strong>COMMIT</strong>:Boolean; Overload;</code></td>
 </tr>
 <tr><td colspan="2">
@@ -1328,18 +1336,41 @@ A class método <strong><code>OkRecSizeMismatch</code></strong> retorna true se 
 <table class="detail wide_list">
 <tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
-<td class="itemcode"><span id="SetTransaction"></span><code>class function <strong>SetTransaction</strong>(const OnOff:Boolean; Var WOK : Boolean ):Boolean; Overload;</code></td>
+<td class="itemcode"><span id="SetTransaction"></span><code>class function <strong>SetTransaction</strong>(const OnOff:Boolean; out wok, Wok_Set_Transaction:Boolean):Boolean; Overload;</code></td>
 </tr>
 <tr><td colspan="2">
-&nbsp;</td></tr>
-</table>
-<table class="detail wide_list">
-<tr class="list">
-<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
-<td class="itemcode"><span id="SetTransaction"></span><code>class function <strong>SetTransaction</strong>(const OnOff:Boolean; Var WOK, Wok_Set_Transaction:Boolean):Boolean; Overload;</code></td>
-</tr>
-<tr><td colspan="2">
-&nbsp;</td></tr>
+<p>
+O Método <strong><code>SetTransaction</code></strong> inicia uma transação.
+
+<p></p>
+
+<ul class="paragraph_spacing">
+  <li><p>PARÂMETROS </p>
+
+<ul class="paragraph_spacing">
+  <li><p>OnOff </p>
+
+<ul class="paragraph_spacing">
+  <li><p>True : Inicia a transação;</p></li>
+  <li><p>False : Executa <a class="normal" href="mi.rtl.Objects.Methods.Db.Tb_Access.TTb_Access.html#Rollback">Rollback</a> se na chamada anterior;</p></li>
+</ul>
+
+<p></p></li>
+  <li><p>Var WOK : </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Retorna true se a transacao foi inicializada e false caso contrario, usado para executar <a class="normal" href="mi.rtl.Objects.Methods.Db.Tb_Access.TTb_Access.html#Rollback">rollback</a> ou commite se o processo criou a trasacao</p></li>
+</ul>
+
+<p></p></li>
+  <li><p>Var Wok_Set_Transaction</p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p>
+</td></tr>
 </table>
 <table class="detail wide_list">
 <tr class="list">

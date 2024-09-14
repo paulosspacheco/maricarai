@@ -375,8 +375,8 @@ O método <strong><code>Create_RCommand</code></strong> é usado para iniciar os
   <span class="pascal_keyword">If</span> High(aCommands) &lt; <span class="pascal_numeric">2</span>
   <span class="pascal_keyword">Then</span> <span class="pascal_keyword">Raise</span> TException.Create(self,<span class="pascal_string">'Create_RCommands_Buttons()'</span>,ParametroInvalido);
 
-  Create_RCommand(<span class="pascal_string">'CmDbGoBof'</span>  ,CmDbGoBof   ,<span class="pascal_string">'&amp;Inicio'</span>   ,<span class="pascal_string">''</span>,kbNoKey,<span class="pascal_numeric">0</span>,0,Mb_Cm_Bof   ,bfNormal ,aCommands[<span class="pascal_numeric">1</span>]);
-  Create_RCommand(<span class="pascal_string">'CmDbPrevRec'</span>,CmDbPrevRec ,<span class="pascal_string">'&amp;Anterior'</span> ,<span class="pascal_string">''</span>,kbNoKey,<span class="pascal_numeric">0</span>,0,Mb_Cm_Prev  ,bfNormal ,aCommands[<span class="pascal_numeric">2</span>]);
+  Create_RCommand(<span class="pascal_string">'CmGoBof'</span>  ,CmGoBof   ,<span class="pascal_string">'&amp;Inicio'</span>   ,<span class="pascal_string">''</span>,kbNoKey,<span class="pascal_numeric">0</span>,0,Mb_Cm_Bof   ,bfNormal ,aCommands[<span class="pascal_numeric">1</span>]);
+  Create_RCommand(<span class="pascal_string">'CmPrevRecord'</span>,CmPrevRecord ,<span class="pascal_string">'&amp;Anterior'</span> ,<span class="pascal_string">''</span>,kbNoKey,<span class="pascal_numeric">0</span>,0,Mb_Cm_Prev  ,bfNormal ,aCommands[<span class="pascal_numeric">2</span>]);
 
 <span class="pascal_keyword">end</span>;</pre>
 

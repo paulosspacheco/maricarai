@@ -1,0 +1,23 @@
+object form_default: Tform_default
+  Left = 378
+  Height = 293
+  Hint = 'Hint Form'
+  Top = 218
+  Width = 562
+  Caption = 'form_default'
+  Color = clBtnFace
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'Tahoma'
+  KeyPreview = True
+  OnCreate = FormCreate
+  OnKeyDown = FormKeyDown
+  OnKeyPress = FormKeyPress
+  ShowHint = True
+  LCLVersion = '3.1.0.0'
+  object ApplicationEvents1: TApplicationProperties
+    OnHint = ApplicationEvents1Hint
+    Left = 48
+    Top = 24
+  end
+end

@@ -1,7 +1,7 @@
 unit mi.rtl.Objects.Consts.Mi_MsgBox;
 {:< - A Unit **@name** implementa a classe TMI_MsgBox.
     - **VERSÃO**
-      - Alpha - Alpha - 0.9.0
+      - Alpha - 1.0.0
 
     - **CÓDIGO FONTE**:
       - @html(<a href="../units/mi.rtl.objects.msgbox.pas">mi.rtl.objects.msgbox.pas</a>)
@@ -22,46 +22,99 @@ interface
      ,System.UITypes
      ,LazarusPackageIntf
      ,mi.rtl.objects.consts
-//     ,mi.rtl.objects.methods.Collection.SortedCollection.tstringcollection.TCollectionString;
-//    type TCollectionString = mi.rtl.objects.methods.Collection.SortedCollection.tstringcollection.TCollectionString.TCollectionString;
      ;
 
 
     {: A classe **@name** reune os tipos utilizados na classe TMI_MsgBox.}
     Type
+      TFree_form_owner = Procedure of object unimplemented;
+
+
+      { TMI_MsgBoxTypes }
+
       TMI_MsgBoxTypes =
       Class(TObjectsConsts)
-        {$REGION ' --->  Constantes '}
-          // Used for ModalResult
-          const mrNone     = System.UITypes.mrNone;
-          const mrOK       = System.UITypes.mrOK      ;
-          const mrCancel   = System.UITypes.mrCancel  ;
-          const mrAbort    = System.UITypes.mrAbort   ;
-          const mrRetry    = System.UITypes.mrRetry   ;
-          const mrIgnore   = System.UITypes.mrIgnore  ;
-          const mrYes      = System.UITypes.mrYes     ;
-          const mrNo       = System.UITypes.mrNo      ;
-          const mrAll      = System.UITypes.mrAll     ;
-          const mrNoToAll  = System.UITypes.mrNoToAll ;
-          const mrYesToAll = System.UITypes.mrYesToAll;
-          const mrClose    = System.UITypes.mrClose   ;
-          const mrLast     = System.UITypes.mrLast    ;
-          const MaxBufLength   = $ff00;
-        {$ENDREGION ' --->  Constantes '}
+        {$REGION ' ---> Property Free_form_owner : TComponent'}
+          private _Free_form_owner: TFree_form_owner;
+          {: O evento **@name** é usado para desalocar o formulário
+             que implementa o diálogo TMi_Msg_Box ou TMi_Input_Box.
 
-        {$REGION ' --->  Tipos'}
+             - **EXEMPLO**
+
+               ```pascal
+
+                  procedure TMi_lcl_inputbox.MI_UI_InputBox1Free_form_owner;
+                  begin
+                    Free;
+                  end;
+
+
+               ```
+          }
+          published property  OnFree_form_owner: TFree_form_owner Read _Free_form_owner write _Free_form_owner;
+        {$ENDREGION}
+
+      {$REGION ' --->  Constantes '}
+        // Used for ModalResult
+        const
+          MaxBufLength   = $ff00;
+          mbOK       = System.UITypes.mbOK;
+          mrOK       = System.UITypes.mrOK;
+
+          mbCancel   = System.UITypes.mbCancel ;
+          mrCancel   = System.UITypes.mrCancel;
+
+          mbAbort    = System.UITypes.mbAbort;
+          mrAbort    = System.UITypes.mrAbort;
+          mrIgnore   = System.UITypes.mrIgnore;
+
+          mbYes      = System.UITypes.mbYes;
+          mrYes      = System.UITypes.mrYes;
+
+          mbNo       = System.UITypes.mbNo;
+          mrNo       = System.UITypes.mrNo;
+
+          mbClose    = System.UITypes.mbClose;
+          mrClose    = System.UITypes.mrClose;
+
+          mbAll      = System.UITypes.mbAll;
+          mrAll      = System.UITypes.mrAll;
+
+          mbNoToAll  = System.UITypes.mbNoToAll;
+          mrNoToAll  = System.UITypes.mrNoToAll;
+
+          mbYesToAll = System.UITypes.mbYesToAll;
+          mrYesToAll = System.UITypes.mrYesToAll;
+
+          // Used for ModalResult
+          mrNone     = System.UITypes.mrNone;
+
+          mrLast     = System.UITypes.mrLast    ;
+
+
+
+
+          //mrLast     = ;
+          //mbNone     = System.UITypes.mbNone; não existe
+
+          mbRetry    = System.UITypes.mbRetry;
+          mrRetry    = System.UITypes.mrRetry;
+
+          mbIgnore   = System.UITypes.mbIgnore ;
+          mbHelp     = System.UITypes.mbHelp;
+
+
+      {$ENDREGION ' --->  Constantes '}
+
+      {$REGION ' --->  Tipos'}
 
             // Message dialog related
           public Type TMsgDlgType = System.UITypes.TMsgDlgType;
-
-          public Type TMsgDlgBtn  = System.UITypes.TMsgDlgBtn; //mbNone //Não existe em System.UITypes.TMsgDlgBtn mais peciso dele em TMI_ui_Methods.MsgDlgButtons_To_MsgDlgBtn
-          //TMsgDlgBtn     = (mbYes, mbNo, mbOK, mbCancel, mbAbort, mbRetry, mbIgnore, mbAll, mbNoToAll, mbYesToAll, mbHelp, mbClose);
-
+          public Type TMsgDlgBtn  = System.UITypes.TMsgDlgBtn;
           public Type TMsgDlgButtons = System.UITypes.TMsgDlgButtons;
 
-            // ModalResult
-//          public Type TModalResult = System.UITypes.TModalResult;
-//          public Type PModalResult = System.UITypes.PModalResult;
+          // ModalResult
+          type TModalResult = System.UITypes.TModalResult;
 
           public Type TArray_MsgDlgBtn = array[0..2] of TMsgDlgBtn;
 
@@ -84,10 +137,16 @@ interface
         //    StrSelection : String;
         //  end;
 
-        {$ENDREGION ' --->  Tipos e constantes '}
-    end;
+      {$ENDREGION ' --->  Tipos e constantes '}
+
+
+      end;
+
+      TMI_MsgBoxTypes_Class = Class of TMI_MsgBoxTypes;
 
     {$REGION ' --->  Tipos e function of object '}
+
+
         Type TMessageBox = Function (Const aMsg:AnsiString):TModalResult of object unimplemented;
 
         {: - O type **@name** é um evento que deve ser implementada na plataforma
@@ -142,24 +201,6 @@ interface
                                               DlgType: TMsgDlgType;
                                               Buttons: TMsgDlgButtons
                                               ) : TModalResult of Object unimplemented;
-       {: - O type **@name** é um evento que deve ser implementada na plataforma
-            onde for usada.        }
-        type TInputValue = function (const aTitle,
-                                     aLabel: AnsiString;
-                                     var aValue : Variant): TModalResult of object  unimplemented;
-
-        {: - O type **@name** é um evento que deve ser implementada na plataforma
-             onde for usada.        }
-        type TInputBox = function (const aTitle,
-                                         ALabel: AnsiString;
-                                   var Buff;
-                                   Template: AnsiString): TModalResult of object  unimplemented;
-
-        {: - O type **@name** é um evento que deve ser implementada na plataforma
-             onde for usada.        }
-
-        type TInputPassword = function (const aTitle:AnsiString;
-                                        var aPassword : AnsiString): TModalResult of object  unimplemented;
 
         {: - O type **@name** é um evento que deve ser implementada na plataforma
              onde for usada.        }
@@ -188,35 +229,68 @@ interface
     Type
       TMI_MsgBoxConsts =
       Class(TMI_MsgBoxTypes)
-        const
+
+        {$IF FPC_FULLVERSION > 30202}
+            //Versao freepascal 3.3.1
+            Const
+            mrNone    = System.UITypes.mrNone;
+            mrOK      = System.UITypes.mrOK;
+            mrCancel  = System.UITypes.mrCancel;
+            mrAbort   = System.UITypes.mrAbort;
+            mrRetry   = System.UITypes.mrRetry;
+            mrIgnore  = System.UITypes.mrIgnore;
+            mrYes     = System.UITypes.mrYes;
+            mrNo      = System.UITypes.mrNo;
+            mrAll     = System.UITypes.mrAll;
+            mrNoToAll = System.UITypes.mrNoToAll;
+            mrYesToAll = System.UITypes.mrYesToAll;
+            mrClose    = System.UITypes.mrClose;
+            mrContinue = System.UITypes.mrContinue;
+            mrTryAgain = System.UITypes.mrTryAgain;
+            mrLast     = System.UITypes.mrLast;
+
+            //Versão freepascal 3.3.1
+            ModalResultStr: array[mrNone..mrLast]
+                            of shortstring = ('mrNone',
+                                              'mrOK',
+                                              'mrCancel',
+                                              'mrAbort',
+                                              'mrRetry',
+                                              'mrIgnore',
+                                              'mrYes',
+                                              'mrNo',
+                                              'mrAll',
+                                              'mrNoToAll',
+                                              'mrYesToAll',
+                                              'mrClose',
+                                              'mrContinue',
+                                              'mrTryAgain');
+
+        {$ELSE}
+
           // Used for ModalResult
-          mrNone = System.UITypes.mrNone;
-          mrOK = System.UITypes.mrOK;
-          mrCancel = System.UITypes.mrCancel;
-          mrAbort = System.UITypes.mrAbort;
-          mrRetry = System.UITypes.mrRetry;
-          mrIgnore = System.UITypes.mrIgnore;
-          mrYes = System.UITypes.mrYes;
-          mrNo = System.UITypes.mrNo;
-          mrAll = System.UITypes.mrAll;
-          mrNoToAll = System.UITypes.mrNoToAll;
-          mrYesToAll = System.UITypes.mrYesToAll;
-          mrClose = System.UITypes.mrClose;
-          mrLast = System.UITypes.mrLast;
-          //mbNone     = System.UITypes.mbNone; não existe
+          const mrNone     = System.UITypes.mrNone;
+          const mrAbort    = System.UITypes.mrAbort   ;
+          const mrRetry    = System.UITypes.mrRetry   ;
+          const mrIgnore   = System.UITypes.mrIgnore  ;
+          const mrYes      = System.UITypes.mrYes     ;
+          const mrNo       = System.UITypes.mrNo      ;
+          const mrAll      = System.UITypes.mrAll     ;
+          const mrNoToAll  = System.UITypes.mrNoToAll ;
+          const mrYesToAll = System.UITypes.mrYesToAll;
+          const mrClose    = System.UITypes.mrClose   ;
+          const mrLast     = System.UITypes.mrLast    ;
+
+          mbAbort    = System.UITypes.mbAbort;
           mbYes      = System.UITypes.mbYes;
           mbNo       = System.UITypes.mbNo;
-          mbOK       = System.UITypes.mbOK;
-          mbCancel   = System.UITypes.mbCancel ;
-          mbAbort    = System.UITypes.mbAbort;
-          mbRetry    = System.UITypes.mbRetry;
-          mbIgnore   = System.UITypes.mbIgnore ;
-          mbAll      = System.UITypes.mbAll ;
+          mbClose    = System.UITypes.mbClose;
+          mbAll      = System.UITypes.mbAll;
           mbNoToAll  = System.UITypes.mbNoToAll;
           mbYesToAll = System.UITypes.mbYesToAll;
+          mbRetry    = System.UITypes.mbRetry;
+          mbIgnore   = System.UITypes.mbIgnore ;
           mbHelp     = System.UITypes.mbHelp;
-          mbClose    = System.UITypes.mbClose  ;
-
           // String representation of ModalResult values
           ModalResultStr: array[mrNone..mrLast] of shortstring = (
             'mrNone',
@@ -231,7 +305,7 @@ interface
             'mrN10:10oToAll',
             'mrYesToAll',
             'mrClose');
-
+      {$ENDIF}
 
       mtWarning = System.UITypes.mtWarning;
       mtError = System.UITypes.mtError;
@@ -248,7 +322,7 @@ interface
         mbAbortRetryIgnore = [mbAbort, mbRetry, mbIgnore];
 
         //mfAbortRetryIgnore = mbAbortRetryIgnore;
-        {  AnsiChar_Control_Template : AnsiCharSet = [#0..#31,'`',^a..^z,^A..^Z];}
+        {  AnsiChar_Control_Template : AnsiCharSet = [#0..#31,fldCONTRACTION,^a..^z,^A..^Z];}
 
         {Se MessageBoxOff = true entÆo nao mostra o dialogo e torna o comando defaust
 
@@ -264,11 +338,14 @@ interface
          cujo a implementação deve ser feita nas plataformas:  LCL, HTML e  JavaScript.
     }
     Type
+      TMI_MsgBox = class;
 
       { TMI_MsgBox }
 
       TMI_MsgBox =
       Class(TMI_MsgBoxConsts)
+        {: O método **@name** retorna o equivalente ModalResult ao botão default}
+        public function ButtonDefault_to_ModalResult(aButtonDefault: TMsgDlgBtn):TModalResult;
 
         Public procedure ShowMessage(Msg:AnsiString);Overload;
 
@@ -342,45 +419,6 @@ interface
                                                      Buttons: TMsgDlgButtons;
                                                      ButtonDefault: TMsgDlgBtn):TModalResult;//Não desaloca APSItem
 
-        {$REGION ' ---> Property onInputBox : TInputBox '}
-           strict Private Var _onInputValue : TInputValue;
-
-           {: O evento **@name** ler um valor na tela e retorna em **aValue** o valor e em result
-           retona **MrOk** ou **MrCancel**
-              - **Nota**
-                - Essa propriedade deve ser implementada na plataforma selecionada. Ou  seja: LCL,
-                  Android, html etc...
-           }
-           Published  property  onInputValue: TInputValue Read _onInputValue   Write  _onInputValue;
-        {$ENDREGION}
-
-        {: O método **@name** ler um valor na tela e retorna em **aValue** o valor e em result
-           retorna **MrOk** ou **MrCancel**}
-        Public function InputValue(const aTitle,
-                                    aLabel: AnsiString;
-                                    var aValue : Variant
-                                   ): TModalResult;
-
-
-        {$REGION ' ---> Property onInputBox : TInputBox '}
-          strict Private Var _onInputBox : TInputBox;
-          Published  property  onInputBox: TInputBox Read _onInputBox   Write  _onInputBox;
-        {$ENDREGION}
-        Public function InputBox(const
-                                  aTitle,
-                                  aLabel: AnsiString;
-                                  var
-                                    Buff; {:< uffer da variável para ler.}
-                                  Template: AnsiString
-                               ): TModalResult;
-
-        {$REGION ' ---> Property onInputPassword : TInputPassword '}
-          strict Private Var _onInputPassword : TInputPassword;
-          Published  property  onInputPassword: TInputPassword Read _onInputPassword   Write  _onInputPassword;
-        {$ENDREGION}
-        Public function InputPassword(const aTitle:AnsiString;var aPassword : AnsiString): TModalResult;
-
-
 
         {$REGION ' ---> Property OnHandleException : THandleException '}
           strict Private Var _OnHandleException : THandleException;
@@ -432,6 +470,11 @@ interface
         {$ENDREGION}
         public procedure CloseHTML();
 
+        public class function SItemsLen(S: PSItem): SmallInt;var  Len : integer;
+        public class function SItemToString(Items: PSItem): AnsiString;
+
+
+
       End;
 
 
@@ -448,8 +491,27 @@ begin
   RegisterComponents('Mi.Rtl', [TMI_MsgBox]);
 end;
 
+{ TMI_MsgBoxTypes }
+
 
 { TMI_MsgBox }
+
+function TMI_MsgBox.ButtonDefault_to_ModalResult(aButtonDefault: TMsgDlgBtn ): TModalResult;
+begin
+  case aButtonDefault of
+    mbOK     : Result := mrOK;
+    mbCancel : Result := mrCancel;
+    mbYes    : Result := mrYes;
+    mbNo     : Result := mrNo;
+    mbAbort  : Result := mrAbort;
+    mbRetry  : Result := mrRetry;
+    mbIgnore : Result := mrIgnore;
+    mbAll    : Result := mrAll;
+//    mbHelp   : Result := mrHelp;
+    mbClose  : Result := mrClose;
+    else result := mrNone;
+  end;
+end;
 
 procedure TMI_MsgBox.ShowMessage(Msg: AnsiString);
 begin
@@ -461,28 +523,38 @@ function TMI_MsgBox.MessageBox(Msg: AnsiString;
                                Buttons: TMsgDlgButtons;
                                ButtonDefault: TMsgDlgBtn):TModalResult ;Overload;
 begin
-  If (Not ok_Set_Transaction)
+  If (Not ok_Set_Transaction) and (Not Get_ok_Set_Server_Http)
   then begin
-        if @onMessageBox_04<>nil
+        if Assigned(onMessageBox_04)
         then Result := onMessageBox_04(Msg,DlgType,Buttons,ButtonDefault)
-        Else Result :=  mrNone;
+        Else Result := ButtonDefault_to_ModalResult(ButtonDefault);
 
        end
-  else Push_MsgErro(Msg);
+  else begin
+         PushMsgErro(Msg);
+         Result := ButtonDefault_to_ModalResult(ButtonDefault);
+       end;
 end;
 
 function TMI_MsgBox.MessageBox(aPSItem : TMI_MsgBoxTypes.PSItem;
                                DlgType: TMsgDlgType;
                                Buttons: TMsgDlgButtons;
                                ButtonDefault: TMsgDlgBtn):TModalResult ;Overload;
+  var
+    s:AnsiString;
 begin
-  If (Not ok_Set_Transaction)
+  If (Not ok_Set_Transaction) and (Not Get_ok_Set_Server_Http)
   then begin
         if @onMessageBox_04_PSItem<>nil
         then Result := onMessageBox_04_PSItem(aPSItem,DlgType,Buttons,ButtonDefault)
-        Else Result :=  mrNone;
+        Else Result :=  ButtonDefault_to_ModalResult(ButtonDefault);
+       end
+  else begin
+         s := SItemToString(aPSItem);
+         PushMsgErro(s);
+         Result := ButtonDefault_to_ModalResult(ButtonDefault);
        end;
-//  else Push_MsgErro(Msg);
+
 end;
 
 function TMI_MsgBox.MessageBox(aTitle : AnsiString;
@@ -491,84 +563,101 @@ function TMI_MsgBox.MessageBox(aTitle : AnsiString;
                                Buttons: TMsgDlgButtons;
                                ButtonDefault: TMsgDlgBtn):TModalResult ;Overload;
 begin
-  If (Not ok_Set_Transaction)
+  If (Not ok_Set_Transaction) and (Not Get_ok_Set_Server_Http)
   then begin
          if @onMessageBox_05<>nil
          then Result := onMessageBox_05(aTitle,Msg,DlgType,Buttons,ButtonDefault)
-         Else Result :=  mrNone;
+         Else Result := ButtonDefault_to_ModalResult(ButtonDefault);
   end
-  else Push_MsgErro(Msg);
+  else begin
+         PushMsgErro(Msg);
+         Result := ButtonDefault_to_ModalResult(ButtonDefault);
+       end;
 end;
 
 
 function TMI_MsgBox.MessageBox(const aMsg: AnsiString): TModalResult;
 begin
-  If (Not ok_Set_Transaction)
+  If (Not ok_Set_Transaction) and (Not get_ok_Set_Server_Http)
   then begin
          if @onMessageBox<>nil
          then Result := onMessageBox(aMsg)
          Else Result := mrOK;
   end
-  else Push_MsgErro(aMsg);
+  else begin
+         PushMsgErro(aMsg);
+         Result := mrOK;
+       end;
 end;
 
 function TMI_MsgBox.MessageBox(const aMsg: AnsiString; DlgType: TMsgDlgType; Buttons: TMsgDlgButtons): TModalResult;
 begin
-  If (Not ok_Set_Transaction)
+  If (Not ok_Set_Transaction) and (Not get_ok_Set_Server_Http)
   then begin
          if @onMessageBox_03<>nil
          then Result := onMessageBox_03(aMsg,DlgType, Buttons)
          Else Result := mrNone;
   end
-  else Push_MsgErro(aMsg);
+  else begin
+         PushMsgErro(aMsg);
+         Result := mrNone;
+       end;
 end;
 
-function TMI_MsgBox.MessageBox_ListBoxRec_PSItem(Atitulo: AnsiString; APSItem: PSItem;
+function TMI_MsgBox.MessageBox_ListBoxRec_PSItem(Atitulo: AnsiString;
+                                                 APSItem: PSItem;
                                                  itemSelection : longint;
                                                  DlgType: TMsgDlgType;
                                                  Buttons: TMsgDlgButtons;
                                                  ButtonDefault: TMsgDlgBtn): TModalResult;
+
 begin
-  If (Not ok_Set_Transaction)
+  If (Not ok_Set_Transaction) and (Not get_ok_Set_Server_Http)
   then begin
          if @onMessageBox_ListBoxRec_PSItem<>nil
          then Result := onMessageBox_ListBoxRec_PSItem(Atitulo,APSItem,itemSelection,DlgType,Buttons,ButtonDefault)
-         Else Result := mrNone;
+         Else Result := ButtonDefault_to_ModalResult(ButtonDefault);
+       end
+  else begin
+         PushMsgErro(SItemToString(APSItem));
+         Result := ButtonDefault_to_ModalResult(ButtonDefault);
        end;
 end;
 
-function TMI_MsgBox.InputValue(const aTitle,
-                                aLabel: AnsiString;
-                                var aValue: Variant): TModalResult;
-begin
-  If (Not ok_Set_Transaction)
-  then begin
-         if @onInputValue<>nil
-         then Result := onInputValue(aTitle, ALabel,aValue)
-         Else Result := MrCancel;
-  end;
-end;
+//function TMI_MsgBox.InputValue(const aTitle,
+//                                aLabel: AnsiString;
+//                                var aValue: Variant): TModalResult;
+//begin
+//  If (Not ok_Set_Transaction) and (Not ok_Set_Server_Http)
+//  then begin
+//         if @onInputValue<>nil
+//         then Result := onInputValue(aTitle, ALabel,aValue)
+//         Else Result := MrCancel;
+//  end
+//  else PushMsgErro(aMsg);
+//end;
 
-function TMI_MsgBox.InputBox(const aTitle, ALabel: AnsiString; var Buff; Template: AnsiString): TModalResult;
-begin
-  If (Not ok_Set_Transaction)
-  then begin
-         if @onInputBox<>nil
-         then Result := onInputBox(aTitle, ALabel,Buff,Template)
-         Else Result := MrCancel;
-  end;
-end;
+//function TMI_MsgBox.InputBox(const aTitle, ALabel: AnsiString; var Buff; Template: AnsiString): TModalResult;
+//begin
+//  If (Not ok_Set_Transaction) and (Not ok_Set_Server_Http)
+//  then begin
+//         if @onInputBox<>nil
+//         then Result := onInputBox(aTitle, ALabel,Buff,Template)
+//         Else Result := MrCancel;
+//  end
+//  else PushMsgErro(aMsg);
+//end;
 
-function TMI_MsgBox.InputPassword(const aTitle:AnsiString;var aPassword : AnsiString): TModalResult;
-begin
-  If (Not ok_Set_Transaction)
-  then begin
-         if @onInputPassword<>nil
-         then Result := onInputPassword(aTitle, aPassword)
-         Else Result := MrCancel;
-
-  end;
-end;
+//function TMI_MsgBox.InputPassword(const aTitle:AnsiString;var aPassword : AnsiString): TModalResult;
+//begin
+//  If (Not ok_Set_Transaction) and (Not ok_Set_Server_Http)
+//  then begin
+//         if @onInputPassword<>nil
+//         then Result := onInputPassword(aTitle, aPassword)
+//         Else Result := MrCancel;
+//
+//  end;
+//end;
 
 { This is the exception handler which is called if an exception is raised
   while the component is being stream in or streamed out.  In most cases this
@@ -609,6 +698,35 @@ begin
   else raise EArgumentException.Create('A procedure '+Self.ClassName+' não implementada.');
 end;
 
+class function TMI_MsgBox.SItemsLen(S: PSItem): SmallInt;var  Len : integer;
+begin
+  Len := 0;
+  While (S <> nil) do
+  begin
+    If (S^.Value <> nil)
+    then Inc(Len, length(S^.Value^));
+    S := S^.Next;
+  end;
+  SItemsLen := Len;
+end;
+
+class function TMI_MsgBox.SItemToString(Items: PSItem): AnsiString;
+   Var
+     Len : Longint;
+Begin
+  Result := '';
+  Len := SItemsLen(Items);
+  If (Len > 0) then
+    While (Items <> nil) do
+    begin
+      If (Items.Value <> nil) then
+          begin
+            Result := Result + Items.Value^+^M;
+          end;
+      Items := Items.Next;
+    end;
+end;
 
 
 end.
+

@@ -6,7 +6,7 @@ unit mi.rtl.Types;
     - O Método **TTypes.TPointer.Get_Mem** ignora alocação de memória real porque não sei como fazer nas plataformas diferentes do Windows.
 
   - **VERSÃO**
-    - Alpha - Alpha - 0.9.0
+    - Alpha - 1.0.0
 
   - **CÓDIGO FONTE**:
     - @html(<a href="../units/mi.rtl.types.pas">mi.rtl.types.pas</a>)          
@@ -36,8 +36,12 @@ interface
 
 uses
   {$IFDEF Windows}Windows,  {$ENDIF}
-  Classes,Dos,fpTemplate
+  Classes
+  ,Dos
+  ,fpTemplate
   , SysUtils
+  ,db
+  ,Interfaces //Note: this, includes the LCL widgetset
 
   ;
 
@@ -48,25 +52,50 @@ uses
       Mi.RTL
    }
    TTypes = class(TComponent)
+
+     //type TArrayVariant = Array of Variant;
+
+     {:O atributo  **@name** é usado para dar um nome amigável a classe
+     }
+     public Alias : AnsiString;
+
+     {:O tipo **@name** é usado para identificar o tipo de aplicação atual.
+     }
+     public type TEnClientsApplication = (en_app_lcl,en_app_javascript,en_app_dynamic_html,en_app_vuejs,en_app_angularjs,en_app_reactjs);
+
+     {:O tipo **@name** é usado nos metodos que retornam nome de arquivos.
+     }
+     public type TNameClientsApplication = Array[TEnClientsApplication] of ansiString;
+
+     {:O tipo **@name** é usado nos metodos que retornam nome da estenção dos arquivos.
+     }
+     public type TNameClientsApplicationExt = Array[TEnClientsApplication] of ansiString;
+
+     {: O tipo **@name** é usada para imprimir as mensagens se tiver na pilha de
+        mensagens após uma transação for concluida.}
+     public type TMessageError =  Procedure;
+
      public type TTextRec = System.TextRec;
      public type TFileRec = System.FileRec;
 
 
-     public Alias : AnsiString;
-     public Type TAlign = (Align_Original, {<O Texto original}
-                           Align_Left,
-                           Align_Center,
-                           Align_Right,
-                           Fill_with_spaces);
+     {:O tipo **@name** usado para centralisar os templates}
+     public Type TAlign = (Align_Original, {:<O Texto original}
+                           Align_Left, {:< Alinha a esquerda}
+                           Align_Center, {:< Alinha ao centro}
+                           Align_Right,  {:< Alinha a direta}
+                           Fill_with_spaces {:< Peenche com espaços}
+                           );
      public type TAlinhamento = (Alinhamento_Direita,
                                  Alinhamento_Central,
                                  Alinhamento_Esquerda,
                                  Alinhamento_Justificado);
 
-     {: - A constant **@name** indica se o processo está dentro de uma transação.}
-     public const ok_Set_Transaction   : BOOLEAN = false;
 
      public constructor Create(aowner:TComponent);Overload;Override;
+
+
+
      {$IFDEF Windows}
        public type TCOORD = Windows.COORD;
        public type DWord  = Windows.DWord;
@@ -87,12 +116,21 @@ uses
      type TRealNum           = Double;
      type Real               = single;
      type PRealNum           = ^TRealNum;
-     type TSizeOffldCluster  = SmallInt;
-     type LongInt            = System.Longint;
-     type Integer            = Longint;
      type Word               = System.Longword;
      type SmallWord          = System.word;
      type LongWord           = System.LongWord;
+
+     {: O tipo **@name** é um tipo de campo bit, onde cada bit pode estar ligado
+          e desligado, por isso o mesmo pode contar 16 opções diferente se as opções
+          forem multuamente exclusivas e 65535 caso contrário.
+     }
+     type TBits           = SmallWord;
+     type PBits           = ^TBits;
+     type TSizeOffldBits  = byte;
+     type LongInt            = System.Longint;
+     type Integer            = Longint;
+     type SmallInteger       = System.Integer;
+     type PSmallInteger      = ^SmallInteger;
      type int64              = System.Int64;
 
        //: https://www.freepascal.org/docs-html/rtl/system/ptruint.html
@@ -109,33 +147,6 @@ uses
      type PBoolean    = ^Boolean;
      type PShortInt   = ^Shortint;
      type PReal       = ^Real;
-
-     {: O tipo **@name** é um tipo de campo bit, onde cada bit pode estar ligado
-        e desligado, por isso o mesmo pode contar 16 opções diferente se as opções
-        forem multuamente exclusivas e 65535 caso contrário.
-
-        - **NOTA**
-          - Este tipo de informação é representado em um formulário pelo controle
-            TRadioButton. No meu ponto de vista não sei porque foi criado porque
-            acaba gastando mais espaço do que representar essas informações em um byte
-            se o campo fosse enumerado.
-          - O tipo byte também pode resentar as mesmas informações usando o controle
-            TListaBox.
-
-        - **EXEMPLO**
-          - SEXO
-            - Masculino
-            - Feminino
-            - Indefinido
-
-          - Estado Civil
-            - Soulteiro
-            - Casado
-            - Divorciado
-            - Amigado
-     }
-     type TCluster = Byte;
-     type PCluster = ^TCluster;
 
 
      type TipoOfsSeg = Record
@@ -206,8 +217,8 @@ uses
      type TArrayPtr  = array[0..MAX_ARRAY_PTR  - 1] of Pointer;
      type PArrayPtr  = ^TArrayPtr;
 
-     type TWordArray = ARRAY [0..MAX_ARRAY_WORD-1] Of Word;//:< Word array
-     type PWordArray = ^TWordArray; //:< Word array pointer
+     //type TWordArray = ARRAY [0..MAX_ARRAY_WORD-1] Of Word;//:< Word array
+     //type PWordArray = ^TWordArray; //:< Word array pointer
 
      type TSmallWordArray = ARRAY [0..MAX_ARRAY_SMALL_WORD-1] Of SmallWord;//:< Word array
      type PSmallWordArray = ^TSmallWordArray;//:< Word array pointer
@@ -238,10 +249,30 @@ uses
                     Next: PSItem;
                  End;
 
-     //type
-     //  PtrRec = record
-     //    Ofs: Longint;
-     //  end;
+     {: O tipo registro **@name** é usado para saber o tamanho dos parâmetros da função CreateEnumField}
+     type TEnumField = record
+                         TypeField : Ansichar; //1            1
+                         Items     : PSItem;   //1+1 =2       2
+                         ShowZ     : AnsiChar; //2+8 = 10     10
+                         AccMode   : AnsiChar; //10+1=11      24
+                         Default   : LongInt;  //11+1=12      36
+                         DataSource : TDataSource; //12+4=16
+                         KeyField  : pString;     //16+8=24
+                         ListField : pString      //24+8=32
+                       end;
+
+     type TEnumField_ofs = record
+                             TypeField ,
+                             Items     ,
+                             ShowZ     ,
+                             AccMode   ,
+                             Default   ,
+                             DataSource ,
+                             KeyField  ,
+                             ListField : integer
+                       end;
+
+      type TDmxStr_ID =  string[sizeof(TEnumField)];           {< contracted Template string }
 
       //: - O tipo **@name** é usado para padronizar o tipo usado nos handles de acesso a arquivos.
       Type THandle = System.THandle;
@@ -410,9 +441,11 @@ uses
                         fmmShareDenyRead  = SysUtils.fmShareDenyRead,
                         fmmShareDenyNone  = SysUtils.fmShareDenyNone);
 
-
-      const SizeOffldCluster    : TSizeOffldCluster = sizeof(TSizeOffldCluster);
-      const SizeOffldDbCluster  = 50;
+      {: A contante **@name** contém o número de bytes em um cluster contendo
+         as opções de um botão tipo RadioButton.
+      }
+      const SizeOffldBits    : TSizeOffldBits = sizeof(TSizeOffldBits);
+      const SizeOffldDbBits  = 50;
 
 
 
@@ -523,12 +556,8 @@ uses
                             password        : AnsiString; //:< Senha do usuario logado
                           end;
 
-     type TParamExecucao_Tipo_de_Execucao = (TParamExecucao_Tipo_de_Execucao_Normal, {<O sistema trabalha com menu do turbo Vision}
-                                             TParamExecucao_Tipo_de_Execucao_Normal_Sem_Pedir_Senha, {<O sistema trabalha com menu do turbo Vision}
-                                             TParamExecucao_Tipo_de_Execucao_Normal_Exec_Command,    {<O sistema executa um comando depois de pedir a senha. Usado para execusão em lote }
-                                             TParamExecucao_Tipo_de_Execucao_VCL,    {<O sistema trabalha com menu Grafico}
-                                             TParamExecucao_Tipo_de_Execucao_CGI,   {<O sistema trabalha com chamadas do Browse}
-                                             TParamExecucao_Tipo_de_Execucao_ISAPI); //O Sistema trabalha como um serviço DLL
+     type TParamExecucao_Tipo_de_Execucao = (TParamExecucao_Tipo_de_Execucao_Normal, {:< Aplicação LCL }
+                                             TParamExecucao_Tipo_de_Execucao_SvrHttp); //O Sistema trabalha um servidor http
 
      Type TNao_Sim = (NS_Nao,NS_Sim);
 
@@ -637,7 +666,6 @@ uses
            );
 
      public
-
      Type
 
        {: O tipo **@name** usado em THTMLTagEven indicando o tipo de tag.
@@ -646,29 +674,121 @@ uses
        }
        TTag = (Tgcustom, tgLink, tgImage, tgTable, tgImageMap, tgObject, tgEmbed);
 
-       type
-         {: O tipo **@name** é usado pela classe **mi.rtl.Objects.Methods** para implementar
-            os eventos:
-              - OnHTMLTag_tgCustom,
-              - OnHTMLTag_tgLink,
-              - OnHTMLTag_tgImage,
-              - OnHTMLTag_tgTable,
-              - OnHTMLTag_tgImageMap,
-              - OnHTMLTag_tgObject,
-              - OnHTMLTag_tgEmbed.
-         }
+     type
+       {: O tipo **@name** é usado pela classe **mi.rtl.Objects.Methods** para implementar
+          os eventos:
+            - OnHTMLTag_tgCustom,
+            - OnHTMLTag_tgLink,
+            - OnHTMLTag_tgImage,
+            - OnHTMLTag_tgTable,
+            - OnHTMLTag_tgImageMap,
+            - OnHTMLTag_tgObject,
+            - OnHTMLTag_tgEmbed.
+       }
 //         THTMLTagEvent = TReplaceTagEvent;
-         THTMLTagEvent = procedure (Sender: TObject; const TagString: string;
-                                  TagParams: TStrings; var ReplaceText: string) of object;
+       THTMLTagEvent = procedure (Sender: TObject; const TagString: string;
+                                TagParams: TStrings; var ReplaceText: string) of object;
 
-  //       public
-  //
-  //         Type
-  //           {: O tipo **@name** usado para preencher modelos pre-fabricados de
-  //              códigos para preencher com varáveis.}
-  //           THTMLTagEvent = TReplaceTagEvent;
-  //           //THTMLTagEvent = procedure (Sender: TObject; Tag: TTag;
-  //              const TagString: string;  TagParams: TStrings; var ReplaceText: string) of object;
+//       public
+//
+//         Type
+//           {: O tipo **@name** usado para preencher modelos pre-fabricados de
+//              códigos para preencher com varáveis.}
+//           THTMLTagEvent = TReplaceTagEvent;
+//           //THTMLTagEvent = procedure (Sender: TObject; Tag: TTag;
+//              const TagString: string;  TagParams: TStrings; var ReplaceText: string) of object;
+
+
+
+     {:O tipo **@name** são todos os verbos HTTP, também conhecidos como métodos
+       HTTP, são comandos que indicam a ação desejada a ser realizada em um recurso
+       na web. Aqui estão os principais verbos HTTP:
+
+       - **Notas**
+         - Ações idempotentes
+           - Garantem que múltiplas execuções da mesma ação não vão gerar efeitos
+             colaterais adicionais após a primeira execução.
+             - Exemplos:
+               - GET: É idempotente porque solicitar o mesmo recurso várias vezes
+                      não altera o estado do servidor. Você sempre recebe a mesma
+                      resposta (assumindo que o recurso não mudou entre as requisições).
+
+               - PUT: É idempotente porque ao submeter uma mesma requisição PUT
+                      várias vezes com os mesmos dados, resultará no mesmo estado
+                      do recurso no servidor, independentemente de quantas vezes
+                      a operação for repetida.
+
+               - DELETE: É idempotente porque a exclusão de um recurso já
+                         inexistente não terá efeito adicional; após a primeira
+                         exclusão, requisições subsequentes de DELETE não terão
+                         nenhum impacto.
+
+         - Ações não idempotentes:
+           - POST: Não é idempotente, pois cada requisição pode criar um novo
+                   recurso ou alterar o estado do servidor de maneira diferente.
+                   Por exemplo, enviar várias requisições POST para criar um novo
+                   recurso pode resultar em múltiplas criações.
+     }
+     type  TEnMethodHttp=(HttpGET,    {:<Solicita a recuperação de um recurso. Não deve alterar o estado do servidor, sendo considerado um método seguro e idempotente.}
+                          HttpPOST,   {:<Envia dados ao servidor para criar ou modificar um recurso. É utilizado principalmente para enviar formulários ou dados de uma aplicação para o servidor.}
+                          HttpPUT,    {:<Atualiza ou cria um recurso em uma URL específica. É idempotente, o que significa que várias requisições PUT com os mesmos dados não devem alterar o estado do recurso além da primeira requisição.}
+                          HttpDELETE, {:<Remove um recurso identificado pela URL. Como PUT, é idempotente.}
+                          HttpPATCH,  {:<Aplica modificações parciais a um recurso. Diferente do PUT, que substitui o recurso completo, o PATCH altera apenas os campos fornecidos.}
+                          HttpHEAD,   {:<Solicita as mesmas informações que o GET, mas sem o corpo da resposta. É utilizado para obter metadados, como cabeçalhos HTTP.}
+                          HttpOPTIONS,{:<Retorna os métodos HTTP suportados por um recurso. Útil para verificar quais operações são permitidas em um endpoint.}
+                          HttpTRACE,  {:<Realiza um loopback de uma mensagem de solicitação para fins de teste e diagnóstico, retornando a requisição ao cliente.}
+                          HttpCONNECT {:<Estabelece um túnel para o servidor identificado pela URL de destino. É usado principalmente para conectar o cliente a um servidor proxy, especialmente para comunicações seguras via HTTPS.}
+                         );
+
+
+     {:A constante **@name** solicita a recuperação de um recurso. Não deve alterar
+       o estado do servidor, sendo considerado um método seguro e idempotente.
+     }
+     Const HttpGET    = 'GET';
+
+     {:A constante **@name** envia dados ao servidor para criar ou modificar um
+       recurso. É utilizado principalmente para enviar formulários ou dados de uma
+       aplicação para o servidor.
+     }
+     Const HttpPOST   = 'POST';
+
+     {:A constante **@name** atualiza ou cria um recurso em uma URL específica.
+       É idempotente, o que significa que várias requisições PUT com os mesmos dados
+       não devem alterar o estado do recurso além da primeira requisição.
+     }
+     Const HttpPUT    = 'PUT';
+
+     {:A constante **@name** remove um recurso identificado pela URL. Como PUT,
+       é idempotente.
+     }
+     Const HttpDELETE = 'DELETE';
+
+     {:A constante **@name** aplica modificações parciais a um recurso. Diferente
+       do PUT, que substitui o recurso completo, o PATCH altera apenas os campos
+       fornecidos.
+     }
+     Const HttpPATCH  = 'PATCH';
+
+     {:A constante **@name** solicita as mesmas informações que o GET, mas sem o
+       corpo da resposta. É utilizado para obter metadados, como cabeçalhos HTTP.
+     }
+     Const HttpHEAD   = 'HEAD';
+
+     {:A constante **@name** retorna os métodos HTTP suportados por um recurso.
+       Útil para verificar quais operações são permitidas em um endpoint.
+     }
+     Const HttpOPTIONS= 'OPTIONS';
+
+     {:A constante **@name** realiza um loopback de uma mensagem de solicitação
+       para fins de teste e diagnóstico, retornando a requisição ao cliente.
+     }
+     Const HttpTRACE  = 'TRACE';
+
+     {:A constante **@name** estabelece um túnel para o servidor identificado
+       pela URL de destino. É usado principalmente para conectar o cliente a um
+       servidor proxy, especialmente para comunicações seguras via HTTPS.
+     }
+     Const HttpCONNECT= 'CONNECT';
 
   end;
 

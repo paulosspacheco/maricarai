@@ -16,7 +16,7 @@
 </li></ul></div><div class="content">
 <span id="TApplication"></span><h1 class="cio">Classe TApplication</h1>
 <div class="sections">
-<div class="one_section"><a class="section" href="#PasDoc-Description">Descrição</a></div><div class="one_section"><a class="section" href="#PasDoc-Hierarchy">Hierarquia</a></div><div class="one_section"><a class="section" href="#PasDoc-Fields">Campos</a></div><div class="one_section"><a class="section" href="#PasDoc-Methods">Métodos</a></div><div class="one_section">Propriedades</div></div>
+<div class="one_section"><a class="section" href="#PasDoc-Description">Descrição</a></div><div class="one_section"><a class="section" href="#PasDoc-Hierarchy">Hierarquia</a></div><div class="one_section">Campos</div><div class="one_section"><a class="section" href="#PasDoc-Methods">Métodos</a></div><div class="one_section">Propriedades</div></div>
 <span id="PasDoc-Description"></span><h2 class="unit">Unit</h2>
 <p class="unitlink">
 <a href="mi.rtl.Objects.Methods.Paramexecucao.Application.html">mi.rtl.Objects.Methods.Paramexecucao.Application</a></p>
@@ -32,13 +32,6 @@ A class <em><code>TApplication_type</code></em>* é usada para capsular todas as
 <li class="ancestor"><a class="normal" href="mi.rtl.Objects.Methods.Paramexecucao.Application.TApplication_type.html">TApplication_type</a></li>
 <li class="ancestor"><a class="normal" href="mi.rtl.Objects.Methods.Paramexecucao.Application.TApplicationConsts.html">TApplicationConsts</a></li>
 <li class="thisitem">TApplication</li></ul><h2 class="overview">Visão Geral</h2>
-<span id="PasDoc-Fields"></span><h3 class="summary">Campos</h3>
-<table class="summary wide_list">
-<tr class="list">
-<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
-<td class="itemcode"><code><strong><a href="mi.rtl.Objects.Methods.Paramexecucao.Application.TApplication.html#ParamExecucao">ParamExecucao</a></strong>: <a href="mi.rtl.Objects.Methods.Paramexecucao.TParamExecucao.html">TParamExecucao</a>;</code></td>
-</tr>
-</table>
 <span id="PasDoc-Methods"></span><h3 class="summary">Métodos</h3>
 <table class="summary wide_list">
 <tr class="list">
@@ -61,17 +54,12 @@ A class <em><code>TApplication_type</code></em>* é usada para capsular todas as
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
 <td class="itemcode"><code>procedure <strong><a href="mi.rtl.Objects.Methods.Paramexecucao.Application.TApplication.html#DisableCommands">DisableCommands</a></strong>(aCommands: <a href="mi.rtl.Objects.Methods.Paramexecucao.Application.TApplication_type.html#TCommandSet">TCommandSet</a>); virtual;</code></td>
 </tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>procedure <strong><a href="mi.rtl.Objects.Methods.Paramexecucao.Application.TApplication.html#CreateForm">CreateForm</a></strong>(aMI_MsgBoxTypes_Class : <a href="mi.rtl.Objects.Consts.Mi_MsgBox.html#TMI_MsgBoxTypes_Class">TMI_MsgBoxTypes_Class</a>; out Reference); Virtual; overload; abstract;</code></td>
+</tr>
 </table>
 <h2 class="description">Descrição</h2>
-<h3 class="detail">Campos</h3>
-<table class="detail wide_list">
-<tr class="list">
-<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
-<td class="itemcode"><span id="ParamExecucao"></span><code><strong>ParamExecucao</strong>: <a href="mi.rtl.Objects.Methods.Paramexecucao.TParamExecucao.html">TParamExecucao</a>;</code></td>
-</tr>
-<tr><td colspan="2">
-&nbsp;</td></tr>
-</table>
 <h3 class="detail">Métodos</h3>
 <table class="detail wide_list">
 <tr class="list">
@@ -114,6 +102,56 @@ O método <strong><code>FileOptions_CommandEnabled</code></strong> deve ser rede
 </tr>
 <tr><td colspan="2">
 &nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="CreateForm"></span><code>procedure <strong>CreateForm</strong>(aMI_MsgBoxTypes_Class : <a href="mi.rtl.Objects.Consts.Mi_MsgBox.html#TMI_MsgBoxTypes_Class">TMI_MsgBoxTypes_Class</a>; out Reference); Virtual; overload; abstract;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+O Método <strong><code>CreateForm</code></strong> deve ser implementado para criar um diálogo com as caractestísticas do tipo de aplicação, podendo ser LCL, html, javascript etc...
+
+<p></p>
+
+<ul class="paragraph_spacing">
+  <li><p><strong>EXEMPLO DE IMPLEMENTAÇÃO DE APP LCL</strong>
+
+<p></p>
+
+<pre class="longcode">
+
+<span class="pascal_keyword">procedure</span> Tmi_lcl_application.CreateForm( aMI_MsgBoxTypes_Class: TMI_MsgBoxTypes_Class; <span class="pascal_keyword">out</span> <span class="pascal_keyword">Reference</span>);
+  <span class="pascal_keyword">var</span>
+    Instance: TComponent;<span class="pascal_comment">//Usado para saber o tipo da classe.</span>
+    Input  : TMi_lcl_inputbox;
+    MsgBox : TMI_Lcl_MsgBox;
+<span class="pascal_keyword">begin</span>
+  <span class="pascal_comment">// Allocate the instance, without calling the constructor</span>
+  Instance := TComponent(aMI_MsgBoxTypes_Class.NewInstance);
+  TComponent(<span class="pascal_keyword">Reference</span>) := Instance;
+  Instance.Create(Self);
+  <span class="pascal_keyword">if</span> (Instance <span class="pascal_keyword">is</span> TMI_UI_InputBox)
+  <span class="pascal_keyword">then</span> <span class="pascal_keyword">begin</span>
+         freeandnil(<span class="pascal_keyword">Reference</span>);
+         Input := TMi_lcl_inputbox.Create(<span class="pascal_keyword">nil</span>);
+         TMI_MsgBoxTypes(<span class="pascal_keyword">Reference</span>) := Input.MI_UI_InputBox1;
+       <span class="pascal_keyword">end</span>
+       <span class="pascal_keyword">else</span> <span class="pascal_keyword">if</span> (Instance <span class="pascal_keyword">is</span> TMI_MsgBox)
+            <span class="pascal_keyword">then</span> <span class="pascal_keyword">begin</span>
+                   freeandnil(<span class="pascal_keyword">Reference</span>);
+                   MsgBox := TMI_Lcl_MsgBox.Create(<span class="pascal_keyword">nil</span>);
+                   TMI_MsgBoxTypes(<span class="pascal_keyword">Reference</span>) := MsgBox.MI_MsgBox1;
+                 <span class="pascal_keyword">end</span>
+            <span class="pascal_keyword">else</span> TMI_MsgBoxTypes(<span class="pascal_keyword">Reference</span>) := <span class="pascal_keyword">nil</span>;
+
+<span class="pascal_keyword">end</span>;</pre>
+
+<p></p></li>
+</ul>
+
+<p></p>
+</td></tr>
 </table>
 <hr><span class="appinfo"><em>Gerado por <a href="https://pasdoc.github.io/">PasDoc 0.16.0</a>. </em>
 </span>

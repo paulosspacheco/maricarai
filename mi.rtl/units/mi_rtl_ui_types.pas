@@ -2,7 +2,7 @@ unit mi_rtl_ui_types;
 {:< A unit **@name** implementa a classe TUiTypes.
 
   - **VERSÃO**
-    - Alpha - Alpha - 0.9.0
+    - Alpha - 1.0.0
 
   - **CÓDIGO FONTE**:
     - @html(<a href="../units/mi_ui_types.pas">mi_ui_types.pas</a>)
@@ -36,6 +36,7 @@ uses
   //,mi.rtl.Objects.Methods.Ui.Interfaces
 
   ,mi.rtl.Objectss  ;
+
 
   type
     {: A class **@name** concentra todos os tipo do pacote mi.ui.
@@ -82,20 +83,15 @@ uses
             32: (asSHORTINT  : SHORTINT);
             33: (asPSHORTINT : PSHORTINT);
 
-            34: (asCluster  : TCluster);
-            35: (asPCluster : PCluster);
+            34: (asBits  : TBits);
+            35: (asPBits : PBits);
 
             36: (asBOOLEAN  : BOOLEAN);
             37: (asPBOOLEAN : PBOOLEAN);
             38: (asSmallWord : SmallWord);
+            39: (asDateTime : TDateTime);
            End;
 
-      {$ifdef CPU32}
-        public type DmxIDstr =  string[8+3];           {< contracted Template string }
-      {$ENDIF}
-      {$ifdef CPU64}
-        public type DmxIDstr =  string[8+4+3];           {< contracted Template string }
-      {$ENDIF}
 
       {: O tipo **@name** é usado por TViRect para indicar o sentido do cálculo do novo retângulo }
       public type TDirection = (North,   //:< Nort = Acima da origem
@@ -239,19 +235,52 @@ uses
            - **REFERÊNCIA**
              - [Ótimo exemplo de uso das contantes abaixo](https://www.devmedia.com.br/providerflags-no-Delphi-atualizando-dados-de-uma-unica-tabela/26689)
         }
-        type TMiProviderFlag = (pfInUpdate, {:< Usado por SqlDbConnector : As alterações no campo devem ser propagadas para o banco de dados..}
-                                pfInWhere,{:< Usado por SqlDbConnector : O campo deve ser usado na cláusula WHERE de uma instrução de atualização no caso de upWhereChanged.}
+        type TMiProviderFlag =
 
-                                pfInKey, {:< Usado por SqlDbConnector : Indica se o campo é parte da Chave Primária.
-                                             - Campo é um campo chave e usado na cláusula WHERE de uma instrução de atualização.}
+              ( {: O flag **@name** é usado por SqlDbConnector
+                   - As alterações no campo devem ser propagadas para o banco de dados..
+                }
+                pfInUpdate,
 
-                                pfHidden,{: Usado por SqlDbConnector : Indica se o campo será oculto para os Clientes.}
+                {: O flag **@name** é usado por SqlDbConnector
+                   - O campo deve ser usado na cláusula WHERE de uma instrução de atualização no caso de upWhereChanged.
+                }
+                pfInWhere,
 
-                                pfRefreshOnInsert,{:< Usado por SqlDbConnector : O valor deste campo deve ser atualizado após a inserção.}
-                                pfRefreshOnUpdate, {:< Usado por SqlDbConnector : O valor deste campo deve ser atualizado após a atualização.}
-                                pfInKeyPrimary, {:< Usado por TDmxScroller_sql : Campo é um campo chave primária e usado na cláusula WHERE de uma instrução de atualização.}
-                                pfInAutoIncrement{:< Usado por TDmxScroller_sql : Campo é um campo autoincremental e usado em uma instrução de atualização.}
-                                );
+                {: O flag **@name** é usado por SqlDbConnector : Indica se o campo é parte da Chave Primária.
+                   - Campo é um campo chave e usado na cláusula WHERE de uma instrução de atualização.
+                }
+                pfInKey,
+
+                {: O flag **@name** é usado por SqlDbConnector:
+
+                   - Indica se o campo será oculto para os Clientes.
+                }
+                pfHidden,
+
+                {: O flag **@name** é usado por SqlDbConnector:
+
+                   - O valor deste campo deve ser atualizado após a inserção.
+                }
+                pfRefreshOnInsert,
+
+                {: O flag **@name** é usado por SqlDbConnector:
+
+                   - O valor deste campo deve ser atualizado após a atualização.
+                }
+                pfRefreshOnUpdate,
+
+                {: O flag **@name** é usado por TDmxScroller_sql
+                    - O campo é uma chave primária, usado na cláusula WHERE de uma instrução de atualização.
+                }
+                pfInKeyPrimary,
+
+                {: O flag **@name** é usado por TDmxScroller_sql
+
+                   - Campo é um campo autoincremental e usado em uma instrução de atualização.
+                }
+                pfInAutoIncrement
+              );
 
         {: O tipo **@name** é usado pelo componente TDataSet para gerar instruções sql de acesso ao banco de dados.
            - **REFERÊNCIA**:

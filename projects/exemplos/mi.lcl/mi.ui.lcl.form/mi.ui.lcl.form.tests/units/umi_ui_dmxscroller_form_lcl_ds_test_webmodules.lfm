@@ -1,0 +1,16 @@
+object FPWebModule1: TFPWebModule1
+  OnCreate = DataModuleCreate
+  OldCreateOrder = False
+  Actions = <>
+  CreateSession = False
+  CORS.Enabled = False
+  CORS.Options = [coAllowCredentials, coEmptyDomainToOrigin]
+  CORS.AllowedMethods = 'GET, PUT, POST, OPTIONS, HEAD'
+  CORS.AllowedOrigins = '*'
+  CORS.AllowedHeaders = 'x-requested-with, content-type, authorization'
+  CORS.MaxAge = 0
+  Height = 150
+  HorizontalOffset = 573
+  VerticalOffset = 304
+  Width = 336
+end

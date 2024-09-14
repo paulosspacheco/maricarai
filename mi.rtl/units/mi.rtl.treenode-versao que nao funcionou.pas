@@ -6,7 +6,7 @@ unit mi.rtl.treenode;
     - Esta unit foi testada nas plataformas: linux.
 
   - **VERSÃO**
-    - Alpha - Alpha - 0.9.0
+    - Alpha - 1.0.0
 
   - **HISTÓRICO**
     - Criado por: Paulo Sérgio da Silva Pacheco e-mail: paulosspacheco@@yahoo.com.br
@@ -30,7 +30,9 @@ unit mi.rtl.treenode;
 interface
 
 uses
-  Classes, SysUtils,LResources;
+  Classes, SysUtils
+  //,LResources
+  ;
 
 type
   TTreeNode = class;
@@ -109,7 +111,7 @@ type
       - Esta unit foi testada nas plataformas: win32, win64 e linux.
 
     - **VERSÃO**
-      - Alpha - Alpha - 0.9.0
+      - Alpha - 1.0.0
 
     - **HISTÓRICO**
       - Criado por: Paulo Sérgio da Silva Pacheco e-mail: paulosspacheco@@yahoo.com.br

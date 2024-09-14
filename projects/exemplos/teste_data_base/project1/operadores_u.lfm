@@ -1,0 +1,118 @@
+inherited operadores: Toperadores
+  Height = 174
+  HorizontalOffset = 537
+  VerticalOffset = 254
+  Width = 455
+  inherited SQLQuery1: TSQLQuery
+    FieldDefs = <    
+      item
+        Name = 'id'
+        DataType = ftInteger
+        Precision = -1
+      end    
+      item
+        Name = 'nome'
+        DataType = ftString
+        Precision = -1
+        Size = 50
+      end    
+      item
+        Name = 'telefone'
+        DataType = ftString
+        Precision = -1
+        Size = 20
+      end    
+      item
+        Name = 'password'
+        DataType = ftString
+        Precision = -1
+        Size = 50
+      end    
+      item
+        Name = 'login'
+        DataType = ftString
+        Precision = -1
+        Size = 50
+      end>
+    Active = True
+    SQL.Strings = (
+      'select * from operadores'
+    )
+    UpdateMode = upWhereAll
+    Left = 320
+    Top = 24
+    object id: TLongintField[0]
+      FieldKind = fkData
+      FieldName = 'id'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object nome: TStringField[1]
+      FieldKind = fkData
+      FieldName = 'nome'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 50
+    end
+    object telefone: TStringField[2]
+      FieldKind = fkData
+      FieldName = 'telefone'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object password: TStringField[3]
+      FieldKind = fkData
+      FieldName = 'password'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 50
+    end
+    object login: TStringField[4]
+      FieldKind = fkData
+      FieldName = 'login'
+      Index = 4
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 50
+    end
+  end
+  inherited DataSource1: TDataSource
+    Left = 336
+    Top = 104
+  end
+  inherited DmxScroller_Form1: TDmxScroller_Form
+    OnAddTemplate = DmxScroller_Form1AddTemplate
+    OnNewRecord = DmxScroller_Form1NewRecord
+  end
+  inherited ActionList1: TActionList
+    Left = 200
+    Top = 16
+    inherited Action_novo: TAction
+      OnExecute = Action_novoExecute
+    end
+    inherited Action_bof: TAction[1]
+      Category = ''
+      Caption = 'Action_bof'
+    end
+    inherited Action_pesquisar: TAction[2]
+    end
+    inherited Action_gravar: TAction[3]
+    end
+    inherited Action_excluir: TAction[4]
+    end
+  end
+end
