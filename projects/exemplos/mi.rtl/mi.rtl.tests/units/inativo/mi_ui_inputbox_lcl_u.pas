@@ -3,7 +3,7 @@ unit MI_UI_InputBox_lcl_u;
     formulários baseado em Template PSITem.
 
     - **VERSÃO**
-      - Alpha - 0.9.0
+      - Alpha - 1.0.0
 
     - **CÓDIGO FONTE**:
       - @html(<a href="../units/mi_ui_inputBox_lcl_u.pas">MI_UI_InputBox_lcl_u.pas</a>)

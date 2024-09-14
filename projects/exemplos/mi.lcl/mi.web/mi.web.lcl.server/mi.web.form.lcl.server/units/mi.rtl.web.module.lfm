@@ -1,13 +1,12 @@
 inherited mi_rtl_web_module: Tmi_rtl_web_module
   OnCreate = DataModuleCreate
-  inherited ActionList1: TActionList
-    inherited CmBuildFormFromTemplate: TAction
-      Caption = 'Cria formulário Cliente'
-    end
-  end
   inherited DmxScroller_Form1: TDmxScroller_Form
+    onEnterField = DmxScroller_Form1EnterField
+    onExitField = DmxScroller_Form1ExitField
     onGetTemplate = DmxScroller_Form1GetTemplate
     TableName = 'Mi_rtl_WebModule'
+    OnCalcFields = DmxScroller_Form1CalcFields
+    OnChangeField = DmxScroller_Form1ChangeField
     ShouldSaveTemplate = True
   end
 end

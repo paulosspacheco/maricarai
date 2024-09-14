@@ -3,6 +3,7 @@
   <Package Version="5">
     <Name Value="mi.web.form"/>
     <Type Value="RunAndDesignTime"/>
+    <Author Value="PauloSSPacheco@yahoo.com.br; "/>
     <CompilerOptions>
       <Version Value="11"/>
       <SearchPaths>
@@ -11,6 +12,28 @@
         <UnitOutputDirectory Value="bin/$(TargetCPU)/$(TargetOS)/units"/>
       </SearchPaths>
     </CompilerOptions>
+    <Description Value="# pacote Mi.web.form
+## Objetivo do pacote mi.web.form
+- Criar formulários LCL baseado em templates semelhantes ao projeto TvDmx de Rand back.
+## Como funciona o número da versão do pacote
+- O número da versão é composta de 4 números sendo xx.yy.zz.ww
+  - xx : Versão PRINCIPAL do projeto e só deve mudar nas seguintes situações:
+    - Quando troca de estado de Alpha para Beta e Final e caso no furo se faça algo que torne o passado incompatível;
+  - yy : Muda a cada vez que é criado algo novo no projeto;
+  - zz : Muda a cada correção de bugs ou otimização.
+  - ww : Número de vezes que o pacote foi construido do zero."/>
+    <License Value="Copyright (c) &lt;2023> &lt;PauloSSPacheco@gmail.com>
+
+A permissão é concedida, gratuitamente, a qualquer pessoa que obtenha uma cópia  deste software e arquivos de documentação associados (o &quot;Software&quot;), para   negociar no Software sem restrições, incluindo, sem limitação, o   direitos de usar, copiar, modificar, mesclar, publicar, distribuir, sublicenciar e/ou vender cópias do Software e permitir que as pessoas a quem o Software é  munidos para o efeito, nas seguintes condições:
+
+   O aviso de direitos autorais acima e este aviso de permissão devem ser incluídos em todas as cópias ou partes substanciais do Software.
+
+   O SOFTWARE É FORNECIDO &quot;COMO ESTÁ&quot;, SEM GARANTIA DE QUALQUER TIPO, EXPRESSA OU IMPLÍCITAS, INCLUINDO, SEM
+   LIMITAÇÃO,  AS GARANTIAS DE COMERCIALIZAÇÃO,  ADEQUAÇÃO PARA UM FIM ESPECÍFICO E NÃO VIOLAÇÃO. 
+   EM NENHUM CASO O  OS AUTORES OU DETENTORES DOS DIREITOS AUTORAIS SERÃO RESPONSÁVEIS POR QUALQUE
+   REIVINDICAÇÃO,  DANOS OU OUTROS  RESPONSABILIDADE, SEJA EM UMA AÇÃO DE CONTRATO, ILÍCITO OU DE OUTRA FORMA,
+   DECORRENTE  DE,  FORA DE OU EM CONEXÃO COM O SOFTWARE OU O USO OU OUTROS NEGÓCIOS  NO SOFTWARE."/>
+    <Version Major="1"/>
     <Files>
       <Item>
         <Filename Value="units/mi.web.fphttpclient.pas"/>

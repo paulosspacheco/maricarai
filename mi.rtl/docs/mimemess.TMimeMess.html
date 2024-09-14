@@ -144,7 +144,7 @@ Object for handling of e-mail <a class="normal" href="Classes_C.html#Message">me
 </tr>
 <tr><td colspan="2">
 <p>
-<a class="normal" href="mimemess.TMimeMess.html#Create">create</a> this object <a class="normal" href="int65math.html#and">and</a> assign your own descendant of <a class="normal" href="mimemess.TMessHeader.html">TMessHeader</a> object to <a class="normal" href="mimemess.TMimeMess.html#Header">header</a> property. So, you can <a class="normal" href="mimemess.TMimeMess.html#Create">create</a> your own <a class="normal" href="Classes_C.html#Message">message</a> headers parser <a class="normal" href="int65math.html#and">and</a> use it by this object.</p>
+<a class="normal" href="mimemess.TMimeMess.html#Create">create</a> this object and assign your own descendant of <a class="normal" href="mimemess.TMessHeader.html">TMessHeader</a> object to <a class="normal" href="mimemess.TMimeMess.html#Header">header</a> property. So, you can <a class="normal" href="mimemess.TMimeMess.html#Create">create</a> your own <a class="normal" href="Classes_C.html#Message">message</a> headers parser and use it by this object.</p>
 </td></tr>
 </table>
 <table class="detail wide_list">
@@ -198,7 +198,7 @@ Add MIME part as subpart of PartParent. If you need set root MIME part, then set
 <p>
 Add MIME part as subpart of PartParent. If you need set root MIME part, then set as PartParent <code>Nil</code> value. If you need set more then 1 subpart, you must have PartParent of multipart type!
 
-<p>After creation of part set type to text part <a class="normal" href="int65math.html#and">and</a> set all necessary properties. Content of part is readed from value stringlist.</p>
+<p>After creation of part set type to text part and set all necessary properties. Content of part is readed from value stringlist.</p>
 </td></tr>
 </table>
 <table class="detail wide_list">
@@ -210,7 +210,7 @@ Add MIME part as subpart of PartParent. If you need set root MIME part, then set
 <p>
 Add MIME part as subpart of PartParent. If you need set root MIME part, then set as PartParent <code>Nil</code> value. If you need set more then 1 subpart, you must have PartParent of multipart type!
 
-<p>After creation of part set type to text part <a class="normal" href="int65math.html#and">and</a> set all necessary properties. Content of part is readed from value stringlist. You can select your charset <a class="normal" href="int65math.html#and">and</a> your encoding type. If Raw is <code>True</code>, then it not doing charset conversion!</p>
+<p>After creation of part set type to text part and set all necessary properties. Content of part is readed from value stringlist. You can select your charset and your encoding type. If Raw is <code>True</code>, then it not doing charset conversion!</p>
 </td></tr>
 </table>
 <table class="detail wide_list">
@@ -222,7 +222,7 @@ Add MIME part as subpart of PartParent. If you need set root MIME part, then set
 <p>
 Add MIME part as subpart of PartParent. If you need set root MIME part, then set as PartParent <code>Nil</code> value. If you need set more then 1 subpart, you must have PartParent of multipart type!
 
-<p>After creation of part set type to text part to HTML type <a class="normal" href="int65math.html#and">and</a> set all necessary properties. Content of HTML part is readed from Value stringlist.</p>
+<p>After creation of part set type to text part to HTML type and set all necessary properties. Content of HTML part is readed from Value stringlist.</p>
 </td></tr>
 </table>
 <table class="detail wide_list">
@@ -254,7 +254,7 @@ Same as <a class="normal" href="mimemess.TMimeMess.html#AddPartHTML">AddPartHTML
 <p>
 Add MIME part as subpart of PartParent. If you need set root MIME part, then set as PartParent <code>Nil</code> value. If you need set more then 1 subpart, you must have PartParent of multipart type!
 
-<p>After creation of part set type to binary <a class="normal" href="int65math.html#and">and</a> set all necessary properties. MIME primary <a class="normal" href="int65math.html#and">and</a> secondary types defined automaticly by filename extension. Content of binary part is readed from Stream. This binary part is encoded as file attachment.</p>
+<p>After creation of part set type to binary and set all necessary properties. MIME primary and secondary types defined automaticly by filename extension. Content of binary part is readed from Stream. This binary part is encoded as file attachment.</p>
 </td></tr>
 </table>
 <table class="detail wide_list">
@@ -276,7 +276,7 @@ Same as <a class="normal" href="mimemess.TMimeMess.html#AddPartBinary">AddPartBi
 <p>
 Add MIME part as subpart of PartParent. If you need set root MIME part, then set as PartParent <code>Nil</code> value. If you need set more then 1 subpart, you must have PartParent of multipart type!
 
-<p>After creation of part set type to binary <a class="normal" href="int65math.html#and">and</a> set all necessary properties. MIME primary <a class="normal" href="int65math.html#and">and</a> secondary types defined automaticly by filename extension. Content of binary part is readed from Stream.
+<p>After creation of part set type to binary and set all necessary properties. MIME primary and secondary types defined automaticly by filename extension. Content of binary part is readed from Stream.
 
 <p>This binary part is encoded as inline data with given Conten ID (cid). Content ID can be used as reference ID in HTML source in HTML part.</p>
 </td></tr>
@@ -300,7 +300,7 @@ Same as <a class="normal" href="mimemess.TMimeMess.html#AddPartHTMLBinary">AddPa
 <p>
 Add MIME part as subpart of PartParent. If you need set root MIME part, then set as PartParent <code>Nil</code> value. If you need set more then 1 subpart, you must have PartParent of multipart type!
 
-<p>After creation of part set type to <a class="normal" href="Classes_C.html#Message">message</a> <a class="normal" href="int65math.html#and">and</a> set all necessary properties. MIME primary <a class="normal" href="int65math.html#and">and</a> secondary types are setted to '<a class="normal" href="Classes_C.html#Message">message</a>/rfc822'. Content of raw RFC-822 <a class="normal" href="Classes_C.html#Message">message</a> is readed from Stream.</p>
+<p>After creation of part set type to <a class="normal" href="Classes_C.html#Message">message</a> and set all necessary properties. MIME primary and secondary types are setted to '<a class="normal" href="Classes_C.html#Message">message</a>/rfc822'. Content of raw RFC-822 <a class="normal" href="Classes_C.html#Message">message</a> is readed from Stream.</p>
 </td></tr>
 </table>
 <table class="detail wide_list">
@@ -340,11 +340,11 @@ Decode <a class="normal" href="Classes_C.html#Message">message</a> from <a class
 </tr>
 <tr><td colspan="2">
 <p>
-HTTP <a class="normal" href="Classes_C.html#Message">message</a> is received by <a class="normal" href="httpsend.THTTPSend.html">THTTPSend</a> component in two parts: headers are stored in <a class="normal" href="httpsend.THTTPSend.html#Headers">THTTPSend.Headers</a> <a class="normal" href="int65math.html#and">and</a> a body in memory stream <a class="normal" href="httpsend.THTTPSend.html#Document">THTTPSend.Document</a>.
+HTTP <a class="normal" href="Classes_C.html#Message">message</a> is received by <a class="normal" href="httpsend.THTTPSend.html">THTTPSend</a> component in two parts: headers are stored in <a class="normal" href="httpsend.THTTPSend.html#Headers">THTTPSend.Headers</a> and a body in memory stream <a class="normal" href="httpsend.THTTPSend.html#Document">THTTPSend.Document</a>.
 
 <p>On the top of it, HTTP connections are always 8-bit, hence data are transferred in native format i.e. no transfer encoding is applied.
 
-<p>This method operates the similiar way <a class="normal" href="int65math.html#and">and</a> produces the same result as <a class="normal" href="mimemess.TMimeMess.html#DecodeMessage">DecodeMessage</a>.</p>
+<p>This method operates the similiar way and produces the same result as <a class="normal" href="mimemess.TMimeMess.html#DecodeMessage">DecodeMessage</a>.</p>
 </td></tr>
 </table>
 <h3 class="detail">Propriedades</h3>

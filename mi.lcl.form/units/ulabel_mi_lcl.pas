@@ -3,7 +3,7 @@ unit uLabel_mi_lcl;
    os campo tipo TDmxFieldRec.fldEnum=0 com o componente TLabel do Lazarus.
 
    - **VERSÂO**
-     - Alpha - 0.9.0
+     - Alpha - 1.0.0
 
    - **CÓDIGO FONTE**:
      - @html(<a href="../units/umi_ui_label_lcl.pas">uMi_ui_Label_lcl.pas</a>)

@@ -3,7 +3,7 @@ unit uDbedit_mi_lcl;
    os campo tipo TDMXFieldRec com o componente TDBEdit do Lazarus.
 
    - **VERSÂO**
-     - Alpha - 0.9.0
+     - Alpha - 1.0.0
      - Data Criação:  27/04/2022
      - Data Ultima atulização : 10/06/2024
 

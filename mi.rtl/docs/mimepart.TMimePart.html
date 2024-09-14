@@ -36,7 +36,7 @@ Object for working with parts of MIME e-mail.</p>
 <ul class="paragraph_spacing">
   <li><p>store <a class="normal" href="Classes_C.html#Message">message</a> into <a class="normal" href="mimepart.TMimePart.html#Lines">Lines</a> property</p></li>
   <li><p>call <a class="normal" href="mimepart.TMimePart.html#DecomposeParts">DecomposeParts</a>. Now you have decomposed MIME parts in all nested levels!</p></li>
-  <li><p>now you can explore all properties <a class="normal" href="int65math.html#and">and</a> subparts. (You can use <a class="normal" href="mimepart.TMimePart.html#WalkPart">WalkPart</a> method)</p></li>
+  <li><p>now you can explore all properties and subparts. (You can use <a class="normal" href="mimepart.TMimePart.html#WalkPart">WalkPart</a> method)</p></li>
   <li><p>if you need decode part, call <a class="normal" href="mimepart.TMimePart.html#DecodePart">DecodePart</a>.</p></li>
 </ul>
 
@@ -326,7 +326,7 @@ Parse header <a class="normal" href="mimepart.TMimePart.html#Lines">lines</a> fr
 </tr>
 <tr><td colspan="2">
 <p>
-Encode mime part from <a class="normal" href="mimepart.TMimePart.html#DecodedLines">DecodedLines</a> to <a class="normal" href="mimepart.TMimePart.html#Lines">Lines</a> <a class="normal" href="int65math.html#and">and</a> build mime <a class="normal" href="mimepart.TMimePart.html#Headers">headers</a>.</p>
+Encode mime part from <a class="normal" href="mimepart.TMimePart.html#DecodedLines">DecodedLines</a> to <a class="normal" href="mimepart.TMimePart.html#Lines">Lines</a> and build mime <a class="normal" href="mimepart.TMimePart.html#Headers">headers</a>.</p>
 </td></tr>
 </table>
 <table class="detail wide_list">
@@ -346,7 +346,7 @@ Build header <a class="normal" href="mimepart.TMimePart.html#Lines">lines</a> in
 </tr>
 <tr><td colspan="2">
 <p>
-generate <a class="normal" href="mimepart.TMimePart.html#Primary">primary</a> <a class="normal" href="int65math.html#and">and</a> <a class="normal" href="mimepart.TMimePart.html#Secondary">secondary</a> mime type from <a class="normal" href="mimepart.TMimePart.html#FileName">filename</a> extension in value. If type not recognised, it return '<a class="normal" href="mi.rtl.Objects.Methods.Paramexecucao.Application.html#application">Application</a>/octet-string' type.</p>
+generate <a class="normal" href="mimepart.TMimePart.html#Primary">primary</a> and <a class="normal" href="mimepart.TMimePart.html#Secondary">secondary</a> mime type from <a class="normal" href="mimepart.TMimePart.html#FileName">filename</a> extension in value. If type not recognised, it return '<a class="normal" href="mi.rtl.Objects.Methods.Paramexecucao.Application.html#application">Application</a>/octet-string' type.</p>
 </td></tr>
 </table>
 <table class="detail wide_list">
@@ -386,7 +386,7 @@ delete subpart on given index.</p>
 </tr>
 <tr><td colspan="2">
 <p>
-<a class="normal" href="mimepart.TMimePart.html#Clear">Clear</a> <a class="normal" href="int65math.html#and">and</a> <a class="normal" href="mimepart.TMimePart.html#Destroy">destroy</a> all subpart <a class="normal" href="mimepart.TMimePart.html">TMimePart</a> objects.</p>
+<a class="normal" href="mimepart.TMimePart.html#Clear">Clear</a> and <a class="normal" href="mimepart.TMimePart.html#Destroy">destroy</a> all subpart <a class="normal" href="mimepart.TMimePart.html">TMimePart</a> objects.</p>
 </td></tr>
 </table>
 <table class="detail wide_list">
@@ -396,7 +396,7 @@ delete subpart on given index.</p>
 </tr>
 <tr><td colspan="2">
 <p>
-Add <a class="normal" href="int65math.html#and">and</a> <a class="normal" href="mimepart.TMimePart.html#Create">create</a> new subpart.</p>
+Add and <a class="normal" href="mimepart.TMimePart.html#Create">create</a> new subpart.</p>
 </td></tr>
 </table>
 <table class="detail wide_list">
@@ -406,7 +406,7 @@ Add <a class="normal" href="int65math.html#and">and</a> <a class="normal" href="
 </tr>
 <tr><td colspan="2">
 <p>
-E-mail <a class="normal" href="Classes_C.html#Message">message</a> in <a class="normal" href="mimepart.TMimePart.html#Lines">Lines</a> property is parsed into this object. E-mail <a class="normal" href="mimepart.TMimePart.html#Headers">headers</a> are stored in <a class="normal" href="mimepart.TMimePart.html#Headers">Headers</a> property <a class="normal" href="int65math.html#and">and</a> is parsed into another properties automaticly. Not need call <a class="normal" href="mimepart.TMimePart.html#DecodePartHeader">DecodePartHeader</a>! Content of <a class="normal" href="Classes_C.html#Message">message</a> (part) is stored into <a class="normal" href="mimepart.TMimePart.html#PartBody">PartBody</a> property. This part is in undecoded form! If you need decode it, then you must call <a class="normal" href="mimepart.TMimePart.html#DecodePart">DecodePart</a> method by your hands. Lot of another properties is filled also.
+E-mail <a class="normal" href="Classes_C.html#Message">message</a> in <a class="normal" href="mimepart.TMimePart.html#Lines">Lines</a> property is parsed into this object. E-mail <a class="normal" href="mimepart.TMimePart.html#Headers">headers</a> are stored in <a class="normal" href="mimepart.TMimePart.html#Headers">Headers</a> property and is parsed into another properties automaticly. Not need call <a class="normal" href="mimepart.TMimePart.html#DecodePartHeader">DecodePartHeader</a>! Content of <a class="normal" href="Classes_C.html#Message">message</a> (part) is stored into <a class="normal" href="mimepart.TMimePart.html#PartBody">PartBody</a> property. This part is in undecoded form! If you need decode it, then you must call <a class="normal" href="mimepart.TMimePart.html#DecodePart">DecodePart</a> method by your hands. Lot of another properties is filled also.
 
 <p>Decoding of parts you must call separately due performance reasons. (Not needed to decode all parts in all reasons.)
 
@@ -420,11 +420,11 @@ E-mail <a class="normal" href="Classes_C.html#Message">message</a> in <a class="
 </tr>
 <tr><td colspan="2">
 <p>
-HTTP <a class="normal" href="Classes_C.html#Message">message</a> is received by <a class="normal" href="httpsend.THTTPSend.html">THTTPSend</a> component in two parts: <a class="normal" href="mimepart.TMimePart.html#Headers">headers</a> are stored in <a class="normal" href="httpsend.THTTPSend.html#Headers">THTTPSend.Headers</a> <a class="normal" href="int65math.html#and">and</a> a body in memory stream <a class="normal" href="httpsend.THTTPSend.html#Document">THTTPSend.Document</a>.
+HTTP <a class="normal" href="Classes_C.html#Message">message</a> is received by <a class="normal" href="httpsend.THTTPSend.html">THTTPSend</a> component in two parts: <a class="normal" href="mimepart.TMimePart.html#Headers">headers</a> are stored in <a class="normal" href="httpsend.THTTPSend.html#Headers">THTTPSend.Headers</a> and a body in memory stream <a class="normal" href="httpsend.THTTPSend.html#Document">THTTPSend.Document</a>.
 
 <p>On the top of it, HTTP connections are always 8-bit, hence data are transferred in native format i.e. no transfer <a class="normal" href="mimepart.TMimePart.html#Encoding">encoding</a> is applied.
 
-<p>This method operates the similiar way <a class="normal" href="int65math.html#and">and</a> produces the same result as <a class="normal" href="mimepart.TMimePart.html#DecomposeParts">DecomposeParts</a>.</p>
+<p>This method operates the similiar way and produces the same result as <a class="normal" href="mimepart.TMimePart.html#DecomposeParts">DecomposeParts</a>.</p>
 </td></tr>
 </table>
 <table class="detail wide_list">
@@ -434,7 +434,7 @@ HTTP <a class="normal" href="Classes_C.html#Message">message</a> is received by 
 </tr>
 <tr><td colspan="2">
 <p>
-This part <a class="normal" href="int65math.html#and">and</a> all subparts is composed into one MIME <a class="normal" href="Classes_C.html#Message">message</a> stored in <a class="normal" href="mimepart.TMimePart.html#Lines">Lines</a> property.</p>
+This part and all subparts is composed into one MIME <a class="normal" href="Classes_C.html#Message">message</a> stored in <a class="normal" href="mimepart.TMimePart.html#Lines">Lines</a> property.</p>
 </td></tr>
 </table>
 <table class="detail wide_list">
@@ -444,7 +444,7 @@ This part <a class="normal" href="int65math.html#and">and</a> all subparts is co
 </tr>
 <tr><td colspan="2">
 <p>
-By calling this method is called <a class="normal" href="mimepart.TMimePart.html#OnWalkPart">OnWalkPart</a> event for each part <a class="normal" href="int65math.html#and">and</a> their subparts. It is very good for calling some code for each part in MIME <a class="normal" href="Classes_C.html#Message">message</a></p>
+By calling this method is called <a class="normal" href="mimepart.TMimePart.html#OnWalkPart">OnWalkPart</a> event for each part and their subparts. It is very good for calling some code for each part in MIME <a class="normal" href="Classes_C.html#Message">message</a></p>
 </td></tr>
 </table>
 <table class="detail wide_list">
@@ -505,7 +505,7 @@ Define default <a class="normal" href="mimepart.TMimePart.html#Charset">charset<
 </tr>
 <tr><td colspan="2">
 <p>
-Decoded <a class="normal" href="mimepart.TMimePart.html#Primary">primary</a> type. Possible values are: <a class="normal" href="mimepart.html#MP_TEXT">MP_TEXT</a>, <a class="normal" href="mimepart.html#MP_MULTIPART">MP_MULTIPART</a>, <a class="normal" href="mimepart.html#MP_MESSAGE">MP_MESSAGE</a> <a class="normal" href="int65math.html#and">and</a> <a class="normal" href="mimepart.html#MP_BINARY">MP_BINARY</a>. If type not recognised, result is <a class="normal" href="mimepart.html#MP_BINARY">MP_BINARY</a>.</p>
+Decoded <a class="normal" href="mimepart.TMimePart.html#Primary">primary</a> type. Possible values are: <a class="normal" href="mimepart.html#MP_TEXT">MP_TEXT</a>, <a class="normal" href="mimepart.html#MP_MULTIPART">MP_MULTIPART</a>, <a class="normal" href="mimepart.html#MP_MESSAGE">MP_MESSAGE</a> and <a class="normal" href="mimepart.html#MP_BINARY">MP_BINARY</a>. If type not recognised, result is <a class="normal" href="mimepart.html#MP_BINARY">MP_BINARY</a>.</p>
 </td></tr>
 </table>
 <table class="detail wide_list">
@@ -515,7 +515,7 @@ Decoded <a class="normal" href="mimepart.TMimePart.html#Primary">primary</a> typ
 </tr>
 <tr><td colspan="2">
 <p>
-Decoded <a class="normal" href="mimepart.TMimePart.html#Encoding">encoding</a> type. Possible values are: <a class="normal" href="mimepart.html#ME_7BIT">ME_7BIT</a>, <a class="normal" href="mimepart.html#ME_8BIT">ME_8BIT</a>, <a class="normal" href="mimepart.html#ME_QUOTED_PRINTABLE">ME_QUOTED_PRINTABLE</a> <a class="normal" href="int65math.html#and">and</a> <a class="normal" href="mimepart.html#ME_BASE64">ME_BASE64</a>. If type not recognised, result is <a class="normal" href="mimepart.html#ME_7BIT">ME_7BIT</a>.</p>
+Decoded <a class="normal" href="mimepart.TMimePart.html#Encoding">encoding</a> type. Possible values are: <a class="normal" href="mimepart.html#ME_7BIT">ME_7BIT</a>, <a class="normal" href="mimepart.html#ME_8BIT">ME_8BIT</a>, <a class="normal" href="mimepart.html#ME_QUOTED_PRINTABLE">ME_QUOTED_PRINTABLE</a> and <a class="normal" href="mimepart.html#ME_BASE64">ME_BASE64</a>. If type not recognised, result is <a class="normal" href="mimepart.html#ME_7BIT">ME_7BIT</a>.</p>
 </td></tr>
 </table>
 <table class="detail wide_list">
@@ -545,7 +545,7 @@ System <a class="normal" href="mimepart.TMimePart.html#Charset">charset</a> type
 </tr>
 <tr><td colspan="2">
 <p>
-If <code>True</code>, then do internal <a class="normal" href="mimepart.TMimePart.html#Charset">charset</a> translation of part content between <a class="normal" href="mimepart.TMimePart.html#CharsetCode">CharsetCode</a> <a class="normal" href="int65math.html#and">and</a> <a class="normal" href="mimepart.TMimePart.html#TargetCharset">TargetCharset</a></p>
+If <code>True</code>, then do internal <a class="normal" href="mimepart.TMimePart.html#Charset">charset</a> translation of part content between <a class="normal" href="mimepart.TMimePart.html#CharsetCode">CharsetCode</a> and <a class="normal" href="mimepart.TMimePart.html#TargetCharset">TargetCharset</a></p>
 </td></tr>
 </table>
 <table class="detail wide_list">
@@ -655,7 +655,7 @@ All header <a class="normal" href="mimepart.TMimePart.html#Lines">lines</a> of M
 </tr>
 <tr><td colspan="2">
 <p>
-On multipart this contains part of <a class="normal" href="Classes_C.html#Message">message</a> between first line of <a class="normal" href="Classes_C.html#Message">message</a> <a class="normal" href="int65math.html#and">and</a> first <a class="normal" href="mimepart.TMimePart.html#Boundary">boundary</a>.</p>
+On multipart this contains part of <a class="normal" href="Classes_C.html#Message">message</a> between first line of <a class="normal" href="Classes_C.html#Message">message</a> and first <a class="normal" href="mimepart.TMimePart.html#Boundary">boundary</a>.</p>
 </td></tr>
 </table>
 <table class="detail wide_list">
@@ -665,7 +665,7 @@ On multipart this contains part of <a class="normal" href="Classes_C.html#Messag
 </tr>
 <tr><td colspan="2">
 <p>
-On multipart this contains part of <a class="normal" href="Classes_C.html#Message">message</a> between last <a class="normal" href="mimepart.TMimePart.html#Boundary">boundary</a> <a class="normal" href="int65math.html#and">and</a> end of <a class="normal" href="Classes_C.html#Message">message</a>.</p>
+On multipart this contains part of <a class="normal" href="Classes_C.html#Message">message</a> between last <a class="normal" href="mimepart.TMimePart.html#Boundary">boundary</a> and end of <a class="normal" href="Classes_C.html#Message">message</a>.</p>
 </td></tr>
 </table>
 <table class="detail wide_list">
@@ -715,7 +715,7 @@ When is <code>True</code>, then this part maybe(!) have included some uuencoded 
 </tr>
 <tr><td colspan="2">
 <p>
-Here you can <a class="normal" href="mimepart.TMimePart.html#Assign">assign</a> hook procedure for walking through all part <a class="normal" href="int65math.html#and">and</a> their subparts.</p>
+Here you can <a class="normal" href="mimepart.TMimePart.html#Assign">assign</a> hook procedure for walking through all part and their subparts.</p>
 </td></tr>
 </table>
 <table class="detail wide_list">

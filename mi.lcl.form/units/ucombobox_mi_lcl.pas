@@ -3,7 +3,7 @@ unit uCombobox_mi_lcl;
    componente TComboBox do Lazarus.
 
    - **VERSÃO**
-     - Alpha - 0.9.0
+     - Alpha - 1.0.0
 
    - **CÓDIGO FONTE**:
      - @html(<a href="../units/mi_ui_ComboBox_lcl.pas">mi_ui_ComboBox_LCL.pas</a>)

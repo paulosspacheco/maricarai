@@ -3,7 +3,7 @@
   <Package Version="5">
     <Name Value="mi.lcl.form"/>
     <Type Value="RunAndDesignTime"/>
-    <Author Value="PauloSSPacheco@yahoo.com; "/>
+    <Author Value="PauloSSPacheco@yahoo.com.br; "/>
     <CompilerOptions>
       <Version Value="11"/>
       <SearchPaths>
@@ -16,8 +16,8 @@
         <CreateMakefileOnBuild Value="True"/>
       </Other>
     </CompilerOptions>
-    <Description Value="# pacote Mi.ui.lcl.form
-## Objetivo do pacote mi.ui.lcl.form
+    <Description Value="# pacote Mi.lcl.form
+## Objetivo do pacote mi.lcl.form
 - Criar formulários LCL baseado em templates semelhantes ao projeto TvDmx de Rand back.
 ## Como funciona o número da versão do pacote
 - O número da versão é composta de 4 números sendo xx.yy.zz.ww
@@ -38,7 +38,7 @@ A permissão é concedida, gratuitamente, a qualquer pessoa que obtenha uma cóp
    EM NENHUM CASO O  OS AUTORES OU DETENTORES DOS DIREITOS AUTORAIS SERÃO RESPONSÁVEIS POR QUALQUE
    REIVINDICAÇÃO,  DANOS OU OUTROS  RESPONSABILIDADE, SEJA EM UMA AÇÃO DE CONTRATO, ILÍCITO OU DE OUTRA FORMA,
    DECORRENTE  DE,  FORA DE OU EM CONEXÃO COM O SOFTWARE OU O USO OU OUTROS NEGÓCIOS  NO SOFTWARE."/>
-    <Version Minor="9" Build="687"/>
+    <Version Major="1"/>
     <Files>
       <Item>
         <Filename Value="histórico.pas"/>

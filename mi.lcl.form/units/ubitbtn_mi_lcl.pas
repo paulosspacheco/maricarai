@@ -3,7 +3,7 @@ unit ubitbtn_mi_lcl;
    associado ao botão quando o botão for pressionado.
 
    - **VERSÃO**
-     - Alpha - 0.9.0
+     - Alpha - 1.0.0
 
    - **CÓDIGO FONTE**:
      - @html(<a href="../units/ubitbtn_mi_lcl.pas">ubitbtn_mi_lcl.pas</a>)

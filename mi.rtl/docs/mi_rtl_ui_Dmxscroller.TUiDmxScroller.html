@@ -360,12 +360,20 @@ A classe <strong><code>TUiDmxScroller</code></strong> tem como objetivo criar um
 <td class="itemcode"><code>procedure <strong><a href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html#Scroll_it_inview">Scroll_it_inview</a></strong>(AControl: <a href="mi_rtl_ui_Dmxscroller.html#pDmxFieldRec">pDmxFieldRec</a>); virtual; abstract;</code></td>
 </tr>
 <tr class="list2">
-<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
-<td class="itemcode"><code>Procedure <strong><a href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html#DoOnEnter">DoOnEnter</a></strong>(aDmxScroller:<a href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html">TUiDmxScroller</a>); Virtual;</code></td>
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>Procedure <strong><a href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html#DoOnEnter">DoOnEnter</a></strong>(aDmxScroller:<a href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html">TUiDmxScroller</a>); Virtual; overload;</code></td>
 </tr>
 <tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
-<td class="itemcode"><code>Procedure <strong><a href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html#DoOnExit">DoOnExit</a></strong>(aDmxScroller:<a href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html">TUiDmxScroller</a>);</code></td>
+<td class="itemcode"><code>Procedure <strong><a href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html#DoOnEnter">DoOnEnter</a></strong>(); Virtual; overload;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>Procedure <strong><a href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html#DoOnExit">DoOnExit</a></strong>(aDmxScroller:<a href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html">TUiDmxScroller</a>); overload;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>Procedure <strong><a href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html#DoOnExit">DoOnExit</a></strong>(); overload;</code></td>
 </tr>
 <tr class="list2">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
@@ -1238,7 +1246,7 @@ O atributo <strong><code>CurrentField_old</code></strong> salva o currentefield 
   <li><p><strong>ATENÇÃO</strong> </p>
 
 <ul class="paragraph_spacing">
-  <li><p>Necessário caso se deseja fazer alguma crítica com os dados do buffer do corrente campo focado ao pressionar um botão de ação.</p></li>
+  <li><p>Necessário caso se deseja fazer alguma <a class="normal" href="blcksock.html#CR">cr</a>ítica com os dados do buffer do corrente campo focado ao pressionar um botão de ação.</p></li>
 </ul>
 
 <p></p></li>
@@ -1719,8 +1727,8 @@ O método <strong><code>Scroll_it_inview</code></strong> é usado para da o scro
 </table>
 <table class="detail wide_list">
 <tr class="list">
-<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
-<td class="itemcode"><span id="DoOnEnter"></span><code>Procedure <strong>DoOnEnter</strong>(aDmxScroller:<a href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html">TUiDmxScroller</a>); Virtual;</code></td>
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="DoOnEnter"></span><code>Procedure <strong>DoOnEnter</strong>(aDmxScroller:<a href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html">TUiDmxScroller</a>); Virtual; overload;</code></td>
 </tr>
 <tr><td colspan="2">
 <p>
@@ -1730,7 +1738,23 @@ O método <strong><code>DoOnEnter</code></strong> Executa o evento <a class="nor
 <table class="detail wide_list">
 <tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
-<td class="itemcode"><span id="DoOnExit"></span><code>Procedure <strong>DoOnExit</strong>(aDmxScroller:<a href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html">TUiDmxScroller</a>);</code></td>
+<td class="itemcode"><span id="DoOnEnter"></span><code>Procedure <strong>DoOnEnter</strong>(); Virtual; overload;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="DoOnExit"></span><code>Procedure <strong>DoOnExit</strong>(aDmxScroller:<a href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html">TUiDmxScroller</a>); overload;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="DoOnExit"></span><code>Procedure <strong>DoOnExit</strong>(); overload;</code></td>
 </tr>
 <tr><td colspan="2">
 &nbsp;</td></tr>
@@ -2945,24 +2969,7 @@ O método <strong><code>Edit</code></strong> colocará o conjunto de dados no mo
 <td class="itemcode"><span id="GetBof"></span><code>Function <strong>GetBof</strong>: Boolean; overload; virtual;</code></td>
 </tr>
 <tr><td colspan="2">
-<p>
-O método <strong><code>GetBof</code></strong> retorna DataSource.dataSet.bof
-
-<p></p>
-
-<ul class="paragraph_spacing">
-  <li><p><strong>RETORNA</strong> </p>
-
-<ul class="paragraph_spacing">
-  <li><p>True: se posicionado no primeiro registro;</p></li>
-  <li><p>False: Não está no primeiro registro.</p></li>
-</ul>
-
-<p></p></li>
-</ul>
-
-<p></p>
-</td></tr>
+&nbsp;</td></tr>
 </table>
 <table class="detail wide_list">
 <tr class="list">
@@ -2970,24 +2977,7 @@ O método <strong><code>GetBof</code></strong> retorna DataSource.dataSet.bof
 <td class="itemcode"><span id="GetEof"></span><code>Function <strong>GetEof</strong>: Boolean; overload; virtual;</code></td>
 </tr>
 <tr><td colspan="2">
-<p>
-O método <strong><code>GetEof</code></strong> retorna DataSource.dataSet.eof
-
-<p></p>
-
-<ul class="paragraph_spacing">
-  <li><p><strong>RETORNA</strong> </p>
-
-<ul class="paragraph_spacing">
-  <li><p>True: se posicionado no último registro;</p></li>
-  <li><p>False: Não está no último registro.</p></li>
-</ul>
-
-<p></p></li>
-</ul>
-
-<p></p>
-</td></tr>
+&nbsp;</td></tr>
 </table>
 <table class="detail wide_list">
 <tr class="list">
@@ -3021,16 +3011,82 @@ O método <strong><code>FirstRec</code></strong> posiciona o cursor no primeiro 
 </tr>
 <tr><td colspan="2">
 <p>
-O método <strong><code>NextRec</code></strong> posiciona o cursor no próximo registro de DataSource.dataSet
+O método <strong><code>NextRec</code></strong> é responsável por mover o cursor do dataset para o próximo registro, caso o dataset esteja ativo e não tenha alcançado o final dos registros (<code><a class="normal" href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html#Eof">EOF</a></code>). Se houver um próximo registro, ele retorna <code>True</code> e chama os eventos correspondentes para atualizar o estado da interface. Caso contrário, retorna <code>False</code> e mantém o estado do dataset.
 
 <p></p>
 
 <ul class="paragraph_spacing">
-  <li><p><strong>RETORNA</strong> </p>
+  <li><p><strong>Parâmetros Locais</strong> </p>
 
 <ul class="paragraph_spacing">
-  <li><p>True se posicionau no próximo registro;</p></li>
-  <li><p>False se atingir o <a class="normal" href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html#Eof">eof</a> (fim de arquivo)</p></li>
+  <li><p><strong><code>ds: TDataSet</code></strong>: Objeto do tipo <code>TDataSet</code> que faz referência ao dataset utilizado no método.</p></li>
+</ul>
+
+<p></p></li>
+  <li><p><strong>Fluxo de Execução</strong> </p>
+
+<ol class="paragraph_spacing">
+  <li value="1"><p><strong>Verificação de Atividade do Dataset</strong>: </p>
+
+<ul class="paragraph_spacing">
+  <li><p>O método primeiro verifica se o dataset está ativo usando <code><a class="normal" href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html#isDataSetActive">isDataSetActive</a></code>. Se não estiver ativo, o método retorna <code>False</code>.</p></li>
+</ul>
+
+<p></p></li>
+  <li value="2"><p><strong>Manipulação de Registros</strong>: </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Se o dataset está ativo, o método obtém o dataset com <code><a class="normal" href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html#GetDataSet">GetDataSet</a></code>, chama o evento <code><a class="normal" href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html#DoOnExit">DoOnExit</a></code> e tenta mover para o próximo registro com <code>ds.Next</code>.</p></li>
+  <li><p>Se não for o final do dataset (<code><a class="normal" href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html#Eof">EOF</a></code>), ele chama <code><a class="normal" href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html#GetRec">GetRec</a></code> para atualizar os dados com o registro atual usando o <code>Bookmark</code> do dataset.</p></li>
+</ul>
+
+<p></p>
+
+<ul class="paragraph_spacing">
+  <li><p>Se o <code><a class="normal" href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html#Eof">EOF</a></code> for alcançado, ele retorna <code>False</code>.</p></li>
+</ul>
+
+<p></p></li>
+  <li value="3"><p><strong>Tratamento de Exceções</strong>: </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Se ocorrer qualquer exceção durante a movimentação entre os registros, uma mensagem de erro é exibida com <code>ShowMessage(E.Message)</code>, e o método retorna <code>False</code>.</p></li>
+</ul>
+
+<p></p></li>
+  <li value="4"><p><strong>Eventos Finais</strong>: </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Após o processamento, o evento <code><a class="normal" href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html#DoOnEnter">DoOnEnter</a></code> é chamado. Caso o <code><a class="normal" href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html#Eof">EOF</a></code> seja atingido, o método chama <code>ds.Last</code> para garantir que o estado final do dataset seja correto, já que o evento <code><a class="normal" href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html#DoOnEnter">DoOnEnter</a></code> pode alterar o ponteiro <code><a class="normal" href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html#Eof">EOF</a></code>.</p></li>
+  <li><p>Finalmente, o método chama <code><a class="normal" href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html#UpdateCommands">UpdateCommands</a></code> para atualizar os comandos da interface.</p></li>
+</ul>
+
+<p></p></li>
+  <li value="5"><p><strong>Exceções</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>O método captura exceções do tipo <code>Exception</code>, exibindo a mensagem de erro ao usuário com <code>ShowMessage</code>.</p></li>
+</ul>
+
+<p></p></li>
+</ol>
+
+<p></p></li>
+  <li><p><strong>Retorno</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p><strong><code>True</code></strong>: Se houver sucesso ao mover para o próximo registro e atualizar o estado da interface.</p></li>
+  <li><p><strong><code>False</code></strong>: Se o dataset estiver no final (<code><a class="normal" href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html#Eof">EOF</a></code>), inativo ou ocorrer alguma exceção.</p></li>
+</ul>
+
+<p></p></li>
+  <li><p><strong>Ver Também</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p><code><a class="normal" href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html#DoOnExit">DoOnExit</a></code></p></li>
+  <li><p><code><a class="normal" href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html#DoOnEnter">DoOnEnter</a></code></p></li>
+  <li><p><code><a class="normal" href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html#GetRec">GetRec</a></code></p></li>
+  <li><p><code><a class="normal" href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html#UpdateCommands">UpdateCommands</a></code></p></li>
 </ul>
 
 <p></p></li>

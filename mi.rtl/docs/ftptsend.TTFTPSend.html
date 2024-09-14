@@ -25,9 +25,9 @@
 <code>type TTFTPSend = class(<a class="normal" href="blcksock.TSynaClient.html">TSynaClient</a>)</code></p>
 <h2 class="description">Descrição</h2>
 <p>
-Implementation of TFTP client <a class="normal" href="int65math.html#and">and</a> server</p>
+Implementation of TFTP client and server</p>
 <p>
- Note: Are you missing properties for specify server address <a class="normal" href="int65math.html#and">and</a> port? Look to parent <a class="normal" href="blcksock.TSynaClient.html">TSynaClient</a> too!</p>
+ Note: Are you missing properties for specify server address and port? Look to parent <a class="normal" href="blcksock.TSynaClient.html">TSynaClient</a> too!</p>
 <span id="PasDoc-Hierarchy"></span><h2 class="hierarchy">Hierarquia</h2>
 <ul class="hierarchy"><li class="ancestor">TObject</li>
 <li class="ancestor"><a class="normal" href="blcksock.TSynaClient.html">TSynaClient</a></li>
@@ -135,7 +135,7 @@ Download file from TFTP server to <a class="normal" href="ftptsend.TTFTPSend.htm
 </tr>
 <tr><td colspan="2">
 <p>
-Acts as TFTP server <a class="normal" href="int65math.html#and">and</a> wait for client request. When some request incoming within <a class="normal" href="blcksock.TSynaClient.html#Timeout">Timeout</a>, result is <code>True</code> <a class="normal" href="int65math.html#and">and</a> parametres is filled with information from request. You must handle this request, validate it, <a class="normal" href="int65math.html#and">and</a> call <a class="normal" href="ftptsend.TTFTPSend.html#ReplyError">ReplyError</a>, <a class="normal" href="ftptsend.TTFTPSend.html#ReplyRecv">ReplyRecv</a> or <a class="normal" href="ftptsend.TTFTPSend.html#ReplySend">ReplySend</a> for send reply to TFTP Client.</p>
+Acts as TFTP server and wait for client request. When some request incoming within <a class="normal" href="blcksock.TSynaClient.html#Timeout">Timeout</a>, result is <code>True</code> and parametres is filled with information from request. You must handle this request, validate it, and call <a class="normal" href="ftptsend.TTFTPSend.html#ReplyError">ReplyError</a>, <a class="normal" href="ftptsend.TTFTPSend.html#ReplyRecv">ReplyRecv</a> or <a class="normal" href="ftptsend.TTFTPSend.html#ReplySend">ReplySend</a> for send reply to TFTP Client.</p>
 </td></tr>
 </table>
 <table class="detail wide_list">
@@ -165,7 +165,7 @@ Accept uploaded file from TFTP client to <a class="normal" href="ftptsend.TTFTPS
 </tr>
 <tr><td colspan="2">
 <p>
-Accept download request file from TFTP client <a class="normal" href="int65math.html#and">and</a> send content of <a class="normal" href="ftptsend.TTFTPSend.html#Data">data</a>, when you acts as TFTP server.</p>
+Accept download request file from TFTP client and send content of <a class="normal" href="ftptsend.TTFTPSend.html#Data">data</a>, when you acts as TFTP server.</p>
 </td></tr>
 </table>
 <h3 class="detail">Propriedades</h3>

@@ -15,6 +15,10 @@ type
 
   Tmi_rtl_web_module = class(TMi_rtl_WebModule_base)
     procedure DataModuleCreate(Sender: TObject);
+    procedure DmxScroller_Form1CalcFields(const aUiDmxScroller: TUiDmxScroller);
+    procedure DmxScroller_Form1ChangeField(aField: pDmxFieldRec);
+    procedure DmxScroller_Form1EnterField(aField: pDmxFieldRec);
+    procedure DmxScroller_Form1ExitField(aField: pDmxFieldRec);
     function DmxScroller_Form1GetTemplate(aNext: PSItem): PSItem;
   private
 
@@ -40,6 +44,26 @@ begin
 
   writeLn('Tmi_rtl_web_module.DataModuleCreate: ',TimeToStr(time));
   Flush(output);
+end;
+
+procedure Tmi_rtl_web_module.DmxScroller_Form1EnterField(aField: pDmxFieldRec);
+begin
+
+end;
+
+procedure Tmi_rtl_web_module.DmxScroller_Form1ExitField(aField: pDmxFieldRec);
+begin
+
+end;
+
+procedure Tmi_rtl_web_module.DmxScroller_Form1CalcFields(const aUiDmxScroller: TUiDmxScroller);
+begin
+
+end;
+
+procedure Tmi_rtl_web_module.DmxScroller_Form1ChangeField(aField: pDmxFieldRec);
+begin
+
 end;
 
 
@@ -86,6 +110,9 @@ begin
   end;
 
 end;
+
+
+
 
 initialization
   RegisterHTTPModule('Tmi_rtl_web_module', Tmi_rtl_web_module);

@@ -3,7 +3,7 @@ unit uMI_ui_DbEdit_LCL;
    TDMXField rec com o componente TDBEdit do Lazarus.
 
    - **VERSÂO**
-     - Alpha - 0.9.0
+     - Alpha - 1.0.0
 
    - **CÓDIGO FONTE**:
      - @html(<a href="../units/umi_ui_dbedit_lcl.pas">uMI_ui_DbEdit_LCL.pas</a>)

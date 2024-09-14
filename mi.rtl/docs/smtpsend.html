@@ -34,7 +34,7 @@ SMTP client</p>
 </tr>
 <tr class="list">
 <td class="itemname">Classe&nbsp;<a class="bold" href="smtpsend.TSMTPSend.html"><code>TSMTPSend</code></a></td>
-<td class="itemdesc">Implementation of SMTP <a class="normal" href="int65math.html#and">and</a> <a class="normal" href="smtpsend.TSMTPSend.html#ESMTP">ESMTP</a> procotol</td>
+<td class="itemdesc">Implementation of SMTP and <a class="normal" href="smtpsend.TSMTPSend.html#ESMTP">ESMTP</a> procotol</td>
 </tr>
 </table>
 <span id="PasDoc-FuncsProcs"></span><h3 class="summary">Funções e Procedimentos</h3>
@@ -63,9 +63,9 @@ SMTP client</p>
 </tr>
 <tr><td colspan="1">
 <p>
-A very useful function <a class="normal" href="int65math.html#and">and</a> example of its use would be found in the <a class="normal" href="smtpsend.TSMTPSend.html">TSMTPsend</a> object. Send maildata (text of e-mail with all SMTP headers! For example when text of <a class="normal" href="Classes_C.html#Message">message</a> is created by <a class="normal" href="mimemess.TMimeMess.html">TMimemess</a> object) from &quot;MailFrom&quot; e-mail address to &quot;MailTo&quot; e-mail address (If you need more then one receiver, then separate their addresses by comma).
+A very useful function and example of its use would be found in the <a class="normal" href="smtpsend.TSMTPSend.html">TSMTPsend</a> object. Send maildata (text of e-mail with all SMTP headers! For example when text of <a class="normal" href="Classes_C.html#Message">message</a> is created by <a class="normal" href="mimemess.TMimeMess.html">TMimemess</a> object) from &quot;MailFrom&quot; e-mail address to &quot;MailTo&quot; e-mail address (If you need more then one receiver, then separate their addresses by comma).
 
-<p>Function sends e-mail to a SMTP server defined in &quot;SMTPhost&quot; parameter. Username <a class="normal" href="int65math.html#and">and</a> password are used for authorization to the &quot;SMTPhost&quot;. If you don't want authorization, set &quot;Username&quot; <a class="normal" href="int65math.html#and">and</a> &quot;Password&quot; to empty strings. If e-mail <a class="normal" href="Classes_C.html#Message">message</a> is successfully sent, the result returns <code>True</code>.
+<p>Function sends e-mail to a SMTP server defined in &quot;SMTPhost&quot; parameter. Username and password are used for authorization to the &quot;SMTPhost&quot;. If you don't want authorization, set &quot;Username&quot; and &quot;Password&quot; to empty strings. If e-mail <a class="normal" href="Classes_C.html#Message">message</a> is successfully sent, the result returns <code>True</code>.
 
 <p>If you need use different port number then standard, then add this port number to SMTPhost after colon. (i.e. '127.0.0.1:1025')</p>
 </td></tr>
@@ -76,9 +76,9 @@ A very useful function <a class="normal" href="int65math.html#and">and</a> examp
 </tr>
 <tr><td colspan="1">
 <p>
-A very useful function <a class="normal" href="int65math.html#and">and</a> example of its use would be found in the <a class="normal" href="smtpsend.TSMTPSend.html">TSMTPsend</a> object. Send &quot;Maildata&quot; (text of e-mail without any SMTP headers!) from &quot;MailFrom&quot; e-mail address to &quot;MailTo&quot; e-mail address with &quot;Subject&quot;. (If you need more then one receiver, then separate their addresses by comma).
+A very useful function and example of its use would be found in the <a class="normal" href="smtpsend.TSMTPSend.html">TSMTPsend</a> object. Send &quot;Maildata&quot; (text of e-mail without any SMTP headers!) from &quot;MailFrom&quot; e-mail address to &quot;MailTo&quot; e-mail address with &quot;Subject&quot;. (If you need more then one receiver, then separate their addresses by comma).
 
-<p>This function constructs all needed SMTP headers (with DATE header) <a class="normal" href="int65math.html#and">and</a> sends the e-mail to the SMTP server defined in the &quot;SMTPhost&quot; parameter. If the e-mail <a class="normal" href="Classes_C.html#Message">message</a> is successfully sent, the result will be <code>True</code>.
+<p>This function constructs all needed SMTP headers (with DATE header) and sends the e-mail to the SMTP server defined in the &quot;SMTPhost&quot; parameter. If the e-mail <a class="normal" href="Classes_C.html#Message">message</a> is successfully sent, the result will be <code>True</code>.
 
 <p>If you need use different port number then standard, then add this port number to SMTPhost after colon. (i.e. '127.0.0.1:1025')</p>
 </td></tr>
@@ -89,9 +89,9 @@ A very useful function <a class="normal" href="int65math.html#and">and</a> examp
 </tr>
 <tr><td colspan="1">
 <p>
-A very useful function <a class="normal" href="int65math.html#and">and</a> example of its use would be found in the <a class="normal" href="smtpsend.TSMTPSend.html">TSMTPsend</a> object. Sends &quot;MailData&quot; (text of e-mail without any SMTP headers!) from &quot;MailFrom&quot; e-mail address to &quot;MailTo&quot; e-mail address (If you need more then one receiver, then separate their addresses by comma).
+A very useful function and example of its use would be found in the <a class="normal" href="smtpsend.TSMTPSend.html">TSMTPsend</a> object. Sends &quot;MailData&quot; (text of e-mail without any SMTP headers!) from &quot;MailFrom&quot; e-mail address to &quot;MailTo&quot; e-mail address (If you need more then one receiver, then separate their addresses by comma).
 
-<p>This function sends the e-mail to the SMTP server defined in the &quot;SMTPhost&quot; parameter. Username <a class="normal" href="int65math.html#and">and</a> password are used for authorization to the &quot;SMTPhost&quot;. If you dont want authorization, set &quot;Username&quot; <a class="normal" href="int65math.html#and">and</a> &quot;Password&quot; to empty Strings. If the e-mail <a class="normal" href="Classes_C.html#Message">message</a> is successfully sent, the result will be <code>True</code>.
+<p>This function sends the e-mail to the SMTP server defined in the &quot;SMTPhost&quot; parameter. Username and password are used for authorization to the &quot;SMTPhost&quot;. If you dont want authorization, set &quot;Username&quot; and &quot;Password&quot; to empty Strings. If the e-mail <a class="normal" href="Classes_C.html#Message">message</a> is successfully sent, the result will be <code>True</code>.
 
 <p>If you need use different port number then standard, then add this port number to SMTPhost after colon. (i.e. '127.0.0.1:1025')</p>
 </td></tr>

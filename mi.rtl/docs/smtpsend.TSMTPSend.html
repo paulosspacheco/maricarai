@@ -25,13 +25,13 @@
 <code>type TSMTPSend = class(<a class="normal" href="blcksock.TSynaClient.html">TSynaClient</a>)</code></p>
 <h2 class="description">Descrição</h2>
 <p>
-Implementation of SMTP <a class="normal" href="int65math.html#and">and</a> <a class="normal" href="smtpsend.TSMTPSend.html#ESMTP">ESMTP</a> procotol</p>
+Implementation of SMTP and <a class="normal" href="smtpsend.TSMTPSend.html#ESMTP">ESMTP</a> procotol</p>
 <p>
 , include some <a class="normal" href="smtpsend.TSMTPSend.html#ESMTP">ESMTP</a> extensions, include SSL/TLS too.
 
-<p>Note: Are you missing properties for setting <a class="normal" href="blcksock.TSynaClient.html#UserName">Username</a> <a class="normal" href="int65math.html#and">and</a> <a class="normal" href="blcksock.TSynaClient.html#Password">Password</a> for <a class="normal" href="smtpsend.TSMTPSend.html#ESMTP">ESMTP</a>? Look to parent <a class="normal" href="blcksock.TSynaClient.html">TSynaClient</a> object!
+<p>Note: Are you missing properties for setting <a class="normal" href="blcksock.TSynaClient.html#UserName">Username</a> and <a class="normal" href="blcksock.TSynaClient.html#Password">Password</a> for <a class="normal" href="smtpsend.TSMTPSend.html#ESMTP">ESMTP</a>? Look to parent <a class="normal" href="blcksock.TSynaClient.html">TSynaClient</a> object!
 
-<p>Are you missing properties for specify server address <a class="normal" href="int65math.html#and">and</a> port? Look to parent <a class="normal" href="blcksock.TSynaClient.html">TSynaClient</a> too!</p>
+<p>Are you missing properties for specify server address and port? Look to parent <a class="normal" href="blcksock.TSynaClient.html">TSynaClient</a> too!</p>
 <span id="PasDoc-Hierarchy"></span><h2 class="hierarchy">Hierarquia</h2>
 <ul class="hierarchy"><li class="ancestor">TObject</li>
 <li class="ancestor"><a class="normal" href="blcksock.TSynaClient.html">TSynaClient</a></li>
@@ -183,7 +183,7 @@ Implementation of SMTP <a class="normal" href="int65math.html#and">and</a> <a cl
 </tr>
 <tr><td colspan="2">
 <p>
-Connects to SMTP server (defined in <a class="normal" href="blcksock.TSynaClient.html#TargetHost">TSynaClient.TargetHost</a>) <a class="normal" href="int65math.html#and">and</a> begin SMTP session. (First try <a class="normal" href="smtpsend.TSMTPSend.html#ESMTP">ESMTP</a> EHLO, next old HELO handshake). Parses <a class="normal" href="smtpsend.TSMTPSend.html#ESMTP">ESMTP</a> capabilites <a class="normal" href="int65math.html#and">and</a> if you specified <a class="normal" href="blcksock.TSynaClient.html#UserName">Username</a> <a class="normal" href="int65math.html#and">and</a> <a class="normal" href="blcksock.TSynaClient.html#Password">password</a> <a class="normal" href="int65math.html#and">and</a> remote server can handle AUTH command, try <code>login</code> by AUTH command. Preffered <code>login</code> method is CRAM-<a class="normal" href="synacode.html#MD5">MD5</a> (if safer!). If all OK, result is <code>True</code>, else result is <code>False</code>.</p>
+Connects to SMTP server (defined in <a class="normal" href="blcksock.TSynaClient.html#TargetHost">TSynaClient.TargetHost</a>) and begin SMTP session. (First try <a class="normal" href="smtpsend.TSMTPSend.html#ESMTP">ESMTP</a> EHLO, next old HELO handshake). Parses <a class="normal" href="smtpsend.TSMTPSend.html#ESMTP">ESMTP</a> capabilites and if you specified <a class="normal" href="blcksock.TSynaClient.html#UserName">Username</a> and <a class="normal" href="blcksock.TSynaClient.html#Password">password</a> and remote server can handle AUTH command, try <code>login</code> by AUTH command. Preffered <code>login</code> method is CRAM-<a class="normal" href="synacode.html#MD5">MD5</a> (if safer!). If all OK, result is <code>True</code>, else result is <code>False</code>.</p>
 </td></tr>
 </table>
 <table class="detail wide_list">
@@ -193,7 +193,7 @@ Connects to SMTP server (defined in <a class="normal" href="blcksock.TSynaClient
 </tr>
 <tr><td colspan="2">
 <p>
-Close SMTP session (QUIT command) <a class="normal" href="int65math.html#and">and</a> disconnect from SMTP server.</p>
+Close SMTP session (QUIT command) and disconnect from SMTP server.</p>
 </td></tr>
 </table>
 <table class="detail wide_list">
@@ -225,7 +225,7 @@ Send <code>NOOP</code> SMTP command for keep SMTP session. If all OK, result is 
 <p>
 Send MAIL FROM SMTP command for set sender e-mail address. If sender's e-mail address is empty string, transmited <a class="normal" href="Classes_C.html#Message">message</a> is <a class="normal" href="slogsend.html#Error">error</a> <a class="normal" href="Classes_C.html#Message">message</a>.
 
-<p>If size not 0 <a class="normal" href="int65math.html#and">and</a> remote server can handle SIZE parameter, append SIZE parameter to request. If all OK, result is <code>True</code>, else result is <code>False</code>.</p>
+<p>If size not 0 and remote server can handle SIZE parameter, append SIZE parameter to request. If all OK, result is <code>True</code>, else result is <code>False</code>.</p>
 </td></tr>
 </table>
 <table class="detail wide_list">
@@ -245,7 +245,7 @@ Send RCPT TO SMTP command for set receiver e-mail address. It cannot be an empty
 </tr>
 <tr><td colspan="2">
 <p>
-Send DATA SMTP command <a class="normal" href="int65math.html#and">and</a> transmit <a class="normal" href="Classes_C.html#Message">message</a> data. If all OK, result is <code>True</code>, else result is <code>False</code>.</p>
+Send DATA SMTP command and transmit <a class="normal" href="Classes_C.html#Message">message</a> data. If all OK, result is <code>True</code>, else result is <code>False</code>.</p>
 </td></tr>
 </table>
 <table class="detail wide_list">
@@ -285,7 +285,7 @@ Call <code>STARTTLS</code> command for upgrade connection to SSL/TLS mode.</p>
 </tr>
 <tr><td colspan="2">
 <p>
-Return string descriptive text for enhanced result codes stored in <a class="normal" href="smtpsend.TSMTPSend.html#EnhCode1">EnhCode1</a>, <a class="normal" href="smtpsend.TSMTPSend.html#EnhCode2">EnhCode2</a> <a class="normal" href="int65math.html#and">and</a> <a class="normal" href="smtpsend.TSMTPSend.html#EnhCode3">EnhCode3</a>.</p>
+Return string descriptive text for enhanced result codes stored in <a class="normal" href="smtpsend.TSMTPSend.html#EnhCode1">EnhCode1</a>, <a class="normal" href="smtpsend.TSMTPSend.html#EnhCode2">EnhCode2</a> and <a class="normal" href="smtpsend.TSMTPSend.html#EnhCode3">EnhCode3</a>.</p>
 </td></tr>
 </table>
 <table class="detail wide_list">
@@ -416,7 +416,7 @@ Third digit of Enhanced result code. If last operation does not have enhanced re
 </tr>
 <tr><td colspan="2">
 <p>
-name of our system used in HELO <a class="normal" href="int65math.html#and">and</a> EHLO command. Implicit value is internet address of your machine.</p>
+name of our system used in HELO and EHLO command. Implicit value is internet address of your machine.</p>
 </td></tr>
 </table>
 <table class="detail wide_list">

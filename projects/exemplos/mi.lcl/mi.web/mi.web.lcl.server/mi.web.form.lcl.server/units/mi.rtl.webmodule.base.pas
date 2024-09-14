@@ -33,8 +33,9 @@ type
 
 
 type
-  {:A interface **@name** publica o métodoTMi_rtl_WebModule_base publico que podem ser acessados via
-    protocolo restapi
+  {:A interface **@name** especifica os método da classe TMi_rtl_WebModule_base
+    quem devem ser implementados para que a classe TMi_rtl_WebModule_base possa
+    ser acessada da internet via protocolo RestAPI
   }
   IMi_rtl_WebModule = Interface ['{88DB8A8D-5926-4F55-9740-FC66E19455C4}']
 
@@ -461,6 +462,12 @@ type
           ```
     }
     procedure CmGoEofRequest(Sender: TObject; ARequest: TRequest;AResponse: TResponse; var Handled: Boolean);
+
+    procedure OnEnterFieldRequest(Sender: TObject; ARequest: TRequest;AResponse: TResponse; var Handled: Boolean);
+    procedure OnExitFieldRequest(Sender: TObject; ARequest: TRequest;AResponse: TResponse; var Handled: Boolean);
+    procedure OnCalcFieldRequest(Sender: TObject; ARequest: TRequest;AResponse: TResponse; var Handled: Boolean);
+    procedure OnChangeFieldRequest(Sender: TObject; ARequest: TRequest;AResponse: TResponse; var Handled: Boolean);
+
   end;
 
 
@@ -509,23 +516,11 @@ type
     published CmLocate: TAction;
     procedure CmAddRecordRequest(Sender: TObject; ARequest: TRequest;AResponse: TResponse; var Handled: Boolean);
     procedure CmPutRecordRequest(Sender: TObject; ARequest: TRequest;AResponse: TResponse; var Handled: Boolean);
-    procedure DmxScroller_Form1ExitField(aField: pDmxFieldRec);
-    procedure EnterFieldRequest(Sender: TObject; ARequest: TRequest;
-      AResponse: TResponse; var Handled: Boolean);
-    procedure OnAfterInsert(Sender: TObject; ARequest: TRequest;
-      AResponse: TResponse; var Handled: Boolean);
-    procedure OnBeforeInsertRequest(Sender: TObject; ARequest: TRequest;
-      AResponse: TResponse; var Handled: Boolean);
-    procedure OnBeforeUpdateRequest(Sender: TObject; ARequest: TRequest;
-      AResponse: TResponse; var Handled: Boolean);
-    procedure OnCalcFieldRequest(Sender: TObject; ARequest: TRequest;
-      AResponse: TResponse; var Handled: Boolean);
-    procedure OnChangeFieldRequest(Sender: TObject; ARequest: TRequest;
-      AResponse: TResponse; var Handled: Boolean);
-    procedure OnEnterFieldRequest(Sender: TObject; ARequest: TRequest;
-      AResponse: TResponse; var Handled: Boolean);
-    procedure OnExitFieldRequest(Sender: TObject; ARequest: TRequest;
-      AResponse: TResponse; var Handled: Boolean);
+
+    procedure OnEnterFieldRequest(Sender: TObject; ARequest: TRequest;AResponse: TResponse; var Handled: Boolean);
+    procedure OnExitFieldRequest(Sender: TObject; ARequest: TRequest;AResponse: TResponse; var Handled: Boolean);
+    procedure OnCalcFieldRequest(Sender: TObject; ARequest: TRequest;AResponse: TResponse; var Handled: Boolean);
+    procedure OnChangeFieldRequest(Sender: TObject; ARequest: TRequest;AResponse: TResponse; var Handled: Boolean);
 
     {:A ação **@name** executa o método   DmxScroller_Form1.DoOnNewRecord;
     }
@@ -1148,43 +1143,6 @@ end;
      DmxScroller_Form1.Set_ok_Set_Server_Http(_ok_Set_Server_Http);
    end;
 
-  procedure TMi_rtl_WebModule_base.DmxScroller_Form1ExitField(aField: pDmxFieldRec
-    );
-  begin
-
-  end;
-
-  procedure TMi_rtl_WebModule_base.EnterFieldRequest(Sender: TObject;
-    ARequest: TRequest; AResponse: TResponse; var Handled: Boolean);
-  begin
-
-  end;
-
-  procedure TMi_rtl_WebModule_base.OnAfterInsert(Sender: TObject;ARequest: TRequest; AResponse: TResponse; var Handled: Boolean);
-  begin
-
-  end;
-
-
-  procedure TMi_rtl_WebModule_base.OnBeforeInsertRequest(Sender: TObject;ARequest: TRequest; AResponse: TResponse; var Handled: Boolean);
-  begin
-
-  end;
-  procedure TMi_rtl_WebModule_base.OnBeforeUpdateRequest(Sender: TObject;ARequest: TRequest; AResponse: TResponse; var Handled: Boolean);
-  begin
-
-  end;
-
-
-  procedure TMi_rtl_WebModule_base.OnCalcFieldRequest(Sender: TObject;ARequest: TRequest; AResponse: TResponse; var Handled: Boolean);
-  begin
-
-  end;
-
-  procedure TMi_rtl_WebModule_base.OnChangeFieldRequest(Sender: TObject;ARequest: TRequest; AResponse: TResponse; var Handled: Boolean);
-  begin
-
-  end;
 
   procedure TMi_rtl_WebModule_base.CmDeleteRecordRequest(Sender: TObject;ARequest: TRequest; AResponse: TResponse; var Handled: Boolean);
     var
@@ -1397,6 +1355,15 @@ end;
 
   end;
 
+  procedure TMi_rtl_WebModule_base.OnCalcFieldRequest(Sender: TObject;ARequest: TRequest; AResponse: TResponse; var Handled: Boolean);
+  begin
+
+  end;
+
+  procedure TMi_rtl_WebModule_base.OnChangeFieldRequest(Sender: TObject;ARequest: TRequest; AResponse: TResponse; var Handled: Boolean);
+  begin
+
+  end;
 
 {$ENDREGION '--> Métodos publicados na web'}
 

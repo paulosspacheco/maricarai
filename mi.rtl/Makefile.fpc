@@ -1,17 +1,17 @@
 #   File generated automatically by Lazarus Package Manager
 #
-#   Makefile.fpc for mi.rtl 0.9.0.621
+#   Makefile.fpc for mi.rtl 1.0
 #
-#   This file was generated on 13/09/2024
+#   This file was generated on 14/09/2024
 
 [package]
 name=mi.rtl
-version=0.9.0.621
+version=1.0
 
 [compiler]
 unittargetdir=bin/$(CPU_TARGET)/$(OS_TARGET)/units
 unitdir=units units/fcl-base/src units/img ../../../../Lazarus/fpcupdeluxe/lazarus/packager/units/$(CPU_TARGET)-$(OS_TARGET) ../../../../Lazarus/fpcupdeluxe/lazarus/components/lazutils/lib/$(CPU_TARGET)-$(OS_TARGET) ../../../../Lazarus/fpcupdeluxe/lazarus/components/buildintf/units/$(CPU_TARGET)-$(OS_TARGET) ../../../../Lazarus/fpcupdeluxe/lazarus/components/codetools/units/$(CPU_TARGET)-$(OS_TARGET) ../../../../Lazarus/fpcupdeluxe/lazarus/components/freetype/lib/$(CPU_TARGET)-$(OS_TARGET) ../../../../Lazarus/fpcupdeluxe/lazarus/lcl/units/$(CPU_TARGET)-$(OS_TARGET) ../../../../Lazarus/fpcupdeluxe/lazarus/lcl/units/$(CPU_TARGET)-$(OS_TARGET)/$(LCL_PLATFORM) ../../../../Lazarus/fpcupdeluxe/lazarus/components/lazcontrols/lib/$(CPU_TARGET)-$(OS_TARGET)/$(LCL_PLATFORM) ../../../../Lazarus/fpcupdeluxe/lazarus/components/synedit/units/$(CPU_TARGET)-$(OS_TARGET)/$(LCL_PLATFORM) ../../../../Lazarus/fpcupdeluxe/lazarus/components/ideintf/units/$(CPU_TARGET)-$(OS_TARGET)/$(LCL_PLATFORM) ../../../../Lazarus/fpcupdeluxe/lazarus/components/sqldb/lib/$(CPU_TARGET)-$(OS_TARGET)/$(LCL_PLATFORM) .
-includedir=../projects/exemplos/mi.rtl/mi.rtl.tests/lib/x86_64-linux/units units/inc/linux units/inc/windows units units/fcl-base/src
+includedir=../projects/exemplos/mi.lcl/mi.web/mi.web.lcl.server/mi.web.form.lcl.server/bin/x86_64/linux/units units/inc/linux units/inc/windows units units/fcl-base/src
 options= -MDelphi -Scaghi -CirotR -O1 -g -gl -l -vewnhibq -dLCL -dLCL$(LCL_PLATFORM) -dFPC_DOTTEDUNITS $(DBG_OPTIONS)
 
 [target]

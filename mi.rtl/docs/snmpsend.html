@@ -21,7 +21,7 @@
 <p>
 SNMP client</p>
 <p>
- Supports SNMPv1 include traps, SNMPv2c <a class="normal" href="int65math.html#and">and</a> SNMPv3 include authorization <a class="normal" href="int65math.html#and">and</a> privacy encryption.
+ Supports SNMPv1 include traps, SNMPv2c and SNMPv3 include authorization and privacy encryption.
 
 <p>Used RFC: RFC-1157, RFC-1901, RFC-3412, RFC-3414, RFC-3416, RFC-3826
 
@@ -36,7 +36,7 @@ SNMP client</p>
 </tr>
 <tr class="list">
 <td class="itemname">Classe&nbsp;<a class="bold" href="snmpsend.TSNMPMib.html"><code>TSNMPMib</code></a></td>
-<td class="itemdesc">Data object with one record of MIB <a class="normal" href="snmpsend.TSNMPMib.html#OID">OID</a> <a class="normal" href="int65math.html#and">and</a> corresponding values.</td>
+<td class="itemdesc">Data object with one record of MIB <a class="normal" href="snmpsend.TSNMPMib.html#OID">OID</a> and corresponding values.</td>
 </tr>
 <tr class="list2">
 <td class="itemname">Registro&nbsp;<a class="bold" href="snmpsend.TV3Sync.html"><code>TV3Sync</code></a></td>
@@ -200,7 +200,7 @@ SNMP client</p>
 </tr>
 <tr><td colspan="1">
 <p>
-A very useful function <a class="normal" href="int65math.html#and">and</a> example of its use would be found in the <a class="normal" href="snmpsend.TSNMPSend.html">TSNMPSend</a> object. It implements basic GET method of the SNMP protocol. The MIB value is located in the &quot;OID&quot; variable, <a class="normal" href="int65math.html#and">and</a> is sent to the requested &quot;SNMPHost&quot; with the proper &quot;Community&quot; access identifier. Upon a successful retrieval, &quot;Value&quot; will contain the information requested. If the SNMP operation is successful, the result returns <code>True</code>.</p>
+A very useful function and example of its use would be found in the <a class="normal" href="snmpsend.TSNMPSend.html">TSNMPSend</a> object. It implements basic GET method of the SNMP protocol. The MIB value is located in the &quot;OID&quot; variable, and is sent to the requested &quot;SNMPHost&quot; with the proper &quot;Community&quot; access identifier. Upon a successful retrieval, &quot;Value&quot; will contain the information requested. If the SNMP operation is successful, the result returns <code>True</code>.</p>
 </td></tr>
 </table>
 <table class="detail wide_list">
@@ -209,7 +209,7 @@ A very useful function <a class="normal" href="int65math.html#and">and</a> examp
 </tr>
 <tr><td colspan="1">
 <p>
-This is useful function <a class="normal" href="int65math.html#and">and</a> example of use <a class="normal" href="snmpsend.TSNMPSend.html">TSNMPSend</a> object. It implements the basic SET method of the SNMP protocol. If the SNMP operation is successful, the result is <code>True</code>. &quot;Value&quot; is value of MIB Oid for &quot;SNMPHost&quot; with &quot;Community&quot; access identifier. You must specify &quot;ValueType&quot; too.</p>
+This is useful function and example of use <a class="normal" href="snmpsend.TSNMPSend.html">TSNMPSend</a> object. It implements the basic SET method of the SNMP protocol. If the SNMP operation is successful, the result is <code>True</code>. &quot;Value&quot; is value of MIB Oid for &quot;SNMPHost&quot; with &quot;Community&quot; access identifier. You must specify &quot;ValueType&quot; too.</p>
 </td></tr>
 </table>
 <table class="detail wide_list">
@@ -218,7 +218,7 @@ This is useful function <a class="normal" href="int65math.html#and">and</a> exam
 </tr>
 <tr><td colspan="1">
 <p>
-A very useful function <a class="normal" href="int65math.html#and">and</a> example of its use would be found in the <a class="normal" href="snmpsend.TSNMPSend.html">TSNMPSend</a> object. It implements basic GETNEXT method of the SNMP protocol. The MIB value is located in the &quot;OID&quot; variable, <a class="normal" href="int65math.html#and">and</a> is sent to the requested &quot;SNMPHost&quot; with the proper &quot;Community&quot; access identifier. Upon a successful retrieval, &quot;Value&quot; will contain the information requested. If the SNMP operation is successful, the result returns <code>True</code>.</p>
+A very useful function and example of its use would be found in the <a class="normal" href="snmpsend.TSNMPSend.html">TSNMPSend</a> object. It implements basic GETNEXT method of the SNMP protocol. The MIB value is located in the &quot;OID&quot; variable, and is sent to the requested &quot;SNMPHost&quot; with the proper &quot;Community&quot; access identifier. Upon a successful retrieval, &quot;Value&quot; will contain the information requested. If the SNMP operation is successful, the result returns <code>True</code>.</p>
 </td></tr>
 </table>
 <table class="detail wide_list">
@@ -227,9 +227,9 @@ A very useful function <a class="normal" href="int65math.html#and">and</a> examp
 </tr>
 <tr><td colspan="1">
 <p>
-A very useful function <a class="normal" href="int65math.html#and">and</a> example of its use would be found in the <a class="normal" href="snmpsend.TSNMPSend.html">TSNMPSend</a> object. It implements basic read of SNMP MIB tables. As BaseOID you must specify basic MIB OID of requested table (base IOD is OID without row <a class="normal" href="int65math.html#and">and</a> column specificator!) Table is readed into stringlist, where each string is comma delimited string.
+A very useful function and example of its use would be found in the <a class="normal" href="snmpsend.TSNMPSend.html">TSNMPSend</a> object. It implements basic read of SNMP MIB tables. As BaseOID you must specify basic MIB OID of requested table (base IOD is OID without row and column specificator!) Table is readed into stringlist, where each string is comma delimited string.
 
-<p><a class="normal" href="slogsend.html#Warning">Warning</a>: this function is not have best performance. For better performance you must write your own function. best performace you can get by knowledge of structuture of table <a class="normal" href="int65math.html#and">and</a> by more then one MIB on one query.</p>
+<p><a class="normal" href="slogsend.html#Warning">Warning</a>: this function is not have best performance. For better performance you must write your own function. best performace you can get by knowledge of structuture of table and by more then one MIB on one query.</p>
 </td></tr>
 </table>
 <table class="detail wide_list">
@@ -238,7 +238,7 @@ A very useful function <a class="normal" href="int65math.html#and">and</a> examp
 </tr>
 <tr><td colspan="1">
 <p>
-A very useful function <a class="normal" href="int65math.html#and">and</a> example of its use would be found in the <a class="normal" href="snmpsend.TSNMPSend.html">TSNMPSend</a> object. It implements basic read of SNMP MIB table element. As BaseOID you must specify basic MIB OID of requested table (base IOD is OID without row <a class="normal" href="int65math.html#and">and</a> column specificator!) As next you must specify identificator of row <a class="normal" href="int65math.html#and">and</a> column for specify of needed field of table.</p>
+A very useful function and example of its use would be found in the <a class="normal" href="snmpsend.TSNMPSend.html">TSNMPSend</a> object. It implements basic read of SNMP MIB table element. As BaseOID you must specify basic MIB OID of requested table (base IOD is OID without row and column specificator!) As next you must specify identificator of row and column for specify of needed field of table.</p>
 </td></tr>
 </table>
 <table class="detail wide_list">
@@ -247,7 +247,7 @@ A very useful function <a class="normal" href="int65math.html#and">and</a> examp
 </tr>
 <tr><td colspan="1">
 <p>
-A very useful function <a class="normal" href="int65math.html#and">and</a> example of its use would be found in the <a class="normal" href="snmpsend.TSNMPSend.html">TSNMPSend</a> object. It implements a TRAPv1 to send with all data in the parameters.</p>
+A very useful function and example of its use would be found in the <a class="normal" href="snmpsend.TSNMPSend.html">TSNMPSend</a> object. It implements a TRAPv1 to send with all data in the parameters.</p>
 </td></tr>
 </table>
 <table class="detail wide_list">
@@ -256,7 +256,7 @@ A very useful function <a class="normal" href="int65math.html#and">and</a> examp
 </tr>
 <tr><td colspan="1">
 <p>
-A very useful function <a class="normal" href="int65math.html#and">and</a> example of its use would be found in the <a class="normal" href="snmpsend.TSNMPSend.html">TSNMPSend</a> object. It receives a TRAPv1 <a class="normal" href="int65math.html#and">and</a> returns all the data that comes with it.</p>
+A very useful function and example of its use would be found in the <a class="normal" href="snmpsend.TSNMPSend.html">TSNMPSend</a> object. It receives a TRAPv1 and returns all the data that comes with it.</p>
 </td></tr>
 </table>
 <h3 class="detail">Tipos</h3>
@@ -268,7 +268,7 @@ A very useful function <a class="normal" href="int65math.html#and">and</a> examp
 <p>
 Possible values for SNMPv3 flags.</p>
 <p>
- This flags specify level of authorization <a class="normal" href="int65math.html#and">and</a> encryption.</p>
+ This flags specify level of authorization and encryption.</p>
 <h6 class="description_section">Valores</h6>
 <ul>
 <li>

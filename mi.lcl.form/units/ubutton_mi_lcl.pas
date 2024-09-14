@@ -3,7 +3,7 @@ unit uButton_mi_lcl;
    associado ao botão quando o botão for pressionado.
 
    - **VERSÃO**
-     - Alpha - 0.9.0
+     - Alpha - 1.0.0
 
    - **CÓDIGO FONTE**:
      - @html(<a href="../units/umi_button_lcl.pas">uMi_Button_LCL.pas</a>)

@@ -27,7 +27,7 @@
 <p>
 Implementation of TCP <a class="normal" href="blcksock.TBlockSocket.html#Socket">socket</a>.</p>
 <p>
- Supported features: IPv4, IPv6, <a class="normal" href="blcksock.TTCPBlockSocket.html#SSL">SSL</a>/TLS or SSH (depending on used plugin), SOCKS5 proxy (outgoing connections <a class="normal" href="int65math.html#and">and</a> limited incomming), SOCKS4/4a proxy (outgoing connections <a class="normal" href="int65math.html#and">and</a> limited incomming), TCP through HTTP proxy tunnel.</p>
+ Supported features: IPv4, IPv6, <a class="normal" href="blcksock.TTCPBlockSocket.html#SSL">SSL</a>/TLS or SSH (depending on used plugin), SOCKS5 proxy (outgoing connections and limited incomming), SOCKS4/4a proxy (outgoing connections and limited incomming), TCP through HTTP proxy tunnel.</p>
 <span id="PasDoc-Hierarchy"></span><h2 class="hierarchy">Hierarquia</h2>
 <ul class="hierarchy"><li class="ancestor">TObject</li>
 <li class="ancestor"><a class="normal" href="blcksock.TBlockSocket.html">TBlockSocket</a></li>
@@ -392,7 +392,7 @@ Waits until new incoming connection comes. After it comes a new <a class="normal
 </tr>
 <tr><td colspan="2">
 <p>
-Connects <a class="normal" href="blcksock.TBlockSocket.html#Socket">socket</a> to remote IP address <a class="normal" href="int65math.html#and">and</a> PORT. The same rules as with <a class="normal" href="blcksock.TBlockSocket.html#Bind">TBlockSocket.BIND</a> method are valid. The only exception is that PORT with 0 value will not be connected. After call to this method a communication channel between local <a class="normal" href="int65math.html#and">and</a> remote <a class="normal" href="blcksock.TBlockSocket.html#Socket">socket</a> is created. Local <a class="normal" href="blcksock.TBlockSocket.html#Socket">socket</a> is assigned automatically if not controlled by previous call to <a class="normal" href="blcksock.TBlockSocket.html#Bind">TBlockSocket.BIND</a> method. Structures <a class="normal" href="blcksock.TBlockSocket.html#LocalSin">TBlockSocket.LocalSin</a> <a class="normal" href="int65math.html#and">and</a> <a class="normal" href="blcksock.TBlockSocket.html#RemoteSin">TBlockSocket.RemoteSin</a> will be filled with valid values.
+Connects <a class="normal" href="blcksock.TBlockSocket.html#Socket">socket</a> to remote IP address and PORT. The same rules as with <a class="normal" href="blcksock.TBlockSocket.html#Bind">TBlockSocket.BIND</a> method are valid. The only exception is that PORT with 0 value will not be connected. After call to this method a communication channel between local and remote <a class="normal" href="blcksock.TBlockSocket.html#Socket">socket</a> is created. Local <a class="normal" href="blcksock.TBlockSocket.html#Socket">socket</a> is assigned automatically if not controlled by previous call to <a class="normal" href="blcksock.TBlockSocket.html#Bind">TBlockSocket.BIND</a> method. Structures <a class="normal" href="blcksock.TBlockSocket.html#LocalSin">TBlockSocket.LocalSin</a> and <a class="normal" href="blcksock.TBlockSocket.html#RemoteSin">TBlockSocket.RemoteSin</a> will be filled with valid values.
 
 <p>If you use SOCKS, activate outgoing TCP connection by SOCKS proxy specified in <a class="normal" href="blcksock.TSocksBlockSocket.html#SocksIP">TSocksBlockSocket.SocksIP</a>. (By <code>CONNECT</code> method of SOCKS.)
 
@@ -408,7 +408,7 @@ Connects <a class="normal" href="blcksock.TBlockSocket.html#Socket">socket</a> t
 </tr>
 <tr><td colspan="2">
 <p>
-If you need upgrade existing TCP connection to <a class="normal" href="blcksock.TTCPBlockSocket.html#SSL">SSL</a>/TLS (or SSH2, if plugin allows it) mode, then call this method. This method switch this class to <a class="normal" href="blcksock.TTCPBlockSocket.html#SSL">SSL</a> mode <a class="normal" href="int65math.html#and">and</a> do <a class="normal" href="blcksock.TTCPBlockSocket.html#SSL">SSL</a>/TSL handshake.</p>
+If you need upgrade existing TCP connection to <a class="normal" href="blcksock.TTCPBlockSocket.html#SSL">SSL</a>/TLS (or SSH2, if plugin allows it) mode, then call this method. This method switch this class to <a class="normal" href="blcksock.TTCPBlockSocket.html#SSL">SSL</a> mode and do <a class="normal" href="blcksock.TTCPBlockSocket.html#SSL">SSL</a>/TSL handshake.</p>
 </td></tr>
 </table>
 <table class="detail wide_list">
@@ -428,7 +428,7 @@ By this method you can downgrade existing <a class="normal" href="blcksock.TTCPB
 </tr>
 <tr><td colspan="2">
 <p>
-If you need use this component as <a class="normal" href="blcksock.TTCPBlockSocket.html#SSL">SSL</a>/TLS TCP server, then after accepting of inbound connection you need start <a class="normal" href="blcksock.TTCPBlockSocket.html#SSL">SSL</a>/TLS session by this method. Before call this function, you must have assigned all neeeded certificates <a class="normal" href="int65math.html#and">and</a> keys!</p>
+If you need use this component as <a class="normal" href="blcksock.TTCPBlockSocket.html#SSL">SSL</a>/TLS TCP server, then after accepting of inbound connection you need start <a class="normal" href="blcksock.TTCPBlockSocket.html#SSL">SSL</a>/TLS session by this method. Before call this function, you must have assigned all neeeded certificates and keys!</p>
 </td></tr>
 </table>
 <table class="detail wide_list">

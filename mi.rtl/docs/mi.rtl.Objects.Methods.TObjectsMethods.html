@@ -738,15 +738,23 @@
 </tr>
 <tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
-<td class="itemcode"><code>class Procedure <strong><a href="mi.rtl.Objects.Methods.TObjectsMethods.html#GetQueryFieldsLocate">GetQueryFieldsLocate</a></strong>(var aRequest: TRequest; out aKeyFields: string; Out aKeyValues: Variant; Out aOptions : TLocateOptions );</code></td>
+<td class="itemcode"><code>Class function <strong><a href="mi.rtl.Objects.Methods.TObjectsMethods.html#ConvertCSVToJSONArray">ConvertCSVToJSONArray</a></strong>(const CSV: string): TJSONArray;</code></td>
 </tr>
 <tr class="list2">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
-<td class="itemcode"><code>Class function <strong><a href="mi.rtl.Objects.Methods.TObjectsMethods.html#LocateParamsToJson">LocateParamsToJson</a></strong>(KeyFields: string; KeyValues: Variant; Options: TLocateOptions): TJSONObject;</code></td>
+<td class="itemcode"><code>class Procedure <strong><a href="mi.rtl.Objects.Methods.TObjectsMethods.html#GetQueryFieldsLocate">GetQueryFieldsLocate</a></strong>(var aRequest: TRequest; out aKeyFields: string; Out aKeyValues: Variant; Out aOptions : TLocateOptions );</code></td>
 </tr>
 <tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>Class function <strong><a href="mi.rtl.Objects.Methods.TObjectsMethods.html#LocateParamsToJson">LocateParamsToJson</a></strong>(KeyFields: string; KeyValues: Variant; Options: TLocateOptions): TJSONObject;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
 <td class="itemcode"><code>Class function <strong><a href="mi.rtl.Objects.Methods.TObjectsMethods.html#ValidateAndNormalizeURL">ValidateAndNormalizeURL</a></strong>(const BaseURL, Action, QueryString: string): string;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>class procedure <strong><a href="mi.rtl.Objects.Methods.TObjectsMethods.html#ParseServerResponse">ParseServerResponse</a></strong>(const AResponse: string; out KeyFields: string; out KeyValues: Variant);</code></td>
 </tr>
 </table>
 <span id="PasDoc-Properties"></span><h3 class="summary">Propriedades</h3>
@@ -1279,7 +1287,7 @@ A classe function <strong><code>LongDiv</code></strong> retorna o valor inteiro 
 </p>
 
 <ul class="paragraph_spacing">
-  <li><p>returns ticks at 18.2 Hz, just like DOS</p></li>
+  <li><p>returns ticks at 18.2 <a class="normal" href="synachar.html#HZ">Hz</a>, just like DOS</p></li>
 </ul>
 
 <p></p>
@@ -1857,7 +1865,7 @@ O Método <code>String_ListaDeMsgErro</code> retorna uma lista de erros da pilha
 </tr>
 <tr><td colspan="2">
 <p>
-A procedure <strong><code>Dispose_ListaDeMsgErro</code></strong> esvazia a pilha de mensagens de error caso as mensagen não tenhão sido tratadas antes de encerrar TMI_Application.</p>
+A procedure <strong><code>Dispose_ListaDeMsgErro</code></strong> esvazia a pilha de mensagens de <a class="normal" href="slogsend.html#Error">error</a> caso as mensagen não tenhão sido tratadas antes de encerrar TMI_Application.</p>
 </td></tr>
 </table>
 <table class="detail wide_list">
@@ -2346,10 +2354,10 @@ A função <strong><code>CreateDB_or_DropDB</code></strong> é usada para criar 
 
 <ul class="paragraph_spacing">
   <li><p>True : Conseguiu criar o banco de dados;</p></li>
-  <li><p>False : Error na ação </p>
+  <li><p>False : <a class="normal" href="slogsend.html#Error">Error</a> na ação </p>
 
 <ul class="paragraph_spacing">
-  <li><p>Error possiveis: </p>
+  <li><p><a class="normal" href="slogsend.html#Error">Error</a> possiveis: </p>
 
 <ul class="paragraph_spacing">
   <li><p>Banco de dados já existe quando se quer criar;</p></li>
@@ -2613,7 +2621,7 @@ A classe método <strong><code>SplitString</code></strong> recebe em aInputStrin
 </tr>
 <tr><td colspan="2">
 <p>
-O Método <strong><code>HTMLToTColor</code></strong>
+O Método <strong><code>HTMLToTColor</code></strong> converte código HTML em cor da LCL
 
 <p></p>
 
@@ -3136,6 +3144,83 @@ O método <strong><code>JSONObjectToQueryString</code></strong> converte um obje
 <table class="detail wide_list">
 <tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="ConvertCSVToJSONArray"></span><code>Class function <strong>ConvertCSVToJSONArray</strong>(const CSV: string): TJSONArray;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+O método <strong><code>ConvertCSVToJSONArray</code></strong> usado para converter strings separadas por vírgulas em um array JSON.
+
+<p></p>
+
+<ul class="paragraph_spacing">
+  <li><p><strong>Descrição</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Este método de classe converte uma string no formato CSV (Comma-Separated Values) em um array JSON (<code>TJSONArray</code>). A string CSV é dividida usando a vírgula como delimitador, e cada item resultante é adicionado ao array JSON. Espaços extras ao redor dos valores são removidos.</p></li>
+</ul>
+
+<p></p></li>
+  <li><p><strong>Parâmetros</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p><strong>CSV</strong>: <code>string</code> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>A string no formato CSV que será convertida em um array JSON.</p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p></li>
+  <li><p><strong>Retorno</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p><code>TJSONArray</code> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Um array JSON contendo os valores extraídos da string CSV.</p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p></li>
+  <li><p><strong>Fluxo de Execução</strong> </p>
+
+<ol class="paragraph_spacing">
+  <li value="1"><p>Cria um novo objeto <code>TJSONArray</code> e um <code>TStringList</code>.</p></li>
+  <li value="2"><p>Configura o <code>TStringList</code> para usar a vírgula como delimitador e desativa o tratamento de espaços como parte dos valores.</p></li>
+  <li value="3"><p>Divide a string CSV em uma lista de valores.</p></li>
+  <li value="4"><p>Itera sobre a lista e adiciona cada item ao array JSON, removendo espaços extras.</p></li>
+  <li value="5"><p>Libera a memória alocada para o <code>TStringList</code>.</p></li>
+</ol>
+
+<p></p></li>
+  <li><p><strong>Exceções</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Não há tratamento específico de exceções implementado neste método.</p></li>
+</ul>
+
+<p></p></li>
+  <li><p><strong>Ver Também</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p><code>TJSONArray</code></p></li>
+  <li><p><code>TStringList</code></p></li>
+  <li><p><code>DelimitedText</code></p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
 <td class="itemcode"><span id="GetQueryFieldsLocate"></span><code>class Procedure <strong>GetQueryFieldsLocate</strong>(var aRequest: TRequest; out aKeyFields: string; Out aKeyValues: Variant; Out aOptions : TLocateOptions );</code></td>
 </tr>
 <tr><td colspan="2">
@@ -3268,6 +3353,85 @@ O método <strong><code>ValidateAndNormalizeURL</code></strong> tem como objetiv
   CompleteURL := ValidateAndNormalizeURL(<span class="pascal_string">'http://example.com'</span>, <span class="pascal_string">'/api/resource'</span>, <span class="pascal_string">'?id=123&amp;name=test'</span>);
   <span class="pascal_comment">// Resultado: http://example.com/api/resource?id=123&amp;name=test</span>
 <span class="pascal_keyword">end</span>;</pre>
+
+<p></p></li>
+</ul>
+
+<p></p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="ParseServerResponse"></span><code>class procedure <strong>ParseServerResponse</strong>(const AResponse: string; out KeyFields: string; out KeyValues: Variant);</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+O método <strong><code>ParseServerResponse</code></strong> faz o parsing de uma resposta JSON recebida e extrai os campos de chave e seus respectivos valores. O campo <code>keyFields</code> é uma string que contém os nomes dos campos separados por vírgula, e o campo <code>keyValues</code> pode ser um array de valores ou um único valor.
+
+<p></p>
+
+<ul class="paragraph_spacing">
+  <li><p><strong>Parâmetros</strong> -<code>AResponse</code>: </p>
+
+<ul class="paragraph_spacing">
+  <li><p>String contendo o JSON da resposta do servidor.</p></li>
+</ul>
+
+<p></p>
+
+<ul class="paragraph_spacing">
+  <li><p><code>KeyFields</code>: </p>
+
+<ul class="paragraph_spacing">
+  <li><p>String de saída que armazenará os campos de chave extraídos do JSON.</p></li>
+</ul>
+
+<p></p></li>
+  <li><p><code>KeyValues</code>: Variável de saída que armazenará os valores dos campos de chave. Pode ser um array de variantes ou um valor único.</p></li>
+</ul>
+
+<p></p></li>
+  <li><p><strong>Fluxo de Execução</strong> </p>
+
+<ol class="paragraph_spacing">
+  <li value="1"><p>Inicializa as variáveis <code>KeyFields</code> e <code>KeyValues</code> com valores padrão (<code>''</code> e <code>Null</code>, respectivamente).</p></li>
+  <li value="2"><p>Realiza o parsing do JSON contido em <code>AResponse</code>.</p></li>
+  <li value="3"><p>Extrai o valor de <code>keyFields</code>, que deve ser uma string no JSON.</p></li>
+  <li value="4"><p>Verifica se <code>keyValues</code> é um array: </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Se for, cria um array de variantes e itera pelos itens do array, armazenando-os em <code>KeyValues</code>.</p></li>
+  <li><p>Se não for, <code>KeyValues</code> recebe um único valor extraído do JSON.</p></li>
+</ul>
+
+<p></p></li>
+  <li value="5"><p>Libera o objeto JSON ao final da execução.</p></li>
+  <li value="6"><p>Caso ocorra um erro durante o parsing, o método captura a exceção e exibe uma mensagem de erro.</p></li>
+</ol>
+
+<p></p></li>
+  <li><p>Exceções </p>
+
+<ul class="paragraph_spacing">
+  <li><p><code>E: Exception</code>: </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Exceção capturada se ocorrer algum erro durante o processamento do JSON. A mensagem de erro é exibida no <a class="normal" href="Console.html">console</a>.</p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p></li>
+  <li><p><strong>Ver Também</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p><code>TJSONObject</code></p></li>
+  <li><p><code>TJSONArray</code></p></li>
+  <li><p><code>GetJSON</code></p></li>
+  <li><p><code>VarArrayCreate</code></p></li>
+</ul>
 
 <p></p></li>
 </ul>

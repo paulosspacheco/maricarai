@@ -80,35 +80,6 @@ object Mi_rtl_WebModule_base: TMi_rtl_WebModule_base
       Default = False
       OnRequest = OnChangeFieldRequest
       Template.AllowTagParams = False
-    end  
-    item
-      Name = 'OnBeforeInsert'
-      Default = False
-      OnRequest = OnBeforeInsertRequest
-      Template.AllowTagParams = False
-    end  
-    item
-      Name = 'OnAfterInsert'
-      Default = False
-      OnRequest = OnAfterInsert
-      Template.AllowTagParams = False
-    end  
-    item
-      Name = 'OnBeforeUpdate'
-      Default = False
-      OnRequest = OnBeforeUpdateRequest
-      Template.AllowTagParams = False
-    end  
-    item
-      Name = 'OnAfterUpdate'
-      Default = False
-      OnRequest = OnAfterUpdateRequest
-      Template.AllowTagParams = False
-    end  
-    item
-      Name = 'OnBeforeDelete'
-      Default = False
-      Template.AllowTagParams = False
     end>
   CreateSession = False
   CORS.Enabled = False
@@ -192,7 +163,6 @@ object Mi_rtl_WebModule_base: TMi_rtl_WebModule_base
     Active = False
     MiDataPacketFormat_Default = dfBinary
     AlignmentLabels = taLeftJustify
-    onExitField = DmxScroller_Form1ExitField
     Mi_ActionList = ActionList1
     ShouldSaveTemplate = False
     ClientsTemplatesDataModule = 'mi.rtl.web.module'

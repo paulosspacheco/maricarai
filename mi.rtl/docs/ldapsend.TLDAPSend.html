@@ -27,11 +27,11 @@
 <p>
 Implementation of LDAP client</p>
 <p>
- (<a class="normal" href="ldapsend.TLDAPSend.html#Version">version</a> 2 <a class="normal" href="int65math.html#and">and</a> 3)
+ (<a class="normal" href="ldapsend.TLDAPSend.html#Version">version</a> 2 and 3)
 
-<p>Note: Are you missing properties for setting <a class="normal" href="blcksock.TSynaClient.html#UserName">Username</a> <a class="normal" href="int65math.html#and">and</a> <a class="normal" href="blcksock.TSynaClient.html#Password">Password</a>? Look to parent <a class="normal" href="blcksock.TSynaClient.html">TSynaClient</a> object!
+<p>Note: Are you missing properties for setting <a class="normal" href="blcksock.TSynaClient.html#UserName">Username</a> and <a class="normal" href="blcksock.TSynaClient.html#Password">Password</a>? Look to parent <a class="normal" href="blcksock.TSynaClient.html">TSynaClient</a> object!
 
-<p>Are you missing properties for specify server address <a class="normal" href="int65math.html#and">and</a> port? Look to parent <a class="normal" href="blcksock.TSynaClient.html">TSynaClient</a> too!</p>
+<p>Are you missing properties for specify server address and port? Look to parent <a class="normal" href="blcksock.TSynaClient.html">TSynaClient</a> too!</p>
 <span id="PasDoc-Hierarchy"></span><h2 class="hierarchy">Hierarquia</h2>
 <ul class="hierarchy"><li class="ancestor">TObject</li>
 <li class="ancestor"><a class="normal" href="blcksock.TSynaClient.html">TSynaClient</a></li>
@@ -195,7 +195,7 @@ Implementation of LDAP client</p>
 </tr>
 <tr><td colspan="2">
 <p>
-Try to connect to LDAP server <a class="normal" href="int65math.html#and">and</a> start secure channel, when it is required.</p>
+Try to connect to LDAP server and start secure channel, when it is required.</p>
 </td></tr>
 </table>
 <table class="detail wide_list">
@@ -205,7 +205,7 @@ Try to connect to LDAP server <a class="normal" href="int65math.html#and">and</a
 </tr>
 <tr><td colspan="2">
 <p>
-Try to <code>bind</code> to LDAP server with <a class="normal" href="blcksock.TSynaClient.html#UserName">TSynaClient.Username</a> <a class="normal" href="int65math.html#and">and</a> <a class="normal" href="blcksock.TSynaClient.html#Password">TSynaClient.Password</a>. If this is empty strings, then it do annonymous <code>Bind</code>. When you not call <code>Bind</code> on LDAPv3, then is automaticly used anonymous mode.
+Try to <code>bind</code> to LDAP server with <a class="normal" href="blcksock.TSynaClient.html#UserName">TSynaClient.Username</a> and <a class="normal" href="blcksock.TSynaClient.html#Password">TSynaClient.Password</a>. If this is empty strings, then it do annonymous <code>Bind</code>. When you not call <code>Bind</code> on LDAPv3, then is automaticly used anonymous mode.
 
 <p>This method using plaintext transport of <a class="normal" href="blcksock.TSynaClient.html#Password">password</a>! It is not secure!</p>
 </td></tr>
@@ -217,7 +217,7 @@ Try to <code>bind</code> to LDAP server with <a class="normal" href="blcksock.TS
 </tr>
 <tr><td colspan="2">
 <p>
-Try to <a class="normal" href="ldapsend.TLDAPSend.html#Bind">bind</a> to LDAP server with <a class="normal" href="blcksock.TSynaClient.html#UserName">TSynaClient.Username</a> <a class="normal" href="int65math.html#and">and</a> <a class="normal" href="blcksock.TSynaClient.html#Password">TSynaClient.Password</a>. If this is empty strings, then it do annonymous <a class="normal" href="ldapsend.TLDAPSend.html#Bind">Bind</a>. When you not call <a class="normal" href="ldapsend.TLDAPSend.html#Bind">Bind</a> on LDAPv3, then is automaticly used anonymous mode.
+Try to <a class="normal" href="ldapsend.TLDAPSend.html#Bind">bind</a> to LDAP server with <a class="normal" href="blcksock.TSynaClient.html#UserName">TSynaClient.Username</a> and <a class="normal" href="blcksock.TSynaClient.html#Password">TSynaClient.Password</a>. If this is empty strings, then it do annonymous <a class="normal" href="ldapsend.TLDAPSend.html#Bind">Bind</a>. When you not call <a class="normal" href="ldapsend.TLDAPSend.html#Bind">Bind</a> on LDAPv3, then is automaticly used anonymous mode.
 
 <p>This method using SASL with DIGEST-<a class="normal" href="synacode.html#MD5">MD5</a> method for secure transfer of your <a class="normal" href="blcksock.TSynaClient.html#Password">password</a>.</p>
 </td></tr>

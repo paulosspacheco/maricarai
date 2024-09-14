@@ -3,7 +3,7 @@
   <Package Version="5">
     <Name Value="mi.rtl"/>
     <Type Value="RunAndDesignTime"/>
-    <Author Value="PauloSSPacheco@yahoo.com; "/>
+    <Author Value="PauloSSPacheco@yahoo.com.br; "/>
     <CompilerOptions>
       <Version Value="11"/>
       <SearchPaths>
@@ -47,7 +47,7 @@
   - zz : Muda a cada correção de bugs ou otimização.
   - ww : Número de vezes que o pacote foi construido do zero.
 "/>
-    <License Value="Copyright (c) &lt;2023> &lt;PauloSSPacheco@gmail.com>
+    <License Value="Copyright (c) &lt;2024> &lt;PauloSSPacheco@gmail.com>
 
 A permissão é concedida, gratuitamente, a qualquer pessoa que obtenha uma cópia  deste software e arquivos de documentação associados (o &quot;Software&quot;), para   negociar no Software sem restrições, incluindo, sem limitação, o   direitos de usar, copiar, modificar, mesclar, publicar, distribuir, sublicenciar e/ou vender cópias do Software e permitir que as pessoas a quem o Software é  munidos para o efeito, nas seguintes condições:
 
@@ -58,7 +58,7 @@ A permissão é concedida, gratuitamente, a qualquer pessoa que obtenha uma cóp
    EM NENHUM CASO O  OS AUTORES OU DETENTORES DOS DIREITOS AUTORAIS SERÃO RESPONSÁVEIS POR QUALQUE
    REIVINDICAÇÃO,  DANOS OU OUTROS  RESPONSABILIDADE, SEJA EM UMA AÇÃO DE CONTRATO, ILÍCITO OU DE OUTRA FORMA,
    DECORRENTE  DE,  FORA DE OU EM CONEXÃO COM O SOFTWARE OU O USO OU OUTROS NEGÓCIOS  NO SOFTWARE.   "/>
-    <Version Minor="9" Build="621"/>
+    <Version Major="1"/>
     <Files>
       <Item>
         <Filename Value="histórico.pas"/>

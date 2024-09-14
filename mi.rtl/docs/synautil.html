@@ -280,7 +280,7 @@ Returns current time in format defined in RFC-822. Useful for SMTP messages, but
 </tr>
 <tr><td colspan="1">
 <p>
-Returns date <a class="normal" href="int65math.html#and">and</a> time in format defined in RFC-3339 in format &quot;yyyy-mm-ddThh:nn:ss.zzz&quot;</p>
+Returns date and time in format defined in RFC-3339 in format &quot;yyyy-mm-ddThh:nn:ss.zzz&quot;</p>
 </td></tr>
 </table>
 <table class="detail wide_list">
@@ -289,7 +289,7 @@ Returns date <a class="normal" href="int65math.html#and">and</a> time in format 
 </tr>
 <tr><td colspan="1">
 <p>
-Returns date <a class="normal" href="int65math.html#and">and</a> time in format defined in C compilers in format &quot;mmm dd hh:nn:ss&quot;</p>
+Returns date and time in format defined in C compilers in format &quot;mmm dd hh:nn:ss&quot;</p>
 </td></tr>
 </table>
 <table class="detail wide_list">
@@ -298,7 +298,7 @@ Returns date <a class="normal" href="int65math.html#and">and</a> time in format 
 </tr>
 <tr><td colspan="1">
 <p>
-Returns date <a class="normal" href="int65math.html#and">and</a> time in format defined in format 'yymmdd hhnnss'</p>
+Returns date and time in format defined in format 'yymmdd hhnnss'</p>
 </td></tr>
 </table>
 <table class="detail wide_list">
@@ -307,7 +307,7 @@ Returns date <a class="normal" href="int65math.html#and">and</a> time in format 
 </tr>
 <tr><td colspan="1">
 <p>
-Returns date <a class="normal" href="int65math.html#and">and</a> time in format defined in ANSI C compilers in format &quot;ddd mmm d hh:nn:ss yyyy&quot;</p>
+Returns date and time in format defined in ANSI C compilers in format &quot;ddd mmm d hh:nn:ss yyyy&quot;</p>
 </td></tr>
 </table>
 <table class="detail wide_list">
@@ -316,7 +316,7 @@ Returns date <a class="normal" href="int65math.html#and">and</a> time in format 
 </tr>
 <tr><td colspan="1">
 <p>
-Decode three-letter string with name of month to their month number. If string not match any month name, then is returned 0. For parsing are used predefined names for English, French <a class="normal" href="int65math.html#and">and</a> German <a class="normal" href="int65math.html#and">and</a> names from system locale too.</p>
+Decode three-letter string with name of month to their month number. If string not match any month name, then is returned 0. For parsing are used predefined names for English, French and German and names from system locale too.</p>
 </td></tr>
 </table>
 <table class="detail wide_list">
@@ -352,7 +352,7 @@ Decode string in format &quot;m-d-y&quot; to TDateTime type.</p>
 </tr>
 <tr><td colspan="1">
 <p>
-Decode various string representations of date <a class="normal" href="int65math.html#and">and</a> time to Tdatetime type. This function do all <a class="normal" href="synautil.html#TimeZone">timezone</a> corrections too! This function can decode lot of formats like: </p>
+Decode various string representations of date and time to Tdatetime type. This function do all <a class="normal" href="synautil.html#TimeZone">timezone</a> corrections too! This function can decode lot of formats like: </p>
 
 <pre class="longcode">
 ddd, d mmm yyyy hh:mm:ss
@@ -362,14 +362,14 @@ ddd mmm dd hh:mm:ss yyyy</pre>
 
 <p>
 
-<p><a class="normal" href="int65math.html#and">and</a> more with lot of modifications, include: </p>
+<p>and more with lot of modifications, include: </p>
 
 <pre class="longcode">
 Sun, <span class="pascal_numeric">06</span> Nov <span class="pascal_numeric">1994</span> 08:<span class="pascal_numeric">49</span>:37 GMT    ; RFC <span class="pascal_numeric">822</span>, updated by RFC <span class="pascal_numeric">1123</span>
 Sunday, <span class="pascal_numeric">06</span>-Nov-<span class="pascal_numeric">94</span> 08:<span class="pascal_numeric">49</span>:37 GMT   ; RFC <span class="pascal_numeric">850</span>, obsoleted by RFC <span class="pascal_numeric">1036</span>
 Sun Nov  <span class="pascal_numeric">6</span> 08:<span class="pascal_numeric">49</span>:37 <span class="pascal_numeric">1994</span>         ; ANSI C</pre>
 
-<p> <a class="normal" href="synautil.html#TimeZone">Timezone</a> corrections known lot of symbolic <a class="normal" href="synautil.html#TimeZone">timezone</a> names (like CEST, EDT, etc.) or numeric representation (like +0200). By convention defined in RFC <a class="normal" href="synautil.html#TimeZone">timezone</a> +0000 is GMT <a class="normal" href="int65math.html#and">and</a> -0000 is current your system <a class="normal" href="synautil.html#TimeZone">timezone</a>.</p>
+<p> <a class="normal" href="synautil.html#TimeZone">Timezone</a> corrections known lot of symbolic <a class="normal" href="synautil.html#TimeZone">timezone</a> names (like CEST, EDT, etc.) or numeric representation (like +0200). By convention defined in RFC <a class="normal" href="synautil.html#TimeZone">timezone</a> +0000 is GMT and -0000 is current your system <a class="normal" href="synautil.html#TimeZone">timezone</a>.</p>
 </td></tr>
 </table>
 <table class="detail wide_list">
@@ -378,7 +378,7 @@ Sun Nov  <span class="pascal_numeric">6</span> 08:<span class="pascal_numeric">4
 </tr>
 <tr><td colspan="1">
 <p>
-Return current system date <a class="normal" href="int65math.html#and">and</a> time in UTC <a class="normal" href="synautil.html#TimeZone">timezone</a>.</p>
+Return current system date and time in UTC <a class="normal" href="synautil.html#TimeZone">timezone</a>.</p>
 </td></tr>
 </table>
 <table class="detail wide_list">
@@ -387,7 +387,7 @@ Return current system date <a class="normal" href="int65math.html#and">and</a> t
 </tr>
 <tr><td colspan="1">
 <p>
-Set Newdt as current system date <a class="normal" href="int65math.html#and">and</a> time in UTC <a class="normal" href="synautil.html#TimeZone">timezone</a>. This function work only if you have administrator rights!</p>
+Set Newdt as current system date and time in UTC <a class="normal" href="synautil.html#TimeZone">timezone</a>. This function work only if you have administrator rights!</p>
 </td></tr>
 </table>
 <table class="detail wide_list">
@@ -720,7 +720,7 @@ Increase pointer by value.</p>
 </tr>
 <tr><td colspan="1">
 <p>
-Get string between PairBegin <a class="normal" href="int65math.html#and">and</a> PairEnd. This function respect nesting. For example: </p>
+Get string between PairBegin and PairEnd. This function respect nesting. For example: </p>
 
 <pre class="longcode">
 Value <span class="pascal_keyword">is</span>: <span class="pascal_string">'Hi! (hello(yes!))'</span>
@@ -809,7 +809,7 @@ write string to stream.</p>
 </tr>
 <tr><td colspan="1">
 <p>
-Return filename of new temporary file in Dir (if empty, then default temporary directory is used) <a class="normal" href="int65math.html#and">and</a> with optional filename prefix.</p>
+Return filename of new temporary file in Dir (if empty, then default temporary directory is used) and with optional filename prefix.</p>
 </td></tr>
 </table>
 <table class="detail wide_list">
@@ -845,7 +845,7 @@ Read header from &quot;Value&quot; stringlist beginning at &quot;Index&quot; pos
 </tr>
 <tr><td colspan="1">
 <p>
-Search for one of line terminators <a class="normal" href="blcksock.html#CR">CR</a>, <a class="normal" href="blcksock.html#LF">LF</a> or NUL. Return position of the line beginning <a class="normal" href="int65math.html#and">and</a> length of text.</p>
+Search for one of line terminators <a class="normal" href="blcksock.html#CR">CR</a>, <a class="normal" href="blcksock.html#LF">LF</a> or NUL. Return position of the line beginning and length of text.</p>
 </td></tr>
 </table>
 <table class="detail wide_list">
@@ -863,7 +863,7 @@ Skip both line terminators <a class="normal" href="blcksock.html#CR">CR</a> <a c
 </tr>
 <tr><td colspan="1">
 <p>
-Skip all blank lines in a buffer starting at APtr <a class="normal" href="int65math.html#and">and</a> move APtr position forward.</p>
+Skip all blank lines in a buffer starting at APtr and move APtr position forward.</p>
 </td></tr>
 </table>
 <table class="detail wide_list">
@@ -899,7 +899,7 @@ Search ABoundary in a buffer starting at APtr. Return beginning of the ABoundary
 </tr>
 <tr><td colspan="1">
 <p>
-Compare a text at position ABOL with ABoundary <a class="normal" href="int65math.html#and">and</a> return position behind the match (including a trailing <a class="normal" href="blcksock.html#CRLF">CRLF</a> if any).</p>
+Compare a text at position ABOL with ABoundary and return position behind the match (including a trailing <a class="normal" href="blcksock.html#CRLF">CRLF</a> if any).</p>
 </td></tr>
 </table>
 <table class="detail wide_list">
@@ -908,7 +908,7 @@ Compare a text at position ABOL with ABoundary <a class="normal" href="int65math
 </tr>
 <tr><td colspan="1">
 <p>
-Compare a text at position ABOL with ABoundary + the last boundary suffix <a class="normal" href="int65math.html#and">and</a> return position behind the match (including a trailing <a class="normal" href="blcksock.html#CRLF">CRLF</a> if any).</p>
+Compare a text at position ABOL with ABoundary + the last boundary suffix and return position behind the match (including a trailing <a class="normal" href="blcksock.html#CRLF">CRLF</a> if any).</p>
 </td></tr>
 </table>
 <table class="detail wide_list">
@@ -917,7 +917,7 @@ Compare a text at position ABOL with ABoundary + the last boundary suffix <a cla
 </tr>
 <tr><td colspan="1">
 <p>
-Copy data from a buffer starting at position APtr <a class="normal" href="int65math.html#and">and</a> delimited by AEtx position into ANSIString.</p>
+Copy data from a buffer starting at position APtr and delimited by AEtx position into ANSIString.</p>
 </td></tr>
 </table>
 <h3 class="detail">Variáveis</h3>

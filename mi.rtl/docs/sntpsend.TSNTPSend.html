@@ -25,11 +25,11 @@
 <code>type TSNTPSend = class(<a class="normal" href="blcksock.TSynaClient.html">TSynaClient</a>)</code></p>
 <h2 class="description">Descrição</h2>
 <p>
-Implementation of NTP <a class="normal" href="int65math.html#and">and</a> SNTP client protocol</p>
+Implementation of NTP and SNTP client protocol</p>
 <p>
 , include time synchronisation. It can send NTP or SNTP time queries, or it can receive NTP broadcasts too.
 
-<p>Note: Are you missing properties for specify server address <a class="normal" href="int65math.html#and">and</a> port? Look to parent <a class="normal" href="blcksock.TSynaClient.html">TSynaClient</a> too!</p>
+<p>Note: Are you missing properties for specify server address and port? Look to parent <a class="normal" href="blcksock.TSynaClient.html">TSynaClient</a> too!</p>
 <span id="PasDoc-Hierarchy"></span><h2 class="hierarchy">Hierarquia</h2>
 <ul class="hierarchy"><li class="ancestor">TObject</li>
 <li class="ancestor"><a class="normal" href="blcksock.TSynaClient.html">TSynaClient</a></li>
@@ -141,7 +141,7 @@ Decode TDateTime type to 128 bit timestamp used in NTP packet.</p>
 </tr>
 <tr><td colspan="2">
 <p>
-Send request to <a class="normal" href="blcksock.TSynaClient.html#TargetHost">TSynaClient.TargetHost</a> <a class="normal" href="int65math.html#and">and</a> wait for reply. If all is OK, then result is <code>True</code> <a class="normal" href="int65math.html#and">and</a> <a class="normal" href="sntpsend.TSNTPSend.html#NTPReply">NTPReply</a> <a class="normal" href="int65math.html#and">and</a> <a class="normal" href="sntpsend.TSNTPSend.html#NTPTime">NTPTime</a> are valid.</p>
+Send request to <a class="normal" href="blcksock.TSynaClient.html#TargetHost">TSynaClient.TargetHost</a> and wait for reply. If all is OK, then result is <code>True</code> and <a class="normal" href="sntpsend.TSNTPSend.html#NTPReply">NTPReply</a> and <a class="normal" href="sntpsend.TSNTPSend.html#NTPTime">NTPTime</a> are valid.</p>
 </td></tr>
 </table>
 <table class="detail wide_list">
@@ -151,7 +151,7 @@ Send request to <a class="normal" href="blcksock.TSynaClient.html#TargetHost">TS
 </tr>
 <tr><td colspan="2">
 <p>
-Send request to <a class="normal" href="blcksock.TSynaClient.html#TargetHost">TSynaClient.TargetHost</a> <a class="normal" href="int65math.html#and">and</a> wait for reply. If all is OK, then result is <code>True</code> <a class="normal" href="int65math.html#and">and</a> <a class="normal" href="sntpsend.TSNTPSend.html#NTPReply">NTPReply</a> <a class="normal" href="int65math.html#and">and</a> <a class="normal" href="sntpsend.TSNTPSend.html#NTPTime">NTPTime</a> are valid. Result time is after all needed corrections.</p>
+Send request to <a class="normal" href="blcksock.TSynaClient.html#TargetHost">TSynaClient.TargetHost</a> and wait for reply. If all is OK, then result is <code>True</code> and <a class="normal" href="sntpsend.TSNTPSend.html#NTPReply">NTPReply</a> and <a class="normal" href="sntpsend.TSNTPSend.html#NTPTime">NTPTime</a> are valid. Result time is after all needed corrections.</p>
 </td></tr>
 </table>
 <table class="detail wide_list">
@@ -161,7 +161,7 @@ Send request to <a class="normal" href="blcksock.TSynaClient.html#TargetHost">TS
 </tr>
 <tr><td colspan="2">
 <p>
-Wait for broadcast NTP packet. If all OK, result is <code>True</code> <a class="normal" href="int65math.html#and">and</a> <a class="normal" href="sntpsend.TSNTPSend.html#NTPReply">NTPReply</a> <a class="normal" href="int65math.html#and">and</a> <a class="normal" href="sntpsend.TSNTPSend.html#NTPTime">NTPTime</a> are valid.</p>
+Wait for broadcast NTP packet. If all OK, result is <code>True</code> and <a class="normal" href="sntpsend.TSNTPSend.html#NTPReply">NTPReply</a> and <a class="normal" href="sntpsend.TSNTPSend.html#NTPTime">NTPTime</a> are valid.</p>
 </td></tr>
 </table>
 <h3 class="detail">Propriedades</h3>
@@ -182,7 +182,7 @@ Holds last received NTP packet.</p>
 </tr>
 <tr><td colspan="2">
 <p>
-Date <a class="normal" href="int65math.html#and">and</a> time of remote NTP or SNTP server. (UTC time!!!)</p>
+Date and time of remote NTP or SNTP server. (UTC time!!!)</p>
 </td></tr>
 </table>
 <table class="detail wide_list">
@@ -192,7 +192,7 @@ Date <a class="normal" href="int65math.html#and">and</a> time of remote NTP or S
 </tr>
 <tr><td colspan="2">
 <p>
-Offset between your computer <a class="normal" href="int65math.html#and">and</a> remote NTP or SNTP server.</p>
+Offset between your computer and remote NTP or SNTP server.</p>
 </td></tr>
 </table>
 <table class="detail wide_list">
@@ -202,7 +202,7 @@ Offset between your computer <a class="normal" href="int65math.html#and">and</a>
 </tr>
 <tr><td colspan="2">
 <p>
-Delay between your computer <a class="normal" href="int65math.html#and">and</a> remote NTP or SNTP server.</p>
+Delay between your computer and remote NTP or SNTP server.</p>
 </td></tr>
 </table>
 <table class="detail wide_list">
@@ -212,7 +212,7 @@ Delay between your computer <a class="normal" href="int65math.html#and">and</a> 
 </tr>
 <tr><td colspan="2">
 <p>
-Define allowed maximum difference between your time <a class="normal" href="int65math.html#and">and</a> remote time for synchronising time. If difference is bigger, your system time is not changed!</p>
+Define allowed maximum difference between your time and remote time for synchronising time. If difference is bigger, your system time is not changed!</p>
 </td></tr>
 </table>
 <table class="detail wide_list">

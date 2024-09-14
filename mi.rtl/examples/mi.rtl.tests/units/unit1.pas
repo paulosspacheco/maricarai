@@ -3,7 +3,7 @@ unit unit1;
                  Esta unit foi testada nas plataformas: win32, win64 e linux.
 
     - **VERSÃO**
-      - Alpha - 0.7.1
+      - Alpha - 1.0.0
 
     - **CÓDIGO FONTE**:
       - @html(<a href="../units/unit1.pas">unit1.pas</a>)

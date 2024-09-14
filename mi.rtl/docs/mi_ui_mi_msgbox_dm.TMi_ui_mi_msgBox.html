@@ -30,21 +30,17 @@
 <p></p>
 
 <ul class="paragraph_spacing">
-  <li><p>EXEMPLO DE USO:
+  <li><p>EXEMPLO
 
 <p></p>
 
 <pre class="longcode">
 
-<span class="pascal_keyword">Program</span> test_MI_MsgBox
 <span class="pascal_keyword">Var</span>
   S : <span class="pascal_keyword">String</span>[<span class="pascal_numeric">10</span>] = <span class="pascal_string">''</span>;
 <span class="pascal_keyword">begin</span>
-  <span class="pascal_keyword">if</span> MI_MsgBox.InputBox(<span class="pascal_string">'InputBox Test'</span>,<span class="pascal_string">'Gual a sua indade? '</span>,s,<span class="pascal_string">'ssssssssss'</span>) = Mrok
-  <span class="pascal_keyword">then</span> ShowMessage(<span class="pascal_string">'Sua idade é: '</span>s);
-
-
-<span class="pascal_keyword">end</span>.</pre>
+   <span class="pascal_keyword">if</span> MI_MsgBox.InputBox(<span class="pascal_string">'InputBox Test'</span>,<span class="pascal_string">'Gual a sua indade? '</span>,s,<span class="pascal_string">'ssssssssss'</span>) = Mrok
+   <span class="pascal_keyword">then</span> ShowMessage(<span class="pascal_string">'Sua idade é: '</span>s);</pre>
 
 <p></p></li>
 </ul>
@@ -82,22 +78,26 @@
 <td class="itemcode"><code>function <strong><a href="mi_ui_mi_msgbox_dm.TMi_ui_mi_msgBox.html#MI_MsgBox1MessageBox">MI_MsgBox1MessageBox</a></strong>(const aMsg: AnsiString): <a href="mi.rtl.ui.dmxscroller.inputbox.html#TModalResult">TModalResult</a>;</code></td>
 </tr>
 <tr class="list">
-<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
-<td class="itemcode"><code>function <strong><a href="mi_ui_mi_msgbox_dm.TMi_ui_mi_msgBox.html#MI_MsgBox1MessageBox_03">MI_MsgBox1MessageBox_03</a></strong>(const aMsg: AnsiString;DlgType: TMsgDlgType; Buttons: TMsgDlgButtons): <a href="mi.rtl.ui.dmxscroller.inputbox.html#TModalResult">TModalResult</a>;</code></td>
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="mi_ui_mi_msgbox_dm.TMi_ui_mi_msgBox.html#MI_MsgBox1MessageBox_03">MI_MsgBox1MessageBox_03</a></strong>(const aMsg: AnsiString;DlgType: <a href="mi_rtl_ui_dmxscroller_form.html#TMsgDlgType">TMsgDlgType</a>; Buttons: <a href="mi_rtl_ui_dmxscroller_form.html#TMsgDlgButtons">TMsgDlgButtons</a>): <a href="mi.rtl.ui.dmxscroller.inputbox.html#TModalResult">TModalResult</a>;</code></td>
 </tr>
 <tr class="list2">
-<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
-<td class="itemcode"><code>function <strong><a href="mi_ui_mi_msgbox_dm.TMi_ui_mi_msgBox.html#MI_MsgBox1MessageBox_04">MI_MsgBox1MessageBox_04</a></strong>(aMsg: AnsiString; DlgType: TMsgDlgType; Buttons: TMsgDlgButtons; ButtonDefault: TMsgDlgBtn): <a href="mi.rtl.ui.dmxscroller.inputbox.html#TModalResult">TModalResult</a>;</code></td>
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="mi_ui_mi_msgbox_dm.TMi_ui_mi_msgBox.html#MI_MsgBox1MessageBox_04">MI_MsgBox1MessageBox_04</a></strong>(aMsg: AnsiString; DlgType: <a href="mi_rtl_ui_dmxscroller_form.html#TMsgDlgType">TMsgDlgType</a>; Buttons: <a href="mi_rtl_ui_dmxscroller_form.html#TMsgDlgButtons">TMsgDlgButtons</a>; ButtonDefault: <a href="mi_rtl_ui_dmxscroller_form.html#TMsgDlgBtn">TMsgDlgBtn</a>): <a href="mi.rtl.ui.dmxscroller.inputbox.html#TModalResult">TModalResult</a>;</code></td>
 </tr>
 <tr class="list">
-<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
-<td class="itemcode"><code>function <strong><a href="mi_ui_mi_msgbox_dm.TMi_ui_mi_msgBox.html#MI_MsgBox1MessageBox_05">MI_MsgBox1MessageBox_05</a></strong>(ATitle: AnsiString; aMsg: AnsiString; DlgType: TMsgDlgType; Buttons: TMsgDlgButtons; ButtonDefault: TMsgDlgBtn ): <a href="mi.rtl.ui.dmxscroller.inputbox.html#TModalResult">TModalResult</a>;</code></td>
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="mi_ui_mi_msgbox_dm.TMi_ui_mi_msgBox.html#MI_MsgBox1MessageBox_04_PSItem">MI_MsgBox1MessageBox_04_PSItem</a></strong>(aPSItem: TMI_MsgBoxTypes.PSItem; DlgType: <a href="mi_rtl_ui_dmxscroller_form.html#TMsgDlgType">TMsgDlgType</a>; Buttons: <a href="mi_rtl_ui_dmxscroller_form.html#TMsgDlgButtons">TMsgDlgButtons</a>; ButtonDefault: <a href="mi_rtl_ui_dmxscroller_form.html#TMsgDlgBtn">TMsgDlgBtn</a> ): <a href="mi.rtl.ui.dmxscroller.inputbox.html#TModalResult">TModalResult</a>;</code></td>
 </tr>
 <tr class="list2">
-<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
-<td class="itemcode"><code>function <strong><a href="mi_ui_mi_msgbox_dm.TMi_ui_mi_msgBox.html#MI_MsgBox1MessageBox_ListBoxRec_PSItem">MI_MsgBox1MessageBox_ListBoxRec_PSItem</a></strong>(Atitulo: AnsiString; APSItem: TMI_MsgBoxTypes.PSItem; itemSelection: longint; DlgType: TMsgDlgType; Buttons: TMsgDlgButtons; ButtonDefault: TMsgDlgBtn ): <a href="mi.rtl.ui.dmxscroller.inputbox.html#TModalResult">TModalResult</a>;</code></td>
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="mi_ui_mi_msgbox_dm.TMi_ui_mi_msgBox.html#MI_MsgBox1MessageBox_05">MI_MsgBox1MessageBox_05</a></strong>(ATitle: AnsiString; aMsg: AnsiString; DlgType: <a href="mi_rtl_ui_dmxscroller_form.html#TMsgDlgType">TMsgDlgType</a>; Buttons: <a href="mi_rtl_ui_dmxscroller_form.html#TMsgDlgButtons">TMsgDlgButtons</a>; ButtonDefault: <a href="mi_rtl_ui_dmxscroller_form.html#TMsgDlgBtn">TMsgDlgBtn</a> ): <a href="mi.rtl.ui.dmxscroller.inputbox.html#TModalResult">TModalResult</a>;</code></td>
 </tr>
 <tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="mi_ui_mi_msgbox_dm.TMi_ui_mi_msgBox.html#MI_MsgBox1MessageBox_ListBoxRec_PSItem">MI_MsgBox1MessageBox_ListBoxRec_PSItem</a></strong>(Atitulo: AnsiString; APSItem: TMI_MsgBoxTypes.PSItem; itemSelection: longint; DlgType: <a href="mi_rtl_ui_dmxscroller_form.html#TMsgDlgType">TMsgDlgType</a>; Buttons: <a href="mi_rtl_ui_dmxscroller_form.html#TMsgDlgButtons">TMsgDlgButtons</a>; ButtonDefault: <a href="mi_rtl_ui_dmxscroller_form.html#TMsgDlgBtn">TMsgDlgBtn</a> ): <a href="mi.rtl.ui.dmxscroller.inputbox.html#TModalResult">TModalResult</a>;</code></td>
+</tr>
+<tr class="list2">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
 <td class="itemcode"><code>constructor <strong><a href="mi_ui_mi_msgbox_dm.TMi_ui_mi_msgBox.html#create">create</a></strong>(aOwner:TComponent); Override;</code></td>
 </tr>
@@ -119,9 +119,7 @@
 <td class="itemcode"><span id="MI_MsgBox1InputBox"></span><code>function <strong>MI_MsgBox1InputBox</strong>(const aTitle, ALabel: AnsiString; var Buff; Template: AnsiString): <a href="mi.rtl.ui.dmxscroller.inputbox.html#TModalResult">TModalResult</a>;</code></td>
 </tr>
 <tr><td colspan="2">
-<p>
-O método <strong><code>MI_MsgBox1InputBox</code></strong> é executado no método método <strong>MI_MsgBox1.InputBox</strong></p>
-</td></tr>
+&nbsp;</td></tr>
 </table>
 <table class="detail wide_list">
 <tr class="list">
@@ -149,32 +147,40 @@ O método <strong><code>MI_MsgBox1InputBox</code></strong> é executado no méto
 </table>
 <table class="detail wide_list">
 <tr class="list">
-<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
-<td class="itemcode"><span id="MI_MsgBox1MessageBox_03"></span><code>function <strong>MI_MsgBox1MessageBox_03</strong>(const aMsg: AnsiString;DlgType: TMsgDlgType; Buttons: TMsgDlgButtons): <a href="mi.rtl.ui.dmxscroller.inputbox.html#TModalResult">TModalResult</a>;</code></td>
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="MI_MsgBox1MessageBox_03"></span><code>function <strong>MI_MsgBox1MessageBox_03</strong>(const aMsg: AnsiString;DlgType: <a href="mi_rtl_ui_dmxscroller_form.html#TMsgDlgType">TMsgDlgType</a>; Buttons: <a href="mi_rtl_ui_dmxscroller_form.html#TMsgDlgButtons">TMsgDlgButtons</a>): <a href="mi.rtl.ui.dmxscroller.inputbox.html#TModalResult">TModalResult</a>;</code></td>
 </tr>
 <tr><td colspan="2">
 &nbsp;</td></tr>
 </table>
 <table class="detail wide_list">
 <tr class="list">
-<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
-<td class="itemcode"><span id="MI_MsgBox1MessageBox_04"></span><code>function <strong>MI_MsgBox1MessageBox_04</strong>(aMsg: AnsiString; DlgType: TMsgDlgType; Buttons: TMsgDlgButtons; ButtonDefault: TMsgDlgBtn): <a href="mi.rtl.ui.dmxscroller.inputbox.html#TModalResult">TModalResult</a>;</code></td>
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="MI_MsgBox1MessageBox_04"></span><code>function <strong>MI_MsgBox1MessageBox_04</strong>(aMsg: AnsiString; DlgType: <a href="mi_rtl_ui_dmxscroller_form.html#TMsgDlgType">TMsgDlgType</a>; Buttons: <a href="mi_rtl_ui_dmxscroller_form.html#TMsgDlgButtons">TMsgDlgButtons</a>; ButtonDefault: <a href="mi_rtl_ui_dmxscroller_form.html#TMsgDlgBtn">TMsgDlgBtn</a>): <a href="mi.rtl.ui.dmxscroller.inputbox.html#TModalResult">TModalResult</a>;</code></td>
 </tr>
 <tr><td colspan="2">
 &nbsp;</td></tr>
 </table>
 <table class="detail wide_list">
 <tr class="list">
-<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
-<td class="itemcode"><span id="MI_MsgBox1MessageBox_05"></span><code>function <strong>MI_MsgBox1MessageBox_05</strong>(ATitle: AnsiString; aMsg: AnsiString; DlgType: TMsgDlgType; Buttons: TMsgDlgButtons; ButtonDefault: TMsgDlgBtn ): <a href="mi.rtl.ui.dmxscroller.inputbox.html#TModalResult">TModalResult</a>;</code></td>
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="MI_MsgBox1MessageBox_04_PSItem"></span><code>function <strong>MI_MsgBox1MessageBox_04_PSItem</strong>(aPSItem: TMI_MsgBoxTypes.PSItem; DlgType: <a href="mi_rtl_ui_dmxscroller_form.html#TMsgDlgType">TMsgDlgType</a>; Buttons: <a href="mi_rtl_ui_dmxscroller_form.html#TMsgDlgButtons">TMsgDlgButtons</a>; ButtonDefault: <a href="mi_rtl_ui_dmxscroller_form.html#TMsgDlgBtn">TMsgDlgBtn</a> ): <a href="mi.rtl.ui.dmxscroller.inputbox.html#TModalResult">TModalResult</a>;</code></td>
 </tr>
 <tr><td colspan="2">
 &nbsp;</td></tr>
 </table>
 <table class="detail wide_list">
 <tr class="list">
-<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
-<td class="itemcode"><span id="MI_MsgBox1MessageBox_ListBoxRec_PSItem"></span><code>function <strong>MI_MsgBox1MessageBox_ListBoxRec_PSItem</strong>(Atitulo: AnsiString; APSItem: TMI_MsgBoxTypes.PSItem; itemSelection: longint; DlgType: TMsgDlgType; Buttons: TMsgDlgButtons; ButtonDefault: TMsgDlgBtn ): <a href="mi.rtl.ui.dmxscroller.inputbox.html#TModalResult">TModalResult</a>;</code></td>
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="MI_MsgBox1MessageBox_05"></span><code>function <strong>MI_MsgBox1MessageBox_05</strong>(ATitle: AnsiString; aMsg: AnsiString; DlgType: <a href="mi_rtl_ui_dmxscroller_form.html#TMsgDlgType">TMsgDlgType</a>; Buttons: <a href="mi_rtl_ui_dmxscroller_form.html#TMsgDlgButtons">TMsgDlgButtons</a>; ButtonDefault: <a href="mi_rtl_ui_dmxscroller_form.html#TMsgDlgBtn">TMsgDlgBtn</a> ): <a href="mi.rtl.ui.dmxscroller.inputbox.html#TModalResult">TModalResult</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="MI_MsgBox1MessageBox_ListBoxRec_PSItem"></span><code>function <strong>MI_MsgBox1MessageBox_ListBoxRec_PSItem</strong>(Atitulo: AnsiString; APSItem: TMI_MsgBoxTypes.PSItem; itemSelection: longint; DlgType: <a href="mi_rtl_ui_dmxscroller_form.html#TMsgDlgType">TMsgDlgType</a>; Buttons: <a href="mi_rtl_ui_dmxscroller_form.html#TMsgDlgButtons">TMsgDlgButtons</a>; ButtonDefault: <a href="mi_rtl_ui_dmxscroller_form.html#TMsgDlgBtn">TMsgDlgBtn</a> ): <a href="mi.rtl.ui.dmxscroller.inputbox.html#TModalResult">TModalResult</a>;</code></td>
 </tr>
 <tr><td colspan="2">
 &nbsp;</td></tr>

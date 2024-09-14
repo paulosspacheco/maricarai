@@ -3,7 +3,7 @@ unit umi_ui_Maskedit_lcl;
    componente TMaskEdit do Lazarus.
 
    - **VERSÃO**
-     - Alpha - 0.9.0
+     - Alpha - 1.0.0
 
    - **CÓDIGO FONTE**:
      - @html(<a href="../units/mi_maskedit_lcl_u.pas">mi_maskedit_LCL_u.pas</a>)

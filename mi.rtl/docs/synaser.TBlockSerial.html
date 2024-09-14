@@ -952,7 +952,7 @@ Reconfigure communication parameters on the fly. You must be connected to port b
 <dt>parity</dt>
 <dd>Define communication parity (N - None, O - Odd, E - Even, M - Mark or S - Space).</dd>
 <dt>stop</dt>
-<dd>Define number of stopbits. Use constants <a class="normal" href="synaser.html#SB1">SB1</a>, <a class="normal" href="synaser.html#SB1andHalf">SB1andHalf</a> <a class="normal" href="int65math.html#and">and</a> <a class="normal" href="synaser.html#SB2">SB2</a>.</dd>
+<dd>Define number of stopbits. Use constants <a class="normal" href="synaser.html#SB1">SB1</a>, <a class="normal" href="synaser.html#SB1andHalf">SB1andHalf</a> and <a class="normal" href="synaser.html#SB2">SB2</a>.</dd>
 <dt>softflow</dt>
 <dd>Enable XON/XOFF handshake.</dd>
 <dt>hardflow</dt>
@@ -967,7 +967,7 @@ Reconfigure communication parameters on the fly. You must be connected to port b
 </tr>
 <tr><td colspan="2">
 <p>
-Connects to the port indicated by comport. Comport can be used in Windows style (COM2), or in Linux style (/dev/ttyS1). When you use windows style in Linux, then it will be converted to Linux name. <a class="normal" href="int65math.html#and">And</a> vice versa! However you can specify any <a class="normal" href="synaser.TBlockSerial.html#Device">device</a> name! (other <a class="normal" href="synaser.TBlockSerial.html#Device">device</a> names then standart is not converted!)
+Connects to the port indicated by comport. Comport can be used in Windows style (COM2), or in Linux style (/dev/ttyS1). When you use windows style in Linux, then it will be converted to Linux name. And vice versa! However you can specify any <a class="normal" href="synaser.TBlockSerial.html#Device">device</a> name! (other <a class="normal" href="synaser.TBlockSerial.html#Device">device</a> names then standart is not converted!)
 
 <p>After successfull connection the <a class="normal" href="synaser.TBlockSerial.html#DTR">DTR</a> signal is set (if you not set hardware handshake, then the <a class="normal" href="synaser.TBlockSerial.html#RTS">RTS</a> signal is set, too!)
 
@@ -979,7 +979,7 @@ Connects to the port indicated by comport. Comport can be used in Windows style 
   <li><p>Remember, the commonly used serial Laplink cable does not support hardware handshake.</p></li>
   <li><p>Before setting any handshake you must be sure that it is supported by your hardware.</p></li>
   <li><p>Some serial devices are slow. In some cases you must wait up to a few seconds after connection for the <a class="normal" href="synaser.TBlockSerial.html#Device">device</a> to respond.</p></li>
-  <li><p>when you <code>connect</code> to a modem <a class="normal" href="synaser.TBlockSerial.html#Device">device</a>, then is best to <a class="normal" href="commontestutils.html#test">test</a> it by an empty AT command. (call <a class="normal" href="synaser.TBlockSerial.html#ATCommand">ATCommand</a>('AT'))</p></li>
+  <li><p>when you <code>connect</code> to a modem <a class="normal" href="synaser.TBlockSerial.html#Device">device</a>, then is best to test it by an empty AT command. (call <a class="normal" href="synaser.TBlockSerial.html#ATCommand">ATCommand</a>('AT'))</p></li>
 </ul>
 
 <p></p>
@@ -1106,7 +1106,7 @@ Waits until the allocated buffer is filled by received data. Returns number of d
 </tr>
 <tr><td colspan="2">
 <p>
-Method waits until data is received. If no data is received within the Timeout (in milliseconds) period, <a class="normal" href="synaser.TBlockSerial.html#LastError">LastError</a> is set to <a class="normal" href="synaser.html#ErrTimeout">ErrTimeout</a>. This method is used to read any amount of data (e. g. 1MB), <a class="normal" href="int65math.html#and">and</a> may be freely combined with all receviving methods what have Timeout parameter, like the <a class="normal" href="synaser.TBlockSerial.html#Recvstring">RecvString</a>, <a class="normal" href="synaser.TBlockSerial.html#RecvByte">RecvByte</a> or <a class="normal" href="synaser.TBlockSerial.html#RecvTerminated">RecvTerminated</a> methods.</p>
+Method waits until data is received. If no data is received within the Timeout (in milliseconds) period, <a class="normal" href="synaser.TBlockSerial.html#LastError">LastError</a> is set to <a class="normal" href="synaser.html#ErrTimeout">ErrTimeout</a>. This method is used to read any amount of data (e. g. 1MB), and may be freely combined with all receviving methods what have Timeout parameter, like the <a class="normal" href="synaser.TBlockSerial.html#Recvstring">RecvString</a>, <a class="normal" href="synaser.TBlockSerial.html#RecvByte">RecvByte</a> or <a class="normal" href="synaser.TBlockSerial.html#RecvTerminated">RecvTerminated</a> methods.</p>
 </td></tr>
 </table>
 <table class="detail wide_list">
@@ -1126,7 +1126,7 @@ It is like <a class="normal" href="synaser.TBlockSerial.html#RecvBufferEx">recvB
 </tr>
 <tr><td colspan="2">
 <p>
-Read all available data <a class="normal" href="int65math.html#and">and</a> return it in the function result string. This function may be combined with <a class="normal" href="synaser.TBlockSerial.html#Recvstring">RecvString</a>, <a class="normal" href="synaser.TBlockSerial.html#RecvByte">RecvByte</a> or related methods.</p>
+Read all available data and return it in the function result string. This function may be combined with <a class="normal" href="synaser.TBlockSerial.html#Recvstring">RecvString</a>, <a class="normal" href="synaser.TBlockSerial.html#RecvByte">RecvByte</a> or related methods.</p>
 </td></tr>
 </table>
 <table class="detail wide_list">
@@ -1160,7 +1160,7 @@ This method waits until a terminated data string is received. The string is term
 
 <p>If <a class="normal" href="synaser.TBlockSerial.html#ConvertLineEnd">ConvertLineEnd</a> is used, then the <a class="normal" href="synaser.html#CR">CR</a>/<a class="normal" href="synaser.html#LF">LF</a> sequence may not be exactly <a class="normal" href="synaser.html#CR">CR</a>/<a class="normal" href="synaser.html#LF">LF</a>. See the description of <a class="normal" href="synaser.TBlockSerial.html#ConvertLineEnd">ConvertLineEnd</a>.
 
-<p>This method serves for line protocol implementation <a class="normal" href="int65math.html#and">and</a> uses its own buffers to maximize performance. Therefore do NOT use this method with the <a class="normal" href="synaser.TBlockSerial.html#RecvBuffer">RecvBuffer</a> method to receive data as it may cause data loss.</p>
+<p>This method serves for line protocol implementation and uses its own buffers to maximize performance. Therefore do NOT use this method with the <a class="normal" href="synaser.TBlockSerial.html#RecvBuffer">RecvBuffer</a> method to receive data as it may cause data loss.</p>
 </td></tr>
 </table>
 <table class="detail wide_list">
@@ -1282,7 +1282,7 @@ Enable or disable <a class="normal" href="synaser.TBlockSerial.html#RTS">RTS</a>
 </tr>
 <tr><td colspan="2">
 <p>
-Waits until all data to is sent <a class="normal" href="int65math.html#and">and</a> buffers are emptied. <a class="normal" href="slogsend.html#Warning">Warning</a>: On Windows systems is this method returns when all buffers are flushed to the serial port controller, before the last byte is sent!</p>
+Waits until all data to is sent and buffers are emptied. <a class="normal" href="slogsend.html#Warning">Warning</a>: On Windows systems is this method returns when all buffers are flushed to the serial port controller, before the last byte is sent!</p>
 </td></tr>
 </table>
 <table class="detail wide_list">
@@ -1292,7 +1292,7 @@ Waits until all data to is sent <a class="normal" href="int65math.html#and">and<
 </tr>
 <tr><td colspan="2">
 <p>
-Unconditionally empty all buffers. It is good when you need to interrupt communication <a class="normal" href="int65math.html#and">and</a> for cleanups.</p>
+Unconditionally empty all buffers. It is good when you need to interrupt communication and for cleanups.</p>
 </td></tr>
 </table>
 <table class="detail wide_list">
@@ -1302,7 +1302,7 @@ Unconditionally empty all buffers. It is good when you need to interrupt communi
 </tr>
 <tr><td colspan="2">
 <p>
-Returns <code>True</code>, if you can from read any data from the port. Status is tested for a period of time given by the Timeout parameter (in milliseconds). If the value of the Timeout parameter is 0, the status is tested only once <a class="normal" href="int65math.html#and">and</a> the function returns immediately. If the value of the Timeout parameter is set to -1, the function returns only after it detects data on the port (this may cause the <a class="normal" href="simpleinternet.html#process">process</a> to hang).</p>
+Returns <code>True</code>, if you can from read any data from the port. Status is tested for a period of time given by the Timeout parameter (in milliseconds). If the value of the Timeout parameter is 0, the status is tested only once and the function returns immediately. If the value of the Timeout parameter is set to -1, the function returns only after it detects data on the port (this may cause the process to hang).</p>
 </td></tr>
 </table>
 <table class="detail wide_list">
@@ -1312,7 +1312,7 @@ Returns <code>True</code>, if you can from read any data from the port. Status i
 </tr>
 <tr><td colspan="2">
 <p>
-Returns <code>True</code>, if you can write any data to the port (this function is not sending the contents of the buffer). Status is tested for a period of time given by the Timeout parameter (in milliseconds). If the value of the Timeout parameter is 0, the status is tested only once <a class="normal" href="int65math.html#and">and</a> the function returns immediately. If the value of the Timeout parameter is set to -1, the function returns only after it detects that it can write data to the port (this may cause the <a class="normal" href="simpleinternet.html#process">process</a> to hang).</p>
+Returns <code>True</code>, if you can write any data to the port (this function is not sending the contents of the buffer). Status is tested for a period of time given by the Timeout parameter (in milliseconds). If the value of the Timeout parameter is 0, the status is tested only once and the function returns immediately. If the value of the Timeout parameter is set to -1, the function returns only after it detects that it can write data to the port (this may cause the process to hang).</p>
 </td></tr>
 </table>
 <table class="detail wide_list">
@@ -1322,7 +1322,7 @@ Returns <code>True</code>, if you can write any data to the port (this function 
 </tr>
 <tr><td colspan="2">
 <p>
-Same as <a class="normal" href="synaser.TBlockSerial.html#CanRead">CanRead</a>, but the <a class="normal" href="commontestutils.html#test">test</a> is against data in the internal <a class="normal" href="synaser.TBlockSerial.html#LineBuffer">LineBuffer</a> too.</p>
+Same as <a class="normal" href="synaser.TBlockSerial.html#CanRead">CanRead</a>, but the test is against data in the internal <a class="normal" href="synaser.TBlockSerial.html#LineBuffer">LineBuffer</a> too.</p>
 </td></tr>
 </table>
 <table class="detail wide_list">
@@ -1352,7 +1352,7 @@ Send a break signal to the communication <a class="normal" href="synaser.TBlockS
 </tr>
 <tr><td colspan="2">
 <p>
-This function is designed to send AT commands to the modem. The AT command is sent in the Value parameter <a class="normal" href="int65math.html#and">and</a> the response is returned in the function return value (may contain multiple lines!). If the AT command is processed successfully (modem returns OK), then the <a class="normal" href="synaser.TBlockSerial.html#ATResult">ATResult</a> property is set to True.
+This function is designed to send AT commands to the modem. The AT command is sent in the Value parameter and the response is returned in the function return value (may contain multiple lines!). If the AT command is processed successfully (modem returns OK), then the <a class="normal" href="synaser.TBlockSerial.html#ATResult">ATResult</a> property is set to True.
 
 <p>This function is designed only for AT commands that return OK or <a class="normal" href="slogsend.html#Error">ERROR</a> response! To call connection commands the <a class="normal" href="synaser.TBlockSerial.html#ATConnect">ATConnect</a> method. Remember, when you <a class="normal" href="synaser.TBlockSerial.html#Connect">connect</a> to a modem <a class="normal" href="synaser.TBlockSerial.html#Device">device</a>, it is in AT command mode. Now you can send AT commands to the modem. If you need to transfer data to the modem on the other side of the line, you must first switch to data mode using the <a class="normal" href="synaser.TBlockSerial.html#ATConnect">ATConnect</a> method.</p>
 </td></tr>
@@ -1364,7 +1364,7 @@ This function is designed to send AT commands to the modem. The AT command is se
 </tr>
 <tr><td colspan="2">
 <p>
-This function is used to send <a class="normal" href="synaser.TBlockSerial.html#Connect">connect</a> type AT commands to the modem. It is for commands to switch to connected state. (ATD, ATA, ATO,...) It sends the AT command in the Value parameter <a class="normal" href="int65math.html#and">and</a> returns the modem's response (may be multiple lines - usually with connection parameters <a class="normal" href="slogsend.html#Info">info</a>). If the AT command is processed successfully (the modem returns <a class="normal" href="synaser.TBlockSerial.html#Connect">CONNECT</a>), then the <a class="normal" href="synaser.TBlockSerial.html#ATResult">ATResult</a> property is set to <code>True</code>.
+This function is used to send <a class="normal" href="synaser.TBlockSerial.html#Connect">connect</a> type AT commands to the modem. It is for commands to switch to connected state. (ATD, ATA, ATO,...) It sends the AT command in the Value parameter and returns the modem's response (may be multiple lines - usually with connection parameters <a class="normal" href="slogsend.html#Info">info</a>). If the AT command is processed successfully (the modem returns <a class="normal" href="synaser.TBlockSerial.html#Connect">CONNECT</a>), then the <a class="normal" href="synaser.TBlockSerial.html#ATResult">ATResult</a> property is set to <code>True</code>.
 
 <p>This function is designed only for AT commands which respond by <a class="normal" href="synaser.TBlockSerial.html#Connect">CONNECT</a>, BUSY, NO DIALTONE NO <a class="normal" href="synaser.TBlockSerial.html#Carrier">CARRIER</a> or <a class="normal" href="slogsend.html#Error">ERROR</a>. For other AT commands use the <a class="normal" href="synaser.TBlockSerial.html#ATCommand">ATCommand</a> method.
 
@@ -1378,7 +1378,7 @@ This function is used to send <a class="normal" href="synaser.TBlockSerial.html#
 </tr>
 <tr><td colspan="2">
 <p>
-If you &quot;manually&quot; call API functions, forward their return code in the SerialResult parameter to this function, which evaluates it <a class="normal" href="int65math.html#and">and</a> sets <a class="normal" href="synaser.TBlockSerial.html#LastError">LastError</a> <a class="normal" href="int65math.html#and">and</a> <a class="normal" href="synaser.TBlockSerial.html#LastErrorDesc">LastErrorDesc</a>.</p>
+If you &quot;manually&quot; call API functions, forward their return code in the SerialResult parameter to this function, which evaluates it and sets <a class="normal" href="synaser.TBlockSerial.html#LastError">LastError</a> and <a class="normal" href="synaser.TBlockSerial.html#LastErrorDesc">LastErrorDesc</a>.</p>
 </td></tr>
 </table>
 <table class="detail wide_list">
@@ -1388,7 +1388,7 @@ If you &quot;manually&quot; call API functions, forward their return code in the
 </tr>
 <tr><td colspan="2">
 <p>
-If <a class="normal" href="synaser.TBlockSerial.html#LastError">Lasterror</a> is not 0 <a class="normal" href="int65math.html#and">and</a> exceptions are enabled, then this procedure raises an exception. This method is used internally. You may need it only in special cases.</p>
+If <a class="normal" href="synaser.TBlockSerial.html#LastError">Lasterror</a> is not 0 and exceptions are enabled, then this procedure raises an exception. This method is used internally. You may need it only in special cases.</p>
 </td></tr>
 </table>
 <table class="detail wide_list">
@@ -1559,7 +1559,7 @@ Defines maximum bandwidth for all receiving operations in bytes per second. If t
 </tr>
 <tr><td colspan="2">
 <p>
-Defines maximum bandwidth for all sending <a class="normal" href="int65math.html#and">and</a> receiving operations in bytes per second. If this value is set to 0 (default), bandwidth limitation is not used.</p>
+Defines maximum bandwidth for all sending and receiving operations in bytes per second. If this value is set to 0 (default), bandwidth limitation is not used.</p>
 </td></tr>
 </table>
 <table class="detail wide_list">

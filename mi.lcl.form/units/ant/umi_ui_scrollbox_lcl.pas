@@ -3,7 +3,7 @@ unit uMi_ui_scrollbox_lcl;
     container para UiDmxScroller.
 
   - **VERSÃO**
-    - Alpha - 0.9.0
+    - Alpha - 1.0.0
 
   - **CÓDIGO FONTE**:
     - @html(<a href="../units/mi.ui.lcl.scrollboxDmx.pas">mi.rtl.objects.methods.ui.DmxScroller.pas</a>)

@@ -2,7 +2,7 @@ unit mi.ui.dialogs;
 {:< - A unit **@name** implementa a classe TDialogs do pacote mi.ui.
 
     - **VERSÃO**:
-      - Alpha - 0.7.1
+      - Alpha - 1.0.0
 
     - **CÓDIGO FONTE**:
       - @html(<a href="../units/mi.ui.dialogs.pas">mi.ui.Dialogs.pas</a>)

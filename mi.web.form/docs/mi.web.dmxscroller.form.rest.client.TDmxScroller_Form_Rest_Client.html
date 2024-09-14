@@ -31,15 +31,15 @@
 <table class="summary wide_list">
 <tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
-<td class="itemcode"><code>Procedure <strong><a href="mi.web.dmxscroller.form.rest.client.TDmxScroller_Form_Rest_Client.html#DoOnNewRecord">DoOnNewRecord</a></strong>; Override;</code></td>
+<td class="itemcode"><code>constructor <strong><a href="mi.web.dmxscroller.form.rest.client.TDmxScroller_Form_Rest_Client.html#Create">Create</a></strong>(aOwner:TComponent); Override;</code></td>
 </tr>
 <tr class="list2">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
-<td class="itemcode"><code>Function <strong><a href="mi.web.dmxscroller.form.rest.client.TDmxScroller_Form_Rest_Client.html#AddRec">AddRec</a></strong>:Boolean; Override;</code></td>
+<td class="itemcode"><code>Procedure <strong><a href="mi.web.dmxscroller.form.rest.client.TDmxScroller_Form_Rest_Client.html#DoOnNewRecord">DoOnNewRecord</a></strong>; reintroduce;</code></td>
 </tr>
 <tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
-<td class="itemcode"><code>Function <strong><a href="mi.web.dmxscroller.form.rest.client.TDmxScroller_Form_Rest_Client.html#PutRec">PutRec</a></strong>:Boolean; Override;</code></td>
+<td class="itemcode"><code>Function <strong><a href="mi.web.dmxscroller.form.rest.client.TDmxScroller_Form_Rest_Client.html#AddRec">AddRec</a></strong>:Boolean; Override;</code></td>
 </tr>
 <tr class="list2">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
@@ -47,7 +47,27 @@
 </tr>
 <tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>Function <strong><a href="mi.web.dmxscroller.form.rest.client.TDmxScroller_Form_Rest_Client.html#PutRec">PutRec</a></strong>:Boolean; Override;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
 <td class="itemcode"><code>Function <strong><a href="mi.web.dmxscroller.form.rest.client.TDmxScroller_Form_Rest_Client.html#DeleteRec">DeleteRec</a></strong>:Boolean; Override;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>Function <strong><a href="mi.web.dmxscroller.form.rest.client.TDmxScroller_Form_Rest_Client.html#FirstRec">FirstRec</a></strong>: Boolean; overload; Override;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>Function <strong><a href="mi.web.dmxscroller.form.rest.client.TDmxScroller_Form_Rest_Client.html#NextRec">NextRec</a></strong>: Boolean; overload; Override;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>Function <strong><a href="mi.web.dmxscroller.form.rest.client.TDmxScroller_Form_Rest_Client.html#PrevRec">PrevRec</a></strong>: Boolean; overload; Override;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>Function <strong><a href="mi.web.dmxscroller.form.rest.client.TDmxScroller_Form_Rest_Client.html#LastRec">LastRec</a></strong>: Boolean; overload; Override;</code></td>
 </tr>
 </table>
 <span id="PasDoc-Properties"></span><h3 class="summary">Propriedades</h3>
@@ -62,7 +82,15 @@
 <table class="detail wide_list">
 <tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
-<td class="itemcode"><span id="DoOnNewRecord"></span><code>Procedure <strong>DoOnNewRecord</strong>; Override;</code></td>
+<td class="itemcode"><span id="Create"></span><code>constructor <strong>Create</strong>(aOwner:TComponent); Override;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="DoOnNewRecord"></span><code>Procedure <strong>DoOnNewRecord</strong>; reintroduce;</code></td>
 </tr>
 <tr><td colspan="2">
 <p>
@@ -224,106 +252,6 @@ O método <strong><code>AddRec</code></strong> adiciona o buffer DataSource.data
 <table class="detail wide_list">
 <tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
-<td class="itemcode"><span id="PutRec"></span><code>Function <strong>PutRec</strong>:Boolean; Override;</code></td>
-</tr>
-<tr><td colspan="2">
-<p>
-O método <strong><code>PutRec</code></strong> tem a função de atualizar um registro existente na base de dados remota usando uma requisição HTTP PUT. Caso o registro esteja selecionado, ele utiliza as chaves do registro para localizar e atualizar o registro no servidor. Se as chaves não estiverem disponíveis, o processo de atualização é interrompido e uma exceção é lançada.
-
-<p></p>
-
-<ul class="paragraph_spacing">
-  <li><p><strong>Parâmetros Locais</strong> </p>
-
-<ul class="paragraph_spacing">
-  <li><p><strong>Response</strong>: <code>TJSONObject</code> </p>
-
-<ul class="paragraph_spacing">
-  <li><p>Armazena a resposta da requisição HTTP.</p></li>
-</ul>
-
-<p></p></li>
-  <li><p><strong>Params</strong>: <code>TJSONObject</code> </p>
-
-<ul class="paragraph_spacing">
-  <li><p>Contém os parâmetros para localizar o registro no servidor.</p></li>
-</ul>
-
-<p></p></li>
-  <li><p><strong>wJSONObject</strong>: <code>TJSONObject</code> </p>
-
-<ul class="paragraph_spacing">
-  <li><p>Armazena uma cópia do objeto JSON atual.</p></li>
-</ul>
-
-<p></p></li>
-  <li><p><strong>KeyFields</strong>: <code>string</code> </p>
-
-<ul class="paragraph_spacing">
-  <li><p>Campos-chave utilizados para identificar o registro.</p></li>
-</ul>
-
-<p></p></li>
-  <li><p><strong>KeyValues</strong>: <code>Variant</code> </p>
-
-<ul class="paragraph_spacing">
-  <li><p>Valores dos campos-chave do registro.</p></li>
-</ul>
-
-<p></p></li>
-</ul>
-
-<p></p></li>
-  <li><p><strong>Fluxo de Execução</strong> </p>
-
-<ol class="paragraph_spacing">
-  <li value="1"><p>Verifica se um registro foi selecionado com <code>RecordSelected</code>.</p></li>
-  <li value="2"><p>Se o registro estiver selecionado, chama <code>Inherited <code>PutRec</code></code> para realizar a atualização local.</p></li>
-  <li value="3"><p>Obtém os campos-chave do registro através do método <code>getFieldsKeys</code>.</p></li>
-  <li value="4"><p>Se as chaves estiverem presentes, monta os parâmetros de localização com <code>LocateParamsToJson</code> e envia uma requisição HTTP PUT com a ação <code>CmUpdateRecord</code>.</p></li>
-  <li value="5"><p>Verifica o código de status da resposta. Se não for <code>200</code>, restaura o valor original de <code>JSONObject</code> e interrompe a operação.</p></li>
-  <li value="6"><p>Se não houver campos-chave, uma exceção é lançada informando que não é possível atualizar o registro no servidor sem chaves de pesquisa.</p></li>
-  <li value="7"><p>Caso nenhum registro tenha sido selecionado, lança uma exceção informando que o registro não foi selecionado.</p></li>
-</ol>
-
-<p></p></li>
-  <li><p><strong>Exceções</strong> </p>
-
-<ul class="paragraph_spacing">
-  <li><p><strong>TException</strong>: </p>
-
-<ul class="paragraph_spacing">
-  <li><p>Lançada nos seguintes cenários: </p>
-
-<ul class="paragraph_spacing">
-  <li><p>Se não houver registro selecionado.</p></li>
-  <li><p>Se não houver campos-chave disponíveis para realizar a atualização no servidor.</p></li>
-</ul>
-
-<p></p></li>
-</ul>
-
-<p></p></li>
-</ul>
-
-<p></p></li>
-  <li><p><strong>Ver Também</strong> </p>
-
-<ul class="paragraph_spacing">
-  <li><p><code>Mi_FpHttpClient.SendRequest</code>: Método utilizado para enviar requisições HTTP.</p></li>
-  <li><p><code>LocateParamsToJson</code>: Método responsável por criar os parâmetros de localização do registro.</p></li>
-  <li><p><code>Inherited <code>PutRec</code></code>: Método herdado responsável por atualizar o registro localmente.</p></li>
-</ul>
-
-<p></p></li>
-</ul>
-
-<p></p>
-</td></tr>
-</table>
-<table class="detail wide_list">
-<tr class="list">
-<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
 <td class="itemcode"><span id="Locate"></span><code>function <strong>Locate</strong>(const KeyFields: string; const KeyValues: Variant; Options: TLocateOptions) : boolean; override; overload;</code></td>
 </tr>
 <tr><td colspan="2">
@@ -437,6 +365,106 @@ O método <strong><code>Locate</code></strong> Localiza o registro no servidor e
 <table class="detail wide_list">
 <tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="PutRec"></span><code>Function <strong>PutRec</strong>:Boolean; Override;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+O método <strong><code>PutRec</code></strong> tem a função de atualizar um registro existente na base de dados remota usando uma requisição HTTP PUT. Caso o registro esteja selecionado, ele utiliza as chaves do registro para localizar e atualizar o registro no servidor. Se as chaves não estiverem disponíveis, o processo de atualização é interrompido e uma exceção é lançada.
+
+<p></p>
+
+<ul class="paragraph_spacing">
+  <li><p><strong>Parâmetros Locais</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p><strong>Response</strong>: <code>TJSONObject</code> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Armazena a resposta da requisição HTTP.</p></li>
+</ul>
+
+<p></p></li>
+  <li><p><strong>Params</strong>: <code>TJSONObject</code> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Contém os parâmetros para localizar o registro no servidor.</p></li>
+</ul>
+
+<p></p></li>
+  <li><p><strong>wJSONObject</strong>: <code>TJSONObject</code> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Armazena uma cópia do objeto JSON atual.</p></li>
+</ul>
+
+<p></p></li>
+  <li><p><strong>KeyFields</strong>: <code>string</code> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Campos-chave utilizados para identificar o registro.</p></li>
+</ul>
+
+<p></p></li>
+  <li><p><strong>KeyValues</strong>: <code>Variant</code> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Valores dos campos-chave do registro.</p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p></li>
+  <li><p><strong>Fluxo de Execução</strong> </p>
+
+<ol class="paragraph_spacing">
+  <li value="1"><p>Verifica se um registro foi selecionado com <code>RecordSelected</code>.</p></li>
+  <li value="2"><p>Se o registro estiver selecionado, chama <code>Inherited <code>PutRec</code></code> para realizar a atualização local.</p></li>
+  <li value="3"><p>Obtém os campos-chave do registro através do método <code>getFieldsKeys</code>.</p></li>
+  <li value="4"><p>Se as chaves estiverem presentes, monta os parâmetros de localização com <code>LocateParamsToJson</code> e envia uma requisição HTTP PUT com a ação <code>CmUpdateRecord</code>.</p></li>
+  <li value="5"><p>Verifica o código de status da resposta. Se não for <code>200</code>, restaura o valor original de <code>JSONObject</code> e interrompe a operação.</p></li>
+  <li value="6"><p>Se não houver campos-chave, uma exceção é lançada informando que não é possível atualizar o registro no servidor sem chaves de pesquisa.</p></li>
+  <li value="7"><p>Caso nenhum registro tenha sido selecionado, lança uma exceção informando que o registro não foi selecionado.</p></li>
+</ol>
+
+<p></p></li>
+  <li><p><strong>Exceções</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p><strong>TException</strong>: </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Lançada nos seguintes cenários: </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Se não houver registro selecionado.</p></li>
+  <li><p>Se não houver campos-chave disponíveis para realizar a atualização no servidor.</p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p></li>
+  <li><p><strong>Ver Também</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p><code>Mi_FpHttpClient.SendRequest</code>: Método utilizado para enviar requisições HTTP.</p></li>
+  <li><p><code>LocateParamsToJson</code>: Método responsável por criar os parâmetros de localização do registro.</p></li>
+  <li><p><code>Inherited <code>PutRec</code></code>: Método herdado responsável por atualizar o registro localmente.</p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
 <td class="itemcode"><span id="DeleteRec"></span><code>Function <strong>DeleteRec</strong>:Boolean; Override;</code></td>
 </tr>
 <tr><td colspan="2">
@@ -526,6 +554,38 @@ O método <strong><code>DeleteRec</code></strong> tem como objetivo excluir um r
 
 <p></p>
 </td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="FirstRec"></span><code>Function <strong>FirstRec</strong>: Boolean; overload; Override;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="NextRec"></span><code>Function <strong>NextRec</strong>: Boolean; overload; Override;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="PrevRec"></span><code>Function <strong>PrevRec</strong>: Boolean; overload; Override;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="LastRec"></span><code>Function <strong>LastRec</strong>: Boolean; overload; Override;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
 </table>
 <h3 class="detail">Propriedades</h3>
 <table class="detail wide_list">

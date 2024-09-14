@@ -601,7 +601,7 @@ abstract(Implementation of HTTP <a class="normal" href="httpsend.THTTPSend.html#
 </tr>
 <tr><td colspan="2">
 <p>
-Reset <a class="normal" href="httpsend.THTTPSend.html#Headers">headers</a>, <a class="normal" href="httpsend.THTTPSend.html#Document">document</a> <a class="normal" href="int65math.html#and">and</a> <a class="normal" href="httpsend.THTTPSend.html#MimeType">Mimetype</a>.</p>
+Reset <a class="normal" href="httpsend.THTTPSend.html#Headers">headers</a>, <a class="normal" href="httpsend.THTTPSend.html#Document">document</a> and <a class="normal" href="httpsend.THTTPSend.html#MimeType">Mimetype</a>.</p>
 </td></tr>
 </table>
 <table class="detail wide_list">
@@ -611,7 +611,7 @@ Reset <a class="normal" href="httpsend.THTTPSend.html#Headers">headers</a>, <a c
 </tr>
 <tr><td colspan="2">
 <p>
-Decode <a class="normal" href="httpsend.THTTPSend.html#ResultCode">ResultCode</a> <a class="normal" href="int65math.html#and">and</a> <a class="normal" href="httpsend.THTTPSend.html#ResultString">ResultString</a> from Value.</p>
+Decode <a class="normal" href="httpsend.THTTPSend.html#ResultCode">ResultCode</a> and <a class="normal" href="httpsend.THTTPSend.html#ResultString">ResultString</a> from Value.</p>
 </td></tr>
 </table>
 <table class="detail wide_list">
@@ -621,9 +621,9 @@ Decode <a class="normal" href="httpsend.THTTPSend.html#ResultCode">ResultCode</a
 </tr>
 <tr><td colspan="2">
 <p>
-Connects to host defined in URL <a class="normal" href="int65math.html#and">and</a> accesses resource defined in URL by method. If <a class="normal" href="httpsend.THTTPSend.html#Document">Document</a> is not empty, send it to the server as part of the HTTP request. Server response is in <a class="normal" href="httpsend.THTTPSend.html#Document">Document</a> <a class="normal" href="int65math.html#and">and</a> <a class="normal" href="httpsend.THTTPSend.html#Headers">headers</a>. Connection may be authorised by <a class="normal" href="blcksock.TSynaClient.html#UserName">username</a> <a class="normal" href="int65math.html#and">and</a> <a class="normal" href="blcksock.TSynaClient.html#Password">password</a> in URL. If you define proxy properties, connection is made by this proxy. If all OK, result is <code>True</code>, else result is <code>False</code>.
+Connects to host defined in URL and accesses resource defined in URL by method. If <a class="normal" href="httpsend.THTTPSend.html#Document">Document</a> is not empty, send it to the server as part of the HTTP request. Server response is in <a class="normal" href="httpsend.THTTPSend.html#Document">Document</a> and <a class="normal" href="httpsend.THTTPSend.html#Headers">headers</a>. Connection may be authorised by <a class="normal" href="blcksock.TSynaClient.html#UserName">username</a> and <a class="normal" href="blcksock.TSynaClient.html#Password">password</a> in URL. If you define proxy properties, connection is made by this proxy. If all OK, result is <code>True</code>, else result is <code>False</code>.
 
-<p>If you use 'https:' instead of 'http:' in the URL, your request is made by SSL/TLS connection (if you do not specify port, then port 443 is used instead of standard port 80). If you use SSL/TLS request <a class="normal" href="int65math.html#and">and</a> you have defined HTTP proxy, then HTTP-tunnel mode is automatically used .</p>
+<p>If you use 'https:' instead of 'http:' in the URL, your request is made by SSL/TLS connection (if you do not specify port, then port 443 is used instead of standard port 80). If you use SSL/TLS request and you have defined HTTP proxy, then HTTP-tunnel mode is automatically used .</p>
 </td></tr>
 </table>
 <table class="detail wide_list">
@@ -644,7 +644,7 @@ You can call this method from OnStatus event to break current data transfer. (or
 </tr>
 <tr><td colspan="2">
 <p>
-Before HTTP operation you may define any non-standard <code>headers</code> for HTTP request, except: 'Expect: 100-continue', 'Content-Length', 'Content-Type', 'Connection', 'Authorization', 'Proxy-Authorization' <a class="normal" href="int65math.html#and">and</a> 'Host' <code>headers</code>. After HTTP operation, it contains full <code>headers</code> of the returned <a class="normal" href="httpsend.THTTPSend.html#Document">document</a>.</p>
+Before HTTP operation you may define any non-standard <code>headers</code> for HTTP request, except: 'Expect: 100-continue', 'Content-Length', 'Content-Type', 'Connection', 'Authorization', 'Proxy-Authorization' and 'Host' <code>headers</code>. After HTTP operation, it contains full <code>headers</code> of the returned <a class="normal" href="httpsend.THTTPSend.html#Document">document</a>.</p>
 </td></tr>
 </table>
 <table class="detail wide_list">
@@ -704,7 +704,7 @@ Mime type of sending data. Default is: 'text/html'.</p>
 </tr>
 <tr><td colspan="2">
 <p>
-Define <code>protocol</code> version. Possible values are: '1.1', '1.0' (default) <a class="normal" href="int65math.html#and">and</a> '0.9'.</p>
+Define <code>protocol</code> version. Possible values are: '1.1', '1.0' (default) and '0.9'.</p>
 </td></tr>
 </table>
 <table class="detail wide_list">

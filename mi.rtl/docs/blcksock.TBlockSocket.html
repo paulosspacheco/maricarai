@@ -738,7 +738,7 @@ Basic IP object.</p>
 </tr>
 <tr><td colspan="2">
 <p>
-<a class="normal" href="blcksock.TBlockSocket.html#Create">Create</a> object <a class="normal" href="int65math.html#and">and</a> load all necessary <a class="normal" href="blcksock.TBlockSocket.html#Socket">socket</a> library. What library is loaded is described by STUB parameter. If STUB is empty string, then is loaded default libraries.</p>
+<a class="normal" href="blcksock.TBlockSocket.html#Create">Create</a> object and load all necessary <a class="normal" href="blcksock.TBlockSocket.html#Socket">socket</a> library. What library is loaded is described by STUB parameter. If STUB is empty string, then is loaded default libraries.</p>
 </td></tr>
 </table>
 <table class="detail wide_list">
@@ -786,7 +786,7 @@ It <a class="normal" href="blcksock.TBlockSocket.html#Create">create</a> <a clas
 </tr>
 <tr><td colspan="2">
 <p>
-Abort any work on <a class="normal" href="blcksock.TBlockSocket.html#Socket">Socket</a> <a class="normal" href="int65math.html#and">and</a> <a class="normal" href="blcksock.TBlockSocket.html#Destroy">destroy</a> them.</p>
+Abort any work on <a class="normal" href="blcksock.TBlockSocket.html#Socket">Socket</a> and <a class="normal" href="blcksock.TBlockSocket.html#Destroy">destroy</a> them.</p>
 </td></tr>
 </table>
 <table class="detail wide_list">
@@ -796,13 +796,13 @@ Abort any work on <a class="normal" href="blcksock.TBlockSocket.html#Socket">Soc
 </tr>
 <tr><td colspan="2">
 <p>
-Connects <a class="normal" href="blcksock.TBlockSocket.html#Socket">socket</a> to local IP address <a class="normal" href="int65math.html#and">and</a> PORT. IP address may be numeric or symbolic ('192.168.74.50', 'cosi.nekde.cz', 'ff08::1'). The same for PORT </p>
+Connects <a class="normal" href="blcksock.TBlockSocket.html#Socket">socket</a> to local IP address and PORT. IP address may be numeric or symbolic ('192.168.74.50', 'cosi.nekde.cz', 'ff08::1'). The same for PORT </p>
 
 <ul class="paragraph_spacing">
   <li><p>it may be number or mnemonic port ('23', 'telnet').</p></li>
 </ul>
 
-<p> If port value is '0', system chooses itself <a class="normal" href="int65math.html#and">and</a> conects unused port in the range 1024 to 4096 (this depending by operating system!). Structure <a class="normal" href="blcksock.TBlockSocket.html#LocalSin">LocalSin</a> is filled after calling this method.
+<p> If port value is '0', system chooses itself and conects unused port in the range 1024 to 4096 (this depending by operating system!). Structure <a class="normal" href="blcksock.TBlockSocket.html#LocalSin">LocalSin</a> is filled after calling this method.
 
 <p>Note: If you call this on non-created <a class="normal" href="blcksock.TBlockSocket.html#Socket">socket</a>, then <a class="normal" href="blcksock.TBlockSocket.html#Socket">socket</a> is created automaticly.
 
@@ -816,9 +816,9 @@ Connects <a class="normal" href="blcksock.TBlockSocket.html#Socket">socket</a> t
 </tr>
 <tr><td colspan="2">
 <p>
-Connects <a class="normal" href="blcksock.TBlockSocket.html#Socket">socket</a> to remote IP address <a class="normal" href="int65math.html#and">and</a> PORT. The same rules as with <a class="normal" href="blcksock.TBlockSocket.html#Bind">BIND</a> method are valid. The only exception is that PORT with 0 value will not be connected!
+Connects <a class="normal" href="blcksock.TBlockSocket.html#Socket">socket</a> to remote IP address and PORT. The same rules as with <a class="normal" href="blcksock.TBlockSocket.html#Bind">BIND</a> method are valid. The only exception is that PORT with 0 value will not be connected!
 
-<p>Structures <a class="normal" href="blcksock.TBlockSocket.html#LocalSin">LocalSin</a> <a class="normal" href="int65math.html#and">and</a> <a class="normal" href="blcksock.TBlockSocket.html#RemoteSin">RemoteSin</a> will be filled with valid values.
+<p>Structures <a class="normal" href="blcksock.TBlockSocket.html#LocalSin">LocalSin</a> and <a class="normal" href="blcksock.TBlockSocket.html#RemoteSin">RemoteSin</a> will be filled with valid values.
 
 <p>When you call this on non-created <a class="normal" href="blcksock.TBlockSocket.html#Socket">socket</a>, then <a class="normal" href="blcksock.TBlockSocket.html#Socket">socket</a> is created automaticly. Type of created <a class="normal" href="blcksock.TBlockSocket.html#Socket">socket</a> is by <a class="normal" href="blcksock.TBlockSocket.html#Family">Family</a> property. If is used <a class="normal" href="blcksock.html#SF_IP4">SF_IP4</a>, then is created <a class="normal" href="blcksock.TBlockSocket.html#Socket">socket</a> for IPv4. If is used <a class="normal" href="blcksock.html#SF_IP6">SF_IP6</a>, then is created <a class="normal" href="blcksock.TBlockSocket.html#Socket">socket</a> for IPv6. When you have <a class="normal" href="blcksock.TBlockSocket.html#Family">family</a> on <a class="normal" href="blcksock.html#SF_Any">SF_Any</a> (default!), then type of created <a class="normal" href="blcksock.TBlockSocket.html#Socket">socket</a> is determined by address resolving of destination address. (Not work properly on prilimitary winsock IPv6 support!)</p>
 </td></tr>
@@ -920,7 +920,7 @@ Send content of stream to <a class="normal" href="blcksock.TBlockSocket.html#Soc
 </tr>
 <tr><td colspan="2">
 <p>
-Send content of stream to <a class="normal" href="blcksock.TBlockSocket.html#Socket">socket</a>. It using <a class="normal" href="blcksock.TBlockSocket.html#SendBlock">SendBlock</a> method <a class="normal" href="int65math.html#and">and</a> this is compatible with streams in Indy library.</p>
+Send content of stream to <a class="normal" href="blcksock.TBlockSocket.html#Socket">socket</a>. It using <a class="normal" href="blcksock.TBlockSocket.html#SendBlock">SendBlock</a> method and this is compatible with streams in Indy library.</p>
 </td></tr>
 </table>
 <table class="detail wide_list">
@@ -946,7 +946,7 @@ Note: This is low-level receive function. You must be sure if data is waiting fo
 </tr>
 <tr><td colspan="2">
 <p>
-Note: This is high-level receive function. It using internal <a class="normal" href="blcksock.TBlockSocket.html#LineBuffer">LineBuffer</a> <a class="normal" href="int65math.html#and">and</a> you can combine this function freely with other high-level functions!
+Note: This is high-level receive function. It using internal <a class="normal" href="blcksock.TBlockSocket.html#LineBuffer">LineBuffer</a> and you can combine this function freely with other high-level functions!
 
 <p>Method waits until data is received. If no data is received within TIMEOUT (in milliseconds) period, <a class="normal" href="blcksock.TBlockSocket.html#LastError">LastError</a> is set to WSAETIMEDOUT. Methods serves for reading any size of data (i.e. one megabyte...). This method is preffered for reading from stream sockets (like TCP).</p>
 </td></tr>
@@ -968,9 +968,9 @@ Similar to <a class="normal" href="blcksock.TBlockSocket.html#RecvBufferEx">Recv
 </tr>
 <tr><td colspan="2">
 <p>
-Note: This is high-level receive function. It using internal <a class="normal" href="blcksock.TBlockSocket.html#LineBuffer">LineBuffer</a> <a class="normal" href="int65math.html#and">and</a> you can combine this function freely with other high-level functions.
+Note: This is high-level receive function. It using internal <a class="normal" href="blcksock.TBlockSocket.html#LineBuffer">LineBuffer</a> and you can combine this function freely with other high-level functions.
 
-<p>Waits until one data byte is received which is also returned as function result. If no data is received within TIMEOUT (in milliseconds)period, <a class="normal" href="blcksock.TBlockSocket.html#LastError">LastError</a> is set to WSAETIMEDOUT <a class="normal" href="int65math.html#and">and</a> result have value 0.</p>
+<p>Waits until one data byte is received which is also returned as function result. If no data is received within TIMEOUT (in milliseconds)period, <a class="normal" href="blcksock.TBlockSocket.html#LastError">LastError</a> is set to WSAETIMEDOUT and result have value 0.</p>
 </td></tr>
 </table>
 <table class="detail wide_list">
@@ -980,9 +980,9 @@ Note: This is high-level receive function. It using internal <a class="normal" h
 </tr>
 <tr><td colspan="2">
 <p>
-Note: This is high-level receive function. It using internal <a class="normal" href="blcksock.TBlockSocket.html#LineBuffer">LineBuffer</a> <a class="normal" href="int65math.html#and">and</a> you can combine this function freely with other high-level functions.
+Note: This is high-level receive function. It using internal <a class="normal" href="blcksock.TBlockSocket.html#LineBuffer">LineBuffer</a> and you can combine this function freely with other high-level functions.
 
-<p>Waits until one four bytes are received <a class="normal" href="int65math.html#and">and</a> return it as one Ineger Value. If no data is received within TIMEOUT (in milliseconds)period, <a class="normal" href="blcksock.TBlockSocket.html#LastError">LastError</a> is set to WSAETIMEDOUT <a class="normal" href="int65math.html#and">and</a> result have value 0.</p>
+<p>Waits until one four bytes are received and return it as one Ineger Value. If no data is received within TIMEOUT (in milliseconds)period, <a class="normal" href="blcksock.TBlockSocket.html#LastError">LastError</a> is set to WSAETIMEDOUT and result have value 0.</p>
 </td></tr>
 </table>
 <table class="detail wide_list">
@@ -992,7 +992,7 @@ Note: This is high-level receive function. It using internal <a class="normal" h
 </tr>
 <tr><td colspan="2">
 <p>
-Note: This is high-level receive function. It using internal <a class="normal" href="blcksock.TBlockSocket.html#LineBuffer">LineBuffer</a> <a class="normal" href="int65math.html#and">and</a> you can combine this function freely with other high-level functions.
+Note: This is high-level receive function. It using internal <a class="normal" href="blcksock.TBlockSocket.html#LineBuffer">LineBuffer</a> and you can combine this function freely with other high-level functions.
 
 <p>Method waits until data string is received. This string is terminated by <a class="normal" href="blcksock.html#CR">CR</a>-<a class="normal" href="blcksock.html#LF">LF</a> characters. The resulting string is returned without this termination (<a class="normal" href="blcksock.html#CR">CR</a>-<a class="normal" href="blcksock.html#LF">LF</a>)! If <a class="normal" href="blcksock.TBlockSocket.html#ConvertLineEnd">ConvertLineEnd</a> is used, then <a class="normal" href="blcksock.html#CR">CR</a>-<a class="normal" href="blcksock.html#LF">LF</a> sequence may not be exactly <a class="normal" href="blcksock.html#CR">CR</a>-<a class="normal" href="blcksock.html#LF">LF</a>. See <a class="normal" href="blcksock.TBlockSocket.html#ConvertLineEnd">ConvertLineEnd</a> description. If no data is received within TIMEOUT (in milliseconds) period, <a class="normal" href="blcksock.TBlockSocket.html#LastError">LastError</a> is set to WSAETIMEDOUT. You may also specify maximum length of reading data by <a class="normal" href="blcksock.TBlockSocket.html#MaxLineLength">MaxLineLength</a> property.</p>
 </td></tr>
@@ -1004,7 +1004,7 @@ Note: This is high-level receive function. It using internal <a class="normal" h
 </tr>
 <tr><td colspan="2">
 <p>
-Note: This is high-level receive function. It using internal <a class="normal" href="blcksock.TBlockSocket.html#LineBuffer">LineBuffer</a> <a class="normal" href="int65math.html#and">and</a> you can combine this function freely with other high-level functions.
+Note: This is high-level receive function. It using internal <a class="normal" href="blcksock.TBlockSocket.html#LineBuffer">LineBuffer</a> and you can combine this function freely with other high-level functions.
 
 <p>Method waits until data string is received. This string is terminated by Terminator string. The resulting string is returned without this termination. If no data is received within TIMEOUT (in milliseconds) period, <a class="normal" href="blcksock.TBlockSocket.html#LastError">LastError</a> is set to WSAETIMEDOUT. You may also specify maximum length of reading data by <a class="normal" href="blcksock.TBlockSocket.html#MaxLineLength">MaxLineLength</a> property.</p>
 </td></tr>
@@ -1016,7 +1016,7 @@ Note: This is high-level receive function. It using internal <a class="normal" h
 </tr>
 <tr><td colspan="2">
 <p>
-Note: This is high-level receive function. It using internal <a class="normal" href="blcksock.TBlockSocket.html#LineBuffer">LineBuffer</a> <a class="normal" href="int65math.html#and">and</a> you can combine this function freely with other high-level functions.
+Note: This is high-level receive function. It using internal <a class="normal" href="blcksock.TBlockSocket.html#LineBuffer">LineBuffer</a> and you can combine this function freely with other high-level functions.
 
 <p>Method reads all data waiting for read. If no data is received within TIMEOUT (in milliseconds) period, <a class="normal" href="blcksock.TBlockSocket.html#LastError">LastError</a> is set to WSAETIMEDOUT. Methods serves for reading unknown size of data. Because before call this function you don't know size of received data, returned data is stored in dynamic size binary string. This method is preffered for reading from stream sockets (like TCP). It is very goot for receiving datagrams too! (UDP protocol)</p>
 </td></tr>
@@ -1158,7 +1158,7 @@ Actualize values in <a class="normal" href="blcksock.TBlockSocket.html#RemoteSin
 </tr>
 <tr><td colspan="2">
 <p>
-Actualize values in <a class="normal" href="blcksock.TBlockSocket.html#LocalSin">LocalSin</a> <a class="normal" href="int65math.html#and">and</a> <a class="normal" href="blcksock.TBlockSocket.html#RemoteSin">RemoteSin</a>.</p>
+Actualize values in <a class="normal" href="blcksock.TBlockSocket.html#LocalSin">LocalSin</a> and <a class="normal" href="blcksock.TBlockSocket.html#RemoteSin">RemoteSin</a>.</p>
 </td></tr>
 </table>
 <table class="detail wide_list">
@@ -1168,7 +1168,7 @@ Actualize values in <a class="normal" href="blcksock.TBlockSocket.html#LocalSin"
 </tr>
 <tr><td colspan="2">
 <p>
-Reset <a class="normal" href="blcksock.TBlockSocket.html#LastError">LastError</a> <a class="normal" href="int65math.html#and">and</a> <a class="normal" href="blcksock.TBlockSocket.html#LastErrorDesc">LastErrorDesc</a> to non-<a class="normal" href="slogsend.html#Error">error</a> state.</p>
+Reset <a class="normal" href="blcksock.TBlockSocket.html#LastError">LastError</a> and <a class="normal" href="blcksock.TBlockSocket.html#LastErrorDesc">LastErrorDesc</a> to non-<a class="normal" href="slogsend.html#Error">error</a> state.</p>
 </td></tr>
 </table>
 <table class="detail wide_list">
@@ -1178,7 +1178,7 @@ Reset <a class="normal" href="blcksock.TBlockSocket.html#LastError">LastError</a
 </tr>
 <tr><td colspan="2">
 <p>
-If you &quot;manually&quot; call <a class="normal" href="blcksock.TBlockSocket.html#Socket">Socket</a> API functions, forward their return code as parameter to this function, which evaluates it, eventually calls GetLastError <a class="normal" href="int65math.html#and">and</a> found <a class="normal" href="slogsend.html#Error">error</a> code returns <a class="normal" href="int65math.html#and">and</a> stores to <a class="normal" href="blcksock.TBlockSocket.html#LastError">LastError</a>.</p>
+If you &quot;manually&quot; call <a class="normal" href="blcksock.TBlockSocket.html#Socket">Socket</a> API functions, forward their return code as parameter to this function, which evaluates it, eventually calls GetLastError and found <a class="normal" href="slogsend.html#Error">error</a> code returns and stores to <a class="normal" href="blcksock.TBlockSocket.html#LastError">LastError</a>.</p>
 </td></tr>
 </table>
 <table class="detail wide_list">
@@ -1188,7 +1188,7 @@ If you &quot;manually&quot; call <a class="normal" href="blcksock.TBlockSocket.h
 </tr>
 <tr><td colspan="2">
 <p>
-If <a class="normal" href="blcksock.TBlockSocket.html#LastError">LastError</a> contains some <a class="normal" href="slogsend.html#Error">error</a> code <a class="normal" href="int65math.html#and">and</a> <a class="normal" href="blcksock.TBlockSocket.html#RaiseExcept">RaiseExcept</a> property is <code>True</code>, raise adequate exception.</p>
+If <a class="normal" href="blcksock.TBlockSocket.html#LastError">LastError</a> contains some <a class="normal" href="slogsend.html#Error">error</a> code and <a class="normal" href="blcksock.TBlockSocket.html#RaiseExcept">RaiseExcept</a> property is <code>True</code>, raise adequate exception.</p>
 </td></tr>
 </table>
 <table class="detail wide_list">
@@ -1298,7 +1298,7 @@ Picks <a class="normal" href="blcksock.TBlockSocket.html#Socket">socket</a> PORT
 </tr>
 <tr><td colspan="2">
 <p>
-Return <code>True</code>, if you can read any data from <a class="normal" href="blcksock.TBlockSocket.html#Socket">socket</a> or is incoming connection on TCP based <a class="normal" href="blcksock.TBlockSocket.html#Socket">socket</a>. Status is tested for time Timeout (in milliseconds). If value in Timeout is 0, status is only tested <a class="normal" href="int65math.html#and">and</a> continue. If value in Timeout is -1, run is breaked <a class="normal" href="int65math.html#and">and</a> waiting for read data maybe forever.
+Return <code>True</code>, if you can read any data from <a class="normal" href="blcksock.TBlockSocket.html#Socket">socket</a> or is incoming connection on TCP based <a class="normal" href="blcksock.TBlockSocket.html#Socket">socket</a>. Status is tested for time Timeout (in milliseconds). If value in Timeout is 0, status is only tested and continue. If value in Timeout is -1, run is breaked and waiting for read data maybe forever.
 
 <p>This function is need only on special cases, when you need use <a class="normal" href="blcksock.TBlockSocket.html#RecvBuffer">RecvBuffer</a> function directly! read functioms what have timeout as calling parameter, calling this function internally.</p>
 </td></tr>
@@ -1320,7 +1320,7 @@ Same as <a class="normal" href="blcksock.TBlockSocket.html#CanRead">CanRead</a>,
 </tr>
 <tr><td colspan="2">
 <p>
-Return <code>True</code>, if you can to <a class="normal" href="blcksock.TBlockSocket.html#Socket">socket</a> write any data (not full sending buffer). Status is tested for time Timeout (in milliseconds). If value in Timeout is 0, status is only tested <a class="normal" href="int65math.html#and">and</a> continue. If value in Timeout is -1, run is breaked <a class="normal" href="int65math.html#and">and</a> waiting for write data maybe forever.
+Return <code>True</code>, if you can to <a class="normal" href="blcksock.TBlockSocket.html#Socket">socket</a> write any data (not full sending buffer). Status is tested for time Timeout (in milliseconds). If value in Timeout is 0, status is only tested and continue. If value in Timeout is -1, run is breaked and waiting for write data maybe forever.
 
 <p>This function is need only on special cases!</p>
 </td></tr>
@@ -1354,7 +1354,7 @@ Note: This is low-lever receive function. You must be sure if data is waiting fo
 </tr>
 <tr><td colspan="2">
 <p>
-This function is for check for incoming data on set of sockets. Whitch sockets is checked is decribed by SocketList Tlist with <a class="normal" href="blcksock.TBlockSocket.html">TBlockSocket</a> objects. TList may have maximal number of objects defined by FD_SETSIZE constant. Return <code>True</code>, if you can from some <a class="normal" href="blcksock.TBlockSocket.html#Socket">socket</a> read any data or is incoming connection on TCP based <a class="normal" href="blcksock.TBlockSocket.html#Socket">socket</a>. Status is tested for time Timeout (in milliseconds). If value in Timeout is 0, status is only tested <a class="normal" href="int65math.html#and">and</a> continue. If value in Timeout is -1, run is breaked <a class="normal" href="int65math.html#and">and</a> waiting for read data maybe forever. If is returned <code>True</code>, CanReadList TList is filled by all <a class="normal" href="blcksock.TBlockSocket.html">TBlockSocket</a> objects what waiting for read.</p>
+This function is for check for incoming data on set of sockets. Whitch sockets is checked is decribed by SocketList Tlist with <a class="normal" href="blcksock.TBlockSocket.html">TBlockSocket</a> objects. TList may have maximal number of objects defined by FD_SETSIZE constant. Return <code>True</code>, if you can from some <a class="normal" href="blcksock.TBlockSocket.html#Socket">socket</a> read any data or is incoming connection on TCP based <a class="normal" href="blcksock.TBlockSocket.html#Socket">socket</a>. Status is tested for time Timeout (in milliseconds). If value in Timeout is 0, status is only tested and continue. If value in Timeout is -1, run is breaked and waiting for read data maybe forever. If is returned <code>True</code>, CanReadList TList is filled by all <a class="normal" href="blcksock.TBlockSocket.html">TBlockSocket</a> objects what waiting for read.</p>
 </td></tr>
 </table>
 <table class="detail wide_list">
@@ -1374,7 +1374,7 @@ By this method you may turn address reuse mode for local <a class="normal" href=
 </tr>
 <tr><td colspan="2">
 <p>
-Try set timeout for all sending <a class="normal" href="int65math.html#and">and</a> receiving operations, if <a class="normal" href="blcksock.TBlockSocket.html#Socket">socket</a> provider can do it. (It not supported by all <a class="normal" href="blcksock.TBlockSocket.html#Socket">socket</a> providers!)</p>
+Try set timeout for all sending and receiving operations, if <a class="normal" href="blcksock.TBlockSocket.html#Socket">socket</a> provider can do it. (It not supported by all <a class="normal" href="blcksock.TBlockSocket.html#Socket">socket</a> providers!)</p>
 </td></tr>
 </table>
 <table class="detail wide_list">
@@ -1605,7 +1605,7 @@ this value is for free use.</p>
 </tr>
 <tr><td colspan="2">
 <p>
-If <code>True</code>, winsock errors raises exception. Otherwise is setted <a class="normal" href="blcksock.TBlockSocket.html#LastError">LastError</a> value only <a class="normal" href="int65math.html#and">and</a> you must check it from your program! Default value is <code>False</code>.</p>
+If <code>True</code>, winsock errors raises exception. Otherwise is setted <a class="normal" href="blcksock.TBlockSocket.html#LastError">LastError</a> value only and you must check it from your program! Default value is <code>False</code>.</p>
 </td></tr>
 </table>
 <table class="detail wide_list">
@@ -1647,7 +1647,7 @@ Define maximal bandwidth for all receiving operations in bytes per second. If va
 </tr>
 <tr><td colspan="2">
 <p>
-Define maximal bandwidth for all sending <a class="normal" href="int65math.html#and">and</a> receiving operations in bytes per second. If value is 0 (default), bandwidth limitation is not used.</p>
+Define maximal bandwidth for all sending and receiving operations in bytes per second. If value is 0 (default), bandwidth limitation is not used.</p>
 </td></tr>
 </table>
 <table class="detail wide_list">
@@ -1677,7 +1677,7 @@ Specified <code>Family</code> of this <a class="normal" href="blcksock.TBlockSoc
 </tr>
 <tr><td colspan="2">
 <p>
-When resolving of domain name return both IPv4 <a class="normal" href="int65math.html#and">and</a> IPv6 addresses, then specify if is used IPv4 (dafault - <code>True</code>) or IPv6.</p>
+When resolving of domain name return both IPv4 and IPv6 addresses, then specify if is used IPv4 (dafault - <code>True</code>) or IPv6.</p>
 </td></tr>
 </table>
 <table class="detail wide_list">
@@ -1787,7 +1787,7 @@ This event is good for calling your code during long <a class="normal" href="blc
 </tr>
 <tr><td colspan="2">
 <p>
-Specify typical rate of <a class="normal" href="blcksock.TBlockSocket.html#OnHeartbeat">OnHeartbeat</a> event <a class="normal" href="int65math.html#and">and</a> <a class="normal" href="blcksock.TBlockSocket.html#StopFlag">StopFlag</a> testing. Default value 0 disabling heartbeats! Value is in milliseconds. Real rate can be higher or smaller then this value, because it depending on real <a class="normal" href="blcksock.TBlockSocket.html#Socket">socket</a> operations too! Note: Each heartbeat slowing <a class="normal" href="blcksock.TBlockSocket.html#Socket">socket</a> processing.</p>
+Specify typical rate of <a class="normal" href="blcksock.TBlockSocket.html#OnHeartbeat">OnHeartbeat</a> event and <a class="normal" href="blcksock.TBlockSocket.html#StopFlag">StopFlag</a> testing. Default value 0 disabling heartbeats! Value is in milliseconds. Real rate can be higher or smaller then this value, because it depending on real <a class="normal" href="blcksock.TBlockSocket.html#Socket">socket</a> operations too! Note: Each heartbeat slowing <a class="normal" href="blcksock.TBlockSocket.html#Socket">socket</a> processing.</p>
 </td></tr>
 </table>
 <table class="detail wide_list">
