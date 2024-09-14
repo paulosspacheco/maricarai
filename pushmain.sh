@@ -3,7 +3,8 @@
 # Texto com as mudanças que estão sendo realizada neste push.
 TextoCommit="$1"
 
-if [$TextoCommit -eq ""]; then
+#if [$TextoCommit -eq ""]; then
+if [ -z "$TextoCommit" ]; then
    echo "Parâmetro deve ser texto diferente de nulo"
    exit
 fi
