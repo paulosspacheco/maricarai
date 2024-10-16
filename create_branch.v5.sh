@@ -33,8 +33,8 @@ if [ $? -ne 0 ]; then
     exit 1
 fi
 
-# Envia o novo branch para o repositório remoto
-git push -u origin "$BRANCH_NAME"
+# Envia o novo branch para o repositório remoto explicitamente especificando que é um branch
+git push origin "$BRANCH_NAME:$BRANCH_NAME"
 
 # Verifica se o push foi bem-sucedido
 if [ $? -eq 0 ]; then

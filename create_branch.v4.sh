@@ -12,14 +12,7 @@ fi
 # Nome do branch será o mesmo que o da tag
 BRANCH_NAME="$TAG_NAME"
 
-# Verifica se o branch atual é o mesmo que o branch que queremos deletar
-CURRENT_BRANCH=$(git symbolic-ref --short HEAD)
-if [ "$CURRENT_BRANCH" == "$BRANCH_NAME" ]; then
-    # Muda para o branch main se o branch atual for o mesmo que queremos deletar
-    git checkout main
-fi
-
-# Verifica se o branch local já existe e o deleta
+# Remove o branch local se ele já existir
 if git show-ref --verify --quiet refs/heads/"$BRANCH_NAME"; then
     git branch -D "$BRANCH_NAME"
 fi
@@ -33,8 +26,8 @@ if [ $? -ne 0 ]; then
     exit 1
 fi
 
-# Envia o novo branch para o repositório remoto
-git push -u origin "$BRANCH_NAME"
+# Envia o novo branch para o repositório remoto explicitamente especificando que é um branch
+git push origin "$BRANCH_NAME:$BRANCH_NAME"
 
 # Verifica se o push foi bem-sucedido
 if [ $? -eq 0 ]; then
