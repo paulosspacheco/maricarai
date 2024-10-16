@@ -9,8 +9,8 @@ if [ -z "$TAG_NAME" ]; then
     exit 1
 fi
 
-# Nome do branch será a junção do nome da tag e a palavra "branch"
-BRANCH_NAME="${TAG_NAME}-branch"
+# Nome do branch será o mesmo que o da tag
+BRANCH_NAME="$TAG_NAME"
 
 # Verifica se o branch atual é o mesmo que o branch que queremos deletar
 CURRENT_BRANCH=$(git symbolic-ref --short HEAD)
@@ -24,7 +24,7 @@ if git show-ref --verify --quiet refs/heads/"$BRANCH_NAME"; then
     git branch -D "$BRANCH_NAME"
 fi
 
-# Cria e muda para o novo branch baseado na tag
+# Cria e muda para o novo branch baseado na tag, evitando a ambiguidade
 git checkout -b "$BRANCH_NAME" "refs/tags/$TAG_NAME"
 
 # Verifica se a criação do branch foi bem-sucedida
