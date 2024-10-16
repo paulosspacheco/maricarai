@@ -1,0 +1,53 @@
+91775c1 - paulosspacheco, 23 minutes ago : Deletado verões anteriores do script create_branch.sh e push.sh
+b7d3ec6 - paulosspacheco, 27 minutes ago : Criado script create_branch.sh
+e698e1c - paulosspacheco, 36 minutes ago : Criado script create_branch.sh
+53c951d - paulosspacheco, 52 minutes ago : Criado script create_branch.sh
+123157b - paulosspacheco, 2 hours ago : Adicionado numero da versão v.1.9.0 ao push.sh
+3f7d040 - paulosspacheco, 2 hours ago : Adicionado numero da versão v.1.9.0 ao push.sh
+e17ebcf - paulosspacheco, 2 hours ago : Adicionado numero da versão v.1.9.0 ao push.sh
+d19113b - paulosspacheco, 2 hours ago : Adicionado numero da versão v.1.9.0 ao push.sh
+c885665 - paulosspacheco, 2 hours ago : Adicionado numero da versão v.1.9.0 ao push.sh
+4d8b588 - paulosspacheco, 2 hours ago : Adicionado numero da versão v.1.9.0 ao push.sh
+d84bf01 - paulosspacheco, 2 hours ago : Adicionado numero da versão v.1.9.0 ao push.sh
+034e4ee - paulosspacheco, 2 hours ago : Melhorias dos script push.sh
+99835a5 - paulosspacheco, 2 hours ago : adicionado arquivo push.sh
+2ccbb27 - paulosspacheco, 5 weeks ago : Atualizado no da versão Alpha 1.0.0 em todos os arquivos
+82b8489 - paulosspacheco, 5 weeks ago : Versão Alpha 1.0.0
+01a7cfb - paulosspacheco, 5 weeks ago : Versão Alpha 1.0.0
+8e391f1 - paulosspacheco, 5 weeks ago : Versão Alpha 1.0.0
+a847018 - paulosspacheco, 9 months ago : Versão do dia 04/02/2024
+e91628d - paulosspacheco, 9 months ago : Versão com app lcl
+e0591fb - paulosspacheco, 1 year, 2 months ago : versão 0.8.0
+e958627 - paulosspacheco, 1 year, 2 months ago : versão anterior errada. Essa corrige o erro. versão 0.7.1
+6b20e2e - paulosspacheco, 1 year, 2 months ago : Adicionado controle do número da versão e e histórico das atividades.
+8fb9563 - paulosspacheco, 1 year, 2 months ago : Apagado docs da raiz.
+a1ff7cb - paulosspacheco, 1 year, 2 months ago : criado histórico.pas e tarefas_a_fazer.pas
+4c0b832 - paulosspacheco, 1 year, 2 months ago : Atualuzado - versão Alpha - 0.7.1
+daf5fee - paulosspacheco, 1 year, 4 months ago : commit em 2023-06-16
+45a3638 - paulosspacheco, 1 year, 6 months ago : Criado método para exemplo de sequência de mensagens empilhadas.
+301443b - paulosspacheco, 1 year, 6 months ago : O programa teste foi adicionado no documento as dependências da fonte Courie New
+b83c614 - paulosspacheco, 1 year, 6 months ago : Adicionado a pas doc na versão 0.7.0.0
+e3a45f8 - paulosspacheco, 1 year, 6 months ago : Merge branch 'main' of github.com:paulosspacheco/maricarai into main
+f0f10f0 - paulosspacheco, 1 year, 6 months ago : adicionado arquivo *.lrs
+ceace3a - paulosspacheco, 1 year, 6 months ago : Arquivo *.irs adicionado
+02619d9 - paulosspacheco, 1 year, 6 months ago : O pacote mi.rtl.ui foi movido para mi.rtl e não depende mais da LCL.
+618f5ad - paulosspacheco, 1 year, 7 months ago : Versão Alpha 0.5.0.687 do pacote mi.rtl.ui depende da LCL.
+d2c05c7 - paulosspacheco, 1 year, 7 months ago : documentação
+614204f - paulosspacheco, 1 year, 7 months ago : Teste do formato wiki
+a3dbf65 - paulosspacheco, 1 year, 7 months ago : Documentação diversas
+fd92ef5 - paulosspacheco, 1 year, 7 months ago : Compilado com Free Pascal 3.3.1
+763af63 - paulosspacheco, 1 year, 7 months ago : Criado documentos .html na pasta mi.rtl.ui/doc
+65391a0 - paulosspacheco, 1 year, 7 months ago : Merge branch 'main' of github.com:paulosspacheco/maricarai into main
+5238a9d - paulosspacheco, 1 year, 7 months ago : Alterado arquivo .gitignore
+eefbdc1 - paulosspacheco, 1 year, 7 months ago : Alterado o arquivo .gitignore
+df383f8 - paulosspacheco, 1 year, 7 months ago : Update pushmain.sh
+dee1a09 - paulosspacheco, 1 year, 7 months ago : Update pushmain.sh
+bdfd407 - paulosspacheco, 1 year, 7 months ago : Auteração do script pushmain.sh com os códigos para abortar, caso a mensagem passado por  for nula
+c6c9897 - paulosspacheco, 1 year, 7 months ago : A extensão .lrs foi documentada do arquivo .gitignore
+81fb198 - paulosspacheco, 1 year, 7 months ago : Os arquivos .html tranferidos para page github
+c25504a - paulosspacheco, 1 year, 7 months ago : adicionado o scripts para atualização do github
+3133d4e - paulosspacheco, 1 year, 7 months ago : Alterado arquivo .gitignore
+5f1c2a9 - paulosspacheco, 1 year, 7 months ago : Enviado para o repositório github em 08/03/2023
+2547f7f - paulosspacheco, 1 year, 7 months ago : Enviado para o repositório github em 08/03/2023
+81900be - maricarai, 1 year, 7 months ago : Update .gitignore
+9fbd050 - maricarai, 1 year, 7 months ago : Initial commit

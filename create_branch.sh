@@ -1,5 +1,11 @@
 #!/bin/bash
 
+# Verifica se estamos em um diretório Git
+if [ ! -d .git ]; then
+    echo "Este diretório não é um repositório Git."
+    exit 1
+fi
+
 # Nome da tag passado como argumento
 TAG_NAME="$1"
 

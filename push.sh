@@ -1,5 +1,8 @@
 #!/bin/bash
 
+#Cria o mapa do site
+create_tipuesearch
+
 # Texto com as mudanças que estão sendo realizadas neste push.
 TextoCommit="$1"
 
