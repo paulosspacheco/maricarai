@@ -33,7 +33,7 @@ fi
 INITIAL_VERSION="v1.9.0-$VERSION_TYPE"
 
 # Incrementa a versão com base na tag anterior
-LAST_TAG=$(git tag --sort=-v:refname | grep "$VERSION_TYPE" | head -n 1)
+LAST_TAG=$(git describe --tags $(git rev-list --tags --max-count=1) 2>/dev/null)
 
 if [ -z "$LAST_TAG" ]; then
     NEW_TAG="$INITIAL_VERSION"
