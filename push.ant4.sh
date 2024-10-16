@@ -20,11 +20,8 @@ if ! git remote | grep -q origin; then
     git remote add origin git@github.com:$REPO_NAME.git
 fi
 
-# Garante que estamos na branch main
-git checkout main
-
 # Atualiza o repositório local com os dados do repositório remoto
-git pull origin main
+git pull
 
 # Verifica se há mudanças a serem commitadas
 if git diff-index --quiet HEAD --; then
