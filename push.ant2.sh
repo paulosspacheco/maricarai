@@ -9,15 +9,21 @@ if [ -z "$TextoCommit" ]; then
    exit 1
 fi
 
-# Tipo de versão (pode ser alterado para "beta", "release", etc.)
-VERSION_TYPE="alpha"
-
 # Nome do repositório GitHub (formato: usuario/repositorio)
 REPO_NAME="paulosspacheco/maricarai"
 
-# Verifica se o repositório remoto já está associado
-if ! git remote | grep -q origin; then
+# Verifica se o repositório remoto já está associado e configura a URL se necessário
+if git remote get-url origin | grep -q "$REPO_NAME"; then
+    echo "Repositório remoto já está configurado corretamente."
+else
+    git remote remove origin
     git remote add origin git@github.com:$REPO_NAME.git
+fi
+
+# Verifica se o branch atual é 'main' e renomeia se necessário
+CURRENT_BRANCH=$(git branch --show-current)
+if [ "$CURRENT_BRANCH" != "main" ]; then
+    git branch -M main
 fi
 
 # Atualiza o repositório local com os dados do repositório remoto
@@ -32,20 +38,19 @@ fi
 # Incrementa a versão com base na tag anterior
 LAST_TAG=$(git describe --tags $(git rev-list --tags --max-count=1) 2>/dev/null)
 if [ -z "$LAST_TAG" ]; then
-    NEW_TAG="v1.9.0-$VERSION_TYPE"
+    NEW_TAG="v0.1.0"
 else
     # Extrai os componentes da versão
     IFS='.' read -ra PARTS <<< "${LAST_TAG//v/}"
     MAJOR=${PARTS[0]}
     MINOR=${PARTS[1]}
-    PATCH=${PARTS[2]%-*}  # Remove qualquer sufixo da tag (como -alpha)
-    VERSION_SUFFIX=${PARTS[2]##*-}  # Pega o sufixo (como alpha)
+    PATCH=${PARTS[2]}
 
     # Incrementa o patch
     PATCH=$((PATCH + 1))
 
     # Nova tag
-    NEW_TAG="v${MAJOR}.${MINOR}.${PATCH}-$VERSION_TYPE"
+    NEW_TAG="v${MAJOR}.${MINOR}.${PATCH}"
 fi
 
 # Exibe as informações sobre o que será feito
