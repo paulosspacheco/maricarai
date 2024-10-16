@@ -20,6 +20,7 @@ if ! git remote | grep -q origin; then
     git remote add origin git@github.com:$REPO_NAME.git
 fi
 
+
 # Atualiza o repositório local com os dados do repositório remoto
 git pull
 
