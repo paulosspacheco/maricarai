@@ -10,7 +10,7 @@ if [ -z "$TextoCommit" ]; then
 fi
 
 # Tipo de versão (pode ser alterado para "beta", "release", etc.)
-VERSION_TYPE="alpha"
+VERSION_TYPE="Alpha"
 
 # Nome do repositório GitHub (formato: usuario/repositorio)
 REPO_NAME="paulosspacheco/maricarai"
@@ -29,18 +29,21 @@ if git diff-index --quiet HEAD --; then
     exit 0
 fi
 
+# Define a versão inicial
+INITIAL_VERSION="v1.9.0-$VERSION_TYPE"
+
 # Incrementa a versão com base na tag anterior
 LAST_TAG=$(git describe --tags $(git rev-list --tags --max-count=1) 2>/dev/null)
+
 if [ -z "$LAST_TAG" ]; then
-    NEW_TAG="v1.9.0-$VERSION_TYPE"
+    NEW_TAG="$INITIAL_VERSION"
 else
     # Extrai os componentes da versão
     IFS='.' read -ra PARTS <<< "${LAST_TAG//v/}"
     MAJOR=${PARTS[0]}
     MINOR=${PARTS[1]}
-    PATCH=${PARTS[2]%-*}  # Remove qualquer sufixo da tag (como -alpha)
-    VERSION_SUFFIX=${PARTS[2]##*-}  # Pega o sufixo (como alpha)
-
+    PATCH=${PARTS[2]%-*}  # Remove qualquer sufixo da tag (como -Alpha)
+    
     # Incrementa o patch
     PATCH=$((PATCH + 1))
 
