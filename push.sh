@@ -29,6 +29,7 @@ if git diff-index --quiet HEAD --; then
     exit 0
 fi
 
+
 # Define a versão inicial
 INITIAL_VERSION="v1.9.0-$VERSION_TYPE"
 
