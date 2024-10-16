@@ -29,12 +29,12 @@ if git diff-index --quiet HEAD --; then
     exit 0
 fi
 
-
 # Define a versão inicial
 INITIAL_VERSION="v1.9.0-$VERSION_TYPE"
 
 # Incrementa a versão com base na tag anterior
-LAST_TAG=$(git tag --sort=-v:refname | grep "$VERSION_TYPE" | head -n 1)
+# Aqui garantimos que só peguemos as tags que seguem o padrão esperado.
+LAST_TAG=$(git tag --sort=-v:refname | grep -E "^v[0-9]+\.[0-9]+\.[0-9]+-$VERSION_TYPE$" | head -n 1)
 
 if [ -z "$LAST_TAG" ]; then
     NEW_TAG="$INITIAL_VERSION"
@@ -44,7 +44,7 @@ else
     MAJOR=${PARTS[0]}
     MINOR=${PARTS[1]}
     PATCH=${PARTS[2]%-*}  # Remove qualquer sufixo da tag (como -Alpha)
-    
+
     # Incrementa o patch
     PATCH=$((PATCH + 1))
 
