@@ -12,11 +12,8 @@ fi
 # Nome do repositório GitHub (formato: usuario/repositorio)
 REPO_NAME="paulosspacheco/maricarai"
 
-# Verifica se o repositório remoto já está associado e configura a URL se necessário
-if git remote get-url origin | grep -q "$REPO_NAME"; then
-    echo "Repositório remoto já está configurado corretamente."
-else
-    git remote remove origin
+# Verifica se o repositório remoto já está associado
+if ! git remote | grep -q origin; then
     git remote add origin git@github.com:$REPO_NAME.git
 fi
 
@@ -27,7 +24,7 @@ if [ "$CURRENT_BRANCH" != "main" ]; then
 fi
 
 # Atualiza o repositório local com os dados do repositório remoto
-git pull
+#git pull
 
 # Verifica se há mudanças a serem commitadas
 if git diff-index --quiet HEAD --; then
