@@ -742,11 +742,19 @@
 </tr>
 <tr class="list2">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
-<td class="itemcode"><code>class Procedure <strong><a href="mi.rtl.Objects.Methods.TObjectsMethods.html#GetQueryFieldsLocate">GetQueryFieldsLocate</a></strong>(var aRequest: TRequest; out aKeyFields: string; Out aKeyValues: Variant; Out aOptions : TLocateOptions );</code></td>
+<td class="itemcode"><code>class Procedure <strong><a href="mi.rtl.Objects.Methods.TObjectsMethods.html#GetQueryFieldsLocate">GetQueryFieldsLocate</a></strong>(var aRequest: TRequest; out aKeyFields: string; Out aKeyValues: Variant; Out aOptions : TLocateOptions ); Overload;</code></td>
 </tr>
 <tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
 <td class="itemcode"><code>Class function <strong><a href="mi.rtl.Objects.Methods.TObjectsMethods.html#LocateParamsToJson">LocateParamsToJson</a></strong>(KeyFields: string; KeyValues: Variant; Options: TLocateOptions): TJSONObject;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>class procedure <strong><a href="mi.rtl.Objects.Methods.TObjectsMethods.html#GetQueryFieldsEventName">GetQueryFieldsEventName</a></strong>(var aRequest: TRequest; out aCurrentFieldName : String; out aCurrentFieldValue: String; out aEventName: String);</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>Class function <strong><a href="mi.rtl.Objects.Methods.TObjectsMethods.html#FieldsEventNameParamsToJson">FieldsEventNameParamsToJson</a></strong>(aKeyFields: string; aKeyValues: Variant; aOptions: TLocateOptions; aCurrentFieldName : String; aCurrentFieldValue: String; aEventName: String ): TJSONObject;</code></td>
 </tr>
 <tr class="list2">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
@@ -991,7 +999,7 @@ O método <strong><code>StartTransaction</code></strong> inicia uma transação 
       <span class="pascal_keyword">if</span> finalize
       <span class="pascal_keyword">then</span> Roolback;
 
-      <span class="pascal_keyword">Raise</span> TException.Create(Self,<span class="pascal_string">'AddRec'</span>,E.<span class="pascal_keyword">Message</span>);
+       TException.Create(Self,<span class="pascal_string">'AddRec'</span>,E.<span class="pascal_keyword">Message</span>);
     <span class="pascal_keyword">end</span>;
 <span class="pascal_keyword">end</span>;</pre>
 
@@ -3221,7 +3229,7 @@ O método <strong><code>ConvertCSVToJSONArray</code></strong> usado para convert
 <table class="detail wide_list">
 <tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
-<td class="itemcode"><span id="GetQueryFieldsLocate"></span><code>class Procedure <strong>GetQueryFieldsLocate</strong>(var aRequest: TRequest; out aKeyFields: string; Out aKeyValues: Variant; Out aOptions : TLocateOptions );</code></td>
+<td class="itemcode"><span id="GetQueryFieldsLocate"></span><code>class Procedure <strong>GetQueryFieldsLocate</strong>(var aRequest: TRequest; out aKeyFields: string; Out aKeyValues: Variant; Out aOptions : TLocateOptions ); Overload;</code></td>
 </tr>
 <tr><td colspan="2">
 <p>
@@ -3312,6 +3320,40 @@ O método <strong><code>LocateParamsToJson</code></strong> converte os parâmetr
 </ul>
 
 <p></p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="GetQueryFieldsEventName"></span><code>class procedure <strong>GetQueryFieldsEventName</strong>(var aRequest: TRequest; out aCurrentFieldName : String; out aCurrentFieldValue: String; out aEventName: String);</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+O método <strong><code>GetQueryFieldsEventName</code></strong> retorna o nome do corrente campo e o nome do evento a ser disparado no método que o chamou.
+
+<p></p>
+
+<ul class="paragraph_spacing">
+  <li><p><strong>Descrição</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>O método <code><code>GetQueryFieldsEventName</code></code> extrai os parâmetros <code>CurrentFieldName</code>, <code>CurrentFieldValue</code> e <code>EventName</code> da query string de uma requisição HTTP, decodificando os valores URL-encoded e assegurando que os parâmetros não estejam vazios. Se qualquer um desses parâmetros estiver ausente ou vazio, uma exceção será levantada exceto no campo aCurrentFieldValue.</p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="FieldsEventNameParamsToJson"></span><code>Class function <strong>FieldsEventNameParamsToJson</strong>(aKeyFields: string; aKeyValues: Variant; aOptions: TLocateOptions; aCurrentFieldName : String; aCurrentFieldValue: String; aEventName: String ): TJSONObject;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+A classe método <strong>name</strong> cria um objeto JSON contendo os parâmetros de localização de registros, juntamente com o nome e valor do campo atual e o nome de um evento. Esse método facilita a construção de uma estrutura JSON que pode ser usada para comunicação em processos que envolvem localização de registros e manipulação de eventos associados a campos.</p>
 </td></tr>
 </table>
 <table class="detail wide_list">

@@ -144,7 +144,7 @@ Const fldAnsiChar           = TConsts.fldAnsiChar          ;
 
        ```
 }
-Const fldAnsiChar_LowCase = TConsts.fldAnsiChar_LowCase;
+Const fldAnsiCharAlfa = TConsts.fldAnsiCharAlfa;
 
 {: A constante **@name** informa que o campo é do tipo AnsiCharacter, 
   ou seja: O último caractere da string contém #0 e contém somente caracteres numéricos}
@@ -166,7 +166,7 @@ Const fldAnsiChar_LowCase = TConsts.fldAnsiChar_LowCase;
 
        ```
 }
-Const fldAnsiCharNUM        = TConsts.fldAnsiCharNUM     ;
+Const fldDoublePositive        = TConsts.fldDoublePositive     ;
 
 {: A constante **@name** (Const fldAnsiChar = '0') usado na máscara do Template,
    informa ao componente **TUiDmxScroller** que a sequência de caracteres '0'
@@ -185,7 +185,7 @@ Const fldAnsiCharNUM        = TConsts.fldAnsiCharNUM     ;
 
        ```
 }
-Const fldAnsiCharVAL        = TConsts.fldAnsiCharVAL     ;
+Const fldDouble        = TConsts.fldDouble     ;
 
 {:A constante **@name** é usada para concatenar duas listas do tipo PSItem.
 
@@ -257,7 +257,7 @@ Const fldAPPEND             = TConsts.fldAPPEND          ;
 Const fldBLOb               = TConsts.fldBLOb            ;
 
 
-{: A constante **@name** (Const fldBYTE = 'B') usado na máscara do Template, 
+{: A constante **@name** (Const fldByte = 'B') usado na máscara do Template, 
    informa ao componente **TUiDmxScroller** que a sequência de caracteres 'B' 
    após o caractere **"\"** representa no buffer do formulário um tipo byte.
 
@@ -270,7 +270,7 @@ Const fldBLOb               = TConsts.fldBLOb            ;
 
        ```   
 }
-Const fldBYTE               = TConsts.fldBYTE            ;
+Const fldByte               = TConsts.fldByte            ;
 
 {: A constante **@name** (fldBoolean = 'X') indica que o campo é do tipo byte e só pode ter dois valores.
 
@@ -392,7 +392,7 @@ Const fldHexValue           = TConsts.fldHexValue        ;
 Const fldLHora              = TConsts.fldLHora           ;
 
 {: A constante **@name** ...}
-Const fldLONGINT            = TConsts.fldLONGINT         ;
+Const fldLongInt            = TConsts.fldLongInt         ;
 
 {: A constante **@name** ...}
 Const FldMemo               = TConsts.FldMemo            ;
@@ -416,10 +416,10 @@ Const fldReal4Positivo      = TConsts.fldReal4Positivo   ;
 Const fldReal4PPositivo     = TConsts.fldReal4PPositivo  ;
 
 {: A constante **@name** ...}
-Const fldRealNum            = TConsts.fldRealNum         ;
+Const fldDouble            = TConsts.fldDouble         ;
 
 {: A constante **@name** ...}
-Const fldRealNum_Positivo   = TConsts.fldRealNum_Positivo;
+Const fldDoublePositive   = TConsts.fldDoublePositive;
 
 {: A constante **@name** ...}
 Const FldSData              = TConsts.FldSData           ;
@@ -430,7 +430,7 @@ Const FldSData              = TConsts.FldSData           ;
 Const FldSHora              = TConsts.FldSHora           ;
 
 {: A constante **@name** ...}
-Const fldSHORTINT           = TConsts.fldSHORTINT        ;
+Const fldShortInt           = TConsts.fldShortInt        ;
 
 {: A constante **@name** ...}
 Const fldSItems             = TConsts.fldSItems          ;
@@ -439,7 +439,7 @@ Const fldSItems             = TConsts.fldSItems          ;
 Const fldSmallInt           = TConsts.fldSmallInt        ;
 
 {: A constante **@name** ...}
-Const fldSmallWORD          = TConsts.fldSmallWORD       ;
+Const fldSmallWord          = TConsts.fldSmallWord       ;
 
 {: A constante **@name** ...}
 
@@ -459,9 +459,9 @@ Const fldSmallWORD          = TConsts.fldSmallWORD       ;
 
        ```
 }
-Const fldSTR                = TConsts.fldSTR          ;
+Const fldStr                = TConsts.fldStr          ;
 
-{: A constante **@name** (Const fldstr_Lowcase = 's') usado na máscara do Template,
+{: A constante **@name** (Const fldStrAlfa = 's') usado na máscara do Template,
    informa ao componente **TUiDmxScroller** que a sequência de caracteres 's'
    após o caractere **"\"** representa no buffer do formulário um tipo ShortString
    que só aceita caractere minúscula.
@@ -477,9 +477,9 @@ Const fldSTR                = TConsts.fldSTR          ;
             Nome := '\Ssssssssss' //Paulo sérg
        ```
 }
-Const fldstr_Lowcase      = TConsts.fldstr_Lowcase;
+Const fldStrAlfa      = TConsts.fldStrAlfa;
 
-{: A constante **@name** (Const fldSTRNUM = '#') usado na máscara do Template,
+{: A constante **@name** (Const fldStrNumber = '#') usado na máscara do Template,
    informa ao componente **TUiDmxScroller** que a sequência de caracteres '#'
    após o caractere **"\"** representa no buffer do formulário um tipo ShortString
    que só aceita caractere numérico.
@@ -495,7 +495,7 @@ Const fldstr_Lowcase      = TConsts.fldstr_Lowcase;
 
        ```
 }
-Const fldSTRNUM             = TConsts.fldSTRNUM       ;
+Const fldStrNumber             = TConsts.fldStrNumber       ;
 
 {: A constante **@name** (CharUpperlimit=^U) permite informar um limite superior para campos
    do tipo byte.

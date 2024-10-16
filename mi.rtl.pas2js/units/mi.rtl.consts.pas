@@ -198,7 +198,7 @@ uses
         Const fldStr              =   'S';
         Const fldS = fldStr;
 
-        {: A constante **@name** (Const fldstr_Lowcase = 's') usado na máscara do Template,
+        {: A constante **@name** (Const fldStrAlfa = 's') usado na máscara do Template,
            informa ao componente **TUiDmxScroller** que a sequência de caracteres 's'
            após o caractere **"\"** representa no buffer do formulário um tipo ShortString
            que só aceita caractere minúscula.
@@ -214,10 +214,10 @@ uses
                     Nome := '\Ssssssssss' //Paulo serg
                ```
         }
-        Const fldstr_Lowcase    =   's';
-        Const fldSMi = fldstr_Lowcase;
+        Const fldStrAlfa    =   's';
+        Const fldSMi = fldStrAlfa;
 
-        {: A constante **@name** (Const fldSTRNUM = '#') usado na máscara do Template,
+        {: A constante **@name** (Const fldStrNumber = '#') usado na máscara do Template,
            informa ao componente **TUiDmxScroller** que a sequência de caracteres '#'
            após o caractere **"\"** representa no buffer do formulário um tipo ShortString
            que só aceita caractere numérico.
@@ -233,8 +233,8 @@ uses
 
                ```
         }
-        Const fldSTRNUM           =   '#';
-        Const fldSN = fldSTRNUM;
+        Const fldStrNumber           =   '#';
+        Const fldSN = fldStrNumber;
 
         {: A constante **@name** (Const fldAnsiChar = 'C') usado na máscara do Template,
            informa ao componente **TUiDmxScroller** que a sequência de caracteres 'C'
@@ -273,8 +273,8 @@ uses
 
                ```
         }
-        Const fldAnsiChar_LowCase   =   'c';
-        Const fldACMi = fldAnsiChar_LowCase;
+        Const fldAnsiCharAlfa   =   'c';
+        Const fldACMi = fldAnsiCharAlfa;
 
         {: A constante **@name** (Const fldAnsiChar = '0') usado na máscara do Template,
            informa ao componente **TUiDmxScroller** que a sequência de caracteres '0'
@@ -293,8 +293,8 @@ uses
 
                ```
         }
-        Const fldAnsiCharNUM          =   '0';
-        Const fldACN = fldAnsiCharNUM;
+        Const fldDoublePositive          =   '0';
+        Const fldACN = fldDoublePositive;
 
         {: A constante **@name** (Const fldAnsiChar = '0') usado na máscara do Template,
            informa ao componente **TUiDmxScroller** que a sequência de caracteres '0'
@@ -313,9 +313,9 @@ uses
 
                ```
         }
-        Const fldAnsiCharVAL          =   'N';  
+        Const fldDouble          =   'N';  
 
-        {: A constante **@name** (Const fldBYTE = 'B') usado na máscara do Template,
+        {: A constante **@name** (Const fldByte = 'B') usado na máscara do Template,
            informa ao componente **TUiDmxScroller** que a sequência de caracteres 'B'
            após o caractere **"\"** representa no buffer do formulário um tipo byte.
 
@@ -328,13 +328,13 @@ uses
 
                ```
         }
-        Const fldBYTE             =   'B';  //:< byte Field
-        Const fldSHORTINT         =   'J';  //:< shortint Field       
-        Const fldSmallWORD        =   'W';  //:< word Field NortSoft       
+        Const fldByte             =   'B';  //:< byte Field
+        Const fldShortInt         =   'J';  //:< shortint Field       
+        Const fldSmallWord        =   'W';  //:< word Field NortSoft       
         Const fldSmallInt         =   'I';  //:< integer Field NortSoft
-        Const fldLONGINT          =   'L';  //:< longint Field
-        Const fldRealNum          =   'R';  //:< real number Field  (uses TRealNum)
-        Const fldRealNum_Positivo =   'r';  //:< real number Field positive (uses TRealNum)
+        Const fldLongInt          =   'L';  //:< longint Field
+        Const fldDouble          =   'R';  //:< real number Field  (uses TRealNum)
+        Const fldDoublePositive =   'r';  //:< real number Field positive (uses TRealNum)
       
         {: A constante **@name** (fldBoolean = 'X') indica que o campo é do tipo
            byte e só pode ter dois valores.
@@ -682,10 +682,10 @@ uses
         Const TypeHora        = '\ ZB'+^F+^U+AnsiChar(24)+#0+':'+'ZB'^U+AnsiChar(60)+#0+':'+'ZB'^U+AnsiChar(60)+#0+^F;
         Const FldMemo         = 'M';
         Const TypeMemo        = '\ZB'+^F+#0'ssssssssss'#0'ZZZZZZZL'#0'ZZZZW'#0'ZZZZW'+#0+^F; //:<Usado em conjunto com FldBLob
-        Const CTypeReal       =  [fldRealNum,fldReal4,fldReal4P,fldRealNum_Positivo,fldExtended];
-        Const CTypeAnsiChar   =  [fldAnsiChar,fldAnsiChar_LowCase,fldAnsiCharVAL];
-        Const CTypeString     =  [fldSTRNUM,fldSTR,fldstr_Lowcase];
-        Const CTypeInteger    =  [fldENum,fldENum_db,fldBOOLEAN,fldBYTE,fldSHORTINT,fldSmallWORD,fldSmallInt,fldLONGINT,FldRadioButton];
+        Const CTypeReal       =  [fldDouble,fldReal4,fldReal4P,fldDoublePositive,fldExtended];
+        Const CTypeAnsiChar   =  [fldAnsiChar,fldAnsiCharAlfa,fldDouble];
+        Const CTypeString     =  [fldStrNumber,fldStr,fldStrAlfa];
+        Const CTypeInteger    =  [fldENum,fldENum_db,fldBoolean,fldByte,fldShortInt,fldSmallWord,fldSmallInt,fldLongInt,FldRadioButton];
         Const CTypeDate       =  [FldDateTime,FldDateTime,FldDateTime,FldDateTimeDos];
         Const CTypeHour       =  [fldLHora,fld_LHora];
         Const CTypeBlob       =  [FldMemo,fldBLOb];
@@ -1993,17 +1993,17 @@ Initialization
     //     end;
     //
 
-    MaskIsNumber := [fldBYTE,fldSHORTINT,fldSmallWORD,
-                     fldRealNum,fldSmallInt,fldLONGINT,
-                     fldRealNum_Positivo,'z','Z',DecimalSeparator ,showDecimalSeparator ];  //fldSTRNUM é string e não número,
+    MaskIsNumber := [fldByte,fldShortInt,fldSmallWord,
+                     fldDouble,fldSmallInt,fldLongInt,
+                     fldDoublePositive,'z','Z',DecimalSeparator ,showDecimalSeparator ];  //fldStrNumber é string e não número,
   end;
 
 
   
 
-  //const MaskIsNumber : TMaskIsNumber = [fldBYTE,fldSHORTINT,fldSmallWORD,
-  //                                    fldRealNum,fldSmallInt,fldLONGINT,
-  //                                    fldRealNum_Positivo,'z','Z',DecimalSeparator ,showDecimalSeparator ];  //fldSTRNUM é string e não número,
+  //const MaskIsNumber : TMaskIsNumber = [fldByte,fldShortInt,fldSmallWord,
+  //                                    fldDouble,fldSmallInt,fldLongInt,
+  //                                    fldDoublePositive,'z','Z',DecimalSeparator ,showDecimalSeparator ];  //fldStrNumber é string e não número,
 
 
 end.

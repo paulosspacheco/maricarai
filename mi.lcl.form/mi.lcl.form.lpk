@@ -184,8 +184,8 @@ A permissão é concedida, gratuitamente, a qualquer pessoa que obtenha uma cóp
         <UnitName Value="umi_lcl_msgbox"/>
       </Item>
       <Item>
-        <Filename Value="units/umi_lcl_inputbox.pas"/>
-        <UnitName Value="uMi_lcl_inputbox"/>
+        <Filename Value="units/umi_lcl_ds_inputbox.pas"/>
+        <UnitName Value="umi_lcl_ds_inputbox"/>
       </Item>
       <Item>
         <Filename Value="units/mi.lcl.application.pas"/>

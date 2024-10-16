@@ -83,6 +83,11 @@
           <Mode Name="Default"/>
         </BuildModes>
       </Target>
+      <Target FileName="../../../Lazarus/fpcupdeluxe/fpcsrc/packages/fcl-web/examples/httpserver/simplehttpserver.lpi">
+        <BuildModes>
+          <Mode Name="Default"/>
+        </BuildModes>
+      </Target>
     </Targets>
   </ProjectGroup>
 </CONFIG>

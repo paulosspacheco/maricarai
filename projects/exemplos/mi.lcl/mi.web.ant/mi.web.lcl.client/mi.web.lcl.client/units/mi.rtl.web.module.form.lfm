@@ -1,0 +1,40 @@
+object mi_rtl_web_module_form: Tmi_rtl_web_module_form
+  Left = 929
+  Height = 431
+  Top = 250
+  Width = 556
+  Caption = 'mi_rtl_web_module_form'
+  ClientHeight = 431
+  ClientWidth = 556
+  OnCreate = FormCreate
+  Position = poMainFormCenter
+  object Panel1: TPanel
+    Left = 3
+    Height = 34
+    Top = 0
+    Width = 551
+    Anchors = [akTop, akLeft, akRight]
+    Caption = 'Cliente mi.rtl.web.module.form'
+    TabOrder = 0
+  end
+  object Mi_LCL_Scrollbox1: TMi_LCL_Scrollbox
+    Left = 3
+    Height = 248
+    Top = 39
+    Width = 552
+    Anchors = [akTop, akLeft, akRight, akBottom]
+    AutoScroll = False
+    TabOrder = 1
+    TabStop = True
+  end
+  object DBGrid1: TDBGrid
+    Left = 3
+    Height = 141
+    Top = 287
+    Width = 552
+    Anchors = [akLeft, akRight, akBottom]
+    Color = clWindow
+    Columns = <>
+    TabOrder = 2
+  end
+end

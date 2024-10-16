@@ -1,25 +1,32 @@
 program Project1;
 
-{$mode objfpc}{$H+}
+
+{$mode objfpc} // Habilita o modo de objetos
 
 uses
-  {$IFDEF UNIX}
-  cthreads,
-  {$ENDIF}
-  {$IFDEF HASAMIGA}
-  athreads,
-  {$ENDIF}
-  Interfaces, // this includes the LCL widgetset
-  Forms, unit1
-  { you can add units after this };
-
-{$R *.res}
-
+  SysUtils;
+  var number: Integer;
 begin
-  RequireDerivedFormResource:=True;
-  Application.Scaled:=True;
-  Application.Initialize;
-  Application.CreateForm(TForm1, Form1);
-  Application.Run;
+  try
+    // Código que pode gerar exceções
+    Writeln('Digite um número:');
+
+    ReadLn(number);
+    try
+    // Levanta uma exceção se o número for negativo
+    if number < 0 then
+      raise Exception.Create('Número negativo não é permitido!');
+
+    Writeln('Número digitado: ', number);
+
+    except
+      on E: Exception do
+        Writeln('Erro: ', E.Message); // Trata a exceção
+      end;
+
+
+  finally
+    Writeln('Este código sempre será executado.'); // Limpeza ou finalização
+  end;
 end.
 

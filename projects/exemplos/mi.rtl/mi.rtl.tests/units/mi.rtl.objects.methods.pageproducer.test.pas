@@ -85,22 +85,15 @@ type
     procedure Button1Click(Sender: TObject);
     procedure Button_OpenClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
-    procedure FormDestroy(Sender: TObject);
-    procedure PageProducer1HTMLTag_tgCustom(Sender: TObject;
-      const TagString: string; TagParams: TStrings; var ReplaceText: string);
-    procedure PageProducer1HTMLTag_tgImage(Sender: TObject;
-      const TagString: string; TagParams: TStrings; var ReplaceText: string);
-    procedure PageProducer1HTMLTag_tgImageMap(Sender: TObject;
-      const TagString: string; TagParams: TStrings; var ReplaceText: string);
-    procedure PageProducer1HTMLTag_tgLink(Sender: TObject;
-      const TagString: string; TagParams: TStrings; var ReplaceText: string);
-    procedure PageProducer1HTMLTag_tgObject(Sender: TObject;
-      const TagString: string; TagParams: TStrings; var ReplaceText: string);
-    procedure PageProducer1HTMLTag_tgTable(Sender: TObject;
-      const TagString: string; TagParams: TStrings; var ReplaceText: string);
+
+    procedure PageProducer1HTMLTag_tgCustom(Sender: TObject;const TagString: string; TagParams: TStrings; var ReplaceText: string);
+    procedure PageProducer1HTMLTag_tgImage(Sender: TObject;const TagString: string; TagParams: TStrings; var ReplaceText: string);
+    procedure PageProducer1HTMLTag_tgImageMap(Sender: TObject;const TagString: string; TagParams: TStrings; var ReplaceText: string);
+    procedure PageProducer1HTMLTag_tgLink(Sender: TObject;const TagString: string; TagParams: TStrings; var ReplaceText: string);
+    procedure PageProducer1HTMLTag_tgObject(Sender: TObject;const TagString: string; TagParams: TStrings; var ReplaceText: string);
+    procedure PageProducer1HTMLTag_tgTable(Sender: TObject;const TagString: string; TagParams: TStrings; var ReplaceText: string);
 //    procedure PageProducer1HTMLTag_tgTable(Sender: TObject;      const TagString: string; TagParams: TStrings; var ReplaceText: string);
-    procedure PageProducer1HTMLTag_Undefined(Sender: TObject;
-      const TagString: string; TagParams: TStrings; var ReplaceText: string);
+    procedure PageProducer1HTMLTag_Undefined(Sender: TObject;const TagString: string; TagParams: TStrings; var ReplaceText: string);
 
   private
 
@@ -133,12 +126,6 @@ begin
   HTMLBrowserHelpViewer1.AutoRegister:=true;
 end;
 
-procedure TForm_pageproducer_test.FormDestroy(Sender: TObject);
-begin
-
-
-
-end;
 
 procedure TForm_pageproducer_test.PageProducer1HTMLTag_tgCustom(
           Sender: TObject; const TagString: string; TagParams: TStrings;  var ReplaceText: string);
@@ -250,8 +237,7 @@ begin
 
 end;
 
-procedure TForm_pageproducer_test.PageProducer1HTMLTag_tgTable(Sender: TObject;
-          const TagString: string; TagParams: TStrings; var ReplaceText: string);
+procedure TForm_pageproducer_test.PageProducer1HTMLTag_tgTable(Sender: TObject;const TagString: string; TagParams: TStrings; var ReplaceText: string);
 
   Var
     tgTable : string='';
@@ -281,9 +267,7 @@ begin
 
 end;
 
-procedure TForm_pageproducer_test.PageProducer1HTMLTag_Undefined(
-  Sender: TObject; const TagString: string; TagParams: TStrings;
-  var ReplaceText: string);
+procedure TForm_pageproducer_test.PageProducer1HTMLTag_Undefined(Sender: TObject; const TagString: string; TagParams: TStrings;var ReplaceText: string);
 begin
   if AnsiCompareText(TagString, 'DATETIME') = 0 then
   begin

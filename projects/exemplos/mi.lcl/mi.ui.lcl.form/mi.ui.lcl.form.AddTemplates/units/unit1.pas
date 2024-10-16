@@ -77,7 +77,7 @@ begin
     add('~Valor double...:~\RRR,RRR.RR'+ChFN+'fld05');
     add('~Valor SmalInt..:~\II,III'+ChFN+'fld06');
     add('~Valor Byte.....:~\BBB'+ChFN+'fld07');
-    add('~Valor Smallword:~\WW,WWW'+ChFN+'fld08');
+    add('~Valor SmallWord:~\WW,WWW'+ChFN+'fld08');
     add('');
   end;
 end;
@@ -132,7 +132,7 @@ end.
 //~Valor double............:~\RRR,RRR.RR
 //~Valor SmalInt...........:~\II,III
 //~Valor Byte..............:~\BBB
-//~Valor Smallword.........:~\WW,WWW
+//~Valor SmallWord.........:~\WW,WWW
 
 
 
@@ -146,7 +146,7 @@ end.
 //~Valor double.......:~\RRR,RRR.RR
 //~Valor SmalInt......:~\II,III
 //~Valor Byte.........:~\BBB
-//~Valor Smallword....:~\WW,WWW
+//~Valor SmallWord....:~\WW,WWW
 
 
 

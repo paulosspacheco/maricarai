@@ -92,6 +92,7 @@ type
       property  DmxFieldRec: pDmxFieldRec Read _pDmxFieldRec   Write  SeTDmxFieldRec;
     {$ENDREGION}
 
+    public function GetHTMLContent: String;
   end;
 
 //procedure Register;
@@ -268,6 +269,11 @@ begin
 
   Finally
   end;
+end;
+
+function TDBCheckBox_mi_Lcl.GetHTMLContent: String;
+begin
+
 end;
 
 

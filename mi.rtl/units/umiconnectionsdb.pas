@@ -219,9 +219,9 @@ begin
     with Mi_rtl do
     begin
       in_JSONObject := TJSONObject.Create(['connectortype'    ,'PostgreSQL',
-                                        'hostname'         ,'45.160.125.12',
-                                        'username'         ,'postgres',
-                                        'password'         ,'masterkey'
+                                           'hostname'         ,'45.160.125.12',
+                                           'username'         ,'postgres',
+                                           'password'         ,'masterkey'
                                         ]);
       result := InputBox(
                    'Informe os parâmetros para conexão',

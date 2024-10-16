@@ -78,7 +78,7 @@ object DataModule_Exemplo: TDataModule_Exemplo
     TableName = 'DataModule_Exemplo'
     OnCalcFields = DmxScroller_Form1CalcFields
     Mi_ActionList = ActionList1
-    ShouldSaveTemplate = True
+    ShouldSaveTemplate = False
     ClientsTemplatesDataModule = 'mi.rtl.web.module'
     Left = 88
     Top = 16

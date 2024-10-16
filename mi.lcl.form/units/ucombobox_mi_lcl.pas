@@ -59,6 +59,9 @@ type
        - O item zero cont�m a string selecionada e caso a mesma seja editada o valor
          digitado passa ser o filtro de pesquisa.
   }
+
+  { TComboBox_mi_LCL }
+
   TComboBox_mi_LCL = class(TComboBox)
 
     private
@@ -171,7 +174,7 @@ type
     property OnStartDrag;
     property Anchors;
 
-
+    public function GetHTMLContent: String;
   end;
 
 //procedure Register;
@@ -191,6 +194,11 @@ begin
   //if not (csFocusing in ControlState)
   //then GetBuffer;
   inherited WMPaint(Message);
+end;
+
+function TComboBox_mi_LCL.GetHTMLContent: String;
+begin
+
 end;
 
 

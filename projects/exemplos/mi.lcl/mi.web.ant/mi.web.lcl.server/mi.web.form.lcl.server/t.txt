@@ -1,0 +1,33 @@
+clients
+├── dynamic_html
+│   ├── templates
+│   │   ├── mi.rtl.web.module.form.html
+│   │   └── mi.rtl.web.module.html
+│   ├── Tmi_rtl_web_module.form.html
+│   └── Tmi_rtl_web_module.html
+├── javascript
+│   ├── templates
+│   │   ├── mi.rtl.web.module.form.js
+│   │   └── mi.rtl.web.module.js
+│   ├── Tmi_rtl_web_module.form.js
+│   └── Tmi_rtl_web_module.js
+├── lcl
+│   ├── templates
+│   │   ├── mi.rtl.web.module.form.pas
+│   │   └── mi.rtl.web.module.pas
+│   ├── Tmi_rtl_web_module.form.pas
+│   └── Tmi_rtl_web_module.pas
+├── reactjs
+│   ├── templates
+│   │   ├── mi.rtl.web.module.form.js
+│   │   └── mi.rtl.web.module.js
+│   ├── Tmi_rtl_web_module.form.js
+│   └── Tmi_rtl_web_module.js
+└── vuejs
+    ├── templates
+    │   ├── mi.rtl.web.module.form.vue
+    │   └── mi.rtl.web.module.vue
+    ├── Tmi_rtl_web_module.form.vue
+    └── Tmi_rtl_web_module.vue
+
+11 directories, 20 files

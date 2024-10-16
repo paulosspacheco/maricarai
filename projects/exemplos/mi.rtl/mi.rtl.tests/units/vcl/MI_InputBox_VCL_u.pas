@@ -134,7 +134,7 @@ Implementation
     For i := 1 to length(aTemplate) do
     Begin
       case aTemplate[i] of
-        fldSTR          ,//    'S';  { string Field }
+        fldStr          ,//    'S';  { string Field }
         fldAnsiChar         ://    'C';  { AnsiCharacter Field }
          Begin
            OkMask := true;
@@ -143,8 +143,8 @@ Implementation
            aLength_Buffer := aLength_Buffer + 1;
          End;
 
-        fldAnsiChar_LowCase,   //  'c';  // AnsiCharacter Field
-        fldstr_Lowcase       : //  's'   // Minusculo e maiusculo
+        fldAnsiCharAlfa,   //  'c';  // AnsiCharacter Field
+        fldStrAlfa       : //  's'   // Minusculo e maiusculo
         begin
            Result := Result + 'c';
            aLength_Buffer := aLength_Buffer + 1;
@@ -153,14 +153,14 @@ Implementation
         'z',
         fldZEROMOD      ,//   'Z';  { zero modifier }
         fldHexValue     ,//   'H';  { hexadecimal numeric entry }
-        fldSTRNUM       ,//   '#';  { numeric string Field }
-        fldAnsiCharNUM      ,//   '0';  { numeric AnsiCharacter Field }
-        fldAnsiCharVAL      ,//   'N';  { dbase formatted numeric Field }
-        fldBYTE         ,//   'B';  { byte Field }
-        fldSHORTINT     ,//   'J';  { shortint Field }
-        fldSmallWORD    ,//   'W';  { word Field NortSoft}
+        fldStrNumber       ,//   '#';  { numeric string Field }
+        fldDoublePositive      ,//   '0';  { numeric AnsiCharacter Field }
+        fldDouble      ,//   'N';  { dbase formatted numeric Field }
+        fldByte         ,//   'B';  { byte Field }
+        fldShortInt     ,//   'J';  { shortint Field }
+        fldSmallWord    ,//   'W';  { word Field NortSoft}
         fldSmallInt     ,//   'I';  { integer Field NortSoft}
-        fldLONGINT      ://   'L';  { longint Field }
+        fldLongInt      ://   'L';  { longint Field }
         Begin
           OkMask := true;
           Result := Result + '#'; //0..9, + ,  -
@@ -170,13 +170,13 @@ Implementation
         fldExtended     ,//  'E';  {Real 10 bytes}
         fldReal6        ,//  'O';  { Real 6 Byte positivos e negativos }
         fldReal6P       ,//  'P';  { P = Real de mostrado x por 100 positivos e negativos}
-        fldRealNum      ://  'R';  { real number Field  (uses TRealNum) }
+        fldDouble      ://  'R';  { real number Field  (uses TRealNum) }
         Begin
           Result := Result + '#';
           aLength_Buffer := aLength_Buffer + 1;
         end;
 
-        fldRealNum_Positivo, // 'r';  { real number Field positive (uses TRealNum) }
+        fldDoublePositive, // 'r';  { real number Field positive (uses TRealNum) }
         fldReal6Positivo   , // 'o';  { Real 6 Byte positivos}
         fldReal6PPositivo  : // 'p';  { P = Real de mostrado x por 100 positivos}
         Begin
@@ -218,7 +218,7 @@ Implementation
                     OKSeparador := true;
 
 {Caso coloque os caracteres abaixo na mascara o Delphi n�o reconhecer� como n�mero.
-                    If (aTypeFld in [fldExtended,fldReal6,fldReal6P,fldRealNum,fldRealNum_Positivo,fldReal6Positivo,fldReal6PPositivo])
+                    If (aTypeFld in [fldExtended,fldReal6,fldReal6P,fldDouble,fldDoublePositive,fldReal6Positivo,fldReal6PPositivo])
                         and (aTemplate[i] in [' ','%','$'])
                     Then Result := Result + aTemplate[i];
 }
@@ -231,7 +231,7 @@ Implementation
                     Result := Result + aTemplate[i];
                   end;
 (*
-        fldBOOLEAN          =   'X';  { boolean value Field }
+        fldBoolean          =   'X';  { boolean value Field }
         fldBLOb             =   ^M;   { unformatted data Field }
         FldOperador = #3; { #3 = Byte indica que o campo � um operador matemático}
         FldMemo  = 'M';
@@ -460,22 +460,22 @@ Implementation
 
                       {$ENDREGION}
                     end;
-          fldSTR              , //=   'S';  //< tString Field maiúscula
-          fldstr_Lowcase    , //=   's';  //< tString Field minusculo
-          fldSTRNUM           , //=   '#';  //< numeric tString Field
+          fldStr              , //=   'S';  //< tString Field maiúscula
+          fldStrAlfa    , //=   's';  //< tString Field minusculo
+          fldStrNumber           , //=   '#';  //< numeric tString Field
           fldAnsiChar         , //   =   'C';  {< AnsiCharacter Field }
-          fldAnsiChar_LowCase , //  =   'c';  {< AnsiCharacter Field }
-          fldAnsiCharNUM        , //  =   '0';  {< numeric AnsiCharacter Field }
-          fldAnsiCharVAL        , //  =   'N';  {< dbase formatted numeric Field }
-          fldBYTE               , // =   'B';  {< byte Field }
-          fldSHORTINT           , //=   'J';  {< shortint Field }
+          fldAnsiCharAlfa , //  =   'c';  {< AnsiCharacter Field }
+          fldDoublePositive        , //  =   '0';  {< numeric AnsiCharacter Field }
+          fldDouble        , //  =   'N';  {< dbase formatted numeric Field }
+          fldByte               , // =   'B';  {< byte Field }
+          fldShortInt           , //=   'J';  {< shortint Field }
         { fldWORD               , //=  'W';}  {< word Field }
-          fldSmallWORD          , //=   'W';  {< word Field NortSoft}
+          fldSmallWord          , //=   'W';  {< word Field NortSoft}
         { fldInteger            , //=  'I'; } {< integer Field }
           fldSmallInt           , //=   'I';  {< integer Field NortSoft}
-          fldLONGINT            , //=   'L';  {< longint Field }
-          fldRealNum            , //=   'R';  {< real number Field  (uses TRealNum) }
-          fldRealNum_Positivo   ,
+          fldLongInt            , //=   'L';  {< longint Field }
+          fldDouble            , //=   'R';  {< real number Field  (uses TRealNum) }
+          fldDoublePositive   ,
           FldDateTime,FldDateTime,FldDateTime
           :
                   Begin
@@ -629,11 +629,11 @@ Implementation
           Case Result_TypeFld  of
             fldENum,fldENum_db,
              ^X,  {Boolean Especial}
-            fldBOOLEAN,
-            fldBYTE,
-            fldSHORTINT        : Result := IntToStr(Byte(Buff));
+            fldBoolean,
+            fldByte,
+            fldShortInt        : Result := IntToStr(Byte(Buff));
 
-            fldSmallWORD       : Result := IntToStr(SmallWord(Buff));
+            fldSmallWord       : Result := IntToStr(SmallWord(Buff));
             fldSmallInt        : Result := IntToStr(SmallInt(Buff));
 
             FldDateTime            : Result := Db_Datas.DateToStr(TypeData(Buff),DateMask_dd_mm_yy);
@@ -641,10 +641,10 @@ Implementation
             FldDateTime          : Result := DateToStr(LONGINT(Buff),DateMask_dd_mm_yy);
             fldLHora,
             fld_LHora          : Result := HourToStr(LONGINT(Buff),HourMask_hh_nn,False);
-            fldLONGINT         : Result := IntToStr(LONGINT(Buff));
+            fldLongInt         : Result := IntToStr(LONGINT(Buff));
 
             FldRealNum,
-            FldRealNum_Positivo : begin
+            fldDoublePositive : begin
                                     Result := FloatToStr(TrealNum(Buff));
                                   end;
 
@@ -669,16 +669,16 @@ Implementation
                                   Result := IntToStr(SmallWord(Buff));
                                 end;
 
-            fldSTRNUM,
-            fldstr_Lowcase,
-            fldSTR            : Begin
+            fldStrNumber,
+            fldStrAlfa,
+            fldStr            : Begin
                                   Result := ShortString(Buff);
                                 End;
 
             fldAnsiChar,
-            fldAnsiChar_LowCase,
-            fldAnsiCharNUM,
-            fldAnsiCharVAL        : Result := AnsiString(Buff);
+            fldAnsiCharAlfa,
+            fldDoublePositive,
+            fldDouble        : Result := AnsiString(Buff);
 
                 Else Begin
                      Raise TException.Create('/\/\ar/\carai',
@@ -701,13 +701,13 @@ Implementation
           Case TypeFld(Template,Size_TypeFld) of
             fldENum,fldENum_db,
              ^X,  {Boolean Especial}
-            fldBOOLEAN,
-            fldBYTE,
-            fldSHORTINT        : Byte(Buff)      := StrToInt(DeleteMask(VarBuff,['0'..'9',',']));
+            fldBoolean,
+            fldByte,
+            fldShortInt        : Byte(Buff)      := StrToInt(DeleteMask(VarBuff,['0'..'9',',']));
 
-            fldSmallWORD       : SmallWord(Buff) := StrToInt(DeleteMask(VarBuff,['0'..'9',',']));
+            fldSmallWord       : SmallWord(Buff) := StrToInt(DeleteMask(VarBuff,['0'..'9',',']));
             fldSmallInt        : SmallInt(Buff)  := StrToInt(DeleteMask(VarBuff,['0'..'9',',']));
-            fldLONGINT         : LONGINT(Buff)   := StrToInt(DeleteMask(VarBuff,['0'..'9',',']));
+            fldLongInt         : LONGINT(Buff)   := StrToInt(DeleteMask(VarBuff,['0'..'9',',']));
 
             FldDateTime            : TypeData(Buff) := StrToDate(VarBuff,DateMask_dd_mm_yy)^;
             FldDateTime,
@@ -716,7 +716,7 @@ Implementation
             fld_LHora          : Longint(Buff) := StrToHour(VarBuff,HourMask_hh_nn);// Falta implementar esta funcao.
 
             FldRealNum,
-            FldRealNum_Positivo: begin
+            fldDoublePositive: begin
                                    TRealNum(Buff) := StrToFloat(DeleteMask(VarBuff,['0'..'9',',']));
                                  end;
 
@@ -750,14 +750,14 @@ Implementation
                                   SmallWord(Buff) := StrToInt(DeleteMask(VarBuff,['0'..'9',',']));
                                 end;
 
-            fldSTRNUM,
-            fldstr_Lowcase,
-            fldSTR            : ShortString(Buff) := VarBuff;
+            fldStrNumber,
+            fldStrAlfa,
+            fldStr            : ShortString(Buff) := VarBuff;
 
             fldAnsiChar,
-            fldAnsiChar_LowCase,
-            fldAnsiCharNUM,
-            fldAnsiCharVAL        : AnsiString(Buff) := VarBuff;
+            fldAnsiCharAlfa,
+            fldDoublePositive,
+            fldDouble        : AnsiString(Buff) := VarBuff;
 
                 Else Begin
                      Raise TException.Create('/\/\ar/\carai',

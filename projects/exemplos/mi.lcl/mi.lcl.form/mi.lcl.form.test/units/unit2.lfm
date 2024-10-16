@@ -42,6 +42,7 @@ object DataModule1: TDataModule1
     OnChangeField = DmxScroller_Form1ChangeField
     Mi_ActionList = ActionList1
     ShouldSaveTemplate = True
+    ClientsTemplatesDataModule = 'mi.rtl.web.module'
     Left = 56
     Top = 24
   end

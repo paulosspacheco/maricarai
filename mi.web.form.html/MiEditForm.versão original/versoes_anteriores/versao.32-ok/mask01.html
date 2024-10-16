@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Máscaras de Entrada com TMaskEdit</title>
+    <script>
+        class TMaskEdit {
+            constructor(inputElement, mask) {
+                this.inputElement = inputElement;
+                this._mask = mask; // Usando _mask para denotar uma propriedade privada
+                this.inputElement.addEventListener('focus', this.onFocus.bind(this));
+                this.inputElement.addEventListener('blur', this.onBlur.bind(this));
+                this.inputElement.addEventListener('input', this.onInput.bind(this));
+            }
+
+            // Getter para a propriedade mask
+            get mask() {
+                return this._mask;
+            }
+
+            // Setter para a propriedade mask
+            set mask(newMask) {
+                this._mask = newMask;
+                this.inputElement.value = this.applyMask(this.inputElement.value); // Reaplica a máscara atual
+            }
+
+            onFocus() {
+                // Remove a máscara ao ganhar foco
+                this.inputElement.value = this.inputElement.value.replace(/\D/g, '');
+            }
+
+            onBlur() {
+                // Aplica a máscara ao perder o foco
+                this.inputElement.value = this.applyMask(this.inputElement.value);
+            }
+
+            onInput() {
+                // Garante que apenas números são inseridos
+                this.inputElement.value = this.inputElement.value.replace(/\D/g, '');
+            }
+
+            applyMask(value) {
+                const cleanValue = value.replace(/\D/g, '');
+                let maskedValue = '';
+                let valueIndex = 0;
+
+                // Itera sobre cada caracter da máscara
+                for (let i = 0; i < this._mask.length; i++) {
+                    const maskChar = this._mask[i];
+
+                    if (maskChar === '0' || maskChar === '9') { // Números
+                        if (valueIndex < cleanValue.length) {
+                            maskedValue += cleanValue[valueIndex];
+                            valueIndex++;
+                        } else {
+                            break; // Para quando não há mais números
+                        }
+                    } else if (maskChar === 'A') { // Letras
+                        if (valueIndex < cleanValue.length) {
+                            maskedValue += cleanValue[valueIndex].toUpperCase();
+                            valueIndex++;
+                        } else {
+                            break;
+                        }
+                    } else if (maskChar === '#') { // Alfanuméricos
+                        if (valueIndex < cleanValue.length) {
+                            maskedValue += cleanValue[valueIndex];
+                            valueIndex++;
+                        } else {
+                            break;
+                        }
+                    } else {
+                        maskedValue += maskChar; // Adiciona caracteres fixos da máscara
+                    }
+                }
+
+                return maskedValue;
+            }
+        }
+
+        // Uso da classe
+        document.addEventListener('DOMContentLoaded', () => {
+            // Máscaras comuns
+            const masks = {
+                cpf: '000.000.000-00',
+                cnpj: '00.000.000/0000-00',
+                phone: '(00) 00000-0000',
+                date: '00/00/0000',
+                cep: '00000-000'
+            };
+
+            // Criando instâncias para cada tipo de máscara
+            const cpfInput = new TMaskEdit(document.getElementById('cpfInput'), masks.cpf);
+            const cnpjInput = new TMaskEdit(document.getElementById('cnpjInput'), masks.cnpj);
+            const phoneInput = new TMaskEdit(document.getElementById('phoneInput'), masks.phone);
+            const dateInput = new TMaskEdit(document.getElementById('dateInput'), masks.date);
+            const cepInput = new TMaskEdit(document.getElementById('cepInput'), masks.cep);
+        });
+    </script>
+</head>
+<body>
+    <h1>Exemplo de Máscaras de Entrada</h1>
+
+    <div>
+        <label for="cpfInput">CPF:</label>
+        <input type="text" id="cpfInput" placeholder="Digite seu CPF">
+    </div>
+    <br>
+
+    <div>
+        <label for="cnpjInput">CNPJ:</label>
+        <input type="text" id="cnpjInput" placeholder="Digite seu CNPJ">
+    </div>
+    <br>
+
+    <div>
+        <label for="phoneInput">Telefone:</label>
+        <input type="text" id="phoneInput" placeholder="Digite seu Telefone">
+    </div>
+    <br>
+
+    <div>
+        <label for="dateInput">Data:</label>
+        <input type="text" id="dateInput" placeholder="DD/MM/AAAA">
+    </div>
+    <br>
+
+    <div>
+        <label for="cepInput">CEP:</label>
+        <input type="text" id="cepInput" placeholder="Digite seu CEP">
+    </div>
+</body>
+</html>

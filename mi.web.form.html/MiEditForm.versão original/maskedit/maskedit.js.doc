@@ -1,0 +1,120 @@
+/**j
+ * Classe que aplica máscaras de formatação em campos de entrada (input).
+ * Permite máscaras monetárias e genéricas, além de restringir valores conforme o tipo de máscara.
+ */
+class TMaskEdit {
+    /**
+     * Cria uma instância da classe TMaskEdit.
+     * @param inputElement O elemento de entrada HTML que receberá a máscara.
+     * @param mask A máscara a ser aplicada (ex: '###.###.###-##').
+     * @param maskType O tipo de máscara, que define regras adicionais (ex: 'R' para monetária, 'B', 'J' para valores restritos).
+     */
+    constructor(inputElement: HTMLInputElement, mask: string, maskType: string);
+
+    /**
+     * Obtém a máscara atual.
+     * @returns {string} A máscara atual aplicada ao campo.
+     */
+    get mask(): string;
+
+    /**
+     * Define uma nova máscara e reaplica-a ao valor atual do campo de entrada.
+     * @param {string} newMask A nova máscara que será aplicada.
+     */
+    set mask(newMask: string);
+
+    /**
+     * Verifica se a máscara é do tipo monetária (R$).
+     * @returns {boolean} Verdadeiro se a máscara for monetária.
+     */
+    isMonetaryMask(): boolean;
+
+    /**
+     * Verifica se a máscara é genérica (contém # ou 0 como placeholders).
+     * @returns {boolean} Verdadeiro se a máscara for genérica.
+     */
+    isGenericMask(): boolean;
+
+    /**
+     * Manipula o evento de foco no campo de entrada.
+     * Salva o valor atual do campo e posiciona o cursor ao final do valor.
+     */
+    onFocus(): void;
+
+    /**
+     * Manipula o evento de perda de foco no campo de entrada.
+     * Limpa o valor e aplica a máscara, verificando se o valor está dentro do intervalo permitido para o tipo de máscara.
+     */
+    onBlur(): void;
+
+    /**
+     * Manipula o evento de entrada (input) no campo de entrada.
+     * Limpa o valor atual e reaplica a máscara conforme o valor inserido.
+     */
+    onInput(): void;
+
+    /**
+     * Manipula o evento de tecla pressionada (keydown) no campo de entrada.
+     * Lida com a exclusão (backspace) personalizada para remover os caracteres da máscara adequadamente.
+     * @param {KeyboardEvent} e O evento de teclado.
+     */
+    onKeyDown(e: KeyboardEvent): void;
+
+    /**
+     * Limpa o valor, removendo todos os caracteres que não fazem parte do valor principal (como símbolos monetários).
+     * @param {string} value O valor a ser limpo.
+     * @returns {string} O valor limpo, contendo apenas dígitos.
+     */
+    cleanValue(value: string): string;
+
+    /**
+     * Lida com a tecla Backspace para excluir o último caractere do valor inserido.
+     * @param {number} cursorPosition A posição atual do cursor no campo de entrada.
+     */
+    handleBackspace(cursorPosition: number): void;
+
+    /**
+     * Move o cursor para o final do valor no campo de entrada.
+     */
+    setCursorToEnd(): void;
+
+    /**
+     * Aplica a máscara ao valor informado, de acordo com o tipo de máscara.
+     * @param {string} value O valor a ser mascarado.
+     * @returns {string} O valor com a máscara aplicada.
+     */
+    applyMask(value: string): string;
+
+    /**
+     * Aplica uma máscara monetária ao valor informado.
+     * @param {string} value O valor a ser formatado.
+     * @returns {string} O valor formatado como moeda, incluindo o símbolo R$.
+     */
+    applyMonetaryMask(value: string): string;
+
+    /**
+     * Aplica uma máscara genérica ao valor informado.
+     * @param {string} value O valor a ser mascarado.
+     * @returns {string} O valor com a máscara genérica aplicada.
+     */
+    applyGenericMask(value: string): string;
+
+    /**
+     * Verifica se o valor está dentro do intervalo permitido para o tipo de máscara.
+     * @param {string} value O valor a ser verificado.
+     * @returns {boolean} Verdadeiro se o valor estiver dentro do intervalo permitido.
+     */
+    isValueInRange(value: string): boolean;
+
+    /**
+     * Inicializa a classe TMaskEdit para todos os elementos input que possuem o atributo `data-mask`.
+     */
+    static initMaskEdits(): void;
+}
+
+// Inicializando a classe TMaskEdit para todos os inputs com máscara
+document.querySelectorAll('input[data-mask]').forEach(input => {
+    const mask = input.getAttribute('data-mask');
+    const maskType = input.getAttribute('data-mask-type'); 
+    new TMaskEdit(input, mask, maskType);
+});

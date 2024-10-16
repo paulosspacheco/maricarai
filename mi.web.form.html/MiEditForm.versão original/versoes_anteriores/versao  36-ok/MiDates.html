@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Testar FormatValue</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        input, select {
+            margin: 10px 0;
+            padding: 8px;
+            width: 100%;
+            max-width: 300px;
+        }
+        button {
+            padding: 10px 15px;
+        }
+        #result {
+            margin-top: 20px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Testar FormatValue</h1>
+    <label for="value">Valor (Data):</label>
+    <input type="text" id="value" placeholder="10122024">
+
+    <label for="mask">Máscara:</label>
+    <select id="mask">
+        <option value="yy/mm/dd">yy/mm/dd</option>
+        <option value="yyyy/mm/dd">yyyy/mm/dd</option>
+        <option value="dd/mm/yy">dd/mm/yy</option>
+        <option value="dd/mm/yyyy">dd/mm/yyyy</option>
+        <option value="dd/mm/yyyy hh:nn">dd/mm/yyyy hh:nn</option>
+        <option value="mm/yyyy">mm/yyyy</option>
+        <option value="dd/mm/yy hh:nn:ss">dd/mm/yy hh:nn:ss</option>
+        <option value="dd/mm/yy hh:nn">dd/mm/yy hh:nn</option>
+        <option value="dd/mm/yyyy hh:nn:ss">dd/mm/yyyy hh:nn:ss</option>
+        <option value="hh:nn">hh:nn</option>
+        <option value="hh:nn:ss">hh:nn:ss</option>
+        <option value="hh:nn:ss.zzz">hh:nn:ss.zzz</option>
+        <option value="ssssssssssssssssssssssssssssssssss">Formatação de texto</option>
+    </select>
+
+    <button id="formatButton">Formatar Valor</button>
+
+    <div id="result"></div>
+
+    <script>
+        class TDates {
+            static formatDateTime(value, aMask) {
+                let day, month, year;
+
+                // Verifica o comprimento do valor e extrai dia, mês e ano corretamente
+                if (value.length === 8) { // Exemplo: 10122024
+                    day = parseInt(value.substring(0, 2));
+                    month = parseInt(value.substring(2, 4));
+                    year = parseInt(value.substring(4, 8));
+                } else if (value.length === 6) { // Exemplo: 101224 (10/12/24)
+                    day = parseInt(value.substring(0, 2));
+                    month = parseInt(value.substring(2, 4));
+                    year = parseInt(value.substring(4, 6)) + 2000; // Assume 2000 + 2 dígitos
+                } else {
+                    return 'Data Inválida';
+                }
+
+                // Cria um objeto Date
+                const dateObject = new Date(year, month - 1, day);
+
+                // Verifica se a data é válida
+                if (isNaN(dateObject.getTime())) {
+                    return 'Data Inválida';
+                }
+
+                // Função para obter os componentes da data
+                const getFormattedDate = (format) => {
+                    const yearTwoDigits = year.toString().slice(-2);
+                    return format
+                        .replace('dd', String(day).padStart(2, '0'))
+                        .replace('mm', String(month).padStart(2, '0'))
+                        .replace('yyyy', year)
+                        .replace('yy', yearTwoDigits)
+                        .replace('hh', String(dateObject.getHours()).padStart(2, '0'))
+                        .replace('nn', String(dateObject.getMinutes()).padStart(2, '0'))
+                        .replace('ss', String(dateObject.getSeconds()).padStart(2, '0'))
+                        .replace('zzz', String(dateObject.getMilliseconds()).padStart(3, '0'));
+                };
+
+                const formats = {
+                    'yy/mm/dd': () => getFormattedDate('yy/mm/dd'),
+                    'yyyy/mm/dd': () => getFormattedDate('yyyy/mm/dd'),
+                    'dd/mm/yy': () => getFormattedDate('dd/mm/yy'),
+                    'dd/mm/yyyy': () => getFormattedDate('dd/mm/yyyy'),
+                    'dd/mm/yyyy hh:nn': () => getFormattedDate('dd/mm/yyyy hh:nn'),
+                    'mm/yyyy': () => getFormattedDate('mm/yyyy'),
+                    'dd/mm/yy hh:nn:ss': () => getFormattedDate('dd/mm/yy hh:nn:ss'),
+                    'dd/mm/yy hh:nn': () => getFormattedDate('dd/mm/yy hh:nn'),
+                    'dd/mm/yyyy hh:nn:ss': () => getFormattedDate('dd/mm/yyyy hh:nn:ss'),
+                    'hh:nn': () => getFormattedDate('hh:nn'),
+                    'hh:nn:ss': () => getFormattedDate('hh:nn:ss'),
+                    'hh:nn:ss.zzz': () => getFormattedDate('hh:nn:ss.zzz'),
+                    'ssssssssssssssssssssssssssssssssss': () => dateObject.toDateString() // Formato adicional
+                };
+
+                return formats[aMask] ? formats[aMask]() : 'Máscara Inválida';
+            }
+        }
+
+        document.getElementById('formatButton').addEventListener('click', () => {
+            const value = document.getElementById('value').value;
+            const mask = document.getElementById('mask').value;
+            const formattedValue = TDates.formatDateTime(value, mask);
+            document.getElementById('result').innerText = `Valor formatado: ${formattedValue}`;
+        });
+    </script>
+
+</body>
+</html>

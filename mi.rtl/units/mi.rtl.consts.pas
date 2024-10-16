@@ -92,37 +92,93 @@ uses
              # SINTAXE DE RECURSOS DO TEMPLATE MARICARAI
 
              1. **Códigos de Controles**
-                1. _~_ switch tString-literals on/off
-                2. _^A_ Zera todos os campos
-                3. _^B_ Indica que os caracteres seguintes contém o nome do campo
-                4. _^C_ O campo corrente possui uma lista de opções do mesmo tipo.
-                5. _^D_ Use o próximo caractere como um delimiter de campo
-                6. _^E_ Campo do tipo enumerado.
-                7. _^F_ Usado para criar restrições e relacionamentos
-                8. _^G_ Usada para concatenar duas listas do tipo PSItem.
-                9. _^H_ Campo escondido
-                10. _^I_ Link para cadeia de template pSItem
-                11. _^J_ Retorno do carro
-                12. _^k_ Os caracteres após ^k é capturado no campo TDmxFieldRec.Default
-                13. _\\k_ k minusculo tipo FldDbRadioButton.
-                14. _\\K_ K maiúsculo tipo FldRadioButton.
-                15. _^L_ Link para uma URL ou actionItens
-                16. _^M_ Fim da linha
-                17. _^N_ A sequência a seguir é o hint do campo.
-                18. _^O_ Campo fldBLOb
-                19. _^P_ Usado para controlar o flag do tipo de campo
-                20. _^R_ Campo somente de leitura
-                21. _^S_ Salte campo para o próximo campo de acesso normal
-                22. _^T_ O campo é um botão de ação
-                23. _^U_ Informar um limite superior campos do tipo byte. Faixa: [0..255]
-                24. _^V_ Se o campo for numérico, preencha com '#0'(AccNormal) se for alfanumérico, preencha com ' ' AccNormal
-                25. _^X_ Campo de BOOLEAN especial
-                26. _^Z_ Zera se este campo está vazio
+                - _~_ switch tString-literals on/off
+                - _^A_ Zera todos os campos
+                - _^B_ Indica que os caracteres seguintes contém o nome do campo
+                - _^C_ O campo corrente possui uma lista de opções do mesmo tipo.
+                - _^D_ Use o próximo caractere como um delimiter de campo
+                - _^E_ fldENum = Campo do tipo enumerado.
+                - _^D_ fldENum_db = campo do tipo longint associado a um dataSource
+                - _^F_ Usado para criar restrições e relacionamentos
+                - _^G_ Usada para concatenar duas listas do tipo PSItem.
+                - _^H_ Campo escondido
+                - _^I_ Link para cadeia de template pSItem
+                - _^J_ Retorno do carro
+                - _^k_ Os caracteres após ^k é capturado no campo TDmxFieldRec.Default
+                - _\\k_ k minusculo tipo FldDbRadioButton.
+                - _\\K_ K maiúsculo tipo FldRadioButton.
+                - _^L_ Link para uma URL ou actionItens
+                - _^M_ Fim da linha
+                - _^N_ A sequência a seguir é o hint do campo.
+                - _^O_ Campo fldBLOb
+                - _^P_ Usado para controlar o flag do tipo de campo
+                - _^R_ Campo somente de leitura
+                - _^S_ Salte campo para o próximo campo de acesso normal
+                - _^T_ O campo é um botão de ação
+                - _^U_ Informar um limite superior campos do tipo byte. Faixa: [0..255]
+                - _^V_ Se o campo for numérico, preencha com '#0'(AccNormal) se for alfanumérico, preencha com ' ' AccNormal
+                - _^X_ Campo de BOOLEAN especial
+                - _^Z_ Zera se este campo está vazio
 
              2. **Delimitadores de campos:**
-                1. #0 = delimiter de campo técnico (não exibe)
-                2. \ = exibe como um espaço
-                3. | = exibe como**Tipos de campos:** uma linha vertical sólida (#179)
+                - #0 = delimiter de campo técnico (não exibe)
+                - \ = exibe como um espaço
+                - | = exibe como**Tipos de campos:** uma linha vertical sólida (#179)
+
+             3. **Códigos de tipos de dados**
+                - _'E'_ fldExtended = Número real com sizeof = 10 bytes. Aceita positivos e negativos
+                - _'O'_ fldReal4 = Número Real sizeof = 4 Byte. Aceita positivos e negativos
+                - _'o'_ fldReal4Positivo = Número Real sizeof = 4 Byte. Aceita só positivos
+                - _'P'_ fldReal4P = Número Real sizeof = 4 Byte. Ao entrar no campo o mesmo é por 100 e ao sair o mesmo é dividido por 100 aceita positivos e negativos
+                - _'p'_ fldReal4PPositivo = Número Real sizeof = 4 Ao entrar no campo o mesmo é por 100 e ao sair o mesmo é dividido por 100 aceita positivos e negativos
+                - _'R'_ fldDouble = número real sizeof = 8 positivos e negativos;
+                - _'r'_ fldDoublePositive = Número real sizeof = 8 positivo;
+                - _'B'_ fldByte = Campo do tipo byte só permite valores de 0 a 254
+                - _'J'_ fldShortInt = Número shortint sizeof = 1 aceita positivo e negativo
+                - _'W'_ fldSmallWord = Número SmallWord sizeof = 2 aceita só positivos
+                - _'I'_ fldSmallInt = Número SmallInt sizeof = 2 aceita só positivos e negativos
+                - _'L'_ fldLongInt = Número longint = 4 bytes aceita positivos e negativos
+                - _'#'_ fldStrNumber = Numero String que só aceita digitos 0 a 9
+                - _'0'_ fldAnsiCharNumPositive = AnsiChar que só aceita digitos 0 a 9
+                - _'N'_ fldAnsiCharNum = Aceita caractere numérico ['0'..'9']] com formatação dbase.
+                - _'S'_ fldStr = Campo ShortString maiusculas;
+                - _'s'_ fldStrAlfa = Campo ShortString maiusculas e minusculas;
+                - _'C'_ fldAnsiChar = AnsiString maiusculas;
+                - _'c'_ fldAnsiChar = AnsiString maiusculas e minusculas;
+                - _'X'_ fldBoolean = Campo boolean só aceita 0 ou 1
+                - _'K'_ FldRadioButton = tipo byte usado como index de um controle TRadiobutton.
+                - _'D'_ FldDateTime  //:< TDateTime;Guarda a data e hora compactada. O Formato é retonado pela função TDateFreePascal.TDatesFreePascal.Mask_to_MaskEdit
+
+
+                      ```pascal
+
+                          const
+                            fldAnsiChar          = 'C'; //:< AnsiString maiusculas;
+                            fldAnsiCharAlfa      = 'c'; //:< AnsiString maiusculas e minusculas;
+                            fldAnsiCharNum       = 'N'; //:< Aceita caractere numérico ['0'..'9']] com formatação dbase.
+                            fldAnsiCharNumPositive  = '0'; //:< AnsiChar que só aceita digitos 0 a 9
+                            fldStrNumber         = '#'; //:< Numero String que só aceita digitos 0 a 9
+                            fldStr               = 'S'; //:< Campo ShortString maiusculas;
+                            fldStrAlfa           = 's'; //:< Campo ShortString maiusculas e minusculas;
+                            fldExtended          = 'E'; //:< Real 10 bytes
+                            fldDouble            = 'R'; //:< Número real sizeof = 8 positivos e negativos;
+                            fldDoublePositive    = 'r'; //:< Número real sizeof = 8 positivo;
+                            fldReal4             = 'O'; //:< Real 4 Byte positivos e negativos
+                            fldReal4Positivo     = 'o'; //:< Real 4 Byte positivos
+                            fldReal4P            = 'P'; //:< P = Real de mostrado x por 100 positivos e negativos
+                            fldReal4PPositivo    = 'p'; //:< P = Real de mostrado x por 100 positivos
+                            fldENum              = ^E;  //:< Tipo TComboBox se o registro não está associado a banco de dados;
+                            fldENum_db           = ^D;  //:< campo do tipo longint associado a um dataSource
+                            fldBoolean           = 'X'; //:< Campo boolean só aceita 0 ou 1
+                            fldByte              = 'B';
+                            fldShortInt          = 'J'; //:< Campo shortInt
+                            fldSmallWord         = 'W'; //:< Número SmallWord sizeof = 2 aceita só positivos
+                            fldSmallInt          = 'I'; //:< Número SmallInt sizeof = 2 aceita só positivos e negativos
+                            fldLongInt           = 'L'; //:< Número longint = 4 bytes aceita positivos e negativos;
+                            FldRadioButton       = 'K'; //:< tipo byte usado como index de um controle TRadiobutton.
+                            FldDateTime          = 'D'; //:< TDateTime;Guarda a data e hora compactada. O Formato é retonado pela função TDateFreePascal.TDatesFreePascal.Mask_to_MaskEdit
+
+                      ```
              Obs:
                também podem ser usados #179 ou #186 como delimiters.
                Obs: No modo console os caracteres #179 ou #186 eram impressos para dividir colunas.
@@ -224,17 +280,17 @@ uses
                ```pascal
 
                   Const
-                    Nome := '\SSSSSSSSSS'
+                    Nome := '\SSSSSSSSSSSSSSSSSSS' //PAULO SÉRGIO
 
                ```
         }
         Const fldStr              =   'S';
         Const fldS = fldStr;
 
-        {: A constante **@name** (Const fldstr_Lowcase = 's') usado na máscara do Template,
+        {: A constante **@name** (Const fldStrAlfa = 's') usado na máscara do Template,
            informa ao componente **TUiDmxScroller** que a sequência de caracteres 's'
            após o caractere **"\"** representa no buffer do formulário um tipo ShortString
-           que só aceita caractere minúscula.
+           que aceita caracteres minúsculas e maiusculas.
 
            - **EXEMPLO**
              - Representação de um string de 10 dígitos em um buffer de 11 bytes
@@ -243,14 +299,12 @@ uses
                ```pascal
 
                   Const
-                    Nome := '\ssssssssss' //paulosergi
-                    Nome := '\Ssssssssss' //Paulo serg
+                    Nome := '\ssssssssssssssssssss' //Paulo Sérgio
                ```
         }
-        Const fldstr_Lowcase    =   's';
-        Const fldSMi = fldstr_Lowcase;
+        Const fldStrAlfa    =   's';
 
-        {: A constante **@name** (Const fldSTRNUM = '#') usado na máscara do Template,
+        {: A constante **@name** (Const fldStrNumber = '#') usado na máscara do Template,
            informa ao componente **TUiDmxScroller** que a sequência de caracteres '#'
            após o caractere **"\"** representa no buffer do formulário um tipo ShortString
            que só aceita caractere numérico.
@@ -266,8 +320,8 @@ uses
 
                ```
         }
-        Const fldSTRNUM           =   '#';
-        Const fldSN = fldSTRNUM;
+        Const fldStrNumber           =   '#';
+        Const fldSN = fldStrNumber;
 
         {: A constante **@name** (Const fldAnsiChar = 'C') usado na máscara do Template,
            informa ao componente **TUiDmxScroller** que a sequência de caracteres 'C'
@@ -306,10 +360,10 @@ uses
 
                ```
         }
-        Const fldAnsiChar_LowCase   =   'c';
-        Const fldACMi = fldAnsiChar_LowCase;
+        Const fldAnsiCharAlfa   =   'c';
+        Const fldACMi = fldAnsiCharAlfa;
 
-        {: A constante **@name** (Const fldAnsiChar = '0') usado na máscara do Template,
+        {: A constante **@name** usado na máscara do Template,
            informa ao componente **TUiDmxScroller** que a sequência de caracteres '0'
            após o caractere **"\"** representa no buffer do formulário um tipo AnsiString
            que só aceita caractere numérico ['0'..'9']] .
@@ -326,13 +380,13 @@ uses
 
                ```
         }
-        Const fldAnsiCharNUM          =   '0';
-        Const fldACN = fldAnsiCharNUM;
+        Const fldAnsiCharNumPositive   =   '0';
+        Const fldACN = fldAnsiCharNumPositive;
 
-        {: A constante **@name** (Const fldAnsiChar = '0') usado na máscara do Template,
-           informa ao componente **TUiDmxScroller** que a sequência de caracteres '0'
-           após o caractere **"\"** representa no buffer do formulário um tipo AnsiString
-           que só aceita caractere numérico ['0'..'9']] com formatação dbase.
+        {: A constante **@name** usado na máscara do Template, informa ao componente
+           **TUiDmxScroller** que a sequência de caracteres 'N' após o caractere
+           **"\"** representa no buffer do formulário um tipo AnsiString que só aceita
+           caractere numérico ['0'..'9']] com formatação dbase.
 
            - **EXEMPLO**
              - Representação de um AnsiString de 11 dígitos em um buffer de 12 bytes
@@ -346,9 +400,9 @@ uses
 
                ```
         }
-        Const fldAnsiCharVAL          =   'N';  
+        Const fldAnsiCharNum    =   'N';
 
-        {: A constante **@name** (Const fldBYTE = 'B') usado na máscara do Template,
+        {: A constante **@name** (Const fldByte = 'B') usado na máscara do Template,
            informa ao componente **TUiDmxScroller** que a sequência de caracteres 'B'
            após o caractere **"\"** representa no buffer do formulário um tipo byte.
 
@@ -361,16 +415,16 @@ uses
 
                ```
         }
-        Const fldBYTE             =   'B';  //:< byte Field
-        Const fldSHORTINT         =   'J';  //:< shortint Field       
-        Const fldSmallWORD        =   'W';  //:< word Field NortSoft       
+        Const fldByte             =   'B';  //:< byte Field
+        Const fldShortInt         =   'J';  //:< shortint Field
+        Const fldSmallWord        =   'W';  //:< word Field NortSoft
         Const fldSmallInt         =   'I';  //:< integer Field NortSoft
-        Const fldLONGINT          =   'L';  //:< longint Field
-        Const fldRealNum          =   'R';  //:< real number Field  (uses TRealNum)
-        Const fldRealNum_Positivo =   'r';  //:< real number Field positive (uses TRealNum)
+        Const fldLongInt          =   'L';  //:< longint Field
+        Const fldDouble           =   'R';  //:< real number Field  (uses TRealNum)
+        Const fldDoublePositive      =   'r';  //:< real number Field positive (uses TRealNum)
       
-        {: A constante **@name** (fldBoolean = 'X') indica que o campo é do tipo
-           byte e só pode ter dois valores.
+        {: A constante **@name** indica que o campo é do tipo byte e só pode ter dois
+           valores 0 ou 1.
 
            - **NOTA**
              - Valores possíveis:
@@ -445,8 +499,9 @@ uses
         }
         Const CharUpperlimit       =   ^U ;  //:< Limite superior do campo (Somente 1 a 255)
 
-        {: A constante **@name** (fldENUM=^E) é um campo do tipo longint que contém
-           o índice corrente da lista de string.
+        {: A constante **@name** é um campo do tipo longint que contém o índice corrente
+           da lista de string.
+
            - Os controles usados para edita-lo são:
              - TComboBox se o registro não está associado a banco de dados;
              - TdbLookupComboBox se o registro estiver associado a TDataSet.
@@ -473,9 +528,9 @@ uses
         }
         Const fldENUM      =  ^E;
 
-        {: A constante **@name** (fldENum_db=^D) é um campo do tipo longint associado
-           a um dataSource, uma chave dataSource.dataSet.KeyField e um campo a ser
-           visualizado na liasta dataSource.dataSet.listField.
+        {: A constante **@name** é um campo do tipo longint associado a um dataSource,
+           uma chave dataSource.dataSet.KeyField e um campo a ser visualizado na liasta
+           dataSource.dataSet.listField.
 
            - Os controles usados para edita-lo são:
              - TdbLookupComboBox.
@@ -763,10 +818,10 @@ uses
         Const TypeHora        = '\ ZB'+^F+^U+AnsiChar(24)+#0+':'+'ZB'^U+AnsiChar(60)+#0+':'+'ZB'^U+AnsiChar(60)+#0+^F;
         Const FldMemo         = 'M';
         Const TypeMemo        = '\ZB'+^F+#0'ssssssssss'#0'ZZZZZZZL'#0'ZZZZW'#0'ZZZZW'+#0+^F; //:<Usado em conjunto com FldBLob
-        Const CTypeReal       =  [fldRealNum,fldReal4,fldReal4P,fldRealNum_Positivo,fldExtended];
-        Const CTypeAnsiChar   =  [fldAnsiChar,fldAnsiChar_LowCase,fldAnsiCharVAL];
-        Const CTypeString     =  [fldSTRNUM,fldSTR,fldstr_Lowcase];
-        Const CTypeInteger    =  [fldENum,fldENum_db,fldBOOLEAN,fldBYTE,fldSHORTINT,fldSmallWORD,fldSmallInt,fldLONGINT,FldRadioButton];
+        Const CTypeReal       =  [fldDouble,fldReal4,fldReal4P,fldDoublePositive,fldExtended];
+        Const CTypeAnsiChar   =  [fldAnsiChar,fldAnsiCharAlfa,fldDouble];
+        Const CTypeString     =  [fldStrNumber,fldStr,fldStrAlfa];
+        Const CTypeInteger    =  [fldENum,fldENum_db,fldBoolean,fldByte,fldShortInt,fldSmallWord,fldSmallInt,fldLongInt,FldRadioButton];
         Const CTypeDate       =  [FldDateTime];
         Const CTypeHour       =  [fldLHora,fld_LHora];
         Const CTypeBlob       =  [FldMemo,fldBLOb];
@@ -1741,10 +1796,13 @@ uses
         const CmCopy                 = 'CmCopy';
         const CmPaste                = 'CmPaste';
         const CmExitApp              = 'CmExitApp';
+        {:A contante **name** é usada para informar a aplicação cliente que a
+          api está disponivel para receber requisição.
+        }
+        Const CmhealthCheck          = 'CmHealthCheck';
         const CmNewFile              = 'CmNewFile';
         const CmSaveFile             = 'CmSaveFile';
         const CmDeleteFile           = 'CmDeleteFile';
-
         const CmNextRecord           = 'CmNextRecord';
         const CmPrevRecord           = 'CmPrevRecord';
         const CmNextRecordValid      = 'CmNextRecordValid';
@@ -2407,16 +2465,16 @@ Initialization
   with TConsts do
   begin
     ConfigureBrazilRegion;
-    MaskIsNumber := [fldBYTE,fldSHORTINT,fldSmallWORD,
-                     fldRealNum,fldSmallInt,fldLONGINT,
-                     fldRealNum_Positivo,'z','Z',DecimalSeparator ,showDecimalSeparator ];  //fldSTRNUM é string e não número,
+    MaskIsNumber := [fldByte,fldShortInt,fldSmallWord,
+                     fldDouble,fldSmallInt,fldLongInt,
+                     fldDoublePositive,'z','Z',DecimalSeparator ,showDecimalSeparator ];  //fldStrNumber é string e não número,
   end;
 
 
 
-  //const MaskIsNumber : TMaskIsNumber = [fldBYTE,fldSHORTINT,fldSmallWORD,
-  //                                    fldRealNum,fldSmallInt,fldLONGINT,
-  //                                    fldRealNum_Positivo,'z','Z',DecimalSeparator ,showDecimalSeparator ];  //fldSTRNUM é string e não número,
+  //const MaskIsNumber : TMaskIsNumber = [fldByte,fldShortInt,fldSmallWord,
+  //                                    fldDouble,fldSmallInt,fldLongInt,
+  //                                    fldDoublePositive,'z','Z',DecimalSeparator ,showDecimalSeparator ];  //fldStrNumber é string e não número,
 
 
 end.

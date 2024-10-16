@@ -11,7 +11,7 @@ uses
   ,Forms
   ,mi.rtl.Objects.Consts.Mi_MsgBox
   ,umi_lcl_msgbox
-  ,uMI_lcl_InputBox
+  ,umi_lcl_ds_inputbox
   ,mi.rtl.ui.dmxscroller.inputbox
   ;
 

@@ -1,0 +1,27 @@
+.
+├── chatgpt criou esse documento baseado no template maricarai que forneci para ele.html
+├── css
+│   ├── color_tons_amarelo.css
+│   ├── color_tons_dark.css
+│   ├── color_tons_de_azul_ceu.css
+│   ├── color_tons_de_cinza.css
+│   ├── color_tons_de_dark_claro.css
+│   ├── color_tons_de_lilas_claro.css
+│   ├── color_tons_de_verde_claro.css
+│   └── MiEditForm.css
+├── js
+│   ├── MiConsts.js
+│   ├── MiDates.js
+│   ├── MiDialogs.js
+│   ├── MiEditForm.js
+│   ├── MiInputBox.js
+│   ├── MiMaskEdit.js
+│   └── MiMethods.js
+├── MiConsts.html
+├── MiDates.html
+├── MiDialogs.ts
+├── MiEditForm.html
+├── MiMaskEdit.html
+└── tree.txt
+
+3 directories, 22 files

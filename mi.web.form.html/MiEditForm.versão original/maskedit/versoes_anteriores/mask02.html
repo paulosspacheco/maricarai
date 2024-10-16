@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Máscaras de Entrada com TMaskEdit</title>
+    <style>
+        label {
+            display: block;
+            margin-top: 10px;
+        }
+
+        input {
+            padding: 5px;
+            font-size: 14px;
+        }
+    </style>
+    <script>
+        class TMaskEdit {
+            constructor(inputElement, mask) {
+                this.inputElement = inputElement;
+                this._mask = mask;
+                this.inputElement.addEventListener('focus', this.onFocus.bind(this));
+                this.inputElement.addEventListener('blur', this.onBlur.bind(this));
+                this.inputElement.addEventListener('input', this.onInput.bind(this));
+            }
+
+            get mask() {
+                return this._mask;
+            }
+
+            set mask(newMask) {
+                this._mask = newMask;
+                this.inputElement.value = this.applyMask(this.inputElement.value);
+            }
+
+            onFocus() {
+                this.inputElement.value = this.inputElement.value.replace(/\D/g, '');
+            }
+
+            onBlur() {
+                this.inputElement.value = this.applyMask(this.inputElement.value);
+            }
+
+            onInput() {
+                let maxLength = this.getMaxNumericLength();
+                this.inputElement.value = this.inputElement.value.replace(/\D/g, '').slice(0, maxLength);
+            }
+
+            applyMask(value) {
+                const cleanValue = value.replace(/\D/g, '');
+                let maskedValue = '';
+                let valueIndex = 0;
+
+                for (let i = 0; i < this._mask.length; i++) {
+                    const maskChar = this._mask[i];
+
+                    if (maskChar === '0' || maskChar === '9') {
+                        if (valueIndex < cleanValue.length) {
+                            maskedValue += cleanValue[valueIndex];
+                            valueIndex++;
+                        } else {
+                            break;
+                        }
+                    } else if (maskChar === 'A') {
+                        if (valueIndex < cleanValue.length) {
+                            maskedValue += cleanValue[valueIndex].toUpperCase();
+                            valueIndex++;
+                        } else {
+                            break;
+                        }
+                    } else if (maskChar === '#') {
+                        if (valueIndex < cleanValue.length) {
+                            maskedValue += cleanValue[valueIndex];
+                            valueIndex++;
+                        } else {
+                            break;
+                        }
+                    } else {
+                        maskedValue += maskChar;
+                    }
+                }
+
+                return maskedValue;
+            }
+
+            getMaxNumericLength() {
+                let maxLength = 0;
+                for (let i = 0; i < this._mask.length; i++) {
+                    if (this._mask[i] === '0' || this._mask[i] === '9') {
+                        maxLength++;
+                    }
+                }
+                return maxLength;
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const masks = {
+                cpf: '000.000.000-00',
+                cnpj: '00.000.000/0000-00',
+                phone: '(00) 00000-0000',
+                date: '00/00/0000',
+                cep: '00000-000'
+            };
+
+            const cpfInput = new TMaskEdit(document.getElementById('cpfInput'), masks.cpf);
+            const cnpjInput = new TMaskEdit(document.getElementById('cnpjInput'), masks.cnpj);
+            const phoneInput = new TMaskEdit(document.getElementById('phoneInput'), masks.phone);
+            const dateInput = new TMaskEdit(document.getElementById('dateInput'), masks.date);
+            const cepInput = new TMaskEdit(document.getElementById('cepInput'), masks.cep);
+        });
+    </script>
+</head>
+<body>
+    <h1>Exemplo de Máscaras de Entrada</h1>
+
+    <label for="cpfInput">CPF:</label>
+    <input type="text" id="cpfInput" placeholder="Digite seu CPF">
+
+    <label for="cnpjInput">CNPJ:</label>
+    <input type="text" id="cnpjInput" placeholder="Digite seu CNPJ">
+
+    <label for="phoneInput">Telefone:</label>
+    <input type="text" id="phoneInput" placeholder="Digite seu Telefone">
+
+    <label for="dateInput">Data:</label>
+    <input type="text" id="dateInput" placeholder="DD/MM/AAAA">
+
+    <label for="cepInput">CEP:</label>
+    <input type="text" id="cepInput" placeholder="Digite seu CEP">
+</body>
+</html>

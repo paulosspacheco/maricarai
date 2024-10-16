@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRUD Operations</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        .container { max-width: 600px; margin: 0 auto; }
+        .form-group { margin-bottom: 15px; }
+        label { display: block; margin-bottom: 5px; }
+        input, button { width: 100%; padding: 8px; }
+        button { margin-top: 10px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>CRUD Operations</h1>
+
+        <div class="form-group">
+            <label for="id">ID:</label>
+            <input type="text" id="id" name="id" placeholder="ID (for update and delete)" autocomplete="off">
+        </div>
+
+        <div class="form-group">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" placeholder="Name" autocomplete="off">
+        </div>
+
+        <div class="form-group">
+            <label for="method">HTTP Method:</label>
+            <select id="method" name="method">
+                <option value="CmNewRecord">New Record</option>
+                <option value="CmAddRecord">Add Record</option>
+                <option value="Cmlocate">Locate</option>
+                <option value="CmPutRecord">Update</option>
+                <option value="CmDeleteRecord">Delete</option>
+            </select>
+        </div>
+
+        <button onclick="performRequest()">Send Request</button>
+
+        <h2>Response:</h2>
+        <pre id="response"></pre>
+    </div>
+
+    <script>
+        async function sendRequest(aAction, aJSONObject, aMethod) {
+            let responseStr = '';
+            let url = '';
+
+            // Construir a URL completa
+            url = `http://192.168.15.2:8080/Tmi_rtl_web_module/${aAction}`;
+
+            // Configurar o corpo da requisição se necessário
+            let options = {
+                method: aMethod.startsWith('Cm') ? 'POST' : aMethod, // Métodos `Cm*` são tratados como `POST`
+                headers: {}
+            };
+
+            if (aJSONObject) {
+                options.headers['Content-Type'] = 'application/json';
+                options.body = JSON.stringify(aJSONObject);
+            }
+
+            // Realizar a requisição HTTP
+            try {
+                const response = await fetch(url, options);
+                
+                // Verificar se a resposta está dentro dos códigos de sucesso esperados
+                const validStatusCodes = {
+                    'POST': [200, 201],
+                    'PUT': [200, 400],
+                    'PATCH': [200, 204],
+                    'GET': [200, 202, 404],
+                    'DELETE': [200, 204]
+                };
+
+                if (!validStatusCodes[aMethod].includes(response.status)) {
+                    throw new Error(`Erro: Código de status HTTP ${response.status}`);
+                }
+
+                // Processar a resposta
+                responseStr = await response.text();
+                if (responseStr.trim() === '') {
+                    throw new Error('Resposta vazia.');
+                }
+
+                if (responseStr.startsWith('{')) {
+                    return JSON.parse(responseStr);
+                } else {
+                    throw new Error('Resposta não é um JSON válido.');
+                }
+
+            } catch (error) {
+                throw new Error(`Erro: HTTP ${error.message}`);
+            }
+        }
+
+        function buildLocateParams(id, name) {
+            // Adaptar os parâmetros de localização
+            return {
+                KeyFields: 'id',
+                KeyValues: [id],
+                Options: ['loCaseInsensitive'] // Opcional: adicionar outras opções conforme necessário
+            };
+        }
+
+        function updateFormFields(data) {
+            if (data.id) {
+                document.getElementById('id').value = data.id;
+            }
+            if (data.name) {
+                document.getElementById('name').value = data.name;
+            }
+        }
+
+        async function performRequest() {
+            const id = document.getElementById('id').value.trim();
+            const name = document.getElementById('name').value.trim();
+            const method = document.getElementById('method').value;
+
+            let action = '';
+            let jsonObject = {};
+
+            switch (method) {
+                case 'CmNewRecord':
+                    action = 'CmNewRecord';
+                    break;
+                case 'CmAddRecord':
+                    action = 'CmAddRecord';
+                    jsonObject = { id, name };
+                    break;
+                case 'Cmlocate':
+                    action = 'Cmlocate';
+                    jsonObject = buildLocateParams(id, name);
+                    break;
+                case 'CmPutRecord':
+                    action = 'CmPutRecord';
+                    jsonObject = buildLocateParams(id, name);
+                    break;
+                case 'CmDeleteRecord':
+                    action = 'CmDeleteRecord';
+                    jsonObject = buildLocateParams(id, name);
+                    break;
+                default:
+                    document.getElementById('response').textContent = 'Método HTTP não suportado.';
+                    return;
+            }
+
+            try {
+                const response = await sendRequest(action, jsonObject, method);
+                document.getElementById('response').textContent = JSON.stringify(response, null, 2);
+                updateFormFields(response); // Atualizar campos do formulário com a resposta
+            } catch (error) {
+                document.getElementById('response').textContent = error.message;
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<title>dnssend</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="generator" content="PasDoc 0.16.0">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<link rel="stylesheet" type="text/css" href="tipuesearch/tipuesearch.css">
+
+<link rel="StyleSheet" type="text/css" href="pasdoc.css">
+</head>
+<body>
+<div class="container"><div class="navigation">
+<ul><li><a href="AllUnits.html">Units</a></li><li><a href="ClassHierarchy.html">Hierarquia de Classes</a></li><li><a href="AllClasses.html">Classes, Interfaces, Objetos e Registros</a></li><li><a href="AllTypes.html">Tipos</a></li><li><a href="AllVariables.html">Variáveis</a></li><li><a href="AllConstants.html">Constantes</a></li><li><a href="AllFunctions.html">Funções e Procedimentos</a></li><li><a href="AllIdentifiers.html">Identificadores</a></li><li><form class="search-form" action="tipue_results.html"><div class="search-input"><input type="text" name="q" id="tipue_search_input" pattern=".{3,}" title="At least 3 characters" required><div class="search-button"><input type="button" id="tipue_search_button" onclick="this.form.submit();"></div></div></form>
+<div style="clear: both"></div>
+</li></ul></div><div class="content">
+<h1 class="unit">Unit dnssend</h1>
+<div class="sections">
+<div class="one_section"><a class="section" href="#PasDoc-Description">Descrição</a></div><div class="one_section"><a class="section" href="#PasDoc-Uses">Uses</a></div><div class="one_section"><a class="section" href="#PasDoc-Classes">Classes, Interfaces, Objetos e Registros</a></div><div class="one_section"><a class="section" href="#PasDoc-FuncsProcs">Funções e Procedimentos</a></div><div class="one_section">Tipos</div><div class="one_section"><a class="section" href="#PasDoc-Constants">Constantes</a></div><div class="one_section">Variáveis</div></div>
+<span id="PasDoc-Description"></span><h2 class="description">Descrição</h2>
+<p>
+DNS client by UDP or TCP</p>
+<p>
+ Support for sending DNS queries by UDP or TCP protocol. It can retrieve zone transfers too!
+
+<p>Used RFC: RFC-1035, RFC-1183, RFC1706, RFC1712, RFC2163, RFC2230</p>
+<span id="PasDoc-Uses"></span><h2 class="uses">Uses</h2>
+<ul class="useslist"><li>SysUtils</li><li>Classes</li><li><a href="blcksock.html">blcksock</a></li><li><a href="synautil.html">synautil</a></li><li><a href="synaip.html">synaip</a></li><li>synsock</li></ul><h2 class="overview">Visão Geral</h2>
+<span id="PasDoc-Classes"></span><h3 class="cio">Classes, Interfaces, Objetos e Registros</h3>
+<table class="classestable wide_list">
+<tr class="listheader">
+<th class="itemname">Nome</th>
+<th class="itemdesc">Descrição</th>
+</tr>
+<tr class="list">
+<td class="itemname">Classe&nbsp;<a class="bold" href="dnssend.TDNSSend.html"><code>TDNSSend</code></a></td>
+<td class="itemdesc">Implementation of DNS protocol by UDP or TCP protocol.</td>
+</tr>
+</table>
+<span id="PasDoc-FuncsProcs"></span><h3 class="summary">Funções e Procedimentos</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="itemcode"><code>function <strong><a href="dnssend.html#GetMailServers">GetMailServers</a></strong>(const DNSHost, Domain: AnsiString; const Servers: TStrings): Boolean;</code></td>
+</tr>
+</table>
+<span id="PasDoc-Constants"></span><h3 class="summary">Constantes</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="itemcode"><code><strong><a href="dnssend.html#cDnsProtocol">cDnsProtocol</a></strong> = '53';</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><strong><a href="dnssend.html#QTYPE_A">QTYPE_A</a></strong> = 1;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><strong><a href="dnssend.html#QTYPE_NS">QTYPE_NS</a></strong> = 2;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><strong><a href="dnssend.html#QTYPE_MD">QTYPE_MD</a></strong> = 3;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><strong><a href="dnssend.html#QTYPE_MF">QTYPE_MF</a></strong> = 4;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><strong><a href="dnssend.html#QTYPE_CNAME">QTYPE_CNAME</a></strong> = 5;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><strong><a href="dnssend.html#QTYPE_SOA">QTYPE_SOA</a></strong> = 6;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><strong><a href="dnssend.html#QTYPE_MB">QTYPE_MB</a></strong> = 7;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><strong><a href="dnssend.html#QTYPE_MG">QTYPE_MG</a></strong> = 8;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><strong><a href="dnssend.html#QTYPE_MR">QTYPE_MR</a></strong> = 9;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><strong><a href="dnssend.html#QTYPE_NULL">QTYPE_NULL</a></strong> = 10;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><strong><a href="dnssend.html#QTYPE_WKS">QTYPE_WKS</a></strong> = 11;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><strong><a href="dnssend.html#QTYPE_PTR">QTYPE_PTR</a></strong> = 12;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><strong><a href="dnssend.html#QTYPE_HINFO">QTYPE_HINFO</a></strong> = 13;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><strong><a href="dnssend.html#QTYPE_MINFO">QTYPE_MINFO</a></strong> = 14;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><strong><a href="dnssend.html#QTYPE_MX">QTYPE_MX</a></strong> = 15;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><strong><a href="dnssend.html#QTYPE_TXT">QTYPE_TXT</a></strong> = 16;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><strong><a href="dnssend.html#QTYPE_RP">QTYPE_RP</a></strong> = 17;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><strong><a href="dnssend.html#QTYPE_AFSDB">QTYPE_AFSDB</a></strong> = 18;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><strong><a href="dnssend.html#QTYPE_X25">QTYPE_X25</a></strong> = 19;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><strong><a href="dnssend.html#QTYPE_ISDN">QTYPE_ISDN</a></strong> = 20;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><strong><a href="dnssend.html#QTYPE_RT">QTYPE_RT</a></strong> = 21;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><strong><a href="dnssend.html#QTYPE_NSAP">QTYPE_NSAP</a></strong> = 22;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><strong><a href="dnssend.html#QTYPE_NSAPPTR">QTYPE_NSAPPTR</a></strong> = 23;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><strong><a href="dnssend.html#QTYPE_SIG">QTYPE_SIG</a></strong> = 24;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><strong><a href="dnssend.html#QTYPE_KEY">QTYPE_KEY</a></strong> = 25;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><strong><a href="dnssend.html#QTYPE_PX">QTYPE_PX</a></strong> = 26;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><strong><a href="dnssend.html#QTYPE_GPOS">QTYPE_GPOS</a></strong> = 27;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><strong><a href="dnssend.html#QTYPE_AAAA">QTYPE_AAAA</a></strong> = 28;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><strong><a href="dnssend.html#QTYPE_LOC">QTYPE_LOC</a></strong> = 29;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><strong><a href="dnssend.html#QTYPE_NXT">QTYPE_NXT</a></strong> = 30;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><strong><a href="dnssend.html#QTYPE_SRV">QTYPE_SRV</a></strong> = 33;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><strong><a href="dnssend.html#QTYPE_NAPTR">QTYPE_NAPTR</a></strong> = 35;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><strong><a href="dnssend.html#QTYPE_KX">QTYPE_KX</a></strong> = 36;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><strong><a href="dnssend.html#QTYPE_SPF">QTYPE_SPF</a></strong> = 99;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><strong><a href="dnssend.html#QTYPE_AXFR">QTYPE_AXFR</a></strong> = 252;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><strong><a href="dnssend.html#QTYPE_MAILB">QTYPE_MAILB</a></strong> = 253;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><strong><a href="dnssend.html#QTYPE_MAILA">QTYPE_MAILA</a></strong> = 254;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><strong><a href="dnssend.html#QTYPE_ALL">QTYPE_ALL</a></strong> = 255;</code></td>
+</tr>
+</table>
+<h2 class="description">Descrição</h2>
+<h3 class="detail">Funções e Procedimentos</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="GetMailServers"></span><code>function <strong>GetMailServers</strong>(const DNSHost, Domain: AnsiString; const Servers: TStrings): Boolean;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+A very useful function, and example of it's use is found in the <a class="normal" href="dnssend.TDNSSend.html">TDNSSend</a> object. This function is used to get mail servers for a domain and sort them by preference numbers. &quot;Servers&quot; contains only the domain names of the mail servers in the right order (without preference number!). The first domain name will always be the highest preferenced mail server. Returns boolean <code>True</code> if all went well.</p>
+</td></tr>
+</table>
+<h3 class="detail">Constantes</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="cDnsProtocol"></span><code><strong>cDnsProtocol</strong> = '53';</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="QTYPE_A"></span><code><strong>QTYPE_A</strong> = 1;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="QTYPE_NS"></span><code><strong>QTYPE_NS</strong> = 2;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="QTYPE_MD"></span><code><strong>QTYPE_MD</strong> = 3;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="QTYPE_MF"></span><code><strong>QTYPE_MF</strong> = 4;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="QTYPE_CNAME"></span><code><strong>QTYPE_CNAME</strong> = 5;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="QTYPE_SOA"></span><code><strong>QTYPE_SOA</strong> = 6;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="QTYPE_MB"></span><code><strong>QTYPE_MB</strong> = 7;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="QTYPE_MG"></span><code><strong>QTYPE_MG</strong> = 8;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="QTYPE_MR"></span><code><strong>QTYPE_MR</strong> = 9;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="QTYPE_NULL"></span><code><strong>QTYPE_NULL</strong> = 10;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="QTYPE_WKS"></span><code><strong>QTYPE_WKS</strong> = 11;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="QTYPE_PTR"></span><code><strong>QTYPE_PTR</strong> = 12;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="QTYPE_HINFO"></span><code><strong>QTYPE_HINFO</strong> = 13;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="QTYPE_MINFO"></span><code><strong>QTYPE_MINFO</strong> = 14;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="QTYPE_MX"></span><code><strong>QTYPE_MX</strong> = 15;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="QTYPE_TXT"></span><code><strong>QTYPE_TXT</strong> = 16;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="QTYPE_RP"></span><code><strong>QTYPE_RP</strong> = 17;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="QTYPE_AFSDB"></span><code><strong>QTYPE_AFSDB</strong> = 18;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="QTYPE_X25"></span><code><strong>QTYPE_X25</strong> = 19;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="QTYPE_ISDN"></span><code><strong>QTYPE_ISDN</strong> = 20;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="QTYPE_RT"></span><code><strong>QTYPE_RT</strong> = 21;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="QTYPE_NSAP"></span><code><strong>QTYPE_NSAP</strong> = 22;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="QTYPE_NSAPPTR"></span><code><strong>QTYPE_NSAPPTR</strong> = 23;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="QTYPE_SIG"></span><code><strong>QTYPE_SIG</strong> = 24;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="QTYPE_KEY"></span><code><strong>QTYPE_KEY</strong> = 25;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="QTYPE_PX"></span><code><strong>QTYPE_PX</strong> = 26;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="QTYPE_GPOS"></span><code><strong>QTYPE_GPOS</strong> = 27;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="QTYPE_AAAA"></span><code><strong>QTYPE_AAAA</strong> = 28;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="QTYPE_LOC"></span><code><strong>QTYPE_LOC</strong> = 29;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="QTYPE_NXT"></span><code><strong>QTYPE_NXT</strong> = 30;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="QTYPE_SRV"></span><code><strong>QTYPE_SRV</strong> = 33;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="QTYPE_NAPTR"></span><code><strong>QTYPE_NAPTR</strong> = 35;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="QTYPE_KX"></span><code><strong>QTYPE_KX</strong> = 36;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="QTYPE_SPF"></span><code><strong>QTYPE_SPF</strong> = 99;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="QTYPE_AXFR"></span><code><strong>QTYPE_AXFR</strong> = 252;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="QTYPE_MAILB"></span><code><strong>QTYPE_MAILB</strong> = 253;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="QTYPE_MAILA"></span><code><strong>QTYPE_MAILA</strong> = 254;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="QTYPE_ALL"></span><code><strong>QTYPE_ALL</strong> = 255;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<hr><span class="appinfo"><em>Gerado por <a href="https://pasdoc.github.io/">PasDoc 0.16.0</a>. </em>
+</span>
+</div></div></body></html>

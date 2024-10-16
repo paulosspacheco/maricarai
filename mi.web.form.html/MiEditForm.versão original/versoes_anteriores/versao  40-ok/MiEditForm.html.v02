@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teste do componente MiEditForm </title>
+        
+    <!-- Carregando o arquivo CSS -->
+    <link rel="stylesheet" href="./MiEditForm.css">
+
+                <!-- Adicionar o link do Font Awesome no <head> -->
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"> -->
+
+</head>
+<body>
+    <!-- <i class="fas fa-camera"></i> -->
+    
+    <div class="form-container">
+        <div class="form-header">
+            <h1>Formulário CRUD</h1> <!-- Título do formulário -->
+        </div>
+        <form id="meuFormulario">
+            <div class="form-fields">          
+                <div class="fieldset-container">                
+                <fieldset>
+                    <legend>IDENTIFICAÇÃO</legend>                                                
+
+                
+                    <label for="ID">Id:</label>
+                        <input type="text" id="ID" name="ID" placeholder="ID" data-mask="L.LLL.LLL" data-mask-type="L"  />
+                               
+
+                    <div class="input-group">                        
+                        <label for="nome">Nome:</label>
+                            <input type="text" id="Nome" name="Nome" placeholder="Nome"     data-mask="ssssssssssssssssssssssssssssssssssssssss" data-mask-type="s" />
+                    </div>                        
+
+                </fieldset>
+                
+                <fieldset>
+                    <legend>ENDEREÇO</legend>                                                                    
+                    <div class="input-group">
+                        <label for="endereco">Endereço:</label>                    
+                            <input type="text" id="endereco" name="endereco" placeholder="Endereço" data-mask="ssssssssssssssssssssssssssssssssssssssssssssssssssssssss" data-mask-type="s" />
+                    </div>                        
+                </fieldset>
+
+                <fieldset>
+                    <legend>ENDEREÇO</legend>                                                                    
+                    <div class="input-group">
+                        <label for="endereco">Endereço:</label>                    
+                            <input type="text" id="endereco" name="endereco" placeholder="Endereço" data-mask="ssssssssssssssssssssssssssssssssssssssssssssssssssssssss" data-mask-type="s" />
+                    </div>                        
+                </fieldset>
+
+                <fieldset>
+                    <legend>ENDEREÇO</legend>                                                                    
+                    <div class="input-group">
+                        <label for="endereco">Endereço:</label>                    
+                            <input type="text" id="endereco" name="endereco" placeholder="Endereço" data-mask="ssssssssssssssssssssssssssssssssssssssssssssssssssssssss" data-mask-type="s" />
+                    </div>                        
+                </fieldset>
+
+
+
+                <fieldset>
+                    <legend>ENDEREÇO</legend>                                                                    
+                    <div class="input-group">
+                        <label for="endereco">Endereço:</label>                    
+                            <input type="text" id="endereco" name="endereco" placeholder="Endereço" data-mask="ssssssssssssssssssssssssssssssssssssssssssssssssssssssss" data-mask-type="s" />
+                    </div>                        
+                </fieldset>
+
+                <fieldset>
+                    <legend>ENDEREÇO</legend>                                                                    
+                    <div class="input-group">
+                        <label for="endereco">Endereço:</label>                    
+                            <input type="text" id="endereco" name="endereco" placeholder="Endereço" data-mask="ssssssssssssssssssssssssssssssssssssssssssssssssssssssss" data-mask-type="s" />
+                    </div>                        
+                </fieldset>
+</div>
+                <!-- Adicione mais campos aqui conforme necessário -->
+            </div>
+            <div class="action-buttons">
+                <!-- Botões para operações CRUD -->
+                <button type="button" id="CmNewRecord">Novo Registro</button>
+                <button type="button" id="CmAddRecord">Adicionar</button>        
+                <button type="button" id="CmPutRecord">Gravar</button>
+                <button type="button" id="CmLocate">Localizar</button>        
+                <button type="button" id="CmDeleteRecord">Deletar</button>       
+                <button type="button" id="CmRefresh">Refresh</button>
+                <button type="button" id="CmCancel">Cancelar</button>        
+                <button type="button" id="CmHealthCheck">Checar conexão</button>                
+            </div>        
+
+            <!-- Botões de Navegação -->
+            <div class="navigation-buttons">
+                <button type="button" id="CmGoBof" class="navigation-buttons"><<</button>
+                <button type="button" id="CmPrevRecord" class="navigation-buttons"><</button>
+                <button type="button" id="CmNextRecord" class="navigation-buttons">></button>
+                <button type="button" id="CmGoEof" class="navigation-buttons">>></button>
+            </div>
+
+        </form>
+    </div>
+
+    <div class="overlay" id="overlay">
+        <div class="alert-box" id="alertBox">
+            <p id="alertMessage">Mensagem de alerta!</p>
+            <button id="alertButton">Fechar</button>
+        </div>
+    </div>
+
+    <script type="module">
+        // Importa as classes dos arquivos JavaScript
+        import { initializeFormMasks } from './MiMaskEdit.js';          
+        import { initializeFormsMasks } from './MiMaskEdit.js';  
+        import { MiEditForm } from './MiEditForm.js';
+
+                 
+        document.addEventListener('DOMContentLoaded', () => {
+            
+//          initializeFormsMasks(); // Aplica máscaras em todos os formulários      
+
+            // Inicializa a instância do MiEditForm e armazena em uma variável
+            const formInstance = new MiEditForm('meuFormulario', 'ID');
+           
+            // Exemplo: Chamar showMessage após 1 segundos ou após um evento específico
+            //setTimeout(() => { formInstance.showMessage('Esta é uma mensagem de teste!');  }, 1000); // 1 segundos           
+
+            
+            
+        });
+               
+        
+    </script>
+</body>
+</html>
+
+
+
+
+
+

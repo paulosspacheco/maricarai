@@ -23,8 +23,9 @@ object mi_rtl_web_module_form: Tmi_rtl_web_module_form
       Height = 25
       Top = 0
       Width = 160
-      Action = Mi_rtl_WebModule_base.CmBuildFormFromTemplate
+      Caption = 'CmBuildFormFromTemplate'
       TabOrder = 0
+      OnClick = Button1Click
     end
   end
   object Mi_LCL_Scrollbox1: TMi_LCL_Scrollbox
@@ -42,17 +43,19 @@ object mi_rtl_web_module_form: Tmi_rtl_web_module_form
     Height = 112
     Top = 256
     Width = 482
-    Anchors = [akTop, akLeft, akRight]
+    Anchors = [akLeft, akRight, akBottom]
     Color = clWindow
     Columns = <>
     DataSource = DataSource1
     TabOrder = 2
+    TitleStyle = tsStandard
   end
   object DBNavigator1: TDBNavigator
     Left = 0
     Height = 25
     Top = 224
     Width = 241
+    Anchors = [akLeft, akBottom]
     BevelOuter = bvNone
     ChildSizing.EnlargeHorizontal = crsScaleChilds
     ChildSizing.EnlargeVertical = crsScaleChilds

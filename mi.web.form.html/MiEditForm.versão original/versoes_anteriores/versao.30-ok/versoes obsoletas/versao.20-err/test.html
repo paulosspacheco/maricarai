@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ativar e Desativar Botão</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        button {
+            padding: 10px 20px;
+            margin: 10px;
+            font-size: 16px;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+        }
+
+        #toggleButton {
+            background-color: #007BFF;
+            color: white;
+        }
+
+        #actionButton {
+            background-color: #28A745;
+            color: white;
+        }
+
+        #actionButton:disabled {
+            background-color: #ccc;
+            color: #666;
+            cursor: not-allowed;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Ativar e Desativar Botão</h2>
+
+    <!-- Botão para ativar/desativar -->
+    <button id="toggleButton">Ativar/Desativar Botão de Ação</button>
+
+    <!-- Botão que será ativado/desativado -->
+    <button id="actionButton">Botão de Ação</button>
+
+    <script>
+        // Seleciona os botões
+        const toggleButton = document.getElementById('toggleButton');
+        const actionButton = document.getElementById('actionButton');
+
+        // Adiciona um ouvinte de clique ao botão de alternância
+        toggleButton.addEventListener('click', () => {
+            // Alterna o estado de desabilitado do botão de ação
+            actionButton.disabled = !actionButton.disabled;
+
+            // Opcional: Exibe uma mensagem no console indicando o estado atual do botão
+            console.log('Botão de Ação está ' + (actionButton.disabled ? 'desativado' : 'ativado'));
+        });
+    </script>
+
+</body>
+</html>

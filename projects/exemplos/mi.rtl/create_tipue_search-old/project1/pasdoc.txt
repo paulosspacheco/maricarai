@@ -1,2 +1,0 @@
-./units/unit1.pas
-./project1.lpr

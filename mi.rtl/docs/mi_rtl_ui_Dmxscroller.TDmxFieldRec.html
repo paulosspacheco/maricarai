@@ -1723,10 +1723,55 @@ O método <strong><code>IsNumber</code></strong> retorna true se o campo é num�
 </tr>
 <tr><td colspan="2">
 <p>
-O método <strong><code>DoOnEnter</code></strong> é executado toda vez antes do controle ler do buffer do campo. </p>
+O método <strong><code>DoOnEnter</code></strong> é executado toda vez antes do controle ler do buffer do campo.
+
+<p></p>
 
 <ul class="paragraph_spacing">
-  <li><p>Se o <a class="normal" href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html#onEnterField">TUiDmxScroller.OnEnterField</a> tiver assinalado o método <strong><code>DoOnEnter</code></strong> o executa.</p></li>
+  <li><p><strong>Descrição</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>O método <code><code>DoOnEnter</code></code> é chamado quando o campo associado à instância de <code><a class="normal" href="mi_rtl_ui_Dmxscroller.TDmxFieldRec.html">TDmxFieldRec</a></code> recebe foco. Ele assegura que o campo seja registrado como o campo atual e atualizado adequadamente dentro do <code><a class="normal" href="mi_rtl_ui_Dmxscroller.TDmxFieldRec.html#owner_UiDmxScroller">owner_UiDmxScroller</a></code>. Além disso, ele executa os eventos de entrada de campo e cálculo de campo, se definidos, e também atualiza os buffers se o campo foi alterado.</p></li>
+</ul>
+
+<p></p></li>
+  <li><p><strong>Parâmetros Locais</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p><code>reintrance_DmxFieldRec_OnEnter</code>: Variável booleana para evitar reentrância no método, garantindo que a lógica seja executada apenas uma vez por chamada.</p></li>
+</ul>
+
+<p></p></li>
+  <li><p><strong>Fluxo de Execução</strong> </p>
+
+<ol class="paragraph_spacing">
+  <li value="1"><p>Verifica se <code>reintrance_DmxFieldRec_OnEnter</code> está desativada e se <code><a class="normal" href="mi_rtl_ui_Dmxscroller.TDmxFieldRec.html#owner_UiDmxScroller">owner_UiDmxScroller</a></code> está atribuído. </p>
+
+<ol class="paragraph_spacing">
+  <li value="1"><p>Define <code>reintrance_DmxFieldRec_OnEnter</code> como <code>true</code> para evitar reentrância.</p></li>
+  <li value="2"><p>Chama os métodos <code>SetCurrentField</code> e <code>Scroll_it_inview</code> no <code><a class="normal" href="mi_rtl_ui_Dmxscroller.TDmxFieldRec.html#owner_UiDmxScroller">owner_UiDmxScroller</a></code> para atualizar o campo atual e garantir que ele esteja visível na interface.</p></li>
+  <li value="3"><p>Executa o evento <code>onEnterField</code> se ele estiver atribuído e o número do campo (<code><a class="normal" href="mi_rtl_ui_Dmxscroller.TDmxFieldRec.html#Fieldnum">Fieldnum</a></code>) for diferente de zero.</p></li>
+  <li value="4"><p>Executa o evento <code>OnCalcField</code> se ele estiver atribuído e o número do campo (<code><a class="normal" href="mi_rtl_ui_Dmxscroller.TDmxFieldRec.html#Fieldnum">Fieldnum</a></code>) for diferente de zero.</p></li>
+  <li value="5"><p>Se o campo tiver sido alterado (<code><a class="normal" href="mi_rtl_ui_Dmxscroller.TDmxFieldRec.html#FieldAltered">FieldAltered</a></code>), chama os métodos <code>PutBuffers</code> e <code>UpdateBuffers</code> no <code><a class="normal" href="mi_rtl_ui_Dmxscroller.TDmxFieldRec.html#owner_UiDmxScroller">owner_UiDmxScroller</a></code> para atualizar o estado dos buffers.</p></li>
+  <li value="6"><p>No bloco <code>finally</code>, redefine <code>reintrance_DmxFieldRec_OnEnter</code> para <code>false</code>.</p></li>
+</ol>
+
+<p></p></li>
+</ol>
+
+<p></p></li>
+  <li><p><strong>Ver Também</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p><code>TDmxScroller.SetCurrentField</code></p></li>
+  <li><p><code>TDmxScroller.Scroll_it_inview</code></p></li>
+  <li><p><code>TDmxScroller.onEnterField</code></p></li>
+  <li><p><code>TDmxScroller.OnCalcField</code></p></li>
+  <li><p><code>TDmxScroller.PutBuffers</code></p></li>
+  <li><p><code>TDmxScroller.UpdateBuffers</code></p></li>
+</ul>
+
+<p></p></li>
 </ul>
 
 <p></p>
@@ -1739,10 +1784,53 @@ O método <strong><code>DoOnEnter</code></strong> é executado toda vez antes do
 </tr>
 <tr><td colspan="2">
 <p>
-O método <strong><code>DoOnExit</code></strong> é executado toda vez antes do controle gravar no buffer do campo. </p>
+O método <strong><code>DoOnExit</code></strong> é executado toda vez antes do controle gravar no buffer do campo.
+
+<p></p>
 
 <ul class="paragraph_spacing">
-  <li><p>Se o <a class="normal" href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html#onExitField">TUiDmxScroller.OnExitField</a> tiver assinalado o método <strong><code>DoOnExit</code></strong> o executa.</p></li>
+  <li><p><strong>Descrição</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>O método <code><code>DoOnExit</code></code> é executado quando o campo associado à instância de <code><a class="normal" href="mi_rtl_ui_Dmxscroller.TDmxFieldRec.html">TDmxFieldRec</a></code> perde o foco. Ele garante que os eventos e cálculos relacionados à saída do campo sejam processados e que os buffers sejam atualizados se o campo foi alterado.</p></li>
+</ul>
+
+<p></p></li>
+  <li><p><strong>Parâmetros Locais</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p><code>reintrance_DmxFieldRec_OnExit</code>: Variável booleana para evitar reentrância no método, assegurando que o processamento de saída ocorra apenas uma vez por chamada.</p></li>
+</ul>
+
+<p></p></li>
+  <li><p><strong>Fluxo de Execução</strong> </p>
+
+<ol class="paragraph_spacing">
+  <li value="1"><p>Verifica se <code>reintrance_DmxFieldRec_OnExit</code> está desativada e se <code><a class="normal" href="mi_rtl_ui_Dmxscroller.TDmxFieldRec.html#owner_UiDmxScroller">owner_UiDmxScroller</a></code> está atribuído.</p></li>
+  <li value="2"><p>Define <code>reintrance_DmxFieldRec_OnExit</code> como <code>true</code> para evitar reentrância.</p></li>
+  <li value="3"><p>Executa o evento <code>onExitField</code> se ele estiver atribuído e o número do campo (<code><a class="normal" href="mi_rtl_ui_Dmxscroller.TDmxFieldRec.html#Fieldnum">Fieldnum</a></code>) for diferente de zero.</p></li>
+  <li value="4"><p>Executa o evento <code>OnCalcField</code> se ele estiver atribuído e o número do campo for diferente de zero.</p></li>
+  <li value="5"><p>Se o número do campo for diferente de zero e o campo tiver sido alterado (<code><a class="normal" href="mi_rtl_ui_Dmxscroller.TDmxFieldRec.html#FieldAltered">FieldAltered</a></code>), executa o evento <code>OnChangeField</code> (caso atribuído) e chama <code>DoChangeField</code>.</p></li>
+  <li value="6"><p>Chama o método <code>DoCalcFields</code> para recalcular os campos, se necessário.</p></li>
+  <li value="7"><p>Se o campo foi alterado, chama os métodos <code>PutBuffers</code>, <code>UpdateCommands</code> e <code>UpdateBuffers</code> para atualizar os buffers e comandos do scroller.</p></li>
+  <li value="8"><p>No bloco <code>finally</code>, redefine <code>reintrance_DmxFieldRec_OnExit</code> para <code>false</code>.</p></li>
+</ol>
+
+<p></p></li>
+  <li><p><strong>Ver Também</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p><code>TDmxScroller.onExitField</code></p></li>
+  <li><p><code>TDmxScroller.OnCalcField</code></p></li>
+  <li><p><code>TDmxScroller.OnChangeField</code></p></li>
+  <li><p><code>TDmxScroller.DoChangeField</code></p></li>
+  <li><p><code>TDmxScroller.DoCalcFields</code></p></li>
+  <li><p><code>TDmxScroller.PutBuffers</code></p></li>
+  <li><p><code>TDmxScroller.UpdateCommands</code></p></li>
+  <li><p><code>TDmxScroller.UpdateBuffers</code></p></li>
+</ul>
+
+<p></p></li>
 </ul>
 
 <p></p>

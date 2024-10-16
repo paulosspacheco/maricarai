@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Custom Alert with Dark Theme</title>
+  <style>
+    /* Tema escuro geral */
+    body {
+      background-color: #121212; /* Cor de fundo escura */
+      color: #e0e0e0; /* Texto claro */
+      font-family: Arial, sans-serif;
+    }
+
+    .overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.8); /* Fundo mais escuro */
+      display: none;
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+    }
+
+    .alert-box {
+      background-color: #333; /* Caixa de alerta escura */
+      color: #ffffff; /* Texto da caixa branco */
+      padding: 20px;
+      border-radius: 10px;
+      text-align: center;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.5); /* Sombra escura */
+      max-width: 300px;
+    }
+
+    .alert-box button {
+      padding: 10px 20px;
+      background-color: #007BFF; /* Botão com azul escuro */
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .alert-box button:hover {
+      background-color: #0056b3; /* Cor mais escura ao passar o mouse */
+    }
+  </style>
+</head>
+<body>
+
+<script type="module">
+  import { Alert } from './alert.js';
+
+  window.onload = function() {
+    const myAlert = new Alert();
+    myAlert.show('Esta é uma mensagem de alerta com tema escuro!');
+  };
+</script>
+
+</body>
+</html>

@@ -1,0 +1,935 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<title>synautil</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="generator" content="PasDoc 0.16.0">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<link rel="stylesheet" type="text/css" href="tipuesearch/tipuesearch.css">
+
+<link rel="StyleSheet" type="text/css" href="pasdoc.css">
+</head>
+<body>
+<div class="container"><div class="navigation">
+<ul><li><a href="AllUnits.html">Units</a></li><li><a href="ClassHierarchy.html">Hierarquia de Classes</a></li><li><a href="AllClasses.html">Classes, Interfaces, Objetos e Registros</a></li><li><a href="AllTypes.html">Tipos</a></li><li><a href="AllVariables.html">Variáveis</a></li><li><a href="AllConstants.html">Constantes</a></li><li><a href="AllFunctions.html">Funções e Procedimentos</a></li><li><a href="AllIdentifiers.html">Identificadores</a></li><li><form class="search-form" action="tipue_results.html"><div class="search-input"><input type="text" name="q" id="tipue_search_input" pattern=".{3,}" title="At least 3 characters" required><div class="search-button"><input type="button" id="tipue_search_button" onclick="this.form.submit();"></div></div></form>
+<div style="clear: both"></div>
+</li></ul></div><div class="content">
+<h1 class="unit">Unit synautil</h1>
+<div class="sections">
+<div class="one_section"><a class="section" href="#PasDoc-Description">Descrição</a></div><div class="one_section"><a class="section" href="#PasDoc-Uses">Uses</a></div><div class="one_section">Classes, Interfaces, Objetos e Registros</div><div class="one_section"><a class="section" href="#PasDoc-FuncsProcs">Funções e Procedimentos</a></div><div class="one_section">Tipos</div><div class="one_section">Constantes</div><div class="one_section"><a class="section" href="#PasDoc-Variables">Variáveis</a></div></div>
+<span id="PasDoc-Description"></span><h2 class="description">Descrição</h2>
+&nbsp;<span id="PasDoc-Uses"></span><h2 class="uses">Uses</h2>
+<ul class="useslist"><li>Libc</li><li>AnsiStrings</li><li>SysUtils</li><li>Classes</li><li><a href="synafpc.html">SynaFpc</a></li></ul><h2 class="overview">Visão Geral</h2>
+<span id="PasDoc-FuncsProcs"></span><h3 class="summary">Funções e Procedimentos</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="itemcode"><code>function <strong><a href="synautil.html#TimeZoneBias">TimeZoneBias</a></strong>: integer;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code>function <strong><a href="synautil.html#TimeZone">TimeZone</a></strong>: string;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code>function <strong><a href="synautil.html#Rfc822DateTime">Rfc822DateTime</a></strong>(t: TDateTime): string;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code>function <strong><a href="synautil.html#Rfc3339DateTime">Rfc3339DateTime</a></strong>(t: TDateTime): string;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code>function <strong><a href="synautil.html#CDateTime">CDateTime</a></strong>(t: TDateTime): string;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code>function <strong><a href="synautil.html#SimpleDateTime">SimpleDateTime</a></strong>(t: TDateTime): string;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code>function <strong><a href="synautil.html#AnsiCDateTime">AnsiCDateTime</a></strong>(t: TDateTime): string;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code>function <strong><a href="synautil.html#GetMonthNumber">GetMonthNumber</a></strong>(Value: String): integer;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code>function <strong><a href="synautil.html#GetTimeFromStr">GetTimeFromStr</a></strong>(Value: string): TDateTime;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code>function <strong><a href="synautil.html#DecodeTimeZone">DecodeTimeZone</a></strong>(Value: string; var Zone: integer): Boolean;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code>function <strong><a href="synautil.html#GetDateMDYFromStr">GetDateMDYFromStr</a></strong>(Value: string): TDateTime;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code>function <strong><a href="synautil.html#DecodeRfcDateTime">DecodeRfcDateTime</a></strong>(Value: string): TDateTime;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code>function <strong><a href="synautil.html#GetUTTime">GetUTTime</a></strong>: TDateTime;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code>function <strong><a href="synautil.html#SetUTTime">SetUTTime</a></strong>(Newdt: TDateTime): Boolean;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code>function <strong><a href="synautil.html#GetTick">GetTick</a></strong>: LongWord;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code>function <strong><a href="synautil.html#TickDelta">TickDelta</a></strong>(TickOld, TickNew: LongWord): LongWord;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code>function <strong><a href="synautil.html#CodeInt">CodeInt</a></strong>(Value: Word): Ansistring;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code>function <strong><a href="synautil.html#DecodeInt">DecodeInt</a></strong>(const Value: Ansistring; Index: Integer): Word;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code>function <strong><a href="synautil.html#CodeLongInt">CodeLongInt</a></strong>(Value: LongInt): Ansistring;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code>function <strong><a href="synautil.html#DecodeLongInt">DecodeLongInt</a></strong>(const Value: Ansistring; Index: Integer): LongInt;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code>function <strong><a href="synautil.html#DumpStr">DumpStr</a></strong>(const Buffer: Ansistring): string;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code>function <strong><a href="synautil.html#DumpExStr">DumpExStr</a></strong>(const Buffer: Ansistring): string;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code>procedure <strong><a href="synautil.html#Dump">Dump</a></strong>(const Buffer: AnsiString; DumpFile: string);</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code>procedure <strong><a href="synautil.html#DumpEx">DumpEx</a></strong>(const Buffer: AnsiString; DumpFile: string);</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code>function <strong><a href="synautil.html#TrimSPLeft">TrimSPLeft</a></strong>(const S: string): string;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code>function <strong><a href="synautil.html#TrimSPRight">TrimSPRight</a></strong>(const S: string): string;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code>function <strong><a href="synautil.html#TrimSP">TrimSP</a></strong>(const S: string): string;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code>function <strong><a href="synautil.html#SeparateLeft">SeparateLeft</a></strong>(const Value, Delimiter: string): string;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code>function <strong><a href="synautil.html#SeparateRight">SeparateRight</a></strong>(const Value, Delimiter: string): string;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code>function <strong><a href="synautil.html#GetParameter">GetParameter</a></strong>(const Value, Parameter: string): string;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code>procedure <strong><a href="synautil.html#ParseParametersEx">ParseParametersEx</a></strong>(Value, Delimiter: string; const Parameters: TStrings);</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code>procedure <strong><a href="synautil.html#ParseParameters">ParseParameters</a></strong>(Value: string; const Parameters: TStrings);</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code>function <strong><a href="synautil.html#IndexByBegin">IndexByBegin</a></strong>(Value: string; const List: TStrings): integer;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code>function <strong><a href="synautil.html#GetEmailAddr">GetEmailAddr</a></strong>(const Value: string): string;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code>function <strong><a href="synautil.html#GetEmailDesc">GetEmailDesc</a></strong>(Value: string): string;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code>function <strong><a href="synautil.html#StrToHex">StrToHex</a></strong>(const Value: Ansistring): string;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code>function <strong><a href="synautil.html#IntToBin">IntToBin</a></strong>(Value: Integer; Digits: Byte): string;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code>function <strong><a href="synautil.html#BinToInt">BinToInt</a></strong>(const Value: string): Integer;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code>function <strong><a href="synautil.html#ParseURL">ParseURL</a></strong>(URL: string; var Prot, User, Pass, Host, Port, Path, Para: string): string;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code>function <strong><a href="synautil.html#ReplaceString">ReplaceString</a></strong>(Value, Search, Replace: AnsiString): AnsiString;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code>function <strong><a href="synautil.html#RPosEx">RPosEx</a></strong>(const Sub, Value: string; From: integer): Integer;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code>function <strong><a href="synautil.html#RPos">RPos</a></strong>(const Sub, Value: String): Integer;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code>function <strong><a href="synautil.html#FetchBin">FetchBin</a></strong>(var Value: string; const Delimiter: string): string;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code>function <strong><a href="synautil.html#Fetch">Fetch</a></strong>(var Value: string; const Delimiter: string): string;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code>function <strong><a href="synautil.html#FetchEx">FetchEx</a></strong>(var Value: string; const Delimiter, Quotation: string): string;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code>function <strong><a href="synautil.html#IsBinaryString">IsBinaryString</a></strong>(const Value: AnsiString): Boolean;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code>function <strong><a href="synautil.html#PosCRLF">PosCRLF</a></strong>(const Value: AnsiString; var Terminator: AnsiString): integer;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code>Procedure <strong><a href="synautil.html#StringsTrim">StringsTrim</a></strong>(const value: TStrings);</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code>function <strong><a href="synautil.html#PosFrom">PosFrom</a></strong>(const SubStr, Value: String; From: integer): integer;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code>function <strong><a href="synautil.html#IncPoint">IncPoint</a></strong>(const p: pointer; Value: integer): pointer;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code>function <strong><a href="synautil.html#GetBetween">GetBetween</a></strong>(const PairBegin, PairEnd, Value: string): string;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code>function <strong><a href="synautil.html#CountOfChar">CountOfChar</a></strong>(const Value: string; Chr: char): integer;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code>function <strong><a href="synautil.html#UnquoteStr">UnquoteStr</a></strong>(const Value: string; Quote: Char): string;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code>function <strong><a href="synautil.html#QuoteStr">QuoteStr</a></strong>(const Value: string; Quote: Char): string;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code>procedure <strong><a href="synautil.html#HeadersToList">HeadersToList</a></strong>(const Value: TStrings);</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code>procedure <strong><a href="synautil.html#ListToHeaders">ListToHeaders</a></strong>(const Value: TStrings);</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code>function <strong><a href="synautil.html#SwapBytes">SwapBytes</a></strong>(Value: integer): integer;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code>function <strong><a href="synautil.html#ReadStrFromStream">ReadStrFromStream</a></strong>(const Stream: TStream; len: integer): AnsiString;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code>procedure <strong><a href="synautil.html#WriteStrToStream">WriteStrToStream</a></strong>(const Stream: TStream; Value: AnsiString);</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code>function <strong><a href="synautil.html#GetTempFile">GetTempFile</a></strong>(const Dir, prefix: String): String;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code>function <strong><a href="synautil.html#PadString">PadString</a></strong>(const Value: AnsiString; len: integer; Pad: AnsiChar): AnsiString;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code>function <strong><a href="synautil.html#XorString">XorString</a></strong>(Indata1, Indata2: AnsiString): AnsiString;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code>function <strong><a href="synautil.html#NormalizeHeader">NormalizeHeader</a></strong>(Value: TStrings; var Index: Integer): string;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code>procedure <strong><a href="synautil.html#SearchForLineBreak">SearchForLineBreak</a></strong>(var APtr:PANSIChar; AEtx:PANSIChar; out ABol:PANSIChar; out ALength:integer);</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code>procedure <strong><a href="synautil.html#SkipLineBreak">SkipLineBreak</a></strong>(var APtr:PANSIChar; AEtx:PANSIChar);</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code>procedure <strong><a href="synautil.html#SkipNullLines">SkipNullLines</a></strong>(var APtr:PANSIChar; AEtx:PANSIChar);</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code>procedure <strong><a href="synautil.html#CopyLinesFromStreamUntilNullLine">CopyLinesFromStreamUntilNullLine</a></strong>(var APtr:PANSIChar; AEtx:PANSIChar; ALines:TStrings);</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code>procedure <strong><a href="synautil.html#CopyLinesFromStreamUntilBoundary">CopyLinesFromStreamUntilBoundary</a></strong>(var APtr:PANSIChar; AEtx:PANSIChar; ALines:TStrings; const ABoundary:ANSIString);</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code>function <strong><a href="synautil.html#SearchForBoundary">SearchForBoundary</a></strong>(var APtr:PANSIChar; AEtx:PANSIChar; const ABoundary:ANSIString): PANSIChar;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code>function <strong><a href="synautil.html#MatchBoundary">MatchBoundary</a></strong>(ABOL,AETX:PANSIChar; const ABoundary:ANSIString): PANSIChar;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code>function <strong><a href="synautil.html#MatchLastBoundary">MatchLastBoundary</a></strong>(ABOL,AETX:PANSIChar; const ABoundary:ANSIString): PANSIChar;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code>function <strong><a href="synautil.html#BuildStringFromBuffer">BuildStringFromBuffer</a></strong>(AStx,AEtx:PANSIChar): ANSIString;</code></td>
+</tr>
+</table>
+<span id="PasDoc-Variables"></span><h3 class="summary">Variáveis</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="itemcode"><code><strong><a href="synautil.html#CustomMonthNames">CustomMonthNames</a></strong>: array[1..12] of string;</code></td>
+</tr>
+</table>
+<h2 class="description">Descrição</h2>
+<h3 class="detail">Funções e Procedimentos</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="TimeZoneBias"></span><code>function <strong>TimeZoneBias</strong>: integer;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+Return your <a class="normal" href="synautil.html#TimeZone">timezone</a> bias from UTC time in minutes.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="TimeZone"></span><code>function <strong>TimeZone</strong>: string;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+Return your <code>timezone</code> bias from UTC time in string representation like &quot;+0200&quot;.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="Rfc822DateTime"></span><code>function <strong>Rfc822DateTime</strong>(t: TDateTime): string;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+Returns current time in format defined in RFC-822. Useful for SMTP messages, but other protocols use this time format as well. Results contains the <a class="normal" href="synautil.html#TimeZone">timezone</a> specification. Four digit year is used to break any Y2K concerns. (Example 'Fri, 15 Oct 1999 21:14:56 +0200')</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="Rfc3339DateTime"></span><code>function <strong>Rfc3339DateTime</strong>(t: TDateTime): string;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+Returns date and time in format defined in RFC-3339 in format &quot;yyyy-mm-ddThh:nn:ss.zzz&quot;</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="CDateTime"></span><code>function <strong>CDateTime</strong>(t: TDateTime): string;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+Returns date and time in format defined in C compilers in format &quot;mmm dd hh:nn:ss&quot;</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="SimpleDateTime"></span><code>function <strong>SimpleDateTime</strong>(t: TDateTime): string;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+Returns date and time in format defined in format 'yymmdd hhnnss'</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="AnsiCDateTime"></span><code>function <strong>AnsiCDateTime</strong>(t: TDateTime): string;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+Returns date and time in format defined in ANSI C compilers in format &quot;ddd mmm d hh:nn:ss yyyy&quot;</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="GetMonthNumber"></span><code>function <strong>GetMonthNumber</strong>(Value: String): integer;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+Decode three-letter string with name of month to their month number. If string not match any month name, then is returned 0. For parsing are used predefined names for English, French and German and names from system locale too.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="GetTimeFromStr"></span><code>function <strong>GetTimeFromStr</strong>(Value: string): TDateTime;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+Return decoded time from given string. Time must be witch separator ':'. You can use &quot;hh:mm&quot; or &quot;hh:mm:ss&quot;.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="DecodeTimeZone"></span><code>function <strong>DecodeTimeZone</strong>(Value: string; var Zone: integer): Boolean;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+Decode string representation of <a class="normal" href="synautil.html#TimeZone">TimeZone</a> (CEST, GMT, +0200, -0800, etc.) to <a class="normal" href="synautil.html#TimeZone">timezone</a> offset.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="GetDateMDYFromStr"></span><code>function <strong>GetDateMDYFromStr</strong>(Value: string): TDateTime;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+Decode string in format &quot;m-d-y&quot; to TDateTime type.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="DecodeRfcDateTime"></span><code>function <strong>DecodeRfcDateTime</strong>(Value: string): TDateTime;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+Decode various string representations of date and time to Tdatetime type. This function do all <a class="normal" href="synautil.html#TimeZone">timezone</a> corrections too! This function can decode lot of formats like: </p>
+
+<pre class="longcode">
+ddd, d mmm yyyy hh:mm:ss
+ddd, d mmm yy hh:mm:ss
+ddd, mmm d yyyy hh:mm:ss
+ddd mmm dd hh:mm:ss yyyy</pre>
+
+<p>
+
+<p>and more with lot of modifications, include: </p>
+
+<pre class="longcode">
+Sun, <span class="pascal_numeric">06</span> Nov <span class="pascal_numeric">1994</span> 08:<span class="pascal_numeric">49</span>:37 GMT    ; RFC <span class="pascal_numeric">822</span>, updated by RFC <span class="pascal_numeric">1123</span>
+Sunday, <span class="pascal_numeric">06</span>-Nov-<span class="pascal_numeric">94</span> 08:<span class="pascal_numeric">49</span>:37 GMT   ; RFC <span class="pascal_numeric">850</span>, obsoleted by RFC <span class="pascal_numeric">1036</span>
+Sun Nov  <span class="pascal_numeric">6</span> 08:<span class="pascal_numeric">49</span>:37 <span class="pascal_numeric">1994</span>         ; ANSI C</pre>
+
+<p> <a class="normal" href="synautil.html#TimeZone">Timezone</a> corrections known lot of symbolic <a class="normal" href="synautil.html#TimeZone">timezone</a> names (like CEST, EDT, etc.) or numeric representation (like +0200). By convention defined in RFC <a class="normal" href="synautil.html#TimeZone">timezone</a> +0000 is GMT and -0000 is current your system <a class="normal" href="synautil.html#TimeZone">timezone</a>.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="GetUTTime"></span><code>function <strong>GetUTTime</strong>: TDateTime;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+Return current system date and time in UTC <a class="normal" href="synautil.html#TimeZone">timezone</a>.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="SetUTTime"></span><code>function <strong>SetUTTime</strong>(Newdt: TDateTime): Boolean;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+Set Newdt as current system date and time in UTC <a class="normal" href="synautil.html#TimeZone">timezone</a>. This function work only if you have administrator rights!</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="GetTick"></span><code>function <strong>GetTick</strong>: LongWord;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+Return current value of system timer with precizion 1 millisecond. Good for measure time difference.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="TickDelta"></span><code>function <strong>TickDelta</strong>(TickOld, TickNew: LongWord): LongWord;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+Return difference between two timestamps. It working fine only for differences smaller then maxint. (difference must be smaller then 24 days.)</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="CodeInt"></span><code>function <strong>CodeInt</strong>(Value: Word): Ansistring;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+Return two characters, which ordinal values represents the value in byte format. (High-endian)</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="DecodeInt"></span><code>function <strong>DecodeInt</strong>(const Value: Ansistring; Index: Integer): Word;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+Decodes two characters located at &quot;Index&quot; offset position of the &quot;Value&quot; string to Word values.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="CodeLongInt"></span><code>function <strong>CodeLongInt</strong>(Value: LongInt): Ansistring;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+Return four characters, which ordinal values represents the value in byte format. (High-endian)</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="DecodeLongInt"></span><code>function <strong>DecodeLongInt</strong>(const Value: Ansistring; Index: Integer): LongInt;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+Decodes four characters located at &quot;Index&quot; offset position of the &quot;Value&quot; string to LongInt values.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="DumpStr"></span><code>function <strong>DumpStr</strong>(const Buffer: Ansistring): string;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+<a class="normal" href="synautil.html#Dump">Dump</a> binary buffer stored in a string to a result string.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="DumpExStr"></span><code>function <strong>DumpExStr</strong>(const Buffer: Ansistring): string;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+<a class="normal" href="synautil.html#Dump">Dump</a> binary buffer stored in a string to a result string. All bytes with code of character is written as character, not as hexadecimal value.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="Dump"></span><code>procedure <strong>Dump</strong>(const Buffer: AnsiString; DumpFile: string);</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+<code>Dump</code> binary buffer stored in a string to a file with DumpFile filename.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="DumpEx"></span><code>procedure <strong>DumpEx</strong>(const Buffer: AnsiString; DumpFile: string);</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+<a class="normal" href="synautil.html#Dump">Dump</a> binary buffer stored in a string to a file with DumpFile filename. All bytes with code of character is written as character, not as hexadecimal value.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="TrimSPLeft"></span><code>function <strong>TrimSPLeft</strong>(const S: string): string;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+Like TrimLeft, but remove only spaces, not control characters!</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="TrimSPRight"></span><code>function <strong>TrimSPRight</strong>(const S: string): string;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+Like TrimRight, but remove only spaces, not control characters!</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="TrimSP"></span><code>function <strong>TrimSP</strong>(const S: string): string;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+Like Trim, but remove only spaces, not control characters!</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="SeparateLeft"></span><code>function <strong>SeparateLeft</strong>(const Value, Delimiter: string): string;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+Returns a portion of the &quot;Value&quot; string located to the left of the &quot;Delimiter&quot; string. If a delimiter is not found, results is original string.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="SeparateRight"></span><code>function <strong>SeparateRight</strong>(const Value, Delimiter: string): string;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+Returns the portion of the &quot;Value&quot; string located to the right of the &quot;Delimiter&quot; string. If a delimiter is not found, results is original string.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="GetParameter"></span><code>function <strong>GetParameter</strong>(const Value, Parameter: string): string;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+Returns parameter value from string in format: parameter1=&quot;value1&quot;; parameter2=value2</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="ParseParametersEx"></span><code>procedure <strong>ParseParametersEx</strong>(Value, Delimiter: string; const Parameters: TStrings);</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+parse value string with elements differed by Delimiter into stringlist.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="ParseParameters"></span><code>procedure <strong>ParseParameters</strong>(Value: string; const Parameters: TStrings);</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+parse value string with elements differed by ';' into stringlist.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="IndexByBegin"></span><code>function <strong>IndexByBegin</strong>(Value: string; const List: TStrings): integer;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+Index of string in stringlist with same beginning as Value is returned.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="GetEmailAddr"></span><code>function <strong>GetEmailAddr</strong>(const Value: string): string;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+Returns only the e-mail portion of an address from the full address format. i.e. returns 'nobody@somewhere.com' from '&quot;someone&quot; &lt;nobody@somewhere.com&gt;'</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="GetEmailDesc"></span><code>function <strong>GetEmailDesc</strong>(Value: string): string;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+Returns only the description part from a full address format. i.e. returns 'someone' from '&quot;someone&quot; &lt;nobody@somewhere.com&gt;'</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="StrToHex"></span><code>function <strong>StrToHex</strong>(const Value: Ansistring): string;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+Returns a string with hexadecimal digits representing the corresponding values of the bytes found in &quot;Value&quot; string.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="IntToBin"></span><code>function <strong>IntToBin</strong>(Value: Integer; Digits: Byte): string;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+Returns a string of binary &quot;Digits&quot; representing &quot;Value&quot;.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="BinToInt"></span><code>function <strong>BinToInt</strong>(const Value: string): Integer;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+Returns an integer equivalent of the binary string in &quot;Value&quot;. (i.e. ('10001010') returns 138)</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="ParseURL"></span><code>function <strong>ParseURL</strong>(URL: string; var Prot, User, Pass, Host, Port, Path, Para: string): string;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+Parses a URL to its various components.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="ReplaceString"></span><code>function <strong>ReplaceString</strong>(Value, Search, Replace: AnsiString): AnsiString;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+Replaces all &quot;Search&quot; string values found within &quot;Value&quot; string, with the &quot;Replace&quot; string value.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="RPosEx"></span><code>function <strong>RPosEx</strong>(const Sub, Value: string; From: integer): Integer;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+It is like <a class="normal" href="synautil.html#RPos">RPos</a>, but search is from specified possition.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="RPos"></span><code>function <strong>RPos</strong>(const Sub, Value: String): Integer;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+It is like POS function, but from right side of Value string.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="FetchBin"></span><code>function <strong>FetchBin</strong>(var Value: string; const Delimiter: string): string;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+Like <a class="normal" href="synautil.html#Fetch">fetch</a>, but working with binary strings, not with text.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="Fetch"></span><code>function <strong>Fetch</strong>(var Value: string; const Delimiter: string): string;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+<code>Fetch</code> string from left of Value string.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="FetchEx"></span><code>function <strong>FetchEx</strong>(var Value: string; const Delimiter, Quotation: string): string;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+<a class="normal" href="synautil.html#Fetch">Fetch</a> string from left of Value string. This function ignore delimitesr inside quotations.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="IsBinaryString"></span><code>function <strong>IsBinaryString</strong>(const Value: AnsiString): Boolean;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+If string is binary string (contains non-printable characters), then is returned true.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="PosCRLF"></span><code>function <strong>PosCRLF</strong>(const Value: AnsiString; var Terminator: AnsiString): integer;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+return position of string terminator in string. If terminator found, then is returned in terminator parameter. Possible line terminators are: <a class="normal" href="blcksock.html#CRLF">CRLF</a>, LFCR, <a class="normal" href="blcksock.html#CR">CR</a>, <a class="normal" href="blcksock.html#LF">LF</a></p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="StringsTrim"></span><code>Procedure <strong>StringsTrim</strong>(const value: TStrings);</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+Delete empty strings from end of stringlist.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="PosFrom"></span><code>function <strong>PosFrom</strong>(const SubStr, Value: String; From: integer): integer;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+Like Pos function, buf from given string possition.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="IncPoint"></span><code>function <strong>IncPoint</strong>(const p: pointer; Value: integer): pointer;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+Increase pointer by value.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="GetBetween"></span><code>function <strong>GetBetween</strong>(const PairBegin, PairEnd, Value: string): string;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+Get string between PairBegin and PairEnd. This function respect nesting. For example: </p>
+
+<pre class="longcode">
+Value <span class="pascal_keyword">is</span>: <span class="pascal_string">'Hi! (hello(yes!))'</span>
+pairbegin <span class="pascal_keyword">is</span>: <span class="pascal_string">'('</span>
+pairend <span class="pascal_keyword">is</span>: <span class="pascal_string">')'</span>
+<span class="pascal_keyword">In</span> this <span class="pascal_keyword">case</span> result <span class="pascal_keyword">is</span>: <span class="pascal_string">'hello(yes!)'</span></pre>
+
+<p></p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="CountOfChar"></span><code>function <strong>CountOfChar</strong>(const Value: string; Chr: char): integer;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+Return count of Chr in Value string.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="UnquoteStr"></span><code>function <strong>UnquoteStr</strong>(const Value: string; Quote: Char): string;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+Remove quotation from Value string. If Value is not quoted, then return same string without any modification.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="QuoteStr"></span><code>function <strong>QuoteStr</strong>(const Value: string; Quote: Char): string;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+Quote Value string. If Value contains some Quote chars, then it is doubled.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="HeadersToList"></span><code>procedure <strong>HeadersToList</strong>(const Value: TStrings);</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+Convert lines in stringlist from 'name: value' form to 'name=value' form.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="ListToHeaders"></span><code>procedure <strong>ListToHeaders</strong>(const Value: TStrings);</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+Convert lines in stringlist from 'name=value' form to 'name: value' form.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="SwapBytes"></span><code>function <strong>SwapBytes</strong>(Value: integer): integer;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+swap bytes in integer.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="ReadStrFromStream"></span><code>function <strong>ReadStrFromStream</strong>(const Stream: TStream; len: integer): AnsiString;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+read string with requested length form stream.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="WriteStrToStream"></span><code>procedure <strong>WriteStrToStream</strong>(const Stream: TStream; Value: AnsiString);</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+write string to stream.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="GetTempFile"></span><code>function <strong>GetTempFile</strong>(const Dir, prefix: String): String;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+Return filename of new temporary file in Dir (if empty, then default temporary directory is used) and with optional filename prefix.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="PadString"></span><code>function <strong>PadString</strong>(const Value: AnsiString; len: integer; Pad: AnsiChar): AnsiString;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+Return padded string. If length is greater, string is truncated. If length is smaller, string is padded by Pad character.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="XorString"></span><code>function <strong>XorString</strong>(Indata1, Indata2: AnsiString): AnsiString;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+XOR each byte in the strings</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="NormalizeHeader"></span><code>function <strong>NormalizeHeader</strong>(Value: TStrings; var Index: Integer): string;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+Read header from &quot;Value&quot; stringlist beginning at &quot;Index&quot; position. If header is Splitted into multiple lines, then this procedure de-split it into one line.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="SearchForLineBreak"></span><code>procedure <strong>SearchForLineBreak</strong>(var APtr:PANSIChar; AEtx:PANSIChar; out ABol:PANSIChar; out ALength:integer);</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+Search for one of line terminators <a class="normal" href="blcksock.html#CR">CR</a>, <a class="normal" href="blcksock.html#LF">LF</a> or NUL. Return position of the line beginning and length of text.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="SkipLineBreak"></span><code>procedure <strong>SkipLineBreak</strong>(var APtr:PANSIChar; AEtx:PANSIChar);</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+Skip both line terminators <a class="normal" href="blcksock.html#CR">CR</a> <a class="normal" href="blcksock.html#LF">LF</a> (if any). Move APtr position forward.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="SkipNullLines"></span><code>procedure <strong>SkipNullLines</strong>(var APtr:PANSIChar; AEtx:PANSIChar);</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+Skip all blank lines in a buffer starting at APtr and move APtr position forward.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="CopyLinesFromStreamUntilNullLine"></span><code>procedure <strong>CopyLinesFromStreamUntilNullLine</strong>(var APtr:PANSIChar; AEtx:PANSIChar; ALines:TStrings);</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+Copy all lines from a buffer starting at APtr to ALines until empty line or end of the buffer is reached. Move APtr position forward).</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="CopyLinesFromStreamUntilBoundary"></span><code>procedure <strong>CopyLinesFromStreamUntilBoundary</strong>(var APtr:PANSIChar; AEtx:PANSIChar; ALines:TStrings; const ABoundary:ANSIString);</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+Copy all lines from a buffer starting at APtr to ALines until ABoundary or end of the buffer is reached. Move APtr position forward).</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="SearchForBoundary"></span><code>function <strong>SearchForBoundary</strong>(var APtr:PANSIChar; AEtx:PANSIChar; const ABoundary:ANSIString): PANSIChar;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+Search ABoundary in a buffer starting at APtr. Return beginning of the ABoundary. Move APtr forward behind a trailing <a class="normal" href="blcksock.html#CRLF">CRLF</a> if any).</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="MatchBoundary"></span><code>function <strong>MatchBoundary</strong>(ABOL,AETX:PANSIChar; const ABoundary:ANSIString): PANSIChar;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+Compare a text at position ABOL with ABoundary and return position behind the match (including a trailing <a class="normal" href="blcksock.html#CRLF">CRLF</a> if any).</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="MatchLastBoundary"></span><code>function <strong>MatchLastBoundary</strong>(ABOL,AETX:PANSIChar; const ABoundary:ANSIString): PANSIChar;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+Compare a text at position ABOL with ABoundary + the last boundary suffix and return position behind the match (including a trailing <a class="normal" href="blcksock.html#CRLF">CRLF</a> if any).</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="BuildStringFromBuffer"></span><code>function <strong>BuildStringFromBuffer</strong>(AStx,AEtx:PANSIChar): ANSIString;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+Copy data from a buffer starting at position APtr and delimited by AEtx position into ANSIString.</p>
+</td></tr>
+</table>
+<h3 class="detail">Variáveis</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="CustomMonthNames"></span><code><strong>CustomMonthNames</strong>: array[1..12] of string;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+can be used for your own months strings for <a class="normal" href="synautil.html#GetMonthNumber">getmonthnumber</a></p>
+</td></tr>
+</table>
+<hr><span class="appinfo"><em>Gerado por <a href="https://pasdoc.github.io/">PasDoc 0.16.0</a>. </em>
+</span>
+</div></div></body></html>

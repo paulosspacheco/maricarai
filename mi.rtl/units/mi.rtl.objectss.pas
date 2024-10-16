@@ -151,6 +151,7 @@ unit mi.rtl.Objectss;
          public class Function StrToSItem(Const StrMsg:AnsiString; Colunas : byte;Alinhamento:TAlinhamento):PSItem;
          public class procedure WriteSItems(var S: TCollectionString; Const Items: PSItem);
          Public class Function PSItem_ListaDeMsgErro:PSItem;override;
+
          Public class Procedure MessageError;override;
 
          private

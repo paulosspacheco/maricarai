@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<title>mimemess: Classe TMimeMess</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="generator" content="PasDoc 0.16.0">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<link rel="stylesheet" type="text/css" href="tipuesearch/tipuesearch.css">
+
+<link rel="StyleSheet" type="text/css" href="pasdoc.css">
+</head>
+<body>
+<div class="container"><div class="navigation">
+<ul><li><a href="AllUnits.html">Units</a></li><li><a href="ClassHierarchy.html">Hierarquia de Classes</a></li><li><a href="AllClasses.html">Classes, Interfaces, Objetos e Registros</a></li><li><a href="AllTypes.html">Tipos</a></li><li><a href="AllVariables.html">Variáveis</a></li><li><a href="AllConstants.html">Constantes</a></li><li><a href="AllFunctions.html">Funções e Procedimentos</a></li><li><a href="AllIdentifiers.html">Identificadores</a></li><li><form class="search-form" action="tipue_results.html"><div class="search-input"><input type="text" name="q" id="tipue_search_input" pattern=".{3,}" title="At least 3 characters" required><div class="search-button"><input type="button" id="tipue_search_button" onclick="this.form.submit();"></div></div></form>
+<div style="clear: both"></div>
+</li></ul></div><div class="content">
+<span id="TMimeMess"></span><h1 class="cio">Classe TMimeMess</h1>
+<div class="sections">
+<div class="one_section"><a class="section" href="#PasDoc-Description">Descrição</a></div><div class="one_section"><a class="section" href="#PasDoc-Hierarchy">Hierarquia</a></div><div class="one_section">Campos</div><div class="one_section"><a class="section" href="#PasDoc-Methods">Métodos</a></div><div class="one_section"><a class="section" href="#PasDoc-Properties">Propriedades</a></div></div>
+<span id="PasDoc-Description"></span><h2 class="unit">Unit</h2>
+<p class="unitlink">
+<a href="mimemess.html">mimemess</a></p>
+<h2 class="declaration">Declaração</h2>
+<p class="declaration">
+<code>type TMimeMess = class(TObject)</code></p>
+<h2 class="description">Descrição</h2>
+<p>
+Object for handling of e-mail message.</p>
+<span id="PasDoc-Hierarchy"></span><h2 class="hierarchy">Hierarquia</h2>
+<ul class="hierarchy"><li class="ancestor">TObject</li>
+<li class="thisitem">TMimeMess</li></ul><h2 class="overview">Visão Geral</h2>
+<span id="PasDoc-Methods"></span><h3 class="summary">Métodos</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>constructor <strong><a href="mimemess.TMimeMess.html#Create">Create</a></strong>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>constructor <strong><a href="mimemess.TMimeMess.html#CreateAltHeaders">CreateAltHeaders</a></strong>(HeadClass: <a href="mimemess.html#TMessHeaderClass">TMessHeaderClass</a>);</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>destructor <strong><a href="mimemess.TMimeMess.html#Destroy">Destroy</a></strong>; override;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>procedure <strong><a href="mimemess.TMimeMess.html#Clear">Clear</a></strong>; virtual;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="mimemess.TMimeMess.html#AddPart">AddPart</a></strong>(const PartParent: <a href="mimepart.TMimePart.html">TMimePart</a>): <a href="mimepart.TMimePart.html">TMimePart</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="mimemess.TMimeMess.html#AddPartMultipart">AddPartMultipart</a></strong>(const MultipartType: String; const PartParent: <a href="mimepart.TMimePart.html">TMimePart</a>): <a href="mimepart.TMimePart.html">TMimePart</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="mimemess.TMimeMess.html#AddPartText">AddPartText</a></strong>(const Value: TStrings; const PartParent: <a href="mimepart.TMimePart.html">TMimePart</a>): <a href="mimepart.TMimePart.html">TMimepart</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="mimemess.TMimeMess.html#AddPartTextEx">AddPartTextEx</a></strong>(const Value: TStrings; const PartParent: <a href="mimepart.TMimePart.html">TMimePart</a>; PartCharset: <a href="synachar.html#TMimeChar">TMimeChar</a>; Raw: Boolean; PartEncoding: <a href="mimepart.html#TMimeEncoding">TMimeEncoding</a>): <a href="mimepart.TMimePart.html">TMimepart</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="mimemess.TMimeMess.html#AddPartHTML">AddPartHTML</a></strong>(const Value: TStrings; const PartParent: <a href="mimepart.TMimePart.html">TMimePart</a>): <a href="mimepart.TMimePart.html">TMimepart</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="mimemess.TMimeMess.html#AddPartTextFromFile">AddPartTextFromFile</a></strong>(const FileName: String; const PartParent: <a href="mimepart.TMimePart.html">TMimePart</a>): <a href="mimepart.TMimePart.html">TMimepart</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="mimemess.TMimeMess.html#AddPartHTMLFromFile">AddPartHTMLFromFile</a></strong>(const FileName: String; const PartParent: <a href="mimepart.TMimePart.html">TMimePart</a>): <a href="mimepart.TMimePart.html">TMimepart</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="mimemess.TMimeMess.html#AddPartBinary">AddPartBinary</a></strong>(const Stream: TStream; const FileName: string; const PartParent: <a href="mimepart.TMimePart.html">TMimePart</a>): <a href="mimepart.TMimePart.html">TMimepart</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="mimemess.TMimeMess.html#AddPartBinaryFromFile">AddPartBinaryFromFile</a></strong>(const FileName: string; const PartParent: <a href="mimepart.TMimePart.html">TMimePart</a>): <a href="mimepart.TMimePart.html">TMimepart</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="mimemess.TMimeMess.html#AddPartHTMLBinary">AddPartHTMLBinary</a></strong>(const Stream: TStream; const FileName, Cid: string; const PartParent: <a href="mimepart.TMimePart.html">TMimePart</a>): <a href="mimepart.TMimePart.html">TMimepart</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="mimemess.TMimeMess.html#AddPartHTMLBinaryFromFile">AddPartHTMLBinaryFromFile</a></strong>(const FileName, Cid: string; const PartParent: <a href="mimepart.TMimePart.html">TMimePart</a>): <a href="mimepart.TMimePart.html">TMimepart</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="mimemess.TMimeMess.html#AddPartMess">AddPartMess</a></strong>(const Value: TStrings; const PartParent: <a href="mimepart.TMimePart.html">TMimePart</a>): <a href="mimepart.TMimePart.html">TMimepart</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="mimemess.TMimeMess.html#AddPartMessFromFile">AddPartMessFromFile</a></strong>(const FileName: string; const PartParent: <a href="mimepart.TMimePart.html">TMimePart</a>): <a href="mimepart.TMimePart.html">TMimepart</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>procedure <strong><a href="mimemess.TMimeMess.html#EncodeMessage">EncodeMessage</a></strong>; virtual;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>procedure <strong><a href="mimemess.TMimeMess.html#DecodeMessage">DecodeMessage</a></strong>; virtual;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>procedure <strong><a href="mimemess.TMimeMess.html#DecodeMessageBinary">DecodeMessageBinary</a></strong>(AHeader:TStrings; AData:TMemoryStream);</code></td>
+</tr>
+</table>
+<span id="PasDoc-Properties"></span><h3 class="summary">Propriedades</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><code>property <strong><a href="mimemess.TMimeMess.html#MessagePart">MessagePart</a></strong>: <a href="mimepart.TMimePart.html">TMimePart</a> read FMessagePart;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><code>property <strong><a href="mimemess.TMimeMess.html#Lines">Lines</a></strong>: TStringList read FLines;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><code>property <strong><a href="mimemess.TMimeMess.html#Header">Header</a></strong>: <a href="mimemess.TMessHeader.html">TMessHeader</a> read FHeader;</code></td>
+</tr>
+</table>
+<h2 class="description">Descrição</h2>
+<h3 class="detail">Métodos</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Create"></span><code>constructor <strong>Create</strong>;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="CreateAltHeaders"></span><code>constructor <strong>CreateAltHeaders</strong>(HeadClass: <a href="mimemess.html#TMessHeaderClass">TMessHeaderClass</a>);</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+<a class="normal" href="mimemess.TMimeMess.html#Create">create</a> this object <a class="normal" href="int65math.html#and">and</a> assign your own descendant of <a class="normal" href="mimemess.TMessHeader.html">TMessHeader</a> object to <a class="normal" href="mimemess.TMimeMess.html#Header">header</a> property. So, you can <a class="normal" href="mimemess.TMimeMess.html#Create">create</a> your own message headers parser <a class="normal" href="int65math.html#and">and</a> use it by this object.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Destroy"></span><code>destructor <strong>Destroy</strong>; override;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Clear"></span><code>procedure <strong>Clear</strong>; virtual;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+Reset component to default state.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="AddPart"></span><code>function <strong>AddPart</strong>(const PartParent: <a href="mimepart.TMimePart.html">TMimePart</a>): <a href="mimepart.TMimePart.html">TMimePart</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+Add MIME part as subpart of PartParent. If you need set root MIME part, then set as PartParent <code>Nil</code> value. If you need set more then one subpart, you must have PartParent of multipart type!</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="AddPartMultipart"></span><code>function <strong>AddPartMultipart</strong>(const MultipartType: String; const PartParent: <a href="mimepart.TMimePart.html">TMimePart</a>): <a href="mimepart.TMimePart.html">TMimePart</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+Add MIME part as subpart of PartParent. If you need set root MIME part, then set as PartParent <code>Nil</code> value. If you need set more then 1 subpart, you must have PartParent of multipart type!
+
+<p>This part is marked as multipart with secondary MIME type specified by MultipartType parameter. (typical value is 'mixed')
+
+<p>This part can be used as PartParent for another parts (include next multipart). If you need only one part, then you not need Multipart part.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="AddPartText"></span><code>function <strong>AddPartText</strong>(const Value: TStrings; const PartParent: <a href="mimepart.TMimePart.html">TMimePart</a>): <a href="mimepart.TMimePart.html">TMimepart</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+Add MIME part as subpart of PartParent. If you need set root MIME part, then set as PartParent <code>Nil</code> value. If you need set more then 1 subpart, you must have PartParent of multipart type!
+
+<p>After creation of part set type to text part <a class="normal" href="int65math.html#and">and</a> set all necessary properties. Content of part is readed from value stringlist.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="AddPartTextEx"></span><code>function <strong>AddPartTextEx</strong>(const Value: TStrings; const PartParent: <a href="mimepart.TMimePart.html">TMimePart</a>; PartCharset: <a href="synachar.html#TMimeChar">TMimeChar</a>; Raw: Boolean; PartEncoding: <a href="mimepart.html#TMimeEncoding">TMimeEncoding</a>): <a href="mimepart.TMimePart.html">TMimepart</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+Add MIME part as subpart of PartParent. If you need set root MIME part, then set as PartParent <code>Nil</code> value. If you need set more then 1 subpart, you must have PartParent of multipart type!
+
+<p>After creation of part set type to text part <a class="normal" href="int65math.html#and">and</a> set all necessary properties. Content of part is readed from value stringlist. You can select your charset <a class="normal" href="int65math.html#and">and</a> your encoding type. If Raw is <code>True</code>, then it not doing charset conversion!</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="AddPartHTML"></span><code>function <strong>AddPartHTML</strong>(const Value: TStrings; const PartParent: <a href="mimepart.TMimePart.html">TMimePart</a>): <a href="mimepart.TMimePart.html">TMimepart</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+Add MIME part as subpart of PartParent. If you need set root MIME part, then set as PartParent <code>Nil</code> value. If you need set more then 1 subpart, you must have PartParent of multipart type!
+
+<p>After creation of part set type to text part to HTML type <a class="normal" href="int65math.html#and">and</a> set all necessary properties. Content of HTML part is readed from Value stringlist.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="AddPartTextFromFile"></span><code>function <strong>AddPartTextFromFile</strong>(const FileName: String; const PartParent: <a href="mimepart.TMimePart.html">TMimePart</a>): <a href="mimepart.TMimePart.html">TMimepart</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+Same as <a class="normal" href="mimemess.TMimeMess.html#AddPartText">AddPartText</a>, but content is readed from file</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="AddPartHTMLFromFile"></span><code>function <strong>AddPartHTMLFromFile</strong>(const FileName: String; const PartParent: <a href="mimepart.TMimePart.html">TMimePart</a>): <a href="mimepart.TMimePart.html">TMimepart</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+Same as <a class="normal" href="mimemess.TMimeMess.html#AddPartHTML">AddPartHTML</a>, but content is readed from file</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="AddPartBinary"></span><code>function <strong>AddPartBinary</strong>(const Stream: TStream; const FileName: string; const PartParent: <a href="mimepart.TMimePart.html">TMimePart</a>): <a href="mimepart.TMimePart.html">TMimepart</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+Add MIME part as subpart of PartParent. If you need set root MIME part, then set as PartParent <code>Nil</code> value. If you need set more then 1 subpart, you must have PartParent of multipart type!
+
+<p>After creation of part set type to binary <a class="normal" href="int65math.html#and">and</a> set all necessary properties. MIME primary <a class="normal" href="int65math.html#and">and</a> secondary types defined automaticly by filename extension. Content of binary part is readed from Stream. This binary part is encoded as file attachment.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="AddPartBinaryFromFile"></span><code>function <strong>AddPartBinaryFromFile</strong>(const FileName: string; const PartParent: <a href="mimepart.TMimePart.html">TMimePart</a>): <a href="mimepart.TMimePart.html">TMimepart</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+Same as <a class="normal" href="mimemess.TMimeMess.html#AddPartBinary">AddPartBinary</a>, but content is readed from file</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="AddPartHTMLBinary"></span><code>function <strong>AddPartHTMLBinary</strong>(const Stream: TStream; const FileName, Cid: string; const PartParent: <a href="mimepart.TMimePart.html">TMimePart</a>): <a href="mimepart.TMimePart.html">TMimepart</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+Add MIME part as subpart of PartParent. If you need set root MIME part, then set as PartParent <code>Nil</code> value. If you need set more then 1 subpart, you must have PartParent of multipart type!
+
+<p>After creation of part set type to binary <a class="normal" href="int65math.html#and">and</a> set all necessary properties. MIME primary <a class="normal" href="int65math.html#and">and</a> secondary types defined automaticly by filename extension. Content of binary part is readed from Stream.
+
+<p>This binary part is encoded as inline data with given Conten ID (cid). Content ID can be used as reference ID in HTML source in HTML part.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="AddPartHTMLBinaryFromFile"></span><code>function <strong>AddPartHTMLBinaryFromFile</strong>(const FileName, Cid: string; const PartParent: <a href="mimepart.TMimePart.html">TMimePart</a>): <a href="mimepart.TMimePart.html">TMimepart</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+Same as <a class="normal" href="mimemess.TMimeMess.html#AddPartHTMLBinary">AddPartHTMLBinary</a>, but content is readed from file</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="AddPartMess"></span><code>function <strong>AddPartMess</strong>(const Value: TStrings; const PartParent: <a href="mimepart.TMimePart.html">TMimePart</a>): <a href="mimepart.TMimePart.html">TMimepart</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+Add MIME part as subpart of PartParent. If you need set root MIME part, then set as PartParent <code>Nil</code> value. If you need set more then 1 subpart, you must have PartParent of multipart type!
+
+<p>After creation of part set type to message <a class="normal" href="int65math.html#and">and</a> set all necessary properties. MIME primary <a class="normal" href="int65math.html#and">and</a> secondary types are setted to 'message/rfc822'. Content of raw RFC-822 message is readed from Stream.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="AddPartMessFromFile"></span><code>function <strong>AddPartMessFromFile</strong>(const FileName: string; const PartParent: <a href="mimepart.TMimePart.html">TMimePart</a>): <a href="mimepart.TMimePart.html">TMimepart</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+Same as <a class="normal" href="mimemess.TMimeMess.html#AddPartMess">AddPartMess</a>, but content is readed from file</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="EncodeMessage"></span><code>procedure <strong>EncodeMessage</strong>; virtual;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+Compose message from <a class="normal" href="mimemess.TMimeMess.html#MessagePart">MessagePart</a> to <a class="normal" href="mimemess.TMimeMess.html#Lines">Lines</a>. Headers from <a class="normal" href="mimemess.TMimeMess.html#Header">Header</a> object is added also.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="DecodeMessage"></span><code>procedure <strong>DecodeMessage</strong>; virtual;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+Decode message from <a class="normal" href="mimemess.TMimeMess.html#Lines">Lines</a> to <a class="normal" href="mimemess.TMimeMess.html#MessagePart">MessagePart</a>. Massage headers are parsed into <a class="normal" href="mimemess.TMimeMess.html#Header">Header</a> object.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="DecodeMessageBinary"></span><code>procedure <strong>DecodeMessageBinary</strong>(AHeader:TStrings; AData:TMemoryStream);</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+HTTP message is received by <a class="normal" href="httpsend.THTTPSend.html">THTTPSend</a> component in two parts: headers are stored in <a class="normal" href="httpsend.THTTPSend.html#Headers">THTTPSend.Headers</a> <a class="normal" href="int65math.html#and">and</a> a body in memory stream <a class="normal" href="httpsend.THTTPSend.html#Document">THTTPSend.Document</a>.
+
+<p>On the top of it, HTTP connections are always 8-bit, hence data are transferred in native format i.e. no transfer encoding is applied.
+
+<p>This method operates the similiar way <a class="normal" href="int65math.html#and">and</a> produces the same result as <a class="normal" href="mimemess.TMimeMess.html#DecodeMessage">DecodeMessage</a>.</p>
+</td></tr>
+</table>
+<h3 class="detail">Propriedades</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><span id="MessagePart"></span><code>property <strong>MessagePart</strong>: <a href="mimepart.TMimePart.html">TMimePart</a> read FMessagePart;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+<a class="normal" href="mimepart.TMimePart.html">TMimePart</a> object with decoded MIME message. This object can handle any number of nested <a class="normal" href="mimepart.TMimePart.html">TMimePart</a> objects itself. It is used for handle any tree of MIME subparts.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><span id="Lines"></span><code>property <strong>Lines</strong>: TStringList read FLines;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+Raw MIME encoded message.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><span id="Header"></span><code>property <strong>Header</strong>: <a href="mimemess.TMessHeader.html">TMessHeader</a> read FHeader;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+Object for e-mail <code>header</code> fields. This object is created automaticly. Do not free this object!</p>
+</td></tr>
+</table>
+<hr><span class="appinfo"><em>Gerado por <a href="https://pasdoc.github.io/">PasDoc 0.16.0</a>. </em>
+</span>
+</div></div></body></html>

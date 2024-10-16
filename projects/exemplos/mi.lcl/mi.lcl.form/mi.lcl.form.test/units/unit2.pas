@@ -101,7 +101,10 @@ begin
     preco       := FieldByName('preco');
     unidade     := FieldByName('unidade');
 
-    if Assigned(valor_total) and Assigned(qt) and Assigned(unidade) and Assigned(preco)
+    if Assigned(valor_total)
+       and Assigned(qt)
+       and Assigned(unidade)
+       and Assigned(preco)
     then case TUnidade(unidade.Value) of
            unCentimetro : begin
                  valor_total.Value :=qt.value * preco.Value * (1/100);

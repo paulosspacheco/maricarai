@@ -729,7 +729,7 @@ function TUiDmxScroller_sql.CreateTable: Boolean;
                               end
                          else begin
                                 case TypeCode of
-                                  fldBYTE     : BEGIN
+                                  fldByte     : BEGIN
                                                   if  (TMiProviderFlag.pfInKeyPrimary in ProviderFlags)
                                                   Then result := Format(StrSQL.CreateTable_AddColNumber,[FieldName,StrSQL.Byte])+StrSQL.Not_null
                                                   else result := Format(StrSQL.CreateTable_AddColNumber,[FieldName,StrSQL.Byte]);
@@ -739,7 +739,7 @@ function TUiDmxScroller_sql.CreateTable: Boolean;
                                                   Then result := Format(StrSQL.CreateTable_AddColNumber,[FieldName,StrSQL.SmallInt])+StrSQL.Not_null
                                                   else result := Format(StrSQL.CreateTable_AddColNumber,[FieldName,StrSQL.SmallInt]);
                                                 END;
-                                  fldLONGINT  : BEGIN
+                                  fldLongInt  : BEGIN
                                                   if  (TMiProviderFlag.pfInKeyPrimary in ProviderFlags)
                                                   Then result := Format(StrSQL.CreateTable_AddColNumber,[FieldName,StrSQL.LongInt])+StrSQL.Not_null
                                                   else result := Format(StrSQL.CreateTable_AddColNumber,[FieldName,StrSQL.LongInt]);
@@ -848,7 +848,7 @@ function TUiDmxScroller_sql.AlterTable: Boolean;
                               end
                          else begin
                                 case TypeCode of
-                                  fldBYTE     : BEGIN
+                                  fldByte     : BEGIN
                                                   if  (TMiProviderFlag.pfInKeyPrimary in ProviderFlags)
                                                   Then s := Format(StrSQL. AlterTable_AddColNumber,[TableName,FieldName,StrSQL.Byte])+StrSQL.Not_null+';'
                                                   else s := Format(StrSQL. AlterTable_AddColNumber,[TableName,FieldName,StrSQL.Byte])+';';
@@ -858,7 +858,7 @@ function TUiDmxScroller_sql.AlterTable: Boolean;
                                                   Then s := Format(StrSQL. AlterTable_AddColNumber,[TableName,FieldName,StrSQL.SmallInt])+StrSQL.Not_null+';'
                                                   else s := Format(StrSQL. AlterTable_AddColNumber,[TableName,FieldName,StrSQL.SmallInt])+';';
                                                 END;
-                                  fldLONGINT  : BEGIN
+                                  fldLongInt  : BEGIN
                                                   if  (TMiProviderFlag.pfInKeyPrimary in ProviderFlags)
                                                   Then s := Format(StrSQL. AlterTable_AddColNumber,[TableName,FieldName,StrSQL.LongInt])+StrSQL.Not_null+';'
                                                   else s := Format(StrSQL. AlterTable_AddColNumber,[TableName,FieldName,StrSQL.LongInt])+';';

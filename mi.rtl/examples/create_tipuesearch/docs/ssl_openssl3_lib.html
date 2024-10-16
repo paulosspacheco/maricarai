@@ -1,0 +1,1919 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<title>ssl_openssl3_lib</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="generator" content="PasDoc 0.16.0">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<link rel="stylesheet" type="text/css" href="tipuesearch/tipuesearch.css">
+
+<link rel="StyleSheet" type="text/css" href="pasdoc.css">
+</head>
+<body>
+<div class="container"><div class="navigation">
+<ul><li><a href="AllUnits.html">Units</a></li><li><a href="ClassHierarchy.html">Hierarquia de Classes</a></li><li><a href="AllClasses.html">Classes, Interfaces, Objetos e Registros</a></li><li><a href="AllTypes.html">Tipos</a></li><li><a href="AllVariables.html">Variáveis</a></li><li><a href="AllConstants.html">Constantes</a></li><li><a href="AllFunctions.html">Funções e Procedimentos</a></li><li><a href="AllIdentifiers.html">Identificadores</a></li><li><form class="search-form" action="tipue_results.html"><div class="search-input"><input type="text" name="q" id="tipue_search_input" pattern=".{3,}" title="At least 3 characters" required><div class="search-button"><input type="button" id="tipue_search_button" onclick="this.form.submit();"></div></div></form>
+<div style="clear: both"></div>
+</li></ul></div><div class="content">
+<h1 class="unit">Unit ssl_openssl3_lib</h1>
+<div class="sections">
+<div class="one_section"><a class="section" href="#PasDoc-Description">Descrição</a></div><div class="one_section"><a class="section" href="#PasDoc-Uses">Uses</a></div><div class="one_section"><a class="section" href="#PasDoc-Classes">Classes, Interfaces, Objetos e Registros</a></div><div class="one_section"><a class="section" href="#PasDoc-FuncsProcs">Funções e Procedimentos</a></div><div class="one_section"><a class="section" href="#PasDoc-Types">Tipos</a></div><div class="one_section"><a class="section" href="#PasDoc-Constants">Constantes</a></div><div class="one_section"><a class="section" href="#PasDoc-Variables">Variáveis</a></div></div>
+<span id="PasDoc-Description"></span><h2 class="description">Descrição</h2>
+<p>
+OpenSSL support</p>
+<p>
+
+
+<p>This unit is Pascal interface to OpenSSL library (used by <a class="normal" href="ssl_openssl.html">ssl_openssl</a> unit). OpenSSL 3.0 is loaded dynamicly on-demand. If this library is not found in system, requested OpenSSL function just return errorcode.</p>
+<span id="PasDoc-Uses"></span><h2 class="uses">Uses</h2>
+<ul class="useslist"><li>Classes</li><li><a href="synafpc.html">synafpc</a></li><li>Libc</li><li>SysUtils</li></ul><h2 class="overview">Visão Geral</h2>
+<span id="PasDoc-Classes"></span><h3 class="cio">Classes, Interfaces, Objetos e Registros</h3>
+<table class="classestable wide_list">
+<tr class="listheader">
+<th class="itemname">Nome</th>
+<th class="itemdesc">Descrição</th>
+</tr>
+<tr class="list">
+<td class="itemname">[Comprimido] Registro&nbsp;<a class="bold" href="ssl_openssl3_lib.des_ks_struct.html"><code>des_ks_struct</code></a></td>
+<td class="itemdesc">&nbsp;</td>
+</tr>
+</table>
+<span id="PasDoc-FuncsProcs"></span><h3 class="summary">Funções e Procedimentos</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="itemcode"><code>function <strong><a href="ssl_openssl3_lib.html#SslGetError">SslGetError</a></strong>(s: <a href="ssl_openssl3_lib.html#PSSL">PSSL</a>; ret_code: Integer):Integer;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code>function <strong><a href="ssl_openssl3_lib.html#SslCtxSetCipherList">SslCtxSetCipherList</a></strong>(arg0: <a href="ssl_openssl3_lib.html#PSSL_CTX">PSSL_CTX</a>; var str: AnsiString):Integer;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code>function <strong><a href="ssl_openssl3_lib.html#SslCtxNew">SslCtxNew</a></strong>(meth: <a href="ssl_openssl3_lib.html#PSSL_METHOD">PSSL_METHOD</a>):<a href="ssl_openssl3_lib.html#PSSL_CTX">PSSL_CTX</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code>procedure <strong><a href="ssl_openssl3_lib.html#SslCtxFree">SslCtxFree</a></strong>(arg0: <a href="ssl_openssl3_lib.html#PSSL_CTX">PSSL_CTX</a>);</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code>function <strong><a href="ssl_openssl3_lib.html#SslSetFd">SslSetFd</a></strong>(s: <a href="ssl_openssl3_lib.html#PSSL">PSSL</a>; fd: Integer):Integer;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code>function <strong><a href="ssl_openssl3_lib.html#SslMethodTLS">SslMethodTLS</a></strong>:<a href="ssl_openssl3_lib.html#PSSL_METHOD">PSSL_METHOD</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code>function <strong><a href="ssl_openssl3_lib.html#SslCtxUsePrivateKey">SslCtxUsePrivateKey</a></strong>(ctx: <a href="ssl_openssl3_lib.html#PSSL_CTX">PSSL_CTX</a>; pkey: <a href="ssl_openssl3_lib.html#SslPtr">SslPtr</a>):Integer;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code>function <strong><a href="ssl_openssl3_lib.html#SslCtxUsePrivateKeyASN1">SslCtxUsePrivateKeyASN1</a></strong>(pk: integer; ctx: <a href="ssl_openssl3_lib.html#PSSL_CTX">PSSL_CTX</a>; d: AnsiString; len: integer):Integer;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code>function <strong><a href="ssl_openssl3_lib.html#SslCtxUsePrivateKeyFile">SslCtxUsePrivateKeyFile</a></strong>(ctx: <a href="ssl_openssl3_lib.html#PSSL_CTX">PSSL_CTX</a>; const _file: AnsiString; _type: Integer):Integer;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code>function <strong><a href="ssl_openssl3_lib.html#SslCtxUseCertificate">SslCtxUseCertificate</a></strong>(ctx: <a href="ssl_openssl3_lib.html#PSSL_CTX">PSSL_CTX</a>; x: <a href="ssl_openssl3_lib.html#SslPtr">SslPtr</a>):Integer;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code>function <strong><a href="ssl_openssl3_lib.html#SslCtxUseCertificateASN1">SslCtxUseCertificateASN1</a></strong>(ctx: <a href="ssl_openssl3_lib.html#PSSL_CTX">PSSL_CTX</a>; len: integer; d: AnsiString):Integer;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code>function <strong><a href="ssl_openssl3_lib.html#SslCtxUseCertificateFile">SslCtxUseCertificateFile</a></strong>(ctx: <a href="ssl_openssl3_lib.html#PSSL_CTX">PSSL_CTX</a>; const _file: AnsiString; _type: Integer):Integer;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code>function <strong><a href="ssl_openssl3_lib.html#SslCtxUseCertificateChainFile">SslCtxUseCertificateChainFile</a></strong>(ctx: <a href="ssl_openssl3_lib.html#PSSL_CTX">PSSL_CTX</a>; const _file: AnsiString):Integer;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code>function <strong><a href="ssl_openssl3_lib.html#SslCtxCheckPrivateKeyFile">SslCtxCheckPrivateKeyFile</a></strong>(ctx: <a href="ssl_openssl3_lib.html#PSSL_CTX">PSSL_CTX</a>):Integer;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code>procedure <strong><a href="ssl_openssl3_lib.html#SslCtxSetDefaultPasswdCb">SslCtxSetDefaultPasswdCb</a></strong>(ctx: <a href="ssl_openssl3_lib.html#PSSL_CTX">PSSL_CTX</a>; cb: <a href="ssl_openssl3_lib.html#PPasswdCb">PPasswdCb</a>);</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code>procedure <strong><a href="ssl_openssl3_lib.html#SslCtxSetDefaultPasswdCbUserdata">SslCtxSetDefaultPasswdCbUserdata</a></strong>(ctx: <a href="ssl_openssl3_lib.html#PSSL_CTX">PSSL_CTX</a>; u: <a href="ssl_openssl3_lib.html#SslPtr">SslPtr</a>);</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code>function <strong><a href="ssl_openssl3_lib.html#SslCtxLoadVerifyLocations">SslCtxLoadVerifyLocations</a></strong>(ctx: <a href="ssl_openssl3_lib.html#PSSL_CTX">PSSL_CTX</a>; const CAfile: AnsiString; const CApath: AnsiString):Integer;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code>function <strong><a href="ssl_openssl3_lib.html#SslCtxCtrl">SslCtxCtrl</a></strong>(ctx: <a href="ssl_openssl3_lib.html#PSSL_CTX">PSSL_CTX</a>; cmd: integer; larg: integer; parg: <a href="ssl_openssl3_lib.html#SslPtr">SslPtr</a>): integer;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code>function <strong><a href="ssl_openssl3_lib.html#SslNew">SslNew</a></strong>(ctx: <a href="ssl_openssl3_lib.html#PSSL_CTX">PSSL_CTX</a>):<a href="ssl_openssl3_lib.html#PSSL">PSSL</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code>procedure <strong><a href="ssl_openssl3_lib.html#SslFree">SslFree</a></strong>(ssl: <a href="ssl_openssl3_lib.html#PSSL">PSSL</a>);</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code>function <strong><a href="ssl_openssl3_lib.html#SslAccept">SslAccept</a></strong>(ssl: <a href="ssl_openssl3_lib.html#PSSL">PSSL</a>):Integer;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code>function <strong><a href="ssl_openssl3_lib.html#SslConnect">SslConnect</a></strong>(ssl: <a href="ssl_openssl3_lib.html#PSSL">PSSL</a>):Integer;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code>function <strong><a href="ssl_openssl3_lib.html#SslShutdown">SslShutdown</a></strong>(ssl: <a href="ssl_openssl3_lib.html#PSSL">PSSL</a>):Integer;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code>function <strong><a href="ssl_openssl3_lib.html#SslRead">SslRead</a></strong>(ssl: <a href="ssl_openssl3_lib.html#PSSL">PSSL</a>; buf: <a href="ssl_openssl3_lib.html#SslPtr">SslPtr</a>; num: Integer):Integer;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code>function <strong><a href="ssl_openssl3_lib.html#SslPeek">SslPeek</a></strong>(ssl: <a href="ssl_openssl3_lib.html#PSSL">PSSL</a>; buf: <a href="ssl_openssl3_lib.html#SslPtr">SslPtr</a>; num: Integer):Integer;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code>function <strong><a href="ssl_openssl3_lib.html#SslWrite">SslWrite</a></strong>(ssl: <a href="ssl_openssl3_lib.html#PSSL">PSSL</a>; buf: <a href="ssl_openssl3_lib.html#SslPtr">SslPtr</a>; num: Integer):Integer;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code>function <strong><a href="ssl_openssl3_lib.html#SslPending">SslPending</a></strong>(ssl: <a href="ssl_openssl3_lib.html#PSSL">PSSL</a>):Integer;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code>function <strong><a href="ssl_openssl3_lib.html#SslGetVersion">SslGetVersion</a></strong>(ssl: <a href="ssl_openssl3_lib.html#PSSL">PSSL</a>):AnsiString;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code>function <strong><a href="ssl_openssl3_lib.html#SslGetPeerCertificate">SslGetPeerCertificate</a></strong>(ssl: <a href="ssl_openssl3_lib.html#PSSL">PSSL</a>):<a href="ssl_openssl3_lib.html#PX509">PX509</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code>procedure <strong><a href="ssl_openssl3_lib.html#SslCtxSetVerify">SslCtxSetVerify</a></strong>(ctx: <a href="ssl_openssl3_lib.html#PSSL_CTX">PSSL_CTX</a>; mode: Integer; arg2: <a href="ssl_openssl3_lib.html#PFunction">PFunction</a>);</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code>function <strong><a href="ssl_openssl3_lib.html#SSLGetCurrentCipher">SSLGetCurrentCipher</a></strong>(s: <a href="ssl_openssl3_lib.html#PSSL">PSSL</a>):<a href="ssl_openssl3_lib.html#SslPtr">SslPtr</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code>function <strong><a href="ssl_openssl3_lib.html#SSLCipherGetName">SSLCipherGetName</a></strong>(c: <a href="ssl_openssl3_lib.html#SslPtr">SslPtr</a>): AnsiString;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code>function <strong><a href="ssl_openssl3_lib.html#SSLCipherGetBits">SSLCipherGetBits</a></strong>(c: <a href="ssl_openssl3_lib.html#SslPtr">SslPtr</a>; var alg_bits: Integer):Integer;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code>function <strong><a href="ssl_openssl3_lib.html#SSLGetVerifyResult">SSLGetVerifyResult</a></strong>(ssl: <a href="ssl_openssl3_lib.html#PSSL">PSSL</a>):Integer;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code>function <strong><a href="ssl_openssl3_lib.html#SSLCtrl">SSLCtrl</a></strong>(ssl: <a href="ssl_openssl3_lib.html#PSSL">PSSL</a>; cmd: integer; larg: integer; parg: <a href="ssl_openssl3_lib.html#SslPtr">SslPtr</a>):Integer;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code>function <strong><a href="ssl_openssl3_lib.html#SslSet1Host">SslSet1Host</a></strong>(ssl: <a href="ssl_openssl3_lib.html#PSSL">PSSL</a>; hostname: PAnsiChar):Integer;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code>function <strong><a href="ssl_openssl3_lib.html#X509New">X509New</a></strong>: <a href="ssl_openssl3_lib.html#PX509">PX509</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code>procedure <strong><a href="ssl_openssl3_lib.html#X509Free">X509Free</a></strong>(x: <a href="ssl_openssl3_lib.html#PX509">PX509</a>);</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code>function <strong><a href="ssl_openssl3_lib.html#X509NameOneline">X509NameOneline</a></strong>(a: <a href="ssl_openssl3_lib.html#PX509_NAME">PX509_NAME</a>; var buf: AnsiString; size: Integer):AnsiString;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code>function <strong><a href="ssl_openssl3_lib.html#X509GetSubjectName">X509GetSubjectName</a></strong>(a: <a href="ssl_openssl3_lib.html#PX509">PX509</a>):<a href="ssl_openssl3_lib.html#PX509_NAME">PX509_NAME</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code>function <strong><a href="ssl_openssl3_lib.html#X509GetIssuerName">X509GetIssuerName</a></strong>(a: <a href="ssl_openssl3_lib.html#PX509">PX509</a>):<a href="ssl_openssl3_lib.html#PX509_NAME">PX509_NAME</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code>function <strong><a href="ssl_openssl3_lib.html#X509NameHash">X509NameHash</a></strong>(x: <a href="ssl_openssl3_lib.html#PX509_NAME">PX509_NAME</a>):Cardinal;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code>function <strong><a href="ssl_openssl3_lib.html#X509Digest">X509Digest</a></strong>(data: <a href="ssl_openssl3_lib.html#PX509">PX509</a>; _type: <a href="ssl_openssl3_lib.html#PEVP_MD">PEVP_MD</a>; md: AnsiString; var len: Integer):Integer;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code>function <strong><a href="ssl_openssl3_lib.html#X509print">X509print</a></strong>(b: <a href="ssl_openssl3_lib.html#PBIO">PBIO</a>; a: <a href="ssl_openssl3_lib.html#PX509">PX509</a>): integer;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code>function <strong><a href="ssl_openssl3_lib.html#X509SetVersion">X509SetVersion</a></strong>(x: <a href="ssl_openssl3_lib.html#PX509">PX509</a>; version: integer): integer;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code>function <strong><a href="ssl_openssl3_lib.html#X509SetPubkey">X509SetPubkey</a></strong>(x: <a href="ssl_openssl3_lib.html#PX509">PX509</a>; pkey: <a href="ssl_openssl3_lib.html#EVP_PKEY">EVP_PKEY</a>): integer;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code>function <strong><a href="ssl_openssl3_lib.html#X509SetIssuerName">X509SetIssuerName</a></strong>(x: <a href="ssl_openssl3_lib.html#PX509">PX509</a>; name: <a href="ssl_openssl3_lib.html#PX509_NAME">PX509_NAME</a>): integer;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code>function <strong><a href="ssl_openssl3_lib.html#X509NameAddEntryByTxt">X509NameAddEntryByTxt</a></strong>(name: <a href="ssl_openssl3_lib.html#PX509_NAME">PX509_NAME</a>; field: Ansistring; _type: integer; bytes: Ansistring; len, loc, _set: integer): integer;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code>function <strong><a href="ssl_openssl3_lib.html#X509Sign">X509Sign</a></strong>(x: <a href="ssl_openssl3_lib.html#PX509">PX509</a>; pkey: <a href="ssl_openssl3_lib.html#EVP_PKEY">EVP_PKEY</a>; const md: <a href="ssl_openssl3_lib.html#PEVP_MD">PEVP_MD</a>): integer;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code>function <strong><a href="ssl_openssl3_lib.html#X509GmtimeAdj">X509GmtimeAdj</a></strong>(s: <a href="ssl_openssl3_lib.html#PASN1_UTCTIME">PASN1_UTCTIME</a>; adj: integer): <a href="ssl_openssl3_lib.html#PASN1_UTCTIME">PASN1_UTCTIME</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code>function <strong><a href="ssl_openssl3_lib.html#X509SetNotBefore">X509SetNotBefore</a></strong>(x: <a href="ssl_openssl3_lib.html#PX509">PX509</a>; tm: <a href="ssl_openssl3_lib.html#PASN1_UTCTIME">PASN1_UTCTIME</a>): integer;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code>function <strong><a href="ssl_openssl3_lib.html#X509SetNotAfter">X509SetNotAfter</a></strong>(x: <a href="ssl_openssl3_lib.html#PX509">PX509</a>; tm: <a href="ssl_openssl3_lib.html#PASN1_UTCTIME">PASN1_UTCTIME</a>): integer;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code>function <strong><a href="ssl_openssl3_lib.html#X509GetSerialNumber">X509GetSerialNumber</a></strong>(x: <a href="ssl_openssl3_lib.html#PX509">PX509</a>): <a href="ssl_openssl3_lib.html#PASN1_INTEGER">PASN1_INTEGER</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code>function <strong><a href="ssl_openssl3_lib.html#EvpPkeyNew">EvpPkeyNew</a></strong>: <a href="ssl_openssl3_lib.html#EVP_PKEY">EVP_PKEY</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code>procedure <strong><a href="ssl_openssl3_lib.html#EvpPkeyFree">EvpPkeyFree</a></strong>(pk: <a href="ssl_openssl3_lib.html#EVP_PKEY">EVP_PKEY</a>);</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code>function <strong><a href="ssl_openssl3_lib.html#EvpPkeyAssign">EvpPkeyAssign</a></strong>(pkey: <a href="ssl_openssl3_lib.html#EVP_PKEY">EVP_PKEY</a>; _type: integer; key: <a href="ssl_openssl3_lib.html#PRSA">Prsa</a>): integer;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code>function <strong><a href="ssl_openssl3_lib.html#EvpGetDigestByName">EvpGetDigestByName</a></strong>(Name: AnsiString): <a href="ssl_openssl3_lib.html#PEVP_MD">PEVP_MD</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code>function <strong><a href="ssl_openssl3_lib.html#OpenSSLversion">OpenSSLversion</a></strong>(t: integer): Ansistring;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code>procedure <strong><a href="ssl_openssl3_lib.html#ErrErrorString">ErrErrorString</a></strong>(e: integer; var buf: Ansistring; len: integer);</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code>function <strong><a href="ssl_openssl3_lib.html#ErrGetError">ErrGetError</a></strong>: integer;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code>procedure <strong><a href="ssl_openssl3_lib.html#ErrClearError">ErrClearError</a></strong>;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code>function <strong><a href="ssl_openssl3_lib.html#BioNew">BioNew</a></strong>(b: <a href="ssl_openssl3_lib.html#PBIO_METHOD">PBIO_METHOD</a>): <a href="ssl_openssl3_lib.html#PBIO">PBIO</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code>procedure <strong><a href="ssl_openssl3_lib.html#BioFreeAll">BioFreeAll</a></strong>(b: <a href="ssl_openssl3_lib.html#PBIO">PBIO</a>);</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code>function <strong><a href="ssl_openssl3_lib.html#BioSMem">BioSMem</a></strong>: <a href="ssl_openssl3_lib.html#PBIO_METHOD">PBIO_METHOD</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code>function <strong><a href="ssl_openssl3_lib.html#BioCtrlPending">BioCtrlPending</a></strong>(b: <a href="ssl_openssl3_lib.html#PBIO">PBIO</a>): integer;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code>function <strong><a href="ssl_openssl3_lib.html#BioRead">BioRead</a></strong>(b: <a href="ssl_openssl3_lib.html#PBIO">PBIO</a>; var Buf: AnsiString; Len: integer): integer;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code>function <strong><a href="ssl_openssl3_lib.html#BioWrite">BioWrite</a></strong>(b: <a href="ssl_openssl3_lib.html#PBIO">PBIO</a>; Buf: AnsiString; Len: integer): integer;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code>function <strong><a href="ssl_openssl3_lib.html#d2iPKCS12bio">d2iPKCS12bio</a></strong>(b:<a href="ssl_openssl3_lib.html#PBIO">PBIO</a>; Pkcs12: <a href="ssl_openssl3_lib.html#SslPtr">SslPtr</a>): <a href="ssl_openssl3_lib.html#SslPtr">SslPtr</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code>function <strong><a href="ssl_openssl3_lib.html#PKCS12parse">PKCS12parse</a></strong>(p12: <a href="ssl_openssl3_lib.html#SslPtr">SslPtr</a>; pass: Ansistring; var pkey, cert, ca: <a href="ssl_openssl3_lib.html#SslPtr">SslPtr</a>): integer;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code>procedure <strong><a href="ssl_openssl3_lib.html#PKCS12free">PKCS12free</a></strong>(p12: <a href="ssl_openssl3_lib.html#SslPtr">SslPtr</a>);</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code>function <strong><a href="ssl_openssl3_lib.html#RsaGenerateKey">RsaGenerateKey</a></strong>(bits, e: integer; callback: <a href="ssl_openssl3_lib.html#PFunction">PFunction</a>; cb_arg: <a href="ssl_openssl3_lib.html#SslPtr">SslPtr</a>): <a href="ssl_openssl3_lib.html#PRSA">PRSA</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code>function <strong><a href="ssl_openssl3_lib.html#Asn1UtctimeNew">Asn1UtctimeNew</a></strong>: <a href="ssl_openssl3_lib.html#PASN1_UTCTIME">PASN1_UTCTIME</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code>procedure <strong><a href="ssl_openssl3_lib.html#Asn1UtctimeFree">Asn1UtctimeFree</a></strong>(a: <a href="ssl_openssl3_lib.html#PASN1_UTCTIME">PASN1_UTCTIME</a>);</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code>function <strong><a href="ssl_openssl3_lib.html#Asn1IntegerSet">Asn1IntegerSet</a></strong>(a: <a href="ssl_openssl3_lib.html#PASN1_INTEGER">PASN1_INTEGER</a>; v: integer): integer;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code>function <strong><a href="ssl_openssl3_lib.html#Asn1IntegerGet">Asn1IntegerGet</a></strong>(a: <a href="ssl_openssl3_lib.html#PASN1_INTEGER">PASN1_INTEGER</a>): integer;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code>function <strong><a href="ssl_openssl3_lib.html#i2dX509bio">i2dX509bio</a></strong>(b: <a href="ssl_openssl3_lib.html#PBIO">PBIO</a>; x: <a href="ssl_openssl3_lib.html#PX509">PX509</a>): integer;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code>function <strong><a href="ssl_openssl3_lib.html#d2iX509bio">d2iX509bio</a></strong>(b:<a href="ssl_openssl3_lib.html#PBIO">PBIO</a>; x:<a href="ssl_openssl3_lib.html#PX509">PX509</a>): <a href="ssl_openssl3_lib.html#PX509">PX509</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code>function <strong><a href="ssl_openssl3_lib.html#PEMReadBioX509">PEMReadBioX509</a></strong>(b:<a href="ssl_openssl3_lib.html#PBIO">PBIO</a>; x:<a href="ssl_openssl3_lib.html#PSslPtr">PSslPtr</a>; callback:<a href="ssl_openssl3_lib.html#PFunction">PFunction</a>; cb_arg: <a href="ssl_openssl3_lib.html#SslPtr">SslPtr</a>): <a href="ssl_openssl3_lib.html#PX509">PX509</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code>procedure <strong><a href="ssl_openssl3_lib.html#SkX509PopFree">SkX509PopFree</a></strong>(st: <a href="ssl_openssl3_lib.html#PSTACK">PSTACK</a>; func: <a href="ssl_openssl3_lib.html#TSkPopFreeFunc">TSkPopFreeFunc</a>);</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code>function <strong><a href="ssl_openssl3_lib.html#OPENSSL_sk_num">OPENSSL_sk_num</a></strong>(Stack: <a href="ssl_openssl3_lib.html#PSTACK">PSTACK</a>): Integer;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code>function <strong><a href="ssl_openssl3_lib.html#OPENSSL_sk_value">OPENSSL_sk_value</a></strong>(Stack: <a href="ssl_openssl3_lib.html#PSTACK">PSTACK</a>; Item: Integer): PAnsiChar;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code>function <strong><a href="ssl_openssl3_lib.html#X509_STORE_add_cert">X509_STORE_add_cert</a></strong>(Store: <a href="ssl_openssl3_lib.html#PX509_STORE">PX509_STORE</a>; Cert: <a href="ssl_openssl3_lib.html#PX509">PX509</a>): Integer;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code>function <strong><a href="ssl_openssl3_lib.html#SSL_CTX_get_cert_store">SSL_CTX_get_cert_store</a></strong>(const Ctx: <a href="ssl_openssl3_lib.html#PSSL_CTX">PSSL_CTX</a>): <a href="ssl_openssl3_lib.html#PX509_STORE">PX509_STORE</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code>function <strong><a href="ssl_openssl3_lib.html#i2dPrivateKeyBio">i2dPrivateKeyBio</a></strong>(b: <a href="ssl_openssl3_lib.html#PBIO">PBIO</a>; pkey: <a href="ssl_openssl3_lib.html#EVP_PKEY">EVP_PKEY</a>): integer;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code>procedure <strong><a href="ssl_openssl3_lib.html#DESsetoddparity">DESsetoddparity</a></strong>(Key: <a href="ssl_openssl3_lib.html#DES_cblock">des_cblock</a>);</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code>function <strong><a href="ssl_openssl3_lib.html#DESsetkeychecked">DESsetkeychecked</a></strong>(key: <a href="ssl_openssl3_lib.html#DES_cblock">des_cblock</a>; schedule: <a href="ssl_openssl3_lib.html#des_key_schedule">des_key_schedule</a>): Integer;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code>procedure <strong><a href="ssl_openssl3_lib.html#DESecbencrypt">DESecbencrypt</a></strong>(Input: <a href="ssl_openssl3_lib.html#DES_cblock">des_cblock</a>; output: <a href="ssl_openssl3_lib.html#DES_cblock">des_cblock</a>; ks: <a href="ssl_openssl3_lib.html#des_key_schedule">des_key_schedule</a>; enc: Integer);</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code>function <strong><a href="ssl_openssl3_lib.html#IsSSLloaded">IsSSLloaded</a></strong>: Boolean;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code>function <strong><a href="ssl_openssl3_lib.html#InitSSLInterface">InitSSLInterface</a></strong>: Boolean;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code>function <strong><a href="ssl_openssl3_lib.html#DestroySSLInterface">DestroySSLInterface</a></strong>: Boolean;</code></td>
+</tr>
+</table>
+<span id="PasDoc-Types"></span><h3 class="summary">Tipos</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="itemcode"><code><strong><a href="ssl_openssl3_lib.html#SslPtr">SslPtr</a></strong> = Pointer;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><strong><a href="ssl_openssl3_lib.html#PSslPtr">PSslPtr</a></strong> = &circ;<a href="ssl_openssl3_lib.html#SslPtr">SslPtr</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><strong><a href="ssl_openssl3_lib.html#PSSL_CTX">PSSL_CTX</a></strong> = <a href="ssl_openssl3_lib.html#SslPtr">SslPtr</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><strong><a href="ssl_openssl3_lib.html#PSSL">PSSL</a></strong> = <a href="ssl_openssl3_lib.html#SslPtr">SslPtr</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><strong><a href="ssl_openssl3_lib.html#PSSL_METHOD">PSSL_METHOD</a></strong> = <a href="ssl_openssl3_lib.html#SslPtr">SslPtr</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><strong><a href="ssl_openssl3_lib.html#PX509">PX509</a></strong> = <a href="ssl_openssl3_lib.html#SslPtr">SslPtr</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><strong><a href="ssl_openssl3_lib.html#PX509_NAME">PX509_NAME</a></strong> = <a href="ssl_openssl3_lib.html#SslPtr">SslPtr</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><strong><a href="ssl_openssl3_lib.html#PX509_STORE">PX509_STORE</a></strong> = Pointer;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><strong><a href="ssl_openssl3_lib.html#PEVP_MD">PEVP_MD</a></strong>	= <a href="ssl_openssl3_lib.html#SslPtr">SslPtr</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><strong><a href="ssl_openssl3_lib.html#PInteger">PInteger</a></strong> = &circ;Integer;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><strong><a href="ssl_openssl3_lib.html#PBIO_METHOD">PBIO_METHOD</a></strong> = <a href="ssl_openssl3_lib.html#SslPtr">SslPtr</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><strong><a href="ssl_openssl3_lib.html#PBIO">PBIO</a></strong> = <a href="ssl_openssl3_lib.html#SslPtr">SslPtr</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><strong><a href="ssl_openssl3_lib.html#EVP_PKEY">EVP_PKEY</a></strong> = <a href="ssl_openssl3_lib.html#SslPtr">SslPtr</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><strong><a href="ssl_openssl3_lib.html#PRSA">PRSA</a></strong> = <a href="ssl_openssl3_lib.html#SslPtr">SslPtr</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><strong><a href="ssl_openssl3_lib.html#PASN1_UTCTIME">PASN1_UTCTIME</a></strong> = <a href="ssl_openssl3_lib.html#SslPtr">SslPtr</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><strong><a href="ssl_openssl3_lib.html#PASN1_INTEGER">PASN1_INTEGER</a></strong> = <a href="ssl_openssl3_lib.html#SslPtr">SslPtr</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><strong><a href="ssl_openssl3_lib.html#PPasswdCb">PPasswdCb</a></strong> = <a href="ssl_openssl3_lib.html#SslPtr">SslPtr</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><strong><a href="ssl_openssl3_lib.html#PFunction">PFunction</a></strong> = procedure;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><strong><a href="ssl_openssl3_lib.html#PSTACK">PSTACK</a></strong> = <a href="ssl_openssl3_lib.html#SslPtr">SslPtr</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><strong><a href="ssl_openssl3_lib.html#TSkPopFreeFunc">TSkPopFreeFunc</a></strong> = procedure(p:<a href="ssl_openssl3_lib.html#SslPtr">SslPtr</a>); cdecl;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><strong><a href="ssl_openssl3_lib.html#TX509Free">TX509Free</a></strong> = procedure(x: <a href="ssl_openssl3_lib.html#PX509">PX509</a>); cdecl;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><strong><a href="ssl_openssl3_lib.html#DES_cblock">DES_cblock</a></strong> = array[0..7] of Byte;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><strong><a href="ssl_openssl3_lib.html#PDES_cblock">PDES_cblock</a></strong> = &circ;<a href="ssl_openssl3_lib.html#DES_cblock">DES_cblock</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><strong><a href="ssl_openssl3_lib.html#des_key_schedule">des_key_schedule</a></strong> = array[1..16] of <a href="ssl_openssl3_lib.des_ks_struct.html">des_ks_struct</a>;</code></td>
+</tr>
+</table>
+<span id="PasDoc-Constants"></span><h3 class="summary">Constantes</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="itemcode"><code><strong><a href="ssl_openssl3_lib.html#EVP_MAX_MD_SIZE">EVP_MAX_MD_SIZE</a></strong> = 16 + 20;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><strong><a href="ssl_openssl3_lib.html#SSL_ERROR_NONE">SSL_ERROR_NONE</a></strong> = 0;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><strong><a href="ssl_openssl3_lib.html#SSL_ERROR_SSL">SSL_ERROR_SSL</a></strong> = 1;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><strong><a href="ssl_openssl3_lib.html#SSL_ERROR_WANT_READ">SSL_ERROR_WANT_READ</a></strong> = 2;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><strong><a href="ssl_openssl3_lib.html#SSL_ERROR_WANT_WRITE">SSL_ERROR_WANT_WRITE</a></strong> = 3;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><strong><a href="ssl_openssl3_lib.html#SSL_ERROR_WANT_X509_LOOKUP">SSL_ERROR_WANT_X509_LOOKUP</a></strong> = 4;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><strong><a href="ssl_openssl3_lib.html#SSL_ERROR_SYSCALL">SSL_ERROR_SYSCALL</a></strong> = 5;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><strong><a href="ssl_openssl3_lib.html#SSL_ERROR_ZERO_RETURN">SSL_ERROR_ZERO_RETURN</a></strong> = 6;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><strong><a href="ssl_openssl3_lib.html#SSL_ERROR_WANT_CONNECT">SSL_ERROR_WANT_CONNECT</a></strong> = 7;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><strong><a href="ssl_openssl3_lib.html#SSL_ERROR_WANT_ACCEPT">SSL_ERROR_WANT_ACCEPT</a></strong> = 8;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><strong><a href="ssl_openssl3_lib.html#SSL_OP_NO_SSLv2">SSL_OP_NO_SSLv2</a></strong> = $01000000;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><strong><a href="ssl_openssl3_lib.html#SSL_OP_NO_SSLv3">SSL_OP_NO_SSLv3</a></strong> = $02000000;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><strong><a href="ssl_openssl3_lib.html#SSL_OP_NO_TLSv1">SSL_OP_NO_TLSv1</a></strong> = $04000000;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><strong><a href="ssl_openssl3_lib.html#SSL_OP_ALL">SSL_OP_ALL</a></strong> = $000FFFFF;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><strong><a href="ssl_openssl3_lib.html#SSL_VERIFY_NONE">SSL_VERIFY_NONE</a></strong> = $00;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><strong><a href="ssl_openssl3_lib.html#SSL_VERIFY_PEER">SSL_VERIFY_PEER</a></strong> = $01;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><strong><a href="ssl_openssl3_lib.html#OPENSSL_DES_DECRYPT">OPENSSL_DES_DECRYPT</a></strong> = 0;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><strong><a href="ssl_openssl3_lib.html#OPENSSL_DES_ENCRYPT">OPENSSL_DES_ENCRYPT</a></strong> = 1;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><strong><a href="ssl_openssl3_lib.html#X509_V_OK">X509_V_OK</a></strong> =	0;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><strong><a href="ssl_openssl3_lib.html#X509_V_ILLEGAL">X509_V_ILLEGAL</a></strong> = 1;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><strong><a href="ssl_openssl3_lib.html#X509_V_ERR_UNABLE_TO_GET_ISSUER_CERT">X509_V_ERR_UNABLE_TO_GET_ISSUER_CERT</a></strong> = 2;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><strong><a href="ssl_openssl3_lib.html#X509_V_ERR_UNABLE_TO_GET_CRL">X509_V_ERR_UNABLE_TO_GET_CRL</a></strong> = 3;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><strong><a href="ssl_openssl3_lib.html#X509_V_ERR_UNABLE_TO_DECRYPT_CERT_SIGNATURE">X509_V_ERR_UNABLE_TO_DECRYPT_CERT_SIGNATURE</a></strong> = 4;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><strong><a href="ssl_openssl3_lib.html#X509_V_ERR_UNABLE_TO_DECRYPT_CRL_SIGNATURE">X509_V_ERR_UNABLE_TO_DECRYPT_CRL_SIGNATURE</a></strong> = 5;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><strong><a href="ssl_openssl3_lib.html#X509_V_ERR_UNABLE_TO_DECODE_ISSUER_PUBLIC_KEY">X509_V_ERR_UNABLE_TO_DECODE_ISSUER_PUBLIC_KEY</a></strong> = 6;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><strong><a href="ssl_openssl3_lib.html#X509_V_ERR_CERT_SIGNATURE_FAILURE">X509_V_ERR_CERT_SIGNATURE_FAILURE</a></strong> = 7;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><strong><a href="ssl_openssl3_lib.html#X509_V_ERR_CRL_SIGNATURE_FAILURE">X509_V_ERR_CRL_SIGNATURE_FAILURE</a></strong> = 8;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><strong><a href="ssl_openssl3_lib.html#X509_V_ERR_CERT_NOT_YET_VALID">X509_V_ERR_CERT_NOT_YET_VALID</a></strong> = 9;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><strong><a href="ssl_openssl3_lib.html#X509_V_ERR_CERT_HAS_EXPIRED">X509_V_ERR_CERT_HAS_EXPIRED</a></strong> = 10;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><strong><a href="ssl_openssl3_lib.html#X509_V_ERR_CRL_NOT_YET_VALID">X509_V_ERR_CRL_NOT_YET_VALID</a></strong> = 11;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><strong><a href="ssl_openssl3_lib.html#X509_V_ERR_CRL_HAS_EXPIRED">X509_V_ERR_CRL_HAS_EXPIRED</a></strong> = 12;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><strong><a href="ssl_openssl3_lib.html#X509_V_ERR_ERROR_IN_CERT_NOT_BEFORE_FIELD">X509_V_ERR_ERROR_IN_CERT_NOT_BEFORE_FIELD</a></strong> = 13;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><strong><a href="ssl_openssl3_lib.html#X509_V_ERR_ERROR_IN_CERT_NOT_AFTER_FIELD">X509_V_ERR_ERROR_IN_CERT_NOT_AFTER_FIELD</a></strong> = 14;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><strong><a href="ssl_openssl3_lib.html#X509_V_ERR_ERROR_IN_CRL_LAST_UPDATE_FIELD">X509_V_ERR_ERROR_IN_CRL_LAST_UPDATE_FIELD</a></strong> = 15;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><strong><a href="ssl_openssl3_lib.html#X509_V_ERR_ERROR_IN_CRL_NEXT_UPDATE_FIELD">X509_V_ERR_ERROR_IN_CRL_NEXT_UPDATE_FIELD</a></strong> = 16;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><strong><a href="ssl_openssl3_lib.html#X509_V_ERR_OUT_OF_MEM">X509_V_ERR_OUT_OF_MEM</a></strong> = 17;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><strong><a href="ssl_openssl3_lib.html#X509_V_ERR_DEPTH_ZERO_SELF_SIGNED_CERT">X509_V_ERR_DEPTH_ZERO_SELF_SIGNED_CERT</a></strong> = 18;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><strong><a href="ssl_openssl3_lib.html#X509_V_ERR_SELF_SIGNED_CERT_IN_CHAIN">X509_V_ERR_SELF_SIGNED_CERT_IN_CHAIN</a></strong> = 19;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><strong><a href="ssl_openssl3_lib.html#X509_V_ERR_UNABLE_TO_GET_ISSUER_CERT_LOCALLY">X509_V_ERR_UNABLE_TO_GET_ISSUER_CERT_LOCALLY</a></strong> = 20;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><strong><a href="ssl_openssl3_lib.html#X509_V_ERR_UNABLE_TO_VERIFY_LEAF_SIGNATURE">X509_V_ERR_UNABLE_TO_VERIFY_LEAF_SIGNATURE</a></strong> = 21;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><strong><a href="ssl_openssl3_lib.html#X509_V_ERR_CERT_CHAIN_TOO_LONG">X509_V_ERR_CERT_CHAIN_TOO_LONG</a></strong> = 22;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><strong><a href="ssl_openssl3_lib.html#X509_V_ERR_CERT_REVOKED">X509_V_ERR_CERT_REVOKED</a></strong> = 23;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><strong><a href="ssl_openssl3_lib.html#X509_V_ERR_INVALID_CA">X509_V_ERR_INVALID_CA</a></strong> = 24;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><strong><a href="ssl_openssl3_lib.html#X509_V_ERR_PATH_LENGTH_EXCEEDED">X509_V_ERR_PATH_LENGTH_EXCEEDED</a></strong> = 25;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><strong><a href="ssl_openssl3_lib.html#X509_V_ERR_INVALID_PURPOSE">X509_V_ERR_INVALID_PURPOSE</a></strong> = 26;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><strong><a href="ssl_openssl3_lib.html#X509_V_ERR_CERT_UNTRUSTED">X509_V_ERR_CERT_UNTRUSTED</a></strong> = 27;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><strong><a href="ssl_openssl3_lib.html#X509_V_ERR_CERT_REJECTED">X509_V_ERR_CERT_REJECTED</a></strong> = 28;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><strong><a href="ssl_openssl3_lib.html#X509_V_ERR_SUBJECT_ISSUER_MISMATCH">X509_V_ERR_SUBJECT_ISSUER_MISMATCH</a></strong> = 29;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><strong><a href="ssl_openssl3_lib.html#X509_V_ERR_AKID_SKID_MISMATCH">X509_V_ERR_AKID_SKID_MISMATCH</a></strong> = 30;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><strong><a href="ssl_openssl3_lib.html#X509_V_ERR_AKID_ISSUER_SERIAL_MISMATCH">X509_V_ERR_AKID_ISSUER_SERIAL_MISMATCH</a></strong> = 31;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><strong><a href="ssl_openssl3_lib.html#X509_V_ERR_KEYUSAGE_NO_CERTSIGN">X509_V_ERR_KEYUSAGE_NO_CERTSIGN</a></strong> = 32;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><strong><a href="ssl_openssl3_lib.html#X509_V_ERR_UNABLE_TO_GET_CRL_ISSUER">X509_V_ERR_UNABLE_TO_GET_CRL_ISSUER</a></strong> = 33;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><strong><a href="ssl_openssl3_lib.html#X509_V_ERR_UNHANDLED_CRITICAL_EXTENSION">X509_V_ERR_UNHANDLED_CRITICAL_EXTENSION</a></strong> = 34;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><strong><a href="ssl_openssl3_lib.html#X509_V_ERR_APPLICATION_VERIFICATION">X509_V_ERR_APPLICATION_VERIFICATION</a></strong> = 50;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><strong><a href="ssl_openssl3_lib.html#SSL_FILETYPE_ASN1">SSL_FILETYPE_ASN1</a></strong>	= 2;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><strong><a href="ssl_openssl3_lib.html#SSL_FILETYPE_PEM">SSL_FILETYPE_PEM</a></strong> = 1;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><strong><a href="ssl_openssl3_lib.html#EVP_PKEY_RSA">EVP_PKEY_RSA</a></strong> = 6;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><strong><a href="ssl_openssl3_lib.html#SSL_CTRL_SET_TLSEXT_HOSTNAME">SSL_CTRL_SET_TLSEXT_HOSTNAME</a></strong> = 55;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><strong><a href="ssl_openssl3_lib.html#SSL_CTRL_SET_MIN_PROTO_VERSION">SSL_CTRL_SET_MIN_PROTO_VERSION</a></strong> = 123;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><strong><a href="ssl_openssl3_lib.html#SSL_CTRL_SET_MAX_PROTO_VERSION">SSL_CTRL_SET_MAX_PROTO_VERSION</a></strong> = 124;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><strong><a href="ssl_openssl3_lib.html#TLSEXT_NAMETYPE_host_name">TLSEXT_NAMETYPE_host_name</a></strong> = 0;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><strong><a href="ssl_openssl3_lib.html#TLS1_VERSION">TLS1_VERSION</a></strong> = $0301;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><strong><a href="ssl_openssl3_lib.html#TLS1_1_VERSION">TLS1_1_VERSION</a></strong> = $0302;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><strong><a href="ssl_openssl3_lib.html#TLS1_2_VERSION">TLS1_2_VERSION</a></strong> = $0303;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><strong><a href="ssl_openssl3_lib.html#TLS1_3_VERSION">TLS1_3_VERSION</a></strong> = $0304;</code></td>
+</tr>
+</table>
+<span id="PasDoc-Variables"></span><h3 class="summary">Variáveis</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="itemcode"><code><strong><a href="ssl_openssl3_lib.html#DLLSSLName">DLLSSLName</a></strong>: string = 'libssl.so.3';</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><strong><a href="ssl_openssl3_lib.html#DLLUtilName">DLLUtilName</a></strong>: string = 'libcrypto.so.3';</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><strong><a href="ssl_openssl3_lib.html#SSLLibHandle">SSLLibHandle</a></strong>: <a href="synafpc.html#TLibHandle">TLibHandle</a> = 0;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><strong><a href="ssl_openssl3_lib.html#SSLUtilHandle">SSLUtilHandle</a></strong>: <a href="synafpc.html#TLibHandle">TLibHandle</a> = 0;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><strong><a href="ssl_openssl3_lib.html#SSLLibFile">SSLLibFile</a></strong>: string = '';</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><strong><a href="ssl_openssl3_lib.html#SSLUtilFile">SSLUtilFile</a></strong>: string = '';</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><strong><a href="ssl_openssl3_lib.html#_X509Free">_X509Free</a></strong>: <a href="ssl_openssl3_lib.html#TX509Free">TX509Free</a> = nil;</code></td>
+</tr>
+</table>
+<h2 class="description">Descrição</h2>
+<h3 class="detail">Funções e Procedimentos</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="SslGetError"></span><code>function <strong>SslGetError</strong>(s: <a href="ssl_openssl3_lib.html#PSSL">PSSL</a>; ret_code: Integer):Integer;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="SslCtxSetCipherList"></span><code>function <strong>SslCtxSetCipherList</strong>(arg0: <a href="ssl_openssl3_lib.html#PSSL_CTX">PSSL_CTX</a>; var str: AnsiString):Integer;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="SslCtxNew"></span><code>function <strong>SslCtxNew</strong>(meth: <a href="ssl_openssl3_lib.html#PSSL_METHOD">PSSL_METHOD</a>):<a href="ssl_openssl3_lib.html#PSSL_CTX">PSSL_CTX</a>;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="SslCtxFree"></span><code>procedure <strong>SslCtxFree</strong>(arg0: <a href="ssl_openssl3_lib.html#PSSL_CTX">PSSL_CTX</a>);</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="SslSetFd"></span><code>function <strong>SslSetFd</strong>(s: <a href="ssl_openssl3_lib.html#PSSL">PSSL</a>; fd: Integer):Integer;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="SslMethodTLS"></span><code>function <strong>SslMethodTLS</strong>:<a href="ssl_openssl3_lib.html#PSSL_METHOD">PSSL_METHOD</a>;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="SslCtxUsePrivateKey"></span><code>function <strong>SslCtxUsePrivateKey</strong>(ctx: <a href="ssl_openssl3_lib.html#PSSL_CTX">PSSL_CTX</a>; pkey: <a href="ssl_openssl3_lib.html#SslPtr">SslPtr</a>):Integer;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="SslCtxUsePrivateKeyASN1"></span><code>function <strong>SslCtxUsePrivateKeyASN1</strong>(pk: integer; ctx: <a href="ssl_openssl3_lib.html#PSSL_CTX">PSSL_CTX</a>; d: AnsiString; len: integer):Integer;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="SslCtxUsePrivateKeyFile"></span><code>function <strong>SslCtxUsePrivateKeyFile</strong>(ctx: <a href="ssl_openssl3_lib.html#PSSL_CTX">PSSL_CTX</a>; const _file: AnsiString; _type: Integer):Integer;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="SslCtxUseCertificate"></span><code>function <strong>SslCtxUseCertificate</strong>(ctx: <a href="ssl_openssl3_lib.html#PSSL_CTX">PSSL_CTX</a>; x: <a href="ssl_openssl3_lib.html#SslPtr">SslPtr</a>):Integer;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="SslCtxUseCertificateASN1"></span><code>function <strong>SslCtxUseCertificateASN1</strong>(ctx: <a href="ssl_openssl3_lib.html#PSSL_CTX">PSSL_CTX</a>; len: integer; d: AnsiString):Integer;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="SslCtxUseCertificateFile"></span><code>function <strong>SslCtxUseCertificateFile</strong>(ctx: <a href="ssl_openssl3_lib.html#PSSL_CTX">PSSL_CTX</a>; const _file: AnsiString; _type: Integer):Integer;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="SslCtxUseCertificateChainFile"></span><code>function <strong>SslCtxUseCertificateChainFile</strong>(ctx: <a href="ssl_openssl3_lib.html#PSSL_CTX">PSSL_CTX</a>; const _file: AnsiString):Integer;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="SslCtxCheckPrivateKeyFile"></span><code>function <strong>SslCtxCheckPrivateKeyFile</strong>(ctx: <a href="ssl_openssl3_lib.html#PSSL_CTX">PSSL_CTX</a>):Integer;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="SslCtxSetDefaultPasswdCb"></span><code>procedure <strong>SslCtxSetDefaultPasswdCb</strong>(ctx: <a href="ssl_openssl3_lib.html#PSSL_CTX">PSSL_CTX</a>; cb: <a href="ssl_openssl3_lib.html#PPasswdCb">PPasswdCb</a>);</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="SslCtxSetDefaultPasswdCbUserdata"></span><code>procedure <strong>SslCtxSetDefaultPasswdCbUserdata</strong>(ctx: <a href="ssl_openssl3_lib.html#PSSL_CTX">PSSL_CTX</a>; u: <a href="ssl_openssl3_lib.html#SslPtr">SslPtr</a>);</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="SslCtxLoadVerifyLocations"></span><code>function <strong>SslCtxLoadVerifyLocations</strong>(ctx: <a href="ssl_openssl3_lib.html#PSSL_CTX">PSSL_CTX</a>; const CAfile: AnsiString; const CApath: AnsiString):Integer;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="SslCtxCtrl"></span><code>function <strong>SslCtxCtrl</strong>(ctx: <a href="ssl_openssl3_lib.html#PSSL_CTX">PSSL_CTX</a>; cmd: integer; larg: integer; parg: <a href="ssl_openssl3_lib.html#SslPtr">SslPtr</a>): integer;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="SslNew"></span><code>function <strong>SslNew</strong>(ctx: <a href="ssl_openssl3_lib.html#PSSL_CTX">PSSL_CTX</a>):<a href="ssl_openssl3_lib.html#PSSL">PSSL</a>;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="SslFree"></span><code>procedure <strong>SslFree</strong>(ssl: <a href="ssl_openssl3_lib.html#PSSL">PSSL</a>);</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="SslAccept"></span><code>function <strong>SslAccept</strong>(ssl: <a href="ssl_openssl3_lib.html#PSSL">PSSL</a>):Integer;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="SslConnect"></span><code>function <strong>SslConnect</strong>(ssl: <a href="ssl_openssl3_lib.html#PSSL">PSSL</a>):Integer;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="SslShutdown"></span><code>function <strong>SslShutdown</strong>(ssl: <a href="ssl_openssl3_lib.html#PSSL">PSSL</a>):Integer;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="SslRead"></span><code>function <strong>SslRead</strong>(ssl: <a href="ssl_openssl3_lib.html#PSSL">PSSL</a>; buf: <a href="ssl_openssl3_lib.html#SslPtr">SslPtr</a>; num: Integer):Integer;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="SslPeek"></span><code>function <strong>SslPeek</strong>(ssl: <a href="ssl_openssl3_lib.html#PSSL">PSSL</a>; buf: <a href="ssl_openssl3_lib.html#SslPtr">SslPtr</a>; num: Integer):Integer;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="SslWrite"></span><code>function <strong>SslWrite</strong>(ssl: <a href="ssl_openssl3_lib.html#PSSL">PSSL</a>; buf: <a href="ssl_openssl3_lib.html#SslPtr">SslPtr</a>; num: Integer):Integer;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="SslPending"></span><code>function <strong>SslPending</strong>(ssl: <a href="ssl_openssl3_lib.html#PSSL">PSSL</a>):Integer;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="SslGetVersion"></span><code>function <strong>SslGetVersion</strong>(ssl: <a href="ssl_openssl3_lib.html#PSSL">PSSL</a>):AnsiString;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="SslGetPeerCertificate"></span><code>function <strong>SslGetPeerCertificate</strong>(ssl: <a href="ssl_openssl3_lib.html#PSSL">PSSL</a>):<a href="ssl_openssl3_lib.html#PX509">PX509</a>;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="SslCtxSetVerify"></span><code>procedure <strong>SslCtxSetVerify</strong>(ctx: <a href="ssl_openssl3_lib.html#PSSL_CTX">PSSL_CTX</a>; mode: Integer; arg2: <a href="ssl_openssl3_lib.html#PFunction">PFunction</a>);</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="SSLGetCurrentCipher"></span><code>function <strong>SSLGetCurrentCipher</strong>(s: <a href="ssl_openssl3_lib.html#PSSL">PSSL</a>):<a href="ssl_openssl3_lib.html#SslPtr">SslPtr</a>;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="SSLCipherGetName"></span><code>function <strong>SSLCipherGetName</strong>(c: <a href="ssl_openssl3_lib.html#SslPtr">SslPtr</a>): AnsiString;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="SSLCipherGetBits"></span><code>function <strong>SSLCipherGetBits</strong>(c: <a href="ssl_openssl3_lib.html#SslPtr">SslPtr</a>; var alg_bits: Integer):Integer;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="SSLGetVerifyResult"></span><code>function <strong>SSLGetVerifyResult</strong>(ssl: <a href="ssl_openssl3_lib.html#PSSL">PSSL</a>):Integer;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="SSLCtrl"></span><code>function <strong>SSLCtrl</strong>(ssl: <a href="ssl_openssl3_lib.html#PSSL">PSSL</a>; cmd: integer; larg: integer; parg: <a href="ssl_openssl3_lib.html#SslPtr">SslPtr</a>):Integer;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="SslSet1Host"></span><code>function <strong>SslSet1Host</strong>(ssl: <a href="ssl_openssl3_lib.html#PSSL">PSSL</a>; hostname: PAnsiChar):Integer;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="X509New"></span><code>function <strong>X509New</strong>: <a href="ssl_openssl3_lib.html#PX509">PX509</a>;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="X509Free"></span><code>procedure <strong>X509Free</strong>(x: <a href="ssl_openssl3_lib.html#PX509">PX509</a>);</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="X509NameOneline"></span><code>function <strong>X509NameOneline</strong>(a: <a href="ssl_openssl3_lib.html#PX509_NAME">PX509_NAME</a>; var buf: AnsiString; size: Integer):AnsiString;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="X509GetSubjectName"></span><code>function <strong>X509GetSubjectName</strong>(a: <a href="ssl_openssl3_lib.html#PX509">PX509</a>):<a href="ssl_openssl3_lib.html#PX509_NAME">PX509_NAME</a>;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="X509GetIssuerName"></span><code>function <strong>X509GetIssuerName</strong>(a: <a href="ssl_openssl3_lib.html#PX509">PX509</a>):<a href="ssl_openssl3_lib.html#PX509_NAME">PX509_NAME</a>;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="X509NameHash"></span><code>function <strong>X509NameHash</strong>(x: <a href="ssl_openssl3_lib.html#PX509_NAME">PX509_NAME</a>):Cardinal;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="X509Digest"></span><code>function <strong>X509Digest</strong>(data: <a href="ssl_openssl3_lib.html#PX509">PX509</a>; _type: <a href="ssl_openssl3_lib.html#PEVP_MD">PEVP_MD</a>; md: AnsiString; var len: Integer):Integer;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="X509print"></span><code>function <strong>X509print</strong>(b: <a href="ssl_openssl3_lib.html#PBIO">PBIO</a>; a: <a href="ssl_openssl3_lib.html#PX509">PX509</a>): integer;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="X509SetVersion"></span><code>function <strong>X509SetVersion</strong>(x: <a href="ssl_openssl3_lib.html#PX509">PX509</a>; version: integer): integer;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="X509SetPubkey"></span><code>function <strong>X509SetPubkey</strong>(x: <a href="ssl_openssl3_lib.html#PX509">PX509</a>; pkey: <a href="ssl_openssl3_lib.html#EVP_PKEY">EVP_PKEY</a>): integer;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="X509SetIssuerName"></span><code>function <strong>X509SetIssuerName</strong>(x: <a href="ssl_openssl3_lib.html#PX509">PX509</a>; name: <a href="ssl_openssl3_lib.html#PX509_NAME">PX509_NAME</a>): integer;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="X509NameAddEntryByTxt"></span><code>function <strong>X509NameAddEntryByTxt</strong>(name: <a href="ssl_openssl3_lib.html#PX509_NAME">PX509_NAME</a>; field: Ansistring; _type: integer; bytes: Ansistring; len, loc, _set: integer): integer;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="X509Sign"></span><code>function <strong>X509Sign</strong>(x: <a href="ssl_openssl3_lib.html#PX509">PX509</a>; pkey: <a href="ssl_openssl3_lib.html#EVP_PKEY">EVP_PKEY</a>; const md: <a href="ssl_openssl3_lib.html#PEVP_MD">PEVP_MD</a>): integer;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="X509GmtimeAdj"></span><code>function <strong>X509GmtimeAdj</strong>(s: <a href="ssl_openssl3_lib.html#PASN1_UTCTIME">PASN1_UTCTIME</a>; adj: integer): <a href="ssl_openssl3_lib.html#PASN1_UTCTIME">PASN1_UTCTIME</a>;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="X509SetNotBefore"></span><code>function <strong>X509SetNotBefore</strong>(x: <a href="ssl_openssl3_lib.html#PX509">PX509</a>; tm: <a href="ssl_openssl3_lib.html#PASN1_UTCTIME">PASN1_UTCTIME</a>): integer;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="X509SetNotAfter"></span><code>function <strong>X509SetNotAfter</strong>(x: <a href="ssl_openssl3_lib.html#PX509">PX509</a>; tm: <a href="ssl_openssl3_lib.html#PASN1_UTCTIME">PASN1_UTCTIME</a>): integer;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="X509GetSerialNumber"></span><code>function <strong>X509GetSerialNumber</strong>(x: <a href="ssl_openssl3_lib.html#PX509">PX509</a>): <a href="ssl_openssl3_lib.html#PASN1_INTEGER">PASN1_INTEGER</a>;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="EvpPkeyNew"></span><code>function <strong>EvpPkeyNew</strong>: <a href="ssl_openssl3_lib.html#EVP_PKEY">EVP_PKEY</a>;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="EvpPkeyFree"></span><code>procedure <strong>EvpPkeyFree</strong>(pk: <a href="ssl_openssl3_lib.html#EVP_PKEY">EVP_PKEY</a>);</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="EvpPkeyAssign"></span><code>function <strong>EvpPkeyAssign</strong>(pkey: <a href="ssl_openssl3_lib.html#EVP_PKEY">EVP_PKEY</a>; _type: integer; key: <a href="ssl_openssl3_lib.html#PRSA">Prsa</a>): integer;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="EvpGetDigestByName"></span><code>function <strong>EvpGetDigestByName</strong>(Name: AnsiString): <a href="ssl_openssl3_lib.html#PEVP_MD">PEVP_MD</a>;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="OpenSSLversion"></span><code>function <strong>OpenSSLversion</strong>(t: integer): Ansistring;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="ErrErrorString"></span><code>procedure <strong>ErrErrorString</strong>(e: integer; var buf: Ansistring; len: integer);</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="ErrGetError"></span><code>function <strong>ErrGetError</strong>: integer;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="ErrClearError"></span><code>procedure <strong>ErrClearError</strong>;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="BioNew"></span><code>function <strong>BioNew</strong>(b: <a href="ssl_openssl3_lib.html#PBIO_METHOD">PBIO_METHOD</a>): <a href="ssl_openssl3_lib.html#PBIO">PBIO</a>;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="BioFreeAll"></span><code>procedure <strong>BioFreeAll</strong>(b: <a href="ssl_openssl3_lib.html#PBIO">PBIO</a>);</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="BioSMem"></span><code>function <strong>BioSMem</strong>: <a href="ssl_openssl3_lib.html#PBIO_METHOD">PBIO_METHOD</a>;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="BioCtrlPending"></span><code>function <strong>BioCtrlPending</strong>(b: <a href="ssl_openssl3_lib.html#PBIO">PBIO</a>): integer;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="BioRead"></span><code>function <strong>BioRead</strong>(b: <a href="ssl_openssl3_lib.html#PBIO">PBIO</a>; var Buf: AnsiString; Len: integer): integer;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="BioWrite"></span><code>function <strong>BioWrite</strong>(b: <a href="ssl_openssl3_lib.html#PBIO">PBIO</a>; Buf: AnsiString; Len: integer): integer;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="d2iPKCS12bio"></span><code>function <strong>d2iPKCS12bio</strong>(b:<a href="ssl_openssl3_lib.html#PBIO">PBIO</a>; Pkcs12: <a href="ssl_openssl3_lib.html#SslPtr">SslPtr</a>): <a href="ssl_openssl3_lib.html#SslPtr">SslPtr</a>;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="PKCS12parse"></span><code>function <strong>PKCS12parse</strong>(p12: <a href="ssl_openssl3_lib.html#SslPtr">SslPtr</a>; pass: Ansistring; var pkey, cert, ca: <a href="ssl_openssl3_lib.html#SslPtr">SslPtr</a>): integer;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="PKCS12free"></span><code>procedure <strong>PKCS12free</strong>(p12: <a href="ssl_openssl3_lib.html#SslPtr">SslPtr</a>);</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="RsaGenerateKey"></span><code>function <strong>RsaGenerateKey</strong>(bits, e: integer; callback: <a href="ssl_openssl3_lib.html#PFunction">PFunction</a>; cb_arg: <a href="ssl_openssl3_lib.html#SslPtr">SslPtr</a>): <a href="ssl_openssl3_lib.html#PRSA">PRSA</a>;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="Asn1UtctimeNew"></span><code>function <strong>Asn1UtctimeNew</strong>: <a href="ssl_openssl3_lib.html#PASN1_UTCTIME">PASN1_UTCTIME</a>;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="Asn1UtctimeFree"></span><code>procedure <strong>Asn1UtctimeFree</strong>(a: <a href="ssl_openssl3_lib.html#PASN1_UTCTIME">PASN1_UTCTIME</a>);</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="Asn1IntegerSet"></span><code>function <strong>Asn1IntegerSet</strong>(a: <a href="ssl_openssl3_lib.html#PASN1_INTEGER">PASN1_INTEGER</a>; v: integer): integer;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="Asn1IntegerGet"></span><code>function <strong>Asn1IntegerGet</strong>(a: <a href="ssl_openssl3_lib.html#PASN1_INTEGER">PASN1_INTEGER</a>): integer;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="i2dX509bio"></span><code>function <strong>i2dX509bio</strong>(b: <a href="ssl_openssl3_lib.html#PBIO">PBIO</a>; x: <a href="ssl_openssl3_lib.html#PX509">PX509</a>): integer;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="d2iX509bio"></span><code>function <strong>d2iX509bio</strong>(b:<a href="ssl_openssl3_lib.html#PBIO">PBIO</a>; x:<a href="ssl_openssl3_lib.html#PX509">PX509</a>): <a href="ssl_openssl3_lib.html#PX509">PX509</a>;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="PEMReadBioX509"></span><code>function <strong>PEMReadBioX509</strong>(b:<a href="ssl_openssl3_lib.html#PBIO">PBIO</a>; x:<a href="ssl_openssl3_lib.html#PSslPtr">PSslPtr</a>; callback:<a href="ssl_openssl3_lib.html#PFunction">PFunction</a>; cb_arg: <a href="ssl_openssl3_lib.html#SslPtr">SslPtr</a>): <a href="ssl_openssl3_lib.html#PX509">PX509</a>;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="SkX509PopFree"></span><code>procedure <strong>SkX509PopFree</strong>(st: <a href="ssl_openssl3_lib.html#PSTACK">PSTACK</a>; func: <a href="ssl_openssl3_lib.html#TSkPopFreeFunc">TSkPopFreeFunc</a>);</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="OPENSSL_sk_num"></span><code>function <strong>OPENSSL_sk_num</strong>(Stack: <a href="ssl_openssl3_lib.html#PSTACK">PSTACK</a>): Integer;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="OPENSSL_sk_value"></span><code>function <strong>OPENSSL_sk_value</strong>(Stack: <a href="ssl_openssl3_lib.html#PSTACK">PSTACK</a>; Item: Integer): PAnsiChar;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="X509_STORE_add_cert"></span><code>function <strong>X509_STORE_add_cert</strong>(Store: <a href="ssl_openssl3_lib.html#PX509_STORE">PX509_STORE</a>; Cert: <a href="ssl_openssl3_lib.html#PX509">PX509</a>): Integer;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="SSL_CTX_get_cert_store"></span><code>function <strong>SSL_CTX_get_cert_store</strong>(const Ctx: <a href="ssl_openssl3_lib.html#PSSL_CTX">PSSL_CTX</a>): <a href="ssl_openssl3_lib.html#PX509_STORE">PX509_STORE</a>;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="i2dPrivateKeyBio"></span><code>function <strong>i2dPrivateKeyBio</strong>(b: <a href="ssl_openssl3_lib.html#PBIO">PBIO</a>; pkey: <a href="ssl_openssl3_lib.html#EVP_PKEY">EVP_PKEY</a>): integer;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="DESsetoddparity"></span><code>procedure <strong>DESsetoddparity</strong>(Key: <a href="ssl_openssl3_lib.html#DES_cblock">des_cblock</a>);</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="DESsetkeychecked"></span><code>function <strong>DESsetkeychecked</strong>(key: <a href="ssl_openssl3_lib.html#DES_cblock">des_cblock</a>; schedule: <a href="ssl_openssl3_lib.html#des_key_schedule">des_key_schedule</a>): Integer;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="DESecbencrypt"></span><code>procedure <strong>DESecbencrypt</strong>(Input: <a href="ssl_openssl3_lib.html#DES_cblock">des_cblock</a>; output: <a href="ssl_openssl3_lib.html#DES_cblock">des_cblock</a>; ks: <a href="ssl_openssl3_lib.html#des_key_schedule">des_key_schedule</a>; enc: Integer);</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="IsSSLloaded"></span><code>function <strong>IsSSLloaded</strong>: Boolean;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="InitSSLInterface"></span><code>function <strong>InitSSLInterface</strong>: Boolean;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="DestroySSLInterface"></span><code>function <strong>DestroySSLInterface</strong>: Boolean;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<h3 class="detail">Tipos</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="SslPtr"></span><code><strong>SslPtr</strong> = Pointer;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="PSslPtr"></span><code><strong>PSslPtr</strong> = &circ;<a href="ssl_openssl3_lib.html#SslPtr">SslPtr</a>;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="PSSL_CTX"></span><code><strong>PSSL_CTX</strong> = <a href="ssl_openssl3_lib.html#SslPtr">SslPtr</a>;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="PSSL"></span><code><strong>PSSL</strong> = <a href="ssl_openssl3_lib.html#SslPtr">SslPtr</a>;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="PSSL_METHOD"></span><code><strong>PSSL_METHOD</strong> = <a href="ssl_openssl3_lib.html#SslPtr">SslPtr</a>;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="PX509"></span><code><strong>PX509</strong> = <a href="ssl_openssl3_lib.html#SslPtr">SslPtr</a>;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="PX509_NAME"></span><code><strong>PX509_NAME</strong> = <a href="ssl_openssl3_lib.html#SslPtr">SslPtr</a>;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="PX509_STORE"></span><code><strong>PX509_STORE</strong> = Pointer;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="PEVP_MD"></span><code><strong>PEVP_MD</strong>	= <a href="ssl_openssl3_lib.html#SslPtr">SslPtr</a>;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="PInteger"></span><code><strong>PInteger</strong> = &circ;Integer;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="PBIO_METHOD"></span><code><strong>PBIO_METHOD</strong> = <a href="ssl_openssl3_lib.html#SslPtr">SslPtr</a>;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="PBIO"></span><code><strong>PBIO</strong> = <a href="ssl_openssl3_lib.html#SslPtr">SslPtr</a>;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="EVP_PKEY"></span><code><strong>EVP_PKEY</strong> = <a href="ssl_openssl3_lib.html#SslPtr">SslPtr</a>;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="PRSA"></span><code><strong>PRSA</strong> = <a href="ssl_openssl3_lib.html#SslPtr">SslPtr</a>;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="PASN1_UTCTIME"></span><code><strong>PASN1_UTCTIME</strong> = <a href="ssl_openssl3_lib.html#SslPtr">SslPtr</a>;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="PASN1_INTEGER"></span><code><strong>PASN1_INTEGER</strong> = <a href="ssl_openssl3_lib.html#SslPtr">SslPtr</a>;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="PPasswdCb"></span><code><strong>PPasswdCb</strong> = <a href="ssl_openssl3_lib.html#SslPtr">SslPtr</a>;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="PFunction"></span><code><strong>PFunction</strong> = procedure;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="PSTACK"></span><code><strong>PSTACK</strong> = <a href="ssl_openssl3_lib.html#SslPtr">SslPtr</a>;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="TSkPopFreeFunc"></span><code><strong>TSkPopFreeFunc</strong> = procedure(p:<a href="ssl_openssl3_lib.html#SslPtr">SslPtr</a>); cdecl;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="TX509Free"></span><code><strong>TX509Free</strong> = procedure(x: <a href="ssl_openssl3_lib.html#PX509">PX509</a>); cdecl;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="DES_cblock"></span><code><strong>DES_cblock</strong> = array[0..7] of Byte;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="PDES_cblock"></span><code><strong>PDES_cblock</strong> = &circ;<a href="ssl_openssl3_lib.html#DES_cblock">DES_cblock</a>;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="des_key_schedule"></span><code><strong>des_key_schedule</strong> = array[1..16] of <a href="ssl_openssl3_lib.des_ks_struct.html">des_ks_struct</a>;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<h3 class="detail">Constantes</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="EVP_MAX_MD_SIZE"></span><code><strong>EVP_MAX_MD_SIZE</strong> = 16 + 20;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="SSL_ERROR_NONE"></span><code><strong>SSL_ERROR_NONE</strong> = 0;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="SSL_ERROR_SSL"></span><code><strong>SSL_ERROR_SSL</strong> = 1;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="SSL_ERROR_WANT_READ"></span><code><strong>SSL_ERROR_WANT_READ</strong> = 2;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="SSL_ERROR_WANT_WRITE"></span><code><strong>SSL_ERROR_WANT_WRITE</strong> = 3;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="SSL_ERROR_WANT_X509_LOOKUP"></span><code><strong>SSL_ERROR_WANT_X509_LOOKUP</strong> = 4;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="SSL_ERROR_SYSCALL"></span><code><strong>SSL_ERROR_SYSCALL</strong> = 5;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="SSL_ERROR_ZERO_RETURN"></span><code><strong>SSL_ERROR_ZERO_RETURN</strong> = 6;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="SSL_ERROR_WANT_CONNECT"></span><code><strong>SSL_ERROR_WANT_CONNECT</strong> = 7;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="SSL_ERROR_WANT_ACCEPT"></span><code><strong>SSL_ERROR_WANT_ACCEPT</strong> = 8;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="SSL_OP_NO_SSLv2"></span><code><strong>SSL_OP_NO_SSLv2</strong> = $01000000;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="SSL_OP_NO_SSLv3"></span><code><strong>SSL_OP_NO_SSLv3</strong> = $02000000;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="SSL_OP_NO_TLSv1"></span><code><strong>SSL_OP_NO_TLSv1</strong> = $04000000;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="SSL_OP_ALL"></span><code><strong>SSL_OP_ALL</strong> = $000FFFFF;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="SSL_VERIFY_NONE"></span><code><strong>SSL_VERIFY_NONE</strong> = $00;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="SSL_VERIFY_PEER"></span><code><strong>SSL_VERIFY_PEER</strong> = $01;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="OPENSSL_DES_DECRYPT"></span><code><strong>OPENSSL_DES_DECRYPT</strong> = 0;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="OPENSSL_DES_ENCRYPT"></span><code><strong>OPENSSL_DES_ENCRYPT</strong> = 1;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="X509_V_OK"></span><code><strong>X509_V_OK</strong> =	0;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="X509_V_ILLEGAL"></span><code><strong>X509_V_ILLEGAL</strong> = 1;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="X509_V_ERR_UNABLE_TO_GET_ISSUER_CERT"></span><code><strong>X509_V_ERR_UNABLE_TO_GET_ISSUER_CERT</strong> = 2;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="X509_V_ERR_UNABLE_TO_GET_CRL"></span><code><strong>X509_V_ERR_UNABLE_TO_GET_CRL</strong> = 3;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="X509_V_ERR_UNABLE_TO_DECRYPT_CERT_SIGNATURE"></span><code><strong>X509_V_ERR_UNABLE_TO_DECRYPT_CERT_SIGNATURE</strong> = 4;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="X509_V_ERR_UNABLE_TO_DECRYPT_CRL_SIGNATURE"></span><code><strong>X509_V_ERR_UNABLE_TO_DECRYPT_CRL_SIGNATURE</strong> = 5;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="X509_V_ERR_UNABLE_TO_DECODE_ISSUER_PUBLIC_KEY"></span><code><strong>X509_V_ERR_UNABLE_TO_DECODE_ISSUER_PUBLIC_KEY</strong> = 6;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="X509_V_ERR_CERT_SIGNATURE_FAILURE"></span><code><strong>X509_V_ERR_CERT_SIGNATURE_FAILURE</strong> = 7;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="X509_V_ERR_CRL_SIGNATURE_FAILURE"></span><code><strong>X509_V_ERR_CRL_SIGNATURE_FAILURE</strong> = 8;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="X509_V_ERR_CERT_NOT_YET_VALID"></span><code><strong>X509_V_ERR_CERT_NOT_YET_VALID</strong> = 9;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="X509_V_ERR_CERT_HAS_EXPIRED"></span><code><strong>X509_V_ERR_CERT_HAS_EXPIRED</strong> = 10;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="X509_V_ERR_CRL_NOT_YET_VALID"></span><code><strong>X509_V_ERR_CRL_NOT_YET_VALID</strong> = 11;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="X509_V_ERR_CRL_HAS_EXPIRED"></span><code><strong>X509_V_ERR_CRL_HAS_EXPIRED</strong> = 12;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="X509_V_ERR_ERROR_IN_CERT_NOT_BEFORE_FIELD"></span><code><strong>X509_V_ERR_ERROR_IN_CERT_NOT_BEFORE_FIELD</strong> = 13;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="X509_V_ERR_ERROR_IN_CERT_NOT_AFTER_FIELD"></span><code><strong>X509_V_ERR_ERROR_IN_CERT_NOT_AFTER_FIELD</strong> = 14;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="X509_V_ERR_ERROR_IN_CRL_LAST_UPDATE_FIELD"></span><code><strong>X509_V_ERR_ERROR_IN_CRL_LAST_UPDATE_FIELD</strong> = 15;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="X509_V_ERR_ERROR_IN_CRL_NEXT_UPDATE_FIELD"></span><code><strong>X509_V_ERR_ERROR_IN_CRL_NEXT_UPDATE_FIELD</strong> = 16;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="X509_V_ERR_OUT_OF_MEM"></span><code><strong>X509_V_ERR_OUT_OF_MEM</strong> = 17;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="X509_V_ERR_DEPTH_ZERO_SELF_SIGNED_CERT"></span><code><strong>X509_V_ERR_DEPTH_ZERO_SELF_SIGNED_CERT</strong> = 18;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="X509_V_ERR_SELF_SIGNED_CERT_IN_CHAIN"></span><code><strong>X509_V_ERR_SELF_SIGNED_CERT_IN_CHAIN</strong> = 19;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="X509_V_ERR_UNABLE_TO_GET_ISSUER_CERT_LOCALLY"></span><code><strong>X509_V_ERR_UNABLE_TO_GET_ISSUER_CERT_LOCALLY</strong> = 20;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="X509_V_ERR_UNABLE_TO_VERIFY_LEAF_SIGNATURE"></span><code><strong>X509_V_ERR_UNABLE_TO_VERIFY_LEAF_SIGNATURE</strong> = 21;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="X509_V_ERR_CERT_CHAIN_TOO_LONG"></span><code><strong>X509_V_ERR_CERT_CHAIN_TOO_LONG</strong> = 22;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="X509_V_ERR_CERT_REVOKED"></span><code><strong>X509_V_ERR_CERT_REVOKED</strong> = 23;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="X509_V_ERR_INVALID_CA"></span><code><strong>X509_V_ERR_INVALID_CA</strong> = 24;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="X509_V_ERR_PATH_LENGTH_EXCEEDED"></span><code><strong>X509_V_ERR_PATH_LENGTH_EXCEEDED</strong> = 25;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="X509_V_ERR_INVALID_PURPOSE"></span><code><strong>X509_V_ERR_INVALID_PURPOSE</strong> = 26;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="X509_V_ERR_CERT_UNTRUSTED"></span><code><strong>X509_V_ERR_CERT_UNTRUSTED</strong> = 27;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="X509_V_ERR_CERT_REJECTED"></span><code><strong>X509_V_ERR_CERT_REJECTED</strong> = 28;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="X509_V_ERR_SUBJECT_ISSUER_MISMATCH"></span><code><strong>X509_V_ERR_SUBJECT_ISSUER_MISMATCH</strong> = 29;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="X509_V_ERR_AKID_SKID_MISMATCH"></span><code><strong>X509_V_ERR_AKID_SKID_MISMATCH</strong> = 30;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="X509_V_ERR_AKID_ISSUER_SERIAL_MISMATCH"></span><code><strong>X509_V_ERR_AKID_ISSUER_SERIAL_MISMATCH</strong> = 31;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="X509_V_ERR_KEYUSAGE_NO_CERTSIGN"></span><code><strong>X509_V_ERR_KEYUSAGE_NO_CERTSIGN</strong> = 32;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="X509_V_ERR_UNABLE_TO_GET_CRL_ISSUER"></span><code><strong>X509_V_ERR_UNABLE_TO_GET_CRL_ISSUER</strong> = 33;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="X509_V_ERR_UNHANDLED_CRITICAL_EXTENSION"></span><code><strong>X509_V_ERR_UNHANDLED_CRITICAL_EXTENSION</strong> = 34;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="X509_V_ERR_APPLICATION_VERIFICATION"></span><code><strong>X509_V_ERR_APPLICATION_VERIFICATION</strong> = 50;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="SSL_FILETYPE_ASN1"></span><code><strong>SSL_FILETYPE_ASN1</strong>	= 2;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="SSL_FILETYPE_PEM"></span><code><strong>SSL_FILETYPE_PEM</strong> = 1;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="EVP_PKEY_RSA"></span><code><strong>EVP_PKEY_RSA</strong> = 6;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="SSL_CTRL_SET_TLSEXT_HOSTNAME"></span><code><strong>SSL_CTRL_SET_TLSEXT_HOSTNAME</strong> = 55;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="SSL_CTRL_SET_MIN_PROTO_VERSION"></span><code><strong>SSL_CTRL_SET_MIN_PROTO_VERSION</strong> = 123;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="SSL_CTRL_SET_MAX_PROTO_VERSION"></span><code><strong>SSL_CTRL_SET_MAX_PROTO_VERSION</strong> = 124;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="TLSEXT_NAMETYPE_host_name"></span><code><strong>TLSEXT_NAMETYPE_host_name</strong> = 0;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="TLS1_VERSION"></span><code><strong>TLS1_VERSION</strong> = $0301;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="TLS1_1_VERSION"></span><code><strong>TLS1_1_VERSION</strong> = $0302;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="TLS1_2_VERSION"></span><code><strong>TLS1_2_VERSION</strong> = $0303;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="TLS1_3_VERSION"></span><code><strong>TLS1_3_VERSION</strong> = $0304;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<h3 class="detail">Variáveis</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="DLLSSLName"></span><code><strong>DLLSSLName</strong>: string = 'libssl.so.3';</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="DLLUtilName"></span><code><strong>DLLUtilName</strong>: string = 'libcrypto.so.3';</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="SSLLibHandle"></span><code><strong>SSLLibHandle</strong>: <a href="synafpc.html#TLibHandle">TLibHandle</a> = 0;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="SSLUtilHandle"></span><code><strong>SSLUtilHandle</strong>: <a href="synafpc.html#TLibHandle">TLibHandle</a> = 0;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="SSLLibFile"></span><code><strong>SSLLibFile</strong>: string = '';</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="SSLUtilFile"></span><code><strong>SSLUtilFile</strong>: string = '';</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="_X509Free"></span><code><strong>_X509Free</strong>: <a href="ssl_openssl3_lib.html#TX509Free">TX509Free</a> = nil;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<hr><span class="appinfo"><em>Gerado por <a href="https://pasdoc.github.io/">PasDoc 0.16.0</a>. </em>
+</span>
+</div></div></body></html>

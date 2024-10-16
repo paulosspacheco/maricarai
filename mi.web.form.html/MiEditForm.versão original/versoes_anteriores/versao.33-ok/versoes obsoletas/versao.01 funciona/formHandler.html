@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulário CRUD - ID e Nome</title>
+    <script src="formHandler.js" defer></script>
+</head>
+<body>
+    <h1>Formulário CRUD - ID e Nome</h1>
+
+    <form id="formData">
+        <label for="idField">ID:</label>
+        <input type="text" id="idField" placeholder="Digite o ID"><br><br>
+
+        <label for="nameField">Nome:</label>
+        <input type="text" id="nameField" placeholder="Digite o Nome"><br><br>
+
+        <button type="button" onclick="createNewRecord()">Novo Registro</button>
+        <button type="button" onclick="addRecord()">Adicionar Registro</button>
+        <button type="button" onclick="updateRecord()">Atualizar Registro</button>
+        <button type="button" onclick="deleteRecord()">Excluir Registro</button>
+        <button type="button" onclick="locateRecord()">Localizar Registro</button>
+    </form>
+
+    <h2>Resultado</h2>
+    <pre id="result">Aguardando envio...</pre>
+</body>
+</html>

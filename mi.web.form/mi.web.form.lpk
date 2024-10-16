@@ -7,8 +7,9 @@
     <CompilerOptions>
       <Version Value="11"/>
       <SearchPaths>
+        <IncludeFiles Value="../mi.web.form.html/templates/html;../mi.web.form.html/templates"/>
         <Libraries Value="bin/$(TargetCPU)/$(TargetOS)/lib"/>
-        <OtherUnitFiles Value="units"/>
+        <OtherUnitFiles Value="units;../../../../../LazarusProjects/maricarai.Alpha-1.0.0/mi.web.form/units"/>
         <UnitOutputDirectory Value="bin/$(TargetCPU)/$(TargetOS)/units"/>
       </SearchPaths>
     </CompilerOptions>
@@ -53,6 +54,18 @@ A permissão é concedida, gratuitamente, a qualquer pessoa que obtenha uma cóp
       <Item>
         <Filename Value="units/mi.lcl.application.client.pas"/>
         <UnitName Value="mi.lcl.application.client"/>
+      </Item>
+      <Item>
+        <Filename Value="units/mi.web.create.mieditform.html.pas"/>
+        <UnitName Value="Mi.Web.Create.MiEditForm.html"/>
+      </Item>
+      <Item>
+        <Filename Value="../mi.web.form.html/templates/MiEditForm.html"/>
+        <Type Value="Text"/>
+      </Item>
+      <Item>
+        <Filename Value="../mi.web.form.html/templates/MiEditFormFields.html"/>
+        <Type Value="Text"/>
       </Item>
     </Files>
     <RequiredPkgs>

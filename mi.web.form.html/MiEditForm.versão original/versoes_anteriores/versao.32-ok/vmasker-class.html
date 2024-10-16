@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Exemplo de Máscaras com VMasker</title>
+</head>
+<body>
+  <h1>Exemplo de Máscaras com VMasker</h1>
+
+  <form>
+    <!-- Campo com máscara de dinheiro -->
+    <label for="money">Valor Monetário (R$):</label>
+    <input type="text" id="money" placeholder="0,00"><br><br>
+
+    <!-- Campo com máscara de números -->
+    <label for="number">Número:</label>
+    <input type="text" id="number" placeholder="Digite apenas números"><br><br>
+
+    <!-- Campo com máscara alfanumérica -->
+    <label for="alphanum">Alfanumérico:</label>
+    <input type="text" id="alphanum" placeholder="Digite letras e números"><br><br>
+
+    <!-- Campo com máscara de padrão (CEP no exemplo) -->
+    <label for="cpf">CEP (#####-###):</label>
+    <input type="text" id="cpf" placeholder="Digite o CEP"><br><br>
+  </form>
+
+  <script type="module">
+    import { VMasker } from './vmasker-class.js';    
+    document.addEventListener("DOMContentLoaded", function() {
+      
+      const moneyInput = document.getElementById('money');
+      const moneyMask = new VMasker(moneyInput);
+            moneyMask.maskMoney({ unit: 'R$', delimiter: '.', separator: ',', precision: 2 });
+
+      // Campo de números
+      const numberInput = document.getElementById('number');
+      const NumberMask = new VMasker(numberInput);
+            NumberMask.maskNumber();
+
+      // Campo de alfanumérico
+      const alphaNumInput = document.getElementById('alphanum');
+      const AlphaNumMask = new VMasker(alphaNumInput);
+            AlphaNumMask.maskAlphaNum();
+
+      // Campo de CPF (com padrão de máscara ###.###.###-##)
+      const cpfInput = document.getElementById('cpf');    
+      const cpfMask  = new VMasker(cpfInput);
+      // Aplica a máscara de CPF ao campo de entrada
+      cpfMask.maskPattern('999.999.999-99');
+
+      // Opcional: adicione um evento para mostrar o valor formatado
+      cpfInput.addEventListener('input', function() {
+          console.log(cpfMask.value); // Para verificar o valor no console
+      });
+
+      
+
+    });
+  </script>
+</body>
+</html>

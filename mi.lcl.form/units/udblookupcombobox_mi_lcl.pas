@@ -58,6 +58,8 @@ type
 
   { TMi_ui_DBLookupComboBox_Lcl }
 
+  { TDBLookupComboBox_mi_Lcl }
+
   TDBLookupComboBox_mi_Lcl = class(TDBLookupComboBox)
      public constructor Create(AOwner:TComponent); override;overload;
      public constructor Create(aOwner:TComponent;aMi_lcl_ui_Form_attributes : TMi_lcl_ui_Form_attributes);overload;overload;
@@ -94,7 +96,7 @@ type
      {$ENDREGION}
 
 
-
+     public function  GetHTMLContent :String;
   end;
 
 //procedure Register;
@@ -357,6 +359,11 @@ begin
 //    Raise T ShowMessage('TDBLookupComboBox_mi_Lcl.SeTDmxFieldRec');
     Raise Tmi_Rtl.TException.Create(self,{$I %CURRENTROUTINE%},'Exceção Inesperada!');
   end;
+end;
+
+function TDBLookupComboBox_mi_Lcl.GetHTMLContent: String;
+begin
+
 end;
 
 

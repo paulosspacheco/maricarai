@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulário CRUD</title>
+            
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #d0d0d0; /* Cinza claro para o fundo da página */
+            color: #333; /* Cor do texto padrão */
+            margin: 0;
+            padding: 20px; /* Adiciona espaçamento ao redor da página */
+        }
+    
+        form {
+            background-color: #C0C0C0; /* Cinza mais claro para o fundo do formulário */
+            border: 1px solid #bbb; /* Borda em cinza mais escuro */
+            padding: 20px;
+            margin: 20px auto;
+            max-width: 90%; /* Largura máxima em porcentagem */
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Leve sombra para destacar o formulário */
+        }
+    
+        form button {
+            background-color: #555; /* Cinza escuro para os botões */
+            color: #fff; /* Texto branco */
+            border: none;
+            padding: 8px 12px; /* Menor padding para reduzir o tamanho dos botões */
+            margin: 5px; /* Adiciona margens para separar os botões */
+            cursor: pointer;
+            border-radius: 4px;
+            font-size: 14px; /* Fonte menor */
+            display: inline-block; /* Mantém os botões alinhados em linha */
+        }
+    
+        form button:hover {
+            background-color: #333; /* Tom mais escuro ao passar o mouse */
+        }
+    
+        /* Estilos para botão desabilitado no formulário */
+        form button:disabled {
+            background-color: #CCCCCC; /* Cor de fundo para botão desabilitado */
+            color: #666666; /* Cor do texto para botão desabilitado */
+            cursor: not-allowed; /* Cursor indicando que não é interativo */
+            opacity: 0.6; /* Opacidade reduzida para parecer desabilitado */
+        }
+    
+        form input, form select, form textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            background-color: #f0f0f0; /* Tom de cinza claro para os campos */
+            color: #333;
+        }
+    
+        form input:focus, form select:focus, form textarea:focus {
+            outline: none;
+            border-color: #888; /* Cor da borda ao focar */
+            background-color: #ddd; /* Fundo levemente mais escuro ao focar */
+        }
+    
+        label {
+            font-weight: bold;
+            margin-bottom: 5px;
+            display: block;
+            color: #555; /* Cor das labels */
+        }
+    
+        h1 {
+            text-align: center;
+            color: #444; /* Cor do título em cinza escuro */
+        }     
+    
+        /* Botões de navegação e ação */
+        .button-container {
+            display: flex; /* Usar flexbox para alinhar os botões */
+            flex-wrap: wrap; /* Permitir que os botões quebrem a linha se necessário */
+            justify-content: center; /* Centralizar os botões */
+            margin: 10px 0; /* Espaçamento vertical */
+        }
+    
+        .navigation-buttons {
+            padding: 4px 8px; /* Reduzido para dar um tamanho mais compacto */
+            margin: 5px;
+            background-color: #6c757d; /* Cinza médio */
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            font-size: 12px; /* Tamanho da fonte reduzido */
+        }
+    
+        .navigation-buttons:hover {
+            background-color: #5a6268; /* Cinza escuro ao passar o mouse */
+        }
+    
+        .navigation-buttons:disabled {
+            background-color: #CCCCCC; /* Cor de fundo para botão de navegação desabilitado */
+            color: #666666; /* Cor do texto para botão de navegação desabilitado */
+            cursor: not-allowed; /* Cursor indicando que não é interativo */
+            opacity: 0.6; /* Opacidade reduzida para parecer desabilitado */
+        }
+    
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8); /* Fundo escuro */
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+    
+        .alert-box {
+            background-color: #333; /* Caixa de alerta escura */
+            color: #ffffff; /* Texto da caixa branco */
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.5); /* Sombra escura */
+            max-width: 300px;
+        }
+    
+        .alert-box button {
+            padding: 8px 12px; /* Mesma configuração de padding dos botões do formulário */
+            background-color: #555; /* Mesma cor dos botões do formulário */
+            color: white;
+            border: none;
+            border-radius: 4px; /* Bordas arredondadas */
+            cursor: pointer;
+        }
+    
+        .alert-box button:hover {
+            background-color: #333; /* Tom de cinza mais escuro ao passar o mouse */
+        }
+    
+        /* Estilos para botão desabilitado na alert-box */
+        .alert-box button:disabled {
+            background-color: #CCCCCC; /* Cor de fundo para botão desabilitado */
+            color: #666666; /* Cor do texto para botão desabilitado */
+            cursor: not-allowed; /* Cursor indicando que não é interativo */
+            opacity: 0.6; /* Opacidade reduzida para parecer desabilitado */
+        }
+    </style>
+</head>
+<body>
+    <form id="meuFormulario">
+        <label for="id">ID:</label>
+        <input type="text" id="ID" name="ID" placeholder="ID"><br><br>
+
+        <label for="nome">Nome:</label>
+        <input type="text" id="Nome" name="Nome" placeholder="Nome"><br><br>
+
+        <label for="endereco">Endereço:</label>
+        <input type="text" id="endereco" name="endereco" placeholder="Endereço"><br><br>
+
+        <div class="button-container">
+            <!-- Botões para operações CRUD -->
+            <button type="button" id="CmNewRecord">Novo Registro</button>
+            <button type="button" id="CmAddRecord">Adicionar</button>        
+            <button type="button" id="CmPutRecord">Gravar</button>
+            <button type="button" id="CmLocate">Localizar</button>        
+            <button type="button" id="CmDeleteRecord">Deletar</button>       
+            <button type="button" id="CmRefresh">Refresh</button>
+            <button type="button" id="CmCancel">Cancelar</button>        
+            <button type="button" id="CmHealthCheck">Checar conexão</button>
+        </div>        
+
+        <!-- Botões de Navegação -->
+        <div class="button-container">
+            <button type="button" id="CmGoBof">Primeiro</button>
+            <button type="button" id="CmPrevRecord">Anterior</button>
+            <button type="button" id="CmNextRecord">Próximo</button>
+            <button type="button" id="CmGoEof">Último</button>
+        </div>
+    </form>
+
+    <!-- Importando os módulos necessários -->
+    <script type="module">
+        // Importa as classes dos arquivos JavaScript
+        import { MiEditForm } from './mi_edit_form.js';
+                 
+        document.addEventListener('DOMContentLoaded', () => {
+            // Inicializa a instância do MiEditForm com os eventos automaticamente
+            new MiEditForm('meuFormulario', 'ID');
+        });
+
+    </script>
+</body>
+</html>

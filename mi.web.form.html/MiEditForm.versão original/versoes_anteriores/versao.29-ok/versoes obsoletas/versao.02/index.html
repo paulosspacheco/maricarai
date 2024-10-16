@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulário CRUD</title>
+</head>
+<body>
+    <h1>Formulário CRUD</h1>
+
+    <form id="crud-form">
+        <label for="id">ID:</label>
+        <input type="text" id="crud-form-id" name="id"><br><br>
+
+        <label for="nome">Nome:</label>
+        <input type="text" id="crud-form-name" name="nome"><br><br>
+
+        <label for="endereco">Endereço:</label>
+        <input type="text" id="crud-form-endereco" name="endereco"><br><br>
+
+        <!-- Botão para criar novo registro -->
+        <button type="button" onclick="crudHandler.newRecord()">Novo Registro</button>
+        <button type="button" onclick="crudHandler.addRecord()">Adicionar</button>
+        <button type="button" onclick="crudHandler.updateRecord()">Atualizar</button>
+        <button type="button" onclick="crudHandler.deleteRecord()">Deletar</button>
+        <button type="button" onclick="crudHandler.locateRecord()">Localizar</button>
+    </form>
+
+    <h2>Resultado da Requisição</h2>
+    <pre id="result"></pre>
+
+    <script src="crud-handler.js"></script>
+    <script>
+        // Inicializa o CRUDHandler passando o ID do formulário e o campo chave 'id'
+        const crudHandler = new CRUDHandler('crud-form', 'id');
+    </script>
+</body>
+</html>

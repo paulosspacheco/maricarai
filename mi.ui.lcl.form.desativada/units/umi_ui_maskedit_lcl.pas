@@ -29,7 +29,7 @@ unit umi_ui_Maskedit_lcl;
        - O problema é que TMaskEditDmx estava usando formatação de um número comum e esta
          formatação é um string formatado que só aceita números.
          - Para resolver preciso:
-           - Remover o tipo FldStrNum do conjunto que indica que se trata de números. ok.
+           - Remover o tipo fldStrNumber do conjunto que indica que se trata de números. ok.
            - Informar para maskEdit que não salva a máscara. ok
          -
 
@@ -40,7 +40,7 @@ unit umi_ui_Maskedit_lcl;
            - Em putBuffer excluir a mascara do campo Text antes de enviar para pDmxFieldRec.AsString
 
    - **26/06/2022 15:50**
-       - T12 Permite mascara II,IIII e ww,www e L,LLL,LLL,LLL nos campos integer, smallword e
+       - T12 Permite mascara II,IIII e ww,www e L,LLL,LLL,LLL nos campos integer, SmallWord e
          logint respectivamente.
 
    - **29/06/2022 14:25**
@@ -508,7 +508,7 @@ end;
     then begin
            Event.What    := evKeyDown;
            Event.InfoPtr := nil;
-           event.KeyCode := smallword(key);
+           event.KeyCode := SmallWord(key);
            event.ShiftState   := 0;//
            wCurPos := GetSelStart;
            wSelEnd := GetSelLength;
@@ -552,7 +552,7 @@ procedure TMaskEdit_mi_LCL.DoOnKeyPress(Sender: TObject; var Key: system.Char);
     //pesquisa interativa com banco de dados nos campos ComboBox.
     with Mi_lcl_ui_Form_attributes,DmxScroller_Form do
     begin
-      if (DmxFieldRec <> nil) and (DmxFieldRec.TypeCode in [fldSTR,fldstr_Lowcase,fldAnsiChar,fldAnsiChar_LowCase ])
+      if (DmxFieldRec <> nil) and (DmxFieldRec.TypeCode in [fldStr,fldStrAlfa,fldAnsiChar,fldAnsiCharAlfa ])
       then begin
              Event.What    := evKeyDown;
              Event.InfoPtr := nil;

@@ -10,7 +10,7 @@ interface
 uses
   mi.web.fphttpclient, mi.web.fphttpserver, 
   mi.web.dmxscroller.form.rest.client, mi.lcl.application.client, 
-  LazarusPackageIntf;
+  Mi.Web.Create.MiEditForm.html, LazarusPackageIntf;
 
 implementation
 

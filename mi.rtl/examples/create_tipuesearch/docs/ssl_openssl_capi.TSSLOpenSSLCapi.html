@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<title>ssl_openssl_capi: Classe TSSLOpenSSLCapi</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="generator" content="PasDoc 0.16.0">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<link rel="stylesheet" type="text/css" href="tipuesearch/tipuesearch.css">
+
+<link rel="StyleSheet" type="text/css" href="pasdoc.css">
+</head>
+<body>
+<div class="container"><div class="navigation">
+<ul><li><a href="AllUnits.html">Units</a></li><li><a href="ClassHierarchy.html">Hierarquia de Classes</a></li><li><a href="AllClasses.html">Classes, Interfaces, Objetos e Registros</a></li><li><a href="AllTypes.html">Tipos</a></li><li><a href="AllVariables.html">Variáveis</a></li><li><a href="AllConstants.html">Constantes</a></li><li><a href="AllFunctions.html">Funções e Procedimentos</a></li><li><a href="AllIdentifiers.html">Identificadores</a></li><li><form class="search-form" action="tipue_results.html"><div class="search-input"><input type="text" name="q" id="tipue_search_input" pattern=".{3,}" title="At least 3 characters" required><div class="search-button"><input type="button" id="tipue_search_button" onclick="this.form.submit();"></div></div></form>
+<div style="clear: both"></div>
+</li></ul></div><div class="content">
+<span id="TSSLOpenSSLCapi"></span><h1 class="cio">Classe TSSLOpenSSLCapi</h1>
+<div class="sections">
+<div class="one_section"><a class="section" href="#PasDoc-Description">Descrição</a></div><div class="one_section"><a class="section" href="#PasDoc-Hierarchy">Hierarquia</a></div><div class="one_section">Campos</div><div class="one_section"><a class="section" href="#PasDoc-Methods">Métodos</a></div><div class="one_section"><a class="section" href="#PasDoc-Properties">Propriedades</a></div></div>
+<span id="PasDoc-Description"></span><h2 class="unit">Unit</h2>
+<p class="unitlink">
+<a href="ssl_openssl_capi.html">ssl_openssl_capi</a></p>
+<h2 class="declaration">Declaração</h2>
+<p class="declaration">
+<code>type TSSLOpenSSLCapi = class(<a class="normal" href="ssl_openssl.TSSLOpenSSL.html">TSSLOpenSSL</a>)</code></p>
+<h2 class="description">Descrição</h2>
+<p>
+class extending the OpenSSL SSL plugin with CAPI support.</p>
+<p>
+ Instance of this class will be created for each <a class="normal" href="blcksock.TTCPBlockSocket.html">TTCPBlockSocket</a>. You not need to <a class="normal" href="ssl_openssl_capi.TSSLOpenSSLCapi.html#Create">create</a> instance of this class, all is done by Synapse itself!</p>
+<span id="PasDoc-Hierarchy"></span><h2 class="hierarchy">Hierarquia</h2>
+<ul class="hierarchy"><li class="ancestor">TObject</li>
+<li class="ancestor"><a class="normal" href="blcksock.TCustomSSL.html">TCustomSSL</a></li>
+<li class="ancestor"><a class="normal" href="ssl_openssl.TSSLOpenSSL.html">TSSLOpenSSL</a></li>
+<li class="thisitem">TSSLOpenSSLCapi</li></ul><h2 class="overview">Visão Geral</h2>
+<span id="PasDoc-Methods"></span><h3 class="summary">Métodos</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="ssl_openssl_capi.TSSLOpenSSLCapi.html#LoadSigningCertificate">LoadSigningCertificate</a></strong>: boolean;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="ssl_openssl_capi.TSSLOpenSSLCapi.html#SetSslKeys">SetSslKeys</a></strong>: boolean; override;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="ssl_openssl_capi.TSSLOpenSSLCapi.html#NeedSigningCertificate">NeedSigningCertificate</a></strong>: boolean; override;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="ssl_openssl_capi.TSSLOpenSSLCapi.html#SigningCertificateSpecified">SigningCertificateSpecified</a></strong>: boolean;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>constructor <strong><a href="ssl_openssl_capi.TSSLOpenSSLCapi.html#Create">Create</a></strong>(const Value: <a href="blcksock.TTCPBlockSocket.html">TTCPBlockSocket</a>); override;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>destructor <strong><a href="ssl_openssl_capi.TSSLOpenSSLCapi.html#Destroy">Destroy</a></strong>; override;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>procedure <strong><a href="ssl_openssl_capi.TSSLOpenSSLCapi.html#Assign">Assign</a></strong>(const Value: <a href="blcksock.TCustomSSL.html">TCustomSSL</a>); override;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>class function <strong><a href="ssl_openssl_capi.TSSLOpenSSLCapi.html#InitEngine">InitEngine</a></strong>: boolean;</code></td>
+</tr>
+</table>
+<span id="PasDoc-Properties"></span><h3 class="summary">Propriedades</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>property <strong><a href="ssl_openssl_capi.TSSLOpenSSLCapi.html#Engine">Engine</a></strong>: <a href="ssl_openssl_capi.html#PENGINE">PENGINE</a> read GetEngine;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="ssl_openssl_capi.TSSLOpenSSLCapi.html#SigningCertificateLocation">SigningCertificateLocation</a></strong>: <a href="ssl_openssl_capi.html#TWindowsCertStoreLocation">TWindowsCertStoreLocation</a> read FSigningCertificateLocation write FSigningCertificateLocation;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="ssl_openssl_capi.TSSLOpenSSLCapi.html#SigningCertificateStore">SigningCertificateStore</a></strong>: string read FSigningCertificateStore write FSigningCertificateStore;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="ssl_openssl_capi.TSSLOpenSSLCapi.html#SigningCertificateID">SigningCertificateID</a></strong>: string read FSigningCertificateID write FSigningCertificateID;</code></td>
+</tr>
+</table>
+<h2 class="description">Descrição</h2>
+<h3 class="detail">Métodos</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="LoadSigningCertificate"></span><code>function <strong>LoadSigningCertificate</strong>: boolean;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+Loads a <a class="normal" href="blcksock.TCustomSSL.html#Certificate">certificate</a> context into the CAPI <a class="normal" href="ssl_openssl_capi.TSSLOpenSSLCapi.html#Engine">engine</a> for signing/decryption.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="SetSslKeys"></span><code>function <strong>SetSslKeys</strong>: boolean; override;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+See <a class="normal" href="ssl_openssl.TSSLOpenSSL.html#SetSslKeys">TSSLOpenSSL.SetSslKeys</a></p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="NeedSigningCertificate"></span><code>function <strong>NeedSigningCertificate</strong>: boolean; override;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+See <a class="normal" href="ssl_openssl.TSSLOpenSSL.html#NeedSigningCertificate">TSSLOpenSSL.NeedSigningCertificate</a></p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="SigningCertificateSpecified"></span><code>function <strong>SigningCertificateSpecified</strong>: boolean;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+Returns true if the signing <a class="normal" href="blcksock.TCustomSSL.html#Certificate">certificate</a> should be used.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Create"></span><code>constructor <strong>Create</strong>(const Value: <a href="blcksock.TTCPBlockSocket.html">TTCPBlockSocket</a>); override;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+See <a class="normal" href="ssl_openssl.TSSLOpenSSL.html#Create">TSSLOpenSSL.Create</a></p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Destroy"></span><code>destructor <strong>Destroy</strong>; override;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+See <a class="normal" href="ssl_openssl.TSSLOpenSSL.html#Destroy">TSSLOpenSSL.Destroy</a></p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Assign"></span><code>procedure <strong>Assign</strong>(const Value: <a href="blcksock.TCustomSSL.html">TCustomSSL</a>); override;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+See <a class="normal" href="blcksock.TCustomSSL.html#Assign">TCustomSSL.Assign</a></p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="InitEngine"></span><code>class function <strong>InitEngine</strong>: boolean;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+Use this function to load the CAPI <a class="normal" href="ssl_openssl_capi.TSSLOpenSSLCapi.html#Engine">engine</a> and/or verify that the <a class="normal" href="ssl_openssl_capi.TSSLOpenSSLCapi.html#Engine">engine</a> is available. The plugin will load CAPI itself when it is needed, so you may skip this function completely, but it may be useful to perform a manual CAPI load early during the application startup to make sure all connection use the same cryptographic <a class="normal" href="ssl_openssl_capi.TSSLOpenSSLCapi.html#Engine">engine</a> (and, as a result, behave the same way).</p>
+</td></tr>
+</table>
+<h3 class="detail">Propriedades</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="Engine"></span><code>property <strong>Engine</strong>: <a href="ssl_openssl_capi.html#PENGINE">PENGINE</a> read GetEngine;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+Provides a cryptographic <code>engine</code> for OpenSSL</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="SigningCertificateLocation"></span><code>property <strong>SigningCertificateLocation</strong>: <a href="ssl_openssl_capi.html#TWindowsCertStoreLocation">TWindowsCertStoreLocation</a> read FSigningCertificateLocation write FSigningCertificateLocation;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+Location of the <a class="normal" href="blcksock.TCustomSSL.html#Certificate">certificate</a> store used for the communication.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="SigningCertificateStore"></span><code>property <strong>SigningCertificateStore</strong>: string read FSigningCertificateStore write FSigningCertificateStore;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+<a class="normal" href="blcksock.TCustomSSL.html#Certificate">Certificate</a> store used for the communication. The most common is &quot;MY&quot;, or the user's private certificates.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="SigningCertificateID"></span><code>property <strong>SigningCertificateID</strong>: string read FSigningCertificateID write FSigningCertificateID;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ID of the <a class="normal" href="blcksock.TCustomSSL.html#Certificate">certificate</a> to use. For standard CAPI, this is the friendly name of the <a class="normal" href="blcksock.TCustomSSL.html#Certificate">certificate</a>. For the client-side SSL it is not really necessary, as long as it is non-empty (which signifies that the CAPI <a class="normal" href="ssl_openssl_capi.TSSLOpenSSLCapi.html#Engine">engine</a> should be used). For the <a class="normal" href="ssl_openssl.TSSLOpenSSL.html#Server">server</a> side, it must be a substring of the SubjectName of the <a class="normal" href="blcksock.TCustomSSL.html#Certificate">certificate</a>. The first matching <a class="normal" href="blcksock.TCustomSSL.html#Certificate">certificate</a> will be used.</p>
+</td></tr>
+</table>
+<hr><span class="appinfo"><em>Gerado por <a href="https://pasdoc.github.io/">PasDoc 0.16.0</a>. </em>
+</span>
+</div></div></body></html>

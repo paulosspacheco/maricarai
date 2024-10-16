@@ -1,15 +1,39 @@
 unit mi.rtl.webmodule.base;
 {:< A unit **@name** implementa a classe TMi_rtl_WebModule_base.
 
-  - **NOTAS**:
-    - A classe  TMi_rtl_WebModule implementa a Interfaces  IMi_rtl_WebModule:
+  - Primeiro autor: Paulo Sérgio da Silva Pacheco paulosspacheco@@yahoo.com.br)
 
-      ```pascal
-        IMi_rtl_WebModule = Interface ['{88DB8A8D-5926-4F55-9740-FC66E19455C4}']
-          Function Locate(const aKeyFields: string; const aKeyValues: Variant; Options: TLocateOptions):boolean;overload;
-        end;
+  - **VERSÃO**
+    - Alpha - 1.0.0
 
-      ```
+  - **CÓDIGO FONTE**:
+    - @html(<a href="../units/mi.rtl.webmodule.base.pas">mi.rtl.webmodule.base.pas</a>)
+
+    - **HISTÓRICO**:
+      - 30/08/2024 a 14/09/2024
+        - Criado essa unit
+        - Criado versãoo 1.0.0
+
+    - **PENDÊNCIAS**
+      - Criar
+
+    - **CONCLUÍDO**
+      - Criar métodos:
+        - EnterField
+        - ExitField
+        - CalcFields
+        - ChangeField
+      - DoOnNewRecord
+      - AddRec
+      - Locate
+      - PutRec
+      - DeleteRec
+      - Navigator
+      - FirstRec
+      - NextRec
+      - PrevRec
+      - LastRec
+
 }
 {$mode objfpc}{$H+}
 
@@ -22,15 +46,6 @@ uses
   ,Mi_SQLQuery
 
   ,mi_rtl_ui_dmxscroller_form, mi_rtl_ui_Dmxscroller;
-
-
-
-type
-  {: A classe **@name** foi criada para /??}
-  TParamOnLocate = class(TPersistent)
-//    published property KeyFields: string; KeyValues : Array:
-  end;
-
 
 type
   {:A interface **@name** especifica os método da classe TMi_rtl_WebModule_base
@@ -216,9 +231,9 @@ type
         ```sh
 
            curl -X PUT \
-          "http://LocalHost:8080/Tmi_rtl_web_module/CmPutRecord?KeyFields=id&KeyValues=38&Options=loCaseInsensitive" \
+          "http://LocalHost:8080/Tmi_rtl_web_module/CmPutRecord?KeyFields=id&KeyValues=0&Options=loCaseInsensitive" \
           -H "Content-Type: application/json" \
-          -d '{"id":"38", "nome": "Ana Cristina"}'
+          -d '{"id":"0", "nome": "Paulo Sérgio da Silva Pacheco"}'
 
         ```
     }
@@ -478,7 +493,6 @@ type
        - [fcl-web](https://wiki.freepascal.org/fcl-web)
   }
   TMi_rtl_WebModule_base = class(TFPWebModule,IMi_rtl_WebModule)
-
     {:A ação **@name** executa o método .Locate()
 
       - **NOTAS**
@@ -514,13 +528,6 @@ type
                               comunique com o servidor via http.
     }
     published CmLocate: TAction;
-    procedure CmAddRecordRequest(Sender: TObject; ARequest: TRequest;AResponse: TResponse; var Handled: Boolean);
-    procedure CmPutRecordRequest(Sender: TObject; ARequest: TRequest;AResponse: TResponse; var Handled: Boolean);
-
-    procedure OnEnterFieldRequest(Sender: TObject; ARequest: TRequest;AResponse: TResponse; var Handled: Boolean);
-    procedure OnExitFieldRequest(Sender: TObject; ARequest: TRequest;AResponse: TResponse; var Handled: Boolean);
-    procedure OnCalcFieldRequest(Sender: TObject; ARequest: TRequest;AResponse: TResponse; var Handled: Boolean);
-    procedure OnChangeFieldRequest(Sender: TObject; ARequest: TRequest;AResponse: TResponse; var Handled: Boolean);
 
     {:A ação **@name** executa o método   DmxScroller_Form1.DoOnNewRecord;
     }
@@ -611,7 +618,15 @@ type
 
     //IMPLEMENTAÇÃO DOS EVENTOS QUE PODEM SER ACESSADOS PELO CLIENTE
     {$REGION '--> Métodos publicados na web'}
+      published procedure CmhealthCheckRequest(Sender: TObject; ARequest: TRequest;AResponse: TResponse; var Handled: Boolean);
       published procedure CmNewRecordRequest(Sender: TObject; ARequest: TRequest;AResponse: TResponse; var Handled: Boolean);
+      published procedure CmAddRecordRequest(Sender: TObject; ARequest: TRequest;AResponse: TResponse; var Handled: Boolean);
+      published procedure CmPutRecordRequest(Sender: TObject; ARequest: TRequest;AResponse: TResponse; var Handled: Boolean);
+      published procedure OnEnterFieldRequest(Sender: TObject; ARequest: TRequest;AResponse: TResponse; var Handled: Boolean);
+      published procedure OnExitFieldRequest(Sender: TObject; ARequest: TRequest;AResponse: TResponse; var Handled: Boolean);
+      published procedure OnCalcFieldRequest(Sender: TObject; ARequest: TRequest;AResponse: TResponse; var Handled: Boolean);
+      published procedure OnChangeFieldRequest(Sender: TObject; ARequest: TRequest;AResponse: TResponse; var Handled: Boolean);
+
       published procedure CmlocateRequest(Sender: TObject; ARequest: TRequest;AResponse: TResponse; var Handled: Boolean);
 //      published procedure CmUpdateRecordRequest(Sender: TObject; ARequest: TRequest;AResponse: TResponse; var Handled: Boolean);
       published procedure CmDeleteRecordRequest(Sender: TObject; ARequest: TRequest;AResponse: TResponse; var Handled: Boolean);
@@ -722,7 +737,7 @@ type
         ```
     }
     protected function locate(ARequest: TRequest):Boolean;overload;
-
+    protected procedure EventRequest_pDmxFieldRec(Sender: TObject;ARequest: TRequest; AResponse: TResponse; var Handled: Boolean);
   end;
 
 
@@ -773,10 +788,13 @@ function TMi_rtl_WebModule_base.locate(ARequest: TRequest): Boolean;
     Options   : TLocateOptions;
 begin
   With DmxScroller_Form1 do
+  begin
     GetQueryFieldsLocate(aRequest,KeyFields,KeyValues,Options );
+  end;
   // Executa o Locate no DataSet
   result := DmxScroller_Form1.Locate(KeyFields, KeyValues, Options);
 end;
+
 
 function TMi_rtl_WebModule_base.GetActive: Boolean;
 begin
@@ -880,39 +898,109 @@ end;
 
 {$REGION '--> Métodos publicados na web'}
 
-  procedure TMi_rtl_WebModule_base.CmNewRecordRequest(Sender: TObject;ARequest: TRequest; AResponse: TResponse; var Handled: Boolean);
-    Var
-      ResponseJSON: TJSONObject=nil;
-      _ok_Set_Server_Http:Boolean=false;
+
+  procedure TMi_rtl_WebModule_base.CmhealthCheckRequest(Sender: TObject;
+    ARequest: TRequest; AResponse: TResponse; var Handled: Boolean);
+    var
+      ResponseJSON: TJSONObject = nil;
+      _ok_Set_Server_Http: Boolean = False;
+      s: String;
   begin
-    _ok_Set_Server_Http := DmxScroller_Form1.Set_ok_Set_Server_Http(true);
+    // Se for uma solicitação OPTIONS, responder com cabeçalhos CORS e status 204
+    If Tmi_rtl.IsHttpOptions(ARequest,AResponse,Handled)
+    Then exit;
+
+    // Setar cabeçalhos CORS para todas as requisições
+    AResponse.SetCustomHeader('Access-Control-Allow-Origin', '*');
+    AResponse.SetCustomHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
+    AResponse.SetCustomHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+
+
+    // Configurar resposta para métodos que não sejam OPTIONS
     try
+      _ok_Set_Server_Http := DmxScroller_Form1.Set_ok_Set_Server_Http(True);
+
       // Inicialize o objeto JSON para a resposta
       ResponseJSON := TJSONObject.Create;
 
-      // Define o tipo de conteúdo como JSON
+      // Definir o tipo de conteúdo como JSON
       AResponse.ContentType := 'application/json';
 
       try
-        // Executa o Locate no DataSet
-        CmNewRecordExecute(self);
-        // Prepare a resposta JSON baseada no resultado do Locate
-        AResponse.Content := DmxScroller_Form1.JSONObject.AsJson;
-        AResponse.Code := 202;  //202 Accepted: A solicitação foi aceita para processamento, mas o processamento ainda não foi concluído.
+        if DmxScroller_Form1.Active
+        Then begin
+               AResponse.Content := '{}';
+               AResponse.Code := 200;  // ok
+             end
+        else Raise Tmi_rtl.TException.Create(self,{$I %CURRENTROUTINE%},'Dataset está inativo!');
 
-      Except
-        On E : Exception do
+      except
+        on E: TMi_rtl.TException do
         begin
           ResponseJSON.Add('status', 'error');
-          ResponseJSON.Add('message', {$I %CURRENTROUTINE%}+E.Message);
+          ResponseJSON.Add('message', E.Message);
           AResponse.Content := ResponseJSON.AsJSON;
-          AResponse.Code := 500 //Internal Server Error: O servidor encontrou uma condição inesperada que o impediu de atender à solicitação.
+          AResponse.Code := 500; // Internal Server Error
         end;
       end;
 
     finally
-      if Assigned(ResponseJSON)
-      Then FreeAndNil(ResponseJSON);
+      if Assigned(ResponseJSON) then
+        FreeAndNil(ResponseJSON);
+    end;
+
+    Handled := True;  // Indica que a requisição foi processada
+    DmxScroller_Form1.Set_ok_Set_Server_Http(_ok_Set_Server_Http);
+  end;
+
+  procedure TMi_rtl_WebModule_base.CmNewRecordRequest(Sender: TObject; ARequest: TRequest; AResponse: TResponse; var Handled: Boolean);
+  var
+    ResponseJSON: TJSONObject = nil;
+    _ok_Set_Server_Http: Boolean = False;
+    s: String;
+  begin
+    // Se for uma solicitação OPTIONS, responder com cabeçalhos CORS e status 204
+    If Tmi_rtl.IsHttpOptions(ARequest,AResponse,Handled)
+    Then exit;
+
+    // Setar cabeçalhos CORS para todas as requisições
+    AResponse.SetCustomHeader('Access-Control-Allow-Origin', '*');
+    AResponse.SetCustomHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
+    AResponse.SetCustomHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+
+
+    // Configurar resposta para métodos que não sejam OPTIONS
+    try
+      _ok_Set_Server_Http := DmxScroller_Form1.Set_ok_Set_Server_Http(True);
+
+      // Inicialize o objeto JSON para a resposta
+      ResponseJSON := TJSONObject.Create;
+
+      // Definir o tipo de conteúdo como JSON
+      AResponse.ContentType := 'application/json';
+
+      try
+        // Executa o CmNewRecord
+        CmNewRecordExecute(Self);
+
+        // Prepare a resposta JSON baseada no resultado do CmNewRecord
+        s := DmxScroller_Form1.JSONObject.AsJSON;
+        AResponse.Content := s;
+        AResponse.Code := 202;  // 202 Accepted: A solicitação foi aceita para processamento
+
+      except
+        on E: Exception do
+        begin
+          ResponseJSON.Add('status', 'error');
+          ResponseJSON.Add('message', E.Message);
+          AResponse.Content := ResponseJSON.AsJSON;
+          AResponse.Code := 500; // Internal Server Error
+        end;
+      end;
+
+    finally
+      if Assigned(ResponseJSON) then
+        FreeAndNil(ResponseJSON);
     end;
 
     Handled := True;  // Indica que a requisição foi processada
@@ -923,7 +1011,17 @@ end;
     var
       ResponseJSON: TJSONObject;
       _ok_Set_Server_Http:Boolean;
+      ErrorMsg: string;
   begin
+    If Tmi_rtl.IsHttpOptions(ARequest,AResponse,Handled)
+    Then exit;
+
+    // Configura os cabeçalhos CORS
+    AResponse.SetCustomHeader('Access-Control-Allow-Origin', '*');
+    AResponse.SetCustomHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
+    AResponse.SetCustomHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+
+
     _ok_Set_Server_Http := DmxScroller_Form1.Set_ok_Set_Server_Http(true);
     // Inicialize o objeto JSON para a resposta
     ResponseJSON := TJSONObject.Create;
@@ -932,7 +1030,7 @@ end;
       AResponse.ContentType := 'application/json';
 
       // Prepare a resposta JSON baseada no resultado do Locate
-      if Locate(ARequest) then
+      if Tmi_rtl.ValidateGetQueryFieldsLocateParams(aRequest,ErrorMsg) and Locate(ARequest) then
       begin
         AResponse.Content := DmxScroller_Form1.JSONObject.AsJson;
         AResponse.Code := 200;  // HTTP OK
@@ -940,7 +1038,9 @@ end;
       else
       begin
         ResponseJSON.Add('status', 'error');
-        ResponseJSON.Add('message', 'Registro não localizado!');
+        if ErrorMsg<>''
+        Then ResponseJSON.Add('message', ErrorMsg)
+        else ResponseJSON.Add('message', 'Registro não localizado!');
         AResponse.Content := ResponseJSON.AsJSON;
         AResponse.Code := 404;  // HTTP Not Found
       end;
@@ -960,71 +1060,20 @@ end;
       //Options   : TLocateOptions;
       s:String;
       _ok_Set_Server_Http:Boolean;
-      ValueArray: TJSONArray;
-
-      procedure Post;
-         var i,LBound,UBound : integer;
-      begin
-        With DmxScroller_Form1 do
-        begin
-          Try
-//              DoOnEnter(DmxScroller_Form1);
-            // Implementa a lógica para criar um novo registro
-            DoOnNewRecord;
-            s := ARequest.Content;
-            JSONObject  := TJSONObject(GetJSON(ARequest.Content));
-            If UpdateRec
-            Then begin
-              // Obtém os campos e valores das chaves
-              KeyFields := DmxScroller_Form1.getFieldsKeys(KeyValues);
-
-              // Verifica se KeyValues é um array
-              if VarIsArray(KeyValues) then
-              begin
-                // Cria um array JSON para os valores das chaves
-                ValueArray := TJSONArray.Create;
-                try
-                  // Pega os limites do array variante
-                  LBound := VarArrayLowBound(KeyValues, 1);
-                  UBound := VarArrayHighBound(KeyValues, 1);
-                  // Itera sobre o array variante e adiciona ao array JSON
-                  for i := LBound to UBound do
-                    ValueArray.Add(VarToStr(KeyValues[i]));
-
-                  s:= Format(
-                            '{"status":"sucesso","mensagem":"Registro adicionado com sucesso.","keyFields":"%s","keyValues":%s}',
-                            [KeyFields, ValueArray.AsJSON]  // Use AsJSON para gerar a string correta
-                          );
-
-                  AResponse.Content := s;
-                finally
-                  ValueArray.Free;
-                end;
-              end
-              else
-              begin
-                // KeyValues é um valor único
-                AResponse.Content := Format(
-                  '{"status":"sucesso","mensagem":"Registro adicionado com sucesso.","keyFields":"%s","keyValues":"%s"}',
-                  [KeyFields, VarToStr(KeyValues)]
-                );
-              end;
-
-              AResponse.Code := 201;  // Created: A solicitação foi bem-sucedida e um novo recurso foi criado.
-            end
-            else begin
-                   AResponse.Code := 400;  // Bad Request
-                   raise Exception.Create('Depois preciso captura o relatório de erro.');
-                 end;
-          finally
-//              DoOnExit(DmxScroller_Form1);
-          end;
-        end;
-      end;
-
+//      ValueArray: TJSONArray;
+     KeyFieldsJson: TJSONObject;
+     i : integer; //,LBound,UBound
   begin
-    _ok_Set_Server_Http := DmxScroller_Form1.Set_ok_Set_Server_Http(true);
+    If Tmi_rtl.IsHttpOptions(ARequest,AResponse,Handled)
+    Then exit;
+
+    // Configura os cabeçalhos CORS
+    AResponse.SetCustomHeader('Access-Control-Allow-Origin', '*');
+    AResponse.SetCustomHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
+    AResponse.SetCustomHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+
     try
+      _ok_Set_Server_Http := DmxScroller_Form1.Set_ok_Set_Server_Http(true);
       // Verifica se a requisição é POST ou PUT
       AResponse.ContentType := 'application/json';
       if SameText(ARequest.Method, 'POST') then
@@ -1032,18 +1081,51 @@ end;
         // Verifica se o conteúdo é JSON
         if ARequest.ContentType = 'application/json' then
         begin
-          Post;
+          With DmxScroller_Form1 do
+          begin
+            // Implementa a lógica para criar um novo registro
+            DoOnNewRecord;
+            s := ARequest.Content;
+            JSONObject  := TJSONObject(GetJSON(ARequest.Content));
+            If UpdateRec
+            Then begin
+                   try
+                     KeyFieldsJson := DmxScroller_Form1.getFieldsKeysAsJson;
+                     if KeyFieldsJson.Count > 0
+                     then begin
+                            // Gera a resposta JSON incluindo os campos e valores das chaves
+                            //s := Format('{"status":"sucesso","mensagem":"Registro adicionado com sucesso.","keyFields":%s}',
+                            //           [KeyFieldsJson.AsJSON]);  // Usa AsJSON para gerar a string JSON correta
+                            s := KeyFieldsJson.AsJSON;
+                            AResponse.Content := s;
+
+                          end
+                     else begin
+                            // Caso não haja campos chave, ainda retorna sucesso, mas sem os campos chave
+                            //AResponse.Content := '{"status":"sucesso","mensagem":"Registro adicionado com sucesso.","keyFields":null}';
+                            AResponse.Content := '';
+                          end;
+                  finally
+                    KeyFieldsJson.Free;  // Libera o objeto JSON da memória
+                  end;
+                   AResponse.Code := 201;  // Created: A solicitação foi bem-sucedida e um novo recurso foi criado.
+                 end
+                 else begin
+                        AResponse.Code := 400;  // Bad Request
+                        raise Tmi_rtl.TException.Create(self,{$I %CURRENTROUTINE%},'Depois preciso captura o relatório de erro.');
+                      end;
+              end;
         end
         else
         begin
           AResponse.Code := 400;  // Bad Request
-          raise Exception.Create('Invalid Content-Type. Expected application/json.');
+          raise TMi_rtl.TException.Create(self,{$I %CURRENTROUTINE%},'Invalid Content-Type. Expected application/json.');
         end;
       end
       else
       begin
         AResponse.Code := 405;  // Method Not Allowed
-        raise Exception.Create('Invalid HTTP method. Expected POST or PUT.');
+        raise TMi_rtl.TException.Create(self,{$I %CURRENTROUTINE%},'Invalid HTTP method. Expected POST or PUT.');
       end;
       Handled := True;
     except
@@ -1064,100 +1146,137 @@ end;
       KeyFields: string;
       KeyValues: Variant;
       Options   : TLocateOptions;
-      //s:String;
       _ok_Set_Server_Http:Boolean;
-
-      procedure Put;
-        Var
-          S:String;
-      begin
-        // Usa os query fields para localizar o registro
-        if ARequest.QueryFields.Count > 0 then
-        With DmxScroller_Form1 do
-        begin
-          GetQueryFieldsLocate(aRequest,KeyFields,KeyValues,Options );
-          if Locate(KeyFields,KeyValues,Options )
-          then begin
-                 try
-                   DmxScroller_Form1.DoOnEnter();
-                   s:= GetJSON(ARequest.Content).AsJSON;
-                   JSONObject  := TJSONObject(GetJSON(ARequest.Content));
-                   If UpdateRec
-                   Then begin
-                          AResponse.Code := 200;  // OK (Registro atualizado com sucesso)
-                          AResponse.Content := '{"status":"sucesso","mensagem":"Registro atualizado com sucesso."}';
-                        end
-                   else begin
-                          AResponse.Code := 400;  // Bad Request
-                          raise Exception.Create('Depois preciso captura o relatório de erro.');
-                        end;
-                 finally
-                   DmxScroller_Form1.DoOnExit();
-                 end;
-               end
-          else begin
-                 AResponse.Code := 400;  // Bad Request
-                 raise Exception.Create('Tentativa de atualizar um registro inexistente.');
-               end;
-        end
-        else begin
-               AResponse.Code := 400;  // Bad Request
-               raise Exception.Create('Query fields are required to locate the record.');
-             end;
-      end;
+      S,ErrorMsg:String;
    begin
-     _ok_Set_Server_Http := DmxScroller_Form1.Set_ok_Set_Server_Http(true);
+     If Tmi_rtl.IsHttpOptions(ARequest,AResponse,Handled)
+     Then exit;
+
+     // Configura os cabeçalhos CORS
+     AResponse.SetCustomHeader('Access-Control-Allow-Origin', '*');
+     AResponse.SetCustomHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
+     AResponse.SetCustomHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+
      try
-       // Verifica se a requisição é POST ou PUT
-       AResponse.ContentType := 'application/json';
-       if SameText(ARequest.Method, 'PUT') then
-       begin
-         // Verifica se o conteúdo é JSON
-         if ARequest.ContentType = 'application/json' then
-         begin
-           PUT;
-         end
-         else
-         begin
-           AResponse.Code := 400;  // Bad Request
-           raise Exception.Create('Invalid Content-Type. Expected application/json.');
-         end;
-       end
-       else
-       begin
-         AResponse.Code := 405;  // Method Not Allowed
-         raise Exception.Create('Invalid HTTP method. Expected POST or PUT.');
+       try
+         _ok_Set_Server_Http := DmxScroller_Form1.Set_ok_Set_Server_Http(true);
+
+         If Tmi_rtl.IsHttpOptions(ARequest,AResponse,Handled)
+         Then exit;
+
+         //Log do conteúdo recebido
+         TMi_Rtl.LogError(Format('Content-Type: %s', [ARequest.ContentType]));
+         TMi_Rtl.LogError(Format('Request Content: %s', [ARequest.Content]));
+         AResponse.ContentType := 'application/json';
+
+         s:= ARequest.Method;
+
+         if SameText(ARequest.Method, 'PUT') or SameText(ARequest.Method,'POST')
+         then begin
+                if ARequest.ContentType = 'application/json'
+                then begin
+                        // Usa os query fields para localizar o registro
+                        if ARequest.QueryFields.Count > 0 then
+                        With DmxScroller_Form1 do
+                        begin
+                          GetQueryFieldsLocate(aRequest,KeyFields,KeyValues,Options );
+                          if Tmi_rtl.ValidateGetQueryFieldsLocateParams(aRequest,ErrorMsg) and
+                             Locate(KeyFields,KeyValues,Options )
+                          then begin
+                                 try
+                                   DmxScroller_Form1.DoOnEnter();
+                                   //s:= GetJSON(ARequest.Content).AsJSON;
+                                   JSONObject  := (GetJSON(ARequest.Content)) as TJSONObject;
+                                   If RecordAltered
+                                   Then begin
+                                          If UpdateRec
+                                          Then begin
+                                                 AResponse.Code := 200;  // OK (Registro atualizado com sucesso)
+                                                 AResponse.Content := '{}';
+                                               end
+                                          else begin
+                                                 AResponse.Code := 400;  // Bad Request
+                                                 AResponse.Content := Format('{"status":"error","message":"%s"}', ['O método updateRec retornou false.']);
+                                               end;
+                                        end
+                                   else begin
+                                          AResponse.Code := 200;
+                                          AResponse.Content := '{"status":"sucesso","mensagem":"Registro não gravado porque é igual ao anterior."}';
+                                        end;
+
+                                 finally
+                                   DmxScroller_Form1.DoOnExit();
+                                 end;
+                               end
+                          else begin
+                                 AResponse.Code := 400;  // Bad Request
+                                 if ErrorMsg<>''
+                                 Then AResponse.Content := Format('{"status":"error","message":"%s"}', [ErrorMsg])
+                                 else AResponse.Content := Format('{"status":"error","message":"%s"}', ['Tentativa de atualizar um registro inexistente.']);
+                               end;
+                        end
+                        else begin
+                               AResponse.Code := 400;  // Bad Request
+                               AResponse.Content := Format('{"status":"error","message":"%s"}', ['Query fields are required to locate the record.']);
+                             end;
+                     end
+                else begin
+                       AResponse.Code := 400;  // Bad Request
+                       aResponse.Content := Format('{"status":"error","message":"%s"}', ['Invalid Content-Type. Expected application/json.']);
+                     end;
+              end
+              else begin
+                     AResponse.Code := 405;  // Method Not Allowed
+                     aResponse.Content := Format('{"status":"error","message":"%s"}', ['Invalid HTTP method. Expected POST or PUT.']);
+                   end;
+
+
+       finally
+         Handled := True;
+         DmxScroller_Form1.Set_ok_Set_Server_Http(_ok_Set_Server_Http);
        end;
 
-       Handled := True;
      except
+       on E: TMi_rtl.TException do
+       begin
+         s := TMi_rtl.GetMessageError;
+         AResponse.Content := Format('{"status":"error","message":"%s"}', [s]);
+         AResponse.Code := 500;  // Internal Server Error
+       end;
+
        on E: Exception do
        begin
-         AResponse.ContentType := 'application/json';
          AResponse.Content := Format('{"status":"error","message":"%s"}', [E.Message]);
          AResponse.Code := 500;  // Internal Server Error
-         Handled := True;
        end;
      end;
-
-     DmxScroller_Form1.Set_ok_Set_Server_Http(_ok_Set_Server_Http);
    end;
-
 
   procedure TMi_rtl_WebModule_base.CmDeleteRecordRequest(Sender: TObject;ARequest: TRequest; AResponse: TResponse; var Handled: Boolean);
     var
       ResponseJSON: TJSONObject=nil;
       _ok_Set_Server_Http:Boolean;
+      ErrorMsg :string;
   begin
-    _ok_Set_Server_Http := DmxScroller_Form1.Set_ok_Set_Server_Http(true);
-    // Inicialize o objeto JSON para a resposta
-    ResponseJSON := TJSONObject.Create;
+    If Tmi_rtl.IsHttpOptions(ARequest,AResponse,Handled)
+    Then exit;
+
+    // Configura os cabeçalhos CORS
+    AResponse.SetCustomHeader('Access-Control-Allow-Origin', '*');
+    AResponse.SetCustomHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
+    AResponse.SetCustomHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+
     try
+      _ok_Set_Server_Http := DmxScroller_Form1.Set_ok_Set_Server_Http(true);
+      // Inicialize o objeto JSON para a resposta
+      ResponseJSON := TJSONObject.Create;
+
       // Define o tipo de conteúdo como JSON
       AResponse.ContentType := 'application/json';
 
       // Prepare a resposta JSON baseada no resultado do Locate
-      if Locate(ARequest) then
+      if Tmi_rtl.ValidateGetQueryFieldsLocateParams(aRequest,ErrorMsg) and
+         Locate(ARequest) then
       begin
         If DmxScroller_Form1.DeleteRec
         then begin
@@ -1175,7 +1294,9 @@ end;
       else
       begin
         ResponseJSON.Add('status', 'error');
-        ResponseJSON.Add('message', 'Registro não localizado!');
+        if ErrorMsg<>''
+        Then ResponseJSON.Add('message', ErrorMsg)
+        else ResponseJSON.Add('message', 'Registro não localizado!');
         AResponse.Content := ResponseJSON.AsJSON;
         AResponse.Code := 404;  // HTTP Not Found
       end;
@@ -1193,10 +1314,20 @@ end;
       ResponseJSON: TJSONObject=nil;
       _ok_Set_Server_Http:Boolean;
   begin
-    _ok_Set_Server_Http := DmxScroller_Form1.Set_ok_Set_Server_Http(true);
-    // Inicialize o objeto JSON para a resposta
-    ResponseJSON := TJSONObject.Create;
+    If Tmi_rtl.IsHttpOptions(ARequest,AResponse,Handled)
+    Then exit;
+
+    // Configura os cabeçalhos CORS
+    AResponse.SetCustomHeader('Access-Control-Allow-Origin', '*');
+    AResponse.SetCustomHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
+    AResponse.SetCustomHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+
     try
+      _ok_Set_Server_Http := DmxScroller_Form1.Set_ok_Set_Server_Http(true);
+
+      // Inicialize o objeto JSON para a resposta
+      ResponseJSON := TJSONObject.Create;
+
       DmxScroller_Form1.DoOnEnter();
 
       // Define o tipo de conteúdo como JSON
@@ -1225,7 +1356,6 @@ end;
 
     Handled := True;  // Indica que a requisição foi processada
     DmxScroller_Form1.Set_ok_Set_Server_Http(_ok_Set_Server_Http);
-
   end;
 
   procedure TMi_rtl_WebModule_base.CmNextRecordRequest(Sender: TObject;ARequest: TRequest; AResponse: TResponse; var Handled: Boolean);
@@ -1235,18 +1365,25 @@ end;
       ok : Boolean;
       R,C:Integer;
   begin
-    _ok_Set_Server_Http := DmxScroller_Form1.Set_ok_Set_Server_Http(true);
-    // Inicialize o objeto JSON para a resposta
-    ResponseJSON := TJSONObject.Create;
+    If Tmi_rtl.IsHttpOptions(ARequest,AResponse,Handled)
+    Then exit;
+
+    // Configura os cabeçalhos CORS
+    AResponse.SetCustomHeader('Access-Control-Allow-Origin', '*');
+    AResponse.SetCustomHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
+    AResponse.SetCustomHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+
     try
+      _ok_Set_Server_Http := DmxScroller_Form1.Set_ok_Set_Server_Http(true);
+      // Inicialize o objeto JSON para a resposta
+      ResponseJSON := TJSONObject.Create;
+
       DmxScroller_Form1.DoOnEnter();
       // Define o tipo de conteúdo como JSON
       AResponse.ContentType := 'application/json';
 
-      ok := Locate(ARequest);
-
       // Localisa e posiciona no próximo
-      if  ok and
+      if  Locate(ARequest) and
           DmxScroller_Form1.NextRec
       then begin
              //retorna o registro atual
@@ -1274,10 +1411,19 @@ end;
       ResponseJSON: TJSONObject=nil;
       _ok_Set_Server_Http:Boolean;
   begin
-    _ok_Set_Server_Http := DmxScroller_Form1.Set_ok_Set_Server_Http(true);
-    // Inicialize o objeto JSON para a resposta
-    ResponseJSON := TJSONObject.Create;
+    If Tmi_rtl.IsHttpOptions(ARequest,AResponse,Handled)
+    Then exit;
+
+    // Configura os cabeçalhos CORS
+    AResponse.SetCustomHeader('Access-Control-Allow-Origin', '*');
+    AResponse.SetCustomHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
+    AResponse.SetCustomHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+
     try
+      _ok_Set_Server_Http := DmxScroller_Form1.Set_ok_Set_Server_Http(true);
+      // Inicialize o objeto JSON para a resposta
+      ResponseJSON := TJSONObject.Create;
+
       DmxScroller_Form1.DoOnEnter();
       // Define o tipo de conteúdo como JSON
       AResponse.ContentType := 'application/json';
@@ -1312,10 +1458,19 @@ end;
       _ok_Set_Server_Http:Boolean;
       s:string;
   begin
-    _ok_Set_Server_Http := DmxScroller_Form1.Set_ok_Set_Server_Http(true);
-    // Inicialize o objeto JSON para a resposta
-    ResponseJSON := TJSONObject.Create;
+    If Tmi_rtl.IsHttpOptions(ARequest,AResponse,Handled)
+    Then exit;
+
+    // Configura os cabeçalhos CORS
+    AResponse.SetCustomHeader('Access-Control-Allow-Origin', '*');
+    AResponse.SetCustomHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
+    AResponse.SetCustomHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+
     try
+      _ok_Set_Server_Http := DmxScroller_Form1.Set_ok_Set_Server_Http(true);
+      // Inicialize o objeto JSON para a resposta
+      ResponseJSON := TJSONObject.Create;
+
       DmxScroller_Form1.DoOnEnter();
       // Define o tipo de conteúdo como JSON
       AResponse.ContentType := 'application/json';
@@ -1324,7 +1479,7 @@ end;
       if DmxScroller_Form1.LastRec then
       begin
         //retorna o registro atual
-        //s := DmxScroller_Form1.JSONObject.AsJson;
+        s := DmxScroller_Form1.JSONObject.AsJson;
         AResponse.Content := DmxScroller_Form1.JSONObject.AsJson;
         AResponse.Code := 200;  // HTTP OK
       end
@@ -1345,24 +1500,103 @@ end;
     DmxScroller_Form1.Set_ok_Set_Server_Http(_ok_Set_Server_Http);
   end;
 
+  procedure TMi_rtl_WebModule_base.EventRequest_pDmxFieldRec(Sender: TObject;ARequest: TRequest; AResponse: TResponse; var Handled: Boolean);
+      procedure ExecEvent();
+        var
+          P : pDmxFieldRec;
+          aCurrentFieldName : String;
+          aCurrentFieldValue: String;
+          aEventName: String;
+          v :string;
+      begin
+        with DmxScroller_Form1 do
+        begin
+          GetQueryFieldsEventName(aRequest,
+                                  aCurrentFieldName,
+                                  aCurrentFieldValue,
+                                  aEventName);
+
+          if Assigned(onEnterField)
+          Then begin
+                 p := FieldByName(aCurrentFieldName);
+                 if Assigned(p)
+                 Then begin
+                        p^.AsString:=aCurrentFieldValue;
+                        v:= p^.AsString;
+                        case Lowcase(aEventName) of
+                          'onenterfield' : begin p^.DoOnEnter(self); end;
+                          'onexitfield',
+                          'oncalcfield',
+                          'onchangefield': begin p^.DoOnExit(self);  end;
+                          else raise DmxScroller_Form1.TException.Create(self,{$I %CURRENTROUTINE%},'O evento '+aEventName+ ' não existe na api!');
+                        end;
+                      end;
+               end;
+        end;
+      end;
+
+    var
+      ResponseJSON: TJSONObject=nil;
+      _ok_Set_Server_Http:Boolean;
+      ok:Boolean=true;
+  begin
+    If Tmi_rtl.IsHttpOptions(ARequest,AResponse,Handled)
+    Then exit;
+    // Configura os cabeçalhos CORS
+    AResponse.SetCustomHeader('Access-Control-Allow-Origin', '*');
+    AResponse.SetCustomHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
+    AResponse.SetCustomHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+
+    try
+      _ok_Set_Server_Http := DmxScroller_Form1.Set_ok_Set_Server_Http(true);
+      // Inicialize o objeto JSON para a resposta
+      ResponseJSON := TJSONObject.Create;
+
+      // Define o tipo de conteúdo como JSON
+      AResponse.ContentType := 'application/json';
+
+      // Localisa e posiciona no próximo
+      ok:= Locate(ARequest) ; //Só deve ser usada em aplicações cgi
+      if ok
+      then begin
+             ExecEvent();
+             //retorna o registro atual
+             AResponse.Content := DmxScroller_Form1.JSONObject.AsJson;
+             AResponse.Code := 200;  // HTTP OK
+           end
+      else begin
+             ResponseJSON.Add('status', 'eof');
+             ResponseJSON.Add('message','Registro não localizado!');
+             AResponse.Content := ResponseJSON.AsJSON;
+             AResponse.Code := 404;  // HTTP Not Found
+           end;
+
+    finally
+      ResponseJSON.Free;  // Libere o objeto JSON
+    end;
+
+    Handled := True;  // Indica que a requisição foi processada
+    DmxScroller_Form1.Set_ok_Set_Server_Http(_ok_Set_Server_Http);
+  end;
+
   procedure TMi_rtl_WebModule_base.OnEnterFieldRequest(Sender: TObject;ARequest: TRequest; AResponse: TResponse; var Handled: Boolean);
   begin
-
+    EventRequest_pDmxFieldRec(Sender,ARequest,AResponse,Handled);
   end;
 
   procedure TMi_rtl_WebModule_base.OnExitFieldRequest(Sender: TObject;ARequest: TRequest; AResponse: TResponse; var Handled: Boolean);
   begin
-
+    EventRequest_pDmxFieldRec(Sender,ARequest,AResponse,Handled);
   end;
 
   procedure TMi_rtl_WebModule_base.OnCalcFieldRequest(Sender: TObject;ARequest: TRequest; AResponse: TResponse; var Handled: Boolean);
   begin
-
+    EventRequest_pDmxFieldRec(Sender,ARequest,AResponse,Handled);
   end;
 
   procedure TMi_rtl_WebModule_base.OnChangeFieldRequest(Sender: TObject;ARequest: TRequest; AResponse: TResponse; var Handled: Boolean);
   begin
-
+    EventRequest_pDmxFieldRec(Sender,ARequest,AResponse,Handled);
   end;
 
 {$ENDREGION '--> Métodos publicados na web'}

@@ -1,0 +1,236 @@
+body {
+    font-size: 12px; /* Diminui o tamanho base para 12px */            
+    font-family: Arial, sans-serif;
+    background-color: #d0e6d0; /* Verde claro para o fundo da página */
+    color: #333; /* Cor do texto padrão */
+    margin: 0;
+    padding: 20px; /* Adiciona espaçamento ao redor da página */
+}
+
+h1 {
+    font-size: 1.5em; /* Tamanho da fonte menor */
+    line-height: 1.2; /* Reduz a altura da linha */
+    text-align: center; /* Centraliza o texto */
+    margin: 10px 0; /* Adiciona margens menores em cima e embaixo */
+    color: white; /* Cor do texto da barra de título */
+}
+
+h2 {
+    font-size: 1.3em; /* Tamanho um pouco menor que h1 */
+    line-height: 1.25; /* Ajuste da altura da linha */
+    text-align: center; /* Centraliza o texto */
+    margin: 8px 0; /* Margens ajustadas */
+    color: white; /* Cor do texto, você pode mudar conforme necessário */
+}
+
+h3 {
+    font-size: 1.2em; /* Tamanho menor que h2 */
+    line-height: 1.3; /* Altura da linha um pouco maior */
+    text-align: center; /* Centraliza o texto */
+    margin: 6px 0; /* Margens ajustadas */
+    color: white; /* Cor do texto */
+}
+
+h4 {
+    font-size: 1.1em; /* Tamanho menor que h3 */
+    line-height: 1.35; /* Altura da linha maior */
+    text-align: center; /* Centraliza o texto */
+    margin: 4px 0; /* Margens ajustadas */
+    color: white; /* Cor do texto */
+}
+
+.form-container {
+    background-color: #A8D5BA; /* Verde mais claro para o fundo do formulário */
+    border: 1px solid #7DAAA1; /* Borda em verde mais escuro */
+    margin: 20px auto;
+    max-width: 90%; /* Largura máxima em porcentagem */
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Leve sombra para destacar o formulário */
+}
+
+.form-header {
+    background-color: #4CAF50; /* Cor de fundo verde da barra de título */
+    color: white; /* Cor do texto da barra de título */            
+    padding: 10px;
+    text-align: center; /* Centraliza o texto */
+    border-top-left-radius: 8px; /* Bordas arredondadas no topo */
+    border-top-right-radius: 8px; /* Bordas arredondadas no topo */
+}
+
+form {
+    background-color: #A8D5BA; /* Verde mais claro para o fundo do formulário */
+    border: 1px solid #7DAAA1; /* Borda em verde mais escuro */
+    padding: 20px;
+    margin: 20px auto; /* Margem superior e inferior, centralizado horizontalmente */
+    max-width: 90%; /* Largura máxima em 90% da tela */
+    width: 90%; /* Ajuste a largura do formulário para 90% da largura da tela */
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Leve sombra para destacar o formulário */
+    display: flex; /* Habilita o flexbox */
+    flex-direction: column; /* Organiza os filhos em coluna */
+}
+
+.form-fields {
+    max-height: 300px; /* Altura máxima para a área de campos do formulário */
+    overflow-y: auto; /* Permite a rolagem vertical apenas nos campos */
+    margin-bottom: 10px; /* Espaçamento abaixo dos campos */
+}       
+
+form button {
+    background-color: #388E3C; /* Verde escuro para os botões */
+    color: #fff; /* Texto branco */
+    border: none;
+    padding: 8px 12px; /* Menor padding para reduzir o tamanho dos botões */
+    margin: 5px; /* Adiciona margens para separar os botões */
+    cursor: pointer;
+    border-radius: 4px;
+    font-size: 14px; /* Fonte menor */
+    display: inline-block; /* Mantém os botões alinhados em linha */
+}
+
+form button:hover {
+    background-color: #2E7D32; /* Tom mais escuro ao passar o mouse */
+}
+
+/* Estilos para botão desabilitado no formulário */
+form button:disabled {
+    background-color: #B2DFDB; /* Cor de fundo para botão desabilitado */
+    color: #666666; /* Cor do texto para botão desabilitado */
+    cursor: not-allowed; /* Cursor indicando que não é interativo */
+    opacity: 1; /* Opacidade padrão para garantir visibilidade */
+    border: 1px solid #999; /* Borda para destacar o botão desabilitado */
+}
+
+form input, form select, form textarea {
+    width: 100%;
+    height: 30px; /* Definindo uma altura fixa para os inputs */
+    padding: 10px; /* O padding pode ser ajustado conforme necessário */
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #f0f0f0; /* Fundo levemente claro para inputs */
+    color: #333;
+    box-sizing: border-box;
+}
+
+form input:focus, form select:focus, form textarea:focus {
+    outline: none;
+    border-color: #66BB6A; /* Cor da borda ao focar */
+    background-color: #ddd; /* Fundo levemente mais escuro ao focar */
+}
+
+label {
+    font-weight: bold;            
+    display: block;  /* Garante que o label esteja acima do input */
+    font-weight: bold;
+    color: #555;
+    height: 0px; /* Define uma altura absoluta para o label */
+    line-height: 10px; /* Garante que o texto dentro do label fique centralizado verticalmente */
+    margin-bottom: 5px; /* Espaçamento entre o label e o input */
+}  
+
+/* Estilizando o grupo de botões de navegação */
+.navigation-buttons {
+    padding: 4px 8px; /* Reduzido para dar um tamanho mais compacto */
+    margin: 5px 0;
+    background-color: #4CAF50; /* Mantém o mesmo verde */
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-size: 12px; /* Tamanho da fonte reduzido */
+    display: flex; /* Alinha os botões em uma linha */
+    justify-content: center; /* Centraliza os botões de navegação */    
+}
+
+.navigation-buttons:hover {
+    background-color: #43A047; /* Verde escuro ao passar o mouse */
+}
+
+.navigation-buttons:disabled {
+    background-color: #B2DFDB; /* Cor de fundo para botão de navegação desabilitado */
+    color: #666666; /* Cor do texto para botão de navegação desabilitado */
+    cursor: not-allowed; /* Cursor indicando que não é interativo */
+    opacity: 1; /* Opacidade padrão para garantir visibilidade */
+    border: 1px solid #999; /* Borda para destacar o botão desabilitado */
+}
+
+/* Estilizando os botões dentro do grupo de navegação */
+.navigation-buttons button {
+    height: 30px; /* Define uma altura específica para os botões de navegação */
+    margin: 2px 5px; /* Reduz o espaçamento entre os botões de navegação */
+    padding: 0 10px; /* Ajusta o espaçamento interno dos botões de navegação */
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8); /* Fundo escuro */
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+/* Estilizando o grupo de botões de ação */
+.action-buttons {
+    display: flex; /* Organiza os botões de ação em linha */
+    flex-wrap: nowrap; /* Não permite quebra de linha */
+    /*flex-wrap: wrap; /* Permite que os botões se movam para a linha seguinte se não houver espaço suficiente */    
+    overflow-x: auto; /* Permite a rolagem horizontal se os botões não couberem */
+    margin-bottom: 10px; /* Espaçamento abaixo dos botões de ação */
+    background-color: #4CAF50; /* Definido para o mesmo verde */
+    
+    border-radius: 4px; /* Adicionando bordas arredondadas, se necessário */
+    justify-content: flex-start; /* Alinha os botões à esquerda */
+    padding: 5px; /* Ajusta o espaçamento interno do grupo */
+}
+
+/* Estilizando os botões dentro do grupo de ação */
+.action-buttons button {
+    background-color: #388E3C; /* Verde escuro para os botões */
+    color: #fff; /* Texto branco */
+    border: none;
+    padding: 8px 12px; /* Menor padding para reduzir o tamanho dos botões */
+    margin: 5px; /* Adiciona margens para separar os botões */
+    cursor: pointer;
+    border-radius: 4px;
+    font-size: 14px; /* Fonte menor */
+}
+
+.action-buttons button:hover {
+    background-color: #2E7D32; /* Tom mais escuro ao passar o mouse */
+}
+
+
+/* Você pode adicionar estilos adicionais para os botões aqui */
+
+
+/* Media query para telas menores */
+@media (max-width: 600px) {
+    form {
+        width: 100%; /* O formulário ocupa 100% da largura da tela em dispositivos móveis */
+    }
+
+    .form-fields {
+        width: 100%; /* A classe form-fields também pode ocupar 100% da largura, se necessário */
+        padding: 10px; /* Adicionando padding para melhor espaçamento */
+        box-shadow: none; /* Removendo a sombra, se desejado */
+    }
+
+    .action-buttons {
+        flex-direction: column; /* Os botões empilham verticalmente em telas menores */
+    }
+    
+    .navigation-buttons {
+        width: 100%; /* Botões de navegação ocupam 100% da largura */
+        margin: 5px 0; /* Espaçamento vertical entre os botões */
+    }
+}
+
+
+/*    </style>*/

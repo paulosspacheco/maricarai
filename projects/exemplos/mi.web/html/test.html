@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PUT Request Example</title>
+</head>
+<body>
+    <h1>Enviar Dados via PUT</h1>
+    
+    <!-- Formulário para entrada de dados -->
+    <form id="dataForm">
+        <label for="id">ID:</label>
+        <input type="text" id="id" name="id" required>
+        <br>
+        <label for="nome">Nome:</label>
+        <input type="text" id="nome" name="nome" required>
+        <br>
+        <button type="button" id="sendRequest">Enviar Requisição</button>
+    </form>
+
+    <script>
+        document.getElementById('sendRequest').addEventListener('click', function() {
+            const id = document.getElementById('id').value;
+            const nome = document.getElementById('nome').value;
+
+            const url = `http://localhost:8080/Tmi_rtl_web_module/CmPutRecord?KeyFields=id&KeyValues=${encodeURIComponent(id)}&Options=loCaseInsensitive`;
+
+            const data = {
+                id: id,
+                nome: nome
+            };
+
+            fetch(url, {
+                method: 'PUT', // Certifica-se de que o método é PUT
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(data)
+            })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok: ' + response.status + ' ' + response.statusText);
+                }
+                return response.json();
+            })
+            .then(result => {
+                console.log('Success:', result);
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('An error occurred: ' + error.message); // Exibe o erro no navegador
+            });
+        });
+    </script>
+</body>
+</html>

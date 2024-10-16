@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRUD Operations</title>
+</head>
+<body>
+    <h1>CRUD Operations</h1>
+
+    <h2>Novo Registro</h2>
+    <button onclick="createNewRecord()">Novo Registro</button>
+
+    <h2>Adicionar Registro</h2>
+    <input type="text" id="addName" placeholder="Nome">
+    <button onclick="addRecord()">Adicionar</button>
+
+    <h2>Localizar Registro</h2>
+    <input type="text" id="locateId" placeholder="ID">
+    <button onclick="locateRecord()">Localizar</button>
+
+    <h2>Atualizar Registro</h2>
+    <input type="text" id="updateId" placeholder="ID">
+    <input type="text" id="updateName" placeholder="Nome">
+    <button onclick="updateRecord()">Atualizar</button>
+
+    <h2>Excluir Registro</h2>
+    <input type="text" id="deleteId" placeholder="ID">
+    <button onclick="deleteRecord()">Excluir</button>
+
+    <script>
+        async function createNewRecord() {
+            try {
+                const result = await sendRequest('CmNewRecord', {}, null, 'POST');
+                console.log('Novo registro:', result);
+            } catch (error) {
+                console.error('Erro ao criar novo registro:', error);
+            }
+        }
+
+        async function addRecord() {
+            const name = document.getElementById('addName').value;
+            try {
+                const result = await sendRequest('CmAddRecord', {}, { nome: name }, 'POST');
+                console.log('Registro adicionado:', result);
+            } catch (error) {
+                console.error('Erro ao adicionar registro:', error);
+            }
+        }
+
+        async function locateRecord() {
+            const id = document.getElementById('locateId').value;
+            try {
+                const result = await sendRequest('Cmlocate', { KeyFields: 'id', KeyValues: id }, null, 'GET');
+                console.log('Registro localizado:', result);
+            } catch (error) {
+                console.error('Erro ao localizar registro:', error);
+            }
+        }
+
+        async function updateRecord() {
+            const id = document.getElementById('updateId').value;
+            const name = document.getElementById('updateName').value;
+            try {
+                const result = await sendRequest('CmPutRecord', { KeyFields: 'id', KeyValues: id }, { nome: name }, 'PUT');
+                console.log('Registro atualizado:', result);
+            } catch (error) {
+                console.error('Erro ao atualizar registro:', error);
+            }
+        }
+
+        async function deleteRecord() {
+            const id = document.getElementById('deleteId').value;
+            try {
+                const result = await sendRequest('CmDeleteRecord', { KeyFields: 'id', KeyValues: id }, null, 'DELETE');
+                console.log('Registro excluído:', result);
+            } catch (error) {
+                console.error('Erro ao excluir registro:', error);
+            }
+        }
+    </script>
+</body>
+</html>

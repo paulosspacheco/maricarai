@@ -144,7 +144,7 @@ uses
                     if finalize
                     then Roolback;
 
-                    Raise TException.Create(Self,'AddRec',E.Message);
+                     TException.Create(Self,'AddRec',E.Message);
                   end;
               end;
 
@@ -419,6 +419,47 @@ uses
       }
       Public class Procedure MessageError;virtual;
 
+      {:O método **@name** retorna uma string contendo mensagens de erro armazenadas
+        em uma lista interna (`ListaDeMsgErro`). Caso exista uma mensagem de erro,
+        ela é registrada no log e o método a retorna como uma string.
+
+        - **Retorno**
+          - **`String`**:
+            - Uma string contendo a mensagem de erro se houver. Caso não existam
+              erros, o retorno será uma string vazia.
+
+        - **Fluxo de Execução**
+          1. **Inicialização**:
+             - A variável `Result` é inicializada como uma string vazia (`''`),
+               assumindo que não há erros.
+
+          2. **Condições de Saída**:
+             - Se `MessageBoxOff` for verdadeiro ou se a instância da classe
+               (`Self`) for nula, o método é encerrado imediatamente e retorna
+                uma string vazia.
+
+          3. **Verificação de Transação**:
+             - Se a função `Get_ok_Set_Transaction` retornar `false`, o método
+               continua verificando possíveis mensagens de erro.
+
+          4. **Tratamento de Mensagens de Erro**:
+             - Se a lista de mensagens de erro (`ListaDeMsgErro`) não for nula:
+               - A lista é convertida em uma string através da função `SItemToString`.
+               - Se a string resultante não for vazia, o conteúdo é registrado no
+                 log através da função `LogError`.
+             - Após o processamento, a lista de mensagens de erro é liberada com
+               o método `DisposeSItems`.
+
+        - **Exemplo de Retorno**
+          - Se houver uma mensagem de erro:
+
+            ```pascal
+              'Erro ocorrido ao processar a requisição.'
+            ```
+
+      }
+      Public class Function GetMessageError:String;overload;
+
       {: O Método @name retorna uma lista de erros da pilha de erros;
 
       }
@@ -566,9 +607,72 @@ uses
     public procedure HandleEvent(var Event: TEvent); Virtual;
     public procedure ClearEvent(var Event: TEvent);Virtual;
     public class Function Change_AnsiChar(campo : AnsiString; Const AnsiChar_Font,AnsiChar_Dest : AnsiChar):AnsiString;
+
+    public class Function DeleteMask(InvalidSet: AnsiCharSet;S:AnsiString):AnsiString;overload;
     public class Function DeleteMask(S:AnsiString;ValidSet: AnsiCharSet):AnsiString;overload;
-    public class function DeleteMask(S:AnsiString;aMask:TString): AnsiString;overload;
-    public class function AddMask(S: ShortString;aMask:ShortString): AnsiString;
+    public class function DeleteMask(S:AnsiString;aMask   :TString     ): AnsiString;overload;
+
+    {:O método **@name** recebe um string e retorna uma string formatada que pode ser usado
+      e tdbedit.OnSetText para formação de núumero formatado toda vez que ouver uma troca
+      de valor da string.
+
+      - **OBS**:
+        - Foi criado para ser usado no código javascript.
+
+
+      - **EXEMPLO**
+
+        ```
+          procedure testFormatValueSetText;
+            var
+              s : string;
+          begin
+              s := Tmi_rtl.FormatValueSetText('0,60','ppp.pp');
+              WriteLn(Tmi_rtl.FormatValueSetText('0,60','ppp.pp'));
+
+              s := Tmi_rtl.FormatValueSetText('-0,45','PPP.PP');
+              WriteLn(Tmi_rtl.FormatValueSetText('-0,45','PPP.PP'));
+
+              WriteLn(Tmi_rtl.FormatValueSetText('11141,45','RRR,RRR.RR'));
+              WriteLn(Tmi_rtl.FormatValueSetText('14149621349','###.###.###-##'));
+              WriteLn(Tmi_rtl.FormatValueSetText('WWY2545','SSS-####'));
+              WriteLn(Tmi_rtl.FormatValueSetText('11141,45','rrr,rrr.rr'));
+              WriteLn(Tmi_rtl.FormatValueSetText('11141,45','OOO,OOO.OO'));
+              WriteLn(Tmi_rtl.FormatValueSetText('11141,45','ooo,ooo.oo'));
+              WriteLn(Tmi_rtl.FormatValueSetText('Paulo Sérgio da Silva Pacheco','ssssssssssssssssssssssssssssss'));
+              WriteLn(Tmi_rtl.FormatValueSetText('Paulo Sérgio da Silva Pacheco','SSSSSSSSSSSSSSSSSSSSSSSSSSSSSS'));
+          end;
+
+        ```
+    }
+    public class function FormatValueSetText(aValue:string;aMask:ShortString): AnsiString;
+
+    {:A classe método **@name** receber um valor variante e retorna o mesmo formatado
+
+      - Exemplo de uso:
+
+        ```pascal
+
+          procedure testFormatValue;
+            var
+              s : string;
+          begin
+            WriteLn(Tmi_rtl.FormatValue(0.60,'ppp,pp'));
+            WriteLn(Tmi_rtl.FormatValue(0.45,'PPP,PP'));
+            WriteLn(Tmi_rtl.FormatValue('11141.45','RRR,RRR.RR'));
+            WriteLn(Tmi_rtl.FormatValue('14149621349','###.###.###-##'));
+            WriteLn(Tmi_rtl.FormatValue('WWY2545','SSS-####'));
+            WriteLn(Tmi_rtl.FormatValue('11141,45','rrr,rrr.rr'));
+            WriteLn(Tmi_rtl.FormatValue('11141,45','OOO,OOO.OO'));
+            WriteLn(Tmi_rtl.FormatValue('11141,45','ooo,ooo.oo'));
+            WriteLn(Tmi_rtl.FormatValue('Paulo Sérgio da Silva Pacheco','ssssssssssssssssssssssssssssss'));
+            WriteLn(Tmi_rtl.FormatValue('Paulo Sérgio da Silva Pacheco','SSSSSSSSSSSSSSSSSSSSSSSSSSSSSS'));
+          end;
+
+        ```
+     }
+    public class function FormatValue(aValue:Variant;aMask:ShortString): AnsiString;overload;
+
 
     {: A função **@name** é usada para criar ou apagar um banco de dados
 
@@ -643,6 +747,7 @@ uses
     {: o classe método **@name** checa se s está entre aHigh e aLow retorna zero se houver erro
        e em aErr o código do erro.
     }
+
     Public class function CheckRanger(S : AnsiString; aHigh, aLow: Int64; out aErr:Integer): Int64;
 
     {: O método @name retorna **TRUE** se o parâmetro S for número inteiro ou **FALSE** caso contrário.}
@@ -1189,7 +1294,7 @@ uses
                                          out aKeyFields: string;
                                          Out aKeyValues: Variant;
                                          Out aOptions   : TLocateOptions
-                                         );
+                                         );Overload;
 
      {:O método **@name** converte os parâmetros de uma chamada TDataSet.Locate()
       em TJSonObject para ser enviado para o servidor para pesquisar o registro.
@@ -1215,7 +1320,40 @@ uses
 
         ```
     }
-    Class function LocateParamsToJson(KeyFields: string; KeyValues: Variant; Options: TLocateOptions): TJSONObject;
+    Class function LocateParamsToJson(KeyFields: string;
+                                      KeyValues: Variant;
+                                      Options: TLocateOptions): TJSONObject;
+
+    {:O método **@name** retorna o nome do corrente campo e o nome do evento
+      a ser disparado no método que o chamou.
+
+      - **Descrição**
+        - O método `GetQueryFieldsEventName` extrai os parâmetros `CurrentFieldName`,
+         `CurrentFieldValue` e `EventName` da query string de uma requisição HTTP,
+         decodificando os valores URL-encoded e assegurando que os parâmetros
+         não estejam vazios. Se qualquer um desses parâmetros estiver ausente
+         ou vazio, uma exceção será levantada exceto no campo aCurrentFieldValue.
+
+    }
+    class procedure GetQueryFieldsEventName(var aRequest: TRequest;
+                                            out aCurrentFieldName : String;
+                                            out aCurrentFieldValue: String;
+                                            out aEventName: String);
+
+    {:A classe método **name** cria um objeto JSON contendo os parâmetros de
+      localização de registros, juntamente com o nome e valor do campo atual e
+      o nome de um evento. Esse método facilita a construção de uma estrutura
+      JSON que pode ser usada para comunicação em processos que envolvem
+      localização de registros e manipulação de eventos associados a campos.
+    }
+    Class function FieldsEventNameParamsToJson(aKeyFields: string;
+                                               aKeyValues: Variant;
+                                               aOptions: TLocateOptions;
+                                               aCurrentFieldName : String;
+                                               aCurrentFieldValue: String;
+                                               aEventName: String
+                                              ): TJSONObject;
+
 
     {:O método **@name** tem como objetivo construir e validar uma URL a partir
       de três partes: a URL base (`BaseURL`), uma ação (`Action`), e uma string
@@ -1287,16 +1425,56 @@ uses
         - `VarArrayCreate`
     }
     class procedure ParseServerResponse(const AResponse: string; out KeyFields: string; out KeyValues: Variant);
+
+    {:O método **@name** verifica se o método HTTP da requisição é `OPTIONS`. Se
+      for, responde com os cabeçalhos necessários para permitir o uso de CORS
+      (Cross-Origin Resource Sharing) e define o código de status como `204 No Content`.
+      Caso contrário, retorna `False`.
+
+      - **Parâmetros**
+        - **ARequest**: `TRequest`
+          - Representa a requisição HTTP recebida.
+
+        - **AResponse**: `TResponse`
+          - Representa a resposta HTTP que será enviada ao cliente.
+
+        - **Handled**: `Boolean`
+          - Um valor de saída que indica se a requisição foi tratada. Se for `True`,
+            significa que a requisição foi processada e não necessita de mais ações.
+
+      - **Retorno**
+        - **Boolean**:
+          Retorna `True` se o método HTTP for `OPTIONS`, caso contrário, retorna `False`.
+
+      - **Fluxo de Execução**
+        1. O método verifica se o método da requisição (**ARequest.Method**) é `OPTIONS`.
+        2. Se for, são definidos os seguintes cabeçalhos de resposta (**AResponse**):
+           - `Access-Control-Allow-Origin: *`
+           - `Access-Control-Allow-Methods: GET, POST, PUT, DELETE, OPTIONS`
+           - `Access-Control-Allow-Headers: Content-Type`
+        3. O código de resposta é definido como `204 No Content` e o conteúdo da resposta é vazio.
+        4. O parâmetro **Handled** é definido como `True` para indicar que a requisição foi tratada.
+        5. O método retorna `True` e encerra a execução com `Exit`.
+        6. Se o método da requisição não for `OPTIONS`, o método retorna `False`.
+
+      - **Ver Também**
+        - [HTTP Methods](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods)
+        - [Cross-Origin Resource Sharing (CORS)](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS)
+    }
+    class Function IsHttpOptions(ARequest: TRequest; AResponse: TResponse; var Handled: Boolean):Boolean;
+
+    class function ValidateGetQueryFieldsLocateParams(var aRequest: TRequest; out ErrorMsg: string): Boolean;
+
   end;
 
 
 
-(*     tStream = class(TObjectsMethods)
-       //Atributos public
-          public Status    : Integer;   {:< Stream status }
-          public ErrorInfo : Integer;   {:< Stream error info }
-          public StreamSize: LongInt;   {:< Stream current size }
-          public Position  : LongInt;   {:< Current position }
+        (*     tStream = class(TObjectsMethods)
+               //Atributos public
+                  public Status    : Integer;   {:< Stream status }
+                  public ErrorInfo : Integer;   {:< Stream error info }
+                  public StreamSize: LongInt;   {:< Stream current size }
+                  public Position  : LongInt;   {:< Current position }
      end;   *)
 
 implementation
@@ -1327,7 +1505,7 @@ end;
 
     if Result <>0 then
     begin
-      raise Exception.CreateFmt('O método '+{$I %CURRENTROUTINE%}+' falhou: %s', [Result]);
+       Exception.CreateFmt('O método '+{$I %CURRENTROUTINE%}+' falhou: %s', [Result]);
     end;
   end;
 
@@ -1831,12 +2009,12 @@ end;
                 If Not (aTemplate[i] in [' ','z','Z',#0]) //Carateres de formatazao e separacao de campos
                 Then
                 Case aTemplate[i] of
-                  fldSTRNUM,
-                  fldSTR_Lowcase,
-                  fldSTR             : Begin
+                  fldStrNumber,
+                  fldStrAlfa,
+                  fldStr             : Begin
                                          aSize := 1;
                                          For j := 1 to Length(aTemplate) do
-                                           If  aTemplate[j] in [fldSTRNUM,fldSTR_Lowcase,fldSTR]
+                                           If  aTemplate[j] in [fldStrNumber,fldStrAlfa,fldStr]
                                            then Inc(aSize);
 
                                          Result := aTemplate[i];
@@ -1844,12 +2022,12 @@ end;
                                        End;
 
                   fldAnsiChar,
-                  fldAnsiChar_Lowcase,
-                  fldAnsiCharNUM,{<'o'. Obs: O "o" minusculo e usado para real Positivo}
-                  fldAnsiCharVAL        : Begin
+                  fldAnsiCharAlfa,
+                  fldAnsiCharNumPositive,{<'o'. Obs: O "o" minusculo e usado para real Positivo}
+                  fldAnsiCharNum      : Begin
                                          aSize := 0;
                                          For j := 1 to Length(aTemplate) do
-                                           If  aTemplate[j] in [fldAnsiChar,fldAnsiChar_Lowcase,fldAnsiCharNUM,fldAnsiCharVAL]
+                                           If  aTemplate[j] in [fldAnsiChar,fldAnsiCharAlfa,fldDoublePositive,fldDouble]
                                            then Inc(aSize);
 
                                          Result := aTemplate[i];
@@ -1858,16 +2036,16 @@ end;
                   
                   FldOperador,                 
                   ^X,  {<Boolean Especial}
-                  fldBOOLEAN,
+                  fldBoolean,
 
-                  fldBYTE,
-                  fldSHORTINT        : Begin
+                  fldByte,
+                  fldShortInt        : Begin
                                          aSize := Sizeof(byte);
                                          Result := aTemplate[i];
                                          Exit;
                                        End;
 
-                  fldSmallWORD       : Begin
+                  fldSmallWord       : Begin
                                          aSize := Sizeof(SmallWord);
                                          Result := aTemplate[i];
                                          Exit;
@@ -1889,14 +2067,14 @@ end;
                                          Exit;
                                        End;
                   fldENum,fldENum_db,
-                  fldLONGINT         : Begin
+                  fldLongInt         : Begin
                                          aSize := Sizeof(Longint);
                                          Result := aTemplate[i];
                                          Exit;
                                        End;
 
-                  fldRealNum,
-                  fldRealNum_Positivo
+                  fldDouble,
+                  fldDoublePositive
                                      : Begin
                                          aSize := Sizeof(TRealNum);
                                          Result := aTemplate[i]; Exit;
@@ -1949,7 +2127,7 @@ end;
            End; //<  If Not If_FldDateTime Then Begin.
   end;
 
-    class function TObjectsMethods.TypeFld(const aTemplate: tString): AnsiChar;
+  class function TObjectsMethods.TypeFld(const aTemplate: tString): AnsiChar;
     Var aSize : SmallWord;
   Begin
     Result := TypeFld(aTemplate,aSize);
@@ -1985,12 +2163,13 @@ end;
 
   class function TObjectsMethods.StrNum(formato: AnsiString;buffer: Variant; const Tipo: AnsiChar; const OkSpc: Boolean): AnsiString;
 
+        Var PosVirgula : Byte;
         procedure divide (var  PI,PF,Npontos:Byte);
 
           {Formato: RRR,RRR,RRR,RRR.RR}
           {Formato: EEE,EEE,EEE,EEE.EE}
 
-          Var PosVirgula,i : Byte;
+          Var i : Byte;
         begin
           PI :=  0;
           PF :=  0;
@@ -2006,8 +2185,8 @@ end;
                  PI := PosVirgula - NPontos - 1;
 
                  For i := PosVirgula to length(Formato) do
-                   If UpCase(Formato[i]) in [fldExtended,fldReal4,fldReal4P,fldRealNum,
-                                             fldRealNum_Positivo,fldReal4Positivo,
+                   If UpCase(Formato[i]) in [fldExtended,fldReal4,fldReal4P,fldDouble,
+                                             fldDoublePositive,fldReal4Positivo,
                                              fldReal4PPositivo,fldZEROMOD]
                    Then inc(PF);
                End
@@ -2019,18 +2198,20 @@ end;
       {Formato: RRR,RRR,RRR,RRR.RR}
       {Formato: EEE,EEE,EEE,EEE.EE}
     Var
-      PiF,PfF,Pontos:Byte;
+      PIF,PFF,Pontos:Byte;
       valorExtended : Extended;
-
+      sPF : ShortString;
   Begin
     Try
       divide(PIF,PFF,Pontos) ;
       case Tipo of
         fldReal4,
+        fldReal4Positivo,
         fldReal4P,
+        fldReal4PPositivo,
         fldExtended,// : str(Extended(Buffer):PIF:PFF,Result);
-        fldRealNum,
-        fldRealNum_Positivo :
+        fldDouble,
+        fldDoublePositive :
            begin
             valorExtended := Buffer;
             //system.str(valorExtended:PIF:PFF,Result); //A função str não obdece o parâmetro DefaultFormatSettings.DecimalSeparator
@@ -2039,22 +2220,31 @@ end;
             Result := FloatToStrf(valorExtended,ffFixed,PIF,PFF);
            end;
 
-        fldBYTE       : system.Str(Byte(Buffer):PIF,Result);
+        fldByte       : system.Str(Byte(Buffer):PIF,Result);
 
-        fldSHORTINT   : system.Str(SHORTINT(Buffer):PIF,Result);
+        fldShortInt   : system.Str(SHORTINT(Buffer):PIF,Result);
         fldSmallInt   : system.Str(SmallInt(Buffer):PIF,Result);
 
         {fldWORD}
-        FldSmallWord  : system.Str(SmallWord(Buffer):PIF,Result);
+        fldSmallWord  : system.Str(SmallWord(Buffer):PIF,Result);
         
         fldENum,
         fldENum_db    : system.Str(LongInt(Buffer):PIF,Result);
-        fldLONGINT    : system.Str(Longint(Buffer):PIF,Result);
-
+        fldLongInt    : system.Str(Longint(Buffer):PIF,Result);
 
         else Begin
-               Push_MsgErro('Error em: Function StrNum(formato : AnsiString;Var buffer; Const Tipo : AnsiChar) : AnsiString;');
-               RunError(ParametroInvalido);
+
+               //Preenche com zero a parte fracionaria
+               sPF := copy(buffer,PosVirgula,PFF);
+               while Length(sPF)<PFF do
+               begin
+                 sPF:= sPF+'0';
+               end;
+               buffer := copy(buffer,1,PIF);
+               buffer := buffer+showDecimalSeparator+sPF;
+
+               //Push_MsgErro('Error em: Function StrNum(formato : AnsiString;Var buffer; Const Tipo : AnsiChar) : AnsiString;');
+               //RunError(ParametroInvalido);
              End;
       end; { case }
 
@@ -2641,6 +2831,28 @@ end;
 
     End;
 
+    //Este captura as mensagens de erro da plilha de mesagems de erro
+    class function TObjectsMethods.GetMessageError: String;
+
+    Begin
+      Result := '';
+      If MessageBoxOff or (Self = nil)
+      then exit;
+      If (Not Get_ok_Set_Transaction)
+      Then Begin
+             If (ListaDeMsgErro <>  nil)
+             Then Begin
+                    Result := SItemToString(ListaDeMsgErro);
+                    if Result<>''
+                    Then begin
+                           LogError(Result);
+                         end;
+                    DisposeSItems(ListaDeMsgErro);
+                  end;
+           End;
+    End;
+
+
 
     class function TObjectsMethods.String_ListaDeMsgErro(Separador: String): AnsiString;
       Var
@@ -2887,7 +3099,6 @@ end;
   class function TObjectsMethods.FGetMem(var Buff; const TamBuff: Word   ): Boolean;
   Begin
     try
-
       if TamBuff >0
       then GetMem(Pointer(Buff),TamBuff)
       else Pointer(Buff) := nil;
@@ -3276,8 +3487,8 @@ end;
   Begin
     Case TypeFld(aTemplate) of
       fldExtended,
-      fldRealNum         ,
-      fldRealNum_Positivo,
+      fldDouble         ,
+      fldDoublePositive,
       fldReal4Positivo,
       fldReal4PPositivo,
       fldReal4           ,
@@ -3289,11 +3500,11 @@ end;
   class function TObjectsMethods.IsNumberInteger(const aTemplate: ShortString): Boolean;
   begin
     Case TypeFld(aTemplate) of
-      fldBYTE,
-      fldSHORTINT,
-      fldSmallWORD,
+      fldByte,
+      fldShortInt,
+      fldSmallWord,
       fldSmallInt,
-      fldLONGINT,
+      fldLongInt,
       fldHexValue,
       fldENum,
       fldENum_db : Result := true
@@ -3363,6 +3574,20 @@ end;
      Result := Campo;
    end;
 
+   class function TObjectsMethods.DeleteMask(InvalidSet: AnsiCharSet;S: AnsiString): AnsiString;
+     Var
+       I : Integer;
+   Begin
+     Result := '';
+     For i :=  1 to Length(S)   do
+     Begin
+       if not (s[i] in InvalidSet )
+       Then Begin
+              Result := Result + S[i];
+            end;
+     end;
+   end;
+
    class function TObjectsMethods.DeleteMask(S: AnsiString;ValidSet: AnsiCharSet): AnsiString;
      {
        inclui um conjunto de caracateres a tString
@@ -3387,111 +3612,490 @@ end;
    end;
 
    class function TObjectsMethods.DeleteMask(S: AnsiString; aMask: TString): AnsiString;
-      {
-       Mask1: ssssssssssssssss    Obs: Cada posição com s ou S aceita [#0..#255] e ignora os digitos da mascara.
-       Mask2: (##) # #### ####    Obs: Cada posição com # aceita ['0'..'9'] e ignora os digitos da mascara.
 
-       Nota:
-         Se S não tem mascara, o que fazer?
-      }
-      Var
-        I,LenS,Len_aMask : Integer;
-   Begin
-      Result := '';
-      LenS := length(s);
-      Len_aMask := length(aMask);
+     //procedure testDeleteMask;
+     //  var s:String;
+     //begin
+     //  s := TMi_rtl.DeleteMask('1','###.###.###-##');
+     //  s := TMi_rtl.DeleteMask('14','###.###.###-##');
+     //  s := TMi_rtl.DeleteMask('141','###.###.###-##');
+     //  s := TMi_rtl.DeleteMask('141.','###.###.###-##');
+     //  s := TMi_rtl.DeleteMask('141.4','###.###.###-##');
+     //  s := TMi_rtl.DeleteMask('141.49','###.###.###-##');
+     //  s := TMi_rtl.DeleteMask('141.496','###.###.###-##');
+     //  s := TMi_rtl.DeleteMask('141.496.','###.###.###-##');
+     //  s := TMi_rtl.DeleteMask('141.496.2','###.###.###-##');
+     //  s := TMi_rtl.DeleteMask('141.496.21','###.###.###-##');
+     //  s := TMi_rtl.DeleteMask('141.496.213','###.###.###-##');
+     //  s := TMi_rtl.DeleteMask('141.496.213-','###.###.###-##');
+     //  s := TMi_rtl.DeleteMask('141.496.213-4','###.###.###-##');
+     //  s := TMi_rtl.DeleteMask('141.496.213-49','###.###.###-##');
+     //  s := TMi_rtl.deleteMask('3','RRR.RRR,RRR');
+     //  s := TMi_rtl.deleteMask('32','RRR.RRR,RRR');
+     //  s := TMi_rtl.deleteMask('321','RRR.RRR,RRR');
+     //  s := TMi_rtl.deleteMask('321.','RRR.RRR,RRR');
+     //  s := TMi_rtl.deleteMask('321.1','RRR.RRR,RRR');
+     //  s := TMi_rtl.deleteMask('321.15','RRR.RRR,RRR');
+     //  s := TMi_rtl.deleteMask('321.156','RRR.RRR,RRR');
+     //  s := TMi_rtl.deleteMask('321.156,5','RRR.RRR,RRR');
+     //  s := TMi_rtl.deleteMask('321.156,52','RRR.RRR,RRR');
+     //  s := TMi_rtl.deleteMask('321.156,524','RRR.RRR,RRR');
 
-      if LenS = Len_aMask
-      Then begin
-              For i :=  1 to LenS   do
-              Begin
-                  if i <= Len_aMask then
-                  case aMask[i] of
-                    fldAnsiChar,fldAnsiChar_Lowcase,fldAnsiCharVAL
-                    ,fldSTRNUM,fldSTR,fldSTR_Lowcase
-                         : begin
-                             Result := Result + S[i];
-                           end;
-                     fldRealNum,fldReal4,fldReal4P,
-                     fldReal4Positivo,fldReal4PPositivo,
-                     fldRealNum_Positivo,fldExtended
-                    ,fldENum,fldENum_db,fldBOOLEAN,fldBYTE,fldSHORTINT,
-                     fldSmallWORD,fldSmallInt,fldLONGINT,FldRadioButton
-                    ,FldDateTime
-                    ,fldLHora,fld_LHora
-                         : begin
-                            if S[i] in ['0'..'9']
-                            then Result := Result + S[i];
-                          end;
-                  end;
-              end;
-           end
-      else Result := S;
+     // end;
+
+     {
+      Mask1: ssssssssssssssss    Obs: Cada posição com s ou S aceita [#0..#255] e ignora os digitos da mascara.
+      Mask2: (##) # #### ####    Obs: Cada posição com # aceita ['0'..'9'] e ignora os digitos da mascara.
+
+      Nota:
+        Se S não tem mascara, o que fazer?
+     }
+
+     function DeleteMaskGeneric:String;
+
+         //function Delete_Mask(S: AnsiString;InvalidSet: AnsiCharSet): AnsiString;
+         //  Var
+         //    I : Integer;
+         //Begin
+         //  Result := '';
+         //  For i :=  1 to Length(S)   do
+         //  Begin
+         //    if not (s[i] in InvalidSet )
+         //    Then Begin
+         //           Result := Result + S[i];
+         //         end;
+         //  end;
+         //end;
+
+     begin
+       Result := DeleteMask(['-','.','/','(',')','[',']'],s);
+     end;
+
+
+  Begin
+    if IsNumber(aMask)
+    Then result := DeleteMask(s,['0'..'9',showDecimalSeparator])
+    else result := DeleteMaskGeneric;
+  end;
+
+   class function TObjectsMethods.FormatValueSetText(aValue:string;aMask:ShortString): AnsiString;
+
+      //{: O ponto é usada como separador de casas decimais dos templates com
+      //   números reais, ou seja: O caractere usado para separar as partes
+      //   inteira e fracionária de um número..}
+      //Const DecimalSeparator  =   '.';//usado em tempo de projeto
+      //
+      //{: A virgula mostrada em textos como separadorr de casas decimais dos
+      //   números reais quando o idioma o exigir.
+      //   - **NOTAS**
+      //     - Portugues usao a virgula como seprador de casas decimais;
+      //     - O Inglês usa o ponto como separador de casas decimais.
+      //}
+      //Const showDecimalSeparator  : AnsiChar =   ','; //usado em tempo de execução
+      //const
+      //  fldAnsiChar            = 'C';
+      //  fldAnsiCharAlfa        = 'c';
+      //  fldAnsiCharNum         = 'N';
+      //  fldAnsiCharNumPositive = '0';
+      //  fldStrNumber           = '#';
+      //  fldStr                 = 'S';
+      //  fldStrAlfa             = 's';
+      //  fldExtended            = 'E'; //:< Real 10 bytes
+      //  fldDouble              = 'R';
+      //  fldReal4               = 'O'; //:< Real 4 Byte positivos e negativos
+      //  fldReal4Positivo       = 'o'; //:< Real 4 Byte positivos
+      //  fldReal4P              = 'P'; //:< P = Real de mostrado x por 100 positivos e negativos
+      //  fldReal4PPositivo      = 'p'; //:< P = Real de mostrado x por 100 positivos
+      //  fldDoublePositive      = 'r';
+      //  fldENum                = ^E;  //:< Tipo TComboBox se o registro não está associado a banco de dados;
+      //  fldENum_db             = ^D;  //:< campo do tipo longint associado a um dataSource
+      //  fldBoolean             = 'X'; //:< Campo boolean só aceita 0 ou 1
+      //  fldByte                = 'B';
+      //  fldShortInt            = 'J'; //:< Campo shortInt
+      //  fldSmallWord           = 'W'; //:< Número SmallWord sizeof = 2 aceita só positivos
+      //  fldSmallInt            = 'I'; //:< Número SmallInt sizeof = 2 aceita só positivos e negativos
+      //  fldLongInt             = 'L'; //:< Número longint = 4 bytes aceita positivos e negativos;
+      //  FldRadioButton         = 'K'; //:< tipo byte usado como index de um controle TRadiobutton.
+      //  FldDateTime            = 'D'; //:< TDateTime;Guarda a data e hora compactada. O Formato é retonado pela função TDateFreePascal.TDatesFreePascal.Mask_to_MaskEdit
+
+      var
+        r : Extended;
+        s,waMask: string;
+        lenS, len_aMask, i, j: Integer;
+        okNegative :Boolean = false;
+
+        l1,l2:integer;
+   begin
+      result := '';
+      if aValue=''
+      Then exit;
+
+      s := '';
+      if aMask[1] = FldDateTime then
+      begin
+        result := aValue; // Processamento de DateTime omitido
+      end
+      else
+      try
+
+        // Checa se a máscara é número relativo
+        // Observção o metodo getString mutiplica por 100 automaticamente
+        // por isso esse passo pode ser desnecessário. Checar depois.
+        if (Pos(fldReal4P, aMask) > 0) or
+           (Pos(fldReal4PPositivo, aMask) > 0) then
+        begin
+
+          r :=StrToFloat(aValue);
+          r := r * 100;
+          s := StrNum(aMask,r,fldExtended);
+          if Pos(showDecimalSeparator,s)<>0
+          Then s[Pos(showDecimalSeparator,s)] := DecimalSeparator;
+        end
+        else
+        begin
+          s := aValue;
+        end;
+
+        if IsNumberReal(aMask)
+        then begin
+               if s[1] = '-'
+               Then okNegative:= true;
+               s := DeleteMask(s,['0'..'9'])
+             end
+        else s := deleteMask(s, aMask);
+
+
+        l1 := Length(s);
+        if IsNumber(aMask)
+        then begin
+               waMask := deleteMask([showDecimalSeparator,DecimalSeparator],aMask);
+               l2 := Length(waMask);
+             end
+        else l2 := Length(DeleteMask(aMask,aMask));
+
+        if l1 > l2
+        then delete(aValue,length(s),1);
+
+        lenS := Length(s);
+        len_aMask := Length(aMask);
+
+        // Gera a máscara
+        if isNumber(aMask) then
+        begin
+          for i := len_aMask downto 1 do
+          begin
+            case aMask[i] of
+              fldDoublePositive,
+              fldReal4Positivo,
+              fldReal4PPositivo,
+              fldAnsiCharNumPositive,
+              fldENum,
+              fldENum_db,
+              fldBoolean,
+              fldByte,
+              FldRadioButton:
+                begin
+                  okNegative := false; //se ouver sinal negativo ignoro o mesmo
+                  if lenS >= 1
+                  then begin
+                         if (s[lenS] >= '0') and (s[lenS] <= '9')
+                         then begin
+                                result := s[lenS] + result;
+                                Dec(lenS);
+                             end
+                         else Delete(s, lenS, 1);
+                       end
+                  else Exit;
+                end;
+              fldDouble,
+              fldReal4,
+              fldReal4P,
+              fldExtended,
+              fldShortInt,
+              fldSmallWord,
+              fldSmallInt,
+              fldLongInt:
+                begin
+                  if lenS >= 1
+                  then begin
+                         if (s[lenS] >= '0') and (s[lenS] <= '9') then
+                         begin
+                           result := s[lenS] + result;
+                           Dec(lenS);
+                         end
+                         else Delete(s, lenS, 1);
+                       end
+                  else Exit;
+                end;
+              else begin
+                      if lenS >= 1
+                      then result := aMask[i] + result
+                      else Exit;
+                   end;
+            end;
+          end;
+        end
+        else
+        begin
+          j := 1;
+          for i := 1 to len_aMask do
+          begin
+            case aMask[i] of
+              fldStrNumber,
+              fldAnsiCharNum:
+                begin
+                  if j <= Length(s)
+                  then begin
+                         if (s[j] >= '0') and (s[j] <= '9')
+                         then result := result + s[j];
+                       end
+                  else Exit;
+                  Inc(j);
+                end;
+              fldAnsiChar,
+              fldAnsiCharAlfa,
+              fldAnsiCharNumPositive,
+              fldStrAlfa:
+                begin
+                  if j <= Length(s)
+                  then begin
+                         result := result + s[j];
+                       end
+                  else Exit;
+                  Inc(j);
+                end;
+              fldStr:
+                begin
+                  if j <= Length(s)
+                  then begin
+                         result := result + UpperCase(s[j]);
+                       end
+                  else Exit;
+                  Inc(j);
+                end;
+              else begin
+                     if lenS > 0
+                     then result := result + aMask[i]
+                     else Exit(result);
+                   end;
+            end;
+          end;
+        end;
+
+      finally
+        if okNegative
+        Then result := '-'+result ;
+
+        if (Pos(fldReal4P, aMask) > 0) or
+           (Pos(fldReal4PPositivo, aMask) > 0)
+        then result := result +'%';
+      end;
+
+
    end;
 
-   class function TObjectsMethods.AddMask(S: ShortString;aMask:ShortString): AnsiString;
-      {
-       Mask1: ssssssssssssssss    Obs: Cada posição com s ou S aceita [#0..#255] e ignora os digitos da mascara.
-       Mask2: (##) # #### ####    Obs: Cada posição com # aceita ['0'..'9'] e ignora os digitos da mascara.
+  // TObjectsMethods.FormatValue ANTERIOR
+  //   class function TObjectsMethods.FormatValue(aValue: Variant;aMask: ShortString): AnsiString;
+  //      procedure formatComZero(var  s:ShortString);
+  //        Var PosVirgula,i : Byte;
+  //            pi,pf,Npontos:Byte  ;
+  //           spf:ShortString;
+  //      begin
+  //        pi :=  0;
+  //        pf :=  0;
+  //        NPontos := 0;
+  //
+  //        For i := 1 to length(aMask) do
+  //          If aMask[i] = ThousandSeparator
+  //          Then Inc(NPontos);
+  //
+  //        PosVirgula := pos(ShowDecimalSeparator ,aMask);
+  //        If PosVirgula <> 0
+  //        Then Begin
+  //               pi := PosVirgula - NPontos - 1;
+  //               For i := PosVirgula to length(aMask) do
+  //                 If UpCase(aMask[i]) in [fldExtended,fldReal4,fldReal4P,fldDouble,
+  //                                         fldDoublePositive,fldReal4Positivo,
+  //                                         fldReal4PPositivo,fldZEROMOD]
+  //                 Then inc(pf);
+  //
+  //               if Pos(showDecimalSeparator,S)<>0
+  //               then begin
+  //                       //Preenche com zero a parte fracionaria
+  //                      spf := copy(s,PosVirgula,pf);
+  //                       while Length(spf)<pf do
+  //                       begin
+  //                        spf:=spf+'0';
+  //                       end;
+  //                       s := copy(s,1,pi);
+  //                       s := s+showDecimalSeparator+spf;
+  //                    end
+  //               else begin
+  //                      s := S+showDecimalSeparator+ConstStr(pf,'0');
+  //                    end;
+  //
+  //             End
+  //        Else Begin
+  //               pi := length(aMask)-NPontos;
+  //             end
+  //      end;
+  //
+  //
+  //    Var
+  //      I,lenS,Len_aMask : Integer;
+  //      r : Extended;
+  //      S: ShortString;
+  //      pi,pf,Npontos:Byte;
+  //  Begin
+  //    result := '';
+  //    if  aMask[1] = FldDateTime
+  //    then begin
+  //           result := aValue;
+  //         end
+  //    else begin
+  //           //Checa se a mascara é número relativo
+  //           if (Pos(fldReal4P,aMask)<>0) or
+  //              (Pos(fldReal4PPositivo,aMask)<>0)
+  //           Then begin
+  //                  r := aValue;
+  //                  r := r * 100;
+  //                  s := StrNum(aMask,r,fldExtended);
+  //                  if Pos(showDecimalSeparator,s)<>0
+  //                  Then s[Pos(showDecimalSeparator,s)] := DecimalSeparator;
+  //                end
+  //           else s:= aValue;
+  //
+  //           s := DeleteMask(s,aMask);
+  //
+  //           if IsNumberReal(aMask)
+  //           Then begin
+  //                  formatComZero(s);
+  //                end;
+  //
+  //           lenS := length(s);
+  //           Len_aMask := length(aMask);
+  //            //Gera a mascara
+  //            For i :=  Len_aMask downto 1   do
+  //            Begin
+  //              case aMask[i] of
+  //                fldDouble,
+  //                fldDoublePositive,
+  //                fldReal4,
+  //                fldReal4Positivo,
+  //                fldReal4P,
+  //                fldReal4PPositivo,
+  //                fldExtended,
+  //                fldENum,
+  //                fldENum_db,
+  //                fldBoolean,
+  //                fldByte,
+  //                fldShortInt,
+  //                fldSmallWord,
+  //                fldSmallInt,
+  //                fldLongInt,
+  //                FldRadioButton ,
+  //                fldAnsiChar,
+  //                fldAnsiCharAlfa,
+  //                fldAnsiCharNum,
+  //                fldAnsiCharNumPositive,
+  //                fldStrNumber,
+  //                fldStrAlfa : begin
+  //                               if lenS>=1
+  //                               then begin
+  //                                      result := s[lenS]+Result;
+  //                                    end
+  //                               else exit;
+  //                               Dec(lenS);
+  //                             end;
+  //
+  //                fldStr : begin
+  //                           if lenS>=1
+  //                           then begin
+  //                                  result := UpCase(s[lenS])+Result;
+  //                                end
+  //                           else exit;
+  //                           Dec(lenS);
+  //                         end;
+  //
+  //
+  //                else begin
+  //                       if lenS>=1
+  //                       then begin
+  //                             result := aMask[i]+Result;
+  //                             if IsNumberReal(aMask) and (aMask[i] = showDecimalSeparator)
+  //                             then Dec(lenS);
+  //                            end
+  //                       else exit;
+  //                     end;
+  //
+  //              end;
+  //            end;
+  //         end;
+  //  end;
+  //
+  //
 
-       Nota:
-         Se S não tem mascara, o que fazer?
-      }
-      Var
-        I,LenS,PosS,Len_aMask : Integer;
-        ws:AnsiString;
-    Begin
-      Result := '';
+   class function TObjectsMethods.FormatValue(aValue: Variant;aMask: ShortString): AnsiString;
+     //procedure testFormatValue;
+     //  var
+     //    s : string;
+     //begin
+     //  try
+     //    WriteLn(MiConsts.FormatValue(0.60,'ppp,pp');
+     //    WriteLn(MiConsts.FormatValue(0.45,'PPP,PP');
+     //    WriteLn(MiConsts.FormatValue('11141.45','RRR.RRR,RR');
+     //    WriteLn(MiConsts.FormatValue('14149621349','###.###.###-##');
+     //    WriteLn(MiConsts.FormatValue('WWY2545','SSS-####');
+     //    WriteLn(MiConsts.FormatValue('11141.45','rrr.rrr,rr');
+     //    WriteLn(MiConsts.FormatValue('11141.45','OOO.OOO,OO');
+     //    WriteLn(MiConsts.FormatValue('11141.45','ooo.ooo,oo');
+     //    WriteLn(MiConsts.FormatValue('Paulo Sérgio da Silva Pacheco','ssssssssssssssssssssssssssssss');
+     //    WriteLn(MiConsts.FormatValue('Paulo Sérgio da Silva Pacheco','SSSSSSSSSSSSSSSSSSSSSSSSSSSSSS');
+     //end;
 
-      if  aMask[1] = FldDateTime
-      then begin
-             //ws := Copy(aMask,2,Length(aMask)-1);
-             //Result := TDates.FormatMask(s,MaskDateTime_to_Mask(ws));
-             Result := s;
-           end
-      else begin
-              LenS := length(s);
-              PosS := 0;
-              Len_aMask := length(aMask);
 
-              For i :=  1 to Len_aMask   do
-              Begin
-                case aMask[i] of
-                  fldAnsiChar,
-                  fldAnsiChar_Lowcase,
-                  fldAnsiCharVAL,
-                  fldSTRNUM,
-                  fldSTR,
-                  fldSTR_Lowcase,
-                  fldRealNum,
-                  fldReal4,
-                  fldReal4P,
-                  fldRealNum_Positivo,
-                  fldExtended,
-                  fldENum,fldENum_db,
-                  fldBOOLEAN,
-                  fldBYTE,
-                  fldSHORTINT,
-                  fldSmallWORD,
-                  fldSmallInt,
-                  fldLONGINT,
-                  FldRadioButton  : begin
-                                      inc(posS);
-                                      if PosS <= LenS
-                                      then result := Result + s[posS];
-                                    end;
+     //procedure testFormatValue;
+     //  var s:String;
+     //begin
+     //  s := TMi_rtl.FormatValue('1','###.###.###-##');
+     //  s := TMi_rtl.FormatValue('14','###.###.###-##');
+     //  s := TMi_rtl.FormatValue('141','###.###.###-##');
+     //  s := TMi_rtl.FormatValue('141.','###.###.###-##');
+     //  s := TMi_rtl.FormatValue('141.4','###.###.###-##');
+     //  s := TMi_rtl.FormatValue('141.49','###.###.###-##');
+     //  s := TMi_rtl.FormatValue('141.496','###.###.###-##');
+     //  s := TMi_rtl.FormatValue('141.496.','###.###.###-##');
+     //  s := TMi_rtl.FormatValue('141.496.2','###.###.###-##');
+     //  s := TMi_rtl.FormatValue('141.496.21','###.###.###-##');
+     //  s := TMi_rtl.FormatValue('141.496.213','###.###.###-##');
+     //  s := TMi_rtl.FormatValue('141.496.213-','###.###.###-##');
+     //  s := TMi_rtl.FormatValue('141.496.213-4','###.###.###-##');
+     //  s := TMi_rtl.FormatValue('141.496.213-49','###.###.###-##');
+     //  s := TMi_rtl.FormatValue('3','LLL.LLL');
+     //  s := TMi_rtl.FormatValue('32','LLL.LLL');
+     //  s := TMi_rtl.FormatValue('321','LLL.LLL');
+     //  s := TMi_rtl.FormatValue('321.','LLL.LLL');
+     //  s := TMi_rtl.FormatValue('321.1','LLL.LLL');
+     //  s := TMi_rtl.FormatValue('321.15','LLL.LLL');
+     //  s := TMi_rtl.FormatValue('321.156','LLL.LLL');
+     //  s := TMi_rtl.FormatValue('3','RRR.RRR,RRR');
+     //  s := TMi_rtl.FormatValue('32','RRR.RRR,RRR');
+     //  s := TMi_rtl.FormatValue('321','RRR.RRR,RRR');
+     //  s := TMi_rtl.FormatValue('321.','RRR.RRR,RRR');
+     //  s := TMi_rtl.FormatValue('321.1','RRR.RRR,RRR');
+     //  s := TMi_rtl.FormatValue('321.15','RRR.RRR,RRR');
+     //  s := TMi_rtl.FormatValue('321.156','RRR.RRR,RRR');
+     //  s := TMi_rtl.FormatValue('321.156,5','RRR.RRR,RRR');
+     //  s := TMi_rtl.FormatValue('321.156,52','RRR.RRR,RRR');
+     //  s := TMi_rtl.FormatValue('321.156,524','RRR.RRR,RRR');
+     //end;
 
-                  else begin
-                         if aMask[i] = ' '
-                         then system.Insert('_',result,i)  //O caractere deve ser passado como parâmetro. amanhã eu faço.
-                         else system.Insert(aMask[i],result,i);
-                       end;
-                end;
-              end;
-           end;
 
-    end;
-
+   begin
+     if IsNumberReal(aMask)
+     then result := FormatValueSetText(StrNum(aMask,aValue,TypeFld(aMask)),aMask)
+     else result := FormatValueSetText(aValue,aMask);
+   end;
 
    class function TObjectsMethods.CreateDB_or_DropDB(aConnectorType: TConnectorType;
                                                      aHostname, aUserName, aPassword,aDataBaseName: String;
@@ -3580,11 +4184,11 @@ end;
      case TypeCode of
          fldENum ,
          fldENum_db,
-         fldLONGINT  : CheckRanger(s,High(Longint),Low(Longint),err);
-         fldBOOLEAN,
-         fldBYTE     : CheckRanger(s,High(byte),Low(byte),err);
-         fldSHORTINT : CheckRanger(s,High(SHORTINT),Low(SHORTINT),err);
-         fldSmallWORD: CheckRanger(s,High(SmallWord),Low(SmallWord),err);
+         fldLongInt  : CheckRanger(s,High(Longint),Low(Longint),err);
+         fldBoolean,
+         fldByte     : CheckRanger(s,High(byte),Low(byte),err);
+         fldShortInt : CheckRanger(s,High(SHORTINT),Low(SHORTINT),err);
+         fldSmallWord: CheckRanger(s,High(SmallWord),Low(SmallWord),err);
          FldRadioButton: CheckRanger(s,High(Byte),Low(Byte),err);
          fldSmallInt : CheckRanger(s,High(SmallInt),Low(SmallInt),err);
       end;
@@ -3634,6 +4238,7 @@ end;
        Deve tornar um link para ação
      }
    Begin
+     result := '';
      //Result :=  Application.ParamExecucao.HostName+
      //           ExtractFileName(Application.ParamExecucao.NomeDeArquivosGenericos.NomeArqExe)+
      //           '/'+
@@ -4194,7 +4799,7 @@ end;
   end;
 
   // Função auxiliar para converter strings separadas por vírgulas em um array JSON
-    class function TObjectsMethods.ConvertCSVToJSONArray(const CSV: string
+  class function TObjectsMethods.ConvertCSVToJSONArray(const CSV: string
     ): TJSONArray;
   var
     Items: TStringList;
@@ -4218,11 +4823,11 @@ end;
     end;
   end;
 
-  class procedure TObjectsMethods.GetQueryFieldsLocate(
-                                    var aRequest: TRequest;
-                                    out aKeyFields: string;
-                                    out aKeyValues: Variant;
-                                    out aOptions: TLocateOptions);
+
+  class procedure TObjectsMethods.GetQueryFieldsLocate(var aRequest: TRequest;
+                                                       out aKeyFields: string;
+                                                       out aKeyValues: Variant;
+                                                       out aOptions: TLocateOptions);
 
 
       // Função auxiliar para decodificar strings de URL
@@ -4277,8 +4882,36 @@ end;
     end;
   end;
 
+  class procedure TObjectsMethods.GetQueryFieldsEventName(var aRequest: TRequest;
+                                                          out aCurrentFieldName : String;
+                                                          out aCurrentFieldValue: String;
+                                                          out aEventName: String);
+
+        // Função auxiliar para decodificar strings de URL
+        function URLDecode(const AStr: string): string;
+        begin
+          Result := HTTPDecode(AStr);
+        end;
+  begin
+    // Extração dos parâmetros da query string com decodificação de URL
+    aCurrentFieldName  := URLDecode(aRequest.QueryFields.Values['CurrentFieldName']);
+    aCurrentFieldValue := URLDecode(aRequest.QueryFields.Values['CurrentFieldValue']);
+    aEventName         := URLDecode(aRequest.QueryFields.Values['EventName']);
+
+    if aCurrentFieldName = ''
+    then raise Exception.Create('O parâmetro "CurrentFieldName" não pode ser vazio!');
+
+    //if aCurrentFieldValue = ''
+    //then raise Exception.Create('O parâmetro "CurrentFieldValue" não pode ser vazio!');
+
+    if aEventName = ''
+    then raise Exception.Create('O parâmetro "EventName" não pode ser vazio!');
+
+  end;
+
   class function TObjectsMethods.LocateParamsToJson(KeyFields: string;
-                     KeyValues: Variant; Options: TLocateOptions): TJSONObject;
+                                                    KeyValues: Variant;
+                                                    Options: TLocateOptions): TJSONObject;
 
     var
       JsonOptions: TJSONArray;
@@ -4312,6 +4945,25 @@ end;
       end;
     end;
     Result.Add('Options', JsonOptions);
+  end;
+
+  class function TObjectsMethods.FieldsEventNameParamsToJson(aKeyFields: string;
+                                                             aKeyValues: Variant;
+                                                             aOptions: TLocateOptions;
+                                                             aCurrentFieldName: String;
+                                                             aCurrentFieldValue: String;
+                                                             aEventName: String
+                                                             ): TJSONObject;
+  begin
+    Result := LocateParamsToJson(aKeyFields,
+                                 aKeyValues,
+                                 aOptions);
+    if Assigned(Result)
+    Then begin
+           Result.Add('CurrentFieldName' , aCurrentFieldName);
+           Result.Add('CurrentFieldValue', aCurrentFieldValue);
+           Result.Add('EventName'        , aEventName);
+         end;
   end;
 
   class function TObjectsMethods.ValidateAndNormalizeURL(const BaseURL, Action,
@@ -4393,78 +5045,119 @@ end;
     end;
   end;
 
-  //  class procedure TObjectsMethods.GetQueryFieldsLocate(var aRequest: TRequest;
-  //                                                       out aKeyFields: string;
-  //                                                       out aKeyValues: Variant;
-  //                                                       out aOptions: TLocateOptions);
-  //
-  //    //Converte strings separados por virgulas em array json
-  //    function ConvertCSVToJSONArray(const CSV: string): TJSONArray;
-  //    var
-  //      Items: TStringList;
-  //      i: Integer;
-  //      s:string;
-  //    begin
-  //      Result := TJSONArray.Create;
-  //      Items := TStringList.Create;
-  //      try
-  //        // Divide a string CSV em uma lista usando a vírgula como separador
-  //        Items.Delimiter := ',';
-  //        Items.StrictDelimiter := True; // Evita que espaços sejam considerados parte dos valores
-  //        Items.DelimitedText := CSV;
-  //
-  //        // Adiciona cada item da lista ao JSONArray
-  //        for i := 0 to Items.Count - 1 do
-  //        begin
-  //           Result.Add(Items[i].Trim); // Remove espaços extras
-  //        end;
-  //      finally
-  //        Items.Free;
-  //      end;
-  //    end;
-  //
-  //var
-  //  JSONArray: TJSONArray;
-  //  aKeyValuesStr, aOptionsStr: String;
-  //  i: Integer;
+  class function TObjectsMethods.IsHttpOptions(ARequest: TRequest; AResponse: TResponse; var Handled: Boolean): Boolean;
+  begin
+    if SameText(ARequest.Method, 'OPTIONS') then
+    begin
+      AResponse.SetCustomHeader('Access-Control-Allow-Origin', '*');
+      AResponse.SetCustomHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
+      AResponse.SetCustomHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization'); // Inclua Authorization se necessário
+      AResponse.Code := 204; // No Content
+      AResponse.Content := '';
+      Handled := True;
+      Result := True;
+    end
+    else
+      Result := False;
+  end;
+
+  class function TObjectsMethods.ValidateGetQueryFieldsLocateParams(var aRequest: TRequest; out ErrorMsg: string): Boolean;
+
+    // Função auxiliar para decodificar strings de URL
+    function URLDecode(const AStr: string): string;
+    begin
+      Result := HTTPDecode(AStr);
+    end;
+
+  var
+    aKeyFields, aKeyValuesStr, aOptionsStr: string;
+    JSONArray: TJSONArray;
+    i: Integer;
+  begin
+    Result := True; // Assume que a validação será bem-sucedida
+    ErrorMsg := ''; // Inicializa a mensagem de erro
+
+    // Extração dos parâmetros da query string com decodificação de URL
+    aKeyFields := URLDecode(aRequest.QueryFields.Values['KeyFields']);
+    aKeyValuesStr := URLDecode(aRequest.QueryFields.Values['KeyValues']);
+    aOptionsStr := URLDecode(aRequest.QueryFields.Values['Options']);
+
+    // Verificação se o campo de chave foi informado
+    if aKeyFields = '' then
+    begin
+      ErrorMsg := 'O parâmetro "KeyFields" não pode ser vazio!';
+      Result := False;
+      Exit;
+    end;
+
+    // Verificação se o campo de valores foi informado
+    if aKeyValuesStr = '' then
+    begin
+      ErrorMsg := 'O parâmetro "KeyValues" não pode ser vazio!';
+      Result := False;
+      Exit;
+    end;
+
+    // Parse de KeyValues (tratando como um array de valores)
+    try
+      JSONArray := ConvertCSVToJSONArray(aKeyValuesStr);
+      if JSONArray.Count = 0 then
+      begin
+        ErrorMsg := 'O parâmetro "KeyValues" deve conter ao menos um valor!';
+        Result := False;
+        Exit;
+      end;
+    except
+      on E: Exception do
+      begin
+        ErrorMsg := 'Erro ao interpretar o parâmetro "KeyValues": ' + E.Message;
+        Result := False;
+        Exit;
+      end;
+    end;
+
+    // Verificação das opções de TLocateOptions
+    if aOptionsStr <> '' then
+    begin
+      try
+        JSONArray := ConvertCSVToJSONArray(aOptionsStr);
+        for i := 0 to JSONArray.Count - 1 do
+        begin
+          if (JSONArray.Strings[i] <> 'loCaseInsensitive') and
+             (JSONArray.Strings[i] <> 'loPartialKey') then
+          begin
+            ErrorMsg := Format('Opção "%s" inválida para TLocateOptions.', [JSONArray.Strings[i]]);
+            Result := False;
+            Exit;
+          end;
+        end;
+      except
+        on E: Exception do
+        begin
+          ErrorMsg := 'Erro ao interpretar o parâmetro "Options": ' + E.Message;
+          Result := False;
+          Exit;
+        end;
+      end;
+    end;
+  end;
+
+
+  //class function TObjectsMethods.IsHttpOptions(ARequest: TRequest;AResponse: TResponse; var Handled: Boolean): Boolean;
   //begin
-  //  // Extração dos parâmetros da query string
-  //  aKeyFields := aRequest.QueryFields.Values['KeyFields'];
-  //  aKeyValuesStr := aRequest.QueryFields.Values['KeyValues'];
-  //  aOptionsStr := aRequest.QueryFields.Values['Options'];
-  //
-  //  // Parse KeyValues (tratando como um array de valores)
-  //  if aKeyValuesStr <> '' then
+  //  if SameText(ARequest.Method, 'OPTIONS') then
   //  begin
-  //    // Verifica se o KeyValues é um array JSON (começa com '[' e termina com ']')
-  //    JSONArray := ConvertCSVToJSONArray(aKeyValuesStr);
-  //    if JSONArray.Count = 1
-  //    then aKeyValues := JSONArray.Items[0].AsString
-  //    else begin
-  //           aKeyValues := VarArrayCreate([0, JSONArray.Count - 1], varVariant);
-  //           for i := 0 to JSONArray.Count - 1 do
-  //             aKeyValues[i] := JSONArray.Items[i].AsString;
-  //         end;
+  //    AResponse.SetCustomHeader('Access-Control-Allow-Origin', '*');
+  //    AResponse.SetCustomHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
+  //    AResponse.SetCustomHeader('Access-Control-Allow-Headers', 'Content-Type');
+  //    AResponse.Code := 204; // No Content
+  //    AResponse.Content := '';
+  //    Handled := True;
+  //    Result := True;
   //  end
-  //  else
-  //    raise Exception.Create('O parâmetro "KeyValues" não pode ser vazio!');
-  //
-  //  // Parse Options (tratando como um array de opções)
-  //  aOptions := [];
-  //  if aOptionsStr <> '' then
-  //  begin
-  //    // Verifica se o Options é um array JSON (começa com '[' e termina com ']')
-  //    JSONArray := ConvertCSVToJSONArray(aOptionsStr);
-  //    for i := 0 to JSONArray.Count - 1 do
-  //    begin
-  //      if JSONArray.Strings[i] = 'loCaseInsensitive' then
-  //        Include(aOptions, loCaseInsensitive);
-  //
-  //      if JSONArray.Strings[i] = 'loPartialKey' then
-  //        Include(aOptions, loPartialKey);
-  //    end;
-  //  end;
+  //  else Result := False;
   //end;
+
 
 procedure OnShowException(Msg: ShortString);
 begin

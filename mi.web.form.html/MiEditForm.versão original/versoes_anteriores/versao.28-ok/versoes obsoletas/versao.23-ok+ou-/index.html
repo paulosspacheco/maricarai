@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulário CRUD</title>
+            
+    <style>
+        
+        body {
+            font-size: 12px; /* Diminui o tamanho base para 12px */            
+            font-family: Arial, sans-serif;
+            background-color: #d0d0d0; /* Cinza claro para o fundo da página */
+            color: #333; /* Cor do texto padrão */
+            margin: 0;
+            padding: 20px; /* Adiciona espaçamento ao redor da página */
+        }
+
+        .form-container {
+            background-color: #C0C0C0; /* Cinza mais claro para o fundo do formulário */
+            border: 1px solid #bbb; /* Borda em cinza mais escuro */
+            margin: 20px auto;
+            max-width: 90%; /* Largura máxima em porcentagem */
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Leve sombra para destacar o formulário */
+        }
+
+
+        .form-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+        }
+
+
+        .form-header {
+            background-color: #555; /* Cor de fundo da barra de título */
+            color: white; /* Cor do texto da barra de título */            
+            padding: 10px;
+            text-align: center; /* Centraliza o texto */
+            border-top-left-radius: 8px; /* Bordas arredondadas no topo */
+            border-top-right-radius: 8px; /* Bordas arredondadas no topo */
+        }
+
+        form {
+            background-color: #C0C0C0; /* Cinza mais claro para o fundo do formulário */
+            border: 1px solid #bbb; /* Borda em cinza mais escuro */
+            padding: 20px;
+            margin: 20px auto; /* Margem superior e inferior, centralizado horizontalmente */
+            max-width: 90%; /* Largura máxima em 90% da tela */
+            width: 90%; /* Ajuste a largura do formulário para 90% da largura da tela */
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Leve sombra para destacar o formulário */
+            display: flex; /* Habilita o flexbox */
+            flex-direction: column; /* Organiza os filhos em coluna */
+        }
+        
+        .form-fields {
+            max-height: 300px; /* Altura máxima para a área de campos do formulário */
+            overflow-y: auto; /* Permite a rolagem vertical apenas nos campos */
+            margin-bottom: 10px; /* Espaçamento abaixo dos campos */
+        }       
+
+        form button {
+            background-color: #555; /* Cinza escuro para os botões */
+            color: #fff; /* Texto branco */
+            border: none;
+            padding: 8px 12px; /* Menor padding para reduzir o tamanho dos botões */
+            margin: 5px; /* Adiciona margens para separar os botões */
+            cursor: pointer;
+            border-radius: 4px;
+            font-size: 14px; /* Fonte menor */
+            display: inline-block; /* Mantém os botões alinhados em linha */
+        }
+    
+        form button:hover {
+            background-color: #333; /* Tom mais escuro ao passar o mouse */
+        }
+    
+        /* Estilos para botão desabilitado no formulário */
+        form button:disabled {
+            background-color: #CCCCCC; /* Cor de fundo para botão desabilitado */
+            color: #666666; /* Cor do texto para botão desabilitado */
+            cursor: not-allowed; /* Cursor indicando que não é interativo */
+            opacity: 1; /* Opacidade padrão para garantir visibilidade */
+            border: 1px solid #999; /* Borda para destacar o botão desabilitado */
+        }
+    
+        form input, form select, form textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            background-color: #f0f0f0; /* Tom de cinza claro para os campos */
+            color: #333;
+        }
+    
+        form input:focus, form select:focus, form textarea:focus {
+            outline: none;
+            border-color: #888; /* Cor da borda ao focar */
+            background-color: #ddd; /* Fundo levemente mais escuro ao focar */
+        }
+    
+        label {
+            font-weight: bold;
+            margin-bottom: 5px;
+            display: block;
+            color: #555; /* Cor das labels */
+        }
+    
+        h1 {
+            font-size: 1.5em; /* Tamanho da fonte menor */
+            line-height: 1.2; /* Reduz a altura da linha */
+            text-align: center; /* Centraliza o texto */
+            margin: 10px 0; /* Adiciona margens menores em cima e embaixo */
+            color: white; /* Cor do texto da barra de título */
+        }
+        
+        h2 {
+            font-size: 1.3em; /* Tamanho um pouco menor que h1 */
+            line-height: 1.25; /* Ajuste da altura da linha */
+            text-align: center; /* Centraliza o texto */
+            margin: 8px 0; /* Margens ajustadas */
+            color: white; /* Cor do texto, você pode mudar conforme necessário */
+        }
+        
+        h3 {
+            font-size: 1.2em; /* Tamanho menor que h2 */
+            line-height: 1.3; /* Altura da linha um pouco maior */
+            text-align: center; /* Centraliza o texto */
+            margin: 6px 0; /* Margens ajustadas */
+            color: white; /* Cor do texto */
+        }
+        
+        h4 {
+            font-size: 1.1em; /* Tamanho menor que h3 */
+            line-height: 1.35; /* Altura da linha maior */
+            text-align: center; /* Centraliza o texto */
+            margin: 4px 0; /* Margens ajustadas */
+            color: white; /* Cor do texto */
+        }
+                
+           
+        /* Botões de navegação e ação */
+        .button-container {
+            display: flex; /* Usar flexbox para alinhar os botões */
+            flex-wrap: wrap; /* Permitir que os botões quebrem a linha se necessário */
+            justify-content: center; /* Centralizar os botões */
+            margin: 10px 0; /* Espaçamento vertical */
+        }
+    
+        .navigation-buttons {
+            padding: 4px 8px; /* Reduzido para dar um tamanho mais compacto */
+            margin: 5px 0;
+            background-color: #6c757d; /* Cinza médio */
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            font-size: 12px; /* Tamanho da fonte reduzido */
+        }       
+    
+        .navigation-buttons:hover {
+            background-color: #5a6268; /* Cinza escuro ao passar o mouse */
+        }
+    
+        .navigation-buttons:disabled {
+            background-color: #CCCCCC; /* Cor de fundo para botão de navegação desabilitado */
+            color: #666666; /* Cor do texto para botão de navegação desabilitado */
+            cursor: not-allowed; /* Cursor indicando que não é interativo */
+            opacity: 1; /* Opacidade padrão para garantir visibilidade */
+            border: 1px solid #999; /* Borda para destacar o botão desabilitado */
+        }
+    
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8); /* Fundo escuro */
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+    
+        .alert-box {
+            background-color: #333; /* Caixa de alerta escura */
+            color: #ffffff; /* Texto da caixa branco */
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.5); /* Sombra escura */
+            max-width: 300px;
+        }
+    
+        .alert-box button {
+            padding: 8px 12px; /* Mesma configuração de padding dos botões do formulário */
+            background-color: #555; /* Mesma cor dos botões do formulário */
+            color: white;
+            border: none;
+            border-radius: 4px; /* Bordas arredondadas */
+            cursor: pointer;
+        }
+    
+        .alert-box button:hover {
+            background-color: #333; /* Tom de cinza mais escuro ao passar o mouse */
+        }
+    
+        /* Estilos para botão desabilitado na alert-box */
+        .alert-box button:disabled {
+            background-color: #CCCCCC; /* Cor de fundo para botão desabilitado */
+            color: #666666; /* Cor do texto para botão desabilitado */
+            cursor: not-allowed; /* Cursor indicando que não é interativo */
+            opacity: 1; /* Opacidade padrão para garantir visibilidade */
+            border: 1px solid #999; /* Borda para destacar o botão desabilitado */
+        }
+
+        .action-buttons {
+            display: flex; /* Organiza os botões de ação em linha */
+            flex-wrap: nowrap; /* Não permite quebra de linha */
+            overflow-x: auto; /* Permite a rolagem horizontal se os botões não couberem */
+            margin-bottom: 10px; /* Espaçamento abaixo dos botões de ação */
+        }
+        
+        .dialog-box {
+            background-color: white; /* Cor de fundo do diálogo */
+            padding: 20px; /* Espaçamento interno */
+            border-radius: 5px; /* Bordas arredondadas */
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Sombra */
+            width: 300px; /* Largura do diálogo */
+        }     
+
+        /* Media query para telas menores */
+        @media (max-width: 600px) {
+            form {
+                width: 100%; /* O formulário ocupa 100% da largura da tela em dispositivos móveis */
+                é possivel aplicar a class  <div class="form-fields">   no código abaixo?       }
+
+            .action-buttons {
+                flex-direction: column; /* Os botões empilham verticalmente em telas menores */
+            }
+            
+            .navigation-buttons {
+                width: 100%; /* Botões de navegação ocupam 100% da largura */
+                margin: 5px 0; /* Espaçamento vertical entre os botões */
+            }
+        }
+
+    </style>
+
+                <!-- Adicionar o link do Font Awesome no <head> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+</head>
+<body>
+    <div class="form-container">
+        <div class="form-header">
+            Formulário CRUD <!-- Título do formulário -->
+        </div>
+        <form id="meuFormulario">
+            <div class="form-fields">            
+                <label for="id">ID:</label>
+                <input type="text" id="ID" name="ID" placeholder="ID"><br><br>
+
+                <label for="nome">Nome:</label>
+                <input type="text" id="Nome" name="Nome" placeholder="Nome"><br><br>
+
+                <label for="endereco">Endereço:</label>
+                <input type="text" id="endereco" name="endereco" placeholder="Endereço"><br><br>
+                <!-- Adicione mais campos aqui conforme necessário -->
+            </div>
+            <div class="action-buttons">
+                <!-- Botões para operações CRUD -->
+                <button type="button" id="CmNewRecord">Novo Registro</button>
+                <button type="button" id="CmAddRecord">Adicionar</button>        
+                <button type="button" id="CmPutRecord">Gravar</button>
+                <button type="button" id="CmLocate">Localizar</button>        
+                <button type="button" id="CmDeleteRecord">Deletar</button>       
+                <button type="button" id="CmRefresh">Refresh</button>
+                <button type="button" id="CmCancel">Cancelar</button>        
+                <button type="button" id="CmHealthCheck">Checar conexão</button>                
+            </div>        
+
+            <!-- Botões de Navegação -->
+            <div class="navigation-buttons">
+                <button type="button" id="CmGoBof" class="navigation-buttons"><<</button>
+                <button type="button" id="CmPrevRecord" class="navigation-buttons"><</button>
+                <button type="button" id="CmNextRecord" class="navigation-buttons">></button>
+                <button type="button" id="CmGoEof" class="navigation-buttons">>></button>
+            </div>
+
+        </form>
+    </div>
+
+    <div class="overlay" id="overlay">
+        <div class="alert-box" id="alertBox">
+            <p id="alertMessage">Mensagem de alerta!</p>
+            <button id="alertButton">Fechar</button>
+        </div>
+    </div>
+
+    <script type="module">
+        // Importa as classes dos arquivos JavaScript
+        import { MiEditForm } from './mi_edit_form.js';
+                 
+        document.addEventListener('DOMContentLoaded', () => {
+            // Inicializa a instância do MiEditForm com os eventos automaticamente
+            new MiEditForm('meuFormulario', 'ID');
+
+        });
+    </script>
+</body>
+</html>
+
+
+
+
+
+

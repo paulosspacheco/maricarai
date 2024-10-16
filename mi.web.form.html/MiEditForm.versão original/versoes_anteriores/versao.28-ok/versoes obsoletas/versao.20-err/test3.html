@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulário</title>
+    
+    <!-- Coloque o script no head -->
+    <script type="module">
+        import { MiEditForm } from './mi_edit_form.js';
+
+        document.addEventListener('DOMContentLoaded', () => {
+            // Inicializa a instância do MiEditForm com os eventos automaticamente
+            new MiEditForm('meuFormulario', 'ID');
+        });
+    </script>
+</head>
+<body>
+    <form id="meuFormulario">
+        <button id="CmHealthCheck">Health Check</button>
+        <button id="CmNewRecord">New Record</button>
+        <!-- Outros botões e conteúdo do formulário -->
+    </form>
+</body>
+</html>

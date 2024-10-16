@@ -111,7 +111,7 @@ begin
     add('~ Valor Longint......:~\L,LLL,LLL,LLL'+ChFN+'fld06'+ChH+'Número inteiro longo com 4 bytes. Faixa: (-2,147,483,648 .. 2,147,483,647) Mask: L,LLL,LLL,LLL');
     add('~ Valor SmalInt......:~\II,III'+ChFN+'fld07'+ChH+'Número inteiro curdo com 2 bytes Faixa:(-32768 .. 32767). Mask: III,III');
     add('~ Valor Byte.........:~\BBB'+ChFN+'fld08'+ChH+'Número byte com 1 bytes. Faixa(0..255) Mask: BBB');
-    add('~ Valor Smallword....:~\WW,WWW'+ChFN+'fld09'+ChH+'Número ineiro curto só positivo com 2 bytes. Faixa: (0..65535) . Mask: WW,WWW');
+    add('~ Valor SmallWord....:~\WW,WWW'+ChFN+'fld09'+ChH+'Número ineiro curto só positivo com 2 bytes. Faixa: (0..65535) . Mask: WW,WWW');
     add('');
   end;
 end;
@@ -180,7 +180,7 @@ end.
 //~Valor double............:~\RRR,RRR.RR
 //~Valor SmalInt...........:~\II,III
 //~Valor Byte..............:~\BBB
-//~Valor Smallword.........:~\WW,WWW
+//~Valor SmallWord.........:~\WW,WWW
 
 
 
@@ -194,7 +194,7 @@ end.
 //~Valor double.......:~\RRR,RRR.RR
 //~Valor SmalInt......:~\II,III
 //~Valor Byte.........:~\BBB
-//~Valor Smallword....:~\WW,WWW
+//~Valor SmallWord....:~\WW,WWW
 
 
 

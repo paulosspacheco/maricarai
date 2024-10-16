@@ -1,0 +1,986 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<title>imapsend: Classe TIMAPSend</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="generator" content="PasDoc 0.16.0">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<link rel="stylesheet" type="text/css" href="tipuesearch/tipuesearch.css">
+
+<link rel="StyleSheet" type="text/css" href="pasdoc.css">
+</head>
+<body>
+<div class="container"><div class="navigation">
+<ul><li><a href="AllUnits.html">Units</a></li><li><a href="ClassHierarchy.html">Hierarquia de Classes</a></li><li><a href="AllClasses.html">Classes, Interfaces, Objetos e Registros</a></li><li><a href="AllTypes.html">Tipos</a></li><li><a href="AllVariables.html">Variáveis</a></li><li><a href="AllConstants.html">Constantes</a></li><li><a href="AllFunctions.html">Funções e Procedimentos</a></li><li><a href="AllIdentifiers.html">Identificadores</a></li><li><form class="search-form" action="tipue_results.html"><div class="search-input"><input type="text" name="q" id="tipue_search_input" pattern=".{3,}" title="At least 3 characters" required><div class="search-button"><input type="button" id="tipue_search_button" onclick="this.form.submit();"></div></div></form>
+<div style="clear: both"></div>
+</li></ul></div><div class="content">
+<span id="TIMAPSend"></span><h1 class="cio">Classe TIMAPSend</h1>
+<div class="sections">
+<div class="one_section"><a class="section" href="#PasDoc-Description">Descrição</a></div><div class="one_section"><a class="section" href="#PasDoc-Hierarchy">Hierarquia</a></div><div class="one_section"><a class="section" href="#PasDoc-Fields">Campos</a></div><div class="one_section"><a class="section" href="#PasDoc-Methods">Métodos</a></div><div class="one_section"><a class="section" href="#PasDoc-Properties">Propriedades</a></div></div>
+<span id="PasDoc-Description"></span><h2 class="unit">Unit</h2>
+<p class="unitlink">
+<a href="imapsend.html">imapsend</a></p>
+<h2 class="declaration">Declaração</h2>
+<p class="declaration">
+<code>type TIMAPSend = class(<a class="normal" href="blcksock.TSynaClient.html">TSynaClient</a>)</code></p>
+<h2 class="description">Descrição</h2>
+<p>
+Implementation of IMAP4 protocol.</p>
+<p>
+ Note: Are you missing properties for setting <a class="normal" href="blcksock.TSynaClient.html#UserName">Username</a> and <a class="normal" href="blcksock.TSynaClient.html#Password">Password</a>? Look to parent <a class="normal" href="blcksock.TSynaClient.html">TSynaClient</a> object!
+
+<p>Are you missing properties for specify server address and port? Look to parent <a class="normal" href="blcksock.TSynaClient.html">TSynaClient</a> too!</p>
+<span id="PasDoc-Hierarchy"></span><h2 class="hierarchy">Hierarquia</h2>
+<ul class="hierarchy"><li class="ancestor">TObject</li>
+<li class="ancestor"><a class="normal" href="blcksock.TSynaClient.html">TSynaClient</a></li>
+<li class="thisitem">TIMAPSend</li></ul><h2 class="overview">Visão Geral</h2>
+<span id="PasDoc-Fields"></span><h3 class="summary">Campos</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code><strong><a href="imapsend.TIMAPSend.html#FSock">FSock</a></strong>: <a href="blcksock.TTCPBlockSocket.html">TTCPBlockSocket</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code><strong><a href="imapsend.TIMAPSend.html#FTagCommand">FTagCommand</a></strong>: integer;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code><strong><a href="imapsend.TIMAPSend.html#FResultString">FResultString</a></strong>: string;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code><strong><a href="imapsend.TIMAPSend.html#FFullResult">FFullResult</a></strong>: TStringList;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code><strong><a href="imapsend.TIMAPSend.html#FIMAPcap">FIMAPcap</a></strong>: TStringList;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code><strong><a href="imapsend.TIMAPSend.html#FAuthDone">FAuthDone</a></strong>: Boolean;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code><strong><a href="imapsend.TIMAPSend.html#FSelectedFolder">FSelectedFolder</a></strong>: string;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code><strong><a href="imapsend.TIMAPSend.html#FSelectedCount">FSelectedCount</a></strong>: integer;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code><strong><a href="imapsend.TIMAPSend.html#FSelectedRecent">FSelectedRecent</a></strong>: integer;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code><strong><a href="imapsend.TIMAPSend.html#FSelectedUIDvalidity">FSelectedUIDvalidity</a></strong>: integer;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code><strong><a href="imapsend.TIMAPSend.html#FUID">FUID</a></strong>: Boolean;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code><strong><a href="imapsend.TIMAPSend.html#FAutoTLS">FAutoTLS</a></strong>: Boolean;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code><strong><a href="imapsend.TIMAPSend.html#FFullSSL">FFullSSL</a></strong>: Boolean;</code></td>
+</tr>
+</table>
+<span id="PasDoc-Methods"></span><h3 class="summary">Métodos</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="imapsend.TIMAPSend.html#ReadResult">ReadResult</a></strong>: string;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="imapsend.TIMAPSend.html#AuthLogin">AuthLogin</a></strong>: Boolean;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="imapsend.TIMAPSend.html#Connect">Connect</a></strong>: Boolean;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>procedure <strong><a href="imapsend.TIMAPSend.html#ParseMess">ParseMess</a></strong>(Value:TStrings);</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>procedure <strong><a href="imapsend.TIMAPSend.html#ParseFolderList">ParseFolderList</a></strong>(Value:TStrings);</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>procedure <strong><a href="imapsend.TIMAPSend.html#ParseSelect">ParseSelect</a></strong>;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>procedure <strong><a href="imapsend.TIMAPSend.html#ParseSearch">ParseSearch</a></strong>(Value:TStrings);</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>procedure <strong><a href="imapsend.TIMAPSend.html#ProcessLiterals">ProcessLiterals</a></strong>;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>constructor <strong><a href="imapsend.TIMAPSend.html#Create">Create</a></strong>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>destructor <strong><a href="imapsend.TIMAPSend.html#Destroy">Destroy</a></strong>; override;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="imapsend.TIMAPSend.html#IMAPcommand">IMAPcommand</a></strong>(Value: string): string;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="imapsend.TIMAPSend.html#IMAPuploadCommand">IMAPuploadCommand</a></strong>(Value: string; const Data:TStrings): string;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="imapsend.TIMAPSend.html#Capability">Capability</a></strong>: Boolean;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="imapsend.TIMAPSend.html#Login">Login</a></strong>: Boolean;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="imapsend.TIMAPSend.html#Logout">Logout</a></strong>: Boolean;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="imapsend.TIMAPSend.html#NoOp">NoOp</a></strong>: Boolean;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="imapsend.TIMAPSend.html#List">List</a></strong>(FromFolder: string; const FolderList: TStrings): Boolean;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="imapsend.TIMAPSend.html#ListSearch">ListSearch</a></strong>(FromFolder, Search: string; const FolderList: TStrings): Boolean;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="imapsend.TIMAPSend.html#ListSubscribed">ListSubscribed</a></strong>(FromFolder: string; const FolderList: TStrings): Boolean;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="imapsend.TIMAPSend.html#ListSearchSubscribed">ListSearchSubscribed</a></strong>(FromFolder, Search: string; const FolderList: TStrings): Boolean;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="imapsend.TIMAPSend.html#CreateFolder">CreateFolder</a></strong>(FolderName: string): Boolean;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="imapsend.TIMAPSend.html#DeleteFolder">DeleteFolder</a></strong>(FolderName: string): Boolean;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="imapsend.TIMAPSend.html#RenameFolder">RenameFolder</a></strong>(FolderName, NewFolderName: string): Boolean;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="imapsend.TIMAPSend.html#SubscribeFolder">SubscribeFolder</a></strong>(FolderName: string): Boolean;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="imapsend.TIMAPSend.html#UnsubscribeFolder">UnsubscribeFolder</a></strong>(FolderName: string): Boolean;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="imapsend.TIMAPSend.html#SelectFolder">SelectFolder</a></strong>(FolderName: string): Boolean;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="imapsend.TIMAPSend.html#SelectROFolder">SelectROFolder</a></strong>(FolderName: string): Boolean;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="imapsend.TIMAPSend.html#CloseFolder">CloseFolder</a></strong>: Boolean;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="imapsend.TIMAPSend.html#StatusFolder">StatusFolder</a></strong>(FolderName, Value: string): integer;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="imapsend.TIMAPSend.html#ExpungeFolder">ExpungeFolder</a></strong>: Boolean;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="imapsend.TIMAPSend.html#CheckFolder">CheckFolder</a></strong>: Boolean;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="imapsend.TIMAPSend.html#AppendMess">AppendMess</a></strong>(ToFolder: string; const Mess: TStrings): Boolean;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="imapsend.TIMAPSend.html#DeleteMess">DeleteMess</a></strong>(MessID: integer): boolean;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="imapsend.TIMAPSend.html#FetchMess">FetchMess</a></strong>(MessID: integer; const Mess: TStrings): Boolean;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="imapsend.TIMAPSend.html#FetchHeader">FetchHeader</a></strong>(MessID: integer; const Headers: TStrings): Boolean;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="imapsend.TIMAPSend.html#MessageSize">MessageSize</a></strong>(MessID: integer): integer;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="imapsend.TIMAPSend.html#CopyMess">CopyMess</a></strong>(MessID: integer; ToFolder: string): Boolean;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="imapsend.TIMAPSend.html#SearchMess">SearchMess</a></strong>(Criteria: string; const FoundMess: TStrings): Boolean;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="imapsend.TIMAPSend.html#SetFlagsMess">SetFlagsMess</a></strong>(MessID: integer; Flags: string): Boolean;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="imapsend.TIMAPSend.html#GetFlagsMess">GetFlagsMess</a></strong>(MessID: integer; var Flags: string): Boolean;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="imapsend.TIMAPSend.html#AddFlagsMess">AddFlagsMess</a></strong>(MessID: integer; Flags: string): Boolean;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="imapsend.TIMAPSend.html#DelFlagsMess">DelFlagsMess</a></strong>(MessID: integer; Flags: string): Boolean;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="imapsend.TIMAPSend.html#StartTLS">StartTLS</a></strong>: Boolean;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="imapsend.TIMAPSend.html#GetUID">GetUID</a></strong>(MessID: integer; var UID : Integer): Boolean;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="imapsend.TIMAPSend.html#FindCap">FindCap</a></strong>(const Value: string): string;</code></td>
+</tr>
+</table>
+<span id="PasDoc-Properties"></span><h3 class="summary">Propriedades</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><code>property <strong><a href="imapsend.TIMAPSend.html#ResultString">ResultString</a></strong>: string read <a href="imapsend.TIMAPSend.html#FResultString">FResultString</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><code>property <strong><a href="imapsend.TIMAPSend.html#FullResult">FullResult</a></strong>: TStringList read <a href="imapsend.TIMAPSend.html#FFullResult">FFullResult</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><code>property <strong><a href="imapsend.TIMAPSend.html#IMAPcap">IMAPcap</a></strong>: TStringList read <a href="imapsend.TIMAPSend.html#FIMAPcap">FIMAPcap</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><code>property <strong><a href="imapsend.TIMAPSend.html#AuthDone">AuthDone</a></strong>: Boolean read <a href="imapsend.TIMAPSend.html#FAuthDone">FAuthDone</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><code>property <strong><a href="imapsend.TIMAPSend.html#UID">UID</a></strong>: Boolean read <a href="imapsend.TIMAPSend.html#FUID">FUID</a> Write <a href="imapsend.TIMAPSend.html#FUID">FUID</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><code>property <strong><a href="imapsend.TIMAPSend.html#SelectedFolder">SelectedFolder</a></strong>: string read <a href="imapsend.TIMAPSend.html#FSelectedFolder">FSelectedFolder</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><code>property <strong><a href="imapsend.TIMAPSend.html#SelectedCount">SelectedCount</a></strong>: integer read <a href="imapsend.TIMAPSend.html#FSelectedCount">FSelectedCount</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><code>property <strong><a href="imapsend.TIMAPSend.html#SelectedRecent">SelectedRecent</a></strong>: integer read <a href="imapsend.TIMAPSend.html#FSelectedRecent">FSelectedRecent</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><code>property <strong><a href="imapsend.TIMAPSend.html#SelectedUIDvalidity">SelectedUIDvalidity</a></strong>: integer read <a href="imapsend.TIMAPSend.html#FSelectedUIDvalidity">FSelectedUIDvalidity</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><code>property <strong><a href="imapsend.TIMAPSend.html#AutoTLS">AutoTLS</a></strong>: Boolean read <a href="imapsend.TIMAPSend.html#FAutoTLS">FAutoTLS</a> Write <a href="imapsend.TIMAPSend.html#FAutoTLS">FAutoTLS</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><code>property <strong><a href="imapsend.TIMAPSend.html#FullSSL">FullSSL</a></strong>: Boolean read <a href="imapsend.TIMAPSend.html#FFullSSL">FFullSSL</a> Write <a href="imapsend.TIMAPSend.html#FFullSSL">FFullSSL</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><code>property <strong><a href="imapsend.TIMAPSend.html#Sock">Sock</a></strong>: <a href="blcksock.TTCPBlockSocket.html">TTCPBlockSocket</a> read <a href="imapsend.TIMAPSend.html#FSock">FSock</a>;</code></td>
+</tr>
+</table>
+<h2 class="description">Descrição</h2>
+<h3 class="detail">Campos</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="FSock"></span><code><strong>FSock</strong>: <a href="blcksock.TTCPBlockSocket.html">TTCPBlockSocket</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="FTagCommand"></span><code><strong>FTagCommand</strong>: integer;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="FResultString"></span><code><strong>FResultString</strong>: string;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="FFullResult"></span><code><strong>FFullResult</strong>: TStringList;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="FIMAPcap"></span><code><strong>FIMAPcap</strong>: TStringList;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="FAuthDone"></span><code><strong>FAuthDone</strong>: Boolean;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="FSelectedFolder"></span><code><strong>FSelectedFolder</strong>: string;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="FSelectedCount"></span><code><strong>FSelectedCount</strong>: integer;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="FSelectedRecent"></span><code><strong>FSelectedRecent</strong>: integer;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="FSelectedUIDvalidity"></span><code><strong>FSelectedUIDvalidity</strong>: integer;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="FUID"></span><code><strong>FUID</strong>: Boolean;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="FAutoTLS"></span><code><strong>FAutoTLS</strong>: Boolean;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="FFullSSL"></span><code><strong>FFullSSL</strong>: Boolean;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<h3 class="detail">Métodos</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="ReadResult"></span><code>function <strong>ReadResult</strong>: string;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="AuthLogin"></span><code>function <strong>AuthLogin</strong>: Boolean;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="Connect"></span><code>function <strong>Connect</strong>: Boolean;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="ParseMess"></span><code>procedure <strong>ParseMess</strong>(Value:TStrings);</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="ParseFolderList"></span><code>procedure <strong>ParseFolderList</strong>(Value:TStrings);</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="ParseSelect"></span><code>procedure <strong>ParseSelect</strong>;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="ParseSearch"></span><code>procedure <strong>ParseSearch</strong>(Value:TStrings);</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="ProcessLiterals"></span><code>procedure <strong>ProcessLiterals</strong>;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Create"></span><code>constructor <strong>Create</strong>;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Destroy"></span><code>destructor <strong>Destroy</strong>; override;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="IMAPcommand"></span><code>function <strong>IMAPcommand</strong>(Value: string): string;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+By this function you can call any IMAP command. Result of this command is in adequate properties.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="IMAPuploadCommand"></span><code>function <strong>IMAPuploadCommand</strong>(Value: string; const Data:TStrings): string;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+By this function you can call any IMAP command what need upload any data. Result of this command is in adequate properties.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Capability"></span><code>function <strong>Capability</strong>: Boolean;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+Call <code>CAPABILITY</code> command and fill <a class="normal" href="imapsend.TIMAPSend.html#IMAPcap">IMAPcap</a> property by new values.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Login"></span><code>function <strong>Login</strong>: Boolean;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+<a class="normal" href="imapsend.TIMAPSend.html#Connect">Connect</a> to IMAP server and do <code>login</code> to this server. This command begin session.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Logout"></span><code>function <strong>Logout</strong>: Boolean;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+Disconnect from IMAP server and terminate session session. If exists some deleted and non-purged messages, these messages are not deleted!</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="NoOp"></span><code>function <strong>NoOp</strong>: Boolean;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+Do <code>NOOP</code>. It is for prevent disconnect by <a class="normal" href="blcksock.TSynaClient.html#Timeout">timeout</a>.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="List"></span><code>function <strong>List</strong>(FromFolder: string; const FolderList: TStrings): Boolean;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+Lists folder names. You may specify level of listing. If you specify FromFolder as empty string, return is all folders in system.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="ListSearch"></span><code>function <strong>ListSearch</strong>(FromFolder, Search: string; const FolderList: TStrings): Boolean;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+Lists folder names what match search criteria. You may specify level of listing. If you specify FromFolder as empty string, return is all folders in system.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="ListSubscribed"></span><code>function <strong>ListSubscribed</strong>(FromFolder: string; const FolderList: TStrings): Boolean;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+Lists subscribed folder names. You may specify level of listing. If you specify FromFolder as empty string, return is all subscribed folders in system.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="ListSearchSubscribed"></span><code>function <strong>ListSearchSubscribed</strong>(FromFolder, Search: string; const FolderList: TStrings): Boolean;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+Lists subscribed folder names what matching search criteria. You may specify level of listing. If you specify FromFolder as empty string, return is all subscribed folders in system.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="CreateFolder"></span><code>function <strong>CreateFolder</strong>(FolderName: string): Boolean;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+<a class="normal" href="imapsend.TIMAPSend.html#Create">Create</a> a new folder.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="DeleteFolder"></span><code>function <strong>DeleteFolder</strong>(FolderName: string): Boolean;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+Delete a folder.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="RenameFolder"></span><code>function <strong>RenameFolder</strong>(FolderName, NewFolderName: string): Boolean;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+Rename folder names.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="SubscribeFolder"></span><code>function <strong>SubscribeFolder</strong>(FolderName: string): Boolean;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+Subscribe folder.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="UnsubscribeFolder"></span><code>function <strong>UnsubscribeFolder</strong>(FolderName: string): Boolean;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+Unsubscribe folder.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="SelectFolder"></span><code>function <strong>SelectFolder</strong>(FolderName: string): Boolean;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+Select folder.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="SelectROFolder"></span><code>function <strong>SelectROFolder</strong>(FolderName: string): Boolean;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+Select folder, but only for reading. Any changes are not allowed!</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="CloseFolder"></span><code>function <strong>CloseFolder</strong>: Boolean;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+Close a folder. (end of Selected state)</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="StatusFolder"></span><code>function <strong>StatusFolder</strong>(FolderName, Value: string): integer;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+Ask for given status of folder. I.e. if you specify as value 'UNSEEN', result is number of unseen messages in folder. For another status indentificator check IMAP documentation and documentation of your IMAP server (each IMAP server can have their own statuses.)</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="ExpungeFolder"></span><code>function <strong>ExpungeFolder</strong>: Boolean;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+Hardly delete all messages marked as 'deleted' in current selected folder.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="CheckFolder"></span><code>function <strong>CheckFolder</strong>: Boolean;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+Touch to folder. (use as update status of folder, etc.)</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="AppendMess"></span><code>function <strong>AppendMess</strong>(ToFolder: string; const Mess: TStrings): Boolean;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+Append given message to specified folder.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="DeleteMess"></span><code>function <strong>DeleteMess</strong>(MessID: integer): boolean;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+'Delete' message from current selected folder. It mark message as Deleted. Real deleting will be done after sucessfull <a class="normal" href="imapsend.TIMAPSend.html#CloseFolder">CloseFolder</a> or <a class="normal" href="imapsend.TIMAPSend.html#ExpungeFolder">ExpungeFolder</a></p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="FetchMess"></span><code>function <strong>FetchMess</strong>(MessID: integer; const Mess: TStrings): Boolean;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+Get full message from specified message in selected folder.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="FetchHeader"></span><code>function <strong>FetchHeader</strong>(MessID: integer; const Headers: TStrings): Boolean;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+Get message headers only from specified message in selected folder.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="MessageSize"></span><code>function <strong>MessageSize</strong>(MessID: integer): integer;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+Return message size of specified message from current selected folder.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="CopyMess"></span><code>function <strong>CopyMess</strong>(MessID: integer; ToFolder: string): Boolean;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+Copy message from current selected folder to another folder.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="SearchMess"></span><code>function <strong>SearchMess</strong>(Criteria: string; const FoundMess: TStrings): Boolean;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+Return message numbers from currently selected folder as result of searching. Search criteria is very complex language (see to IMAP specification) similar to SQL (but not same syntax!).</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="SetFlagsMess"></span><code>function <strong>SetFlagsMess</strong>(MessID: integer; Flags: string): Boolean;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+Sets flags of message from current selected folder.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="GetFlagsMess"></span><code>function <strong>GetFlagsMess</strong>(MessID: integer; var Flags: string): Boolean;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+Gets flags of message from current selected folder.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="AddFlagsMess"></span><code>function <strong>AddFlagsMess</strong>(MessID: integer; Flags: string): Boolean;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+Add flags to message's flags.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="DelFlagsMess"></span><code>function <strong>DelFlagsMess</strong>(MessID: integer; Flags: string): Boolean;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+Remove flags from message's flags.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="StartTLS"></span><code>function <strong>StartTLS</strong>: Boolean;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+Call <code>STARTTLS</code> command for upgrade connection to SSL/TLS mode.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="GetUID"></span><code>function <strong>GetUID</strong>(MessID: integer; var UID : Integer): Boolean;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+return <a class="normal" href="imapsend.TIMAPSend.html#UID">UID</a> of requested message ID.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="FindCap"></span><code>function <strong>FindCap</strong>(const Value: string): string;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+Try to find given capabily in capabilty string returned from IMAP server.</p>
+</td></tr>
+</table>
+<h3 class="detail">Propriedades</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><span id="ResultString"></span><code>property <strong>ResultString</strong>: string read <a href="imapsend.TIMAPSend.html#FResultString">FResultString</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+Status line with result of last operation.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><span id="FullResult"></span><code>property <strong>FullResult</strong>: TStringList read <a href="imapsend.TIMAPSend.html#FFullResult">FFullResult</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+Full result of last IMAP operation.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><span id="IMAPcap"></span><code>property <strong>IMAPcap</strong>: TStringList read <a href="imapsend.TIMAPSend.html#FIMAPcap">FIMAPcap</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+<a class="normal" href="imapsend.TIMAPSend.html#List">List</a> of server capabilites.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><span id="AuthDone"></span><code>property <strong>AuthDone</strong>: Boolean read <a href="imapsend.TIMAPSend.html#FAuthDone">FAuthDone</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+Authorization is successful done.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><span id="UID"></span><code>property <strong>UID</strong>: Boolean read <a href="imapsend.TIMAPSend.html#FUID">FUID</a> Write <a href="imapsend.TIMAPSend.html#FUID">FUID</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+Turn on or off usage of <code>UID</code> (unicate identificator) of messages instead only sequence numbers.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><span id="SelectedFolder"></span><code>property <strong>SelectedFolder</strong>: string read <a href="imapsend.TIMAPSend.html#FSelectedFolder">FSelectedFolder</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+Name of currently selected folder.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><span id="SelectedCount"></span><code>property <strong>SelectedCount</strong>: integer read <a href="imapsend.TIMAPSend.html#FSelectedCount">FSelectedCount</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+Count of messages in currently selected folder.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><span id="SelectedRecent"></span><code>property <strong>SelectedRecent</strong>: integer read <a href="imapsend.TIMAPSend.html#FSelectedRecent">FSelectedRecent</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+Count of not-visited messages in currently selected folder.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><span id="SelectedUIDvalidity"></span><code>property <strong>SelectedUIDvalidity</strong>: integer read <a href="imapsend.TIMAPSend.html#FSelectedUIDvalidity">FSelectedUIDvalidity</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+This number with name of folder is unique indentificator of folder. (If someone delete folder and next <a class="normal" href="imapsend.TIMAPSend.html#Create">create</a> new folder with exactly same name of folder, this number is must be different!)</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><span id="AutoTLS"></span><code>property <strong>AutoTLS</strong>: Boolean read <a href="imapsend.TIMAPSend.html#FAutoTLS">FAutoTLS</a> Write <a href="imapsend.TIMAPSend.html#FAutoTLS">FAutoTLS</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+If is set to true, then upgrade to SSL/TLS mode if remote server support it.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><span id="FullSSL"></span><code>property <strong>FullSSL</strong>: Boolean read <a href="imapsend.TIMAPSend.html#FFullSSL">FFullSSL</a> Write <a href="imapsend.TIMAPSend.html#FFullSSL">FFullSSL</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+SSL/TLS mode is used from first contact to server. Servers with full SSL/TLS mode usualy using non-standard TCP port!</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><span id="Sock"></span><code>property <strong>Sock</strong>: <a href="blcksock.TTCPBlockSocket.html">TTCPBlockSocket</a> read <a href="imapsend.TIMAPSend.html#FSock">FSock</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+Socket object used for TCP/IP operation. Good for seting OnStatus hook, etc.</p>
+</td></tr>
+</table>
+<hr><span class="appinfo"><em>Gerado por <a href="https://pasdoc.github.io/">PasDoc 0.16.0</a>. </em>
+</span>
+</div></div></body></html>

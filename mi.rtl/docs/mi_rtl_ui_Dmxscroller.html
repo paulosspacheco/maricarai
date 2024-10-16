@@ -62,6 +62,11 @@ A unit <strong><code>mi_rtl_ui_Dmxscroller</code></strong> implementa a classe <
 
 <ul class="paragraph_spacing">
   <li><p>T12 Criar Property TMi_rtl_dmxScroller.TemplateClient_Path</p></li>
+</ul>
+
+<p></p>
+
+<ul class="paragraph_spacing">
   <li><p>T12 Criar Property TMi_rtl_dmxScroller.ClientTemplates_ dataModule_FileName</p></li>
   <li><p>T12 Criar Property TMi_rtl_dmxScroller.ClientTemplates_Form_FileName</p></li>
   <li><p>T12 O grupo TMi_RadioGroup_Lcl não é selecionado com a tecla na tecla <strong>TAB</strong> </p>
@@ -128,6 +133,7 @@ A unit <strong><code>mi_rtl_ui_Dmxscroller</code></strong> implementa a classe <
   <li><p><strong>CONCLUÍDO</strong> </p>
 
 <ul class="paragraph_spacing">
+  <li><p>T12 Criar tipo <a class="normal" href="mi_rtl_ui_Dmxscroller.html#TEn_OnEvent_DmxFieldRec">TEn_OnEvent_DmxFieldRec</a>;</p></li>
   <li><p>T12 Criar <a class="normal" href="mi_rtl_ui_Dmxscroller.html#TEnClientsApplication">TEnClientsApplication</a> = (ApLcl,ApJavaScript,ApDynamichtml,ApVueJs,ApAngular); ✅</p></li>
   <li><p>T12 Implementar o método public function Locate(): Boolean;override;overload;✅</p></li>
   <li><p>T12 Implementar a propriedade public property CanModify: Boolean;</p></li>
@@ -383,6 +389,9 @@ A unit <strong><code>mi_rtl_ui_Dmxscroller</code></strong> implementa a classe <
 <td class="itemcode"><code><strong><a href="mi_rtl_ui_Dmxscroller.html#TOnCalcFields">TOnCalcFields</a></strong> = Procedure(const aUiDmxScroller:<a href="mi_rtl_ui_Dmxscroller.TUiDmxScroller.html">TUiDmxScroller</a>) of Object unimplemented;</code></td>
 </tr>
 <tr class="list2">
+<td class="itemcode"><code><strong><a href="mi_rtl_ui_Dmxscroller.html#TEn_OnEvent_DmxFieldRec">TEn_OnEvent_DmxFieldRec</a></strong> = (...);</code></td>
+</tr>
+<tr class="list">
 <td class="itemcode"><code><strong><a href="mi_rtl_ui_Dmxscroller.html#TMiDataPacketFormat">TMiDataPacketFormat</a></strong> = (...);</code></td>
 </tr>
 </table>
@@ -641,7 +650,7 @@ O tipo <strong><code>TOnExitField</code></strong> é usado no evento OnExitField
 </tr>
 <tr><td colspan="1">
 <p>
-O tipo <strong><code>TOnCalcField</code></strong> é usado no evento para calcular um campo e é executado em <a class="normal" href="mi_rtl_ui_Dmxscroller.TDmxFieldRec.html#DoOnEnter">TDmxFieldRec.DoOnEnter</a>() e <a class="normal" href="mi_rtl_ui_Dmxscroller.TDmxFieldRec.html#DoOnExit">TDmxFieldRec.DoOnExit</a>()</p>
+O tipo <strong><code>TOnCalcField</code></strong> é usado no evento para calcular um campo, é executado em <a class="normal" href="mi_rtl_ui_Dmxscroller.TDmxFieldRec.html#DoOnEnter">TDmxFieldRec.DoOnEnter</a>() e <a class="normal" href="mi_rtl_ui_Dmxscroller.TDmxFieldRec.html#DoOnExit">TDmxFieldRec.DoOnExit</a>()</p>
 </td></tr>
 </table>
 <table class="detail wide_list">
@@ -730,6 +739,40 @@ O tipo <strong><code>TOnAfterDelete</code></strong> é usado para criar o evento
 <tr><td colspan="1">
 <p>
 O tipo <strong><code>TOnCalcFields</code></strong> é usado para fazer calculos é executado ao entrar no registro e ao sair do registro</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="TEn_OnEvent_DmxFieldRec"></span><code><strong>TEn_OnEvent_DmxFieldRec</strong> = (...);</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+O tipo enumerado <strong><code>TEn_OnEvent_DmxFieldRec</code></strong> é usado nas requisições httl do cliente.
+
+<p></p>
+
+<ul class="paragraph_spacing">
+  <li><p><strong>Notas</strong> </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Usado para classificar eventos do mesmo tipo de parâmetro no caso o cliente só precisa de o nome do campo para localizar o evento na lista de eventos.</p></li>
+</ul>
+
+<p></p></li>
+</ul>
+
+<p></p>
+<h6 class="description_section">Valores</h6>
+<ul>
+<li>
+<span id="EnOnEnterField">EnOnEnterField</span></li>
+<li>
+<span id="EnOnExitField">EnOnExitField</span></li>
+<li>
+<span id="EnOnCalcField">EnOnCalcField</span></li>
+<li>
+<span id="EnOnChangeField">EnOnChangeField</span></li>
+</ul>
 </td></tr>
 </table>
 <table class="detail wide_list">

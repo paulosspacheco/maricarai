@@ -1,0 +1,83 @@
+/*color_tons_de_cinza.css */
+
+:root { /* Cores do body e h1 a h4*/
+    --background-color: #d0d0d0; /* Cinza claro para o fundo da página */
+    --text-color: #333; /* Cor do texto padrão */
+    --title-color: white; /* Cor do texto dos títulos (h1, h2, h3, h4) */
+}
+:root { /*Cores dos formulários*/
+    --form-background-color: #C0C0C0; /* Cinza mais claro para o fundo do formulário */
+    --form-border-color: #bbb; /* Borda em cinza mais escuro */
+    --form-header-background-color: #555; /* Cor de fundo da barra de título */
+    --form-header-text-color: white; /* Cor do texto da barra de título */
+
+    --button-background-color: #555; /* Cinza escuro para os botões */
+    --button-hover-background-color: #333; /* Tom mais escuro ao passar o mouse */
+    --disabled-button-background-color: #CCCCCC; /* Cor de fundo para botão desabilitado */
+    --disabled-button-text-color: #666666; /* Cor do texto para botão desabilitado */
+    --input-background-color: #f0f0f0; /* Cor de fundo dos inputs */
+    --input-border-color: #ccc; /* Cor da borda dos inputs */
+    --input-focus-border-color: #888; /* Cor da borda ao focar */
+    --input-focus-background-color: #ddd; /* Fundo levemente mais escuro ao focar */
+    --label-color: #555; /* Cor do texto do label */
+    --text-color: #333; /* Cor do texto padrão */
+}
+:root { /*Cores dos dialogs*/
+    --dialog-overlay-bg-color: rgba(0, 0, 0, 0.5); /* Fundo da sobreposição */
+    --dialog-box-bg-color: #6c757d; /* Caixa de diálogo escura */
+    --dialog-box-text-color: #ffffff; /* Texto branco padrão */
+    --dialog-label-color: #ddd; /* Cor mais clara para os rótulos */
+    --dialog-title-color: #ffffff; /* Título com texto branco */
+    --dialog-message-color: #ffffff; /* Mensagem com texto branco */
+    --action-button-bg-color: #555555; /* Cor de fundo cinza escuro para botões */
+    --action-button-text-color: white; /* Cor do texto branco para botões */
+    --action-button-hover-bg-color: #666666; /* Cinza um pouco mais claro ao passar o mouse */
+    --dialog-box-shadow: 0 0 15px rgba(0, 0, 0, 0.5); /* Sombra da caixa de diálogo */
+    --dialog-title-warning-color: orange; /* Cor para título de aviso */
+    --dialog-title-error-color: red; /* Cor para título de erro */
+    --dialog-title-info-color: blue; /* Cor para título de informação */
+    --dialog-title-confirmation-color: green; /* Cor para título de confirmação */
+    --dialog-title-custom-color: purple; /* Cor para título personalizado */
+    --dialog-title-default-color: black; /* Cor padrão para título */
+}
+
+:root { 
+    /* Cores para o painel de botões de navegação */
+    --nav-button-hover-bg-color: #5a6268; /* Cinza escuro ao passar o mouse */
+    --nav-button-disabled-bg-color: #CCCCCC; /* Cor de fundo para botão de navegação desabilitado */
+    --nav-button-disabled-text-color: #666666; /* Cor do texto para botão de navegação desabilitado */
+    --nav-button-disabled-border-color: #999; /* Borda para botão desabilitado */
+    --nav-buttons-bg-color: #6c757d; /* Cor cinza médio para o fundo dos botões de navegação */
+    --nav-buttons-text-color: white; /* Cor do texto dos botões */
+    --nav-buttons-focus-bg-color: #343a40; /* Cor de fundo diferente para o estado de foco */
+    --action-buttons-bg-color: #6c757d; /* Cinza médio para o grupo de botões de ação */
+    --overlay-bg-color: rgba(0, 0, 0, 0.8); /* Fundo escuro para a sobreposição */
+}
+
+:root { /* Cores para o painel de botões de navegação */
+    --nav-button-hover-bg-color: #5a6268; /* Cinza escuro ao passar o mouse */
+    --nav-button-hover-text-color: #ffffff; /* Cor do texto ao passar o mouse (branco) */
+    --nav-button-disabled-bg-color: #CCCCCC; /* Cor de fundo para botão de navegação desabilitado */
+    --nav-button-disabled-text-color: #666666; /* Cor do texto para botão de navegação desabilitado */
+    --nav-button-disabled-border-color: #999; /* Borda para botão desabilitado */
+    --nav-buttons-bg-color: #6c757d; /* Cor cinza médio para o fundo dos botões de navegação */
+    --nav-buttons-text-color: white; /* Cor do texto dos botões */
+    --action-buttons-bg-color: #6c757d; /* Cinza médio para o grupo de botões de ação */
+    --overlay-bg-color: rgba(0, 0, 0, 0.8); /* Fundo escuro para a sobreposição */
+}
+
+
+:root { /*Cores das tags fieldSet*/
+    --fieldset-bg-color: #e6e6e6; /* Tom de cinza claro */
+    --fieldset-border-color: #333; /* Borda escura */
+    --fieldset-legend-color: #555; /* Cor de cinza para a legenda */
+    --fieldset-legend-bg-color: #f0f0f0; /* Fundo claro para contraste */
+    --fieldset-legend-border-color: #ccc; /* Borda da legenda */
+    --fieldset-label-color: #444; /* Cinza mais escuro para labels */
+    --fieldset-input-bg-color: #fff; /* Fundo branco para inputs */
+    --fieldset-input-border-color: #bbb; /* Borda levemente escurecida para inputs */
+    --field-group-border-color: #3043bd; /* Borda azul para grupos de campos */    
+    --group-of-groups-border-color: #131ae9; /* Borda verde para grupos de grupos */    
+    --global-legend-color: #1a7fd2; /* Cor azul para legenda geral */
+}
+

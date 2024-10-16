@@ -216,7 +216,7 @@ implementation
 
 procedure Register;
 begin
-  {$I Mi_FpHttpClient_icon.lrs}
+  {$I mi.web.fphttpclient.icon.lrs}
   RegisterComponents('Mi.Web',[TMi_FpHttpClient]);
 end;
 
@@ -263,7 +263,7 @@ begin
 
                    //PUT: Atualiza ou cria um recurso em uma URL específica. É idempotente, o que significa que várias requisições PUT com os mesmos dados não devem alterar o estado do recurso além da primeira requisição.
                    TEnMethodHttp.HttpPUT: Begin
-                     HTTPMethod('PUT', URL, ResponseStream, [200]);
+                     HTTPMethod('PUT', URL, ResponseStream, [200,400]);
                    end;
 
                    //PATCH: Aplica modificações parciais a um recurso. Diferente do PUT, que substitui o recurso completo, o PATCH altera apenas os campos fornecidos.
@@ -307,6 +307,14 @@ begin
         end;
 
       Except
+        on E: TException do
+        begin
+          Result := nil;
+          strerr := E.Message;
+          raise TMi_Rtl.TException.Create(self, {$I %CURRENTROUTINE%},
+                                  Format('Erro: HTTP %s !', [strerr]));
+        end;
+
         on E: Exception do
         begin
           Result := nil;
@@ -319,7 +327,7 @@ begin
       // Processar a resposta
       ResponseStr := ResponseStream.DataString;
       if Trim(ResponseStr) = ''
-      then raise Exception.Create('Resposta vazia.');
+      then raise TException.Create(self,{$I %CURRENTROUTINE%},'Resposta vazia.');
 
       if Pos('{', ResponseStr) = 1
       then Result := TJSONObject(GetJSON(ResponseStr))
@@ -344,7 +352,6 @@ begin
   end;
 
 end;
-
 
 //function TMi_FpHttpClient.SendRequest(const aAction: string;
 //  const aParams: TJSONObject; const aJSONObject: TJSONObject;

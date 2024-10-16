@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulário com Rolagem</title>
+    <style>
+        .form-container {
+            position: relative;
+            width: 800px; /* Largura do formulário */
+            height: 400px; /* Altura visível do formulário */
+            border: 1px solid #ccc;
+            padding: 20px;
+            overflow: auto; /* Ativa a rolagem quando o conteúdo ultrapassa a altura */
+        }
+        .form-field {
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <!-- Campos de exemplo com mais elementos para simular rolagem -->
+        <label for="nomeAluno" class="form-field" style="top: 20px; left: 20px;">Nome do aluno:</label>
+        <input type="text" id="nomeAluno" class="form-field" style="top: 20px; left: 150px; width: 300px;">
+
+        <label for="idade" class="form-field" style="top: 60px; left: 20px;">Idade:</label>
+        <input type="number" id="idade" class="form-field" style="top: 60px; left: 150px; width: 50px;">
+
+        <label for="endereco" class="form-field" style="top: 100px; left: 20px;">Endereço:</label>
+        <input type="text" id="endereco" class="form-field" style="top: 100px; left: 150px; width: 300px;">
+
+        <label for="cidade" class="form-field" style="top: 140px; left: 20px;">Cidade:</label>
+        <input type="text" id="cidade" class="form-field" style="top: 140px; left: 150px; width: 150px;">
+
+        <label for="estado" class="form-field" style="top: 180px; left: 20px;">Estado:</label>
+        <input type="text" id="estado" class="form-field" style="top: 180px; left: 150px; width: 50px;">
+
+        <!-- Adicionando mais campos para preencher o formulário -->
+        <label for="email" class="form-field" style="top: 220px; left: 20px;">Email:</label>
+        <input type="email" id="email" class="form-field" style="top: 220px; left: 150px; width: 300px;">
+
+        <label for="telefone" class="form-field" style="top: 260px; left: 20px;">Telefone:</label>
+        <input type="tel" id="telefone" class="form-field" style="top: 260px; left: 150px; width: 200px;">
+
+        <label for="cep" class="form-field" style="top: 300px; left: 20px;">CEP:</label>
+        <input type="text" id="cep" class="form-field" style="top: 300px; left: 150px; width: 100px;">
+
+        <label for="pais" class="form-field" style="top: 340px; left: 20px;">País:</label>
+        <input type="text" id="pais" class="form-field" style="top: 340px; left: 150px; width: 150px;">
+
+        <!-- Campos adicionais até ultrapassar a altura do contêiner -->
+        <label for="observacoes" class="form-field" style="top: 380px; left: 20px;">Observações:</label>
+        <textarea id="observacoes" class="form-field" style="top: 380px; left: 150px; width: 300px; height: 100px;"></textarea>
+
+        <!-- Botão Enviar no final -->
+        <button type="submit" class="form-field" style="top: 500px; left: 20px;">Enviar</button>
+    </div>
+</body>
+</html>

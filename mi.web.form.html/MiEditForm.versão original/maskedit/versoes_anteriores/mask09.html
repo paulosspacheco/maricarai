@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Masked Input Example</title>
+</head>
+<body>
+
+<!-- Máscara para CPF -->
+<input type="text" data-mask="###.###.###-##" data-mask-type="generic" placeholder="CPF"/>
+
+<!-- Máscara para CEP -->
+<input type="text" data-mask="##.###-###" data-mask-type="generic" placeholder="CEP"/>
+
+<!-- Máscara para valores monetários positivos -->
+<input type="text" data-mask="R$ 0.000,00" data-mask-type="r" placeholder="Valor (positivo)"/>
+
+<!-- Máscara para valores monetários positivos e negativos -->
+<input type="text" data-mask="R$ 0.000,00" data-mask-type="R" placeholder="Valor (positivo/negativo)"/>
+
+    <script src="./maskedit.js"></script> <!-- script da classe TMaskEdit -->    
+  
+</body>
+</html>

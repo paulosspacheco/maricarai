@@ -1,0 +1,46 @@
+/* styles.css */
+.dialog {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+.dialog-content {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    text-align: center;
+}
+
+.dialog.hidden {
+    display: none;
+}
+
+/* Cores diferentes para os títulos de mensagem */
+.dialog-title.warning {
+    color: orange;
+}
+
+.dialog-title.error {
+    color: red;
+}
+
+.dialog-title.info {
+    color: blue;
+}
+
+.dialog-title.confirmation {
+    color: green;
+}
+
+.dialog-title.default {
+    color: black; /* Cor padrão se o tipo não for reconhecido */
+}

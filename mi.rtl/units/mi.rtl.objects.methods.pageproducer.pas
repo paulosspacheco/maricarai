@@ -623,13 +623,14 @@ Type
 
     {$REGION '---> Construção da propriedade OnHTMLTag_Undefined'}
       Private _OnHTMLTag_Undefined : THTMLTagEvent;
-      {: A propriedade **@name** ..
+      {: A propriedade **@name** é usada quando o projeto não tem um padrão definido.
 
       }
       Public Property OnHTMLTag_Undefined : THTMLTagEvent Read _OnHTMLTag_Undefined write _OnHTMLTag_Undefined ;
     {$ENDREGION}
 
-    {: - O método **@name** é usado para preencher templates html **tgLink** usado nos templates do componente *TPageProducer*.
+    {: - O método **@name** é usado para preencher templates html **tgLink** usado nos
+         templates do componente *TPageProducer*.
 
        - PARÂMETROS
          - aAlias     = Apelido do template
@@ -708,6 +709,7 @@ Type
     {: O método **@name** Executa o evento OnHTMLTag_tgCustom se o mesmo for
        assinalado visualmente ou não pelo usuário para preencher as tags do tipo
        tgCustom.}
+
     protected procedure DoOnHTMLTag_tgCustom  (Sender: TObject; const TagString: String;TagParams: TStringList; var ReplaceText: String);Virtual;
 
     {: O método **@name** Executa o evento OnHTMLTag_tgLink se o mesmo for
@@ -808,7 +810,7 @@ Type
       Private Function GetHTMLDoc: String;
 
       {: A propriedade **@name** contém um string usado como template para
-      produção de documentos.
+         produção de documentos.
 
          - **NOTA**
            - A tag **@name** deve ser usada quando temos modelos de template

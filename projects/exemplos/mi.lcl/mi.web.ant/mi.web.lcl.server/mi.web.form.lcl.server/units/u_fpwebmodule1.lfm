@@ -1,0 +1,27 @@
+object FPWebModule1: TFPWebModule1
+  OldCreateOrder = False
+  Actions = <  
+    item
+      Name = 'func1call'
+      Default = False
+      OnRequest = func1callRequest
+      Template.AllowTagParams = False
+    end  
+    item
+      Name = 'func2call'
+      Default = False
+      OnRequest = func2callRequest
+      Template.AllowTagParams = False
+    end>
+  CreateSession = False
+  CORS.Enabled = False
+  CORS.Options = [coAllowCredentials, coEmptyDomainToOrigin]
+  CORS.AllowedMethods = 'GET, PUT, POST, OPTIONS, HEAD'
+  CORS.AllowedOrigins = '*'
+  CORS.AllowedHeaders = 'x-requested-with, content-type, authorization'
+  CORS.MaxAge = 0
+  Height = 150
+  HorizontalOffset = 287
+  VerticalOffset = 250
+  Width = 150
+end

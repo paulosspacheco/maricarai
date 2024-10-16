@@ -24,6 +24,8 @@
 <p class="declaration">
 <code>type TDmxScroller_Form_Rest_Client = class(TDmxScroller_Form)</code></p>
 <h2 class="description">Descrição</h2>
+<p>
+A class <strong><code>TDmxScroller_Form_Rest_Client</code></strong> é uma extensão da classe <code>TDmxScroller_Form</code>, projetada para integrar operações de requisições HTTP em um formulário usando um cliente REST (<code>TMi_FpHttpClient</code>). Esta classe facilita a manipulação de registros remotos por meio de uma API REST, permitindo operações CRUD e navegação entre os registros de forma eficiente.</p>
 <span id="PasDoc-Hierarchy"></span><h2 class="hierarchy">Hierarquia</h2>
 <ul class="hierarchy"><li class="ancestor">TDmxScroller_Form</li>
 <li class="thisitem">TDmxScroller_Form_Rest_Client</li></ul><h2 class="overview">Visão Geral</h2>
@@ -35,39 +37,55 @@
 </tr>
 <tr class="list2">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
-<td class="itemcode"><code>Procedure <strong><a href="mi.web.dmxscroller.form.rest.client.TDmxScroller_Form_Rest_Client.html#DoOnNewRecord">DoOnNewRecord</a></strong>; reintroduce;</code></td>
+<td class="itemcode"><code>Destructor <strong><a href="mi.web.dmxscroller.form.rest.client.TDmxScroller_Form_Rest_Client.html#Destroy">Destroy</a></strong>; Override;</code></td>
 </tr>
 <tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>Procedure <strong><a href="mi.web.dmxscroller.form.rest.client.TDmxScroller_Form_Rest_Client.html#DoOnNewRecord">DoOnNewRecord</a></strong>; reintroduce;</code></td>
+</tr>
+<tr class="list2">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
 <td class="itemcode"><code>Function <strong><a href="mi.web.dmxscroller.form.rest.client.TDmxScroller_Form_Rest_Client.html#AddRec">AddRec</a></strong>:Boolean; Override;</code></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
 <td class="itemcode"><code>function <strong><a href="mi.web.dmxscroller.form.rest.client.TDmxScroller_Form_Rest_Client.html#Locate">Locate</a></strong>(const KeyFields: string; const KeyValues: Variant; Options: TLocateOptions) : boolean; override; overload;</code></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
 <td class="itemcode"><code>Function <strong><a href="mi.web.dmxscroller.form.rest.client.TDmxScroller_Form_Rest_Client.html#PutRec">PutRec</a></strong>:Boolean; Override;</code></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
 <td class="itemcode"><code>Function <strong><a href="mi.web.dmxscroller.form.rest.client.TDmxScroller_Form_Rest_Client.html#DeleteRec">DeleteRec</a></strong>:Boolean; Override;</code></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
 <td class="itemcode"><code>Function <strong><a href="mi.web.dmxscroller.form.rest.client.TDmxScroller_Form_Rest_Client.html#FirstRec">FirstRec</a></strong>: Boolean; overload; Override;</code></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
 <td class="itemcode"><code>Function <strong><a href="mi.web.dmxscroller.form.rest.client.TDmxScroller_Form_Rest_Client.html#NextRec">NextRec</a></strong>: Boolean; overload; Override;</code></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
 <td class="itemcode"><code>Function <strong><a href="mi.web.dmxscroller.form.rest.client.TDmxScroller_Form_Rest_Client.html#PrevRec">PrevRec</a></strong>: Boolean; overload; Override;</code></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
 <td class="itemcode"><code>Function <strong><a href="mi.web.dmxscroller.form.rest.client.TDmxScroller_Form_Rest_Client.html#LastRec">LastRec</a></strong>: Boolean; overload; Override;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="mi.web.dmxscroller.form.rest.client.TDmxScroller_Form_Rest_Client.html#EventRequest_pDmxFieldRec">EventRequest_pDmxFieldRec</a></strong>(aComando: TEn_OnEvent_DmxFieldRec): Boolean;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>procedure <strong><a href="mi.web.dmxscroller.form.rest.client.TDmxScroller_Form_Rest_Client.html#DoOnEnterField">DoOnEnterField</a></strong>(aField: pDmxFieldRec);</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>procedure <strong><a href="mi.web.dmxscroller.form.rest.client.TDmxScroller_Form_Rest_Client.html#DoOnExitField">DoOnExitField</a></strong>(aField: pDmxFieldRec);</code></td>
 </tr>
 </table>
 <span id="PasDoc-Properties"></span><h3 class="summary">Propriedades</h3>
@@ -83,6 +101,14 @@
 <tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
 <td class="itemcode"><span id="Create"></span><code>constructor <strong>Create</strong>(aOwner:TComponent); Override;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Destroy"></span><code>Destructor <strong>Destroy</strong>; Override;</code></td>
 </tr>
 <tr><td colspan="2">
 &nbsp;</td></tr>
@@ -583,6 +609,30 @@ O método <strong><code>DeleteRec</code></strong> tem como objetivo excluir um r
 <tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
 <td class="itemcode"><span id="LastRec"></span><code>Function <strong>LastRec</strong>: Boolean; overload; Override;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="EventRequest_pDmxFieldRec"></span><code>function <strong>EventRequest_pDmxFieldRec</strong>(aComando: TEn_OnEvent_DmxFieldRec): Boolean;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="DoOnEnterField"></span><code>procedure <strong>DoOnEnterField</strong>(aField: pDmxFieldRec);</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="DoOnExitField"></span><code>procedure <strong>DoOnExitField</strong>(aField: pDmxFieldRec);</code></td>
 </tr>
 <tr><td colspan="2">
 &nbsp;</td></tr>

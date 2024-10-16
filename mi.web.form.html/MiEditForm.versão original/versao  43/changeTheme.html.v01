@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trocar Tema Dinamicamente</title>
+    <!-- CSS Principal -->
+    <link rel="stylesheet" href="./css/MiEditForm.css">
+</head>
+<body>
+
+    <h1>Tema Dinâmico</h1>
+    
+    <!-- Combobox para selecionar o tema -->
+    <label for="theme-selector">Selecione um Tema:</label>
+    <select id="theme-selector" onchange="changeTheme(this.value)">        
+        <option value="color_tons_amarelo.css">Tons de amarelo</option> 
+        <option value="color_tons_dark.css">Tons dark</option>  
+        <option value="color_tons_de_dark_claro.css">Tons dark claro</option>           
+        <option value="color_tons_de_azul_ceu.css">Tons de azul</option>  
+        <option value="color_tons_de_cinza.css">Tons de cinza</option>          
+        <option value="color_tons_de_lilas_claro.css">Tons de lilás claro</option>   
+        <option value="color_tons_de_verde_claro.css">Tons de verde claro</option>   
+    </select>
+
+    <!-- Script para troca de tema -->
+    <script>
+        function changeTheme(themeFile) {
+            // Verifica se já existe um <style> para o tema
+            let themeStyle = document.getElementById('theme-style');
+
+            if (themeStyle) {
+                // Se o <style> já existe, altera o conteúdo de @import
+                themeStyle.innerHTML = `@import url('./css/${themeFile}');`;
+            } else {
+                // Se o <style> não existe, cria um e adiciona no <head>
+                themeStyle = document.createElement('style');
+                themeStyle.id = 'theme-style';
+                themeStyle.innerHTML = `@import url('./css/${themeFile}');`;
+                document.head.appendChild(themeStyle);
+            }
+        }
+
+        // Adicionar um tema padrão ao carregar a página
+        window.onload = function() {
+            changeTheme('color_tons_de_lilas_claro.css'); // Exemplo de tema padrão
+        };
+    </script>
+
+</body>
+</html>
+

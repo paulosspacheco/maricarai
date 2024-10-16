@@ -1,5 +1,41 @@
 unit mi.web.dmxscroller.form.rest.client;
+{:< A unit **@name** implementa a classe TDmxScroller_Form_Rest_Client.
 
+  - Primeiro autor: Paulo Sérgio da Silva Pacheco paulosspacheco@@yahoo.com.br)
+
+  - **VERSÃO**
+    - Alpha - 1.0.0
+
+  - **CÓDIGO FONTE**:
+    - @html(<a href="../units/mi.web.dmxscroller.form.rest.client.pas">mi_web_dmxscroller_form_rest_client.pas</a>)
+
+  - **HISTÓRICO**:
+    - 30/08/2024 a 14/09/2024
+      - Criado essa unit
+      - Criado versãoo 1.0.0
+
+  - **PENDÊNCIAS**
+    - T12 Ao adicionar um registro o servidor devolve a chave e a mesma deve atualizar o registro adicionado
+    - T12 Criar métodos:
+      - EnterField
+      - ExitField
+      - CalcFields
+      - ChangeField
+
+  - **CONCLUÍDO**
+    - DoOnNewRecord
+    - AddRec
+    - Locate
+    - PutRec
+    - DeleteRec
+    - Navigator
+    - FirstRec
+    - NextRec
+    - PrevRec
+    - LastRec
+
+
+}
 {$mode ObjFPC}{$H+}
 
 interface
@@ -11,19 +47,29 @@ uses
   ,mi.web.fphttpclient;
 
 Type
+  {: A tipo enumerado **@name** é usado como parâmetro para criação de resquisições
+     http no métodos Mi_FpHttpClient.SendRequest().
+  }
   TEnumNavigator = (EnGoBof,EnNextRecord,EnPrevRecord,EnGoEof);
 type
+  { TDmxScroller_Form_Rest_Client}
 
-
-  { TDmxScroller_Form_Rest_Client }
-
+  {: A class **@name** é uma extensão da classe `TDmxScroller_Form`, projetada
+     para integrar operações de requisições HTTP em um formulário usando um
+    cliente REST (`TMi_FpHttpClient`). Esta classe facilita a manipulação de
+    registros remotos por meio de uma API REST, permitindo operações CRUD e
+    navegação entre os registros de forma eficiente.
+  }
   TDmxScroller_Form_Rest_Client = class(TDmxScroller_Form)
     {:O flag **@name** é usado para evitar que chamada internat chame o servidor
       quando o mesmo está atualizando o buffer local.
     }
     Private _Lock : Boolean ;
-
+    Private _EventsAssigned :TStringList;
+    private procedure ShowMessageErro(aResponse:TJsonObject);
     public constructor Create(aOwner:TComponent);Override;
+    public Destructor Destroy;Override;
+
     {$REGION '--->Construção da propriedade Mi_FpHttpClient'}
       private _Mi_FpHttpClient: TMi_FpHttpClient;
       {:A propiedade **@name** usanda para fazer requisições http ao servidor
@@ -306,7 +352,85 @@ type
     Public Function PrevRec: Boolean;overload; Override; //reintroduce;
     Public Function LastRec: Boolean;overload; Override; //reintroduce;
 
-    //protected Procedure DoOnEnter(aDmxScroller:TUiDmxScroller);overload;override;
+    {:O método **@name** é responsável por processar eventos de campo em um formulário de
+      cliente REST. Ele trata os eventos de entrada (`OnEnterField`) e saída (`OnExitField`)
+      de um campo, enviando uma requisição HTTP ao servidor correspondente ao evento, e
+      atualiza o buffer do cliente com os dados retornados pelo servidor.
+
+      - **Parâmetros Locais**
+        - **aComando**:
+          - Um enumerador do tipo `TEn_OnEvent_DmxFieldRec` que especifica o evento a ser
+            tratado (ex: `EnOnEnterField` ou `EnOnExitField`).
+
+        - **Response**:
+          - Um objeto `TJSONObject` utilizado para armazenar a resposta da requisição HTTP
+            enviada ao servidor.
+
+        - **KeyFields**:
+          - Uma string contendo os campos-chave que identificam o registro.
+
+        - **KeyValues**:
+          - Um `Variant` contendo os valores dos campos-chave.
+
+        - **aEventName**:
+          - Uma string que armazena o nome do evento que será enviado ao servidor.
+
+        - **Params**:
+          - Um objeto `TJSONObject` contendo os parâmetros que serão enviados na requisição
+            HTTP.
+
+        - Fluxo de Execução
+          1. **Verificação de Estado**:
+             - Se o estado do formulário for de adição (`Appending`), o método termina sem
+               realizar nenhuma ação.
+
+          2. **Validação**:
+             - O método valida se o campo atual (`CurrentField`) foi alterado e se o método
+               não está bloqueado (`_lock`).
+
+          3. **Determinação do Evento**:
+             - Dependendo do valor de `aComando`, o método define o nome do evento
+               (`aEventName`) como `OnEnterField` ou `OnExitField`.
+
+          4. **Preparação dos Parâmetros**:
+             - A função `getFieldsKeys` obtém os campos-chave e seus valores. A função
+               `FieldsEventNameParamsToJson` é utilizada para preparar os parâmetros da
+               requisição, incluindo o nome do campo, seu valor atual e o nome do evento.
+
+          5. **Envio da Requisição**:
+             - O método envia a requisição HTTP ao servidor usando o cliente `Mi_FpHttpClient`
+               com o nome do evento e os parâmetros gerados. A requisição utiliza o método
+               `HttpGET`.
+
+          6. **Processamento da Resposta**:
+             - Se o código de status da resposta for `404`, uma mensagem de erro é exibida
+               e o método retorna `false`.
+             - Caso contrário, o buffer do cliente é atualizado com os dados do servidor e
+               o método retorna `true`.
+
+          7. **Tratamento de Erros**:
+             - Se ocorrer um erro durante a execução, o método captura a exceção e retorna
+               `false`.
+
+          8. **Liberação de Recursos**:
+             - O objeto `Response` é liberado após o processamento, e o método remove o
+               bloqueio (`_lock`).
+
+        - Exceções
+          - **Erro HTTP**:
+            - Se o código de status da resposta HTTP for `404`, o método exibirá a
+              resposta do servidor e retornará `false`.
+
+        - Ver Também
+          - `Mi_FpHttpClient.SendRequest`: Método utilizado para enviar requisições HTTP.
+          - `getFieldsKeys`: Função que retorna os campos-chave do registro.
+          - `FieldsEventNameParamsToJson`: Função que prepara os parâmetros do evento de
+             campo para o servidor.
+
+    }
+    protected function EventRequest_pDmxFieldRec(aComando: TEn_OnEvent_DmxFieldRec): Boolean;
+    protected procedure DoOnEnterField (aField: pDmxFieldRec);
+    protected procedure DoOnExitField  (aField: pDmxFieldRec);
 
   end;
 
@@ -320,10 +444,37 @@ implementation
     RegisterComponents('Mi.Web',[TDmxScroller_Form_Rest_Client]);
   end;
 
+procedure TDmxScroller_Form_Rest_Client.ShowMessageErro(aResponse: TJsonObject);
+  var
+    MessageField :  TJSONString;
+begin
+  if Assigned(aResponse)
+  then begin
+//         if JsonObject.Find('message',MessageField)
+         if JsonObject.Find('status',MessageField)
+         then begin
+                ShowMessage(MessageField.AsJson);
+              end
+         else ShowMessage(aResponse.AsJson);
+       end;
+end;
+
 constructor TDmxScroller_Form_Rest_Client.Create(aOwner: TComponent);
 begin
   inherited Create(aOwner);
   _Lock := false;
+  _EventsAssigned := TStringList.Create;
+
+  OnEnterField  := @DoOnEnterField;
+  OnExitField   := @DoOnExitField;
+
+
+end;
+
+destructor TDmxScroller_Form_Rest_Client.Destroy;
+begin
+  FreeAndNil(_EventsAssigned);
+  inherited Destroy;
 end;
 
 { TDmxScroller_Form_Rest_Client }
@@ -346,7 +497,6 @@ end;
       _lock := false;
     end;
   end;
-
 
   function TDmxScroller_Form_Rest_Client.AddRec: Boolean;
     Var
@@ -489,41 +639,39 @@ end;
       _lock := true;
       If RecordSelected
       Then Begin
-             //wJSONObject:=JSONObject;
              if CommandsEnabled(['CmUpdateRecord'])
-             Then Result :=  Inherited PutRec
-             else Result :=  false;
-             If Result
              Then begin
                     KeyFields := getFieldsKeys(KeyValues);
                     If KeyFields<>''
                     Then begin
                            Params    := LocateParamsToJson(KeyFields,KeyValues,[loCaseInsensitive]);
                            Response  := Mi_FpHttpClient.SendRequest('CmPutRecord',Params,JSONObject,TEnMethodHttp.HttpPUT);
+
                            if Mi_FpHttpClient.ResponseStatusCode <> 200
                            Then begin
                                   Result := False;
-                                  JSONObject:=wJSONObject;
+                                  ShowMessageErro(Response);
+                                end
+                           else begin
+                                  JSONObject := Response;
+                                  Result :=  Inherited PutRec;
                                 end;
                          end
                     else  TException.Create(self,{$I %CURRENTROUTINE%},'Não existe uma chave de pesquisa por isso não posso alterar no servidor.!');
-                  end;
+                  end
+             else Result := false;
            end
       else raise TException.Create(self,{$I %CURRENTROUTINE%},'Registro não selecionado!');
 
     finally
       if Assigned(wJSONObject)
       Then FreeAndNil(wJSONObject);
-
       if Assigned(Params)
       Then FreeAndNil(Params);
-
       If Assigned(Response)
       Then FreeAndNil(Response);
-
       _lock := false;
     end;
-
   end;
 
   function TDmxScroller_Form_Rest_Client.DeleteRec: Boolean;
@@ -678,6 +826,80 @@ end;
   function TDmxScroller_Form_Rest_Client.LastRec: Boolean;
   begin
     Result:= Navigator(EnGoEof);
+  end;
+
+  function TDmxScroller_Form_Rest_Client.EventRequest_pDmxFieldRec(aComando: TEn_OnEvent_DmxFieldRec): Boolean;
+    var
+      Response :TJSONObject=nil;
+    var
+      KeyFields: string;
+      KeyValues: Variant;
+      aEventName :String;
+      Params: TJSONObject=nil;
+  begin
+
+    if Appending then exit;
+    if (not _lock)
+       and Assigned(CurrentField)
+       and (CurrentField^.FieldAltered) Then
+    try
+      _lock := true;
+      result := true;
+      try
+        case aComando of
+          EnOnEnterField  : aEventName := 'OnEnterField';
+          EnOnExitField   : aEventName := 'OnExitField';
+        end;
+        KeyFields := getFieldsKeys(KeyValues);
+        Params := FieldsEventNameParamsToJson(KeyFields,
+                                              KeyValues,
+                                              [loCaseInsensitive],
+                                              CurrentField^.FieldName,
+                                              CurrentField^.AsString,
+                                              aEventName
+                                              );
+
+        case aComando of
+          EnOnEnterField  : Response := Mi_FpHttpClient.SendRequest('OnEnterField' ,Params,TEnMethodHttp.HttpGET);
+          EnOnExitField   : Response := Mi_FpHttpClient.SendRequest('OnExitField'  ,Params,TEnMethodHttp.HttpGET);
+        end;
+
+        if Assigned(Response)
+        Then begin
+               if Mi_FpHttpClient.ResponseStatusCode = 404
+               Then begin
+                       ShowMessage(Response.AsJSON);
+                       result := false;
+                       exit;
+                    end;
+
+               //Atualiza o buffer do cliente com os dados do servidor
+               JSONObject := Response;
+
+               Result := true;
+               //if result
+               //Then RefreshInternal;
+             end
+        else Result := false;
+      Except
+        Result := false;
+      end;
+
+    finally
+      if Assigned(Response)
+      Then FreeAndNil(Response);
+      _lock := false;
+    end;
+  end;
+
+  procedure TDmxScroller_Form_Rest_Client.DoOnEnterField(aField: pDmxFieldRec);
+  begin
+    EventRequest_pDmxFieldRec(EnOnEnterField);
+  end;
+
+  procedure TDmxScroller_Form_Rest_Client.DoOnExitField (aField: pDmxFieldRec);
+  begin
+    EventRequest_pDmxFieldRec(EnOnExitField);
   end;
 
 

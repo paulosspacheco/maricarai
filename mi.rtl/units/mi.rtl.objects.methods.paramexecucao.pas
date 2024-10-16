@@ -157,7 +157,7 @@ uses
 
           //Private
           { A variável Acao_Form é usada para em sele_next para disparar uma
-            sequência de eventos do tipo comando depois qua a claasse é inicilizado
+            sequência de eventos do tipo comando depois qua a classe é inicilizado
 
             Sintaxe
                EvCommand,Command1,..,CommandN,evKeyboard,String,

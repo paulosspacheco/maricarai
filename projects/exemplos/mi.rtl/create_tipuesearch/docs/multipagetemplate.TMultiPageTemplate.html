@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<title>multipagetemplate: Classe TMultiPageTemplate</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="generator" content="PasDoc 0.16.0">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<link rel="stylesheet" type="text/css" href="tipuesearch/tipuesearch.css">
+
+<link rel="StyleSheet" type="text/css" href="pasdoc.css">
+</head>
+<body>
+<div class="container"><div class="navigation">
+<ul><li><a href="AllUnits.html">Units</a></li><li><a href="ClassHierarchy.html">Hierarquia de Classes</a></li><li><a href="AllClasses.html">Classes, Interfaces, Objetos e Registros</a></li><li><a href="AllTypes.html">Tipos</a></li><li><a href="AllVariables.html">Variáveis</a></li><li><a href="AllConstants.html">Constantes</a></li><li><a href="AllFunctions.html">Funções e Procedimentos</a></li><li><a href="AllIdentifiers.html">Identificadores</a></li><li><form class="search-form" action="tipue_results.html"><div class="search-input"><input type="text" name="q" id="tipue_search_input" pattern=".{3,}" title="At least 3 characters" required><div class="search-button"><input type="button" id="tipue_search_button" onclick="this.form.submit();"></div></div></form>
+<div style="clear: both"></div>
+</li></ul></div><div class="content">
+<span id="TMultiPageTemplate"></span><h1 class="cio">Classe TMultiPageTemplate</h1>
+<div class="sections">
+<div class="one_section"><a class="section" href="#PasDoc-Description">Descrição</a></div><div class="one_section"><a class="section" href="#PasDoc-Hierarchy">Hierarquia</a></div><div class="one_section"><a class="section" href="#PasDoc-Fields">Campos</a></div><div class="one_section"><a class="section" href="#PasDoc-Methods">Métodos</a></div><div class="one_section">Propriedades</div></div>
+<span id="PasDoc-Description"></span><h2 class="unit">Unit</h2>
+<p class="unitlink">
+<a href="multipagetemplate.html">multipagetemplate</a></p>
+<h2 class="declaration">Declaração</h2>
+<p class="declaration">
+<code>type TMultiPageTemplate = class(TObject)</code></p>
+<h2 class="description">Descrição</h2>
+<p>
+A multi-page template, which defines which <a class="normal" href="int65math.html#and">and</a> how web pages are processed. <br> </p>
+<p>
+
+
+<p>A multi-page template defines a list of actions, each action listing webpages to download <a class="normal" href="int65math.html#and">and</a> queries to run on those webpages. <br> You can then call an action, let it run its queries, <a class="normal" href="int65math.html#and">and</a> read the result as variables.
+
+<p>(In the past patterns, were called templates, too, but they are very different from the multi-page template of this unit. <br> A multi-page template is a list of explicit actions that are performed in order, like an algorithm or script; <br> A pattern (single-page template) is an implicit pattern that is matched against the page, like a regular expression)
+
+<p>The syntax of a multi-page template is inspired by the XSLT/XProc syntax <a class="normal" href="int65math.html#and">and</a> looks like this: </p>
+
+<pre class="preformatted">
+&lt;actions&gt;
+&lt;action id=&quot;action-1&quot;&gt;
+  &lt;variable name=&quot;foobar&quot; value=&quot;xyz&quot;/&gt;
+
+  &lt;page url=&quot;url to send the request to&quot;&gt;
+    &lt;header name=&quot;header name&quot;&gt;value...&lt;/header&gt;
+    &lt;post name=&quot;post variable name&quot;&gt; value... &lt;/post&gt;
+  &lt;/page&gt;
+  &lt;pattern&gt; ...to apply to the previous page (inline)... &lt;/pattern&gt;
+  &lt;pattern href=&quot;to apply to the previous page (from a file)&quot;/&gt;
+
+  ...
+
+&lt;/action&gt;
+&lt;action id=&quot;action-2&quot;&gt;
+
+  ...
+&lt;/action&gt;
+ ...
+&lt;/actions&gt;</pre>
+
+<p>
+
+<p>&lt;actions&gt; contains a list/map of named actions, each &lt;action&gt; can contain:
+
+<p></p>
+
+<ul class="paragraph_spacing">
+  <li><p><code>&lt;page&gt;</code> Downloads a webpage. </p></li>
+  <li><p><code>&lt;json&gt;</code> Same as &lt;page&gt; but to download JSON data. </p></li>
+  <li><p><code>&lt;pattern&gt;</code> Processes the last page with pattern matching. </p></li>
+  <li><p><code>&lt;variable&gt;</code> Sets an variable, either to a string value or to an evaluated XPath expression. </p></li>
+  <li><p><code>&lt;loop&gt;</code> Repeats the children of the loop element. </p></li>
+  <li><p><code>&lt;call&gt;</code> Calls another action. </p></li>
+  <li><p><code>&lt;if&gt;</code> <a class="normal" href="tests.html">Tests</a>, if a condition is satisfied. </p></li>
+  <li><p><code>&lt;choose&gt;&lt;when&gt;&lt;otherwise&gt;</code> Switches depending on a value. </p></li>
+  <li><p><code>&lt;s&gt;</code> Evaluates an XPath/XQuery expression. </p></li>
+  <li><p><code>&lt;try&gt;&lt;catch&gt;</code> Catch errors. </p></li>
+  <li><p><code>&lt;include&gt;</code> Includes template elements from another file. </p></li>
+</ul>
+
+<p>
+
+<p>Details for each element:
+
+<p></p>
+
+<dl class="paragraph_spacing">
+  <dt><code>&lt;page url=&quot;request url&quot;&gt;</code></dt>
+  <dd><p> Specifies a page to download <a class="normal" href="int65math.html#and">and</a> <a class="normal" href="simpleinternet.html#process">process</a>. <br> You can use <code>&lt;post <a class="normal" href="multipagetemplate.TMultiPageTemplate.html#name">name</a>=&quot;..name..&quot; value=&quot;..value..&quot;&gt;..value..&lt;/post&gt;</code> child elements under &lt;page&gt; to add variables for a post request to send to the url. <br> If the <a class="normal" href="multipagetemplate.TMultiPageTemplate.html#name">name</a> attribute exists, the content is url-encoded, otherwise not. <br> (currently, the value attribute <a class="normal" href="int65math.html#and">and</a> the contained text are treated as a string to send. In future versions, the contained text will be evaluated as XPath expression.) <br> If no &lt;post&gt; children exist, a GET request is sent.
+
+<p>The patterns that should be applied to the downloaded page, can be given directly in a &lt;pattern&gt; element, or in a separate file linked by the pattern-href attribute. (see <a class="normal" href="extendedhtmlparser.THtmlTemplateParser.html">THtmlTemplateParser</a> for a description of the pattern-matching single-page template.)
+
+<p>The attribute <code><a class="normal" href="commontestutils.html#test">test</a>=&quot;xpath&quot;</code> can be used to skip a page if the condition in the attribute evaluates to false().
+
+<p></p></dd>
+  <dt><code>&lt;pattern href=&quot;file&quot; <a class="normal" href="multipagetemplate.TMultiPageTemplate.html#name">name</a>=&quot;..&quot;&gt; inline pattern &lt;/variable&gt;</code></dt>
+  <dd><p> This applies a pattern to the last page.
+
+<p>The pattern can be given inline or loaded from a file in the href attribute.
+
+<p>The <a class="normal" href="multipagetemplate.TMultiPageTemplate.html#name">name</a> attribute is only used for debugging.
+
+<p></p></dd>
+  <dt><code>&lt;variable <a class="normal" href="multipagetemplate.TMultiPageTemplate.html#name">name</a>=&quot;<a class="normal" href="multipagetemplate.TMultiPageTemplate.html#name">name</a>&quot; value=&quot;str value&quot;&gt;xpath expression&lt;/variable&gt;</code></dt>
+  <dd><p> This sets the value of the variable with <a class="normal" href="multipagetemplate.TMultiPageTemplate.html#name">name</a> $<a class="normal" href="multipagetemplate.TMultiPageTemplate.html#name">name</a>.
+
+<p>If the value attribute is given, it is set to the string value of the attribute, otherwise, the xpath expression is evaluated <a class="normal" href="int65math.html#and">and</a> its result is used.
+
+<p>The last downloaded webpage is available as the root element in the XPath expression. </p></dd>
+  <dt><code>&lt;loop var=&quot;variable <a class="normal" href="multipagetemplate.TMultiPageTemplate.html#name">name</a>&quot; list=&quot;list (xpath)&quot; <a class="normal" href="commontestutils.html#test">test</a>=&quot;condition (xpath)&quot;&gt;</code></dt>
+  <dd><p>
+
+<p>Repeats the children of this element.<br> It can be used like a foreach loop by giving the var/list attributes, like a while loop by using <a class="normal" href="commontestutils.html#test">test</a>, or like a combination of both.<br> In the first case, the expression in list is evaluated, each element of the resulting sequence is assigned once to the variable with the <a class="normal" href="multipagetemplate.TMultiPageTemplate.html#name">name</a> $var, <a class="normal" href="int65math.html#and">and</a> the loop body is evaluated each time.<br> In the second case, the loop is simply repeated forever, until the expression in the <a class="normal" href="commontestutils.html#test">test</a> attributes evaluates to false.
+
+<p></p></dd>
+  <dt><code>&lt;call action=&quot;<a class="normal" href="multipagetemplate.TMultiPageTemplate.html#name">name</a>&quot;&gt;</code></dt>
+  <dd><p>
+
+<p>Calls the action of the given <a class="normal" href="multipagetemplate.TMultiPageTemplate.html#name">name</a>. </p></dd>
+  <dt><code>&lt;if <a class="normal" href="commontestutils.html#test">test</a>=&quot;...&quot;&gt;</code></dt>
+  <dd><p> Evaluates the children of this element, if the <a class="normal" href="commontestutils.html#test">test</a> evaluates to true(). </p></dd>
+  <dt><code>&lt;choose&gt; &lt;when <a class="normal" href="commontestutils.html#test">test</a>=&quot;...&quot;/&gt; &lt;otherwise/&gt; &lt;/choose&gt;</code></dt>
+  <dd><p>
+
+<p>Evaluates the <a class="normal" href="tests.html">tests</a> of the when-elements <a class="normal" href="int65math.html#and">and</a> the children of the first &lt;when&gt; that is true. <br> If no <a class="normal" href="commontestutils.html#test">test</a> evaluates to true(), the children of &lt;otherwise&gt; are evaluated.
+
+<p></p></dd>
+  <dt><code>&lt;s&gt;...&lt;/s&gt;</code></dt>
+  <dd><p> Evaluates an XPath/XQuery expression (which can set global variables with :=). </p></dd>
+  <dt><code>&lt;try&gt; ... &lt;catch errors=&quot;...&quot;&gt;...&lt;/catch&gt; &lt;/s&gt;</code></dt>
+  <dd><p> Iff an <a class="normal" href="slogsend.html#Error">error</a> occurs during the evaluation of the non-&lt;catch&gt; children of the &lt;try&gt;-element, the children of matching &lt;catch&gt;-element are evaluated. This behaves similar to the try-except statement in Pascal <a class="normal" href="int65math.html#and">and</a> &lt;try&gt;&lt;catch&gt; in XSLT. <br><br>
+
+<p>The errors attribute is a whitespace-separated list of <a class="normal" href="slogsend.html#Error">error</a> codes caught by that &lt;catch&gt; element. XPath/XQuery errors have the form <code> err:* </code> with the value of * given in the XQuery standard.<br> HTTP errors have the internal form <code> pxp:http123 </code> where pxp: is the default prefix. Nevertheless, they can be matched using the namespace prefix http as <code>http:123</code>. Partial wildcards are accepted like <code>http:4* </code> to match the range 400 to 499. <br> <code>pxp:pattern</code> is used for pattern matching failures. </p></dd>
+  <dt><code>&lt;include href=&quot;filename&quot;&gt;</code></dt>
+  <dd><p> Includes another XML file. It behaves as if the elements of the other file were copy-pasted here. </p></dd>
+</dl>
+
+<p>
+
+<p>Within all string attributes, you can access the previously defined variables by writing <code>{$variable}</code> .<br> Within an XPath expression, you can access the variable with <code>$variable</code>.</p>
+<span id="PasDoc-Hierarchy"></span><h2 class="hierarchy">Hierarquia</h2>
+<ul class="hierarchy"><li class="ancestor">TObject</li>
+<li class="thisitem">TMultiPageTemplate</li></ul><h2 class="overview">Visão Geral</h2>
+<span id="PasDoc-Fields"></span><h3 class="summary">Campos</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code><strong><a href="multipagetemplate.TMultiPageTemplate.html#baseActions">baseActions</a></strong>: <a href="multipagetemplate.TTemplateAction.html">TTemplateAction</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code><strong><a href="multipagetemplate.TMultiPageTemplate.html#name">name</a></strong>:string;</code></td>
+</tr>
+</table>
+<span id="PasDoc-Methods"></span><h3 class="summary">Métodos</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>procedure <strong><a href="multipagetemplate.TMultiPageTemplate.html#readTemplateFromString">readTemplateFromString</a></strong>(template: string; loadFileCallback: <a href="multipagetemplate.html#TLoadTemplateFile">TLoadTemplateFile</a>; path: string; preferredLanguage: string);</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>procedure <strong><a href="multipagetemplate.TMultiPageTemplate.html#readTree">readTree</a></strong>(context: <a href="multipagetemplate.TTemplateLoadingContext.html">TTemplateLoadingContext</a>; t: <a href="simplehtmltreeparser.TTreeNode.html">TTreeNode</a>);</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>constructor <strong><a href="multipagetemplate.TMultiPageTemplate.html#create">create</a></strong>();</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>procedure <strong><a href="multipagetemplate.TMultiPageTemplate.html#loadTemplateFromDirectory">loadTemplateFromDirectory</a></strong>(_dataPath: string; aname: string = 'unknown');</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>procedure <strong><a href="multipagetemplate.TMultiPageTemplate.html#loadTemplateFromString">loadTemplateFromString</a></strong>(template: string; aname: string = 'unknown'; path: string = '');</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>procedure <strong><a href="multipagetemplate.TMultiPageTemplate.html#loadTemplateWithCallback">loadTemplateWithCallback</a></strong>(loadSomething: <a href="multipagetemplate.html#TLoadTemplateFile">TLoadTemplateFile</a>; _dataPath: string; aname: string = 'unknown'; preferredLanguage: string = '');</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>destructor <strong><a href="multipagetemplate.TMultiPageTemplate.html#destroy">destroy</a></strong>; override;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="multipagetemplate.TMultiPageTemplate.html#findAction">findAction</a></strong>(_name:string): <a href="multipagetemplate.TTemplateAction.html">TTemplateAction</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="multipagetemplate.TMultiPageTemplate.html#findVariableValue">findVariableValue</a></strong>(aname: string): string;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="multipagetemplate.TMultiPageTemplate.html#clone">clone</a></strong>: <a href="multipagetemplate.TMultiPageTemplate.html">TMultiPageTemplate</a>;</code></td>
+</tr>
+</table>
+<h2 class="description">Descrição</h2>
+<h3 class="detail">Campos</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="baseActions"></span><code><strong>baseActions</strong>: <a href="multipagetemplate.TTemplateAction.html">TTemplateAction</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+The primary &lt;actions&gt; element (or the first &lt;action&gt; element, if only one exists)</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="name"></span><code><strong>name</strong>:string;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+A <code>name</code> for the template, for debugging</p>
+</td></tr>
+</table>
+<h3 class="detail">Métodos</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="readTemplateFromString"></span><code>procedure <strong>readTemplateFromString</strong>(template: string; loadFileCallback: <a href="multipagetemplate.html#TLoadTemplateFile">TLoadTemplateFile</a>; path: string; preferredLanguage: string);</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="readTree"></span><code>procedure <strong>readTree</strong>(context: <a href="multipagetemplate.TTemplateLoadingContext.html">TTemplateLoadingContext</a>; t: <a href="simplehtmltreeparser.TTreeNode.html">TTreeNode</a>);</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="create"></span><code>constructor <strong>create</strong>();</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="loadTemplateFromDirectory"></span><code>procedure <strong>loadTemplateFromDirectory</strong>(_dataPath: string; aname: string = 'unknown');</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+Loads a template from a directory. <br> The multipage template is read from the file <code>template</code>.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="loadTemplateFromString"></span><code>procedure <strong>loadTemplateFromString</strong>(template: string; aname: string = 'unknown'; path: string = '');</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+Loads a template directly from a string. <br> If the template loads additional files like include files, you need to give a path.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="loadTemplateWithCallback"></span><code>procedure <strong>loadTemplateWithCallback</strong>(loadSomething: <a href="multipagetemplate.html#TLoadTemplateFile">TLoadTemplateFile</a>; _dataPath: string; aname: string = 'unknown'; preferredLanguage: string = '');</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+Loads a template using a callback function. The callback function is called with different files names to load the corresponding file.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="destroy"></span><code>destructor <strong>destroy</strong>; override;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="findAction"></span><code>function <strong>findAction</strong>(_name:string): <a href="multipagetemplate.TTemplateAction.html">TTemplateAction</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+Returns the &lt;action&gt; element with the given id.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="findVariableValue"></span><code>function <strong>findVariableValue</strong>(aname: string): string;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+Find the first &lt;variable&gt; element definining a variable with the given <a class="normal" href="multipagetemplate.TMultiPageTemplate.html#name">name</a>. <br> Only returns the value of the value attribute, ignoring any contained xpath expression</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="clone"></span><code>function <strong>clone</strong>: <a href="multipagetemplate.TMultiPageTemplate.html">TMultiPageTemplate</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<hr><span class="appinfo"><em>Gerado por <a href="https://pasdoc.github.io/">PasDoc 0.16.0</a>. </em>
+</span>
+</div></div></body></html>

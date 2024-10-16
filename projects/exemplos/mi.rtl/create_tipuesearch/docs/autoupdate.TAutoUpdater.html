@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<title>autoupdate: Classe TAutoUpdater</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="generator" content="PasDoc 0.16.0">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<link rel="stylesheet" type="text/css" href="tipuesearch/tipuesearch.css">
+
+<link rel="StyleSheet" type="text/css" href="pasdoc.css">
+</head>
+<body>
+<div class="container"><div class="navigation">
+<ul><li><a href="AllUnits.html">Units</a></li><li><a href="ClassHierarchy.html">Hierarquia de Classes</a></li><li><a href="AllClasses.html">Classes, Interfaces, Objetos e Registros</a></li><li><a href="AllTypes.html">Tipos</a></li><li><a href="AllVariables.html">Variáveis</a></li><li><a href="AllConstants.html">Constantes</a></li><li><a href="AllFunctions.html">Funções e Procedimentos</a></li><li><a href="AllIdentifiers.html">Identificadores</a></li><li><form class="search-form" action="tipue_results.html"><div class="search-input"><input type="text" name="q" id="tipue_search_input" pattern=".{3,}" title="At least 3 characters" required><div class="search-button"><input type="button" id="tipue_search_button" onclick="this.form.submit();"></div></div></form>
+<div style="clear: both"></div>
+</li></ul></div><div class="content">
+<span id="TAutoUpdater"></span><h1 class="cio">Classe TAutoUpdater</h1>
+<div class="sections">
+<div class="one_section"><a class="section" href="#PasDoc-Description">Descrição</a></div><div class="one_section"><a class="section" href="#PasDoc-Hierarchy">Hierarquia</a></div><div class="one_section"><a class="section" href="#PasDoc-Fields">Campos</a></div><div class="one_section"><a class="section" href="#PasDoc-Methods">Métodos</a></div><div class="one_section"><a class="section" href="#PasDoc-Properties">Propriedades</a></div></div>
+<span id="PasDoc-Description"></span><h2 class="unit">Unit</h2>
+<p class="unitlink">
+<a href="autoupdate.html">autoupdate</a></p>
+<h2 class="declaration">Declaração</h2>
+<p class="declaration">
+<code>type TAutoUpdater = class(TObject)</code></p>
+<h2 class="description">Descrição</h2>
+<p>
+auto update class</p>
+<p>
+
+
+<p>How to use it: </p>
+
+<ul class="paragraph_spacing">
+  <li><p><a class="normal" href="autoupdate.TAutoUpdater.html#create">create</a> a new object with this options: </p>
+
+<dl class="paragraph_spacing">
+  <dt>version</dt>
+  <dd><p>Integer based incrementing version number
+
+<p>for example 1, next version, 2. You cann't use 1.6, or 1.56, <a class="normal" href="int65math.html#and">and</a> 156&gt;16</p></dd>
+  <dt>installDir</dt>
+  <dd><p>Directory to the program files which you want to update</p></dd>
+  <dt>versionURL</dt>
+  <dd><p>URL containing a file containing the most recent version number (see below for format)</p></dd>
+  <dt>changelogURL</dt>
+  <dd><p>URL containing an xml file with details to the newest version. (see below)</p></dd>
+</dl>
+
+<p></p></li>
+  <li><p>call <a class="normal" href="autoupdate.TAutoUpdater.html#existsUpdate">existsUpdate</a> to compare the current version number with the one in the web
+
+<p>YOU NEED ACCESS TO VERSIONURL (= INTERNET)</p></li>
+  <li><p>call <a class="normal" href="autoupdate.TAutoUpdater.html#hasDirectoryWriteAccess">hasDirectoryWriteAccess</a> to check, if you are allowed to change the files in the program directory.
+
+<p>If not, you can't call the install functions of step 4</p></li>
+  <li><p>call <a class="normal" href="autoupdate.TAutoUpdater.html#downloadUpdate">downloadUpdate</a>(tempDir) to download the file to tempDir.
+
+<p>tempDir can be omitted.</p></li>
+  <li><p>call <a class="normal" href="autoupdate.TAutoUpdater.html#installUpdate">installUpdate</a> to execute the downloaded installer</p></li>
+  <li><p>check <a class="normal" href="autoupdate.TAutoUpdater.html#needRestart">needRestart</a> to <a class="normal" href="commontestutils.html#test">test</a> if the program should be restarted.</p></li>
+</ul>
+
+<p>
+
+<p>Version format:
+
+<p></p>
+
+<pre class="preformatted">#
+    &lt;?xml version=&quot;1.0&quot; encoding=&quot;iso-8859-1&quot;?&gt;
+    &lt;versions&gt;
+      &lt;stable value=&quot;an integer like describe above&quot;/&gt;
+    &lt;/versions&gt;
+    #</pre>
+
+<p>
+
+<p>Changelog format:
+
+<p></p>
+
+<pre class="preformatted">#
+  &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+  &lt;?xml-stylesheet type=&quot;text/xsl&quot; href=&quot;changelog.xsl&quot;?&gt;
+  &lt;changelog program=&quot;*Your program name here*&quot;&gt;
+  &lt;build version=&quot;*version number*&quot; date=&quot;e.g. 2008-11-07&quot;&gt;
+    &lt;download url=&quot;*url to installer*&quot; platform=&quot;...&quot; execute=&quot;...&quot; restart=&quot;..&quot;/&gt;
+    &lt;download url=&quot;*url to installer*&quot; platform=&quot;...&quot; execute=&quot;...&quot; restart=&quot;..&quot;/&gt;
+    ...
+    &lt;fix level=&quot;minor&quot;&gt;minor fix&lt;/fix&gt;
+    &lt;fix level=&quot;major&quot;&gt;major fix&lt;/fix&gt;
+    &lt;fix level=&quot;critical&quot; xml:lang=&quot;...only in one language..&quot;&quot;&gt;critical fix&lt;/fix&gt;
+    ..
+    &lt;add level=&quot;minor&quot;&gt;minor fix&lt;/add&gt;
+    ..
+    &lt;change level=&quot;minor&quot;&gt;minor fix&lt;/change&gt;
+    ..
+
+    &lt;trans xml:lang=&quot;..&quot;&gt;
+      ... &lt;add/fix/change/.../&gt;
+    &lt;/trans&gt;
+  &lt;/build&gt;
+   ...
+  &lt;/changelog&gt;
+  #</pre>
+
+<p>
+
+<p>The file need a &lt;build&gt; with the same version as the version given in the version file <a class="normal" href="int65math.html#and">and</a> this build need at least one &lt;download&gt; with a given url <a class="normal" href="int65math.html#and">and</a> the same platform this unit was compiled one.
+
+<p>platform can be LINUX, WINDOWS, LINUX32, LINUX64, WIN32, WIN64, BSD, BSD32 or BSD6 4 (if there are several downloads with a matching platform it is undefined which on will be downloaded)
+
+<p>execute is the command line which should be executed after downloading the update (default '&quot;$DOWNLOAD&quot;'). $INSTALLPATH <a class="normal" href="int65math.html#and">and</a> $OLDVERSION will be replaced by the values passed to the constructor, $OLDPATH <a class="normal" href="int65math.html#and">and</a> $OLDFILE will be replaced by the value of paramstr(0), $DOWNLOAD will be replaced by the file just downloaded<br> Set execute to '' if the downloaded file is not executable<br> restart determines if the application should restart after executing the installer (default true)
+
+<p>You can have multiple build, download, fix, add, change tags in a file fix/add/change <a class="normal" href="int65math.html#and">and</a> the level-properties are only used to show details, but the xsl will highlight it correspondly
+
+<p><a class="normal" href="slogsend.html#Notice">Notice</a> that these files will not be parsed with an xml parser, but with an html parser. (=&gt;no validation <a class="normal" href="int65math.html#and">and</a> cdata tags are unknown)
+
+<p>You have to set <a class="normal" href="internetaccess.html#defaultInternetAccessClass">internetaccess.defaultInternetAccessClass</a> to either TW32InternetAccess or <a class="normal" href="synapseinternetaccess.TSynapseInternetAccess.html">TSynapseInternetAccess</a></p>
+<span id="PasDoc-Hierarchy"></span><h2 class="hierarchy">Hierarquia</h2>
+<ul class="hierarchy"><li class="ancestor">TObject</li>
+<li class="thisitem">TAutoUpdater</li></ul><h2 class="overview">Visão Geral</h2>
+<span id="PasDoc-Fields"></span><h3 class="summary">Campos</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code><strong><a href="autoupdate.TAutoUpdater.html#language">language</a></strong>: string;</code></td>
+</tr>
+</table>
+<span id="PasDoc-Methods"></span><h3 class="summary">Métodos</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>constructor <strong><a href="autoupdate.TAutoUpdater.html#create">create</a></strong>(currentVersion:<a href="autoupdate.html#TVersionNumber">TVersionNumber</a>;installDir,versionsURL,changelogURL: string);</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="autoupdate.TAutoUpdater.html#hasDirectoryWriteAccess">hasDirectoryWriteAccess</a></strong>:boolean;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="autoupdate.TAutoUpdater.html#canRunInstaller">canRunInstaller</a></strong>: boolean;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="autoupdate.TAutoUpdater.html#existsUpdate">existsUpdate</a></strong>:boolean;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="autoupdate.TAutoUpdater.html#listChanges">listChanges</a></strong>:string;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>procedure <strong><a href="autoupdate.TAutoUpdater.html#downloadUpdate">downloadUpdate</a></strong>(tempDir:string='');</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>procedure <strong><a href="autoupdate.TAutoUpdater.html#installUpdate">installUpdate</a></strong>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>procedure <strong><a href="autoupdate.TAutoUpdater.html#openFileBrowser">openFileBrowser</a></strong>;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>destructor <strong><a href="autoupdate.TAutoUpdater.html#destroy">destroy</a></strong>; override;</code></td>
+</tr>
+</table>
+<span id="PasDoc-Properties"></span><h3 class="summary">Propriedades</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="autoupdate.TAutoUpdater.html#newestVersion">newestVersion</a></strong>: <a href="autoupdate.html#TVersionNumber">TVersionNumber</a> read fnewversion;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="autoupdate.TAutoUpdater.html#needRestart">needRestart</a></strong>: boolean read _needRestart;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="autoupdate.TAutoUpdater.html#installerCmd">installerCmd</a></strong>: string read getInstallerCommand;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="autoupdate.TAutoUpdater.html#downloadedFileName">downloadedFileName</a></strong>: string read GetInstallerDownloadedFileName;</code></td>
+</tr>
+</table>
+<h2 class="description">Descrição</h2>
+<h3 class="detail">Campos</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="language"></span><code><strong>language</strong>: string;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<h3 class="detail">Métodos</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="create"></span><code>constructor <strong>create</strong>(currentVersion:<a href="autoupdate.html#TVersionNumber">TVersionNumber</a>;installDir,versionsURL,changelogURL: string);</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="hasDirectoryWriteAccess"></span><code>function <strong>hasDirectoryWriteAccess</strong>:boolean;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+check if the user can write in the application directory <a class="normal" href="int65math.html#and">and</a> is therefore able to install the update.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="canRunInstaller"></span><code>function <strong>canRunInstaller</strong>: boolean;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+check if the installer can be run (on linux it depends on write access, on windows it can always run)</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="existsUpdate"></span><code>function <strong>existsUpdate</strong>:boolean;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+checks if an update exists</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="listChanges"></span><code>function <strong>listChanges</strong>:string;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+returns a list of the performed changes</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="downloadUpdate"></span><code>procedure <strong>downloadUpdate</strong>(tempDir:string='');</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+download update to tempDir</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="installUpdate"></span><code>procedure <strong>installUpdate</strong>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+call installer</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="openFileBrowser"></span><code>procedure <strong>openFileBrowser</strong>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+opens the file browser for the directory the update was saved (in case it cannot be run as installer)</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="destroy"></span><code>destructor <strong>destroy</strong>; override;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<h3 class="detail">Propriedades</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="newestVersion"></span><code>property <strong>newestVersion</strong>: <a href="autoupdate.html#TVersionNumber">TVersionNumber</a> read fnewversion;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="needRestart"></span><code>property <strong>needRestart</strong>: boolean read _needRestart;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="installerCmd"></span><code>property <strong>installerCmd</strong>: string read getInstallerCommand;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="downloadedFileName"></span><code>property <strong>downloadedFileName</strong>: string read GetInstallerDownloadedFileName;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<hr><span class="appinfo"><em>Gerado por <a href="https://pasdoc.github.io/">PasDoc 0.16.0</a>. </em>
+</span>
+</div></div></body></html>

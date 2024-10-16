@@ -159,6 +159,8 @@ type
     published property OnMeasureItem;
     published property OnStartDrag;
     published property Anchors;
+
+    public function GetHTMLContent: String;
   end;
 
 //procedure Register;
@@ -236,6 +238,11 @@ begin
            SetProperty_Data_field;
          end;
   end;
+end;
+
+function TDbComboBox_mi_LCL.GetHTMLContent: String;
+begin
+
 end;
 
 

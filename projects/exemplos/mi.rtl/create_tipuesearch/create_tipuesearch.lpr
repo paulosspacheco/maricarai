@@ -1,5 +1,8 @@
 program create_tipuesearch;
+{:< O programa **@name** cria os arquivo  **tipuesearch_content.js** e **template_pssp_app_br.html**.
 
+   - Objetivo principal é criar o mapa html de todos arquivos da pasta corrente.
+}
 {$mode objfpc}{$H+}
 
 uses

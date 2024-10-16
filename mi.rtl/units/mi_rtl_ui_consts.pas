@@ -175,74 +175,74 @@ uses
         { Contantes usadas para setar o estado da visão
         }
         const
-          sfVisible     = Mb_Bit01;
-          sfCursorVis   = Mb_Bit02;
-          sfCursorIns   = Mb_Bit03;
-          sfShadow      = Mb_Bit04;
-          sfActive      = Mb_Bit05;
-          sfSelected    = Mb_Bit06;
-          sfFocused     = Mb_Bit07;
-          sfDragging    = Mb_Bit08;
-          sfDisabled    = Mb_Bit09;
-          sfModal       = Mb_Bit10;
-          sfDefault     = Mb_Bit11;
-          sfExposed     = Mb_Bit12;
+        //  sfVisible     = Mb_Bit01;
+        //  sfCursorVis   = Mb_Bit02;
+        //  sfCursorIns   = Mb_Bit03;
+        //  sfShadow      = Mb_Bit04;
+        //  sfActive      = Mb_Bit05;
+        //  sfSelected    = Mb_Bit06;
+        //  sfFocused     = Mb_Bit07;
+        //  sfDragging    = Mb_Bit08;
+        //  sfDisabled    = Mb_Bit09;
+        //  sfModal       = Mb_Bit10;
+        //  sfDefault     = Mb_Bit11;
+        //  sfExposed     = Mb_Bit12;
 
 
       //====================================================================================================
       {$Region '//*** MB_St = Constantes usadas para indicar o estado (State) do objeto  . ***'}
       //====================================================================================================
           Const
-
-          {Obs esta constante usam os bits 16 a 32 por que a visão usa os outros 0 a 15}
+            {:A contante **@name** indica se o controle está focado na visão}
+            Mb_St_Focused        = Mb_Bit00;
 
             {:0=nao Inicializado ou inicializado        ;
               1=Inicializado    }
-            Mb_St_Creating          = Mb_Bit16; //Igual a db.dsOpening
+            Mb_St_Creating          = Mb_Bit01; //Igual a db.dsOpening
 
             {: 0=Nao esta criando index;
                1=Esta criando o Index}
-            Mb_St_Creating_Index    = Mb_Bit17;
+            Mb_St_Creating_Index    = Mb_Bit02;
 
             {: 0=Nao esta esta indexando;
                1=Esta indexando a tabela }
-            Mb_St_Indexing           = Mb_Bit18;
+            Mb_St_Indexing           = Mb_Bit03;
 
             {: 0=Nao esta Criando o Relationship  ;
                1=Criando relacioamento}
-            Mb_St_Creating_Relating = Mb_Bit19;
+            Mb_St_Creating_Relating = Mb_Bit04;
 
             {: 0=nao esta Relationship;
                1=Relationship}
-            Mb_St_Related            = Mb_Bit20;
+            Mb_St_Related            = Mb_Bit05;
 
             {: 0=Tabela Fechada         ;
                1=Tabela aberta      }
-            Mb_St_Active             = Mb_Bit21; //se 0 então = db.dsInactive
+            Mb_St_Active             = Mb_Bit06; //se 0 então = db.dsInactive
 
             {: 0=Nao esta sendo editada ;
                1=Esta sendo editada.}
-            Mb_St_Edit               = Mb_Bit22; //se 1 então = db.dsEdit
+            Mb_St_Edit               = Mb_Bit07; //se 1 então = db.dsEdit
 
             {:0=Nao esta esta travado para edicao;
               1=Esta esta travado para edicao  }
-            Mb_St_Locked             = Mb_Bit23;
+            Mb_St_Locked             = Mb_Bit08;
 
             {: 0= A tabela nao esta incluindo registro
                1= A tabela esta incluindo registro}
-            Mb_St_AddRec             = Mb_Bit24;
+            Mb_St_AddRec             = Mb_Bit09;
 
             {: 0= A tabela nao esta atualizando
                1= A tabela esta atualizando }
-            Mb_St_UpdateRec         = Mb_Bit25;
+            Mb_St_UpdateRec         = Mb_Bit10;
 
             {: 0= A tabela nao esta excluindo registro
                1= A tabela esta excluindo registro}
-            Mb_St_DeleteRec          = Mb_Bit26;
+            Mb_St_DeleteRec          = Mb_Bit11;
 
             {: 0= A tabela nao esta listando
                1= A tabela esta sendo listada }
-            Mb_St_Report             = Mb_Bit27;
+            Mb_St_Report             = Mb_Bit12;
 
             {: Este estado desconcidera os erros nos Relationships.
                - **NOTA**
@@ -251,7 +251,7 @@ uses
 
                - 0= A tabela nao esta sendo sincronizada
                - 1= A tabela esta sendo sincronizada }
-            Mb_St_Synchronizing      = Mb_Bit28;
+            Mb_St_Synchronizing      = Mb_Bit13;
 
             {: Mb_St_non_critic_if_active_commands  = Não critica se comandos de edição da tabela estão ativos.
              - **Objetivo:**
@@ -268,15 +268,15 @@ uses
               - 0 = Critica.     Obs: So atualizar a tabela se o comando de atualização estiver habilitado.
               - 1 = Não critica. Obs: Atualizar a tabela independente do estado comando. Ou melhor desconsiderar se comando esta habilitado ou não.
             }
-            Mb_St_non_critic_if_active_commands     = Mb_Bit29;
+            Mb_St_non_critic_if_active_commands     = Mb_Bit14;
 
             {: 0=Nao esta calculando registro ;
                1=Esta calculando registro.}
-            Mb_OnCalcRecord                         = Mb_Bit30;
+            Mb_OnCalcRecord                         = Mb_Bit15;
 
             {: 0=Nao esta destruindo ;
                1=Esta destruindo.}
-            MB_Destroying                           = Mb_Bit31;
+            MB_Destroying                           = Mb_Bit16;
 
            {: 0=Nao esta criando Template;
               1=Esta criando o Template
@@ -285,7 +285,7 @@ uses
                 - Após o Template ser criado o tipo de acesso dos campos invisíveis não devem ser trocados.
                 - Motivo: Quando um campo é invisível o designe para mostrar o mesmo é ignorado e caso o mesmo torne-se visível ele ficará sem identificação do que se trata.
             }
-            Mb_St_Creating_Template                = Mb_Bit32;
+            Mb_St_Creating_Template                = Mb_Bit17;
 
 
            {: 0=Nao esta conectando o Banco de dados;
@@ -293,17 +293,17 @@ uses
               - **Motivo**:
                 - A Class TArqParametros é criado automaticamente porém quando está desconectando o mesmo não deve ser criado.
            }
-            Mb_St_DB_connecting  = Mb_Bit32;
+            Mb_St_DB_connecting  = Mb_Bit18;
 
            {: - 0 = Não está no modo insert.
               - 1 = Está nom modo insert. Este modo e ligado em DoOnNewrecord
            }
-           Mb_St_Insert = Mb_Bit33;  //se 1 então: Igual a db.dsInsert
+           Mb_St_Insert = Mb_Bit19;  //se 1 então: Igual a db.dsInsert
 
            {: - 0 = Não está no modo consulta.
               - 1 = Está nom modo consulta. Este modo e ligado em Gobof, Gonext, Goprev e Goeof
            }
-           Mb_St_Browse = Mb_Bit34; //Se 1 então: Igual db.dsBrowse
+           Mb_St_Browse = Mb_Bit20; //Se 1 então: Igual db.dsBrowse
 
            {: O mapa de bits **@name** usado para controlar o acesso aos
               controles associados ao campo TDmxFieldRec.LinkEdit.
@@ -317,7 +317,9 @@ uses
                 - O Comando DisableControls seta **@name** para 0
                 -
            }
-           Mb_St_ControlsEnabled = Mb_Bit35;
+           Mb_St_ControlsEnabled = Mb_Bit21;
+
+
 
       {$EndRegion '//*** MB_St = Constantes usadas para indicar o estado (State) do objeto  . ***'}
       //====================================================================================================

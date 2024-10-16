@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulário de Entrada Compacto</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 10px;
+            background-color: #f9f9f9;
+        }
+    
+        h1 {
+            font-size: 18px;
+            margin-bottom: 10px;
+            color: #333;
+        }
+    
+        form {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+    
+        input {
+            padding: 8px; /* Aumentei o padding para melhor espaçamento */
+            font-size: 14px;
+            width: calc(100% - 20px); /* Ajuste na largura para considerar o padding */
+            border-radius: 4px;
+            border: 1px solid #ccc;
+            transition: border 0.3s;
+            box-sizing: border-box; /* Inclui padding e border no cálculo da largura */
+        }
+    
+        input:focus {
+            border: 1px solid #007bff;
+        }
+    
+        /* Estilos para fieldsets */
+        fieldset {
+            padding: 15px; /* Aumentei o padding para evitar sobreposição */
+            margin: 0;
+            min-width: 150px;
+            flex: 1 1 200px;
+            border-radius: 8px;
+            background-color: transparent;
+        }
+    
+        /* Grupo de grupos (com a classe group-of-groups) */
+        .group-of-groups {
+            border: 2px solid #131ae9; /* Borda verde para grupos de grupos */
+        }
+    
+        /* Grupo de campos (com a classe field-group) */
+        .field-group {
+            border: 2px solid #3043bd; /* Borda azul para grupos de campos */
+            padding: 10px; /* Adicionei padding para os grupos de campos também */
+        }
+    
+        legend {
+            font-size: 14px;
+            padding: 0 10px;
+            color: #1a7fd2;
+            background-color: transparent;
+            border: none;
+        }
+    
+        /* Ajuste para responsividade */
+        @media (max-width: 768px) {
+            input {
+                font-size: 12px;
+                width: calc(100% - 16px); /* Reduz a largura para dispositivos menores */
+            }
+    
+            fieldset {
+                flex-basis: 100%; /* Faz com que o fieldset ocupe toda a largura disponível */
+            }
+    
+            /* Ajuste o título h1 em telas menores */
+            h1 {
+                font-size: 16px;
+            }
+        }
+    
+        @media (max-width: 480px) {
+            input {
+                font-size: 10px; /* Menor fonte para dispositivos muito pequenos */
+                padding: 6px; /* Menor padding para dispositivos muito pequenos */
+            }
+    
+            h1 {
+                font-size: 14px; /* Título ainda menor */
+            }
+        }
+    </style>
+    
+</head>
+<body>
+    <h1 style="font-size: 18px; margin-bottom: 10px;">
+        Formulário para teste das máscara do componente
+    </h1>
+    <form id="MaskEditForm">
+        
+        <fieldset class="group-of-groups">   
+            <legend>Campos de Data</legend>            
+             <fieldset class="field-group">
+                <legend>Mask_yy_mm_dd</legend>
+                <input type="text" data-mask="Dyy/mm/dd" data-mask-type="D" placeholder="yy/mm/dd"/>
+            </fieldset>
+
+             <fieldset class="field-group">
+                <legend>Mask_yyyy_mm_dd</legend>
+                <input type="text" data-mask="Dyyyy/mm/dd" data-mask-type="D" placeholder="yyyy/mm/dd"/>
+            </fieldset>
+
+             <fieldset class="field-group">
+                <legend>Mask_dd_mm_yy</legend>
+                <input type="text" data-mask="Ddd/mm/yy" data-mask-type="D" placeholder="dd/mm/yy"/>
+            </fieldset>
+
+             <fieldset class="field-group">
+                <legend>Mask_dd/mm/yyyy</legend>
+                <input type="text" data-mask="Ddd/mm/yyyy" data-mask-type="D" placeholder="dd/mm/yyyy"/>
+            </fieldset>
+
+             <fieldset class="field-group">
+                <legend>Mask_mm_yyyy</legend>
+                <input type="text" data-mask="Dmm/yyyy" data-mask-type="D" placeholder="mm/yyyy"/>
+            </fieldset>
+        </fieldset>
+   
+        <fieldset class="group-of-groups">   
+            <legend>Campos de Data e Hora</legend>
+
+             <fieldset class="field-group">
+                <legend>Mask_dd_mm_yyyy_hh_nn</legend>
+                <input type="text" data-mask="Ddd/mm/yyyy hh:nn" data-mask-type="D" placeholder="dd/mm/yyyy hh:nn"/>
+            </fieldset>
+
+             <fieldset class="field-group">
+                <legend>Mask_dd_mm_yy_hh_nn_ss</legend>
+                <input type="text" data-mask="Ddd/mm/yy hh:nn:ss" data-mask-type="D" placeholder="dd/mm/yy hh:nn:ss"/>
+            </fieldset>
+
+             <fieldset class="field-group">
+                <legend>Mask_dd_mm_yy_hh_nn</legend>
+                <input type="text" data-mask="Ddd/mm/yy hh:nn" data-mask-type="D" placeholder="dd/mm/yy hh:nn"/>
+            </fieldset>
+
+             <fieldset class="field-group">
+                <legend>Mask_dd_mm_yyyy_hh_nn_ss</legend>
+                <input type="text" data-mask="Ddd/mm/yyyy hh:nn:ss" data-mask-type="D" placeholder="dd/mm/yyyy hh:nn:ss"/>
+            </fieldset>
+        </fieldset>
+
+        <fieldset class="group-of-groups">   
+            <legend>Campos de Horas</legend>                    
+             <fieldset class="field-group">
+                <legend>TMask.Mask_hh_nn</legend>
+                <input type="text" data-mask="Dhh:nn" data-mask-type="D" placeholder="hh:nn"/>
+            </fieldset>        
+        
+             <fieldset class="field-group">
+                <legend>Mask_hh_nn_ss</legend>
+                <input type="text" data-mask="Dhh:nn:ss" data-mask-type="D" placeholder="hh:nn:ss"/>
+            </fieldset>        
+
+             <fieldset class="field-group">
+                <legend>Mask_hh_nn_ss_zzz</legend>
+                <input type="text" data-mask="Dhh:nn:ss.zzz" data-mask-type="D" placeholder="hh:nn:ss.zzz"/>
+            </fieldset>        
+        </fieldset>        
+
+        <fieldset class="group-of-groups">   
+            <legend>Placa de veículos</legend>                            
+
+             <fieldset class="field-group">
+                <legend>Placa padrão antigo</legend>
+                <input type="text" data-mask="SS-####" data-mask-type="#" placeholder="Placa padrão antigo"/>
+            </fieldset>
+
+             <fieldset class="field-group">
+                <legend>Placa padrão Mercosul</legend>
+                <input type="text" data-mask="SSS-#S##" data-mask-type="#" placeholder="Placa padrão Mercosul"/>
+            </fieldset>
+        </fieldset>        
+
+        
+        <fieldset class="group-of-groups">   
+            <legend>VALORES RELATIVOS</legend>                            
+
+             <fieldset class="field-group">
+                <legend>% Valor relativo (positivo)</legend>
+                <input type="text" data-mask="ppp,pp" data-mask-type="p" placeholder="% Valor relativo (positivo)"/>
+            </fieldset>
+
+             <fieldset class="field-group">
+                <legend>% Valor relativo (positivo e negativo)</legend>
+                <input type="text" data-mask="PPP,PP" data-mask-type="P" placeholder="% Valor relativo (positivo e negativo)"/>
+            </fieldset>
+        </fieldset>
+
+        <fieldset class="group-of-groups">   
+            <legend>VALORES COM PONTO FLUTUANTE</legend>                            
+    
+             <fieldset class="field-group">
+                <legend>Valor (positivo)</legend>
+                <input type="text" data-mask="R.RRR,RR" data-mask-type="R" placeholder="Valor (positivo)"/>
+            </fieldset>
+
+             <fieldset class="field-group">
+                <legend>Valor (positivo/negativo)</legend>
+                <input type="text" data-mask="r.rrr,rr" data-mask-type="r" placeholder="Valor (positivo/negativo)"/>
+            </fieldset>
+
+             <fieldset class="field-group">
+                <legend>Valor Single (-99.999,99 a +99.999,99)</legend>
+                <input type="text" id="fldReal4Input" data-mask="OO.OOO,OO" data-mask-type="O" placeholder="Valor Single (-99.999,99 a +99.999,99)" />
+            </fieldset>
+    
+             <fieldset class="field-group">
+                <legend>Valor Single Positive (0 a +99.999,99)</legend>
+                <input type="text" id="fldReal4PositivoInput" data-mask="ooo.ooo,oo" data-mask-type="o" placeholder="Valor Single Positive (0 a +99.999,99)" />
+            </fieldset>
+        </fieldset>
+
+        <fieldset class="group-of-groups">   
+            <legend>VALORES TIPO INTEIROS</legend>                            
+    
+             <fieldset class="field-group">
+                <legend>Valor Byte (0 a 254)</legend>
+                <input type="text" id="byteInput" data-mask="BBB" data-mask-type="B" placeholder="Valor Byte (0 a 254)" />
+            </fieldset>
+
+            <fieldset class="field-group">
+                <legend>Valor SmallWord (0 a +65,535)</legend>
+                <input type="text" id="SmallWordInput" data-mask="WW.WWW" data-mask-type="W" placeholder="Valor SmallWord (0 a +65,535)" />
+            </fieldset>
+
+             <fieldset class="field-group">
+                <legend>ShortInt (-126 a +127)</legend>
+                <input type="text" id="ShotIntInput" data-mask="JJJ" data-mask-type="J" placeholder="ShortInt (-126 a +127)" />
+            </fieldset>
+
+             <fieldset class="field-group">
+                <legend>Valor SmallInt (-32,768 a 32,767)</legend>
+                <input type="text" id="SmallIntInput" data-mask="II.III" data-mask-type="I" placeholder="Valor SmallInt ( -32,768 a 32,767)" />
+            </fieldset>
+
+             <fieldset class="field-group">
+                <legend>Valor Inteiro (-2.147.483.648 a 2.147.483.647)</legend>
+                <input type="text" id="LongIntInput" data-mask="L.LLL.LLL.LLL" data-mask-type="L" placeholder="Valor Inteiro (-2.147.483.648 a 2.147.483.647)" />
+            </fieldset>
+        </fieldset>
+    </form>
+
+    <script type="module">       
+        import { initializeFormMasks } from './MiMaskEdit.js';        
+       
+        const myForm = document.getElementById('MaskEditForm'); // Seleciona o formulário pelo ID
+        initializeFormMasks(myForm); // Aplica máscaras apenas nesse formulário      
+    </script>    
+
+</body>
+</html>
+
+

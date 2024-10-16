@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exemplo VanillaMasker</title>
+
+    <script type="module">
+        import {VanillaMasker} from './vanillamasker.js';
+        import {VMasker} from './vanillamasker.js';                    
+        document.addEventListener('DOMContentLoaded', () => {
+            
+
+            // Seleciona o campo de entrada
+            const moneyInput = document.getElementById('money-input');
+
+            // Cria uma instância do VanillaMasker para o campo de entrada
+            const masker = VMasker(moneyInput);
+
+            // Aplica a máscara de dinheiro ao campo de entrada
+            masker.maskMoney({
+                // Decimal precision -> "90"
+                precision: 2,
+                // Decimal separator -> ",90"
+                separator: ',',
+                // Number delimiter -> "12.345.678"
+                delimiter: '.',
+                // Money unit -> "R$ 12.345.678,90"
+                //unit: 'R$',
+                // Money unit -> "12.345.678,90 R$"
+                suffixUnit: 'R$',
+                // Force type only number instead decimal,
+                // masking decimals with ",00"
+                // Zero cents -> "R$ 1.234.567.890,00"
+                zeroCents: true
+
+            });
+
+            // Exemplo de uso da máscara numérica
+            const numberInput = document.createElement('input');
+            numberInput.placeholder = 'Digite um número';
+            document.body.appendChild(numberInput);
+
+            const numberMasker = VMasker(numberInput);
+            numberMasker.maskNumber();
+        });
+    </script>    
+
+
+</head>
+<body>
+    <label for="money-input">Valor:</label>
+    <input type="text" id="money-input" placeholder="Digite um valor"/>
+
+    
+</body>
+</html>

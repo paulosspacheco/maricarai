@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<title>multipagetemplate</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="generator" content="PasDoc 0.16.0">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<link rel="stylesheet" type="text/css" href="tipuesearch/tipuesearch.css">
+
+<link rel="StyleSheet" type="text/css" href="pasdoc.css">
+</head>
+<body>
+<div class="container"><div class="navigation">
+<ul><li><a href="AllUnits.html">Units</a></li><li><a href="ClassHierarchy.html">Hierarquia de Classes</a></li><li><a href="AllClasses.html">Classes, Interfaces, Objetos e Registros</a></li><li><a href="AllTypes.html">Tipos</a></li><li><a href="AllVariables.html">Variáveis</a></li><li><a href="AllConstants.html">Constantes</a></li><li><a href="AllFunctions.html">Funções e Procedimentos</a></li><li><a href="AllIdentifiers.html">Identificadores</a></li><li><form class="search-form" action="tipue_results.html"><div class="search-input"><input type="text" name="q" id="tipue_search_input" pattern=".{3,}" title="At least 3 characters" required><div class="search-button"><input type="button" id="tipue_search_button" onclick="this.form.submit();"></div></div></form>
+<div style="clear: both"></div>
+</li></ul></div><div class="content">
+<h1 class="unit">Unit multipagetemplate</h1>
+<div class="sections">
+<div class="one_section"><a class="section" href="#PasDoc-Description">Descrição</a></div><div class="one_section"><a class="section" href="#PasDoc-Uses">Uses</a></div><div class="one_section"><a class="section" href="#PasDoc-Classes">Classes, Interfaces, Objetos e Registros</a></div><div class="one_section">Funções e Procedimentos</div><div class="one_section"><a class="section" href="#PasDoc-Types">Tipos</a></div><div class="one_section">Constantes</div><div class="one_section">Variáveis</div></div>
+<span id="PasDoc-Description"></span><h2 class="description">Descrição</h2>
+<p>
+This unit contains classes to handle multi-page template scripts. A collection of single-page patterns that are applied to multiple webpages.</p>
+<p>
+<br><br>
+
+<p>The class <a class="normal" href="multipagetemplate.TMultiPageTemplate.html">TMultiPageTemplate</a> can be used to load a multi-page template script (<a class="normal" href="int65math.html#and">and</a> there is also the documentation of the template syntax/semantic).
+
+<p>The class <a class="normal" href="multipagetemplate.TMultipageTemplateReader.html">TMultipageTemplateReader</a> can be used to run the template.
+
+<p><a class="normal" href="multipagetemplate.TMultipageTemplateReader.html">TMultipageTemplateReader</a> does not modify the <a class="normal" href="multipagetemplate.TMultiPageTemplate.html">TMultipageTemplate</a>, so a single <a class="normal" href="multipagetemplate.TMultiPageTemplate.html">TMultipageTemplate</a> can be used by arbitrary many <a class="normal" href="multipagetemplate.TMultipageTemplateReader.html">TMultipageTemplateReader</a>, even if the readers are in different threads.</p>
+<span id="PasDoc-Uses"></span><h2 class="uses">Uses</h2>
+<ul class="useslist"><li>Classes</li><li>SysUtils</li><li>bbutils</li><li><a href="extendedhtmlparser.html">extendedhtmlparser</a></li><li><a href="simplehtmltreeparser.html">simplehtmltreeparser</a></li><li><a href="simplexmlparser.html">simplexmlparser</a></li><li>xquery</li><li><a href="internetaccess.html">internetaccess</a></li><li><a href="bbutilsbeta.html">bbutilsbeta</a></li></ul><h2 class="overview">Visão Geral</h2>
+<span id="PasDoc-Classes"></span><h3 class="cio">Classes, Interfaces, Objetos e Registros</h3>
+<table class="classestable wide_list">
+<tr class="listheader">
+<th class="itemname">Nome</th>
+<th class="itemdesc">Descrição</th>
+</tr>
+<tr class="list">
+<td class="itemname">Classe&nbsp;<a class="bold" href="multipagetemplate.TTemplateLoadingContext.html"><code>TTemplateLoadingContext</code></a></td>
+<td class="itemdesc">&nbsp;</td>
+</tr>
+<tr class="list2">
+<td class="itemname">Classe&nbsp;<a class="bold" href="multipagetemplate.TTemplateAction.html"><code>TTemplateAction</code></a></td>
+<td class="itemdesc">Internal used base class for an action within the multi-page template</td>
+</tr>
+<tr class="list">
+<td class="itemname">Classe&nbsp;<a class="bold" href="multipagetemplate.TTemplateActionMeta.html"><code>TTemplateActionMeta</code></a></td>
+<td class="itemdesc">&nbsp;</td>
+</tr>
+<tr class="list2">
+<td class="itemname">Classe&nbsp;<a class="bold" href="multipagetemplate.TMultiPageTemplate.html"><code>TMultiPageTemplate</code></a></td>
+<td class="itemdesc">A multi-page template, which defines which <a class="normal" href="int65math.html#and">and</a> how web pages are processed. <br> </td>
+</tr>
+<tr class="list">
+<td class="itemname">Classe&nbsp;<a class="bold" href="multipagetemplate.ETemplateReader.html"><code>ETemplateReader</code></a></td>
+<td class="itemdesc">&nbsp;</td>
+</tr>
+<tr class="list2">
+<td class="itemname">Classe&nbsp;<a class="bold" href="multipagetemplate.TMultipageTemplateReader.html"><code>TMultipageTemplateReader</code></a></td>
+<td class="itemdesc">Class to <a class="normal" href="simpleinternet.html#process">process</a> a multi-page <a class="normal" href="multipagetemplate.TMultipageTemplateReader.html#template">template</a></td>
+</tr>
+</table>
+<span id="PasDoc-Types"></span><h3 class="summary">Tipos</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="itemcode"><code><strong><a href="multipagetemplate.html#TLoadTemplateFile">TLoadTemplateFile</a></strong> = function(name: RawByteString): string;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><strong><a href="multipagetemplate.html#TTemplateActionClass">TTemplateActionClass</a></strong> = class of <a href="multipagetemplate.TTemplateAction.html">TTemplateAction</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><strong><a href="multipagetemplate.html#TLogEvent">TLogEvent</a></strong> = procedure (sender: <a href="multipagetemplate.TMultipageTemplateReader.html">TMultipageTemplateReader</a>; logged: string; debugLevel: integer = 0) of object;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><strong><a href="multipagetemplate.html#TPageProcessed">TPageProcessed</a></strong> = procedure (sender: <a href="multipagetemplate.TMultipageTemplateReader.html">TMultipageTemplateReader</a>; parser: <a href="extendedhtmlparser.THtmlTemplateParser.html">THtmlTemplateParser</a>) of object;</code></td>
+</tr>
+</table>
+<h2 class="description">Descrição</h2>
+<h3 class="detail">Tipos</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="TLoadTemplateFile"></span><code><strong>TLoadTemplateFile</strong> = function(name: RawByteString): string;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="TTemplateActionClass"></span><code><strong>TTemplateActionClass</strong> = class of <a href="multipagetemplate.TTemplateAction.html">TTemplateAction</a>;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="TLogEvent"></span><code><strong>TLogEvent</strong> = procedure (sender: <a href="multipagetemplate.TMultipageTemplateReader.html">TMultipageTemplateReader</a>; logged: string; debugLevel: integer = 0) of object;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+Event you can use to <a class="normal" href="bbdebugtools.html#log">log</a>, what the template is doing .<br> Arguments: logged contains the message, debugLevel the importance of this event</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="TPageProcessed"></span><code><strong>TPageProcessed</strong> = procedure (sender: <a href="multipagetemplate.TMultipageTemplateReader.html">TMultipageTemplateReader</a>; parser: <a href="extendedhtmlparser.THtmlTemplateParser.html">THtmlTemplateParser</a>) of object;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+Event that is called after every &lt;page&gt; element is processed. <br> You can use parser to read the variables changed by the template applied to the page</p>
+</td></tr>
+</table>
+<hr><span class="appinfo"><em>Gerado por <a href="https://pasdoc.github.io/">PasDoc 0.16.0</a>. </em>
+</span>
+</div></div></body></html>

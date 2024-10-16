@@ -375,7 +375,6 @@ type
       }
     protected procedure SetActive(aActive : Boolean);override;
 
-
     protected function GetBuffers: Boolean;override;
     protected function PutBuffers: Boolean;override;
 
@@ -410,6 +409,9 @@ type
 
      {$REGION ' ---> Propriedade ClientsPathName '}
        private function GetClientsPathName(aEnClientsApplication:TEnClientsApplication): AnsiString;
+
+       {: A propriedade **@name** retorna a pasta da aplicação cliente tipo TEnClientsApplication
+       }
        public Property ClientsPathName[AppType: TEnClientsApplication] : AnsiString  read GetClientsPathName;
      {$ENDREGION ' ---> Propriedade ClientsPathName '}
 
@@ -439,7 +441,7 @@ type
      public procedure RewriteFileClients(aEnClientsApplication:TEnClientsApplication);
 
      //public procedure DoBuildFormFromTemplate();Virtual;overload; abstract;
-     public procedure BuildCustomerFormFromTemplate();overload;
+     //public procedure BuildCustomerFormFromTemplate(aEnClientsApplication:TEnClientsApplication);overload;
 
   end;
 
@@ -1136,6 +1138,7 @@ begin
      Assigned(Fields)
   then begin
          Try
+
            wCurrentField := CurrentField;
            for i := 0 to Fields.Count-1 do
            begin
@@ -1208,7 +1211,6 @@ begin
          result := true;
        Finally
          SetCurrentField(wCurrentField);
-
        end;
 end;
 
@@ -1283,8 +1285,8 @@ end;
 
 function _TDmxScroller_Form.GetClientsTemplatesDataModuleFileName(aEnClientsApplication: TEnClientsApplication): AnsiString;
 begin
-  Result := ClientsPathName[aEnClientsApplication]+PathDelim+
-               'templates'+PathDelim+ClientsTemplatesDataModule+'.'+NameClientsApplicationExt[aEnClientsApplication]
+  Result := ClientsPathName[aEnClientsApplication];
+  Result := Result+'templates'+PathDelim+ClientsTemplatesDataModule+'.'+NameClientsApplicationExt[aEnClientsApplication]
  end;
 
 function _TDmxScroller_Form.GetClientsTemplatesFormFileName(aEnClientsApplication: TEnClientsApplication): AnsiString;
@@ -1307,10 +1309,14 @@ function _TDmxScroller_Form.GetClientsApplicationsFormFileName(
                         aEnClientsApplication: TEnClientsApplication): AnsiString;
 begin
   if Assigned(self.Owner)
-  Then Result := ClientsPathName[aEnClientsApplication]+PathDelim+
-                               PathDelim+self.Owner.className+'.form.'+NameClientsApplicationExt[aEnClientsApplication]
-  else Result := ClientsPathName[aEnClientsApplication]+PathDelim+
-                                PathDelim+className+'.form.'+NameClientsApplicationExt[aEnClientsApplication];
+  Then begin
+         Result := ClientsPathName[aEnClientsApplication];
+         Result := Result + self.Owner.className+'.form.'+NameClientsApplicationExt[aEnClientsApplication]
+       end
+  else begin
+         Result := ClientsPathName[aEnClientsApplication];
+         Result := Result + className+'.form.'+NameClientsApplicationExt[aEnClientsApplication];
+       end;
 end;
 
 procedure _TDmxScroller_Form.RewriteFileClients(aEnClientsApplication: TEnClientsApplication);
@@ -1352,11 +1358,12 @@ begin
        end;
 end;
 
-procedure _TDmxScroller_Form.BuildCustomerFormFromTemplate();
-begin
-  if Assigned(Mi_rtl_ui_Form) and isDataSetActive
-  Then Mi_rtl_ui_Form.BuildCustomerFormFromTemplate();
-end;
+//procedure _TDmxScroller_Form.BuildCustomerFormFromTemplate(
+//  aEnClientsApplication: TEnClientsApplication);
+//begin
+//  if Assigned(Mi_rtl_ui_Form) and isDataSetActive
+//  Then Mi_rtl_ui_Form.BuildCustomerFormFromTemplate();
+//end;
 
 
 end.

@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulário CRUD</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+        label {
+            display: block;
+            margin: 10px 0 5px;
+        }
+        input {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        /* Botão padrão com sombra */
+        button {
+            padding: 10px 15px;
+            margin: 5px;
+            border: none;
+            border-radius: 4px;
+            background-color: #6c757d; /* Cinza médio */
+            color: white;
+            cursor: pointer;
+            box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.3); /* Adiciona sombra */
+        }
+        
+        /* Botão desabilitado com contraste */
+        button:disabled {
+            background-color: #CCCCCC;
+            color: #666666;
+            cursor: not-allowed;
+            opacity: 0.6;
+            box-shadow: none; /* Remove a sombra para botões desabilitados */
+        }
+        
+        /* Efeito hover com sombra mais intensa */
+        button:hover {
+            background-color: #5a6268;
+            box-shadow: 5px 5px 7px rgba(0, 0, 0, 0.4); /* Aumenta a sombra ao passar o mouse */
+        }
+
+
+    /* Definindo a classe navigation-buttons com tons de cinza */
+    .navigation-buttons {
+        padding: 10px;
+        margin: 5px;
+        background-color: #6c757d; /* Cinza médio */
+        color: white;              /* Cor do texto branco para contraste */
+        border: none;
+        border-radius: 4px;        /* Borda arredondada */
+        cursor: pointer;           /* Alteração do cursor ao passar por cima */
+        transition: background-color 0.3s ease; /* Transição suave para hover */
+    }
+
+    /* Efeito hover para mudar o tom do botão quando o mouse passar por cima */
+    .navigation-buttons:hover {
+        background-color: #5a6268; /* Cinza escuro */
+    }
+
+    /* Adicionando um estilo especial para quando o botão estiver desabilitado */
+    .navigation-buttons:disabled {
+        background-color: #CCCCCC; /* Cinza claro */
+        color: #666666;            /* Texto em cinza escuro */
+        cursor: not-allowed;
+        opacity: 0.6;
+    }
+    </style>
+
+</head>
+<body>
+    <form id="meuFormulario">
+        <label for="id">ID:</label>
+        <input type="text" id="ID" name="ID" placeholder="ID"><br><br>
+
+        <label for="nome">Nome:</label>
+        <input type="text" id="Nome" name="Nome" placeholder="Nome"><br><br>
+
+        <label for="endereco">Endereço:</label>
+        <input type="text" id="endereco" name="endereco" placeholder="Endereço"><br><br>
+
+        <div class="navigation-buttons">
+        <!-- Botões para operações CRUD -->
+        <button type="button" id="CmNewRecord">Novo Registro</button>
+        <button type="button" id="CmAddRecord">Adicionar</button>        
+        <button type="button" id="CmPutRecord">Gravar</button>
+        <button type="button" id="CmLocate">Localizar</button>        
+        <button type="button" id="CmDeleteRecord">Deletar</button>       
+        <button type="button" id="CmRefresh">Refresh</button>
+        <button type="button" id="CmCancel">Cancelar</button>        
+        <button type="button" id="CmHealthCheck">Checar conexão</button>
+    </div>        
+        <!-- Botões de Navegação -->
+        <div class="navigation-buttons">
+            <button type="button" id="CmGoBof">Primeiro</button>
+            <button type="button" id="CmPrevRecord">Anterior</button>
+            <button type="button" id="CmNextRecord">Próximo</button>
+            <button type="button" id="CmGoEof">Último</button>
+        </div>
+    </form>
+
+    <!-- Importando os módulos necessários -->
+    <script type="module">
+        // Importa as classes dos arquivos JavaScript
+        import { MiEditForm } from './mi_edit_form.js';
+                 
+        document.addEventListener('DOMContentLoaded', () => {
+            // Inicializa a instância do MiEditForm com os eventos automaticamente
+            new MiEditForm('meuFormulario', 'ID');
+        });
+
+    </script>
+</body>
+</html>

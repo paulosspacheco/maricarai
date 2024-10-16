@@ -3,3 +3,4 @@
 ./units/mi.web.dmxscroller.form.rest.client.pas
 ./units/mi.web.fphttpclient.pas
 ./mi.web.form.pas
+./mi_webrestapi.pas

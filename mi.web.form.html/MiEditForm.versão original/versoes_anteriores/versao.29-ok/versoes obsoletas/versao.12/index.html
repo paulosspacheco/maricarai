@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulário CRUD</title>
+    <style>
+        /* Adicione seu estilo aqui */
+    </style>
+</head>
+<body>
+    <form id="meuFormulario">
+        <label for="id">ID:</label>
+        <input type="text" id="ID" name="ID" placeholder="ID"><br><br>
+
+        <label for="nome">Nome:</label>
+        <input type="text" id="Nome" name="Nome" placeholder="Nome"><br><br>
+
+        <label for="endereco">Endereço:</label>
+        <input type="text" id="endereco" name="endereco" placeholder="Endereço"><br><br>
+
+        <!-- Botões para operações CRUD -->
+        <button type="button" id="btnNew">Novo Registro</button>
+        <button type="button" id="btnAdd">Adicionar</button>
+        <button type="button" id="btnUpdate">Atualizar</button>
+        <button type="button" id="btnDelete">Deletar</button>
+        <button type="button" id="btnLocate">Localizar</button>
+    </form>
+
+    <script src="crud-handler.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Inicializa o CRUDHandler passando o ID do formulário e o campo chave 'id'
+            const crudHandler = new CRUDHandler('meuFormulario', 'id');
+
+
+            // Adiciona os ouvintes de eventos aos botões
+            document.getElementById('btnNew').addEventListener('click', () => crudHandler.newRecord());
+            document.getElementById('btnAdd').addEventListener('click', () => crudHandler.addRecord());
+            document.getElementById('btnUpdate').addEventListener('click', () => crudHandler.updateRecord());
+            document.getElementById('btnDelete').addEventListener('click', () => crudHandler.deleteRecord());
+            document.getElementById('btnLocate').addEventListener('click', () => crudHandler.locateRecord());
+        });
+    </script>
+</body>
+</html>

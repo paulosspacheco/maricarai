@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<title>blcksock</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="generator" content="PasDoc 0.16.0">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<link rel="stylesheet" type="text/css" href="tipuesearch/tipuesearch.css">
+
+<link rel="StyleSheet" type="text/css" href="pasdoc.css">
+</head>
+<body>
+<div class="container"><div class="navigation">
+<ul><li><a href="AllUnits.html">Units</a></li><li><a href="ClassHierarchy.html">Hierarquia de Classes</a></li><li><a href="AllClasses.html">Classes, Interfaces, Objetos e Registros</a></li><li><a href="AllTypes.html">Tipos</a></li><li><a href="AllVariables.html">Variáveis</a></li><li><a href="AllConstants.html">Constantes</a></li><li><a href="AllFunctions.html">Funções e Procedimentos</a></li><li><a href="AllIdentifiers.html">Identificadores</a></li><li><form class="search-form" action="tipue_results.html"><div class="search-input"><input type="text" name="q" id="tipue_search_input" pattern=".{3,}" title="At least 3 characters" required><div class="search-button"><input type="button" id="tipue_search_button" onclick="this.form.submit();"></div></div></form>
+<div style="clear: both"></div>
+</li></ul></div><div class="content">
+<h1 class="unit">Unit blcksock</h1>
+<div class="sections">
+<div class="one_section"><a class="section" href="#PasDoc-Description">Descrição</a></div><div class="one_section"><a class="section" href="#PasDoc-Uses">Uses</a></div><div class="one_section"><a class="section" href="#PasDoc-Classes">Classes, Interfaces, Objetos e Registros</a></div><div class="one_section">Funções e Procedimentos</div><div class="one_section"><a class="section" href="#PasDoc-Types">Tipos</a></div><div class="one_section"><a class="section" href="#PasDoc-Constants">Constantes</a></div><div class="one_section"><a class="section" href="#PasDoc-Variables">Variáveis</a></div></div>
+<span id="PasDoc-Description"></span><h2 class="description">Descrição</h2>
+&nbsp;<span id="PasDoc-Uses"></span><h2 class="uses">Uses</h2>
+<ul class="useslist"><li>SysUtils</li><li>Classes</li><li><a href="synafpc.html">synafpc</a></li><li>synsock</li><li><a href="synautil.html">synautil</a></li><li><a href="synacode.html">synacode</a></li><li><a href="synaip.html">synaip</a></li></ul><h2 class="overview">Visão Geral</h2>
+<span id="PasDoc-Classes"></span><h3 class="cio">Classes, Interfaces, Objetos e Registros</h3>
+<table class="classestable wide_list">
+<tr class="listheader">
+<th class="itemname">Nome</th>
+<th class="itemdesc">Descrição</th>
+</tr>
+<tr class="list">
+<td class="itemname">Classe&nbsp;<a class="bold" href="blcksock.ESynapseError.html"><code>ESynapseError</code></a></td>
+<td class="itemdesc">Exception clas used by Synapse</td>
+</tr>
+<tr class="list2">
+<td class="itemname">Classe&nbsp;<a class="bold" href="blcksock.TSynaOption.html"><code>TSynaOption</code></a></td>
+<td class="itemdesc">this object is used for remember delayed socket <a class="normal" href="blcksock.TSynaOption.html#Option">option</a> set.</td>
+</tr>
+<tr class="list">
+<td class="itemname">Classe&nbsp;<a class="bold" href="blcksock.TBlockSocket.html"><code>TBlockSocket</code></a></td>
+<td class="itemdesc">Basic IP object.</td>
+</tr>
+<tr class="list2">
+<td class="itemname">Classe&nbsp;<a class="bold" href="blcksock.TSocksBlockSocket.html"><code>TSocksBlockSocket</code></a></td>
+<td class="itemdesc">Support for SOCKS4 <a class="normal" href="int65math.html#and">and</a> SOCKS5 proxy</td>
+</tr>
+<tr class="list">
+<td class="itemname">Classe&nbsp;<a class="bold" href="blcksock.TTCPBlockSocket.html"><code>TTCPBlockSocket</code></a></td>
+<td class="itemdesc">Implementation of TCP <a class="normal" href="blcksock.TBlockSocket.html#Socket">socket</a>.</td>
+</tr>
+<tr class="list2">
+<td class="itemname">Classe&nbsp;<a class="bold" href="blcksock.TDgramBlockSocket.html"><code>TDgramBlockSocket</code></a></td>
+<td class="itemdesc">Datagram based communication</td>
+</tr>
+<tr class="list">
+<td class="itemname">Classe&nbsp;<a class="bold" href="blcksock.TUDPBlockSocket.html"><code>TUDPBlockSocket</code></a></td>
+<td class="itemdesc">Implementation of UDP <a class="normal" href="blcksock.TBlockSocket.html#Socket">socket</a>.</td>
+</tr>
+<tr class="list2">
+<td class="itemname">Classe&nbsp;<a class="bold" href="blcksock.TICMPBlockSocket.html"><code>TICMPBlockSocket</code></a></td>
+<td class="itemdesc">Implementation of RAW ICMP <a class="normal" href="blcksock.TBlockSocket.html#Socket">socket</a>.</td>
+</tr>
+<tr class="list">
+<td class="itemname">Classe&nbsp;<a class="bold" href="blcksock.TRAWBlockSocket.html"><code>TRAWBlockSocket</code></a></td>
+<td class="itemdesc">Implementation of RAW <a class="normal" href="blcksock.TBlockSocket.html#Socket">socket</a>.</td>
+</tr>
+<tr class="list2">
+<td class="itemname">Classe&nbsp;<a class="bold" href="blcksock.TPGMMessageBlockSocket.html"><code>TPGMMessageBlockSocket</code></a></td>
+<td class="itemdesc">Implementation of PGM-message <a class="normal" href="blcksock.TBlockSocket.html#Socket">socket</a>.</td>
+</tr>
+<tr class="list">
+<td class="itemname">Classe&nbsp;<a class="bold" href="blcksock.TPGMStreamBlockSocket.html"><code>TPGMStreamBlockSocket</code></a></td>
+<td class="itemdesc">Implementation of PGM-stream <a class="normal" href="blcksock.TBlockSocket.html#Socket">socket</a>.</td>
+</tr>
+<tr class="list2">
+<td class="itemname">Classe&nbsp;<a class="bold" href="blcksock.TCustomSSL.html"><code>TCustomSSL</code></a></td>
+<td class="itemdesc">Parent class for all SSL plugins.</td>
+</tr>
+<tr class="list">
+<td class="itemname">Classe&nbsp;<a class="bold" href="blcksock.TSSLNone.html"><code>TSSLNone</code></a></td>
+<td class="itemdesc">Default SSL plugin with no SSL support.</td>
+</tr>
+<tr class="list2">
+<td class="itemname">Registro&nbsp;<a class="bold" href="blcksock.TIPHeader.html"><code>TIPHeader</code></a></td>
+<td class="itemdesc">Record with definition of IP packet header.</td>
+</tr>
+<tr class="list">
+<td class="itemname">Classe&nbsp;<a class="bold" href="blcksock.TSynaClient.html"><code>TSynaClient</code></a></td>
+<td class="itemdesc">Parent class of application protocol implementations.</td>
+</tr>
+</table>
+<span id="PasDoc-Types"></span><h3 class="summary">Tipos</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="itemcode"><code><strong><a href="blcksock.html#THookSocketReason">THookSocketReason</a></strong> = (...);</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><strong><a href="blcksock.html#THookSocketStatus">THookSocketStatus</a></strong> = procedure(Sender: TObject; Reason: <a href="blcksock.html#THookSocketReason">THookSocketReason</a>; const Value: String) of object;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><strong><a href="blcksock.html#THookDataFilter">THookDataFilter</a></strong> = procedure(Sender: TObject; var Value: AnsiString) of object;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><strong><a href="blcksock.html#THookCreateSocket">THookCreateSocket</a></strong> = procedure(Sender: TObject) of object;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><strong><a href="blcksock.html#THookMonitor">THookMonitor</a></strong> = procedure(Sender: TObject; Writing: Boolean; const Buffer: TMemory; Len: Integer) of object;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><strong><a href="blcksock.html#THookAfterConnect">THookAfterConnect</a></strong> = procedure(Sender: TObject) of object;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><strong><a href="blcksock.html#THookVerifyCert">THookVerifyCert</a></strong> = function(Sender: TObject):boolean of object;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><strong><a href="blcksock.html#THookHeartbeat">THookHeartbeat</a></strong> = procedure(Sender: TObject) of object;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><strong><a href="blcksock.html#TSocketFamily">TSocketFamily</a></strong> = (...);</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><strong><a href="blcksock.html#TSocksType">TSocksType</a></strong> = (...);</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><strong><a href="blcksock.html#TSSLType">TSSLType</a></strong> = (...);</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><strong><a href="blcksock.html#TSynaOptionType">TSynaOptionType</a></strong> = (...);</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><strong><a href="blcksock.html#TSSLClass">TSSLClass</a></strong> = class of <a href="blcksock.TCustomSSL.html">TCustomSSL</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><strong><a href="blcksock.html#TOptionList">TOptionList</a></strong> = TList;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><strong><a href="blcksock.html#TSocketList">TSocketList</a></strong> = TList;</code></td>
+</tr>
+</table>
+<span id="PasDoc-Constants"></span><h3 class="summary">Constantes</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="itemcode"><code><strong><a href="blcksock.html#SynapseRelease">SynapseRelease</a></strong> = '40';</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><strong><a href="blcksock.html#cLocalhost">cLocalhost</a></strong> = '127.0.0.1';</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><strong><a href="blcksock.html#cAnyHost">cAnyHost</a></strong> = '0.0.0.0';</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><strong><a href="blcksock.html#cBroadcast">cBroadcast</a></strong> = '255.255.255.255';</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><strong><a href="blcksock.html#c6Localhost">c6Localhost</a></strong> = '::1';</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><strong><a href="blcksock.html#c6AnyHost">c6AnyHost</a></strong> = '::0';</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><strong><a href="blcksock.html#c6Broadcast">c6Broadcast</a></strong> = 'ffff::1';</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><strong><a href="blcksock.html#cAnyPort">cAnyPort</a></strong> = '0';</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><strong><a href="blcksock.html#CR">CR</a></strong> = #$0d;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><strong><a href="blcksock.html#LF">LF</a></strong> = #$0a;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><strong><a href="blcksock.html#CRLF">CRLF</a></strong> = <a href="blcksock.html#CR">CR</a> + <a href="blcksock.html#LF">LF</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><strong><a href="blcksock.html#c64k">c64k</a></strong> = 65536;</code></td>
+</tr>
+</table>
+<span id="PasDoc-Variables"></span><h3 class="summary">Variáveis</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="itemcode"><code><strong><a href="blcksock.html#SSLImplementation">SSLImplementation</a></strong>: <a href="blcksock.html#TSSLClass">TSSLClass</a> = <a href="blcksock.TSSLNone.html">TSSLNone</a>;</code></td>
+</tr>
+</table>
+<h2 class="description">Descrição</h2>
+<h3 class="detail">Tipos</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="THookSocketReason"></span><code><strong>THookSocketReason</strong> = (...);</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+Types of OnStatus events</p>
+<h6 class="description_section">Valores</h6>
+<ul>
+<li>
+<span id="HR_ResolvingBegin">HR_ResolvingBegin</span>: Resolving is begin. Resolved IP <a class="normal" href="int65math.html#and">and</a> port is in parameter in format like: 'localhost.somewhere.com:25'.</li>
+<li>
+<span id="HR_ResolvingEnd">HR_ResolvingEnd</span>: Resolving is done. Resolved IP <a class="normal" href="int65math.html#and">and</a> port is in parameter in format like: 'localhost.somewhere.com:25'. It is always same as in <a class="normal" href="blcksock.html#HR_ResolvingBegin">HR_ResolvingBegin</a>!</li>
+<li>
+<span id="HR_SocketCreate">HR_SocketCreate</span>: Socket created by CreateSocket method. It reporting Family of created socket too!</li>
+<li>
+<span id="HR_SocketClose">HR_SocketClose</span>: Socket closed by CloseSocket method.</li>
+<li>
+<span id="HR_Bind">HR_Bind</span>: Socket binded to IP <a class="normal" href="int65math.html#and">and</a> Port. Binded IP <a class="normal" href="int65math.html#and">and</a> Port is in parameter in format like: 'localhost.somewhere.com:25'.</li>
+<li>
+<span id="HR_Connect">HR_Connect</span>: Socket connected to IP <a class="normal" href="int65math.html#and">and</a> Port. Connected IP <a class="normal" href="int65math.html#and">and</a> Port is in parameter in format like: 'localhost.somewhere.com:25'.</li>
+<li>
+<span id="HR_CanRead">HR_CanRead</span>: Called when CanRead method is used with <code>True</code> result.</li>
+<li>
+<span id="HR_CanWrite">HR_CanWrite</span>: Called when CanWrite method is used with <code>True</code> result.</li>
+<li>
+<span id="HR_Listen">HR_Listen</span>: Socket is swithed to Listen mode. (TCP socket only)</li>
+<li>
+<span id="HR_Accept">HR_Accept</span>: Socket Accepting client connection. (TCP socket only)</li>
+<li>
+<span id="HR_ReadCount">HR_ReadCount</span>: report count of bytes readed from socket. Number is in parameter string. If you need is in integer, you must use StrToInt function!</li>
+<li>
+<span id="HR_WriteCount">HR_WriteCount</span>: report count of bytes writed to socket. Number is in parameter string. If you need is in integer, you must use StrToInt function!</li>
+<li>
+<span id="HR_Wait">HR_Wait</span>: If is limiting of bandwidth on, then this reason is called when sending or receiving is stopped for satisfy bandwidth limit. Parameter is count of waiting milliseconds.</li>
+<li>
+<span id="HR_Error">HR_Error</span>: report situation where communication <a class="normal" href="slogsend.html#Error">error</a> occured. When raiseexcept is <code>True</code>, then exception is called after this Hook reason.</li>
+</ul>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="THookSocketStatus"></span><code><strong>THookSocketStatus</strong> = procedure(Sender: TObject; Reason: <a href="blcksock.html#THookSocketReason">THookSocketReason</a>; const Value: String) of object;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+Procedural type for OnStatus event. Sender is calling <a class="normal" href="blcksock.TBlockSocket.html">TBlockSocket</a> object, Reason is one of set Status events <a class="normal" href="int65math.html#and">and</a> value is optional data.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="THookDataFilter"></span><code><strong>THookDataFilter</strong> = procedure(Sender: TObject; var Value: AnsiString) of object;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+This procedural type is used for DataFilter hooks.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="THookCreateSocket"></span><code><strong>THookCreateSocket</strong> = procedure(Sender: TObject) of object;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+This procedural type is used for hook OnCreateSocket. By this hook you can insert your code after initialisation of socket. (you can set special socket options, etc.)</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="THookMonitor"></span><code><strong>THookMonitor</strong> = procedure(Sender: TObject; Writing: Boolean; const Buffer: TMemory; Len: Integer) of object;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+This procedural type is used for monitoring of communication.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="THookAfterConnect"></span><code><strong>THookAfterConnect</strong> = procedure(Sender: TObject) of object;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+This procedural type is used for hook OnAfterConnect. By this hook you can insert your code after TCP socket has been sucessfully connected.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="THookVerifyCert"></span><code><strong>THookVerifyCert</strong> = function(Sender: TObject):boolean of object;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+This procedural type is used for hook OnVerifyCert. By this hook you can insert your additional certificate verification code. Usefull to verify server CN against URL.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="THookHeartbeat"></span><code><strong>THookHeartbeat</strong> = procedure(Sender: TObject) of object;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+This procedural type is used for hook OnHeartbeat. By this hook you can call your code repeately during long socket operations. You must enable heartbeats by <code>HeartbeatRate</code> property!</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="TSocketFamily"></span><code><strong>TSocketFamily</strong> = (...);</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+Specify family of socket.</p>
+<h6 class="description_section">Valores</h6>
+<ul>
+<li>
+<span id="SF_Any">SF_Any</span>: Default mode. Socket family is defined by target address for connection. It allows instant access to IPv4 <a class="normal" href="int65math.html#and">and</a> IPv6 nodes. When you need IPv6 address as destination, then is used IPv6 mode. othervise is used IPv4 mode. However this mode not working properly with preliminary IPv6 supports!</li>
+<li>
+<span id="SF_IP4">SF_IP4</span>: Turn this class to pure IPv4 mode. This mode is totally compatible with previous Synapse releases.</li>
+<li>
+<span id="SF_IP6">SF_IP6</span>: Turn to only IPv6 mode.</li>
+</ul>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="TSocksType"></span><code><strong>TSocksType</strong> = (...);</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+specify possible values of SOCKS modes.</p>
+<h6 class="description_section">Valores</h6>
+<ul>
+<li>
+<span id="ST_Socks5">ST_Socks5</span></li>
+<li>
+<span id="ST_Socks4">ST_Socks4</span></li>
+</ul>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="TSSLType"></span><code><strong>TSSLType</strong> = (...);</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+Specify requested SSL/TLS version for secure connection.</p>
+<h6 class="description_section">Valores</h6>
+<ul>
+<li>
+<span id="LT_all">LT_all</span></li>
+<li>
+<span id="LT_SSLv2">LT_SSLv2</span></li>
+<li>
+<span id="LT_SSLv3">LT_SSLv3</span></li>
+<li>
+<span id="LT_TLSv1">LT_TLSv1</span></li>
+<li>
+<span id="LT_TLSv1_1">LT_TLSv1_1</span></li>
+<li>
+<span id="LT_TLSv1_2">LT_TLSv1_2</span></li>
+<li>
+<span id="LT_TLSv1_3">LT_TLSv1_3</span></li>
+<li>
+<span id="LT_SSHv2">LT_SSHv2</span></li>
+</ul>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="TSynaOptionType"></span><code><strong>TSynaOptionType</strong> = (...);</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+Specify type of socket delayed option.</p>
+<h6 class="description_section">Valores</h6>
+<ul>
+<li>
+<span id="SOT_Linger">SOT_Linger</span></li>
+<li>
+<span id="SOT_RecvBuff">SOT_RecvBuff</span></li>
+<li>
+<span id="SOT_SendBuff">SOT_SendBuff</span></li>
+<li>
+<span id="SOT_NonBlock">SOT_NonBlock</span></li>
+<li>
+<span id="SOT_RecvTimeout">SOT_RecvTimeout</span></li>
+<li>
+<span id="SOT_SendTimeout">SOT_SendTimeout</span></li>
+<li>
+<span id="SOT_Reuse">SOT_Reuse</span></li>
+<li>
+<span id="SOT_TTL">SOT_TTL</span></li>
+<li>
+<span id="SOT_Broadcast">SOT_Broadcast</span></li>
+<li>
+<span id="SOT_MulticastTTL">SOT_MulticastTTL</span></li>
+<li>
+<span id="SOT_MulticastLoop">SOT_MulticastLoop</span></li>
+</ul>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="TSSLClass"></span><code><strong>TSSLClass</strong> = class of <a href="blcksock.TCustomSSL.html">TCustomSSL</a>;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="TOptionList"></span><code><strong>TOptionList</strong> = TList;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="TSocketList"></span><code><strong>TSocketList</strong> = TList;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<h3 class="detail">Constantes</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="SynapseRelease"></span><code><strong>SynapseRelease</strong> = '40';</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="cLocalhost"></span><code><strong>cLocalhost</strong> = '127.0.0.1';</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="cAnyHost"></span><code><strong>cAnyHost</strong> = '0.0.0.0';</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="cBroadcast"></span><code><strong>cBroadcast</strong> = '255.255.255.255';</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="c6Localhost"></span><code><strong>c6Localhost</strong> = '::1';</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="c6AnyHost"></span><code><strong>c6AnyHost</strong> = '::0';</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="c6Broadcast"></span><code><strong>c6Broadcast</strong> = 'ffff::1';</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="cAnyPort"></span><code><strong>cAnyPort</strong> = '0';</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="CR"></span><code><strong>CR</strong> = #$0d;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="LF"></span><code><strong>LF</strong> = #$0a;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="CRLF"></span><code><strong>CRLF</strong> = <a href="blcksock.html#CR">CR</a> + <a href="blcksock.html#LF">LF</a>;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="c64k"></span><code><strong>c64k</strong> = 65536;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<h3 class="detail">Variáveis</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="SSLImplementation"></span><code><strong>SSLImplementation</strong>: <a href="blcksock.html#TSSLClass">TSSLClass</a> = <a href="blcksock.TSSLNone.html">TSSLNone</a>;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+Selected SSL plugin. Default is <a class="normal" href="blcksock.TSSLNone.html">TSSLNone</a>.
+
+<p>Do not change this value directly!!!
+
+<p>Just add your plugin unit to your project uses instead. Each plugin unit have initialization code what modify this variable.</p>
+</td></tr>
+</table>
+<hr><span class="appinfo"><em>Gerado por <a href="https://pasdoc.github.io/">PasDoc 0.16.0</a>. </em>
+</span>
+</div></div></body></html>

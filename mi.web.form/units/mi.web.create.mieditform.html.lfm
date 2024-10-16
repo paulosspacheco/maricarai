@@ -1,0 +1,19 @@
+object Create_MiEditForm_html: TCreate_MiEditForm_html
+  OldCreateOrder = False
+  Height = 150
+  HorizontalOffset = 436
+  VerticalOffset = 257
+  Width = 290
+  object PageProducer_MiEditForm: TPageProducer
+    Alias = 'TPageProducer'
+    StartDelimiter = '<!--#'
+    EndDelimiter = '#-->'
+    ParamStartDelimiter = '[-'
+    ParamEndDelimiter = '-]'
+    ParamValueSeparator = '='
+    AllowTagParams = True
+    OnHTMLTag_Undefined = PageProducer_MiEditFormHTMLTag_Undefined
+    Left = 80
+    Top = 24
+  end
+end

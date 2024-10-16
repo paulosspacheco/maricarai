@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<title>snmpsend: Classe TSNMPSend</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="generator" content="PasDoc 0.16.0">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<link rel="stylesheet" type="text/css" href="tipuesearch/tipuesearch.css">
+
+<link rel="StyleSheet" type="text/css" href="pasdoc.css">
+</head>
+<body>
+<div class="container"><div class="navigation">
+<ul><li><a href="AllUnits.html">Units</a></li><li><a href="ClassHierarchy.html">Hierarquia de Classes</a></li><li><a href="AllClasses.html">Classes, Interfaces, Objetos e Registros</a></li><li><a href="AllTypes.html">Tipos</a></li><li><a href="AllVariables.html">Variáveis</a></li><li><a href="AllConstants.html">Constantes</a></li><li><a href="AllFunctions.html">Funções e Procedimentos</a></li><li><a href="AllIdentifiers.html">Identificadores</a></li><li><form class="search-form" action="tipue_results.html"><div class="search-input"><input type="text" name="q" id="tipue_search_input" pattern=".{3,}" title="At least 3 characters" required><div class="search-button"><input type="button" id="tipue_search_button" onclick="this.form.submit();"></div></div></form>
+<div style="clear: both"></div>
+</li></ul></div><div class="content">
+<span id="TSNMPSend"></span><h1 class="cio">Classe TSNMPSend</h1>
+<div class="sections">
+<div class="one_section"><a class="section" href="#PasDoc-Description">Descrição</a></div><div class="one_section"><a class="section" href="#PasDoc-Hierarchy">Hierarquia</a></div><div class="one_section"><a class="section" href="#PasDoc-Fields">Campos</a></div><div class="one_section"><a class="section" href="#PasDoc-Methods">Métodos</a></div><div class="one_section"><a class="section" href="#PasDoc-Properties">Propriedades</a></div></div>
+<span id="PasDoc-Description"></span><h2 class="unit">Unit</h2>
+<p class="unitlink">
+<a href="snmpsend.html">snmpsend</a></p>
+<h2 class="declaration">Declaração</h2>
+<p class="declaration">
+<code>type TSNMPSend = class(<a class="normal" href="blcksock.TSynaClient.html">TSynaClient</a>)</code></p>
+<h2 class="description">Descrição</h2>
+<p>
+Implementation of SNMP protocol.</p>
+<p>
+
+
+<p>Note: Are you missing properties for specify server address and port? Look to parent <a class="normal" href="blcksock.TSynaClient.html">TSynaClient</a> too!</p>
+<span id="PasDoc-Hierarchy"></span><h2 class="hierarchy">Hierarquia</h2>
+<ul class="hierarchy"><li class="ancestor">TObject</li>
+<li class="ancestor"><a class="normal" href="blcksock.TSynaClient.html">TSynaClient</a></li>
+<li class="thisitem">TSNMPSend</li></ul><h2 class="overview">Visão Geral</h2>
+<span id="PasDoc-Fields"></span><h3 class="summary">Campos</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code><strong><a href="snmpsend.TSNMPSend.html#FSock">FSock</a></strong>: <a href="blcksock.TUDPBlockSocket.html">TUDPBlockSocket</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code><strong><a href="snmpsend.TSNMPSend.html#FBuffer">FBuffer</a></strong>: AnsiString;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code><strong><a href="snmpsend.TSNMPSend.html#FHostIP">FHostIP</a></strong>: AnsiString;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code><strong><a href="snmpsend.TSNMPSend.html#FQuery">FQuery</a></strong>: <a href="snmpsend.TSNMPRec.html">TSNMPRec</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code><strong><a href="snmpsend.TSNMPSend.html#FReply">FReply</a></strong>: <a href="snmpsend.TSNMPRec.html">TSNMPRec</a>;</code></td>
+</tr>
+</table>
+<span id="PasDoc-Methods"></span><h3 class="summary">Métodos</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="snmpsend.TSNMPSend.html#InternalSendSnmp">InternalSendSnmp</a></strong>(const Value: <a href="snmpsend.TSNMPRec.html">TSNMPRec</a>): Boolean;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="snmpsend.TSNMPSend.html#InternalRecvSnmp">InternalRecvSnmp</a></strong>(const Value: <a href="snmpsend.TSNMPRec.html">TSNMPRec</a>): Boolean;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="snmpsend.TSNMPSend.html#InternalSendRequest">InternalSendRequest</a></strong>(const QValue, RValue: <a href="snmpsend.TSNMPRec.html">TSNMPRec</a>): Boolean;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="snmpsend.TSNMPSend.html#GetV3EngineID">GetV3EngineID</a></strong>: AnsiString;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="snmpsend.TSNMPSend.html#GetV3Sync">GetV3Sync</a></strong>: <a href="snmpsend.TV3Sync.html">TV3Sync</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>constructor <strong><a href="snmpsend.TSNMPSend.html#Create">Create</a></strong>;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>destructor <strong><a href="snmpsend.TSNMPSend.html#Destroy">Destroy</a></strong>; override;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="snmpsend.TSNMPSend.html#SendRequest">SendRequest</a></strong>: Boolean;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="snmpsend.TSNMPSend.html#SendTrap">SendTrap</a></strong>: Boolean;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="snmpsend.TSNMPSend.html#RecvTrap">RecvTrap</a></strong>: Boolean;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="snmpsend.TSNMPSend.html#DoIt">DoIt</a></strong>: Boolean;</code></td>
+</tr>
+</table>
+<span id="PasDoc-Properties"></span><h3 class="summary">Propriedades</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><code>property <strong><a href="snmpsend.TSNMPSend.html#Buffer">Buffer</a></strong>: AnsiString read <a href="snmpsend.TSNMPSend.html#FBuffer">FBuffer</a> write <a href="snmpsend.TSNMPSend.html#FBuffer">FBuffer</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><code>property <strong><a href="snmpsend.TSNMPSend.html#HostIP">HostIP</a></strong>: AnsiString read <a href="snmpsend.TSNMPSend.html#FHostIP">FHostIP</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><code>property <strong><a href="snmpsend.TSNMPSend.html#Query">Query</a></strong>: <a href="snmpsend.TSNMPRec.html">TSNMPRec</a> read <a href="snmpsend.TSNMPSend.html#FQuery">FQuery</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><code>property <strong><a href="snmpsend.TSNMPSend.html#Reply">Reply</a></strong>: <a href="snmpsend.TSNMPRec.html">TSNMPRec</a> read <a href="snmpsend.TSNMPSend.html#FReply">FReply</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><code>property <strong><a href="snmpsend.TSNMPSend.html#Sock">Sock</a></strong>: <a href="blcksock.TUDPBlockSocket.html">TUDPBlockSocket</a> read <a href="snmpsend.TSNMPSend.html#FSock">FSock</a>;</code></td>
+</tr>
+</table>
+<h2 class="description">Descrição</h2>
+<h3 class="detail">Campos</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="FSock"></span><code><strong>FSock</strong>: <a href="blcksock.TUDPBlockSocket.html">TUDPBlockSocket</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="FBuffer"></span><code><strong>FBuffer</strong>: AnsiString;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="FHostIP"></span><code><strong>FHostIP</strong>: AnsiString;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="FQuery"></span><code><strong>FQuery</strong>: <a href="snmpsend.TSNMPRec.html">TSNMPRec</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="FReply"></span><code><strong>FReply</strong>: <a href="snmpsend.TSNMPRec.html">TSNMPRec</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<h3 class="detail">Métodos</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="InternalSendSnmp"></span><code>function <strong>InternalSendSnmp</strong>(const Value: <a href="snmpsend.TSNMPRec.html">TSNMPRec</a>): Boolean;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="InternalRecvSnmp"></span><code>function <strong>InternalRecvSnmp</strong>(const Value: <a href="snmpsend.TSNMPRec.html">TSNMPRec</a>): Boolean;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="InternalSendRequest"></span><code>function <strong>InternalSendRequest</strong>(const QValue, RValue: <a href="snmpsend.TSNMPRec.html">TSNMPRec</a>): Boolean;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="GetV3EngineID"></span><code>function <strong>GetV3EngineID</strong>: AnsiString;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="GetV3Sync"></span><code>function <strong>GetV3Sync</strong>: <a href="snmpsend.TV3Sync.html">TV3Sync</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Create"></span><code>constructor <strong>Create</strong>;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Destroy"></span><code>destructor <strong>Destroy</strong>; override;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="SendRequest"></span><code>function <strong>SendRequest</strong>: Boolean;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+Connects to a Host and send there <a class="normal" href="snmpsend.TSNMPSend.html#Query">query</a>. If in <a class="normal" href="blcksock.TSynaClient.html#Timeout">timeout</a> SNMP server send back <a class="normal" href="snmpsend.TSNMPSend.html#Query">query</a>, result is <code>True</code>. If is used SNMPv3, then it synchronize self with SNMPv3 agent first. (It is needed for SNMPv3 auhorization!)</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="SendTrap"></span><code>function <strong>SendTrap</strong>: Boolean;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+Send SNMP packet only, but not waits for <a class="normal" href="snmpsend.TSNMPSend.html#Reply">reply</a>. Good for sending traps.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="RecvTrap"></span><code>function <strong>RecvTrap</strong>: Boolean;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+Receive SNMP packet only. Good for receiving traps.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="DoIt"></span><code>function <strong>DoIt</strong>: Boolean;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+Mapped to <a class="normal" href="snmpsend.TSNMPSend.html#SendRequest">SendRequest</a> internally. This function is only for backward compatibility.</p>
+</td></tr>
+</table>
+<h3 class="detail">Propriedades</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><span id="Buffer"></span><code>property <strong>Buffer</strong>: AnsiString read <a href="snmpsend.TSNMPSend.html#FBuffer">FBuffer</a> write <a href="snmpsend.TSNMPSend.html#FBuffer">FBuffer</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+contains raw binary form of SNMP packet. Good for debugging.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><span id="HostIP"></span><code>property <strong>HostIP</strong>: AnsiString read <a href="snmpsend.TSNMPSend.html#FHostIP">FHostIP</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+After SNMP operation hold IP address of remote side.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><span id="Query"></span><code>property <strong>Query</strong>: <a href="snmpsend.TSNMPRec.html">TSNMPRec</a> read <a href="snmpsend.TSNMPSend.html#FQuery">FQuery</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+Data object contains SNMP <code>query</code>.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><span id="Reply"></span><code>property <strong>Reply</strong>: <a href="snmpsend.TSNMPRec.html">TSNMPRec</a> read <a href="snmpsend.TSNMPSend.html#FReply">FReply</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+Data object contains SNMP <code>reply</code>.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><span id="Sock"></span><code>property <strong>Sock</strong>: <a href="blcksock.TUDPBlockSocket.html">TUDPBlockSocket</a> read <a href="snmpsend.TSNMPSend.html#FSock">FSock</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+Socket object used for TCP/IP operation. Good for seting OnStatus hook, etc.</p>
+</td></tr>
+</table>
+<hr><span class="appinfo"><em>Gerado por <a href="https://pasdoc.github.io/">PasDoc 0.16.0</a>. </em>
+</span>
+</div></div></body></html>

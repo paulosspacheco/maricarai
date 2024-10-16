@@ -11,6 +11,7 @@ uses
   {$ENDIF}
   Interfaces, // this includes the LCL widgetset
   //Forms,
+  sysutils,
   Mi.lcl.Application
   ,form.server
   ,u_datamodule1
@@ -21,13 +22,13 @@ uses
   ,mi.rtl.web.module
   ,mi.rtl.web.module.form
   ,form.main;
-
-
 {$R *.res}
+
 
 var
   OutputFile: TextFile;
 //  const chTest = ^3;
+  var  s : string;
 begin
   try
     {$IFOPT D+}
@@ -46,11 +47,9 @@ begin
     with mi_lcl_application,ParamExecucao do
      PathRaiz:= '/home/paulosspacheco/maricarai-trunk/projects/exemplos/mi.lcl/mi.web/mi.web.lcl.server/mi.web.form.lcl.server';
 
-    //Application.CreateForm(TMi_rtl_WebModule, Mi_rtl_WebModule);
     Application.CreateForm(TFormMain, FormMain);
 
-    //Application.CreateForm(TUsuarioController, UsuarioController);
-    //Application.CreateForm(TFPWebModule1, FPWebModule1);
+
     Application.Run;
 
   finally

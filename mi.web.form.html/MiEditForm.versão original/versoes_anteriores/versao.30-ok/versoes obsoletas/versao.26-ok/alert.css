@@ -1,0 +1,92 @@
+/* styles.css */
+   /* Estilos para o overlay e o diálogo */
+   .dialog-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.7); /* Fundo escuro */
+    display: none; /* Inicialmente escondido */
+    justify-content: center; /* Centraliza o conteúdo */
+    align-items: center; /* Centraliza o conteúdo */
+}
+
+.dialog-box {
+    background: #f9f9f9; /* Cor de fundo mais clara do diálogo */
+    padding: 20px;
+    border-radius: 8px; /* Bordas arredondadas */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    max-width: 300px;
+    width: 100%; /* Largura responsiva */
+}
+
+.dialog-title {
+    margin: 0; /* Remove margens padrão */
+    font-size: 18px; /* Tamanho da fonte do título */
+}
+
+.dialog-message {
+    margin: 10px 0; /* Espaçamento vertical */
+}
+
+.action-buttons {
+    background-color: #6c757d; /* Cor do botão */
+    color: white; /* Cor do texto do botão */
+    border: none; /* Sem borda */
+    border-radius: 4px; /* Bordas arredondadas */
+    cursor: pointer; /* Cursor de ponteiro */
+    padding: 6px 12px; /* Padding do botão */
+    font-size: 14px; /* Tamanho da fonte do botão */
+}
+
+.button-container {
+    display: flex; /* Exibe os botões em linha */
+    justify-content: flex-end; /* Alinha os botões à direita */
+}
+
+.dialog {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+.dialog-content {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    text-align: center;
+}
+
+.dialog.hidden {
+    display: none;
+}
+
+/* Cores diferentes para os títulos de mensagem */
+.dialog-title.warning {
+    color: orange;
+}
+
+.dialog-title.error {
+    color: red;
+}
+
+.dialog-title.info {
+    color: blue;
+}
+
+.dialog-title.confirmation {
+    color: green;
+}
+
+.dialog-title.default {
+    color: black; /* Cor padrão se o tipo não for reconhecido */
+}

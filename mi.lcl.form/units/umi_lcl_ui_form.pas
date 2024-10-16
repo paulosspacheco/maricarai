@@ -28,7 +28,7 @@ uses
  type
   { TMi_lcl_ui_Form }
 
-  TMi_lcl_ui_Form = class(TMi_lcl_ui_Form_attributes,IMi_rtl_ui_Form)
+  TMi_lcl_ui_Form = class(TMi_lcl_ui_Form_attributes)
     public procedure UpdateBuffers_Controls;override;
     {: O Método **@name** cria o formulário LCL baseado na lista de campos PDmxScroller. }
     public procedure CreateForm();override;

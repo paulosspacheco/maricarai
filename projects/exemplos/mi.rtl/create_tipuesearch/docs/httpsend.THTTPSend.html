@@ -1,0 +1,872 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<title>httpsend: Classe THTTPSend</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="generator" content="PasDoc 0.16.0">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<link rel="stylesheet" type="text/css" href="tipuesearch/tipuesearch.css">
+
+<link rel="StyleSheet" type="text/css" href="pasdoc.css">
+</head>
+<body>
+<div class="container"><div class="navigation">
+<ul><li><a href="AllUnits.html">Units</a></li><li><a href="ClassHierarchy.html">Hierarquia de Classes</a></li><li><a href="AllClasses.html">Classes, Interfaces, Objetos e Registros</a></li><li><a href="AllTypes.html">Tipos</a></li><li><a href="AllVariables.html">Variáveis</a></li><li><a href="AllConstants.html">Constantes</a></li><li><a href="AllFunctions.html">Funções e Procedimentos</a></li><li><a href="AllIdentifiers.html">Identificadores</a></li><li><form class="search-form" action="tipue_results.html"><div class="search-input"><input type="text" name="q" id="tipue_search_input" pattern=".{3,}" title="At least 3 characters" required><div class="search-button"><input type="button" id="tipue_search_button" onclick="this.form.submit();"></div></div></form>
+<div style="clear: both"></div>
+</li></ul></div><div class="content">
+<span id="THTTPSend"></span><h1 class="cio">Classe THTTPSend</h1>
+<div class="sections">
+<div class="one_section"><a class="section" href="#PasDoc-Description">Descrição</a></div><div class="one_section"><a class="section" href="#PasDoc-Hierarchy">Hierarquia</a></div><div class="one_section"><a class="section" href="#PasDoc-Fields">Campos</a></div><div class="one_section"><a class="section" href="#PasDoc-Methods">Métodos</a></div><div class="one_section"><a class="section" href="#PasDoc-Properties">Propriedades</a></div></div>
+<span id="PasDoc-Description"></span><h2 class="unit">Unit</h2>
+<p class="unitlink">
+<a href="httpsend.html">httpsend</a></p>
+<h2 class="declaration">Declaração</h2>
+<p class="declaration">
+<code>type THTTPSend = class(<a class="normal" href="blcksock.TSynaClient.html">TSynaClient</a>)</code></p>
+<h2 class="description">Descrição</h2>
+<p>
+abstract(Implementation of HTTP <a class="normal" href="httpsend.THTTPSend.html#Protocol">protocol</a>.)</p>
+<span id="PasDoc-Hierarchy"></span><h2 class="hierarchy">Hierarquia</h2>
+<ul class="hierarchy"><li class="ancestor">TObject</li>
+<li class="ancestor"><a class="normal" href="blcksock.TSynaClient.html">TSynaClient</a></li>
+<li class="thisitem">THTTPSend</li></ul><h2 class="overview">Visão Geral</h2>
+<span id="PasDoc-Fields"></span><h3 class="summary">Campos</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code><strong><a href="httpsend.THTTPSend.html#FSock">FSock</a></strong>: <a href="blcksock.TTCPBlockSocket.html">TTCPBlockSocket</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code><strong><a href="httpsend.THTTPSend.html#FTransferEncoding">FTransferEncoding</a></strong>: <a href="httpsend.html#TTransferEncoding">TTransferEncoding</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code><strong><a href="httpsend.THTTPSend.html#FAliveHost">FAliveHost</a></strong>: string;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code><strong><a href="httpsend.THTTPSend.html#FAlivePort">FAlivePort</a></strong>: string;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code><strong><a href="httpsend.THTTPSend.html#FHeaders">FHeaders</a></strong>: TStringList;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code><strong><a href="httpsend.THTTPSend.html#FDocument">FDocument</a></strong>: TMemoryStream;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code><strong><a href="httpsend.THTTPSend.html#FMimeType">FMimeType</a></strong>: string;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code><strong><a href="httpsend.THTTPSend.html#FProtocol">FProtocol</a></strong>: string;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code><strong><a href="httpsend.THTTPSend.html#FKeepAlive">FKeepAlive</a></strong>: Boolean;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code><strong><a href="httpsend.THTTPSend.html#FKeepAliveTimeout">FKeepAliveTimeout</a></strong>: integer;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code><strong><a href="httpsend.THTTPSend.html#FStatus100">FStatus100</a></strong>: Boolean;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code><strong><a href="httpsend.THTTPSend.html#FProxyHost">FProxyHost</a></strong>: string;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code><strong><a href="httpsend.THTTPSend.html#FProxyPort">FProxyPort</a></strong>: string;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code><strong><a href="httpsend.THTTPSend.html#FProxyUser">FProxyUser</a></strong>: string;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code><strong><a href="httpsend.THTTPSend.html#FProxyPass">FProxyPass</a></strong>: string;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code><strong><a href="httpsend.THTTPSend.html#FResultCode">FResultCode</a></strong>: Integer;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code><strong><a href="httpsend.THTTPSend.html#FResultString">FResultString</a></strong>: string;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code><strong><a href="httpsend.THTTPSend.html#FUserAgent">FUserAgent</a></strong>: string;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code><strong><a href="httpsend.THTTPSend.html#FCookies">FCookies</a></strong>: TStringList;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code><strong><a href="httpsend.THTTPSend.html#FDownloadSize">FDownloadSize</a></strong>: int64;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code><strong><a href="httpsend.THTTPSend.html#FUploadSize">FUploadSize</a></strong>: int64;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code><strong><a href="httpsend.THTTPSend.html#FRangeStart">FRangeStart</a></strong>: int64;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code><strong><a href="httpsend.THTTPSend.html#FRangeEnd">FRangeEnd</a></strong>: int64;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code><strong><a href="httpsend.THTTPSend.html#FAddPortNumberToHost">FAddPortNumberToHost</a></strong>: Boolean;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code><strong><a href="httpsend.THTTPSend.html#FInputStream">FInputStream</a></strong>: TStream;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code><strong><a href="httpsend.THTTPSend.html#FOutputStream">FOutputStream</a></strong>: TStream;</code></td>
+</tr>
+</table>
+<span id="PasDoc-Methods"></span><h3 class="summary">Métodos</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="httpsend.THTTPSend.html#ReadUnknown">ReadUnknown</a></strong>: Boolean; virtual;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="httpsend.THTTPSend.html#ReadIdentity">ReadIdentity</a></strong>(Size: int64): Boolean; virtual;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="httpsend.THTTPSend.html#ReadChunked">ReadChunked</a></strong>: Boolean; virtual;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>procedure <strong><a href="httpsend.THTTPSend.html#ParseCookies">ParseCookies</a></strong>;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="httpsend.THTTPSend.html#PrepareHeaders">PrepareHeaders</a></strong>: AnsiString;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="httpsend.THTTPSend.html#InternalDoConnect">InternalDoConnect</a></strong>(needssl: Boolean): Boolean;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="httpsend.THTTPSend.html#InternalConnect">InternalConnect</a></strong>(needssl: Boolean): Boolean;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="httpsend.THTTPSend.html#InputDocument">InputDocument</a></strong>: TStream;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="httpsend.THTTPSend.html#OutputDocument">OutputDocument</a></strong>: TStream;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>constructor <strong><a href="httpsend.THTTPSend.html#Create">Create</a></strong>;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>destructor <strong><a href="httpsend.THTTPSend.html#Destroy">Destroy</a></strong>; override;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>procedure <strong><a href="httpsend.THTTPSend.html#Clear">Clear</a></strong>;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>procedure <strong><a href="httpsend.THTTPSend.html#DecodeStatus">DecodeStatus</a></strong>(const Value: string);</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="httpsend.THTTPSend.html#HTTPMethod">HTTPMethod</a></strong>(const Method, URL: string): Boolean;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>procedure <strong><a href="httpsend.THTTPSend.html#Abort">Abort</a></strong>;</code></td>
+</tr>
+</table>
+<span id="PasDoc-Properties"></span><h3 class="summary">Propriedades</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><code>property <strong><a href="httpsend.THTTPSend.html#Headers">Headers</a></strong>: TStringList read <a href="httpsend.THTTPSend.html#FHeaders">FHeaders</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><code>property <strong><a href="httpsend.THTTPSend.html#Cookies">Cookies</a></strong>: TStringList read <a href="httpsend.THTTPSend.html#FCookies">FCookies</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><code>property <strong><a href="httpsend.THTTPSend.html#Document">Document</a></strong>: TMemoryStream read <a href="httpsend.THTTPSend.html#FDocument">FDocument</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><code>property <strong><a href="httpsend.THTTPSend.html#RangeStart">RangeStart</a></strong>: int64 read <a href="httpsend.THTTPSend.html#FRangeStart">FRangeStart</a> Write <a href="httpsend.THTTPSend.html#FRangeStart">FRangeStart</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><code>property <strong><a href="httpsend.THTTPSend.html#RangeEnd">RangeEnd</a></strong>: int64 read <a href="httpsend.THTTPSend.html#FRangeEnd">FRangeEnd</a> Write <a href="httpsend.THTTPSend.html#FRangeEnd">FRangeEnd</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><code>property <strong><a href="httpsend.THTTPSend.html#MimeType">MimeType</a></strong>: string read <a href="httpsend.THTTPSend.html#FMimeType">FMimeType</a> Write <a href="httpsend.THTTPSend.html#FMimeType">FMimeType</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><code>property <strong><a href="httpsend.THTTPSend.html#Protocol">Protocol</a></strong>: string read <a href="httpsend.THTTPSend.html#FProtocol">FProtocol</a> Write <a href="httpsend.THTTPSend.html#FProtocol">FProtocol</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><code>property <strong><a href="httpsend.THTTPSend.html#KeepAlive">KeepAlive</a></strong>: Boolean read <a href="httpsend.THTTPSend.html#FKeepAlive">FKeepAlive</a> Write <a href="httpsend.THTTPSend.html#FKeepAlive">FKeepAlive</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><code>property <strong><a href="httpsend.THTTPSend.html#KeepAliveTimeout">KeepAliveTimeout</a></strong>: integer read <a href="httpsend.THTTPSend.html#FKeepAliveTimeout">FKeepAliveTimeout</a> Write <a href="httpsend.THTTPSend.html#FKeepAliveTimeout">FKeepAliveTimeout</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><code>property <strong><a href="httpsend.THTTPSend.html#Status100">Status100</a></strong>: Boolean read <a href="httpsend.THTTPSend.html#FStatus100">FStatus100</a> Write <a href="httpsend.THTTPSend.html#FStatus100">FStatus100</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><code>property <strong><a href="httpsend.THTTPSend.html#ProxyHost">ProxyHost</a></strong>: string read <a href="httpsend.THTTPSend.html#FProxyHost">FProxyHost</a> Write <a href="httpsend.THTTPSend.html#FProxyHost">FProxyHost</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><code>property <strong><a href="httpsend.THTTPSend.html#ProxyPort">ProxyPort</a></strong>: string read <a href="httpsend.THTTPSend.html#FProxyPort">FProxyPort</a> Write <a href="httpsend.THTTPSend.html#FProxyPort">FProxyPort</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><code>property <strong><a href="httpsend.THTTPSend.html#ProxyUser">ProxyUser</a></strong>: string read <a href="httpsend.THTTPSend.html#FProxyUser">FProxyUser</a> Write <a href="httpsend.THTTPSend.html#FProxyUser">FProxyUser</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><code>property <strong><a href="httpsend.THTTPSend.html#ProxyPass">ProxyPass</a></strong>: string read <a href="httpsend.THTTPSend.html#FProxyPass">FProxyPass</a> Write <a href="httpsend.THTTPSend.html#FProxyPass">FProxyPass</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><code>property <strong><a href="httpsend.THTTPSend.html#UserAgent">UserAgent</a></strong>: string read <a href="httpsend.THTTPSend.html#FUserAgent">FUserAgent</a> Write <a href="httpsend.THTTPSend.html#FUserAgent">FUserAgent</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><code>property <strong><a href="httpsend.THTTPSend.html#ResultCode">ResultCode</a></strong>: Integer read <a href="httpsend.THTTPSend.html#FResultCode">FResultCode</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><code>property <strong><a href="httpsend.THTTPSend.html#ResultString">ResultString</a></strong>: string read <a href="httpsend.THTTPSend.html#FResultString">FResultString</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><code>property <strong><a href="httpsend.THTTPSend.html#DownloadSize">DownloadSize</a></strong>: int64 read <a href="httpsend.THTTPSend.html#FDownloadSize">FDownloadSize</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><code>property <strong><a href="httpsend.THTTPSend.html#UploadSize">UploadSize</a></strong>: int64 read <a href="httpsend.THTTPSend.html#FUploadSize">FUploadSize</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><code>property <strong><a href="httpsend.THTTPSend.html#Sock">Sock</a></strong>: <a href="blcksock.TTCPBlockSocket.html">TTCPBlockSocket</a> read <a href="httpsend.THTTPSend.html#FSock">FSock</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><code>property <strong><a href="httpsend.THTTPSend.html#AddPortNumberToHost">AddPortNumberToHost</a></strong>: Boolean read <a href="httpsend.THTTPSend.html#FAddPortNumberToHost">FAddPortNumberToHost</a> write <a href="httpsend.THTTPSend.html#FAddPortNumberToHost">FAddPortNumberToHost</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="httpsend.THTTPSend.html#InputStream">InputStream</a></strong>: TStream read <a href="httpsend.THTTPSend.html#FInputStream">FInputStream</a> write <a href="httpsend.THTTPSend.html#FInputStream">FInputStream</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="httpsend.THTTPSend.html#OutputStream">OutputStream</a></strong>: TStream read <a href="httpsend.THTTPSend.html#FOutputStream">FOutputStream</a> write <a href="httpsend.THTTPSend.html#FOutputStream">FOutputStream</a>;</code></td>
+</tr>
+</table>
+<h2 class="description">Descrição</h2>
+<h3 class="detail">Campos</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="FSock"></span><code><strong>FSock</strong>: <a href="blcksock.TTCPBlockSocket.html">TTCPBlockSocket</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="FTransferEncoding"></span><code><strong>FTransferEncoding</strong>: <a href="httpsend.html#TTransferEncoding">TTransferEncoding</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="FAliveHost"></span><code><strong>FAliveHost</strong>: string;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="FAlivePort"></span><code><strong>FAlivePort</strong>: string;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="FHeaders"></span><code><strong>FHeaders</strong>: TStringList;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="FDocument"></span><code><strong>FDocument</strong>: TMemoryStream;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="FMimeType"></span><code><strong>FMimeType</strong>: string;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="FProtocol"></span><code><strong>FProtocol</strong>: string;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="FKeepAlive"></span><code><strong>FKeepAlive</strong>: Boolean;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="FKeepAliveTimeout"></span><code><strong>FKeepAliveTimeout</strong>: integer;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="FStatus100"></span><code><strong>FStatus100</strong>: Boolean;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="FProxyHost"></span><code><strong>FProxyHost</strong>: string;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="FProxyPort"></span><code><strong>FProxyPort</strong>: string;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="FProxyUser"></span><code><strong>FProxyUser</strong>: string;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="FProxyPass"></span><code><strong>FProxyPass</strong>: string;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="FResultCode"></span><code><strong>FResultCode</strong>: Integer;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="FResultString"></span><code><strong>FResultString</strong>: string;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="FUserAgent"></span><code><strong>FUserAgent</strong>: string;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="FCookies"></span><code><strong>FCookies</strong>: TStringList;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="FDownloadSize"></span><code><strong>FDownloadSize</strong>: int64;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="FUploadSize"></span><code><strong>FUploadSize</strong>: int64;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="FRangeStart"></span><code><strong>FRangeStart</strong>: int64;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="FRangeEnd"></span><code><strong>FRangeEnd</strong>: int64;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="FAddPortNumberToHost"></span><code><strong>FAddPortNumberToHost</strong>: Boolean;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="FInputStream"></span><code><strong>FInputStream</strong>: TStream;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="FOutputStream"></span><code><strong>FOutputStream</strong>: TStream;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<h3 class="detail">Métodos</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="ReadUnknown"></span><code>function <strong>ReadUnknown</strong>: Boolean; virtual;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="ReadIdentity"></span><code>function <strong>ReadIdentity</strong>(Size: int64): Boolean; virtual;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="ReadChunked"></span><code>function <strong>ReadChunked</strong>: Boolean; virtual;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="ParseCookies"></span><code>procedure <strong>ParseCookies</strong>;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="PrepareHeaders"></span><code>function <strong>PrepareHeaders</strong>: AnsiString;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="InternalDoConnect"></span><code>function <strong>InternalDoConnect</strong>(needssl: Boolean): Boolean;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="InternalConnect"></span><code>function <strong>InternalConnect</strong>(needssl: Boolean): Boolean;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="InputDocument"></span><code>function <strong>InputDocument</strong>: TStream;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="OutputDocument"></span><code>function <strong>OutputDocument</strong>: TStream;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Create"></span><code>constructor <strong>Create</strong>;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Destroy"></span><code>destructor <strong>Destroy</strong>; override;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Clear"></span><code>procedure <strong>Clear</strong>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+Reset <a class="normal" href="httpsend.THTTPSend.html#Headers">headers</a>, <a class="normal" href="httpsend.THTTPSend.html#Document">document</a> <a class="normal" href="int65math.html#and">and</a> <a class="normal" href="httpsend.THTTPSend.html#MimeType">Mimetype</a>.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="DecodeStatus"></span><code>procedure <strong>DecodeStatus</strong>(const Value: string);</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+Decode <a class="normal" href="httpsend.THTTPSend.html#ResultCode">ResultCode</a> <a class="normal" href="int65math.html#and">and</a> <a class="normal" href="httpsend.THTTPSend.html#ResultString">ResultString</a> from Value.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="HTTPMethod"></span><code>function <strong>HTTPMethod</strong>(const Method, URL: string): Boolean;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+Connects to host defined in URL <a class="normal" href="int65math.html#and">and</a> accesses resource defined in URL by method. If <a class="normal" href="httpsend.THTTPSend.html#Document">Document</a> is not empty, send it to the server as part of the HTTP request. Server response is in <a class="normal" href="httpsend.THTTPSend.html#Document">Document</a> <a class="normal" href="int65math.html#and">and</a> <a class="normal" href="httpsend.THTTPSend.html#Headers">headers</a>. Connection may be authorised by <a class="normal" href="blcksock.TSynaClient.html#UserName">username</a> <a class="normal" href="int65math.html#and">and</a> <a class="normal" href="blcksock.TSynaClient.html#Password">password</a> in URL. If you define proxy properties, connection is made by this proxy. If all OK, result is <code>True</code>, else result is <code>False</code>.
+
+<p>If you use 'https:' instead of 'http:' in the URL, your request is made by SSL/TLS connection (if you do not specify port, then port 443 is used instead of standard port 80). If you use SSL/TLS request <a class="normal" href="int65math.html#and">and</a> you have defined HTTP proxy, then HTTP-tunnel mode is automatically used .</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Abort"></span><code>procedure <strong>Abort</strong>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+You can call this method from OnStatus event to break current data transfer. (or from another thread.)</p>
+</td></tr>
+</table>
+<h3 class="detail">Propriedades</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><span id="Headers"></span><code>property <strong>Headers</strong>: TStringList read <a href="httpsend.THTTPSend.html#FHeaders">FHeaders</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+Before HTTP operation you may define any non-standard <code>headers</code> for HTTP request, except: 'Expect: 100-continue', 'Content-Length', 'Content-Type', 'Connection', 'Authorization', 'Proxy-Authorization' <a class="normal" href="int65math.html#and">and</a> 'Host' <code>headers</code>. After HTTP operation, it contains full <code>headers</code> of the returned <a class="normal" href="httpsend.THTTPSend.html#Document">document</a>.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><span id="Cookies"></span><code>property <strong>Cookies</strong>: TStringList read <a href="httpsend.THTTPSend.html#FCookies">FCookies</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+Stringlist with name-value stringlist pairs. Each pair is one cookie. After the HTTP request is returned, <code>cookies</code> are parsed to this stringlist. You can leave these <code>cookies</code> untouched for next HTTP requests. You can also save this stringlist for later use.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><span id="Document"></span><code>property <strong>Document</strong>: TMemoryStream read <a href="httpsend.THTTPSend.html#FDocument">FDocument</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+Stream with <code>document</code> to send (before request), or with <code>document</code> received from HTTP server (after request).</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><span id="RangeStart"></span><code>property <strong>RangeStart</strong>: int64 read <a href="httpsend.THTTPSend.html#FRangeStart">FRangeStart</a> Write <a href="httpsend.THTTPSend.html#FRangeStart">FRangeStart</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+If you need to download only part of a requested <a class="normal" href="httpsend.THTTPSend.html#Document">document</a>, specify here the position of subpart begin. If 0, the full <a class="normal" href="httpsend.THTTPSend.html#Document">document</a> is requested.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><span id="RangeEnd"></span><code>property <strong>RangeEnd</strong>: int64 read <a href="httpsend.THTTPSend.html#FRangeEnd">FRangeEnd</a> Write <a href="httpsend.THTTPSend.html#FRangeEnd">FRangeEnd</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+If you need to download only part of a requested <a class="normal" href="httpsend.THTTPSend.html#Document">document</a>, specify here the position of subpart end. If 0, the <a class="normal" href="httpsend.THTTPSend.html#Document">document</a> from <a class="normal" href="httpsend.THTTPSend.html#RangeStart">rangeStart</a> to end of <a class="normal" href="httpsend.THTTPSend.html#Document">document</a> is requested. (Useful for resuming broken downloads, for example.)</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><span id="MimeType"></span><code>property <strong>MimeType</strong>: string read <a href="httpsend.THTTPSend.html#FMimeType">FMimeType</a> Write <a href="httpsend.THTTPSend.html#FMimeType">FMimeType</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+Mime type of sending data. Default is: 'text/html'.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><span id="Protocol"></span><code>property <strong>Protocol</strong>: string read <a href="httpsend.THTTPSend.html#FProtocol">FProtocol</a> Write <a href="httpsend.THTTPSend.html#FProtocol">FProtocol</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+Define <code>protocol</code> version. Possible values are: '1.1', '1.0' (default) <a class="normal" href="int65math.html#and">and</a> '0.9'.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><span id="KeepAlive"></span><code>property <strong>KeepAlive</strong>: Boolean read <a href="httpsend.THTTPSend.html#FKeepAlive">FKeepAlive</a> Write <a href="httpsend.THTTPSend.html#FKeepAlive">FKeepAlive</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+If <code>True</code> (default value), keepalives in HTTP <a class="normal" href="httpsend.THTTPSend.html#Protocol">protocol</a> 1.1 is enabled.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><span id="KeepAliveTimeout"></span><code>property <strong>KeepAliveTimeout</strong>: integer read <a href="httpsend.THTTPSend.html#FKeepAliveTimeout">FKeepAliveTimeout</a> Write <a href="httpsend.THTTPSend.html#FKeepAliveTimeout">FKeepAliveTimeout</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+Define <a class="normal" href="blcksock.TSynaClient.html#Timeout">timeout</a> for keepalives in seconds!</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><span id="Status100"></span><code>property <strong>Status100</strong>: Boolean read <a href="httpsend.THTTPSend.html#FStatus100">FStatus100</a> Write <a href="httpsend.THTTPSend.html#FStatus100">FStatus100</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+if <code>True</code>, then the server is requested for 100status capability when uploading data. Default is <code>False</code> (off).</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><span id="ProxyHost"></span><code>property <strong>ProxyHost</strong>: string read <a href="httpsend.THTTPSend.html#FProxyHost">FProxyHost</a> Write <a href="httpsend.THTTPSend.html#FProxyHost">FProxyHost</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+Address of proxy server (IP address or domain name) where you want to connect in <a class="normal" href="httpsend.THTTPSend.html#HTTPMethod">HTTPMethod</a> method.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><span id="ProxyPort"></span><code>property <strong>ProxyPort</strong>: string read <a href="httpsend.THTTPSend.html#FProxyPort">FProxyPort</a> Write <a href="httpsend.THTTPSend.html#FProxyPort">FProxyPort</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+Port number for proxy connection. Default value is 8080.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><span id="ProxyUser"></span><code>property <strong>ProxyUser</strong>: string read <a href="httpsend.THTTPSend.html#FProxyUser">FProxyUser</a> Write <a href="httpsend.THTTPSend.html#FProxyUser">FProxyUser</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+<a class="normal" href="blcksock.TSynaClient.html#UserName">Username</a> for connection to proxy server used in <a class="normal" href="httpsend.THTTPSend.html#HTTPMethod">HTTPMethod</a> method.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><span id="ProxyPass"></span><code>property <strong>ProxyPass</strong>: string read <a href="httpsend.THTTPSend.html#FProxyPass">FProxyPass</a> Write <a href="httpsend.THTTPSend.html#FProxyPass">FProxyPass</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+<a class="normal" href="blcksock.TSynaClient.html#Password">Password</a> for connection to proxy server used in <a class="normal" href="httpsend.THTTPSend.html#HTTPMethod">HTTPMethod</a> method.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><span id="UserAgent"></span><code>property <strong>UserAgent</strong>: string read <a href="httpsend.THTTPSend.html#FUserAgent">FUserAgent</a> Write <a href="httpsend.THTTPSend.html#FUserAgent">FUserAgent</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+Here you can specify custom User-Agent identification. Default: 'Mozilla/4.0 (compatible; Synapse)'</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><span id="ResultCode"></span><code>property <strong>ResultCode</strong>: Integer read <a href="httpsend.THTTPSend.html#FResultCode">FResultCode</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+Operation result code after successful <a class="normal" href="httpsend.THTTPSend.html#HTTPMethod">HTTPMethod</a> method.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><span id="ResultString"></span><code>property <strong>ResultString</strong>: string read <a href="httpsend.THTTPSend.html#FResultString">FResultString</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+Operation result string after successful <a class="normal" href="httpsend.THTTPSend.html#HTTPMethod">HTTPMethod</a> method.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><span id="DownloadSize"></span><code>property <strong>DownloadSize</strong>: int64 read <a href="httpsend.THTTPSend.html#FDownloadSize">FDownloadSize</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+if this value is not 0, then data download is pending. In this case you have here the total size of downloaded data. Useful for drawing download progressbar from OnStatus event.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><span id="UploadSize"></span><code>property <strong>UploadSize</strong>: int64 read <a href="httpsend.THTTPSend.html#FUploadSize">FUploadSize</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+if this value is not 0, then data upload is pending. In this case you have here the total size of uploaded data. Useful for drawing upload progressbar from OnStatus event.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><span id="Sock"></span><code>property <strong>Sock</strong>: <a href="blcksock.TTCPBlockSocket.html">TTCPBlockSocket</a> read <a href="httpsend.THTTPSend.html#FSock">FSock</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+Socket object used for TCP/IP operation. Good for setting OnStatus hook, etc.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><span id="AddPortNumberToHost"></span><code>property <strong>AddPortNumberToHost</strong>: Boolean read <a href="httpsend.THTTPSend.html#FAddPortNumberToHost">FAddPortNumberToHost</a> write <a href="httpsend.THTTPSend.html#FAddPortNumberToHost">FAddPortNumberToHost</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+Allows to switch off port number in 'Host:' HTTP header. By default <code>True</code>. Some buggy servers do not like port informations in this header.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="InputStream"></span><code>property <strong>InputStream</strong>: TStream read <a href="httpsend.THTTPSend.html#FInputStream">FInputStream</a> write <a href="httpsend.THTTPSend.html#FInputStream">FInputStream</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+for direct sending from any TStream. Defalut nil = use <a class="normal" href="httpsend.THTTPSend.html#Document">Document</a> property instead.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="OutputStream"></span><code>property <strong>OutputStream</strong>: TStream read <a href="httpsend.THTTPSend.html#FOutputStream">FOutputStream</a> write <a href="httpsend.THTTPSend.html#FOutputStream">FOutputStream</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+for direct dovnloading into any TStream. Defalut nil = use <a class="normal" href="httpsend.THTTPSend.html#Document">Document</a> property instead.</p>
+</td></tr>
+</table>
+<hr><span class="appinfo"><em>Gerado por <a href="https://pasdoc.github.io/">PasDoc 0.16.0</a>. </em>
+</span>
+</div></div></body></html>

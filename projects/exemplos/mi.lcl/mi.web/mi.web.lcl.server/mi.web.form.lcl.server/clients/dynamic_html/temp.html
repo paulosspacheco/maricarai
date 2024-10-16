@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulário</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        td {
+            padding: 8px;
+            vertical-align: top;
+        }
+        .wide-input {
+            width: 80%;
+        }
+        .medium-input {
+            width: 50%;
+        }
+        .small-input {
+            width: 20%;
+        }
+    </style>
+</head>
+<body>
+    <form>
+        <table>
+            <tr>
+                <td>Nome do aluno:</td>
+                <td><input type="text" class="wide-input" name="nomeAluno"></td>
+                <td>Idade:</td>
+                <td><input type="number" class="small-input" name="idade"></td>
+            </tr>
+            <tr>
+                <td>Endereço:</td>
+                <td><input type="text" class="wide-input" name="endereco"></td>
+                <td>Cidade:</td>
+                <td><input type="text" class="medium-input" name="cidade"></td>
+                <td>Estado:</td>
+                <td><input type="text" class="small-input" name="estado"></td>
+            </tr>
+        </table>
+        <button type="submit">Enviar</button>
+    </form>
+</body>
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ativar e Desativar Botão com Classe</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        button {
+            padding: 10px 20px;
+            margin: 10px;
+            font-size: 16px;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+        }
+
+        #toggleButton {
+            background-color: #007BFF;
+            color: white;
+        }
+
+        #actionButton {
+            background-color: #28A745;
+            color: white;
+        }
+
+        #actionButton:disabled {
+            background-color: #ccc;
+            color: #666;
+            cursor: not-allowed;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Ativar e Desativar Botão com Classe</h2>
+
+    <!-- Botão para ativar/desativar -->
+    <button id="toggleButton">Ativar/Desativar Botão de Ação</button>
+
+    <!-- Botão que será ativado/desativado -->
+    <button id="actionButton">Botão de Ação</button>
+
+    <script>
+        // Definição da classe ToggleButton
+        class ToggleButton {
+            constructor(toggleButtonId, actionButtonId) {
+                // Referências aos botões com base nos IDs
+                this.toggleButton = document.getElementById(toggleButtonId);
+                this.actionButton = document.getElementById(actionButtonId);
+
+                // Associa o método handleClick ao evento de clique
+                this.toggleButton.addEventListener('click', () => this.handleClick());
+            }
+
+            // Método que alterna o estado de habilitado/desabilitado do botão de ação
+            handleClick() {
+                this.actionButton.disabled = !this.actionButton.disabled;
+
+                // Opcional: Exibe uma mensagem no console indicando o estado atual do botão
+                console.log('Botão de Ação está ' + (this.actionButton.disabled ? 'desativado' : 'ativado'));
+            }
+        }
+
+        // Inicializa a classe quando o DOM estiver pronto
+        document.addEventListener('DOMContentLoaded', () => {
+            const toggle = new ToggleButton('toggleButton', 'actionButton');
+        });
+    </script>
+
+</body>
+</html>

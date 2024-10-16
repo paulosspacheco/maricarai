@@ -575,7 +575,7 @@ begin
         '~ Valor double.......:~\RRR,RRR.RR'+^M+
         '~ Valor SmalInt......:~\II,III'+^M+
         '~ Valor Byte.........:~\BBB'+^M+
-        '~ Valor Smallword....:~\WW,WWW'+^M+
+        '~ Valor SmallWord....:~\WW,WWW'+^M+
         '~ ESTADO CIVIL~'+^M+
         '~ ~\X Casado?                '+^M+
         '~ ~\X Pretende se divorciar? '+^M+

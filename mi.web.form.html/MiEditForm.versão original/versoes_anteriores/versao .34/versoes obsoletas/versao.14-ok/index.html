@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulário CRUD</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+        label {
+            display: block;
+            margin: 10px 0 5px;
+        }
+        input {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        button {
+            padding: 10px 15px;
+            margin: 5px;
+            border: none;
+            border-radius: 4px;
+            background-color: #007BFF;
+            color: white;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .navigation-buttons {
+            margin-top: 20px;
+        }
+    </style>
+
+</head>
+<body>
+    <form id="meuFormulario">
+        <label for="id">ID:</label>
+        <input type="text" id="ID" name="ID" placeholder="ID"><br><br>
+
+        <label for="nome">Nome:</label>
+        <input type="text" id="Nome" name="Nome" placeholder="Nome"><br><br>
+
+        <label for="endereco">Endereço:</label>
+        <input type="text" id="endereco" name="endereco" placeholder="Endereço"><br><br>
+
+        <!-- Botões para operações CRUD -->
+        <button type="button" id="CmNewRecord">Novo Registro</button>
+        <button type="button" id="CmAddRecord">Adicionar</button>
+        <button type="button" id="CmPutRecord">Atualizar</button>
+        <button type="button" id="CmDeleteRecord">Deletar</button>
+        <button type="button" id="CmLocate">Localizar</button>
+
+        <!-- Botões de Navegação -->
+        <div class="navigation-buttons">
+            <button type="button" id="goBof">Primeiro</button>
+            <button type="button" id="goPrevRecord">Anterior</button>
+            <button type="button" id="goNextRecord">Próximo</button>
+            <button type="button" id="goEof">Último</button>
+        </div>
+    </form>
+
+    <script src="crud-handler.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Inicializa o CRUDHandler passando o ID do formulário e o campo chave 'ID'
+            const crudHandler = new CRUDHandler('meuFormulario', 'ID');
+
+            // Adiciona os ouvintes de eventos aos botões de CRUD
+            document.getElementById('CmNewRecord').addEventListener('click', () => crudHandler.newRecord());
+            document.getElementById('CmAddRecord').addEventListener('click', () => crudHandler.addRecord());
+            document.getElementById('CmPutRecord').addEventListener('click', () => crudHandler.updateRecord());
+            document.getElementById('CmDeleteRecord').addEventListener('click', () => crudHandler.deleteRecord());
+            document.getElementById('CmLocate').addEventListener('click', () => crudHandler.locateRecord());
+
+            // Adiciona os ouvintes de eventos aos botões de navegação
+            document.getElementById('goBof').addEventListener('click', () => crudHandler.goBof());
+            document.getElementById('goPrevRecord').addEventListener('click', () => crudHandler.prevRecord());
+            document.getElementById('goNextRecord').addEventListener('click', () => crudHandler.nextRecord());
+            document.getElementById('goEof').addEventListener('click', () => crudHandler.goEof());
+        });
+    </script>
+</body>
+</html>

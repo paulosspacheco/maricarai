@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Custom Alert Class</title>
+  <style>
+    /* Estilos gerais */
+    .overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      display: none;
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+    }
+
+    .alert-box {
+      background-color: white;
+      padding: 20px;
+      border-radius: 10px;
+      text-align: center;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      max-width: 300px;
+    }
+
+    .alert-box button {
+      padding: 10px 20px;
+      background-color: #007BFF;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+<script>
+  class Alert {
+    constructor() {
+      this.createAlertElements();
+    }
+
+    // Cria a estrutura HTML para o alerta
+    createAlertElements() {
+      this.overlay = document.createElement('div');
+      this.overlay.className = 'overlay';
+
+      this.alertBox = document.createElement('div');
+      this.alertBox.className = 'alert-box';
+
+      this.messageElement = document.createElement('p');
+
+      this.okButton = document.createElement('button');
+      this.okButton.textContent = 'OK';
+      this.okButton.addEventListener('click', () => this.close());
+
+      this.alertBox.appendChild(this.messageElement);
+      this.alertBox.appendChild(this.okButton);
+      this.overlay.appendChild(this.alertBox);
+      document.body.appendChild(this.overlay);
+    }
+
+    // Exibe o alerta com a mensagem fornecida
+    show(message) {
+      this.messageElement.textContent = message;
+      this.overlay.style.display = 'flex';
+    }
+
+    // Fecha o alerta
+    close() {
+      this.overlay.style.display = 'none';
+    }
+  }
+
+  // Exemplo de uso
+  const myAlert = new Alert();
+  myAlert.show('Esta é uma mensagem de alerta personalizada!');
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Máscaras de Entrada com TMaskEdit</title>
+    <style>
+        label {
+            display: block;
+            margin-top: 10px;
+        }
+
+        input {
+            padding: 5px;
+            font-size: 14px;
+            width: 250px;
+        }
+    </style>
+    <script>
+        class TMaskEdit {
+            constructor(inputElement, mask) {
+                this.inputElement = inputElement;
+                this._mask = mask;
+                this.inputElement.addEventListener('focus', this.onFocus.bind(this));
+                this.inputElement.addEventListener('blur', this.onBlur.bind(this));
+                this.inputElement.addEventListener('input', this.onInput.bind(this));
+            }
+
+            get mask() {
+                return this._mask;
+            }
+
+            set mask(newMask) {
+                this._mask = newMask;
+                this.inputElement.value = this.applyMask(this.inputElement.value);
+            }
+
+            onFocus() {
+                this.inputElement.value = this.inputElement.value.replace(/\D/g, '');
+            }
+
+            onBlur() {
+                this.inputElement.value = this.applyMask(this.inputElement.value);
+            }
+
+            onInput() {
+                let value = this.inputElement.value.replace(/\D/g, '');
+                
+                if (this._mask === 'fraction') {
+                    this.inputElement.value = this.formatAsFraction(value);
+                } else {
+                    this.inputElement.value = this.applyMask(value);
+                }
+
+                this.inputElement.setSelectionRange(this.inputElement.value.length, this.inputElement.value.length);
+            }
+
+            applyMask(value) {
+                if (this._mask === 'fraction') {
+                    return this.formatAsFraction(value);
+                }
+
+                const cleanValue = value.replace(/\D/g, '');
+                let maskedValue = '';
+                let valueIndex = 0;
+
+                for (let i = 0; i < this._mask.length; i++) {
+                    const maskChar = this._mask[i];
+
+                    if (maskChar === '0' || maskChar === '9') {
+                        if (valueIndex < cleanValue.length) {
+                            maskedValue += cleanValue[valueIndex];
+                            valueIndex++;
+                        } else {
+                            break;
+                        }
+                    } else {
+                        maskedValue += maskChar;
+                    }
+                }
+
+                return maskedValue;
+            }
+
+            formatAsFraction(value) {
+                let cleanValue = value.replace(/\D/g, '');
+
+                // Garante que pelo menos 3 caracteres estejam presentes para a parte inteira e decimal
+                if (cleanValue.length === 0) cleanValue = '000';
+                if (cleanValue.length === 1) cleanValue = '00' + cleanValue;
+                if (cleanValue.length === 2) cleanValue = '0' + cleanValue;
+
+                // Adiciona as casas decimais (dois últimos dígitos como casas decimais)
+                let decimalPart = cleanValue.slice(-2);
+                let integerPart = cleanValue.slice(0, -2);
+
+                // Remover zeros à esquerda da parte inteira
+                integerPart = parseInt(integerPart, 10).toString();
+
+                // Adicionar separadores de milhar
+                integerPart = integerPart.replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+
+                if (integerPart === '') integerPart = '0';  // Certifica-se de que a parte inteira nunca esteja vazia
+
+                return `${integerPart},${decimalPart}`;
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const masks = {
+                cpf: '000.000.000-00',
+                cnpj: '00.000.000/0000-00',
+                phone: '(00) 00000-0000',
+                date: '00/00/0000',
+                cep: '00000-000',
+                fraction: 'fraction' // máscara personalizada para valor fracionário
+            };
+
+            const cpfInput = new TMaskEdit(document.getElementById('cpfInput'), masks.cpf);
+            const cnpjInput = new TMaskEdit(document.getElementById('cnpjInput'), masks.cnpj);
+            const phoneInput = new TMaskEdit(document.getElementById('phoneInput'), masks.phone);
+            const dateInput = new TMaskEdit(document.getElementById('dateInput'), masks.date);
+            const cepInput = new TMaskEdit(document.getElementById('cepInput'), masks.cep);
+            const fractionInput = new TMaskEdit(document.getElementById('fractionInput'), masks.fraction);
+        });
+    </script>
+</head>
+<body>
+    <h1>Exemplo de Máscaras de Entrada</h1>
+
+    <label for="cpfInput">CPF:</label>
+    <input type="text" id="cpfInput" placeholder="Digite seu CPF">
+
+    <label for="cnpjInput">CNPJ:</label>
+    <input type="text" id="cnpjInput" placeholder="Digite seu CNPJ">
+
+    <label for="phoneInput">Telefone:</label>
+    <input type="text" id="phoneInput" placeholder="Digite seu Telefone">
+
+    <label for="dateInput">Data:</label>
+    <input type="text" id="dateInput" placeholder="DD/MM/AAAA">
+
+    <label for="cepInput">CEP:</label>
+    <input type="text" id="cepInput" placeholder="Digite seu CEP">
+
+    <label for="fractionInput">Valor Fracionário:</label>
+    <input type="text" id="fractionInput" placeholder="Digite um valor">
+</body>
+</html>

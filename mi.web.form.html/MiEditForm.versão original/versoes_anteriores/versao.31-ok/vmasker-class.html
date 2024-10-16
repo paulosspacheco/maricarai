@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Exemplo de Máscaras com VMasker</title>
+</head>
+<body>
+  <h1>Exemplo de Máscaras com VMasker</h1>
+
+  <form>
+    <!-- Campo com máscara de dinheiro -->
+    <label for="money">Valor Monetário (R$):</label>
+    <input type="text" id="money" placeholder="0,00"><br><br>
+
+    <!-- Campo com máscara de números -->
+    <label for="number">Número:</label>
+    <input type="text" id="number" placeholder="Digite apenas números"><br><br>
+
+    <!-- Campo com máscara alfanumérica -->
+    <label for="alphanum">Alfanumérico:</label>
+    <input type="text" id="alphanum" placeholder="Digite letras e números"><br><br>
+
+    <!-- Campo com máscara de padrão (CEP no exemplo) -->
+    <label for="pattern">CEP (#####-###):</label>
+    <input type="text" id="pattern" placeholder="Digite o CEP"><br><br>
+  </form>
+
+  <script type="module">
+    import { VMasker } from './vmasker-class.js';    
+    document.addEventListener("DOMContentLoaded", function() {
+      
+      const moneyInput = document.getElementById('money');
+      const moneyMask = new VMasker(moneyInput);
+            moneyMask.maskMoney({ unit: 'R$', delimiter: '.', separator: ',', precision: 2 });
+
+
+    });
+  </script>
+</body>
+</html>

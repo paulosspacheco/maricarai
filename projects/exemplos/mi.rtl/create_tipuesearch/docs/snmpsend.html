@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<title>snmpsend</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="generator" content="PasDoc 0.16.0">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<link rel="stylesheet" type="text/css" href="tipuesearch/tipuesearch.css">
+
+<link rel="StyleSheet" type="text/css" href="pasdoc.css">
+</head>
+<body>
+<div class="container"><div class="navigation">
+<ul><li><a href="AllUnits.html">Units</a></li><li><a href="ClassHierarchy.html">Hierarquia de Classes</a></li><li><a href="AllClasses.html">Classes, Interfaces, Objetos e Registros</a></li><li><a href="AllTypes.html">Tipos</a></li><li><a href="AllVariables.html">Variáveis</a></li><li><a href="AllConstants.html">Constantes</a></li><li><a href="AllFunctions.html">Funções e Procedimentos</a></li><li><a href="AllIdentifiers.html">Identificadores</a></li><li><form class="search-form" action="tipue_results.html"><div class="search-input"><input type="text" name="q" id="tipue_search_input" pattern=".{3,}" title="At least 3 characters" required><div class="search-button"><input type="button" id="tipue_search_button" onclick="this.form.submit();"></div></div></form>
+<div style="clear: both"></div>
+</li></ul></div><div class="content">
+<h1 class="unit">Unit snmpsend</h1>
+<div class="sections">
+<div class="one_section"><a class="section" href="#PasDoc-Description">Descrição</a></div><div class="one_section"><a class="section" href="#PasDoc-Uses">Uses</a></div><div class="one_section"><a class="section" href="#PasDoc-Classes">Classes, Interfaces, Objetos e Registros</a></div><div class="one_section"><a class="section" href="#PasDoc-FuncsProcs">Funções e Procedimentos</a></div><div class="one_section"><a class="section" href="#PasDoc-Types">Tipos</a></div><div class="one_section"><a class="section" href="#PasDoc-Constants">Constantes</a></div><div class="one_section">Variáveis</div></div>
+<span id="PasDoc-Description"></span><h2 class="description">Descrição</h2>
+<p>
+SNMP client</p>
+<p>
+ Supports SNMPv1 include traps, SNMPv2c <a class="normal" href="int65math.html#and">and</a> SNMPv3 include authorization <a class="normal" href="int65math.html#and">and</a> privacy encryption.
+
+<p>Used RFC: RFC-1157, RFC-1901, RFC-3412, RFC-3414, RFC-3416, RFC-3826
+
+<p>Supported Authorization hashes: <a class="normal" href="synacode.html#MD5">MD5</a>, <a class="normal" href="synacode.html#SHA1">SHA1</a> Supported Privacy encryptions: DES, 3DES, AES</p>
+<span id="PasDoc-Uses"></span><h2 class="uses">Uses</h2>
+<ul class="useslist"><li>Classes</li><li>SysUtils</li><li><a href="blcksock.html">blcksock</a></li><li><a href="synautil.html">synautil</a></li><li><a href="asn1util.html">asn1util</a></li><li><a href="synaip.html">synaip</a></li><li><a href="synacode.html">synacode</a></li><li><a href="synacrypt.html">synacrypt</a></li></ul><h2 class="overview">Visão Geral</h2>
+<span id="PasDoc-Classes"></span><h3 class="cio">Classes, Interfaces, Objetos e Registros</h3>
+<table class="classestable wide_list">
+<tr class="listheader">
+<th class="itemname">Nome</th>
+<th class="itemdesc">Descrição</th>
+</tr>
+<tr class="list">
+<td class="itemname">Classe&nbsp;<a class="bold" href="snmpsend.TSNMPMib.html"><code>TSNMPMib</code></a></td>
+<td class="itemdesc">Data object with one record of MIB <a class="normal" href="snmpsend.TSNMPMib.html#OID">OID</a> <a class="normal" href="int65math.html#and">and</a> corresponding values.</td>
+</tr>
+<tr class="list2">
+<td class="itemname">Registro&nbsp;<a class="bold" href="snmpsend.TV3Sync.html"><code>TV3Sync</code></a></td>
+<td class="itemdesc">It holding all information for SNMPv3 agent synchronization</td>
+</tr>
+<tr class="list">
+<td class="itemname">Classe&nbsp;<a class="bold" href="snmpsend.TSNMPRec.html"><code>TSNMPRec</code></a></td>
+<td class="itemdesc">Data object abstracts SNMP data packet</td>
+</tr>
+<tr class="list2">
+<td class="itemname">Classe&nbsp;<a class="bold" href="snmpsend.TSNMPSend.html"><code>TSNMPSend</code></a></td>
+<td class="itemdesc">Implementation of SNMP protocol.</td>
+</tr>
+</table>
+<span id="PasDoc-FuncsProcs"></span><h3 class="summary">Funções e Procedimentos</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="itemcode"><code>function <strong><a href="snmpsend.html#SNMPGet">SNMPGet</a></strong>(const OID, Community, SNMPHost: AnsiString; var Value: AnsiString): Boolean;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code>function <strong><a href="snmpsend.html#SNMPSet">SNMPSet</a></strong>(const OID, Community, SNMPHost, Value: AnsiString; ValueType: Integer): Boolean;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code>function <strong><a href="snmpsend.html#SNMPGetNext">SNMPGetNext</a></strong>(var OID: AnsiString; const Community, SNMPHost: AnsiString; var Value: AnsiString): Boolean;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code>function <strong><a href="snmpsend.html#SNMPGetTable">SNMPGetTable</a></strong>(const BaseOID, Community, SNMPHost: AnsiString; const Value: TStrings): Boolean;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code>function <strong><a href="snmpsend.html#SNMPGetTableElement">SNMPGetTableElement</a></strong>(const BaseOID, RowID, ColID, Community, SNMPHost: AnsiString; var Value: AnsiString): Boolean;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code>function <strong><a href="snmpsend.html#SendTrap">SendTrap</a></strong>(const Dest, Source, Enterprise, Community: AnsiString; Generic, Specific, Seconds: Integer; const MIBName, MIBValue: AnsiString; MIBtype: Integer): Integer;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code>function <strong><a href="snmpsend.html#RecvTrap">RecvTrap</a></strong>(var Dest, Source, Enterprise, Community: AnsiString; var Generic, Specific, Seconds: Integer; const MIBName, MIBValue: TStringList): Integer;</code></td>
+</tr>
+</table>
+<span id="PasDoc-Types"></span><h3 class="summary">Tipos</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="itemcode"><code><strong><a href="snmpsend.html#TV3Flags">TV3Flags</a></strong> = (...);</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><strong><a href="snmpsend.html#TV3Auth">TV3Auth</a></strong> = (...);</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><strong><a href="snmpsend.html#TV3Priv">TV3Priv</a></strong> = (...);</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><strong><a href="snmpsend.html#TSNMPMibList">TSNMPMibList</a></strong> = TList;</code></td>
+</tr>
+</table>
+<span id="PasDoc-Constants"></span><h3 class="summary">Constantes</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="itemcode"><code><strong><a href="snmpsend.html#cSnmpProtocol">cSnmpProtocol</a></strong> = '161';</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><strong><a href="snmpsend.html#cSnmpTrapProtocol">cSnmpTrapProtocol</a></strong> = '162';</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><strong><a href="snmpsend.html#SNMP_V1">SNMP_V1</a></strong> = 0;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><strong><a href="snmpsend.html#SNMP_V2C">SNMP_V2C</a></strong> = 1;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><strong><a href="snmpsend.html#SNMP_V3">SNMP_V3</a></strong> = 3;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><strong><a href="snmpsend.html#PDUGetRequest">PDUGetRequest</a></strong> = $A0;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><strong><a href="snmpsend.html#PDUGetNextRequest">PDUGetNextRequest</a></strong> = $A1;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><strong><a href="snmpsend.html#PDUGetResponse">PDUGetResponse</a></strong> = $A2;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><strong><a href="snmpsend.html#PDUSetRequest">PDUSetRequest</a></strong> = $A3;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><strong><a href="snmpsend.html#PDUTrap">PDUTrap</a></strong> = $A4;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><strong><a href="snmpsend.html#PDUGetBulkRequest">PDUGetBulkRequest</a></strong> = $A5;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><strong><a href="snmpsend.html#PDUInformRequest">PDUInformRequest</a></strong> = $A6;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><strong><a href="snmpsend.html#PDUTrapV2">PDUTrapV2</a></strong> = $A7;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><strong><a href="snmpsend.html#PDUReport">PDUReport</a></strong> = $A8;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><strong><a href="snmpsend.html#ENoError">ENoError</a></strong> = 0;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><strong><a href="snmpsend.html#ETooBig">ETooBig</a></strong> = 1;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><strong><a href="snmpsend.html#ENoSuchName">ENoSuchName</a></strong> = 2;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><strong><a href="snmpsend.html#EBadValue">EBadValue</a></strong> = 3;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><strong><a href="snmpsend.html#EReadOnly">EReadOnly</a></strong> = 4;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><strong><a href="snmpsend.html#EGenErr">EGenErr</a></strong> = 5;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><strong><a href="snmpsend.html#ENoAccess">ENoAccess</a></strong> = 6;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><strong><a href="snmpsend.html#EWrongType">EWrongType</a></strong> = 7;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><strong><a href="snmpsend.html#EWrongLength">EWrongLength</a></strong> = 8;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><strong><a href="snmpsend.html#EWrongEncoding">EWrongEncoding</a></strong> = 9;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><strong><a href="snmpsend.html#EWrongValue">EWrongValue</a></strong> = 10;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><strong><a href="snmpsend.html#ENoCreation">ENoCreation</a></strong> = 11;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><strong><a href="snmpsend.html#EInconsistentValue">EInconsistentValue</a></strong> = 12;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><strong><a href="snmpsend.html#EResourceUnavailable">EResourceUnavailable</a></strong> = 13;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><strong><a href="snmpsend.html#ECommitFailed">ECommitFailed</a></strong> = 14;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><strong><a href="snmpsend.html#EUndoFailed">EUndoFailed</a></strong> = 15;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><strong><a href="snmpsend.html#EAuthorizationError">EAuthorizationError</a></strong> = 16;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><strong><a href="snmpsend.html#ENotWritable">ENotWritable</a></strong> = 17;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><strong><a href="snmpsend.html#EInconsistentName">EInconsistentName</a></strong> = 18;</code></td>
+</tr>
+</table>
+<h2 class="description">Descrição</h2>
+<h3 class="detail">Funções e Procedimentos</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="SNMPGet"></span><code>function <strong>SNMPGet</strong>(const OID, Community, SNMPHost: AnsiString; var Value: AnsiString): Boolean;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+A very useful function <a class="normal" href="int65math.html#and">and</a> example of its use would be found in the <a class="normal" href="snmpsend.TSNMPSend.html">TSNMPSend</a> object. It implements basic GET method of the SNMP protocol. The MIB value is located in the &quot;OID&quot; variable, <a class="normal" href="int65math.html#and">and</a> is sent to the requested &quot;SNMPHost&quot; with the proper &quot;Community&quot; access identifier. Upon a successful retrieval, &quot;Value&quot; will contain the information requested. If the SNMP operation is successful, the result returns <code>True</code>.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="SNMPSet"></span><code>function <strong>SNMPSet</strong>(const OID, Community, SNMPHost, Value: AnsiString; ValueType: Integer): Boolean;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+This is useful function <a class="normal" href="int65math.html#and">and</a> example of use <a class="normal" href="snmpsend.TSNMPSend.html">TSNMPSend</a> object. It implements the basic SET method of the SNMP protocol. If the SNMP operation is successful, the result is <code>True</code>. &quot;Value&quot; is value of MIB Oid for &quot;SNMPHost&quot; with &quot;Community&quot; access identifier. You must specify &quot;ValueType&quot; too.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="SNMPGetNext"></span><code>function <strong>SNMPGetNext</strong>(var OID: AnsiString; const Community, SNMPHost: AnsiString; var Value: AnsiString): Boolean;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+A very useful function <a class="normal" href="int65math.html#and">and</a> example of its use would be found in the <a class="normal" href="snmpsend.TSNMPSend.html">TSNMPSend</a> object. It implements basic GETNEXT method of the SNMP protocol. The MIB value is located in the &quot;OID&quot; variable, <a class="normal" href="int65math.html#and">and</a> is sent to the requested &quot;SNMPHost&quot; with the proper &quot;Community&quot; access identifier. Upon a successful retrieval, &quot;Value&quot; will contain the information requested. If the SNMP operation is successful, the result returns <code>True</code>.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="SNMPGetTable"></span><code>function <strong>SNMPGetTable</strong>(const BaseOID, Community, SNMPHost: AnsiString; const Value: TStrings): Boolean;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+A very useful function <a class="normal" href="int65math.html#and">and</a> example of its use would be found in the <a class="normal" href="snmpsend.TSNMPSend.html">TSNMPSend</a> object. It implements basic read of SNMP MIB tables. As BaseOID you must specify basic MIB OID of requested table (base IOD is OID without row <a class="normal" href="int65math.html#and">and</a> column specificator!) Table is readed into stringlist, where each string is ThousandSeparator delimited string.
+
+<p><a class="normal" href="slogsend.html#Warning">Warning</a>: this function is not have best performance. For better performance you must write your own function. best performace you can get by knowledge of structuture of table <a class="normal" href="int65math.html#and">and</a> by more then one MIB on one query.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="SNMPGetTableElement"></span><code>function <strong>SNMPGetTableElement</strong>(const BaseOID, RowID, ColID, Community, SNMPHost: AnsiString; var Value: AnsiString): Boolean;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+A very useful function <a class="normal" href="int65math.html#and">and</a> example of its use would be found in the <a class="normal" href="snmpsend.TSNMPSend.html">TSNMPSend</a> object. It implements basic read of SNMP MIB table element. As BaseOID you must specify basic MIB OID of requested table (base IOD is OID without row <a class="normal" href="int65math.html#and">and</a> column specificator!) As next you must specify identificator of row <a class="normal" href="int65math.html#and">and</a> column for specify of needed field of table.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="SendTrap"></span><code>function <strong>SendTrap</strong>(const Dest, Source, Enterprise, Community: AnsiString; Generic, Specific, Seconds: Integer; const MIBName, MIBValue: AnsiString; MIBtype: Integer): Integer;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+A very useful function <a class="normal" href="int65math.html#and">and</a> example of its use would be found in the <a class="normal" href="snmpsend.TSNMPSend.html">TSNMPSend</a> object. It implements a TRAPv1 to send with all data in the parameters.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="RecvTrap"></span><code>function <strong>RecvTrap</strong>(var Dest, Source, Enterprise, Community: AnsiString; var Generic, Specific, Seconds: Integer; const MIBName, MIBValue: TStringList): Integer;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+A very useful function <a class="normal" href="int65math.html#and">and</a> example of its use would be found in the <a class="normal" href="snmpsend.TSNMPSend.html">TSNMPSend</a> object. It receives a TRAPv1 <a class="normal" href="int65math.html#and">and</a> returns all the data that comes with it.</p>
+</td></tr>
+</table>
+<h3 class="detail">Tipos</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="TV3Flags"></span><code><strong>TV3Flags</strong> = (...);</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+Possible values for SNMPv3 flags.</p>
+<p>
+ This flags specify level of authorization <a class="normal" href="int65math.html#and">and</a> encryption.</p>
+<h6 class="description_section">Valores</h6>
+<ul>
+<li>
+<span id="NoAuthNoPriv">NoAuthNoPriv</span></li>
+<li>
+<span id="AuthNoPriv">AuthNoPriv</span></li>
+<li>
+<span id="AuthPriv">AuthPriv</span></li>
+</ul>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="TV3Auth"></span><code><strong>TV3Auth</strong> = (...);</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+Type of SNMPv3 authorization</p>
+<h6 class="description_section">Valores</h6>
+<ul>
+<li>
+<span id="AuthMD5">AuthMD5</span></li>
+<li>
+<span id="AuthSHA1">AuthSHA1</span></li>
+</ul>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="TV3Priv"></span><code><strong>TV3Priv</strong> = (...);</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+Type of SNMPv3 privacy</p>
+<h6 class="description_section">Valores</h6>
+<ul>
+<li>
+<span id="PrivDES">PrivDES</span></li>
+<li>
+<span id="Priv3DES">Priv3DES</span></li>
+<li>
+<span id="PrivAES">PrivAES</span></li>
+</ul>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="TSNMPMibList"></span><code><strong>TSNMPMibList</strong> = TList;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<h3 class="detail">Constantes</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="cSnmpProtocol"></span><code><strong>cSnmpProtocol</strong> = '161';</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="cSnmpTrapProtocol"></span><code><strong>cSnmpTrapProtocol</strong> = '162';</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="SNMP_V1"></span><code><strong>SNMP_V1</strong> = 0;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="SNMP_V2C"></span><code><strong>SNMP_V2C</strong> = 1;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="SNMP_V3"></span><code><strong>SNMP_V3</strong> = 3;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="PDUGetRequest"></span><code><strong>PDUGetRequest</strong> = $A0;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="PDUGetNextRequest"></span><code><strong>PDUGetNextRequest</strong> = $A1;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="PDUGetResponse"></span><code><strong>PDUGetResponse</strong> = $A2;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="PDUSetRequest"></span><code><strong>PDUSetRequest</strong> = $A3;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="PDUTrap"></span><code><strong>PDUTrap</strong> = $A4;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="PDUGetBulkRequest"></span><code><strong>PDUGetBulkRequest</strong> = $A5;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="PDUInformRequest"></span><code><strong>PDUInformRequest</strong> = $A6;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="PDUTrapV2"></span><code><strong>PDUTrapV2</strong> = $A7;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="PDUReport"></span><code><strong>PDUReport</strong> = $A8;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="ENoError"></span><code><strong>ENoError</strong> = 0;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="ETooBig"></span><code><strong>ETooBig</strong> = 1;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="ENoSuchName"></span><code><strong>ENoSuchName</strong> = 2;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="EBadValue"></span><code><strong>EBadValue</strong> = 3;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="EReadOnly"></span><code><strong>EReadOnly</strong> = 4;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="EGenErr"></span><code><strong>EGenErr</strong> = 5;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="ENoAccess"></span><code><strong>ENoAccess</strong> = 6;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="EWrongType"></span><code><strong>EWrongType</strong> = 7;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="EWrongLength"></span><code><strong>EWrongLength</strong> = 8;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="EWrongEncoding"></span><code><strong>EWrongEncoding</strong> = 9;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="EWrongValue"></span><code><strong>EWrongValue</strong> = 10;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="ENoCreation"></span><code><strong>ENoCreation</strong> = 11;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="EInconsistentValue"></span><code><strong>EInconsistentValue</strong> = 12;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="EResourceUnavailable"></span><code><strong>EResourceUnavailable</strong> = 13;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="ECommitFailed"></span><code><strong>ECommitFailed</strong> = 14;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="EUndoFailed"></span><code><strong>EUndoFailed</strong> = 15;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="EAuthorizationError"></span><code><strong>EAuthorizationError</strong> = 16;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="ENotWritable"></span><code><strong>ENotWritable</strong> = 17;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="EInconsistentName"></span><code><strong>EInconsistentName</strong> = 18;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<hr><span class="appinfo"><em>Gerado por <a href="https://pasdoc.github.io/">PasDoc 0.16.0</a>. </em>
+</span>
+</div></div></body></html>

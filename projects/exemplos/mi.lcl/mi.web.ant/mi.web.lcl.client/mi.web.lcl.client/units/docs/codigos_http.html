@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+        <html>
+        <head>
+            <meta charset="UTF-8">
+            <title>C&oacute;digos de status HTTP &lpar;HyperText Transfer Protocol&rpar;</title>
+            <style>
+/* From extension vscode.github */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+.vscode-dark img[src$=\#gh-light-mode-only],
+.vscode-light img[src$=\#gh-dark-mode-only],
+.vscode-high-contrast:not(.vscode-high-contrast-light) img[src$=\#gh-light-mode-only],
+.vscode-high-contrast-light img[src$=\#gh-dark-mode-only] {
+	display: none;
+}
+
+/* From extension bierner.markdown-checkbox */
+.contains-task-list {
+    padding-left: 0;
+}
+
+.contains-task-list li {
+    margin-left: 24px;
+}
+
+.contains-task-list .task-list-item {
+    list-style: none;
+    padding-left: 0;
+    margin-left: 0;
+}
+
+.contains-task-list .contains-task-list {
+    padding-left: 20px;
+} 
+/* From extension davidmwhynot.markdown-higlightjs */
+/*
+
+Atom One Dark by Daniel Gamage
+Original One Dark Syntax theme from https://github.com/atom/one-dark-syntax
+
+base:    #282c34
+mono-1:  #abb2bf
+mono-2:  #818896
+mono-3:  #5c6370
+hue-1:   #56b6c2
+hue-2:   #61aeee
+hue-3:   #c678dd
+hue-4:   #98c379
+hue-5:   #e06c75
+hue-5-2: #be5046
+hue-6:   #d19a66
+hue-6-2: #e6c07b
+
+*/
+
+.hljs {
+  display: block;
+  overflow-x: auto;
+  padding: 0.5em;
+  color: #abb2bf;
+  background: #282c34;
+}
+
+.hljs-comment,
+.hljs-quote {
+  color: #5c6370;
+  font-style: italic;
+}
+
+.hljs-doctag,
+.hljs-keyword,
+.hljs-formula {
+  color: #c678dd;
+}
+
+.hljs-section,
+.hljs-name,
+.hljs-selector-tag,
+.hljs-deletion,
+.hljs-subst {
+  color: #e06c75;
+}
+
+.hljs-literal {
+  color: #56b6c2;
+}
+
+.hljs-string,
+.hljs-regexp,
+.hljs-addition,
+.hljs-attribute,
+.hljs-meta-string {
+  color: #98c379;
+}
+
+.hljs-built_in,
+.hljs-class .hljs-title {
+  color: #e6c07b;
+}
+
+.hljs-attr,
+.hljs-variable,
+.hljs-template-variable,
+.hljs-type,
+.hljs-selector-class,
+.hljs-selector-attr,
+.hljs-selector-pseudo,
+.hljs-number {
+  color: #d19a66;
+}
+
+.hljs-symbol,
+.hljs-bullet,
+.hljs-link,
+.hljs-meta,
+.hljs-selector-id,
+.hljs-title {
+  color: #61aeee;
+}
+
+.hljs-emphasis {
+  font-style: italic;
+}
+
+.hljs-strong {
+  font-weight: bold;
+}
+
+.hljs-link {
+  text-decoration: underline;
+}
+
+</style>
+            
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
+<style>
+            body {
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Ubuntu', 'Droid Sans', sans-serif;
+                font-size: 14px;
+                line-height: 1.6;
+            }
+        </style>
+        <style>
+.task-list-item {
+    list-style-type: none;
+}
+
+.task-list-item-checkbox {
+    margin-left: -20px;
+    vertical-align: middle;
+    pointer-events: none;
+}
+</style>
+<style>
+:root {
+  --color-note: #0969da;
+  --color-tip: #1a7f37;
+  --color-warning: #9a6700;
+  --color-severe: #bc4c00;
+  --color-caution: #d1242f;
+  --color-important: #8250df;
+}
+
+</style>
+<style>
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-note: #2f81f7;
+    --color-tip: #3fb950;
+    --color-warning: #d29922;
+    --color-severe: #db6d28;
+    --color-caution: #f85149;
+    --color-important: #a371f7;
+  }
+}
+
+</style>
+<style>
+.markdown-alert {
+  padding: 0.5rem 1rem;
+  margin-bottom: 16px;
+  color: inherit;
+  border-left: .25em solid #888;
+}
+
+.markdown-alert>:first-child {
+  margin-top: 0
+}
+
+.markdown-alert>:last-child {
+  margin-bottom: 0
+}
+
+.markdown-alert .markdown-alert-title {
+  display: flex;
+  font-weight: 500;
+  align-items: center;
+  line-height: 1
+}
+
+.markdown-alert .markdown-alert-title .octicon {
+  margin-right: 0.5rem;
+  display: inline-block;
+  overflow: visible !important;
+  vertical-align: text-bottom;
+  fill: currentColor;
+}
+
+.markdown-alert.markdown-alert-note {
+  border-left-color: var(--color-note);
+}
+
+.markdown-alert.markdown-alert-note .markdown-alert-title {
+  color: var(--color-note);
+}
+
+.markdown-alert.markdown-alert-important {
+  border-left-color: var(--color-important);
+}
+
+.markdown-alert.markdown-alert-important .markdown-alert-title {
+  color: var(--color-important);
+}
+
+.markdown-alert.markdown-alert-warning {
+  border-left-color: var(--color-warning);
+}
+
+.markdown-alert.markdown-alert-warning .markdown-alert-title {
+  color: var(--color-warning);
+}
+
+.markdown-alert.markdown-alert-tip {
+  border-left-color: var(--color-tip);
+}
+
+.markdown-alert.markdown-alert-tip .markdown-alert-title {
+  color: var(--color-tip);
+}
+
+.markdown-alert.markdown-alert-caution {
+  border-left-color: var(--color-caution);
+}
+
+.markdown-alert.markdown-alert-caution .markdown-alert-title {
+  color: var(--color-caution);
+}
+
+</style>
+        <style>
+
+</style>
+        </head>
+        <body class="vscode-body vscode-light">
+            <h1 id="códigos-de-status-http-hypertext-transfer-protocol">Códigos de status HTTP (HyperText Transfer Protocol)</h1>
+<p>Os códigos de status HTTP (HyperText Transfer Protocol) são respostas padrão dadas por servidores web a pedidos feitos por clientes (normalmente navegadores). Eles indicam se uma requisição HTTP foi bem-sucedida, se houve um redirecionamento, um erro, etc. No HTTP/1.1, os códigos de status são classificados em cinco categorias principais:</p>
+<ol>
+<li>
+<p>Códigos 1xx (Informativos):</p>
+<ol>
+<li>100 Continue: O servidor recebeu parte da solicitação e o cliente pode continuar a enviar o restante.</li>
+<li>101 Switching Protocols: O servidor está mudando para o protocolo solicitado pelo cliente.</li>
+<li>102 Processing: O servidor aceitou a solicitação, mas ainda não completou a ação.</li>
+</ol>
+</li>
+<li>
+<p>Códigos 2xx (Sucesso):</p>
+<ol>
+<li>200 OK: A solicitação foi bem-sucedida.</li>
+<li>201 Created: A solicitação foi bem-sucedida e um novo recurso foi criado.</li>
+<li>202 Accepted: A solicitação foi aceita para processamento, mas o processamento ainda não foi concluído.</li>
+<li>203 Non-Authoritative Information: A solicitação foi bem-sucedida, mas as informações retornadas são de uma fonte não original.</li>
+<li>204 No Content: A solicitação foi bem-sucedida, mas não há conteúdo para retornar.</li>
+<li>205 Reset Content: A solicitação foi bem-sucedida, mas o cliente deve redefinir a visualização do documento.</li>
+<li>206 Partial Content: O servidor está enviando uma parte do recurso devido a um cabeçalho de intervalo.</li>
+</ol>
+</li>
+<li>
+<p>Códigos 3xx (Redirecionamento):</p>
+<ol>
+<li>300 Multiple Choices: Existem várias opções possíveis para a solicitação.</li>
+<li>301 Moved Permanently: O recurso solicitado foi movido permanentemente para um novo URL.</li>
+<li>302 Found: O recurso solicitado foi encontrado em um URL diferente temporariamente.</li>
+<li>303 See Other: A resposta pode ser encontrada em um URL diferente, usando o método GET.</li>
+<li>304 Not Modified: O recurso solicitado não foi modificado desde a última solicitação.</li>
+<li>305 Use Proxy: O recurso solicitado deve ser acessado através de um proxy.</li>
+<li>307 Temporary Redirect: O recurso foi temporariamente movido para um URL diferente, mas o método HTTP não deve mudar.</li>
+<li>308 Permanent Redirect: O recurso foi permanentemente movido para um URL diferente.</li>
+</ol>
+</li>
+<li>
+<p>Códigos 4xx (Erro do Cliente):</p>
+<ol>
+<li>400 Bad Request: A solicitação não pode ser processada devido a uma sintaxe inválida.</li>
+<li>401 Unauthorized: A autenticação é necessária e falhou ou não foi fornecida.</li>
+<li>402 Payment Required: Reservado para uso futuro.</li>
+<li>403 Forbidden: O servidor entendeu a solicitação, mas se recusa a autorizá-la.</li>
+<li>404 Not Found: O servidor não encontrou o recurso solicitado.</li>
+<li>405 Method Not Allowed: O método HTTP usado não é permitido para o recurso solicitado.</li>
+<li>406 Not Acceptable: O recurso solicitado só pode gerar conteúdo não aceitável de acordo com os cabeçalhos Accept enviados na solicitação.</li>
+<li>407 Proxy Authentication Required: O cliente deve se autenticar com o proxy.</li>
+<li>408 Request Timeout: O servidor esgotou o tempo de espera para a solicitação do cliente.</li>
+<li>409 Conflict: A solicitação não pôde ser concluída devido a um conflito com o estado atual do recurso.</li>
+<li>410 Gone: O recurso solicitado não está mais disponível e não há um endereço de redirecionamento.</li>
+<li>411 Length Required: O servidor exige um cabeçalho Content-Length na solicitação.</li>
+<li>412 Precondition Failed: Uma condição prévia dada nos cabeçalhos da solicitação falhou.</li>
+<li>413 Payload Too Large: A entidade da solicitação é maior do que o servidor pode ou está disposto a processar.</li>
+<li>414 URI Too Long: O URI solicitado é maior do que o servidor pode processar.</li>
+<li>415 Unsupported Media Type: O formato de mídia da solicitação não é suportado pelo servidor.</li>
+<li>416 Range Not Satisfiable: O intervalo especificado nos cabeçalhos Range da solicitação não pode ser satisfeito.</li>
+<li>417 Expectation Failed: O servidor não pode atender aos requisitos do cabeçalho Expect da solicitação.</li>
+<li>418 I'm a teapot: Um código de status de piada definido pelo RFC 2324, indicando que o servidor é um bule de chá.</li>
+<li>421 Misdirected Request: A solicitação foi direcionada a um servidor que não pode produzir uma resposta.</li>
+<li>422 Unprocessable Entity: A solicitação foi bem-formada, mas não pode ser seguida devido a erros semânticos.</li>
+<li>423 Locked: O recurso acessado está bloqueado.</li>
+<li>424 Failed Dependency: A solicitação falhou devido a falha em uma solicitação anterior.</li>
+<li>425 Too Early: O servidor não deseja arriscar processar uma solicitação que pode ser repetida.</li>
+<li>426 Upgrade Required: O cliente deve atualizar para um protocolo diferente.</li>
+<li>428 Precondition Required: O servidor requer que a solicitação seja condicional.</li>
+<li>429 Too Many Requests: O cliente enviou muitas solicitações em um curto período de tempo.</li>
+<li>431 Request Header Fields Too Large: Campos de cabeçalho da solicitação são muito grandes.</li>
+<li>451 Unavailable For Legal Reasons: O recurso foi bloqueado por razões legais.</li>
+</ol>
+</li>
+<li>
+<p>Códigos 5xx (Erro do Servidor):</p>
+<ol>
+<li>500 Internal Server Error: O servidor encontrou uma condição inesperada que o impediu de atender à solicitação.</li>
+<li>501 Not Implemented: O servidor não tem a funcionalidade necessária para atender à solicitação.</li>
+<li>502 Bad Gateway: O servidor, ao atuar como um gateway ou proxy, recebeu uma resposta inválida do servidor upstream.</li>
+<li>503 Service Unavailable: O servidor está temporariamente indisponível, geralmente devido a manutenção ou sobrecarga.</li>
+<li>504 Gateway Timeout: O servidor, ao atuar como um gateway ou proxy, não recebeu uma resposta no tempo esperado do servidor upstream.</li>
+<li>505 HTTP Version Not Supported: O servidor não suporta a versão do protocolo HTTP usada na solicitação.</li>
+<li>506 Variant Also Negotiates: O servidor tem um erro de configuração interna e não pode escolher uma variante apropriada.</li>
+<li>507 Insufficient Storage: O servidor não pode armazenar a representação necessária para concluir a solicitação.</li>
+<li>508 Loop Detected: O servidor detectou um loop infinito ao processar uma solicitação.</li>
+<li>510 Not Extended: As extensões adicionais necessárias para o processamento da solicitação não foram atendidas.</li>
+<li>511 Network Authentication Required: O cliente precisa se autenticar para ganhar acesso à rede.</li>
+</ol>
+</li>
+</ol>
+
+            
+            
+        </body>
+        </html>

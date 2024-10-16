@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRUD Example</title>
+    <script>
+        // Função de requisição atualizada
+        async function sendRequest(aAction, aParams, aJSONObject, aMethod) {
+            let url = `http://192.168.15.2:8080/Tmi_rtl_web_module/${aAction}`;
+
+            // Adiciona parâmetros de query string (para GET, PUT e DELETE)
+            if (aParams && (aMethod === 'GET' || aMethod === 'PUT' || aMethod === 'DELETE')) {
+                const queryString = Object.keys(aParams)
+                    .map(key => `${encodeURIComponent(key)}=${encodeURIComponent(aParams[key])}`)
+                    .join('&');
+                url += `?${queryString}`;
+            }
+
+            // Configuração da requisição
+            let options = {
+                method: aMethod,
+                headers: {}
+            };
+
+            // Adiciona JSON ao corpo da requisição para POST e PUT
+            if ((aMethod === 'POST' || aMethod === 'PUT') && aJSONObject) {
+                options.headers['Content-Type'] = 'application/json';
+                options.body = JSON.stringify(aJSONObject);
+            }
+
+            try {
+                const response = await fetch(url, options);
+                if (!response.ok) throw new Error(`HTTP status ${response.status}`);
+                return await response.json();  // Retorna o JSON de resposta
+            } catch (error) {
+                throw new Error(`Erro: ${error.message}`);
+            }
+        }
+
+        // Funções CRUD
+
+        // Iniciar um novo registro no servidor (prepara para inserção)
+        async function newRecord() {
+            try {
+                const response = await sendRequest('CmNewRecord', null, null, 'POST');
+                if (response) {
+                    // Atualiza o formulário com o novo registro retornado
+                    document.getElementById('id').value = response.id || '';
+                    document.getElementById('nome').value = response.nome || '';
+                    alert('Novo registro iniciado com sucesso!');
+                    console.log(response);
+                }
+            } catch (error) {
+                console.error(error);
+            }
+        }
+
+        // Criar novo registro
+        async function createRecord() {
+            const id = document.getElementById('id').value;
+            const nome = document.getElementById('nome').value;
+            const newRecord = { id: id, nome: nome };
+
+            try {
+                const response = await sendRequest('CmAddRecord', null, newRecord, 'POST');
+                alert('Registro criado com sucesso!');
+                console.log(response);
+            } catch (error) {
+                console.error(error);
+            }
+        }
+
+        // Atualizar registro existente
+        async function updateRecord() {
+            const id = document.getElementById('id').value;
+            const nome = document.getElementById('nome').value;
+            const updatedRecord = { nome: nome };
+            const keyParams = { id: id };
+
+            try {
+                const response = await sendRequest('CmPutRecord', keyParams, updatedRecord, 'PUT');
+                alert('Registro atualizado com sucesso!');
+                console.log(response);
+            } catch (error) {
+                console.error(error);
+            }
+        }
+
+        // Localizar registro
+        async function locateRecord() {
+            const id = document.getElementById('id').value;
+            const locateParams = {
+                KeyFields: 'id',
+                KeyValues: [id],
+                Options: ['loCaseInsensitive']
+            };
+
+            try {
+                const response = await sendRequest('Cmlocate', locateParams, null, 'GET');
+                if (response) {
+                    document.getElementById('nome').value = response.nome || '';
+                    alert('Registro encontrado!');
+                    console.log(response);
+                } else {
+                    alert('Registro não encontrado.');
+                }
+            } catch (error) {
+                console.error(error);
+            }
+        }
+
+        // Deletar registro
+        async function deleteRecord() {
+            const id = document.getElementById('id').value;
+            const keyParams = { id: id };
+
+            try {
+                const response = await sendRequest('CmDeleteRecord', keyParams, null, 'DELETE');
+                alert('Registro deletado com sucesso!');
+                console.log(response);
+            } catch (error) {
+                console.error(error);
+            }
+        }
+    </script>
+</head>
+<body>
+    <h1>CRUD Example</h1>
+
+    <div>
+        <label for="id">ID:</label>
+        <input type="text" id="id" name="id" autocomplete="off">
+    </div>
+
+    <div>
+        <label for="nome">Nome:</label>
+        <input type="text" id="nome" name="nome" autocomplete="off">
+    </div>
+
+    <div>
+        <button onclick="newRecord()">Novo Registro (CmNewRecord)</button>
+        <button onclick="createRecord()">Criar Registro (POST)</button>
+        <button onclick="updateRecord()">Atualizar Registro (PUT)</button>
+        <button onclick="locateRecord()">Localizar Registro (GET)</button>
+        <button onclick="deleteRecord()">Deletar Registro (DELETE)</button>
+    </div>
+</body>
+</html>

@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<title>ldapsend</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="generator" content="PasDoc 0.16.0">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<link rel="stylesheet" type="text/css" href="tipuesearch/tipuesearch.css">
+
+<link rel="StyleSheet" type="text/css" href="pasdoc.css">
+</head>
+<body>
+<div class="container"><div class="navigation">
+<ul><li><a href="AllUnits.html">Units</a></li><li><a href="ClassHierarchy.html">Hierarquia de Classes</a></li><li><a href="AllClasses.html">Classes, Interfaces, Objetos e Registros</a></li><li><a href="AllTypes.html">Tipos</a></li><li><a href="AllVariables.html">Variáveis</a></li><li><a href="AllConstants.html">Constantes</a></li><li><a href="AllFunctions.html">Funções e Procedimentos</a></li><li><a href="AllIdentifiers.html">Identificadores</a></li><li><form class="search-form" action="tipue_results.html"><div class="search-input"><input type="text" name="q" id="tipue_search_input" pattern=".{3,}" title="At least 3 characters" required><div class="search-button"><input type="button" id="tipue_search_button" onclick="this.form.submit();"></div></div></form>
+<div style="clear: both"></div>
+</li></ul></div><div class="content">
+<h1 class="unit">Unit ldapsend</h1>
+<div class="sections">
+<div class="one_section"><a class="section" href="#PasDoc-Description">Descrição</a></div><div class="one_section"><a class="section" href="#PasDoc-Uses">Uses</a></div><div class="one_section"><a class="section" href="#PasDoc-Classes">Classes, Interfaces, Objetos e Registros</a></div><div class="one_section"><a class="section" href="#PasDoc-FuncsProcs">Funções e Procedimentos</a></div><div class="one_section"><a class="section" href="#PasDoc-Types">Tipos</a></div><div class="one_section"><a class="section" href="#PasDoc-Constants">Constantes</a></div><div class="one_section">Variáveis</div></div>
+<span id="PasDoc-Description"></span><h2 class="description">Descrição</h2>
+<p>
+LDAP client</p>
+<p>
+
+
+<p>Used RFC: RFC-2251, RFC-2254, RFC-2696, RFC-2829, RFC-2830</p>
+<span id="PasDoc-Uses"></span><h2 class="uses">Uses</h2>
+<ul class="useslist"><li>SysUtils</li><li>Classes</li><li><a href="blcksock.html">blcksock</a></li><li><a href="synautil.html">synautil</a></li><li><a href="asn1util.html">asn1util</a></li><li><a href="synacode.html">synacode</a></li></ul><h2 class="overview">Visão Geral</h2>
+<span id="PasDoc-Classes"></span><h3 class="cio">Classes, Interfaces, Objetos e Registros</h3>
+<table class="classestable wide_list">
+<tr class="listheader">
+<th class="itemname">Nome</th>
+<th class="itemdesc">Descrição</th>
+</tr>
+<tr class="list">
+<td class="itemname">Classe&nbsp;<a class="bold" href="ldapsend.TLDAPAttribute.html"><code>TLDAPAttribute</code></a></td>
+<td class="itemdesc">LDAP attribute with list of their values</td>
+</tr>
+<tr class="list2">
+<td class="itemname">Classe&nbsp;<a class="bold" href="ldapsend.TLDAPAttributeList.html"><code>TLDAPAttributeList</code></a></td>
+<td class="itemdesc">List of <a class="normal" href="ldapsend.TLDAPAttribute.html">TLDAPAttribute</a></td>
+</tr>
+<tr class="list">
+<td class="itemname">Classe&nbsp;<a class="bold" href="ldapsend.TLDAPResult.html"><code>TLDAPResult</code></a></td>
+<td class="itemdesc">LDAP result object</td>
+</tr>
+<tr class="list2">
+<td class="itemname">Classe&nbsp;<a class="bold" href="ldapsend.TLDAPResultList.html"><code>TLDAPResultList</code></a></td>
+<td class="itemdesc">List of LDAP result objects</td>
+</tr>
+<tr class="list">
+<td class="itemname">Classe&nbsp;<a class="bold" href="ldapsend.TLDAPSend.html"><code>TLDAPSend</code></a></td>
+<td class="itemdesc">Implementation of LDAP client</td>
+</tr>
+</table>
+<span id="PasDoc-FuncsProcs"></span><h3 class="summary">Funções e Procedimentos</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="itemcode"><code>function <strong><a href="ldapsend.html#LDAPResultDump">LDAPResultDump</a></strong>(const Value: <a href="ldapsend.TLDAPResultList.html">TLDAPResultList</a>): AnsiString;</code></td>
+</tr>
+</table>
+<span id="PasDoc-Types"></span><h3 class="summary">Tipos</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="itemcode"><code><strong><a href="ldapsend.html#TLDAPModifyOp">TLDAPModifyOp</a></strong> = (...);</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><strong><a href="ldapsend.html#TLDAPSearchScope">TLDAPSearchScope</a></strong> = (...);</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><strong><a href="ldapsend.html#TLDAPSearchAliases">TLDAPSearchAliases</a></strong> = (...);</code></td>
+</tr>
+</table>
+<span id="PasDoc-Constants"></span><h3 class="summary">Constantes</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="itemcode"><code><strong><a href="ldapsend.html#cLDAPProtocol">cLDAPProtocol</a></strong> = '389';</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><strong><a href="ldapsend.html#LDAP_ASN1_BIND_REQUEST">LDAP_ASN1_BIND_REQUEST</a></strong> = $60;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><strong><a href="ldapsend.html#LDAP_ASN1_BIND_RESPONSE">LDAP_ASN1_BIND_RESPONSE</a></strong> = $61;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><strong><a href="ldapsend.html#LDAP_ASN1_UNBIND_REQUEST">LDAP_ASN1_UNBIND_REQUEST</a></strong> = $42;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><strong><a href="ldapsend.html#LDAP_ASN1_SEARCH_REQUEST">LDAP_ASN1_SEARCH_REQUEST</a></strong> = $63;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><strong><a href="ldapsend.html#LDAP_ASN1_SEARCH_ENTRY">LDAP_ASN1_SEARCH_ENTRY</a></strong> = $64;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><strong><a href="ldapsend.html#LDAP_ASN1_SEARCH_DONE">LDAP_ASN1_SEARCH_DONE</a></strong> = $65;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><strong><a href="ldapsend.html#LDAP_ASN1_SEARCH_REFERENCE">LDAP_ASN1_SEARCH_REFERENCE</a></strong> = $73;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><strong><a href="ldapsend.html#LDAP_ASN1_MODIFY_REQUEST">LDAP_ASN1_MODIFY_REQUEST</a></strong> = $66;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><strong><a href="ldapsend.html#LDAP_ASN1_MODIFY_RESPONSE">LDAP_ASN1_MODIFY_RESPONSE</a></strong> = $67;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><strong><a href="ldapsend.html#LDAP_ASN1_ADD_REQUEST">LDAP_ASN1_ADD_REQUEST</a></strong> = $68;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><strong><a href="ldapsend.html#LDAP_ASN1_ADD_RESPONSE">LDAP_ASN1_ADD_RESPONSE</a></strong> = $69;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><strong><a href="ldapsend.html#LDAP_ASN1_DEL_REQUEST">LDAP_ASN1_DEL_REQUEST</a></strong> = $4A;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><strong><a href="ldapsend.html#LDAP_ASN1_DEL_RESPONSE">LDAP_ASN1_DEL_RESPONSE</a></strong> = $6B;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><strong><a href="ldapsend.html#LDAP_ASN1_MODIFYDN_REQUEST">LDAP_ASN1_MODIFYDN_REQUEST</a></strong> = $6C;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><strong><a href="ldapsend.html#LDAP_ASN1_MODIFYDN_RESPONSE">LDAP_ASN1_MODIFYDN_RESPONSE</a></strong> = $6D;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><strong><a href="ldapsend.html#LDAP_ASN1_COMPARE_REQUEST">LDAP_ASN1_COMPARE_REQUEST</a></strong> = $6E;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><strong><a href="ldapsend.html#LDAP_ASN1_COMPARE_RESPONSE">LDAP_ASN1_COMPARE_RESPONSE</a></strong> = $6F;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><strong><a href="ldapsend.html#LDAP_ASN1_ABANDON_REQUEST">LDAP_ASN1_ABANDON_REQUEST</a></strong> = $70;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><strong><a href="ldapsend.html#LDAP_ASN1_EXT_REQUEST">LDAP_ASN1_EXT_REQUEST</a></strong> = $77;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><strong><a href="ldapsend.html#LDAP_ASN1_EXT_RESPONSE">LDAP_ASN1_EXT_RESPONSE</a></strong> = $78;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><strong><a href="ldapsend.html#LDAP_ASN1_CONTROLS">LDAP_ASN1_CONTROLS</a></strong> = $A0;</code></td>
+</tr>
+</table>
+<h2 class="description">Descrição</h2>
+<h3 class="detail">Funções e Procedimentos</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="LDAPResultDump"></span><code>function <strong>LDAPResultDump</strong>(const Value: <a href="ldapsend.TLDAPResultList.html">TLDAPResultList</a>): AnsiString;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+<a class="normal" href="synautil.html#Dump">Dump</a> result of LDAP SEARCH into human readable form. Good for debugging.</p>
+</td></tr>
+</table>
+<h3 class="detail">Tipos</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="TLDAPModifyOp"></span><code><strong>TLDAPModifyOp</strong> = (...);</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+Define possible operations for LDAP MODIFY operations.</p>
+<h6 class="description_section">Valores</h6>
+<ul>
+<li>
+<span id="MO_Add">MO_Add</span></li>
+<li>
+<span id="MO_Delete">MO_Delete</span></li>
+<li>
+<span id="MO_Replace">MO_Replace</span></li>
+</ul>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="TLDAPSearchScope"></span><code><strong>TLDAPSearchScope</strong> = (...);</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+Specify possible values for search scope.</p>
+<h6 class="description_section">Valores</h6>
+<ul>
+<li>
+<span id="SS_BaseObject">SS_BaseObject</span></li>
+<li>
+<span id="SS_SingleLevel">SS_SingleLevel</span></li>
+<li>
+<span id="SS_WholeSubtree">SS_WholeSubtree</span></li>
+</ul>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="TLDAPSearchAliases"></span><code><strong>TLDAPSearchAliases</strong> = (...);</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+Specify possible values about alias dereferencing.</p>
+<h6 class="description_section">Valores</h6>
+<ul>
+<li>
+<span id="SA_NeverDeref">SA_NeverDeref</span></li>
+<li>
+<span id="SA_InSearching">SA_InSearching</span></li>
+<li>
+<span id="SA_FindingBaseObj">SA_FindingBaseObj</span></li>
+<li>
+<span id="SA_Always">SA_Always</span></li>
+</ul>
+</td></tr>
+</table>
+<h3 class="detail">Constantes</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="cLDAPProtocol"></span><code><strong>cLDAPProtocol</strong> = '389';</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="LDAP_ASN1_BIND_REQUEST"></span><code><strong>LDAP_ASN1_BIND_REQUEST</strong> = $60;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="LDAP_ASN1_BIND_RESPONSE"></span><code><strong>LDAP_ASN1_BIND_RESPONSE</strong> = $61;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="LDAP_ASN1_UNBIND_REQUEST"></span><code><strong>LDAP_ASN1_UNBIND_REQUEST</strong> = $42;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="LDAP_ASN1_SEARCH_REQUEST"></span><code><strong>LDAP_ASN1_SEARCH_REQUEST</strong> = $63;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="LDAP_ASN1_SEARCH_ENTRY"></span><code><strong>LDAP_ASN1_SEARCH_ENTRY</strong> = $64;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="LDAP_ASN1_SEARCH_DONE"></span><code><strong>LDAP_ASN1_SEARCH_DONE</strong> = $65;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="LDAP_ASN1_SEARCH_REFERENCE"></span><code><strong>LDAP_ASN1_SEARCH_REFERENCE</strong> = $73;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="LDAP_ASN1_MODIFY_REQUEST"></span><code><strong>LDAP_ASN1_MODIFY_REQUEST</strong> = $66;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="LDAP_ASN1_MODIFY_RESPONSE"></span><code><strong>LDAP_ASN1_MODIFY_RESPONSE</strong> = $67;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="LDAP_ASN1_ADD_REQUEST"></span><code><strong>LDAP_ASN1_ADD_REQUEST</strong> = $68;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="LDAP_ASN1_ADD_RESPONSE"></span><code><strong>LDAP_ASN1_ADD_RESPONSE</strong> = $69;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="LDAP_ASN1_DEL_REQUEST"></span><code><strong>LDAP_ASN1_DEL_REQUEST</strong> = $4A;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="LDAP_ASN1_DEL_RESPONSE"></span><code><strong>LDAP_ASN1_DEL_RESPONSE</strong> = $6B;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="LDAP_ASN1_MODIFYDN_REQUEST"></span><code><strong>LDAP_ASN1_MODIFYDN_REQUEST</strong> = $6C;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="LDAP_ASN1_MODIFYDN_RESPONSE"></span><code><strong>LDAP_ASN1_MODIFYDN_RESPONSE</strong> = $6D;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="LDAP_ASN1_COMPARE_REQUEST"></span><code><strong>LDAP_ASN1_COMPARE_REQUEST</strong> = $6E;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="LDAP_ASN1_COMPARE_RESPONSE"></span><code><strong>LDAP_ASN1_COMPARE_RESPONSE</strong> = $6F;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="LDAP_ASN1_ABANDON_REQUEST"></span><code><strong>LDAP_ASN1_ABANDON_REQUEST</strong> = $70;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="LDAP_ASN1_EXT_REQUEST"></span><code><strong>LDAP_ASN1_EXT_REQUEST</strong> = $77;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="LDAP_ASN1_EXT_RESPONSE"></span><code><strong>LDAP_ASN1_EXT_RESPONSE</strong> = $78;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="LDAP_ASN1_CONTROLS"></span><code><strong>LDAP_ASN1_CONTROLS</strong> = $A0;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<hr><span class="appinfo"><em>Gerado por <a href="https://pasdoc.github.io/">PasDoc 0.16.0</a>. </em>
+</span>
+</div></div></body></html>

@@ -870,23 +870,23 @@ Const
   accSpecC       =  $80;//10000000
 
 
-  fldSTR              =   'S';  //< tString Field maiúscula
-  fldSTR_Minuscula    =   's';  //< tString Field minusculo
-  fldSTRNUM           =   '#';  //< numeric tString Field
+  fldStr              =   'S';  //< tString Field maiúscula
+  fldStr_Minuscula    =   's';  //< tString Field minusculo
+  fldStrNumber           =   '#';  //< numeric tString Field
   fldAnsiChar             =   'C';  {< AnsiCharacter Field }
   fldAnsiChar_Minuscula   =   'c';  {< AnsiCharacter Field }
-  fldAnsiCharNUM          =   '0';  {< numeric AnsiCharacter Field }
-  fldAnsiCharVAL          =   'N';  {< dbase formatted numeric Field }
-  fldBYTE             =   'B';  {< byte Field }
-  fldSHORTINT         =   'J';  {< shortint Field }
+  fldDoublePositive          =   '0';  {< numeric AnsiCharacter Field }
+  fldDouble          =   'N';  {< dbase formatted numeric Field }
+  fldByte             =   'B';  {< byte Field }
+  fldShortInt         =   'J';  {< shortint Field }
 { fldWORD             =  'W';}  {< word Field }
-  fldSmallWORD        =   'W';  {< word Field NortSoft}
+  fldSmallWord        =   'W';  {< word Field NortSoft}
 { fldInteger          =  'I'; } {< integer Field }
   fldSmallInt         =   'I';  {< integer Field NortSoft}
-  fldLONGINT          =   'L';  {< longint Field }
-  fldRealNum          =   'R';  {< real number Field  (uses TRealNum) }
-  fldRealNum_Positivo =   'r';  {< real number Field positive (uses TRealNum) }
-  fldBOOLEAN          =   'X';  {< boolean value Field }
+  fldLongInt          =   'L';  {< longint Field }
+  fldDouble          =   'R';  {< real number Field  (uses TRealNum) }
+  fldDoublePositive =   'r';  {< real number Field positive (uses TRealNum) }
+  fldBoolean          =   'X';  {< boolean value Field }
   fldHexValue         =   'H';  {< hexadecimal numeric entry }
   fldENUM             =   ^E;   {< enumerated Field }
   fldBLOb             =   ^M;   {< unformatted data Field }
@@ -957,10 +957,10 @@ Const
     End;
 *)
 
-  CTypeReal =  [fldRealNum,fldReal6,fldReal6P,fldRealNum_Positivo,fldExtended];
-  CTypeAnsiChar       =  [fldAnsiChar,fldAnsiChar_Minuscula,fldAnsiCharVAL];
-  CTypeString     =  [fldSTRNUM,fldSTR,fldSTR_Minuscula];
-  CTypeInteger    =  [fldENUM,fldBOOLEAN,fldBYTE,fldSHORTINT,fldSmallWORD,fldSmallInt,fldLONGINT,fldCheckBox,FldRadioButton];
+  CTypeReal =  [fldDouble,fldReal6,fldReal6P,fldDoublePositive,fldExtended];
+  CTypeAnsiChar       =  [fldAnsiChar,fldAnsiChar_Minuscula,fldDouble];
+  CTypeString     =  [fldStrNumber,fldStr,fldStr_Minuscula];
+  CTypeInteger    =  [fldENUM,fldBoolean,fldByte,fldShortInt,fldSmallWord,fldSmallInt,fldLongInt,fldCheckBox,FldRadioButton];
   CTypeDate       =  [fldData,fldLData,fld_LData,FldDateTimeDos];
   CTypeHour       =  [fldLHora,fld_LHora];
   CTypeBlob       =  [FldMemo,fldBLOb];
@@ -3246,12 +3246,12 @@ Begin
               If Not (aTemplate[i] in [' ','z','Z',#0]) //Carateres de formatazao e separacao de campos
               Then
               Case aTemplate[i] of
-                fldSTRNUM,
-                fldSTR_Minuscula,
-                fldSTR             : Begin
+                fldStrNumber,
+                fldStr_Minuscula,
+                fldStr             : Begin
                                        aSize := 1;
                                        For j := 1 to Length(aTemplate) do
-                                         If  aTemplate[j] in [fldSTRNUM,fldSTR_Minuscula,fldSTR]
+                                         If  aTemplate[j] in [fldStrNumber,fldStr_Minuscula,fldStr]
                                          then Inc(aSize);
 
                                        Result := aTemplate[i];
@@ -3260,11 +3260,11 @@ Begin
 
                 fldAnsiChar,
                 fldAnsiChar_Minuscula,
-                fldAnsiCharNUM,{<'o'. Obs: O "o" minusculo e usado para real Positivo}
-                fldAnsiCharVAL        : Begin
+                fldDoublePositive,{<'o'. Obs: O "o" minusculo e usado para real Positivo}
+                fldDouble        : Begin
                                        aSize := 0;
                                        For j := 1 to Length(aTemplate) do
-                                         If  aTemplate[j] in [fldAnsiChar,fldAnsiChar_Minuscula,fldAnsiCharNUM,fldAnsiCharVAL]
+                                         If  aTemplate[j] in [fldAnsiChar,fldAnsiChar_Minuscula,fldDoublePositive,fldDouble]
                                          then Inc(aSize);
 
                                        Result := aTemplate[i];
@@ -3273,16 +3273,16 @@ Begin
                 FldOperador,
                 fldENUM,
                 ^X,  {<Boolean Especial}
-                fldBOOLEAN,
+                fldBoolean,
 
-                fldBYTE,
-                fldSHORTINT        : Begin
+                fldByte,
+                fldShortInt        : Begin
                                        aSize := Sizeof(byte);
                                        Result := aTemplate[i];
                                        Exit;
                                      End;
 
-                fldSmallWORD       : Begin
+                fldSmallWord       : Begin
                                        aSize := Sizeof(SmallWord);
                                        Result := aTemplate[i]; Exit;
                                      End;
@@ -3298,14 +3298,14 @@ Begin
                 fld_LData,
                 fldLHora,
                 fld_LHora,
-                fldLONGINT         : Begin
+                fldLongInt         : Begin
                                        aSize := Sizeof(Longint);
                                        Result := aTemplate[i];
                                        Exit;
                                      End;
 
-                fldRealNum,
-                fldRealNum_Positivo
+                fldDouble,
+                fldDoublePositive
                                    : Begin
                                        aSize := Sizeof(TRealNum);
                                        Result := aTemplate[i]; Exit;
@@ -3376,8 +3376,8 @@ Function IsNumber_Real(Const aTemplate : ShortString):Boolean;
 Begin
   Case TypeFld(aTemplate) of
     fldExtended,
-    fldRealNum         ,
-    fldRealNum_Positivo,
+    fldDouble         ,
+    fldDoublePositive,
     fldReal6           ,
     fldReal6P          : Result := True
     Else                 Result := false;
@@ -3387,11 +3387,11 @@ end;
 Function IsNumber_Integer(Const aTemplate : ShortString):Boolean;
 Begin
   Case TypeFld(aTemplate) of
-    fldBYTE      ,
-    fldSHORTINT  ,
-    FldSmallWord ,
+    fldByte      ,
+    fldShortInt  ,
+    fldSmallWord ,
     fldSmallInt  ,
-    fldLONGINT   ,
+    fldLongInt   ,
     fldENUM      ,
     fldCheckBox  ,
     FldRadioButton : Result := True
@@ -3402,13 +3402,13 @@ end;
 Function IsNumber(Const aTemplate : ShortString):Boolean;
 Begin
   Case TypeFld(aTemplate) of
-    fldBYTE,
-    fldSHORTINT,
-    FldSmallWord,
+    fldByte,
+    fldShortInt,
+    fldSmallWord,
     fldSmallInt,
-    fldLONGINT,
-    fldRealNum,
-    fldRealNum_Positivo,
+    fldLongInt,
+    fldDouble,
+    fldDoublePositive,
     fldReal6,
     fldReal6P,
     fldENUM,

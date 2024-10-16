@@ -8,7 +8,7 @@ uses
   Classes, SysUtils, DB, Forms, Controls, Graphics, Dialogs, ExtCtrls, DBGrids,
   DBCtrls, Menus, StdCtrls, ActnList, umi_lcl_scrollbox,
   umi_lcl_ui_ds_form,mi_rtl_ui_dmxscroller_form,
-  mi.rtl.web.module;
+  mi.rtl.web.module,Mi.Web.Create.MiEditForm.html;
 
 type
 
@@ -22,10 +22,17 @@ type
     DBNavigator1: TDBNavigator;
     Mi_LCL_Scrollbox1: TMi_LCL_Scrollbox;
     Panel1: TPanel;
-    procedure CmBuildFormFromTemplateExecute(Sender: TObject);
+    procedure Button1Click(Sender: TObject);
+
     procedure FormCreate(Sender: TObject);
 
+    private Mi_lcl_ui_ds_Form1 :TMi_lcl_ui_ds_Form;
     public mi_rtl_web_module: Tmi_rtl_web_module;
+
+    {O método **@name** é usuado para criar formulários baseados em templates
+     da aplicação destino.
+    }
+    private procedure BuildCustomerFormFromTemplate();
   end;
 
 
@@ -33,6 +40,21 @@ implementation
 
 {$R *.lfm}
 
+procedure Tmi_rtl_web_module_form.BuildCustomerFormFromTemplate();
+begin
+  with TMi_web_js_Form.Create(self) do
+  begin
+    Mi_lcl_ui_ds_Form := Mi_lcl_ui_ds_Form1;
+    CreateForm();
+    free;
+  end;
+ end;
+
+
+procedure Tmi_rtl_web_module_form.Button1Click(Sender: TObject);
+begin
+  BuildCustomerFormFromTemplate();
+end;
 
 
 { Tmi_rtl_web_module_form }
@@ -58,20 +80,22 @@ implementation
 procedure Tmi_rtl_web_module_form.FormCreate(Sender: TObject);
 begin
   mi_rtl_web_module := Tmi_rtl_web_module.Create(self);
-  with TMi_lcl_ui_ds_Form.Create(self) do
+  Mi_lcl_ui_ds_Form1 := TMi_lcl_ui_ds_Form.Create(self);
+  with Mi_lcl_ui_ds_Form1 do
   begin
     DmxScroller_Form := mi_rtl_web_module.DmxScroller_Form1;
     ParentLCL        := Mi_LCL_Scrollbox1;
     Active           := true;
+
     DBGrid1.DataSource      := DmxScroller_Form.DataSource;
     DBNavigator1.DataSource := DBGrid1.DataSource;
+    //with DmxScroller_Form do
+    //DmxScroller_Form.RewriteFileClients(TEnClientsApplication.en_app_javascript);
   end;
+//  BuildCustomerFormFromTemplate();
 end;
 
-procedure Tmi_rtl_web_module_form.CmBuildFormFromTemplateExecute(Sender: TObject);
-begin
 
-end;
 
 
 //constructor TForm_mi_rtl_web_module.Create(TheOwner: TComponent);

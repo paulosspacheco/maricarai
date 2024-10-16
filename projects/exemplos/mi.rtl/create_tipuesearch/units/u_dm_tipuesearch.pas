@@ -1,5 +1,4 @@
 unit u_dm_tipuesearch;
-
 {:< O programa **@name** cria o arquivo **tipuesearch_content.js**.
 
     - **VERSÃO**
@@ -118,6 +117,30 @@ type
        - Objetivo:
          - O arquivo **'./tipuesearch_content.js'** é usado pelo programa **tpuesearch.js** do site.
          ```
+
+       - Descrição
+         -  A função `CrateIndexTipuesearch` realiza a criação de um índice para o sistema
+            de busca "Tipuesearch", verificando a existência de um diretório e de um arquivo
+            HTML, e salvando o conteúdo do arquivo caso ambos existam.
+
+       ### Fluxo de Execução
+
+       1. Extrai o diretório onde o arquivo HTML está localizado.
+       2. Verifica se o diretório existe. Caso contrário, escreve uma mensagem e retorna `PathNaoEncontrado`.
+       3. Verifica se o arquivo HTML existe. Caso contrário, escreve uma mensagem e retorna `ArquivoNaoEncontrado2`.
+       4. Se o diretório e o arquivo existirem, salva o conteúdo HTML em arquivo, retornando o resultado de `SaveHTMLContentToFile`.
+
+       ### Exceções
+
+       - Retorna `PathNaoEncontrado` caso o diretório não seja encontrado.
+       - Retorna `ArquivoNaoEncontrado2` caso o arquivo HTML não seja encontrado.
+
+       ### Ver Também
+
+       - `ExtractFileDir`: Extrai o diretório de um arquivo.
+       - `DirectoryExists`: Verifica se um diretório existe.
+       - `FileExists`: Verifica se um arquivo existe.
+       - `SaveHTMLContentToFile`: Salva o conteúdo HTML em arquivo.
     }
     Public function CrateIndexTipuesearch:Integer;
 

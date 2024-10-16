@@ -52,7 +52,7 @@ uses
         end;
 
    }
-   TMi_lcl_ui_Form_attributes= class(TMi_rtl_ui_Form_abstract,IMi_rtl_ui_Form)
+   TMi_lcl_ui_Form_attributes= class(TMi_rtl_ui_Form_abstract)
       public Procedure Set_DmxScroller_Form(a_DmxScroller_Form: TDmxScroller_Form);Override;
 
        protected var _Owner : TScrollingWinControl;
@@ -728,7 +728,6 @@ begin
   end;
 end;
 
-
 class procedure TMi_lcl_ui_Form_attributes.ShowModal(
   InstanceClass: TComponentClass);
   var
@@ -750,8 +749,6 @@ begin
        end
 
 end;
-
-
 
 //Procedura que preenche o TTreeView a partir de uma estrutura TMi_rtl_treenode
 class procedure TMi_lcl_ui_Form_attributes.PopulateTreeViewFromTMi_rtl_treenode(
@@ -778,7 +775,6 @@ begin
     Child := Child.GetNextSibling;
   end;
 end;
-
 
 // Procedura que executa a ação associada a um nó do TTreeView
 class procedure TMi_lcl_ui_Form_attributes.ExecuteTreeViewNodeAction(

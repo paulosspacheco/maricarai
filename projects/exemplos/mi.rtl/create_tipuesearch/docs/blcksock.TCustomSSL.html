@@ -1,0 +1,1099 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<title>blcksock: Classe TCustomSSL</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="generator" content="PasDoc 0.16.0">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<link rel="stylesheet" type="text/css" href="tipuesearch/tipuesearch.css">
+
+<link rel="StyleSheet" type="text/css" href="pasdoc.css">
+</head>
+<body>
+<div class="container"><div class="navigation">
+<ul><li><a href="AllUnits.html">Units</a></li><li><a href="ClassHierarchy.html">Hierarquia de Classes</a></li><li><a href="AllClasses.html">Classes, Interfaces, Objetos e Registros</a></li><li><a href="AllTypes.html">Tipos</a></li><li><a href="AllVariables.html">Variáveis</a></li><li><a href="AllConstants.html">Constantes</a></li><li><a href="AllFunctions.html">Funções e Procedimentos</a></li><li><a href="AllIdentifiers.html">Identificadores</a></li><li><form class="search-form" action="tipue_results.html"><div class="search-input"><input type="text" name="q" id="tipue_search_input" pattern=".{3,}" title="At least 3 characters" required><div class="search-button"><input type="button" id="tipue_search_button" onclick="this.form.submit();"></div></div></form>
+<div style="clear: both"></div>
+</li></ul></div><div class="content">
+<span id="TCustomSSL"></span><h1 class="cio">Classe TCustomSSL</h1>
+<div class="sections">
+<div class="one_section"><a class="section" href="#PasDoc-Description">Descrição</a></div><div class="one_section"><a class="section" href="#PasDoc-Hierarchy">Hierarquia</a></div><div class="one_section"><a class="section" href="#PasDoc-Fields">Campos</a></div><div class="one_section"><a class="section" href="#PasDoc-Methods">Métodos</a></div><div class="one_section"><a class="section" href="#PasDoc-Properties">Propriedades</a></div></div>
+<span id="PasDoc-Description"></span><h2 class="unit">Unit</h2>
+<p class="unitlink">
+<a href="blcksock.html">blcksock</a></p>
+<h2 class="declaration">Declaração</h2>
+<p class="declaration">
+<code>type TCustomSSL = class(TObject)</code></p>
+<h2 class="description">Descrição</h2>
+<p>
+Parent class for all SSL plugins.</p>
+<p>
+ This is abstract class defining interface for other SSL plugins.
+
+<p>Instance of this class will be created for each <a class="normal" href="blcksock.TTCPBlockSocket.html">TTCPBlockSocket</a>.
+
+<p><a class="normal" href="slogsend.html#Warning">Warning</a>: not all methods <a class="normal" href="int65math.html#and">and</a> propertis can work in all existing SSL plugins! Please, read documentation of used SSL plugin.</p>
+<span id="PasDoc-Hierarchy"></span><h2 class="hierarchy">Hierarquia</h2>
+<ul class="hierarchy"><li class="ancestor">TObject</li>
+<li class="thisitem">TCustomSSL</li></ul><h2 class="overview">Visão Geral</h2>
+<span id="PasDoc-Fields"></span><h3 class="summary">Campos</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code><strong><a href="blcksock.TCustomSSL.html#FOnVerifyCert">FOnVerifyCert</a></strong>: <a href="blcksock.html#THookVerifyCert">THookVerifyCert</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code><strong><a href="blcksock.TCustomSSL.html#FSocket">FSocket</a></strong>: <a href="blcksock.TTCPBlockSocket.html">TTCPBlockSocket</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code><strong><a href="blcksock.TCustomSSL.html#FSSLEnabled">FSSLEnabled</a></strong>: Boolean;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code><strong><a href="blcksock.TCustomSSL.html#FLastError">FLastError</a></strong>: integer;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code><strong><a href="blcksock.TCustomSSL.html#FLastErrorDesc">FLastErrorDesc</a></strong>: string;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code><strong><a href="blcksock.TCustomSSL.html#FSSLType">FSSLType</a></strong>: <a href="blcksock.html#TSSLType">TSSLType</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code><strong><a href="blcksock.TCustomSSL.html#FKeyPassword">FKeyPassword</a></strong>: string;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code><strong><a href="blcksock.TCustomSSL.html#FCiphers">FCiphers</a></strong>: string;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code><strong><a href="blcksock.TCustomSSL.html#FCertificateFile">FCertificateFile</a></strong>: string;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code><strong><a href="blcksock.TCustomSSL.html#FPrivateKeyFile">FPrivateKeyFile</a></strong>: string;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code><strong><a href="blcksock.TCustomSSL.html#FCertificate">FCertificate</a></strong>: Ansistring;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code><strong><a href="blcksock.TCustomSSL.html#FPrivateKey">FPrivateKey</a></strong>: Ansistring;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code><strong><a href="blcksock.TCustomSSL.html#FPFX">FPFX</a></strong>: Ansistring;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code><strong><a href="blcksock.TCustomSSL.html#FPFXfile">FPFXfile</a></strong>: string;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code><strong><a href="blcksock.TCustomSSL.html#FCertCA">FCertCA</a></strong>: Ansistring;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code><strong><a href="blcksock.TCustomSSL.html#FCertCAFile">FCertCAFile</a></strong>: string;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code><strong><a href="blcksock.TCustomSSL.html#FTrustCertificate">FTrustCertificate</a></strong>: Ansistring;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code><strong><a href="blcksock.TCustomSSL.html#FTrustCertificateFile">FTrustCertificateFile</a></strong>: string;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code><strong><a href="blcksock.TCustomSSL.html#FVerifyCert">FVerifyCert</a></strong>: Boolean;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code><strong><a href="blcksock.TCustomSSL.html#FUsername">FUsername</a></strong>: string;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code><strong><a href="blcksock.TCustomSSL.html#FPassword">FPassword</a></strong>: string;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code><strong><a href="blcksock.TCustomSSL.html#FSSHChannelType">FSSHChannelType</a></strong>: string;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code><strong><a href="blcksock.TCustomSSL.html#FSSHChannelArg1">FSSHChannelArg1</a></strong>: string;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code><strong><a href="blcksock.TCustomSSL.html#FSSHChannelArg2">FSSHChannelArg2</a></strong>: string;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code><strong><a href="blcksock.TCustomSSL.html#FCertComplianceLevel">FCertComplianceLevel</a></strong>: integer;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code><strong><a href="blcksock.TCustomSSL.html#FSNIHost">FSNIHost</a></strong>: string;</code></td>
+</tr>
+</table>
+<span id="PasDoc-Methods"></span><h3 class="summary">Métodos</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>procedure <strong><a href="blcksock.TCustomSSL.html#ReturnError">ReturnError</a></strong>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>procedure <strong><a href="blcksock.TCustomSSL.html#SetCertCAFile">SetCertCAFile</a></strong>(const Value: string); virtual;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="blcksock.TCustomSSL.html#DoVerifyCert">DoVerifyCert</a></strong>:boolean;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="blcksock.TCustomSSL.html#CreateSelfSignedCert">CreateSelfSignedCert</a></strong>(Host: string): Boolean; virtual;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>constructor <strong><a href="blcksock.TCustomSSL.html#Create">Create</a></strong>(const Value: <a href="blcksock.TTCPBlockSocket.html">TTCPBlockSocket</a>); virtual;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>procedure <strong><a href="blcksock.TCustomSSL.html#Assign">Assign</a></strong>(const Value: <a href="blcksock.TCustomSSL.html">TCustomSSL</a>); virtual;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="blcksock.TCustomSSL.html#LibVersion">LibVersion</a></strong>: String; virtual;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="blcksock.TCustomSSL.html#LibName">LibName</a></strong>: String; virtual;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="blcksock.TCustomSSL.html#Connect">Connect</a></strong>: boolean; virtual;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="blcksock.TCustomSSL.html#Accept">Accept</a></strong>: boolean; virtual;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="blcksock.TCustomSSL.html#Shutdown">Shutdown</a></strong>: boolean; virtual;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="blcksock.TCustomSSL.html#BiShutdown">BiShutdown</a></strong>: boolean; virtual;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="blcksock.TCustomSSL.html#SendBuffer">SendBuffer</a></strong>(Buffer: TMemory; Len: Integer): Integer; virtual;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="blcksock.TCustomSSL.html#RecvBuffer">RecvBuffer</a></strong>(Buffer: TMemory; Len: Integer): Integer; virtual;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="blcksock.TCustomSSL.html#WaitingData">WaitingData</a></strong>: Integer; virtual;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="blcksock.TCustomSSL.html#GetSSLVersion">GetSSLVersion</a></strong>: string; virtual;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="blcksock.TCustomSSL.html#GetPeerSubject">GetPeerSubject</a></strong>: string; virtual;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="blcksock.TCustomSSL.html#GetPeerSerialNo">GetPeerSerialNo</a></strong>: integer; virtual;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="blcksock.TCustomSSL.html#GetPeerIssuer">GetPeerIssuer</a></strong>: string; virtual;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="blcksock.TCustomSSL.html#GetPeerName">GetPeerName</a></strong>: string; virtual;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="blcksock.TCustomSSL.html#GetPeerNameHash">GetPeerNameHash</a></strong>: cardinal; virtual;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="blcksock.TCustomSSL.html#GetPeerFingerprint">GetPeerFingerprint</a></strong>: AnsiString; virtual;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="blcksock.TCustomSSL.html#GetCertInfo">GetCertInfo</a></strong>: string; virtual;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="blcksock.TCustomSSL.html#GetCipherName">GetCipherName</a></strong>: string; virtual;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="blcksock.TCustomSSL.html#GetCipherBits">GetCipherBits</a></strong>: integer; virtual;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="blcksock.TCustomSSL.html#GetCipherAlgBits">GetCipherAlgBits</a></strong>: integer; virtual;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="blcksock.TCustomSSL.html#GetVerifyCert">GetVerifyCert</a></strong>: integer; virtual;</code></td>
+</tr>
+</table>
+<span id="PasDoc-Properties"></span><h3 class="summary">Propriedades</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="blcksock.TCustomSSL.html#SSLEnabled">SSLEnabled</a></strong>: Boolean read <a href="blcksock.TCustomSSL.html#FSSLEnabled">FSSLEnabled</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="blcksock.TCustomSSL.html#LastError">LastError</a></strong>: integer read <a href="blcksock.TCustomSSL.html#FLastError">FLastError</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="blcksock.TCustomSSL.html#LastErrorDesc">LastErrorDesc</a></strong>: string read <a href="blcksock.TCustomSSL.html#FLastErrorDesc">FLastErrorDesc</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><code>property <strong><a href="blcksock.TCustomSSL.html#SSLType">SSLType</a></strong>: <a href="blcksock.html#TSSLType">TSSLType</a> read <a href="blcksock.TCustomSSL.html#FSSLType">FSSLType</a> write <a href="blcksock.TCustomSSL.html#FSSLType">FSSLType</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><code>property <strong><a href="blcksock.TCustomSSL.html#KeyPassword">KeyPassword</a></strong>: string read <a href="blcksock.TCustomSSL.html#FKeyPassword">FKeyPassword</a> write <a href="blcksock.TCustomSSL.html#FKeyPassword">FKeyPassword</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><code>property <strong><a href="blcksock.TCustomSSL.html#Username">Username</a></strong>: string read <a href="blcksock.TCustomSSL.html#FUsername">FUsername</a> write <a href="blcksock.TCustomSSL.html#FUsername">FUsername</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><code>property <strong><a href="blcksock.TCustomSSL.html#Password">Password</a></strong>: string read <a href="blcksock.TCustomSSL.html#FPassword">FPassword</a> write <a href="blcksock.TCustomSSL.html#FPassword">FPassword</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><code>property <strong><a href="blcksock.TCustomSSL.html#Ciphers">Ciphers</a></strong>: string read <a href="blcksock.TCustomSSL.html#FCiphers">FCiphers</a> write <a href="blcksock.TCustomSSL.html#FCiphers">FCiphers</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><code>property <strong><a href="blcksock.TCustomSSL.html#CertificateFile">CertificateFile</a></strong>: string read <a href="blcksock.TCustomSSL.html#FCertificateFile">FCertificateFile</a> write <a href="blcksock.TCustomSSL.html#FCertificateFile">FCertificateFile</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><code>property <strong><a href="blcksock.TCustomSSL.html#PrivateKeyFile">PrivateKeyFile</a></strong>: string read <a href="blcksock.TCustomSSL.html#FPrivateKeyFile">FPrivateKeyFile</a> write <a href="blcksock.TCustomSSL.html#FPrivateKeyFile">FPrivateKeyFile</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><code>property <strong><a href="blcksock.TCustomSSL.html#Certificate">Certificate</a></strong>: Ansistring read <a href="blcksock.TCustomSSL.html#FCertificate">FCertificate</a> write <a href="blcksock.TCustomSSL.html#FCertificate">FCertificate</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><code>property <strong><a href="blcksock.TCustomSSL.html#PrivateKey">PrivateKey</a></strong>: Ansistring read <a href="blcksock.TCustomSSL.html#FPrivateKey">FPrivateKey</a> write <a href="blcksock.TCustomSSL.html#FPrivateKey">FPrivateKey</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><code>property <strong><a href="blcksock.TCustomSSL.html#PFX">PFX</a></strong>: Ansistring read <a href="blcksock.TCustomSSL.html#FPFX">FPFX</a> write <a href="blcksock.TCustomSSL.html#FPFX">FPFX</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><code>property <strong><a href="blcksock.TCustomSSL.html#PFXfile">PFXfile</a></strong>: string read <a href="blcksock.TCustomSSL.html#FPFXfile">FPFXfile</a> write <a href="blcksock.TCustomSSL.html#FPFXfile">FPFXfile</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><code>property <strong><a href="blcksock.TCustomSSL.html#TrustCertificateFile">TrustCertificateFile</a></strong>: string read <a href="blcksock.TCustomSSL.html#FTrustCertificateFile">FTrustCertificateFile</a> write <a href="blcksock.TCustomSSL.html#FTrustCertificateFile">FTrustCertificateFile</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><code>property <strong><a href="blcksock.TCustomSSL.html#TrustCertificate">TrustCertificate</a></strong>: Ansistring read <a href="blcksock.TCustomSSL.html#FTrustCertificate">FTrustCertificate</a> write <a href="blcksock.TCustomSSL.html#FTrustCertificate">FTrustCertificate</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><code>property <strong><a href="blcksock.TCustomSSL.html#CertCA">CertCA</a></strong>: Ansistring read <a href="blcksock.TCustomSSL.html#FCertCA">FCertCA</a> write <a href="blcksock.TCustomSSL.html#FCertCA">FCertCA</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><code>property <strong><a href="blcksock.TCustomSSL.html#CertCAFile">CertCAFile</a></strong>: string read <a href="blcksock.TCustomSSL.html#FCertCAFile">FCertCAFile</a> write <a href="blcksock.TCustomSSL.html#SetCertCAFile">SetCertCAFile</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><code>property <strong><a href="blcksock.TCustomSSL.html#VerifyCert">VerifyCert</a></strong>: Boolean read <a href="blcksock.TCustomSSL.html#FVerifyCert">FVerifyCert</a> write <a href="blcksock.TCustomSSL.html#FVerifyCert">FVerifyCert</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><code>property <strong><a href="blcksock.TCustomSSL.html#SSHChannelType">SSHChannelType</a></strong>: string read <a href="blcksock.TCustomSSL.html#FSSHChannelType">FSSHChannelType</a> write <a href="blcksock.TCustomSSL.html#FSSHChannelType">FSSHChannelType</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><code>property <strong><a href="blcksock.TCustomSSL.html#SSHChannelArg1">SSHChannelArg1</a></strong>: string read <a href="blcksock.TCustomSSL.html#FSSHChannelArg1">FSSHChannelArg1</a> write <a href="blcksock.TCustomSSL.html#FSSHChannelArg1">FSSHChannelArg1</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><code>property <strong><a href="blcksock.TCustomSSL.html#SSHChannelArg2">SSHChannelArg2</a></strong>: string read <a href="blcksock.TCustomSSL.html#FSSHChannelArg2">FSSHChannelArg2</a> write <a href="blcksock.TCustomSSL.html#FSSHChannelArg2">FSSHChannelArg2</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><code>property <strong><a href="blcksock.TCustomSSL.html#CertComplianceLevel">CertComplianceLevel</a></strong>: integer read <a href="blcksock.TCustomSSL.html#FCertComplianceLevel">FCertComplianceLevel</a> write <a href="blcksock.TCustomSSL.html#FCertComplianceLevel">FCertComplianceLevel</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><code>property <strong><a href="blcksock.TCustomSSL.html#OnVerifyCert">OnVerifyCert</a></strong>: <a href="blcksock.html#THookVerifyCert">THookVerifyCert</a> read <a href="blcksock.TCustomSSL.html#FOnVerifyCert">FOnVerifyCert</a> write <a href="blcksock.TCustomSSL.html#FOnVerifyCert">FOnVerifyCert</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><code>property <strong><a href="blcksock.TCustomSSL.html#SNIHost">SNIHost</a></strong>: string read <a href="blcksock.TCustomSSL.html#FSNIHost">FSNIHost</a> write <a href="blcksock.TCustomSSL.html#FSNIHost">FSNIHost</a>;</code></td>
+</tr>
+</table>
+<h2 class="description">Descrição</h2>
+<h3 class="detail">Campos</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="FOnVerifyCert"></span><code><strong>FOnVerifyCert</strong>: <a href="blcksock.html#THookVerifyCert">THookVerifyCert</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="FSocket"></span><code><strong>FSocket</strong>: <a href="blcksock.TTCPBlockSocket.html">TTCPBlockSocket</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="FSSLEnabled"></span><code><strong>FSSLEnabled</strong>: Boolean;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="FLastError"></span><code><strong>FLastError</strong>: integer;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="FLastErrorDesc"></span><code><strong>FLastErrorDesc</strong>: string;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="FSSLType"></span><code><strong>FSSLType</strong>: <a href="blcksock.html#TSSLType">TSSLType</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="FKeyPassword"></span><code><strong>FKeyPassword</strong>: string;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="FCiphers"></span><code><strong>FCiphers</strong>: string;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="FCertificateFile"></span><code><strong>FCertificateFile</strong>: string;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="FPrivateKeyFile"></span><code><strong>FPrivateKeyFile</strong>: string;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="FCertificate"></span><code><strong>FCertificate</strong>: Ansistring;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="FPrivateKey"></span><code><strong>FPrivateKey</strong>: Ansistring;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="FPFX"></span><code><strong>FPFX</strong>: Ansistring;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="FPFXfile"></span><code><strong>FPFXfile</strong>: string;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="FCertCA"></span><code><strong>FCertCA</strong>: Ansistring;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="FCertCAFile"></span><code><strong>FCertCAFile</strong>: string;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="FTrustCertificate"></span><code><strong>FTrustCertificate</strong>: Ansistring;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="FTrustCertificateFile"></span><code><strong>FTrustCertificateFile</strong>: string;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="FVerifyCert"></span><code><strong>FVerifyCert</strong>: Boolean;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="FUsername"></span><code><strong>FUsername</strong>: string;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="FPassword"></span><code><strong>FPassword</strong>: string;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="FSSHChannelType"></span><code><strong>FSSHChannelType</strong>: string;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="FSSHChannelArg1"></span><code><strong>FSSHChannelArg1</strong>: string;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="FSSHChannelArg2"></span><code><strong>FSSHChannelArg2</strong>: string;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="FCertComplianceLevel"></span><code><strong>FCertComplianceLevel</strong>: integer;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="FSNIHost"></span><code><strong>FSNIHost</strong>: string;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<h3 class="detail">Métodos</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="ReturnError"></span><code>procedure <strong>ReturnError</strong>;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="SetCertCAFile"></span><code>procedure <strong>SetCertCAFile</strong>(const Value: string); virtual;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="DoVerifyCert"></span><code>function <strong>DoVerifyCert</strong>:boolean;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="CreateSelfSignedCert"></span><code>function <strong>CreateSelfSignedCert</strong>(Host: string): Boolean; virtual;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Create"></span><code>constructor <strong>Create</strong>(const Value: <a href="blcksock.TTCPBlockSocket.html">TTCPBlockSocket</a>); virtual;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+<code>Create</code> plugin class. it is called internally from <a class="normal" href="blcksock.TTCPBlockSocket.html">TTCPBlockSocket</a></p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Assign"></span><code>procedure <strong>Assign</strong>(const Value: <a href="blcksock.TCustomSSL.html">TCustomSSL</a>); virtual;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+<code>Assign</code> settings (certificates <a class="normal" href="int65math.html#and">and</a> configuration) from another SSL plugin class.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="LibVersion"></span><code>function <strong>LibVersion</strong>: String; virtual;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+return description of used plugin. It usually return name <a class="normal" href="int65math.html#and">and</a> version of used SSL library.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="LibName"></span><code>function <strong>LibName</strong>: String; virtual;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+return name of used plugin.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Connect"></span><code>function <strong>Connect</strong>: boolean; virtual;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+Do not call this directly. It is used internally by <a class="normal" href="blcksock.TTCPBlockSocket.html">TTCPBlockSocket</a>!
+
+<p>Here is needed code for start SSL connection.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Accept"></span><code>function <strong>Accept</strong>: boolean; virtual;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+Do not call this directly. It is used internally by <a class="normal" href="blcksock.TTCPBlockSocket.html">TTCPBlockSocket</a>!
+
+<p>Here is needed code for acept new SSL connection.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Shutdown"></span><code>function <strong>Shutdown</strong>: boolean; virtual;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+Do not call this directly. It is used internally by <a class="normal" href="blcksock.TTCPBlockSocket.html">TTCPBlockSocket</a>!
+
+<p>Here is needed code for hard <code>shutdown</code> of SSL connection. (for example, before socket is closed)</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="BiShutdown"></span><code>function <strong>BiShutdown</strong>: boolean; virtual;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+Do not call this directly. It is used internally by <a class="normal" href="blcksock.TTCPBlockSocket.html">TTCPBlockSocket</a>!
+
+<p>Here is needed code for soft <a class="normal" href="blcksock.TCustomSSL.html#Shutdown">shutdown</a> of SSL connection. (for example, when you need to continue with unprotected connection.)</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="SendBuffer"></span><code>function <strong>SendBuffer</strong>(Buffer: TMemory; Len: Integer): Integer; virtual;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+Do not call this directly. It is used internally by <a class="normal" href="blcksock.TTCPBlockSocket.html">TTCPBlockSocket</a>!
+
+<p>Here is needed code for sending some datas by SSL connection.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="RecvBuffer"></span><code>function <strong>RecvBuffer</strong>(Buffer: TMemory; Len: Integer): Integer; virtual;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+Do not call this directly. It is used internally by <a class="normal" href="blcksock.TTCPBlockSocket.html">TTCPBlockSocket</a>!
+
+<p>Here is needed code for receiving some datas by SSL connection.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="WaitingData"></span><code>function <strong>WaitingData</strong>: Integer; virtual;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+Do not call this directly. It is used internally by <a class="normal" href="blcksock.TTCPBlockSocket.html">TTCPBlockSocket</a>!
+
+<p>Here is needed code for getting count of datas what waiting for read. If SSL plugin not allows this, then it should return 0.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="GetSSLVersion"></span><code>function <strong>GetSSLVersion</strong>: string; virtual;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+Return string with identificator of SSL/TLS version of existing connection.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="GetPeerSubject"></span><code>function <strong>GetPeerSubject</strong>: string; virtual;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+Return subject of remote SSL peer.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="GetPeerSerialNo"></span><code>function <strong>GetPeerSerialNo</strong>: integer; virtual;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+Return Serial number if remote X509 <a class="normal" href="blcksock.TCustomSSL.html#Certificate">certificate</a>.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="GetPeerIssuer"></span><code>function <strong>GetPeerIssuer</strong>: string; virtual;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+Return issuer <a class="normal" href="blcksock.TCustomSSL.html#Certificate">certificate</a> of remote SSL peer.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="GetPeerName"></span><code>function <strong>GetPeerName</strong>: string; virtual;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+Return peer name from remote side <a class="normal" href="blcksock.TCustomSSL.html#Certificate">certificate</a>. This is good for verify, if <a class="normal" href="blcksock.TCustomSSL.html#Certificate">certificate</a> is generated for remote side IP name.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="GetPeerNameHash"></span><code>function <strong>GetPeerNameHash</strong>: cardinal; virtual;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+Returns has of peer name from remote side <a class="normal" href="blcksock.TCustomSSL.html#Certificate">certificate</a>. This is good for fast remote side authentication.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="GetPeerFingerprint"></span><code>function <strong>GetPeerFingerprint</strong>: AnsiString; virtual;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+Return fingerprint of remote SSL peer. (As binary nonprintable string!)</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="GetCertInfo"></span><code>function <strong>GetCertInfo</strong>: string; virtual;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+Return all detailed information about <a class="normal" href="blcksock.TCustomSSL.html#Certificate">certificate</a> from remote side of SSL/TLS connection. Result string can be multilined! Each plugin can return this informations in different format!</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="GetCipherName"></span><code>function <strong>GetCipherName</strong>: string; virtual;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+Return currently used Cipher.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="GetCipherBits"></span><code>function <strong>GetCipherBits</strong>: integer; virtual;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+Return currently used number of bits in current Cipher algorythm.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="GetCipherAlgBits"></span><code>function <strong>GetCipherAlgBits</strong>: integer; virtual;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+Return number of bits in current Cipher algorythm.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="GetVerifyCert"></span><code>function <strong>GetVerifyCert</strong>: integer; virtual;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+Return result value of verify remote side <a class="normal" href="blcksock.TCustomSSL.html#Certificate">certificate</a>. Look to OpenSSL documentation for possible values. For example 0 is successfuly verified <a class="normal" href="blcksock.TCustomSSL.html#Certificate">certificate</a>, or 18 is self-signed <a class="normal" href="blcksock.TCustomSSL.html#Certificate">certificate</a>.</p>
+</td></tr>
+</table>
+<h3 class="detail">Propriedades</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="SSLEnabled"></span><code>property <strong>SSLEnabled</strong>: Boolean read <a href="blcksock.TCustomSSL.html#FSSLEnabled">FSSLEnabled</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+Resurn <code>True</code> if SSL mode is enabled on existing cvonnection.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="LastError"></span><code>property <strong>LastError</strong>: integer read <a href="blcksock.TCustomSSL.html#FLastError">FLastError</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+Return <a class="normal" href="slogsend.html#Error">error</a> code of last SSL operation. 0 is OK.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="LastErrorDesc"></span><code>property <strong>LastErrorDesc</strong>: string read <a href="blcksock.TCustomSSL.html#FLastErrorDesc">FLastErrorDesc</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+Return <a class="normal" href="slogsend.html#Error">error</a> description of last SSL operation.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><span id="SSLType"></span><code>property <strong>SSLType</strong>: <a href="blcksock.html#TSSLType">TSSLType</a> read <a href="blcksock.TCustomSSL.html#FSSLType">FSSLType</a> write <a href="blcksock.TCustomSSL.html#FSSLType">FSSLType</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+Here you can specify requested SSL/TLS mode. Default is autodetection, but on some servers autodetection not working properly. In this case you must specify requested SSL/TLS mode by your hand!</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><span id="KeyPassword"></span><code>property <strong>KeyPassword</strong>: string read <a href="blcksock.TCustomSSL.html#FKeyPassword">FKeyPassword</a> write <a href="blcksock.TCustomSSL.html#FKeyPassword">FKeyPassword</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+<a class="normal" href="blcksock.TCustomSSL.html#Password">Password</a> for decrypting of encoded <a class="normal" href="blcksock.TCustomSSL.html#Certificate">certificate</a> or key.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><span id="Username"></span><code>property <strong>Username</strong>: string read <a href="blcksock.TCustomSSL.html#FUsername">FUsername</a> write <a href="blcksock.TCustomSSL.html#FUsername">FUsername</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+<code>Username</code> for possible credentials.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><span id="Password"></span><code>property <strong>Password</strong>: string read <a href="blcksock.TCustomSSL.html#FPassword">FPassword</a> write <a href="blcksock.TCustomSSL.html#FPassword">FPassword</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+<code>password</code> for possible credentials.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><span id="Ciphers"></span><code>property <strong>Ciphers</strong>: string read <a href="blcksock.TCustomSSL.html#FCiphers">FCiphers</a> write <a href="blcksock.TCustomSSL.html#FCiphers">FCiphers</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+By this property you can modify default set of SSL/TLS <code>ciphers</code>.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><span id="CertificateFile"></span><code>property <strong>CertificateFile</strong>: string read <a href="blcksock.TCustomSSL.html#FCertificateFile">FCertificateFile</a> write <a href="blcksock.TCustomSSL.html#FCertificateFile">FCertificateFile</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+Used for loading <a class="normal" href="blcksock.TCustomSSL.html#Certificate">certificate</a> from disk file. See to plugin documentation if this method is supported <a class="normal" href="int65math.html#and">and</a> how!</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><span id="PrivateKeyFile"></span><code>property <strong>PrivateKeyFile</strong>: string read <a href="blcksock.TCustomSSL.html#FPrivateKeyFile">FPrivateKeyFile</a> write <a href="blcksock.TCustomSSL.html#FPrivateKeyFile">FPrivateKeyFile</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+Used for loading private key from disk file. See to plugin documentation if this method is supported <a class="normal" href="int65math.html#and">and</a> how!</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><span id="Certificate"></span><code>property <strong>Certificate</strong>: Ansistring read <a href="blcksock.TCustomSSL.html#FCertificate">FCertificate</a> write <a href="blcksock.TCustomSSL.html#FCertificate">FCertificate</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+Used for loading <code>certificate</code> from binary string. See to plugin documentation if this method is supported <a class="normal" href="int65math.html#and">and</a> how!</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><span id="PrivateKey"></span><code>property <strong>PrivateKey</strong>: Ansistring read <a href="blcksock.TCustomSSL.html#FPrivateKey">FPrivateKey</a> write <a href="blcksock.TCustomSSL.html#FPrivateKey">FPrivateKey</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+Used for loading private key from binary string. See to plugin documentation if this method is supported <a class="normal" href="int65math.html#and">and</a> how!</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><span id="PFX"></span><code>property <strong>PFX</strong>: Ansistring read <a href="blcksock.TCustomSSL.html#FPFX">FPFX</a> write <a href="blcksock.TCustomSSL.html#FPFX">FPFX</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+Used for loading <code>PFX</code> from binary string. See to plugin documentation if this method is supported <a class="normal" href="int65math.html#and">and</a> how!</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><span id="PFXfile"></span><code>property <strong>PFXfile</strong>: string read <a href="blcksock.TCustomSSL.html#FPFXfile">FPFXfile</a> write <a href="blcksock.TCustomSSL.html#FPFXfile">FPFXfile</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+Used for loading <a class="normal" href="blcksock.TCustomSSL.html#PFX">PFX</a> from disk file. See to plugin documentation if this method is supported <a class="normal" href="int65math.html#and">and</a> how!</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><span id="TrustCertificateFile"></span><code>property <strong>TrustCertificateFile</strong>: string read <a href="blcksock.TCustomSSL.html#FTrustCertificateFile">FTrustCertificateFile</a> write <a href="blcksock.TCustomSSL.html#FTrustCertificateFile">FTrustCertificateFile</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+Used for loading trusted certificates from disk file. See to plugin documentation if this method is supported <a class="normal" href="int65math.html#and">and</a> how!</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><span id="TrustCertificate"></span><code>property <strong>TrustCertificate</strong>: Ansistring read <a href="blcksock.TCustomSSL.html#FTrustCertificate">FTrustCertificate</a> write <a href="blcksock.TCustomSSL.html#FTrustCertificate">FTrustCertificate</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+Used for loading trusted certificates from binary string. See to plugin documentation if this method is supported <a class="normal" href="int65math.html#and">and</a> how!</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><span id="CertCA"></span><code>property <strong>CertCA</strong>: Ansistring read <a href="blcksock.TCustomSSL.html#FCertCA">FCertCA</a> write <a href="blcksock.TCustomSSL.html#FCertCA">FCertCA</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+Used for loading CA certificates from binary string. See to plugin documentation if this method is supported <a class="normal" href="int65math.html#and">and</a> how!</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><span id="CertCAFile"></span><code>property <strong>CertCAFile</strong>: string read <a href="blcksock.TCustomSSL.html#FCertCAFile">FCertCAFile</a> write <a href="blcksock.TCustomSSL.html#SetCertCAFile">SetCertCAFile</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+Used for loading CA certificates from disk file. See to plugin documentation if this method is supported <a class="normal" href="int65math.html#and">and</a> how!</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><span id="VerifyCert"></span><code>property <strong>VerifyCert</strong>: Boolean read <a href="blcksock.TCustomSSL.html#FVerifyCert">FVerifyCert</a> write <a href="blcksock.TCustomSSL.html#FVerifyCert">FVerifyCert</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+If <code>True</code>, then is verified client <a class="normal" href="blcksock.TCustomSSL.html#Certificate">certificate</a>. (it is good for writing SSL/TLS servers.) When you are not server, but you are client, then if this property is <code>True</code>, verify servers <a class="normal" href="blcksock.TCustomSSL.html#Certificate">certificate</a>.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><span id="SSHChannelType"></span><code>property <strong>SSHChannelType</strong>: string read <a href="blcksock.TCustomSSL.html#FSSHChannelType">FSSHChannelType</a> write <a href="blcksock.TCustomSSL.html#FSSHChannelType">FSSHChannelType</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+channel type for possible SSH connections</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><span id="SSHChannelArg1"></span><code>property <strong>SSHChannelArg1</strong>: string read <a href="blcksock.TCustomSSL.html#FSSHChannelArg1">FSSHChannelArg1</a> write <a href="blcksock.TCustomSSL.html#FSSHChannelArg1">FSSHChannelArg1</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+First argument of channel type for possible SSH connections</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><span id="SSHChannelArg2"></span><code>property <strong>SSHChannelArg2</strong>: string read <a href="blcksock.TCustomSSL.html#FSSHChannelArg2">FSSHChannelArg2</a> write <a href="blcksock.TCustomSSL.html#FSSHChannelArg2">FSSHChannelArg2</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+Second argument of channel type for possible SSH connections</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><span id="CertComplianceLevel"></span><code>property <strong>CertComplianceLevel</strong>: integer read <a href="blcksock.TCustomSSL.html#FCertComplianceLevel">FCertComplianceLevel</a> write <a href="blcksock.TCustomSSL.html#FCertComplianceLevel">FCertComplianceLevel</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+Level of standards compliance level (CryptLib: values in cryptlib.pas, -1: use default value )</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><span id="OnVerifyCert"></span><code>property <strong>OnVerifyCert</strong>: <a href="blcksock.html#THookVerifyCert">THookVerifyCert</a> read <a href="blcksock.TCustomSSL.html#FOnVerifyCert">FOnVerifyCert</a> write <a href="blcksock.TCustomSSL.html#FOnVerifyCert">FOnVerifyCert</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+This event is called when verifying the server <a class="normal" href="blcksock.TCustomSSL.html#Certificate">certificate</a> immediatally after a successfull verification in the ssl library.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><span id="SNIHost"></span><code>property <strong>SNIHost</strong>: string read <a href="blcksock.TCustomSSL.html#FSNIHost">FSNIHost</a> write <a href="blcksock.TCustomSSL.html#FSNIHost">FSNIHost</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+Server Name Identification. Host name to send to server. If empty the host name found in URL will be used, which should be the normal use (http Header Host = SNI Host). The value is cleared after the connection is established. (SNI support requires OpenSSL 0.9.8k or later. Cryptlib not supported, yet )</p>
+</td></tr>
+</table>
+<hr><span class="appinfo"><em>Gerado por <a href="https://pasdoc.github.io/">PasDoc 0.16.0</a>. </em>
+</span>
+</div></div></body></html>

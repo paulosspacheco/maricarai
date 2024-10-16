@@ -1,0 +1,12 @@
+./units/clientdatamodule.pas
+./units/mi.rtl.web.module.form.pas
+./units/backup/clientdatamodule.pas
+./units/backup/mi.rtl.web.module.form.pas
+./units/backup/data.module.client.rest.pas
+./units/backup/unit1.pas
+./units/backup/form.main.pas
+./units/backup/mi.web.module.client.pas
+./units/data.module.client.rest.pas
+./units/form.main.pas
+./mi.web.lcl.client.lpr
+./backup/mi.web.lcl.client.lpr

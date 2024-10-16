@@ -104,6 +104,7 @@ type
       public property DmxFieldRec: pDmxFieldRec Read _pDmxFieldRec   Write  SeTDmxFieldRec;
     {$ENDREGION}
 
+    public function GetHTMLContent: String;
   end;
 
 //procedure Register;
@@ -297,6 +298,11 @@ begin
          end;
 
   end;
+end;
+
+function TMI_ui_DbRadioGroup_Lcl.GetHTMLContent: String;
+begin
+
 end;
 
 end.

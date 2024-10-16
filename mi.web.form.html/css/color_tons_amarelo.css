@@ -1,0 +1,68 @@
+:root { /* Cores do body e h1 a h4 */
+    --background-color: #fff8e1; /* Amarelo claro para o fundo da página */
+    --text-color: #333; /* Cor do texto padrão */
+    --title-color: #ffeb3b; /* Amarelo mais intenso para o texto dos títulos (h1, h2, h3, h4) */
+}
+
+:root { /* Cores dos formulários */
+    --form-background-color: #fffde7; /* Amarelo mais claro para o fundo do formulário */
+    --form-border-color: #ffd740; /* Amarelo mais escuro para a borda */
+    --form-header-background-color: #ffc107; /* Amarelo forte para a barra de título */
+    --form-header-text-color: #000; /* Cor do texto da barra de título em preto para contraste */
+
+    --button-background-color: #ffca28; /* Amarelo escuro para os botões */
+    --button-hover-background-color: #ffb300; /* Tom mais escuro ao passar o mouse */
+    --disabled-button-background-color: #ffe082; /* Cor de fundo para botão desabilitado */
+    --disabled-button-text-color: #757575; /* Cor do texto para botão desabilitado */
+    --input-background-color: #fff9c4; /* Cor de fundo dos inputs */
+    --input-border-color: #ffe57f; /* Cor da borda dos inputs */
+    --input-focus-border-color: #ffd54f; /* Cor da borda ao focar */
+    --input-focus-background-color: #fff59d; /* Fundo levemente mais escuro ao focar */
+    --label-color: #ffb300; /* Cor do texto do label */
+    --text-color: #333; /* Cor do texto padrão */
+}
+
+:root { /* Cores dos dialogs */
+    --dialog-overlay-bg-color: rgba(0, 0, 0, 0.5); /* Fundo da sobreposição */
+    --dialog-box-bg-color: #ffecb3; /* Caixa de diálogo em amarelo claro */
+    --dialog-box-text-color: #000; /* Texto em preto para contraste */
+    --dialog-label-color: #ffeb3b; /* Amarelo mais intenso para os rótulos */
+    --dialog-title-color: #000; /* Título com texto preto */
+    --dialog-message-color: #000; /* Mensagem com texto preto */
+    --action-button-bg-color: #ffca28; /* Cor de fundo amarelo escuro para botões */
+    --action-button-text-color: #000; /* Cor do texto em preto para botões */
+    --action-button-hover-bg-color: #ffb300; /* Amarelo mais escuro ao passar o mouse */
+    --dialog-box-shadow: 0 0 15px rgba(0, 0, 0, 0.5); /* Sombra da caixa de diálogo */
+    --dialog-title-warning-color: orange; /* Cor para título de aviso */
+    --dialog-title-error-color: red; /* Cor para título de erro */
+    --dialog-title-info-color: blue; /* Cor para título de informação */
+    --dialog-title-confirmation-color: green; /* Cor para título de confirmação */
+    --dialog-title-custom-color: purple; /* Cor para título personalizado */
+    --dialog-title-default-color: black; /* Cor padrão para título */
+}
+
+:root { /* Cores para o painel de botões de navegação */
+    --nav-button-hover-bg-color: #ffb300; /* Amarelo mais escuro ao passar o mouse */
+    --nav-button-disabled-bg-color: #ffe082; /* Cor de fundo para botão de navegação desabilitado */
+    --nav-button-disabled-text-color: #757575; /* Cor do texto para botão de navegação desabilitado */
+    --nav-button-disabled-border-color: #ffd740; /* Borda para botão desabilitado */
+    --nav-buttons-bg-color: #ffecb3; /* Cor amarelo médio para o fundo dos botões de navegação */
+    --nav-buttons-text-color: #000; /* Cor do texto dos botões em preto */
+    --nav-buttons-focus-bg-color: #ffc107; /* Cor de fundo diferente para o estado de foco */
+    --action-buttons-bg-color: #ffecb3; /* Amarelo médio para o grupo de botões de ação */
+    --overlay-bg-color: rgba(0, 0, 0, 0.8); /* Fundo escuro para a sobreposição */
+}
+
+:root { /* Cores das tags fieldSet */
+    --fieldset-bg-color: #fffde7; /* Tom de amarelo claro */
+    --fieldset-border-color: #ffd740; /* Borda em amarelo mais escuro */
+    --fieldset-legend-color: #ffeb3b; /* Cor de amarelo intenso para a legenda */
+    --fieldset-legend-bg-color: #fff9c4; /* Fundo claro para contraste */
+    --fieldset-legend-border-color: #ffe57f; /* Borda da legenda */
+    --fieldset-label-color: #ffb300; /* Amarelo mais escuro para labels */
+    --fieldset-input-bg-color: #fff; /* Fundo branco para inputs */
+    --fieldset-input-border-color: #ffd740; /* Borda levemente escurecida para inputs */
+    --field-group-border-color: #3043bd; /* Borda azul para grupos de campos */    
+    --group-of-groups-border-color: #131ae9; /* Borda verde para grupos de grupos */    
+    --global-legend-color: #1a7fd2; /* Cor azul para legenda geral */
+}

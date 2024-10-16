@@ -41,38 +41,6 @@
         <IsPartOfProject Value="True"/>
       </Unit>
       <Unit>
-        <Filename Value="bin/css/defaulttheme.css"/>
-        <IsPartOfProject Value="True"/>
-      </Unit>
-      <Unit>
-        <Filename Value="bin/inc/linksCSS.inc"/>
-        <IsPartOfProject Value="True"/>
-      </Unit>
-      <Unit>
-        <Filename Value="bin/js/menu/index.js"/>
-        <IsPartOfProject Value="True"/>
-      </Unit>
-      <Unit>
-        <Filename Value="bin/js/footer.inc"/>
-        <IsPartOfProject Value="True"/>
-      </Unit>
-      <Unit>
-        <Filename Value="bin/js/generic.js"/>
-        <IsPartOfProject Value="True"/>
-      </Unit>
-      <Unit>
-        <Filename Value="bin/js/tgeneric.js"/>
-        <IsPartOfProject Value="True"/>
-      </Unit>
-      <Unit>
-        <Filename Value="bin/js/tincludehtml.js"/>
-        <IsPartOfProject Value="True"/>
-      </Unit>
-      <Unit>
-        <Filename Value="bin/js/treeview_xhtml.js"/>
-        <IsPartOfProject Value="True"/>
-      </Unit>
-      <Unit>
         <Filename Value="units/u_dm_mapa_site.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="DM_Mapa_site"/>
@@ -80,27 +48,11 @@
         <ResourceBaseClass Value="DataModule"/>
       </Unit>
       <Unit>
-        <Filename Value="bin/templates/template_pssp_app_br.html"/>
-        <IsPartOfProject Value="True"/>
-      </Unit>
-      <Unit>
-        <Filename Value="bin/templates/tipuesearch/tipuesearch_content.js"/>
-        <IsPartOfProject Value="True"/>
-      </Unit>
-      <Unit>
         <Filename Value="units/u_dm_tipuesearch.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="DM_tipuesearch"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="DataModule"/>
-      </Unit>
-      <Unit>
-        <Filename Value="bin/tipuesearch_content.js"/>
-        <IsPartOfProject Value="True"/>
-      </Unit>
-      <Unit>
-        <Filename Value="bin/mapa_do_site.html"/>
-        <IsPartOfProject Value="True"/>
       </Unit>
     </Units>
   </ProjectOptions>
@@ -110,7 +62,7 @@
       <Filename Value="bin/$(TargetCPU)-$(TargetOS)/create_tipuesearch"/>
     </Target>
     <SearchPaths>
-      <IncludeFiles Value="$(ProjOutDir);bin/inc;bin/js"/>
+      <IncludeFiles Value="$(ProjOutDir)"/>
       <Libraries Value="bin/$(TargetCPU)-$(TargetOS)/lib"/>
       <OtherUnitFiles Value="units;internettools/data;internettools/internet;synapse;flre/src"/>
       <UnitOutputDirectory Value="bin/$(TargetCPU)-$(TargetOS)/Units"/>

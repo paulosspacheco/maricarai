@@ -1,0 +1,1953 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<title>bbunicodeinfo</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="generator" content="PasDoc 0.16.0">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<link rel="stylesheet" type="text/css" href="tipuesearch/tipuesearch.css">
+
+<link rel="StyleSheet" type="text/css" href="pasdoc.css">
+</head>
+<body>
+<div class="container"><div class="navigation">
+<ul><li><a href="AllUnits.html">Units</a></li><li><a href="ClassHierarchy.html">Hierarquia de Classes</a></li><li><a href="AllClasses.html">Classes, Interfaces, Objetos e Registros</a></li><li><a href="AllTypes.html">Tipos</a></li><li><a href="AllVariables.html">Variáveis</a></li><li><a href="AllConstants.html">Constantes</a></li><li><a href="AllFunctions.html">Funções e Procedimentos</a></li><li><a href="AllIdentifiers.html">Identificadores</a></li><li><form class="search-form" action="tipue_results.html"><div class="search-input"><input type="text" name="q" id="tipue_search_input" pattern=".{3,}" title="At least 3 characters" required><div class="search-button"><input type="button" id="tipue_search_button" onclick="this.form.submit();"></div></div></form>
+<div style="clear: both"></div>
+</li></ul></div><div class="content">
+<h1 class="unit">Unit bbunicodeinfo</h1>
+<div class="sections">
+<div class="one_section"><a class="section" href="#PasDoc-Description">Descrição</a></div><div class="one_section"><a class="section" href="#PasDoc-Uses">Uses</a></div><div class="one_section"><a class="section" href="#PasDoc-Classes">Classes, Interfaces, Objetos e Registros</a></div><div class="one_section"><a class="section" href="#PasDoc-FuncsProcs">Funções e Procedimentos</a></div><div class="one_section"><a class="section" href="#PasDoc-Types">Tipos</a></div><div class="one_section"><a class="section" href="#PasDoc-Constants">Constantes</a></div><div class="one_section">Variáveis</div></div>
+<span id="PasDoc-Description"></span><h2 class="description">Descrição</h2>
+&nbsp;<span id="PasDoc-Uses"></span><h2 class="uses">Uses</h2>
+<ul class="useslist"><li>Classes</li><li>SysUtils</li></ul><h2 class="overview">Visão Geral</h2>
+<span id="PasDoc-Classes"></span><h3 class="cio">Classes, Interfaces, Objetos e Registros</h3>
+<table class="classestable wide_list">
+<tr class="listheader">
+<th class="itemname">Nome</th>
+<th class="itemdesc">Descrição</th>
+</tr>
+<tr class="list">
+<td class="itemname">Registro&nbsp;<a class="bold" href="bbunicodeinfo.TUnicodeRange.html"><code>TUnicodeRange</code></a></td>
+<td class="itemdesc">&nbsp;</td>
+</tr>
+<tr class="list2">
+<td class="itemname">Registro&nbsp;<a class="bold" href="bbunicodeinfo.utf8proc_property_t.html"><code>utf8proc_property_t</code></a></td>
+<td class="itemdesc">&nbsp;</td>
+</tr>
+</table>
+<span id="PasDoc-FuncsProcs"></span><h3 class="summary">Funções e Procedimentos</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="itemcode"><code>function <strong><a href="bbunicodeinfo.html#utf8proc_NFD">utf8proc_NFD</a></strong>(str: PChar): PChar;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code>function <strong><a href="bbunicodeinfo.html#utf8proc_NFC">utf8proc_NFC</a></strong>(str: PChar): PChar;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code>function <strong><a href="bbunicodeinfo.html#utf8proc_NFKD">utf8proc_NFKD</a></strong>(str: PChar): PChar;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code>function <strong><a href="bbunicodeinfo.html#utf8proc_NFKC">utf8proc_NFKC</a></strong>(str: PChar): PChar;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code>function <strong><a href="bbunicodeinfo.html#utf8proc_codepoint_valid">utf8proc_codepoint_valid</a></strong>(uc: longint): boolean;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code>function <strong><a href="bbunicodeinfo.html#utf8proc_iterate">utf8proc_iterate</a></strong>(str: PByte; strlen: longint; dst: pLongInt): longint;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code>function <strong><a href="bbunicodeinfo.html#utf8proc_encode_char">utf8proc_encode_char</a></strong>(uc: longint; dst: PByte): longint;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code>function <strong><a href="bbunicodeinfo.html#utf8proc_get_property">utf8proc_get_property</a></strong>(uc: longint): <a href="bbunicodeinfo.html#putf8proc_property_t">putf8proc_property_t</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code>function <strong><a href="bbunicodeinfo.html#utf8proc_decompose_char">utf8proc_decompose_char</a></strong>(uc: longint; dst: plongint; bufsize: longint; options: integer; last_boundclass: <a href="ssl_openssl11_lib.html#PInteger">pinteger</a>): longint;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code>function <strong><a href="bbunicodeinfo.html#utf8proc_decomposer">utf8proc_decomposer</a></strong>(str: PByte; strlen: longint; buffer: plongint; bufsize: longint; options: integer): longint;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code>function <strong><a href="bbunicodeinfo.html#utf8proc_map">utf8proc_map</a></strong>(str: PByte; strlen: longint; dstptr: <a href="bbunicodeinfo.html#PPByte">PPByte</a>; options: integer): longint;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code>function <strong><a href="bbunicodeinfo.html#utf8proc_reencode">utf8proc_reencode</a></strong>(buffer: plongint; length: longint; options: integer): longint;</code></td>
+</tr>
+</table>
+<span id="PasDoc-Types"></span><h3 class="summary">Tipos</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="itemcode"><code><strong><a href="bbunicodeinfo.html#PPByte">PPByte</a></strong> = &circ;PByte;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><strong><a href="bbunicodeinfo.html#utf8proc_propval_t">utf8proc_propval_t</a></strong> = Smallint;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><strong><a href="bbunicodeinfo.html#putf8proc_property_t">putf8proc_property_t</a></strong> = &circ;<a href="bbunicodeinfo.utf8proc_property_t.html">utf8proc_property_t</a>;</code></td>
+</tr>
+</table>
+<span id="PasDoc-Constants"></span><h3 class="summary">Constantes</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="itemcode"><code><strong><a href="bbunicodeinfo.html#UTF8PROC_NULLTERM">UTF8PROC_NULLTERM</a></strong> = 1 shl 0;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><strong><a href="bbunicodeinfo.html#UTF8PROC_STABLE">UTF8PROC_STABLE</a></strong> = 1 shl 1;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><strong><a href="bbunicodeinfo.html#UTF8PROC_COMPAT">UTF8PROC_COMPAT</a></strong> = 1 shl 2;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><strong><a href="bbunicodeinfo.html#UTF8PROC_COMPOSE">UTF8PROC_COMPOSE</a></strong> = 1 shl 3;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><strong><a href="bbunicodeinfo.html#UTF8PROC_DECOMPOSE">UTF8PROC_DECOMPOSE</a></strong> = 1 shl 4;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><strong><a href="bbunicodeinfo.html#UTF8PROC_IGNORE">UTF8PROC_IGNORE</a></strong> = 1 shl 5;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><strong><a href="bbunicodeinfo.html#UTF8PROC_REJECTNA">UTF8PROC_REJECTNA</a></strong> = 1 shl 6;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><strong><a href="bbunicodeinfo.html#UTF8PROC_NLF2LS">UTF8PROC_NLF2LS</a></strong> = 1 shl 7;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><strong><a href="bbunicodeinfo.html#UTF8PROC_NLF2PS">UTF8PROC_NLF2PS</a></strong> = 1 shl 8;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><strong><a href="bbunicodeinfo.html#UTF8PROC_NLF2LF">UTF8PROC_NLF2LF</a></strong> = <a href="bbunicodeinfo.html#UTF8PROC_NLF2LS">UTF8PROC_NLF2LS</a> or <a href="bbunicodeinfo.html#UTF8PROC_NLF2PS">UTF8PROC_NLF2PS</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><strong><a href="bbunicodeinfo.html#UTF8PROC_STRIPCC">UTF8PROC_STRIPCC</a></strong> = 1 shl 9;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><strong><a href="bbunicodeinfo.html#UTF8PROC_CASEFOLD">UTF8PROC_CASEFOLD</a></strong> = 1 shl 10;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><strong><a href="bbunicodeinfo.html#UTF8PROC_CHARBOUND">UTF8PROC_CHARBOUND</a></strong> = 1 shl 11;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><strong><a href="bbunicodeinfo.html#UTF8PROC_LUMP">UTF8PROC_LUMP</a></strong> = 1 shl 12;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><strong><a href="bbunicodeinfo.html#UTF8PROC_STRIPMARK">UTF8PROC_STRIPMARK</a></strong> = 1 shl 13;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><strong><a href="bbunicodeinfo.html#UTF8PROC_HANGUL_SBASE">UTF8PROC_HANGUL_SBASE</a></strong> = $AC00;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><strong><a href="bbunicodeinfo.html#UTF8PROC_HANGUL_LBASE">UTF8PROC_HANGUL_LBASE</a></strong> = $1100;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><strong><a href="bbunicodeinfo.html#UTF8PROC_HANGUL_VBASE">UTF8PROC_HANGUL_VBASE</a></strong> = $1161;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><strong><a href="bbunicodeinfo.html#UTF8PROC_HANGUL_TBASE">UTF8PROC_HANGUL_TBASE</a></strong> = $11A7;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><strong><a href="bbunicodeinfo.html#UTF8PROC_HANGUL_LCOUNT">UTF8PROC_HANGUL_LCOUNT</a></strong> = 19;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><strong><a href="bbunicodeinfo.html#UTF8PROC_HANGUL_VCOUNT">UTF8PROC_HANGUL_VCOUNT</a></strong> = 21;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><strong><a href="bbunicodeinfo.html#UTF8PROC_HANGUL_TCOUNT">UTF8PROC_HANGUL_TCOUNT</a></strong> = 28;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><strong><a href="bbunicodeinfo.html#UTF8PROC_HANGUL_NCOUNT">UTF8PROC_HANGUL_NCOUNT</a></strong> = 588;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><strong><a href="bbunicodeinfo.html#UTF8PROC_HANGUL_SCOUNT">UTF8PROC_HANGUL_SCOUNT</a></strong> = 11172;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><strong><a href="bbunicodeinfo.html#UTF8PROC_HANGUL_L_START">UTF8PROC_HANGUL_L_START</a></strong> = $1100;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><strong><a href="bbunicodeinfo.html#UTF8PROC_HANGUL_L_END">UTF8PROC_HANGUL_L_END</a></strong> = $115A;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><strong><a href="bbunicodeinfo.html#UTF8PROC_HANGUL_L_FILLER">UTF8PROC_HANGUL_L_FILLER</a></strong> = $115F;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><strong><a href="bbunicodeinfo.html#UTF8PROC_HANGUL_V_START">UTF8PROC_HANGUL_V_START</a></strong> = $1160;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><strong><a href="bbunicodeinfo.html#UTF8PROC_HANGUL_V_END">UTF8PROC_HANGUL_V_END</a></strong> = $11A3;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><strong><a href="bbunicodeinfo.html#UTF8PROC_HANGUL_T_START">UTF8PROC_HANGUL_T_START</a></strong> = $11A8;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><strong><a href="bbunicodeinfo.html#UTF8PROC_HANGUL_T_END">UTF8PROC_HANGUL_T_END</a></strong> = $11FA;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><strong><a href="bbunicodeinfo.html#UTF8PROC_HANGUL_S_START">UTF8PROC_HANGUL_S_START</a></strong> = $AC00;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><strong><a href="bbunicodeinfo.html#UTF8PROC_HANGUL_S_END">UTF8PROC_HANGUL_S_END</a></strong> = $D7A4;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><strong><a href="bbunicodeinfo.html#UTF8PROC_BOUNDCLASS_START">UTF8PROC_BOUNDCLASS_START</a></strong> = 0;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><strong><a href="bbunicodeinfo.html#UTF8PROC_BOUNDCLASS_OTHER">UTF8PROC_BOUNDCLASS_OTHER</a></strong> = 1;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><strong><a href="bbunicodeinfo.html#UTF8PROC_BOUNDCLASS_CR">UTF8PROC_BOUNDCLASS_CR</a></strong> = 2;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><strong><a href="bbunicodeinfo.html#UTF8PROC_BOUNDCLASS_LF">UTF8PROC_BOUNDCLASS_LF</a></strong> = 3;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><strong><a href="bbunicodeinfo.html#UTF8PROC_BOUNDCLASS_CONTROL">UTF8PROC_BOUNDCLASS_CONTROL</a></strong> = 4;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><strong><a href="bbunicodeinfo.html#UTF8PROC_BOUNDCLASS_EXTEND">UTF8PROC_BOUNDCLASS_EXTEND</a></strong> = 5;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><strong><a href="bbunicodeinfo.html#UTF8PROC_BOUNDCLASS_L">UTF8PROC_BOUNDCLASS_L</a></strong> = 6;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><strong><a href="bbunicodeinfo.html#UTF8PROC_BOUNDCLASS_V">UTF8PROC_BOUNDCLASS_V</a></strong> = 7;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><strong><a href="bbunicodeinfo.html#UTF8PROC_BOUNDCLASS_T">UTF8PROC_BOUNDCLASS_T</a></strong> = 8;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><strong><a href="bbunicodeinfo.html#UTF8PROC_BOUNDCLASS_LV">UTF8PROC_BOUNDCLASS_LV</a></strong> = 9;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><strong><a href="bbunicodeinfo.html#UTF8PROC_BOUNDCLASS_LVT">UTF8PROC_BOUNDCLASS_LVT</a></strong> = 10;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><strong><a href="bbunicodeinfo.html#UTF8PROC_BOUNDCLASS_REGIONAL_INDICATOR">UTF8PROC_BOUNDCLASS_REGIONAL_INDICATOR</a></strong> = 11;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><strong><a href="bbunicodeinfo.html#UTF8PROC_BOUNDCLASS_SPACINGMARK">UTF8PROC_BOUNDCLASS_SPACINGMARK</a></strong> = 12;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><strong><a href="bbunicodeinfo.html#UTF8PROC_CATEGORY_LU">UTF8PROC_CATEGORY_LU</a></strong> = 1;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><strong><a href="bbunicodeinfo.html#UTF8PROC_CATEGORY_LL">UTF8PROC_CATEGORY_LL</a></strong> = 2;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><strong><a href="bbunicodeinfo.html#UTF8PROC_CATEGORY_LT">UTF8PROC_CATEGORY_LT</a></strong> = 3;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><strong><a href="bbunicodeinfo.html#UTF8PROC_CATEGORY_LM">UTF8PROC_CATEGORY_LM</a></strong> = 4;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><strong><a href="bbunicodeinfo.html#UTF8PROC_CATEGORY_LO">UTF8PROC_CATEGORY_LO</a></strong> = 5;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><strong><a href="bbunicodeinfo.html#UTF8PROC_CATEGORY_MN">UTF8PROC_CATEGORY_MN</a></strong> = 6;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><strong><a href="bbunicodeinfo.html#UTF8PROC_CATEGORY_MC">UTF8PROC_CATEGORY_MC</a></strong> = 7;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><strong><a href="bbunicodeinfo.html#UTF8PROC_CATEGORY_ME">UTF8PROC_CATEGORY_ME</a></strong> = 8;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><strong><a href="bbunicodeinfo.html#UTF8PROC_CATEGORY_ND">UTF8PROC_CATEGORY_ND</a></strong> = 9;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><strong><a href="bbunicodeinfo.html#UTF8PROC_CATEGORY_NL">UTF8PROC_CATEGORY_NL</a></strong> = 10;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><strong><a href="bbunicodeinfo.html#UTF8PROC_CATEGORY_NO">UTF8PROC_CATEGORY_NO</a></strong> = 11;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><strong><a href="bbunicodeinfo.html#UTF8PROC_CATEGORY_PC">UTF8PROC_CATEGORY_PC</a></strong> = 12;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><strong><a href="bbunicodeinfo.html#UTF8PROC_CATEGORY_PD">UTF8PROC_CATEGORY_PD</a></strong> = 13;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><strong><a href="bbunicodeinfo.html#UTF8PROC_CATEGORY_PS">UTF8PROC_CATEGORY_PS</a></strong> = 14;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><strong><a href="bbunicodeinfo.html#UTF8PROC_CATEGORY_PE">UTF8PROC_CATEGORY_PE</a></strong> = 15;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><strong><a href="bbunicodeinfo.html#UTF8PROC_CATEGORY_PI">UTF8PROC_CATEGORY_PI</a></strong> = 16;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><strong><a href="bbunicodeinfo.html#UTF8PROC_CATEGORY_PF">UTF8PROC_CATEGORY_PF</a></strong> = 17;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><strong><a href="bbunicodeinfo.html#UTF8PROC_CATEGORY_PO">UTF8PROC_CATEGORY_PO</a></strong> = 18;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><strong><a href="bbunicodeinfo.html#UTF8PROC_CATEGORY_SM">UTF8PROC_CATEGORY_SM</a></strong> = 19;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><strong><a href="bbunicodeinfo.html#UTF8PROC_CATEGORY_SC">UTF8PROC_CATEGORY_SC</a></strong> = 20;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><strong><a href="bbunicodeinfo.html#UTF8PROC_CATEGORY_SK">UTF8PROC_CATEGORY_SK</a></strong> = 21;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><strong><a href="bbunicodeinfo.html#UTF8PROC_CATEGORY_SO">UTF8PROC_CATEGORY_SO</a></strong> = 22;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><strong><a href="bbunicodeinfo.html#UTF8PROC_CATEGORY_ZS">UTF8PROC_CATEGORY_ZS</a></strong> = 23;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><strong><a href="bbunicodeinfo.html#UTF8PROC_CATEGORY_ZL">UTF8PROC_CATEGORY_ZL</a></strong> = 24;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><strong><a href="bbunicodeinfo.html#UTF8PROC_CATEGORY_ZP">UTF8PROC_CATEGORY_ZP</a></strong> = 25;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><strong><a href="bbunicodeinfo.html#UTF8PROC_CATEGORY_CC">UTF8PROC_CATEGORY_CC</a></strong> = 26;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><strong><a href="bbunicodeinfo.html#UTF8PROC_CATEGORY_CF">UTF8PROC_CATEGORY_CF</a></strong> = 27;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><strong><a href="bbunicodeinfo.html#UTF8PROC_CATEGORY_CS">UTF8PROC_CATEGORY_CS</a></strong> = 28;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><strong><a href="bbunicodeinfo.html#UTF8PROC_CATEGORY_CO">UTF8PROC_CATEGORY_CO</a></strong> = 29;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><strong><a href="bbunicodeinfo.html#UTF8PROC_CATEGORY_CN">UTF8PROC_CATEGORY_CN</a></strong> = 30;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><strong><a href="bbunicodeinfo.html#UTF8PROC_BIDI_CLASS_L">UTF8PROC_BIDI_CLASS_L</a></strong> = 1;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><strong><a href="bbunicodeinfo.html#UTF8PROC_BIDI_CLASS_LRE">UTF8PROC_BIDI_CLASS_LRE</a></strong> = 2;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><strong><a href="bbunicodeinfo.html#UTF8PROC_BIDI_CLASS_LRO">UTF8PROC_BIDI_CLASS_LRO</a></strong> = 3;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><strong><a href="bbunicodeinfo.html#UTF8PROC_BIDI_CLASS_R">UTF8PROC_BIDI_CLASS_R</a></strong> = 4;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><strong><a href="bbunicodeinfo.html#UTF8PROC_BIDI_CLASS_AL">UTF8PROC_BIDI_CLASS_AL</a></strong> = 5;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><strong><a href="bbunicodeinfo.html#UTF8PROC_BIDI_CLASS_RLE">UTF8PROC_BIDI_CLASS_RLE</a></strong> = 6;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><strong><a href="bbunicodeinfo.html#UTF8PROC_BIDI_CLASS_RLO">UTF8PROC_BIDI_CLASS_RLO</a></strong> = 7;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><strong><a href="bbunicodeinfo.html#UTF8PROC_BIDI_CLASS_PDF">UTF8PROC_BIDI_CLASS_PDF</a></strong> = 8;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><strong><a href="bbunicodeinfo.html#UTF8PROC_BIDI_CLASS_EN">UTF8PROC_BIDI_CLASS_EN</a></strong> = 9;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><strong><a href="bbunicodeinfo.html#UTF8PROC_BIDI_CLASS_ES">UTF8PROC_BIDI_CLASS_ES</a></strong> = 10;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><strong><a href="bbunicodeinfo.html#UTF8PROC_BIDI_CLASS_ET">UTF8PROC_BIDI_CLASS_ET</a></strong> = 11;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><strong><a href="bbunicodeinfo.html#UTF8PROC_BIDI_CLASS_AN">UTF8PROC_BIDI_CLASS_AN</a></strong> = 12;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><strong><a href="bbunicodeinfo.html#UTF8PROC_BIDI_CLASS_CS">UTF8PROC_BIDI_CLASS_CS</a></strong> = 13;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><strong><a href="bbunicodeinfo.html#UTF8PROC_BIDI_CLASS_NSM">UTF8PROC_BIDI_CLASS_NSM</a></strong> = 14;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><strong><a href="bbunicodeinfo.html#UTF8PROC_BIDI_CLASS_BN">UTF8PROC_BIDI_CLASS_BN</a></strong> = 15;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><strong><a href="bbunicodeinfo.html#UTF8PROC_BIDI_CLASS_B">UTF8PROC_BIDI_CLASS_B</a></strong> = 16;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><strong><a href="bbunicodeinfo.html#UTF8PROC_BIDI_CLASS_S">UTF8PROC_BIDI_CLASS_S</a></strong> = 17;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><strong><a href="bbunicodeinfo.html#UTF8PROC_BIDI_CLASS_WS">UTF8PROC_BIDI_CLASS_WS</a></strong> = 18;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><strong><a href="bbunicodeinfo.html#UTF8PROC_BIDI_CLASS_ON">UTF8PROC_BIDI_CLASS_ON</a></strong> = 19;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><strong><a href="bbunicodeinfo.html#UTF8PROC_BIDI_CLASS_LRI">UTF8PROC_BIDI_CLASS_LRI</a></strong> = 20;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><strong><a href="bbunicodeinfo.html#UTF8PROC_BIDI_CLASS_RLI">UTF8PROC_BIDI_CLASS_RLI</a></strong> = 21;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><strong><a href="bbunicodeinfo.html#UTF8PROC_BIDI_CLASS_FSI">UTF8PROC_BIDI_CLASS_FSI</a></strong> = 22;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><strong><a href="bbunicodeinfo.html#UTF8PROC_BIDI_CLASS_PDI">UTF8PROC_BIDI_CLASS_PDI</a></strong> = 23;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><strong><a href="bbunicodeinfo.html#UTF8PROC_DECOMP_TYPE_FONT">UTF8PROC_DECOMP_TYPE_FONT</a></strong> = 1;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><strong><a href="bbunicodeinfo.html#UTF8PROC_DECOMP_TYPE_NOBREAK">UTF8PROC_DECOMP_TYPE_NOBREAK</a></strong> = 2;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><strong><a href="bbunicodeinfo.html#UTF8PROC_DECOMP_TYPE_INITIAL">UTF8PROC_DECOMP_TYPE_INITIAL</a></strong> = 3;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><strong><a href="bbunicodeinfo.html#UTF8PROC_DECOMP_TYPE_MEDIAL">UTF8PROC_DECOMP_TYPE_MEDIAL</a></strong> = 4;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><strong><a href="bbunicodeinfo.html#UTF8PROC_DECOMP_TYPE_FINAL">UTF8PROC_DECOMP_TYPE_FINAL</a></strong> = 5;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><strong><a href="bbunicodeinfo.html#UTF8PROC_DECOMP_TYPE_ISOLATED">UTF8PROC_DECOMP_TYPE_ISOLATED</a></strong> = 6;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><strong><a href="bbunicodeinfo.html#UTF8PROC_DECOMP_TYPE_CIRCLE">UTF8PROC_DECOMP_TYPE_CIRCLE</a></strong> = 7;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><strong><a href="bbunicodeinfo.html#UTF8PROC_DECOMP_TYPE_SUPER">UTF8PROC_DECOMP_TYPE_SUPER</a></strong> = 8;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><strong><a href="bbunicodeinfo.html#UTF8PROC_DECOMP_TYPE_SUB">UTF8PROC_DECOMP_TYPE_SUB</a></strong> = 9;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><strong><a href="bbunicodeinfo.html#UTF8PROC_DECOMP_TYPE_VERTICAL">UTF8PROC_DECOMP_TYPE_VERTICAL</a></strong> = 10;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><strong><a href="bbunicodeinfo.html#UTF8PROC_DECOMP_TYPE_WIDE">UTF8PROC_DECOMP_TYPE_WIDE</a></strong> = 11;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><strong><a href="bbunicodeinfo.html#UTF8PROC_DECOMP_TYPE_NARROW">UTF8PROC_DECOMP_TYPE_NARROW</a></strong> = 12;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><strong><a href="bbunicodeinfo.html#UTF8PROC_DECOMP_TYPE_SMALL">UTF8PROC_DECOMP_TYPE_SMALL</a></strong> = 13;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><strong><a href="bbunicodeinfo.html#UTF8PROC_DECOMP_TYPE_SQUARE">UTF8PROC_DECOMP_TYPE_SQUARE</a></strong> = 14;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><strong><a href="bbunicodeinfo.html#UTF8PROC_DECOMP_TYPE_FRACTION">UTF8PROC_DECOMP_TYPE_FRACTION</a></strong> = 15;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><strong><a href="bbunicodeinfo.html#UTF8PROC_DECOMP_TYPE_COMPAT">UTF8PROC_DECOMP_TYPE_COMPAT</a></strong> = 16;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><strong><a href="bbunicodeinfo.html#UTF8PROC_ERROR_NOMEM">UTF8PROC_ERROR_NOMEM</a></strong> = -(1);</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><strong><a href="bbunicodeinfo.html#UTF8PROC_ERROR_OVERFLOW">UTF8PROC_ERROR_OVERFLOW</a></strong> = -(2);</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><strong><a href="bbunicodeinfo.html#UTF8PROC_ERROR_INVALIDUTF8">UTF8PROC_ERROR_INVALIDUTF8</a></strong> = -(3);</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><strong><a href="bbunicodeinfo.html#UTF8PROC_ERROR_NOTASSIGNED">UTF8PROC_ERROR_NOTASSIGNED</a></strong> = -(4);</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><strong><a href="bbunicodeinfo.html#UTF8PROC_ERROR_INVALIDOPTS">UTF8PROC_ERROR_INVALIDOPTS</a></strong> = -(5);</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><strong><a href="bbunicodeinfo.html#CategoryStrings">CategoryStrings</a></strong>: array[1..30] of ShortString = (
+    ('Letter, Uppercase'),
+    ('Letter, Lowercase'),
+    ('Letter, Titlecase'),
+    ('Letter, Modifier'),
+    ('Letter, Other'),
+    ('Mark, Nonspacing'),
+    ('Mark, Spacing Combining'),
+    ('Mark, Enclosing'),
+    ('Number, Decimal Digit'),
+    ('Number, Letter'),
+    ('Number, Other'),
+    ('Punctuation, Connector'),
+    ('Punctuation, Dash'),
+    ('Punctuation, Open'),
+    ('Punctuation, Close'),
+    ('Punctuation, Initial quote (may behave like Ps or Pe depending on usage)'),
+    ('Punctuation, Final quote (may behave like Ps or Pe depending on usage)'),
+    ('Punctuation, Other'),
+    ('Symbol, Math'),
+    ('Symbol, Currency'),
+    ('Symbol, Modifier'),
+    ('Symbol, Other'),
+    ('Separator, Space'),
+    ('Separator, Line'),
+    ('Separator, Paragraph'),
+    ('Other, Control'),
+    ('Other, Format'),
+    ('Other, Surrogate'),
+    ('Other, Private Use'),
+    ('Other, Not Assigned (no characters in the file have this property)')
+    );</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><strong><a href="bbunicodeinfo.html#BIDIStrings">BIDIStrings</a></strong>: array[1..19] of ShortString = (
+    ('Left-to-Right'),
+    ('Left-to-Right Embedding'),
+    ('Left-to-Right Override'),
+    ('Right-to-Left'),
+    ('Right-to-Left Arabic'),
+    ('Right-to-Left Embedding'),
+    ('Right-to-Left Override'),
+    ('Pop Directional Format'),
+    ('European Number'),
+    ('European Number Separator'),
+    ('European Number Terminator'),
+    ('Arabic Number'),
+    ('Common Number Separator'),
+    ('Non-Spacing Mark'),
+    ('Boundary Neutral'),
+    ('Paragraph Separator'),
+    ('Segment Separator'),
+    ('Whitespace'),
+    ('Other Neutrals')
+    );</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><strong><a href="bbunicodeinfo.html#DecompStrings">DecompStrings</a></strong>: array[1..16] of ShortString = (
+    ('A font variant (e.g. a blackletter form).'),
+    ('A no-break version of a space or hyphen.'),
+    ('An initial presentation form (Arabic).'),
+    ('A medial presentation form (Arabic).'),
+    ('A final presentation form (Arabic).'),
+    ('An isolated presentation form (Arabic).'),
+    ('An encircled form.'),
+    ('A superscript form.'),
+    ('A subscript form.'),
+    ('A vertical layout presentation form.'),
+    ('A wide (or zenkaku) compatibility character.'),
+    ('A narrow (or hankaku) compatibility character.'),
+    ('A small variant form (CNS compatibility).'),
+    ('A CJK squared font variant.'),
+    ('A vulgar fraction form.'),
+    ('Otherwise unspecified compatibility character.')
+    );</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><strong><a href="bbunicodeinfo.html#SSIZE_MAX">SSIZE_MAX</a></strong> = (High(longword) - 1) <a href="int65math.html#div">div</a> 2;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><strong><a href="bbunicodeinfo.html#utf8proc_utf8class">utf8proc_utf8class</a></strong>: array[0..Pred(256)] of Shortint =
+  (1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+    1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+    1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+    1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+    1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+    1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+    1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+    1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2,
+    2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2,
+    3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3,
+    4, 4, 4, 4, 4, 4, 4, 4, 0, 0, 0, 0, 0, 0, 0, 0);</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><strong><a href="bbunicodeinfo.html#MaxUnicodeRanges">MaxUnicodeRanges</a></strong> = 153;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><strong><a href="bbunicodeinfo.html#UnicodeRanges">UnicodeRanges</a></strong>: array[0..<a href="bbunicodeinfo.html#MaxUnicodeRanges">MaxUnicodeRanges</a>] of <a href="bbunicodeinfo.TUnicodeRange.html">TUnicodeRange</a> = (
+
+    (S: $0000; E: $007F; PG: 'Basic Latin'),
+    (S: $0080; E: $00FF; PG: 'Latin-1 Supplement'),
+    (S: $0100; E: $017F; PG: 'Latin Extended-A'),
+    (S: $0180; E: $024F; PG: 'Latin Extended-B'),
+    (S: $0250; E: $02AF; PG: 'IPA Extensions'),
+    (S: $02B0; E: $02FF; PG: 'Spacing Modifier Letters'),
+    (S: $0300; E: $036F; PG: 'Combining Diacritical Marks'),
+    (S: $0370; E: $03FF; PG: 'Greek and Coptic'),
+    (S: $0400; E: $04FF; PG: 'Cyrillic'),
+    (S: $0500; E: $052F; PG: 'Cyrillic Supplement'),
+    (S: $0530; E: $058F; PG: 'Armenian'),
+    (S: $0590; E: $05FF; PG: 'Hebrew'),
+    (S: $0600; E: $06FF; PG: 'Arabic'),
+    (S: $0700; E: $074F; PG: 'Syriac'),
+    (S: $0750; E: $077F; PG: 'Arabic Supplement'),
+    (S: $0780; E: $07BF; PG: 'Thaana'),
+    (S: $07C0; E: $07FF; PG: 'NKo'),
+    (S: $0900; E: $097F; PG: 'Devanagari'),
+    (S: $0980; E: $09FF; PG: 'Bengali'),
+    (S: $0A00; E: $0A7F; PG: 'Gurmukhi'),
+    (S: $0A80; E: $0AFF; PG: 'Gujarati'),
+    (S: $0B00; E: $0B7F; PG: 'Oriya'),
+    (S: $0B80; E: $0BFF; PG: 'Tamil'),
+    (S: $0C00; E: $0C7F; PG: 'Telugu'),
+    (S: $0C80; E: $0CFF; PG: 'Kannada'),
+    (S: $0D00; E: $0D7F; PG: 'Malayalam'),
+    (S: $0D80; E: $0DFF; PG: 'Sinhala'),
+    (S: $0E00; E: $0E7F; PG: 'Thai'),
+    (S: $0E80; E: $0EFF; PG: 'Lao'),
+    (S: $0F00; E: $0FFF; PG: 'Tibetan'),
+    (S: $1000; E: $109F; PG: 'Myanmar'),
+    (S: $10A0; E: $10FF; PG: 'Georgian'),
+    (S: $1100; E: $11FF; PG: 'Hangul Jamo'),
+    (S: $1200; E: $137F; PG: 'Ethiopic'),
+    (S: $1380; E: $139F; PG: 'Ethiopic Supplement'),
+    (S: $13A0; E: $13FF; PG: 'Cherokee'),
+    (S: $1400; E: $167F; PG: 'Unified Canadian Aboriginal Syllabics'),
+    (S: $1680; E: $169F; PG: 'Ogham'),
+    (S: $16A0; E: $16FF; PG: 'Runic'),
+    (S: $1700; E: $171F; PG: 'Tagalog'),
+    (S: $1720; E: $173F; PG: 'Hanunoo'),
+    (S: $1740; E: $175F; PG: 'Buhid'),
+    (S: $1760; E: $177F; PG: 'Tagbanwa'),
+    (S: $1780; E: $17FF; PG: 'Khmer'),
+    (S: $1800; E: $18AF; PG: 'Mongolian'),
+    (S: $1900; E: $194F; PG: 'Limbu'),
+    (S: $1950; E: $197F; PG: 'Tai Le'),
+    (S: $1980; E: $19DF; PG: 'New Tai Lue'),
+    (S: $19E0; E: $19FF; PG: 'Khmer Symbols'),
+    (S: $1A00; E: $1A1F; PG: 'Buginese'),
+    (S: $1B00; E: $1B7F; PG: 'Balinese'),
+    (S: $1D00; E: $1D7F; PG: 'Phonetic Extensions'),
+    (S: $1D80; E: $1DBF; PG: 'Phonetic Extensions Supplement'),
+    (S: $1DC0; E: $1DFF; PG: 'Combining Diacritical Marks Supplement'),
+    (S: $1E00; E: $1EFF; PG: 'Latin Extended Additional'),
+    (S: $1F00; E: $1FFF; PG: 'Greek Extended'),
+    (S: $2000; E: $206F; PG: 'General Punctuation'),
+    (S: $2070; E: $209F; PG: 'Superscripts and Subscripts'),
+    (S: $20A0; E: $20CF; PG: 'Currency Symbols'),
+    (S: $20D0; E: $20FF; PG: 'Combining Diacritical Marks for Symbols'),
+    (S: $2100; E: $214F; PG: 'Letterlike Symbols'),
+    (S: $2150; E: $218F; PG: 'Number Forms'),
+    (S: $2190; E: $21FF; PG: 'Arrows'),
+    (S: $2200; E: $22FF; PG: 'Mathematical Operators'),
+    (S: $2300; E: $23FF; PG: 'Miscellaneous Technical'),
+    (S: $2400; E: $243F; PG: 'Control Pictures'),
+    (S: $2440; E: $245F; PG: 'Optical Character Recognition'),
+    (S: $2460; E: $24FF; PG: 'Enclosed Alphanumerics'),
+    (S: $2500; E: $257F; PG: 'Box Drawing'),
+    (S: $2580; E: $259F; PG: 'Block Elements'),
+    (S: $25A0; E: $25FF; PG: 'Geometric Shapes'),
+    (S: $2600; E: $26FF; PG: 'Miscellaneous Symbols'),
+    (S: $2700; E: $27BF; PG: 'Dingbats'),
+    (S: $27C0; E: $27EF; PG: 'Miscellaneous Mathematical Symbols-A'),
+    (S: $27F0; E: $27FF; PG: 'Supplemental Arrows-A'),
+    (S: $2800; E: $28FF; PG: 'Braille Patterns'),
+    (S: $2900; E: $297F; PG: 'Supplemental Arrows-B'),
+    (S: $2980; E: $29FF; PG: 'Miscellaneous Mathematical Symbols-B'),
+    (S: $2A00; E: $2AFF; PG: 'Supplemental Mathematical Operators'),
+    (S: $2B00; E: $2BFF; PG: 'Miscellaneous Symbols and Arrows'),
+    (S: $2C00; E: $2C5F; PG: 'Glagolitic'),
+    (S: $2C60; E: $2C7F; PG: 'Latin Extended-C'),
+    (S: $2C80; E: $2CFF; PG: 'Coptic'),
+    (S: $2D00; E: $2D2F; PG: 'Georgian Supplement'),
+    (S: $2D30; E: $2D7F; PG: 'Tifinagh'),
+    (S: $2D80; E: $2DDF; PG: 'Ethiopic Extended'),
+    (S: $2E00; E: $2E7F; PG: 'Supplemental Punctuation'),
+    (S: $2E80; E: $2EFF; PG: 'CJK Radicals Supplement'),
+    (S: $2F00; E: $2FDF; PG: 'Kangxi Radicals'),
+    (S: $2FF0; E: $2FFF; PG: 'Ideographic Description Characters'),
+    (S: $3000; E: $303F; PG: 'CJK Symbols and Punctuation'),
+    (S: $3040; E: $309F; PG: 'Hiragana'),
+    (S: $30A0; E: $30FF; PG: 'Katakana'),
+    (S: $3100; E: $312F; PG: 'Bopomofo'),
+    (S: $3130; E: $318F; PG: 'Hangul Compatibility Jamo'),
+    (S: $3190; E: $319F; PG: 'Kanbun'),
+    (S: $31A0; E: $31BF; PG: 'Bopomofo Extended'),
+    (S: $31C0; E: $31EF; PG: 'CJK Strokes'),
+    (S: $31F0; E: $31FF; PG: 'Katakana Phonetic Extensions'),
+    (S: $3200; E: $32FF; PG: 'Enclosed CJK Letters and Months'),
+    (S: $3300; E: $33FF; PG: 'CJK Compatibility'),
+    (S: $3400; E: $4DBF; PG: 'CJK Unified Ideographs Extension A'),
+    (S: $4DC0; E: $4DFF; PG: 'Yijing Hexagram Symbols'),
+    (S: $4E00; E: $9FFF; PG: 'CJK Unified Ideographs'),
+    (S: $A000; E: $A48F; PG: 'Yi Syllables'),
+    (S: $A490; E: $A4CF; PG: 'Yi Radicals'),
+    (S: $A700; E: $A71F; PG: 'Modifier Tone Letters'),
+    (S: $A720; E: $A7FF; PG: 'Latin Extended-D'),
+    (S: $A800; E: $A82F; PG: 'Syloti Nagri'),
+    (S: $A840; E: $A87F; PG: 'Phags-pa'),
+    (S: $AC00; E: $D7AF; PG: 'Hangul Syllables'),
+    (S: $D800; E: $DB7F; PG: 'High Surrogates'),
+    (S: $DB80; E: $DBFF; PG: 'High Private Use Surrogates'),
+    (S: $DC00; E: $DFFF; PG: 'Low Surrogates'),
+    (S: $E000; E: $F8FF; PG: 'Private Use Area'),
+    (S: $F900; E: $FAFF; PG: 'CJK Compatibility Ideographs'),
+    (S: $FB00; E: $FB4F; PG: 'Alphabetic Presentation Forms'),
+    (S: $FB50; E: $FDFF; PG: 'Arabic Presentation Forms-A'),
+    (S: $FE00; E: $FE0F; PG: 'Variation Selectors'),
+    (S: $FE10; E: $FE1F; PG: 'Vertical Forms'),
+    (S: $FE20; E: $FE2F; PG: 'Combining Half Marks'),
+    (S: $FE30; E: $FE4F; PG: 'CJK Compatibility Forms'),
+    (S: $FE50; E: $FE6F; PG: 'Small Form Variants'),
+    (S: $FE70; E: $FEFF; PG: 'Arabic Presentation Forms-B'),
+    (S: $FF00; E: $FFEF; PG: 'Halfwidth and Fullwidth Forms'),
+    (S: $FFF0; E: $FFFF; PG: 'Specials'),
+    (S: $10000; E: $1007F; PG: 'Linear B Syllabary'),
+    (S: $10080; E: $100FF; PG: 'Linear B Ideograms'),
+    (S: $10100; E: $1013F; PG: 'Aegean Numbers'),
+    (S: $10140; E: $1018F; PG: 'Ancient Greek Numbers'),
+    (S: $10300; E: $1032F; PG: 'Old Italic'),
+    (S: $10330; E: $1034F; PG: 'Gothic'),
+    (S: $10380; E: $1039F; PG: 'Ugaritic'),
+    (S: $103A0; E: $103DF; PG: 'Old Persian'),
+    (S: $10400; E: $1044F; PG: 'Deseret'),
+    (S: $10450; E: $1047F; PG: 'Shavian'),
+    (S: $10480; E: $104AF; PG: 'Osmanya'),
+    (S: $10800; E: $1083F; PG: 'Cypriot Syllabary'),
+    (S: $10900; E: $1091F; PG: 'Phoenician'),
+    (S: $10A00; E: $10A5F; PG: 'Kharoshthi'),
+    (S: $12000; E: $123FF; PG: 'Cuneiform'),
+    (S: $12400; E: $1247F; PG: 'Cuneiform Numbers and Punctuation'),
+    (S: $1D000; E: $1D0FF; PG: 'Byzantine Musical Symbols'),
+    (S: $1D100; E: $1D1FF; PG: 'Musical Symbols'),
+    (S: $1D200; E: $1D24F; PG: 'Ancient Greek Musical Notation'),
+    (S: $1D300; E: $1D35F; PG: 'Tai Xuan Jing Symbols'),
+    (S: $1D360; E: $1D37F; PG: 'Counting Rod Numerals'),
+    (S: $1D400; E: $1D7FF; PG: 'Mathematical Alphanumeric Symbols'),
+    (S: $20000; E: $2A6DF; PG: 'CJK Unified Ideographs Extension B'),
+    (S: $2F800; E: $2FA1F; PG: 'CJK Compatibility Ideographs Supplement'),
+    (S: $E0000; E: $E007F; PG: 'Tags'),
+    (S: $E0100; E: $E01EF; PG: 'Variation Selectors Supplement'),
+    (S: $F0000; E: $FFFFF; PG: 'Supplementary Private Use Area-A'),
+    (S: $100000; E: $10FFFF; PG: 'Supplementary Private Use Area-B')
+    );</code></td>
+</tr>
+</table>
+<h2 class="description">Descrição</h2>
+<h3 class="detail">Funções e Procedimentos</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="utf8proc_NFD"></span><code>function <strong>utf8proc_NFD</strong>(str: PChar): PChar;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="utf8proc_NFC"></span><code>function <strong>utf8proc_NFC</strong>(str: PChar): PChar;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="utf8proc_NFKD"></span><code>function <strong>utf8proc_NFKD</strong>(str: PChar): PChar;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="utf8proc_NFKC"></span><code>function <strong>utf8proc_NFKC</strong>(str: PChar): PChar;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="utf8proc_codepoint_valid"></span><code>function <strong>utf8proc_codepoint_valid</strong>(uc: longint): boolean;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="utf8proc_iterate"></span><code>function <strong>utf8proc_iterate</strong>(str: PByte; strlen: longint; dst: pLongInt): longint;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="utf8proc_encode_char"></span><code>function <strong>utf8proc_encode_char</strong>(uc: longint; dst: PByte): longint;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="utf8proc_get_property"></span><code>function <strong>utf8proc_get_property</strong>(uc: longint): <a href="bbunicodeinfo.html#putf8proc_property_t">putf8proc_property_t</a>;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="utf8proc_decompose_char"></span><code>function <strong>utf8proc_decompose_char</strong>(uc: longint; dst: plongint; bufsize: longint; options: integer; last_boundclass: <a href="ssl_openssl11_lib.html#PInteger">pinteger</a>): longint;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="utf8proc_decomposer"></span><code>function <strong>utf8proc_decomposer</strong>(str: PByte; strlen: longint; buffer: plongint; bufsize: longint; options: integer): longint;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="utf8proc_map"></span><code>function <strong>utf8proc_map</strong>(str: PByte; strlen: longint; dstptr: <a href="bbunicodeinfo.html#PPByte">PPByte</a>; options: integer): longint;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="utf8proc_reencode"></span><code>function <strong>utf8proc_reencode</strong>(buffer: plongint; length: longint; options: integer): longint;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<h3 class="detail">Tipos</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="PPByte"></span><code><strong>PPByte</strong> = &circ;PByte;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="utf8proc_propval_t"></span><code><strong>utf8proc_propval_t</strong> = Smallint;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="putf8proc_property_t"></span><code><strong>putf8proc_property_t</strong> = &circ;<a href="bbunicodeinfo.utf8proc_property_t.html">utf8proc_property_t</a>;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<h3 class="detail">Constantes</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="UTF8PROC_NULLTERM"></span><code><strong>UTF8PROC_NULLTERM</strong> = 1 shl 0;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="UTF8PROC_STABLE"></span><code><strong>UTF8PROC_STABLE</strong> = 1 shl 1;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="UTF8PROC_COMPAT"></span><code><strong>UTF8PROC_COMPAT</strong> = 1 shl 2;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="UTF8PROC_COMPOSE"></span><code><strong>UTF8PROC_COMPOSE</strong> = 1 shl 3;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="UTF8PROC_DECOMPOSE"></span><code><strong>UTF8PROC_DECOMPOSE</strong> = 1 shl 4;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="UTF8PROC_IGNORE"></span><code><strong>UTF8PROC_IGNORE</strong> = 1 shl 5;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="UTF8PROC_REJECTNA"></span><code><strong>UTF8PROC_REJECTNA</strong> = 1 shl 6;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="UTF8PROC_NLF2LS"></span><code><strong>UTF8PROC_NLF2LS</strong> = 1 shl 7;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="UTF8PROC_NLF2PS"></span><code><strong>UTF8PROC_NLF2PS</strong> = 1 shl 8;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="UTF8PROC_NLF2LF"></span><code><strong>UTF8PROC_NLF2LF</strong> = <a href="bbunicodeinfo.html#UTF8PROC_NLF2LS">UTF8PROC_NLF2LS</a> or <a href="bbunicodeinfo.html#UTF8PROC_NLF2PS">UTF8PROC_NLF2PS</a>;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="UTF8PROC_STRIPCC"></span><code><strong>UTF8PROC_STRIPCC</strong> = 1 shl 9;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="UTF8PROC_CASEFOLD"></span><code><strong>UTF8PROC_CASEFOLD</strong> = 1 shl 10;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="UTF8PROC_CHARBOUND"></span><code><strong>UTF8PROC_CHARBOUND</strong> = 1 shl 11;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="UTF8PROC_LUMP"></span><code><strong>UTF8PROC_LUMP</strong> = 1 shl 12;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="UTF8PROC_STRIPMARK"></span><code><strong>UTF8PROC_STRIPMARK</strong> = 1 shl 13;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="UTF8PROC_HANGUL_SBASE"></span><code><strong>UTF8PROC_HANGUL_SBASE</strong> = $AC00;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="UTF8PROC_HANGUL_LBASE"></span><code><strong>UTF8PROC_HANGUL_LBASE</strong> = $1100;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="UTF8PROC_HANGUL_VBASE"></span><code><strong>UTF8PROC_HANGUL_VBASE</strong> = $1161;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="UTF8PROC_HANGUL_TBASE"></span><code><strong>UTF8PROC_HANGUL_TBASE</strong> = $11A7;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="UTF8PROC_HANGUL_LCOUNT"></span><code><strong>UTF8PROC_HANGUL_LCOUNT</strong> = 19;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="UTF8PROC_HANGUL_VCOUNT"></span><code><strong>UTF8PROC_HANGUL_VCOUNT</strong> = 21;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="UTF8PROC_HANGUL_TCOUNT"></span><code><strong>UTF8PROC_HANGUL_TCOUNT</strong> = 28;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="UTF8PROC_HANGUL_NCOUNT"></span><code><strong>UTF8PROC_HANGUL_NCOUNT</strong> = 588;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="UTF8PROC_HANGUL_SCOUNT"></span><code><strong>UTF8PROC_HANGUL_SCOUNT</strong> = 11172;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="UTF8PROC_HANGUL_L_START"></span><code><strong>UTF8PROC_HANGUL_L_START</strong> = $1100;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="UTF8PROC_HANGUL_L_END"></span><code><strong>UTF8PROC_HANGUL_L_END</strong> = $115A;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="UTF8PROC_HANGUL_L_FILLER"></span><code><strong>UTF8PROC_HANGUL_L_FILLER</strong> = $115F;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="UTF8PROC_HANGUL_V_START"></span><code><strong>UTF8PROC_HANGUL_V_START</strong> = $1160;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="UTF8PROC_HANGUL_V_END"></span><code><strong>UTF8PROC_HANGUL_V_END</strong> = $11A3;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="UTF8PROC_HANGUL_T_START"></span><code><strong>UTF8PROC_HANGUL_T_START</strong> = $11A8;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="UTF8PROC_HANGUL_T_END"></span><code><strong>UTF8PROC_HANGUL_T_END</strong> = $11FA;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="UTF8PROC_HANGUL_S_START"></span><code><strong>UTF8PROC_HANGUL_S_START</strong> = $AC00;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="UTF8PROC_HANGUL_S_END"></span><code><strong>UTF8PROC_HANGUL_S_END</strong> = $D7A4;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="UTF8PROC_BOUNDCLASS_START"></span><code><strong>UTF8PROC_BOUNDCLASS_START</strong> = 0;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="UTF8PROC_BOUNDCLASS_OTHER"></span><code><strong>UTF8PROC_BOUNDCLASS_OTHER</strong> = 1;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="UTF8PROC_BOUNDCLASS_CR"></span><code><strong>UTF8PROC_BOUNDCLASS_CR</strong> = 2;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="UTF8PROC_BOUNDCLASS_LF"></span><code><strong>UTF8PROC_BOUNDCLASS_LF</strong> = 3;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="UTF8PROC_BOUNDCLASS_CONTROL"></span><code><strong>UTF8PROC_BOUNDCLASS_CONTROL</strong> = 4;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="UTF8PROC_BOUNDCLASS_EXTEND"></span><code><strong>UTF8PROC_BOUNDCLASS_EXTEND</strong> = 5;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="UTF8PROC_BOUNDCLASS_L"></span><code><strong>UTF8PROC_BOUNDCLASS_L</strong> = 6;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="UTF8PROC_BOUNDCLASS_V"></span><code><strong>UTF8PROC_BOUNDCLASS_V</strong> = 7;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="UTF8PROC_BOUNDCLASS_T"></span><code><strong>UTF8PROC_BOUNDCLASS_T</strong> = 8;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="UTF8PROC_BOUNDCLASS_LV"></span><code><strong>UTF8PROC_BOUNDCLASS_LV</strong> = 9;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="UTF8PROC_BOUNDCLASS_LVT"></span><code><strong>UTF8PROC_BOUNDCLASS_LVT</strong> = 10;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="UTF8PROC_BOUNDCLASS_REGIONAL_INDICATOR"></span><code><strong>UTF8PROC_BOUNDCLASS_REGIONAL_INDICATOR</strong> = 11;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="UTF8PROC_BOUNDCLASS_SPACINGMARK"></span><code><strong>UTF8PROC_BOUNDCLASS_SPACINGMARK</strong> = 12;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="UTF8PROC_CATEGORY_LU"></span><code><strong>UTF8PROC_CATEGORY_LU</strong> = 1;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="UTF8PROC_CATEGORY_LL"></span><code><strong>UTF8PROC_CATEGORY_LL</strong> = 2;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="UTF8PROC_CATEGORY_LT"></span><code><strong>UTF8PROC_CATEGORY_LT</strong> = 3;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="UTF8PROC_CATEGORY_LM"></span><code><strong>UTF8PROC_CATEGORY_LM</strong> = 4;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="UTF8PROC_CATEGORY_LO"></span><code><strong>UTF8PROC_CATEGORY_LO</strong> = 5;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="UTF8PROC_CATEGORY_MN"></span><code><strong>UTF8PROC_CATEGORY_MN</strong> = 6;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="UTF8PROC_CATEGORY_MC"></span><code><strong>UTF8PROC_CATEGORY_MC</strong> = 7;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="UTF8PROC_CATEGORY_ME"></span><code><strong>UTF8PROC_CATEGORY_ME</strong> = 8;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="UTF8PROC_CATEGORY_ND"></span><code><strong>UTF8PROC_CATEGORY_ND</strong> = 9;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="UTF8PROC_CATEGORY_NL"></span><code><strong>UTF8PROC_CATEGORY_NL</strong> = 10;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="UTF8PROC_CATEGORY_NO"></span><code><strong>UTF8PROC_CATEGORY_NO</strong> = 11;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="UTF8PROC_CATEGORY_PC"></span><code><strong>UTF8PROC_CATEGORY_PC</strong> = 12;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="UTF8PROC_CATEGORY_PD"></span><code><strong>UTF8PROC_CATEGORY_PD</strong> = 13;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="UTF8PROC_CATEGORY_PS"></span><code><strong>UTF8PROC_CATEGORY_PS</strong> = 14;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="UTF8PROC_CATEGORY_PE"></span><code><strong>UTF8PROC_CATEGORY_PE</strong> = 15;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="UTF8PROC_CATEGORY_PI"></span><code><strong>UTF8PROC_CATEGORY_PI</strong> = 16;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="UTF8PROC_CATEGORY_PF"></span><code><strong>UTF8PROC_CATEGORY_PF</strong> = 17;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="UTF8PROC_CATEGORY_PO"></span><code><strong>UTF8PROC_CATEGORY_PO</strong> = 18;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="UTF8PROC_CATEGORY_SM"></span><code><strong>UTF8PROC_CATEGORY_SM</strong> = 19;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="UTF8PROC_CATEGORY_SC"></span><code><strong>UTF8PROC_CATEGORY_SC</strong> = 20;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="UTF8PROC_CATEGORY_SK"></span><code><strong>UTF8PROC_CATEGORY_SK</strong> = 21;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="UTF8PROC_CATEGORY_SO"></span><code><strong>UTF8PROC_CATEGORY_SO</strong> = 22;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="UTF8PROC_CATEGORY_ZS"></span><code><strong>UTF8PROC_CATEGORY_ZS</strong> = 23;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="UTF8PROC_CATEGORY_ZL"></span><code><strong>UTF8PROC_CATEGORY_ZL</strong> = 24;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="UTF8PROC_CATEGORY_ZP"></span><code><strong>UTF8PROC_CATEGORY_ZP</strong> = 25;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="UTF8PROC_CATEGORY_CC"></span><code><strong>UTF8PROC_CATEGORY_CC</strong> = 26;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="UTF8PROC_CATEGORY_CF"></span><code><strong>UTF8PROC_CATEGORY_CF</strong> = 27;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="UTF8PROC_CATEGORY_CS"></span><code><strong>UTF8PROC_CATEGORY_CS</strong> = 28;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="UTF8PROC_CATEGORY_CO"></span><code><strong>UTF8PROC_CATEGORY_CO</strong> = 29;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="UTF8PROC_CATEGORY_CN"></span><code><strong>UTF8PROC_CATEGORY_CN</strong> = 30;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="UTF8PROC_BIDI_CLASS_L"></span><code><strong>UTF8PROC_BIDI_CLASS_L</strong> = 1;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="UTF8PROC_BIDI_CLASS_LRE"></span><code><strong>UTF8PROC_BIDI_CLASS_LRE</strong> = 2;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="UTF8PROC_BIDI_CLASS_LRO"></span><code><strong>UTF8PROC_BIDI_CLASS_LRO</strong> = 3;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="UTF8PROC_BIDI_CLASS_R"></span><code><strong>UTF8PROC_BIDI_CLASS_R</strong> = 4;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="UTF8PROC_BIDI_CLASS_AL"></span><code><strong>UTF8PROC_BIDI_CLASS_AL</strong> = 5;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="UTF8PROC_BIDI_CLASS_RLE"></span><code><strong>UTF8PROC_BIDI_CLASS_RLE</strong> = 6;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="UTF8PROC_BIDI_CLASS_RLO"></span><code><strong>UTF8PROC_BIDI_CLASS_RLO</strong> = 7;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="UTF8PROC_BIDI_CLASS_PDF"></span><code><strong>UTF8PROC_BIDI_CLASS_PDF</strong> = 8;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="UTF8PROC_BIDI_CLASS_EN"></span><code><strong>UTF8PROC_BIDI_CLASS_EN</strong> = 9;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="UTF8PROC_BIDI_CLASS_ES"></span><code><strong>UTF8PROC_BIDI_CLASS_ES</strong> = 10;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="UTF8PROC_BIDI_CLASS_ET"></span><code><strong>UTF8PROC_BIDI_CLASS_ET</strong> = 11;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="UTF8PROC_BIDI_CLASS_AN"></span><code><strong>UTF8PROC_BIDI_CLASS_AN</strong> = 12;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="UTF8PROC_BIDI_CLASS_CS"></span><code><strong>UTF8PROC_BIDI_CLASS_CS</strong> = 13;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="UTF8PROC_BIDI_CLASS_NSM"></span><code><strong>UTF8PROC_BIDI_CLASS_NSM</strong> = 14;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="UTF8PROC_BIDI_CLASS_BN"></span><code><strong>UTF8PROC_BIDI_CLASS_BN</strong> = 15;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="UTF8PROC_BIDI_CLASS_B"></span><code><strong>UTF8PROC_BIDI_CLASS_B</strong> = 16;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="UTF8PROC_BIDI_CLASS_S"></span><code><strong>UTF8PROC_BIDI_CLASS_S</strong> = 17;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="UTF8PROC_BIDI_CLASS_WS"></span><code><strong>UTF8PROC_BIDI_CLASS_WS</strong> = 18;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="UTF8PROC_BIDI_CLASS_ON"></span><code><strong>UTF8PROC_BIDI_CLASS_ON</strong> = 19;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="UTF8PROC_BIDI_CLASS_LRI"></span><code><strong>UTF8PROC_BIDI_CLASS_LRI</strong> = 20;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="UTF8PROC_BIDI_CLASS_RLI"></span><code><strong>UTF8PROC_BIDI_CLASS_RLI</strong> = 21;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="UTF8PROC_BIDI_CLASS_FSI"></span><code><strong>UTF8PROC_BIDI_CLASS_FSI</strong> = 22;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="UTF8PROC_BIDI_CLASS_PDI"></span><code><strong>UTF8PROC_BIDI_CLASS_PDI</strong> = 23;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="UTF8PROC_DECOMP_TYPE_FONT"></span><code><strong>UTF8PROC_DECOMP_TYPE_FONT</strong> = 1;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="UTF8PROC_DECOMP_TYPE_NOBREAK"></span><code><strong>UTF8PROC_DECOMP_TYPE_NOBREAK</strong> = 2;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="UTF8PROC_DECOMP_TYPE_INITIAL"></span><code><strong>UTF8PROC_DECOMP_TYPE_INITIAL</strong> = 3;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="UTF8PROC_DECOMP_TYPE_MEDIAL"></span><code><strong>UTF8PROC_DECOMP_TYPE_MEDIAL</strong> = 4;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="UTF8PROC_DECOMP_TYPE_FINAL"></span><code><strong>UTF8PROC_DECOMP_TYPE_FINAL</strong> = 5;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="UTF8PROC_DECOMP_TYPE_ISOLATED"></span><code><strong>UTF8PROC_DECOMP_TYPE_ISOLATED</strong> = 6;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="UTF8PROC_DECOMP_TYPE_CIRCLE"></span><code><strong>UTF8PROC_DECOMP_TYPE_CIRCLE</strong> = 7;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="UTF8PROC_DECOMP_TYPE_SUPER"></span><code><strong>UTF8PROC_DECOMP_TYPE_SUPER</strong> = 8;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="UTF8PROC_DECOMP_TYPE_SUB"></span><code><strong>UTF8PROC_DECOMP_TYPE_SUB</strong> = 9;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="UTF8PROC_DECOMP_TYPE_VERTICAL"></span><code><strong>UTF8PROC_DECOMP_TYPE_VERTICAL</strong> = 10;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="UTF8PROC_DECOMP_TYPE_WIDE"></span><code><strong>UTF8PROC_DECOMP_TYPE_WIDE</strong> = 11;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="UTF8PROC_DECOMP_TYPE_NARROW"></span><code><strong>UTF8PROC_DECOMP_TYPE_NARROW</strong> = 12;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="UTF8PROC_DECOMP_TYPE_SMALL"></span><code><strong>UTF8PROC_DECOMP_TYPE_SMALL</strong> = 13;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="UTF8PROC_DECOMP_TYPE_SQUARE"></span><code><strong>UTF8PROC_DECOMP_TYPE_SQUARE</strong> = 14;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="UTF8PROC_DECOMP_TYPE_FRACTION"></span><code><strong>UTF8PROC_DECOMP_TYPE_FRACTION</strong> = 15;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="UTF8PROC_DECOMP_TYPE_COMPAT"></span><code><strong>UTF8PROC_DECOMP_TYPE_COMPAT</strong> = 16;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="UTF8PROC_ERROR_NOMEM"></span><code><strong>UTF8PROC_ERROR_NOMEM</strong> = -(1);</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="UTF8PROC_ERROR_OVERFLOW"></span><code><strong>UTF8PROC_ERROR_OVERFLOW</strong> = -(2);</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="UTF8PROC_ERROR_INVALIDUTF8"></span><code><strong>UTF8PROC_ERROR_INVALIDUTF8</strong> = -(3);</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="UTF8PROC_ERROR_NOTASSIGNED"></span><code><strong>UTF8PROC_ERROR_NOTASSIGNED</strong> = -(4);</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="UTF8PROC_ERROR_INVALIDOPTS"></span><code><strong>UTF8PROC_ERROR_INVALIDOPTS</strong> = -(5);</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="CategoryStrings"></span><code><strong>CategoryStrings</strong>: array[1..30] of ShortString = (
+    ('Letter, Uppercase'),
+    ('Letter, Lowercase'),
+    ('Letter, Titlecase'),
+    ('Letter, Modifier'),
+    ('Letter, Other'),
+    ('Mark, Nonspacing'),
+    ('Mark, Spacing Combining'),
+    ('Mark, Enclosing'),
+    ('Number, Decimal Digit'),
+    ('Number, Letter'),
+    ('Number, Other'),
+    ('Punctuation, Connector'),
+    ('Punctuation, Dash'),
+    ('Punctuation, Open'),
+    ('Punctuation, Close'),
+    ('Punctuation, Initial quote (may behave like Ps or Pe depending on usage)'),
+    ('Punctuation, Final quote (may behave like Ps or Pe depending on usage)'),
+    ('Punctuation, Other'),
+    ('Symbol, Math'),
+    ('Symbol, Currency'),
+    ('Symbol, Modifier'),
+    ('Symbol, Other'),
+    ('Separator, Space'),
+    ('Separator, Line'),
+    ('Separator, Paragraph'),
+    ('Other, Control'),
+    ('Other, Format'),
+    ('Other, Surrogate'),
+    ('Other, Private Use'),
+    ('Other, Not Assigned (no characters in the file have this property)')
+    );</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="BIDIStrings"></span><code><strong>BIDIStrings</strong>: array[1..19] of ShortString = (
+    ('Left-to-Right'),
+    ('Left-to-Right Embedding'),
+    ('Left-to-Right Override'),
+    ('Right-to-Left'),
+    ('Right-to-Left Arabic'),
+    ('Right-to-Left Embedding'),
+    ('Right-to-Left Override'),
+    ('Pop Directional Format'),
+    ('European Number'),
+    ('European Number Separator'),
+    ('European Number Terminator'),
+    ('Arabic Number'),
+    ('Common Number Separator'),
+    ('Non-Spacing Mark'),
+    ('Boundary Neutral'),
+    ('Paragraph Separator'),
+    ('Segment Separator'),
+    ('Whitespace'),
+    ('Other Neutrals')
+    );</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="DecompStrings"></span><code><strong>DecompStrings</strong>: array[1..16] of ShortString = (
+    ('A font variant (e.g. a blackletter form).'),
+    ('A no-break version of a space or hyphen.'),
+    ('An initial presentation form (Arabic).'),
+    ('A medial presentation form (Arabic).'),
+    ('A final presentation form (Arabic).'),
+    ('An isolated presentation form (Arabic).'),
+    ('An encircled form.'),
+    ('A superscript form.'),
+    ('A subscript form.'),
+    ('A vertical layout presentation form.'),
+    ('A wide (or zenkaku) compatibility character.'),
+    ('A narrow (or hankaku) compatibility character.'),
+    ('A small variant form (CNS compatibility).'),
+    ('A CJK squared font variant.'),
+    ('A vulgar fraction form.'),
+    ('Otherwise unspecified compatibility character.')
+    );</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="SSIZE_MAX"></span><code><strong>SSIZE_MAX</strong> = (High(longword) - 1) <a href="int65math.html#div">div</a> 2;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="utf8proc_utf8class"></span><code><strong>utf8proc_utf8class</strong>: array[0..Pred(256)] of Shortint =
+  (1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+    1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+    1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+    1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+    1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+    1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+    1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+    1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2,
+    2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2,
+    3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3,
+    4, 4, 4, 4, 4, 4, 4, 4, 0, 0, 0, 0, 0, 0, 0, 0);</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="MaxUnicodeRanges"></span><code><strong>MaxUnicodeRanges</strong> = 153;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="UnicodeRanges"></span><code><strong>UnicodeRanges</strong>: array[0..<a href="bbunicodeinfo.html#MaxUnicodeRanges">MaxUnicodeRanges</a>] of <a href="bbunicodeinfo.TUnicodeRange.html">TUnicodeRange</a> = (
+
+    (S: $0000; E: $007F; PG: 'Basic Latin'),
+    (S: $0080; E: $00FF; PG: 'Latin-1 Supplement'),
+    (S: $0100; E: $017F; PG: 'Latin Extended-A'),
+    (S: $0180; E: $024F; PG: 'Latin Extended-B'),
+    (S: $0250; E: $02AF; PG: 'IPA Extensions'),
+    (S: $02B0; E: $02FF; PG: 'Spacing Modifier Letters'),
+    (S: $0300; E: $036F; PG: 'Combining Diacritical Marks'),
+    (S: $0370; E: $03FF; PG: 'Greek and Coptic'),
+    (S: $0400; E: $04FF; PG: 'Cyrillic'),
+    (S: $0500; E: $052F; PG: 'Cyrillic Supplement'),
+    (S: $0530; E: $058F; PG: 'Armenian'),
+    (S: $0590; E: $05FF; PG: 'Hebrew'),
+    (S: $0600; E: $06FF; PG: 'Arabic'),
+    (S: $0700; E: $074F; PG: 'Syriac'),
+    (S: $0750; E: $077F; PG: 'Arabic Supplement'),
+    (S: $0780; E: $07BF; PG: 'Thaana'),
+    (S: $07C0; E: $07FF; PG: 'NKo'),
+    (S: $0900; E: $097F; PG: 'Devanagari'),
+    (S: $0980; E: $09FF; PG: 'Bengali'),
+    (S: $0A00; E: $0A7F; PG: 'Gurmukhi'),
+    (S: $0A80; E: $0AFF; PG: 'Gujarati'),
+    (S: $0B00; E: $0B7F; PG: 'Oriya'),
+    (S: $0B80; E: $0BFF; PG: 'Tamil'),
+    (S: $0C00; E: $0C7F; PG: 'Telugu'),
+    (S: $0C80; E: $0CFF; PG: 'Kannada'),
+    (S: $0D00; E: $0D7F; PG: 'Malayalam'),
+    (S: $0D80; E: $0DFF; PG: 'Sinhala'),
+    (S: $0E00; E: $0E7F; PG: 'Thai'),
+    (S: $0E80; E: $0EFF; PG: 'Lao'),
+    (S: $0F00; E: $0FFF; PG: 'Tibetan'),
+    (S: $1000; E: $109F; PG: 'Myanmar'),
+    (S: $10A0; E: $10FF; PG: 'Georgian'),
+    (S: $1100; E: $11FF; PG: 'Hangul Jamo'),
+    (S: $1200; E: $137F; PG: 'Ethiopic'),
+    (S: $1380; E: $139F; PG: 'Ethiopic Supplement'),
+    (S: $13A0; E: $13FF; PG: 'Cherokee'),
+    (S: $1400; E: $167F; PG: 'Unified Canadian Aboriginal Syllabics'),
+    (S: $1680; E: $169F; PG: 'Ogham'),
+    (S: $16A0; E: $16FF; PG: 'Runic'),
+    (S: $1700; E: $171F; PG: 'Tagalog'),
+    (S: $1720; E: $173F; PG: 'Hanunoo'),
+    (S: $1740; E: $175F; PG: 'Buhid'),
+    (S: $1760; E: $177F; PG: 'Tagbanwa'),
+    (S: $1780; E: $17FF; PG: 'Khmer'),
+    (S: $1800; E: $18AF; PG: 'Mongolian'),
+    (S: $1900; E: $194F; PG: 'Limbu'),
+    (S: $1950; E: $197F; PG: 'Tai Le'),
+    (S: $1980; E: $19DF; PG: 'New Tai Lue'),
+    (S: $19E0; E: $19FF; PG: 'Khmer Symbols'),
+    (S: $1A00; E: $1A1F; PG: 'Buginese'),
+    (S: $1B00; E: $1B7F; PG: 'Balinese'),
+    (S: $1D00; E: $1D7F; PG: 'Phonetic Extensions'),
+    (S: $1D80; E: $1DBF; PG: 'Phonetic Extensions Supplement'),
+    (S: $1DC0; E: $1DFF; PG: 'Combining Diacritical Marks Supplement'),
+    (S: $1E00; E: $1EFF; PG: 'Latin Extended Additional'),
+    (S: $1F00; E: $1FFF; PG: 'Greek Extended'),
+    (S: $2000; E: $206F; PG: 'General Punctuation'),
+    (S: $2070; E: $209F; PG: 'Superscripts and Subscripts'),
+    (S: $20A0; E: $20CF; PG: 'Currency Symbols'),
+    (S: $20D0; E: $20FF; PG: 'Combining Diacritical Marks for Symbols'),
+    (S: $2100; E: $214F; PG: 'Letterlike Symbols'),
+    (S: $2150; E: $218F; PG: 'Number Forms'),
+    (S: $2190; E: $21FF; PG: 'Arrows'),
+    (S: $2200; E: $22FF; PG: 'Mathematical Operators'),
+    (S: $2300; E: $23FF; PG: 'Miscellaneous Technical'),
+    (S: $2400; E: $243F; PG: 'Control Pictures'),
+    (S: $2440; E: $245F; PG: 'Optical Character Recognition'),
+    (S: $2460; E: $24FF; PG: 'Enclosed Alphanumerics'),
+    (S: $2500; E: $257F; PG: 'Box Drawing'),
+    (S: $2580; E: $259F; PG: 'Block Elements'),
+    (S: $25A0; E: $25FF; PG: 'Geometric Shapes'),
+    (S: $2600; E: $26FF; PG: 'Miscellaneous Symbols'),
+    (S: $2700; E: $27BF; PG: 'Dingbats'),
+    (S: $27C0; E: $27EF; PG: 'Miscellaneous Mathematical Symbols-A'),
+    (S: $27F0; E: $27FF; PG: 'Supplemental Arrows-A'),
+    (S: $2800; E: $28FF; PG: 'Braille Patterns'),
+    (S: $2900; E: $297F; PG: 'Supplemental Arrows-B'),
+    (S: $2980; E: $29FF; PG: 'Miscellaneous Mathematical Symbols-B'),
+    (S: $2A00; E: $2AFF; PG: 'Supplemental Mathematical Operators'),
+    (S: $2B00; E: $2BFF; PG: 'Miscellaneous Symbols and Arrows'),
+    (S: $2C00; E: $2C5F; PG: 'Glagolitic'),
+    (S: $2C60; E: $2C7F; PG: 'Latin Extended-C'),
+    (S: $2C80; E: $2CFF; PG: 'Coptic'),
+    (S: $2D00; E: $2D2F; PG: 'Georgian Supplement'),
+    (S: $2D30; E: $2D7F; PG: 'Tifinagh'),
+    (S: $2D80; E: $2DDF; PG: 'Ethiopic Extended'),
+    (S: $2E00; E: $2E7F; PG: 'Supplemental Punctuation'),
+    (S: $2E80; E: $2EFF; PG: 'CJK Radicals Supplement'),
+    (S: $2F00; E: $2FDF; PG: 'Kangxi Radicals'),
+    (S: $2FF0; E: $2FFF; PG: 'Ideographic Description Characters'),
+    (S: $3000; E: $303F; PG: 'CJK Symbols and Punctuation'),
+    (S: $3040; E: $309F; PG: 'Hiragana'),
+    (S: $30A0; E: $30FF; PG: 'Katakana'),
+    (S: $3100; E: $312F; PG: 'Bopomofo'),
+    (S: $3130; E: $318F; PG: 'Hangul Compatibility Jamo'),
+    (S: $3190; E: $319F; PG: 'Kanbun'),
+    (S: $31A0; E: $31BF; PG: 'Bopomofo Extended'),
+    (S: $31C0; E: $31EF; PG: 'CJK Strokes'),
+    (S: $31F0; E: $31FF; PG: 'Katakana Phonetic Extensions'),
+    (S: $3200; E: $32FF; PG: 'Enclosed CJK Letters and Months'),
+    (S: $3300; E: $33FF; PG: 'CJK Compatibility'),
+    (S: $3400; E: $4DBF; PG: 'CJK Unified Ideographs Extension A'),
+    (S: $4DC0; E: $4DFF; PG: 'Yijing Hexagram Symbols'),
+    (S: $4E00; E: $9FFF; PG: 'CJK Unified Ideographs'),
+    (S: $A000; E: $A48F; PG: 'Yi Syllables'),
+    (S: $A490; E: $A4CF; PG: 'Yi Radicals'),
+    (S: $A700; E: $A71F; PG: 'Modifier Tone Letters'),
+    (S: $A720; E: $A7FF; PG: 'Latin Extended-D'),
+    (S: $A800; E: $A82F; PG: 'Syloti Nagri'),
+    (S: $A840; E: $A87F; PG: 'Phags-pa'),
+    (S: $AC00; E: $D7AF; PG: 'Hangul Syllables'),
+    (S: $D800; E: $DB7F; PG: 'High Surrogates'),
+    (S: $DB80; E: $DBFF; PG: 'High Private Use Surrogates'),
+    (S: $DC00; E: $DFFF; PG: 'Low Surrogates'),
+    (S: $E000; E: $F8FF; PG: 'Private Use Area'),
+    (S: $F900; E: $FAFF; PG: 'CJK Compatibility Ideographs'),
+    (S: $FB00; E: $FB4F; PG: 'Alphabetic Presentation Forms'),
+    (S: $FB50; E: $FDFF; PG: 'Arabic Presentation Forms-A'),
+    (S: $FE00; E: $FE0F; PG: 'Variation Selectors'),
+    (S: $FE10; E: $FE1F; PG: 'Vertical Forms'),
+    (S: $FE20; E: $FE2F; PG: 'Combining Half Marks'),
+    (S: $FE30; E: $FE4F; PG: 'CJK Compatibility Forms'),
+    (S: $FE50; E: $FE6F; PG: 'Small Form Variants'),
+    (S: $FE70; E: $FEFF; PG: 'Arabic Presentation Forms-B'),
+    (S: $FF00; E: $FFEF; PG: 'Halfwidth and Fullwidth Forms'),
+    (S: $FFF0; E: $FFFF; PG: 'Specials'),
+    (S: $10000; E: $1007F; PG: 'Linear B Syllabary'),
+    (S: $10080; E: $100FF; PG: 'Linear B Ideograms'),
+    (S: $10100; E: $1013F; PG: 'Aegean Numbers'),
+    (S: $10140; E: $1018F; PG: 'Ancient Greek Numbers'),
+    (S: $10300; E: $1032F; PG: 'Old Italic'),
+    (S: $10330; E: $1034F; PG: 'Gothic'),
+    (S: $10380; E: $1039F; PG: 'Ugaritic'),
+    (S: $103A0; E: $103DF; PG: 'Old Persian'),
+    (S: $10400; E: $1044F; PG: 'Deseret'),
+    (S: $10450; E: $1047F; PG: 'Shavian'),
+    (S: $10480; E: $104AF; PG: 'Osmanya'),
+    (S: $10800; E: $1083F; PG: 'Cypriot Syllabary'),
+    (S: $10900; E: $1091F; PG: 'Phoenician'),
+    (S: $10A00; E: $10A5F; PG: 'Kharoshthi'),
+    (S: $12000; E: $123FF; PG: 'Cuneiform'),
+    (S: $12400; E: $1247F; PG: 'Cuneiform Numbers and Punctuation'),
+    (S: $1D000; E: $1D0FF; PG: 'Byzantine Musical Symbols'),
+    (S: $1D100; E: $1D1FF; PG: 'Musical Symbols'),
+    (S: $1D200; E: $1D24F; PG: 'Ancient Greek Musical Notation'),
+    (S: $1D300; E: $1D35F; PG: 'Tai Xuan Jing Symbols'),
+    (S: $1D360; E: $1D37F; PG: 'Counting Rod Numerals'),
+    (S: $1D400; E: $1D7FF; PG: 'Mathematical Alphanumeric Symbols'),
+    (S: $20000; E: $2A6DF; PG: 'CJK Unified Ideographs Extension B'),
+    (S: $2F800; E: $2FA1F; PG: 'CJK Compatibility Ideographs Supplement'),
+    (S: $E0000; E: $E007F; PG: 'Tags'),
+    (S: $E0100; E: $E01EF; PG: 'Variation Selectors Supplement'),
+    (S: $F0000; E: $FFFFF; PG: 'Supplementary Private Use Area-A'),
+    (S: $100000; E: $10FFFF; PG: 'Supplementary Private Use Area-B')
+    );</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<hr><span class="appinfo"><em>Gerado por <a href="https://pasdoc.github.io/">PasDoc 0.16.0</a>. </em>
+</span>
+</div></div></body></html>

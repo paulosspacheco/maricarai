@@ -20,7 +20,7 @@ unit mi_rtl_ui_Dmxscroller;
       - @html(<a href="../units/mi_rtl_ui_dmxscroller.pas">mi_rtl_ui_DmxScroller.pas</a>)
 
     - **PENDÊNCIAS**
-       - T12 Criar Property TMi_rtl_dmxScroller.TemplateClient_Path
+        - T12 Criar Property TMi_rtl_dmxScroller.TemplateClient_Path
        - T12 Criar Property TMi_rtl_dmxScroller.ClientTemplates_ dataModule_FileName
        - T12 Criar Property TMi_rtl_dmxScroller.ClientTemplates_Form_FileName
 
@@ -49,7 +49,7 @@ unit mi_rtl_ui_Dmxscroller;
       - T!2 Implementar a campo **fldBLOb**;
 
       - t12 Implementar a edição de **fldHexValue**.
-        - O campo Hexadecimal deve ser campo longint mais a edição é uma string comum . FldStr
+        - O campo Hexadecimal deve ser campo longint mais a edição é uma string comum . fldStr
 
       - T12 Implementar  a execução do evento do tipo CharExecProc quando a tecla F7
             é pressionada.
@@ -77,6 +77,7 @@ unit mi_rtl_ui_Dmxscroller;
                 em true eu queria que ela ficasse em false.
 
     - **CONCLUÍDO**
+       - T12 Criar tipo TEn_OnEvent_DmxFieldRec;
        - T12 Criar TEnClientsApplication = (ApLcl,ApJavaScript,ApDynamichtml,ApVueJs,ApAngular); ✅
        - T12 Implementar o método public function Locate(): Boolean;override;overload;✅
 
@@ -294,7 +295,7 @@ uses
 
            11 directories, 20 files
 
-         ```
+77         ```
 
     }
     IMi_rtl_ui_Form= Interface
@@ -441,7 +442,7 @@ uses
                add('~Valor double.......:~\RRR,RRR.RR');
                add('~Valor SmalInt......:~\II,III');
                add('~Valor Byte.........:~\BBB');
-               add('~Valor Smallword....:~\WW,WWW');
+               add('~Valor SmallWord....:~\WW,WWW');
                add('~Sexo...............:~'+ CreateEnumField(TRUE, accNormal, 0,
                                              NewSItem(' indefinido ',
                                              NewSItem(' Masculino',
@@ -1034,6 +1035,7 @@ uses
          Public Function IsNumber:Boolean;
          Public Function IsNumberReal:Boolean;
          Public Function IsNumberInteger:Boolean;
+         Public Function IsNumberString:Boolean;
          public function IsBoolean: Boolean;
          Public function IsData: Boolean;
 //           Public function IsHora: Boolean;
@@ -1077,13 +1079,89 @@ uses
            Public property  reintrance_OnExit: Boolean Read Getreintrance_OnExit   Write  Setreintrance_OnExit;
          {$ENDREGION}
 
-         {: O método **@name** é executado toda vez antes do controle ler do buffer do campo.
-            - Se o TUiDmxScroller.OnEnterField tiver assinalado o método **@name** o executa.
+
+         {:O método **@name** é executado toda vez antes do controle ler do
+            buffer do campo.
+
+           - **Descrição**
+             - O método `DoOnEnter` é chamado quando o campo associado à instância
+               de `TDmxFieldRec` recebe foco. Ele assegura que o campo seja registrado
+               como o campo atual e atualizado adequadamente dentro do `owner_UiDmxScroller`.
+               Além disso, ele executa os eventos de entrada de campo e cálculo de campo,
+               se definidos, e também atualiza os buffers se o campo foi alterado.
+
+           - **Parâmetros Locais**
+             - `reintrance_DmxFieldRec_OnEnter`: Variável booleana para evitar
+               reentrância no método, garantindo que a lógica seja executada
+               apenas uma vez por chamada.
+
+           - **Fluxo de Execução**
+             1. Verifica se `reintrance_DmxFieldRec_OnEnter` está desativada e
+                se `owner_UiDmxScroller` está atribuído.
+              2. Define `reintrance_DmxFieldRec_OnEnter` como `true` para evitar
+                 reentrância.
+              3. Chama os métodos `SetCurrentField` e `Scroll_it_inview` no
+                 `owner_UiDmxScroller` para atualizar o campo atual e garantir
+                 que ele esteja visível na interface.
+              4. Executa o evento `onEnterField` se ele estiver atribuído e o
+                 número do campo (`Fieldnum`) for diferente de zero.
+              5. Executa o evento `OnCalcField` se ele estiver atribuído e o
+                 número do campo (`Fieldnum`) for diferente de zero.
+              6. Se o campo tiver sido alterado (`FieldAltered`), chama os métodos
+                 `PutBuffers` e `UpdateBuffers` no `owner_UiDmxScroller` para
+                 atualizar o estado dos buffers.
+              7. No bloco `finally`, redefine `reintrance_DmxFieldRec_OnEnter`
+                 para `false`.
+
+           - **Ver Também**
+             - `TDmxScroller.SetCurrentField`
+             - `TDmxScroller.Scroll_it_inview`
+             - `TDmxScroller.onEnterField`
+             - `TDmxScroller.OnCalcField`
+             - `TDmxScroller.PutBuffers`
+             - `TDmxScroller.UpdateBuffers`
          }
          Public procedure DoOnEnter(Sender: TObject);
 
-         {: O método **@name** é executado toda vez antes do controle gravar no buffer do campo.
-            - Se o TUiDmxScroller.OnExitField tiver assinalado o método **@name** o executa.
+         {:O método **@name** é executado toda vez antes do controle gravar no buffer do campo.
+
+           - **Descrição**
+             - O método `DoOnExit` é executado quando o campo associado à instância
+               de `TDmxFieldRec` perde o foco. Ele garante que os eventos e cálculos
+               relacionados à saída do campo sejam processados e que os buffers
+               sejam atualizados se o campo foi alterado.
+
+           - **Parâmetros Locais**
+             - `reintrance_DmxFieldRec_OnExit`: Variável booleana para evitar
+                reentrância no método, assegurando que o processamento de saída
+                ocorra apenas uma vez por chamada.
+
+           - **Fluxo de Execução**
+             1. Verifica se `reintrance_DmxFieldRec_OnExit` está desativada e se
+                `owner_UiDmxScroller` está atribuído.
+             2. Define `reintrance_DmxFieldRec_OnExit` como `true` para evitar
+                reentrância.
+             3. Executa o evento `onExitField` se ele estiver atribuído e o
+                número do campo (`Fieldnum`) for diferente de zero.
+             4. Executa o evento `OnCalcField` se ele estiver atribuído e o
+                número do campo for diferente de zero.
+             5. Se o número do campo for diferente de zero e o campo tiver sido
+                alterado (`FieldAltered`), executa o evento `OnChangeField`
+                (caso atribuído) e chama `DoChangeField`.
+             6. Chama o método `DoCalcFields` para recalcular os campos, se necessário.
+             7. Se o campo foi alterado, chama os métodos `PutBuffers`, `UpdateCommands`
+                e `UpdateBuffers` para atualizar os buffers e comandos do scroller.
+             8. No bloco `finally`, redefine `reintrance_DmxFieldRec_OnExit` para `false`.
+
+           - **Ver Também**
+             - `TDmxScroller.onExitField`
+             - `TDmxScroller.OnCalcField`
+             - `TDmxScroller.OnChangeField`
+             - `TDmxScroller.DoChangeField`
+             - `TDmxScroller.DoCalcFields`
+             - `TDmxScroller.PutBuffers`
+             - `TDmxScroller.UpdateCommands`
+             - `TDmxScroller.UpdateBuffers`
          }
          Public procedure DoOnExit(Sender: TObject);
 
@@ -1107,7 +1185,46 @@ uses
          }
          public KeyForeign : AnsiString;
 
-         {: O atributo **@name** copia o conteúdo de TDataField para self
+         {:O método **@name** copia o conteúdo de TDataField para self
+
+           - **Descrição**:
+             - O método `CopyFrom` copia o valor de um campo de dados (`TField`)
+               para a instância atual de `TDmxFieldRec`. Dependendo do tipo de
+               dado, ele formata o valor adequadamente antes de atribuí-lo ao
+               campo local `Value`.
+
+           - **Parâmetros Locais**:
+             - **aDataField**: `TField`
+               - Campo de dados de onde o valor será copiado.
+             - **wDefaultFormatSettings**: `TFormatSettings`
+               - Armazena as configurações de formato padrão para datas e
+                 números, ajustadas temporariamente durante a execução.
+             - **s**: `AnsiString`
+               - Variável temporária que armazena o valor do campo em formato
+                 string.
+             - **v**: `Variant`
+               - Variável que pode armazenar diferentes tipos de dados.
+
+           - **Fluxo de Execução**:
+             1. **Verificação de Dados:**
+                - Se o campo atual (`IsData`) for um campo de data:
+                  - Ajusta as configurações de formato de acordo com a máscara (`Mask`).
+                  - Copia o valor de `aDataField` para a variável `s`.
+                  - Se `s` não for uma string vazia, atribui `s` ao campo `Value`.
+                    Caso contrário, se o campo for numérico (`IsNumber`) ou de dados
+                    (`IsData`), atribui `0`; caso contrário, atribui uma string
+                    vazia (`''`).
+                  - As configurações de formato são restauradas após o processamento.
+
+             2. **Outro Tipo de Dado:**
+                - Se o campo não for de dados (`IsData` é `False`):
+                  - Se o campo for booleano (`IsBoolean`), atribui o valor booleano do campo de dados (`aDataField.AsBoolean`).
+                  - Caso contrário, copia o valor diretamente de `aDataField`.
+
+           - **Ver Também**:
+             - `TField`
+             - `TFormatSettings`
+             - `TDates.SetDefaultFormatSettings`
          }
          public Procedure CopyFrom(aDataField:TField);
 
@@ -1148,7 +1265,7 @@ uses
       {: O tipo **@name** é usado no evento OnExitField}
       TOnExitField = Procedure(aField:pDmxFieldRec) of Object  unimplemented;
 
-      {: O tipo **@name** é usado no evento para calcular um campo e é executado
+      {: O tipo **@name** é usado no evento para calcular um campo, é executado
          em TDmxFieldRec.DoOnEnter() e TDmxFieldRec.DoOnExit()}
       TOnCalcField = Procedure(aField:pDmxFieldRec) of Object unimplemented;
 
@@ -1160,7 +1277,6 @@ uses
            - Current_value  : Valor do campo atual.
       }
       TOnChangeField = Procedure(aField:pDmxFieldRec) of Object unimplemented;
-
 
       {: O tipo **@name** é usado para criar o evento OnBeforeInsert e disparado no método TUiDmxScroller.AddRec}
       TOnBeforeInsert = function(const aUiDmxScroller:TUiDmxScroller):boolean of Object unimplemented;
@@ -1183,6 +1299,15 @@ uses
 
       {: O tipo **@name** é usado para fazer calculos é executado ao entrar no registro e ao sair do registro}
       TOnCalcFields  = Procedure(const aUiDmxScroller:TUiDmxScroller) of Object unimplemented;
+
+      {:O tipo enumerado **@name** é usado nas requisições httl do cliente.
+
+        - **Notas**
+          - Usado para classificar eventos do mesmo tipo de parâmetro no caso o
+            cliente só precisa de o nome do campo para localizar o evento na lista
+            de eventos.
+      }
+      TEn_OnEvent_DmxFieldRec = (EnOnEnterField,EnOnExitField,EnOnCalcField,EnOnChangeField );
     {$ENDREGION '<-- declaração do tipo de eventos'}
 
     {$REGION '<-- Implementação de TBufDataset'}
@@ -1468,13 +1593,22 @@ uses
       }
       Public CreateValid : boolean ;
 
-      {:O atributo **@name** é um ponteiro para o buffer do registro
-      }
+      {:O atributo **@name** é um ponteiro para o buffer do registro}
       protected WorkingData   : pointer;
 
-      {:O atributo **@name** é um ponteiro para o buffer do registro anterior
-      }
+      {:O atributo **@name** é um ponteiro para o buffer do registro anterior}
       protected WorkingDataOld   : pointer;
+
+      {$Region Implementação para salva o buffer para o caso de retornar ao estado anterior }
+        Private wWorkingData     : pointer;
+        private wWorkingDataOld  : pointer;
+
+        Procedure SavewWorkingData;
+        Procedure RestorewWorkingData;
+        Procedure DestroywWorkingData;
+
+      {$EndRegion Implementação para salva o buffer para o caso de retornar ao estado anterior }
+
 
       {:O atributo **@name** é o tamanho do registro apontado por WorkingData. }
       protected DataBlockSize : longint;
@@ -2001,7 +2135,7 @@ uses
                ter número entre -128 to 127
                - Exemplo: \JJJ
 
-             - *W* = Indica que a posição é do tipo smallword (2 bytes) e só pode
+             - *W* = Indica que a posição é do tipo SmallWord (2 bytes) e só pode
                ter número entre 0 a 65.535
                - Exemplo: \WWWWW
 
@@ -2230,8 +2364,8 @@ uses
       public Procedure SetArgs(aArgs: array of const);virtual;
 
       {$REGION 'Propety JSonObject'}
-        private Procedure Set_JSONObject(aJSONObject: TJSONObject);
-        private function Get_JSONObject: TJSONObject;
+        Protected Procedure Set_JSONObject(aJSONObject: TJSONObject);virtual;
+        Protected function Get_JSONObject: TJSONObject;Virtual;
         Public property JSONObject: TJSONObject read Get_JSONObject write Set_JSONObject;
       {$ENDREGION 'Propety JSonObject'}
 
@@ -2268,7 +2402,7 @@ uses
                de dados.
 
            - **Parâmetros Locais**
-             - **WState_SfFocused** (`Boolean`): Guarda o estado anterior do foco
+             - **WState_Mb_St_Focused** (`Boolean`): Guarda o estado anterior do foco
                no componente para restaurá-lo após a inserção.
              - **wOnCalcRecordEnable** (`Boolean`): Armazena o estado da habilitação
                de cálculos de registros, desativado temporariamente.
@@ -2350,7 +2484,7 @@ uses
          //private var Ok_Rollback : Boolean;
          {: O método **@name** anula a transação do banco de dados}
 
-         protected procedure Rollback(afinalize:Boolean;aMsg:AnsiString;aBuffer: TJSONObject);overload;
+         protected procedure Rollback(afinalize: Boolean; aMsg: AnsiString; aWorkingData:Pointer);overload;
 
          {$REGION ' ---> Property CurrentBookmark : TBookMark '}
              private _CurrentBookmark_old : TBookMark;
@@ -2606,7 +2740,7 @@ uses
          {$EndRegion onChangeField}
 
          {: O método **@name** é usado em AddRec e PutRec para o caso de exceção retornar o valor anterior do registro}
-         private wJSONObject: TJSONObject;
+//         private wJSONObject: TJSONObject;
 
          {: O método **@name** adiciona o buffer DataSource.dataSet n arquivo.
 
@@ -2631,13 +2765,60 @@ uses
          }
          Public Function DeleteRec:Boolean ;Virtual;
 
-         {: O método **@name** retorna uma string com os nomes dos campos separados
+         {:O método **@name** retorna uma string com os nomes dos campos separados
             por virculas e em Values retorna os valores do campos;
 
             - EXEMPLO
               - Campo chaves: 'data;id'
          }
          public function getFieldsKeys(out Values:Variant):AnsiString;overload;
+         {:O método **@name** retorna um `TJSONObject` contendo os nomes dos
+           campos chave e seus respectivos valores do `DataSet`. Caso o `DataSet`
+           esteja vazio ou inativo, retorna um objeto JSON vazio.
+
+           - **Descrição**
+             - O método `getFieldsKeysAsJson` percorre os campos do `DataSet` e,
+               para cada campo marcado como chave (`pfInKey`), adiciona o nome do
+               campo e o seu valor ao objeto JSON retornado. O valor é obtido
+               através da propriedade `AsVariant`, que garante compatibilidade com
+               diferentes tipos de dados.
+
+           - **Parâmetros Locais**
+             - `F`: `TField` - Representa o campo atual do `DataSet` durante a iteração.
+             - `i`: `Integer` - Índice usado para iterar sobre os campos do `DataSet`.
+             - `ds`: `TDataSet` - Conjunto de dados do qual os campos e valores serão extraídos.
+             - `Result`: `TJSONObject` - Objeto JSON que armazena os pares campo-valor.
+
+           - **Fluxo de Execução**
+             1. O método cria uma instância de `TJSONObject`.
+             2. Se o `DataSet` estiver vazio ou inativo, o método retorna o objeto JSON vazio.
+             3. Se o `DataSet` estiver ativo:
+                - Itera pelos campos do `DataSet`.
+                - Para cada campo marcado com `pfInKey`, verifica se o valor não é nulo.
+                - Adiciona o campo e seu valor ao `TJSONObject`.
+             4. Retorna o objeto JSON preenchido.
+
+           - **Exceções**
+            - **Memória**:
+              - Lembre-se de liberar o objeto JSON após o uso para evitar vazamento
+                de memória.
+
+           - **Exemplo de Uso**
+
+              ```pascal
+                   var
+                     jsonResult: TJSONObject;
+                 begin
+                   jsonResult := getFieldsKeysAsJson;
+                   try
+                     ShowMessage(jsonResult.AsJSON);  // Exibe o JSON gerado como string.
+                   finally
+                     jsonResult.Free;  // Libera o objeto JSON da memória.
+                   end;
+                 end;
+              ```
+         }
+         public function getFieldsKeysAsJson: TJSONObject;
 
          {: O método **@name** grava o buffer no registro apontado CuurentBookmark
             do DataSource.dataSet no arquivo.
@@ -2811,7 +2992,7 @@ implementation
                            value   :  byte;//:< Valor do bit
 
                                                  //   0123456789012345
-                           ofs     :  Smallword; //:< 0000000000000000 16 bits
+                           ofs     :  SmallWord; //:< 0000000000000000 16 bits
                         end;
     {: O tipo **@name** usado pelo interpretador de Template para identificar o
        campo cluster}
@@ -2991,40 +3172,40 @@ implementation
       _OkSpc := aOkSpc;
     end;
 
-function TDmxFieldRec.getOkMask: Boolean;
-begin
-  Result := _okMask;
-end;
+    function TDmxFieldRec.getOkMask: Boolean;
+    begin
+      Result := _okMask;
+    end;
 
-procedure TDmxFieldRec.SetokMask(AValue: Boolean);
-begin
-  if _OkMask<>AValue
-  then _okMask:= AValue;
-end;
+    procedure TDmxFieldRec.SetokMask(AValue: Boolean);
+    begin
+      if _OkMask<>AValue
+      then _okMask:= AValue;
+    end;
 
-//function TDmxFieldRec.StrNumberValid(S: AnsiString): AnsiString;
-//begin
-//  With owner_UiDmxScroller do
-//  begin
-//    Result  := DeleteMask(S,['0'..'9','-','+',showDecimalSeparator ]);
-//    if (pos(showDecimalSeparator  ,Result)<>0) and (showDecimalSeparator <>DecimalSeparator )
-//    then begin
-//           Result := Change_AnsiChar(s,showDecimalSeparator ,DecimalSeparator );
-//         end;
-//  end;
-//end;
+    //function TDmxFieldRec.StrNumberValid(S: AnsiString): AnsiString;
+    //begin
+    //  With owner_UiDmxScroller do
+    //  begin
+    //    Result  := DeleteMask(S,['0'..'9','-','+',showDecimalSeparator ]);
+    //    if (pos(showDecimalSeparator  ,Result)<>0) and (showDecimalSeparator <>DecimalSeparator )
+    //    then begin
+    //           Result := Change_AnsiChar(s,showDecimalSeparator ,DecimalSeparator );
+    //         end;
+    //  end;
+    //end;
 
-      //function TDmxFieldRec.StrNumberValid(S: AnsiString): AnsiString;
-      //begin
-      //  With owner_UiDmxScroller do
-      //  begin
-      //    Result  := DeleteMask(S,['0'..'9','-','+',showDecimalSeparator ]);
-      //    //if (pos(showDecimalSeparator  ,Result)<>0) and (showDecimalSeparator <>DecimalSeparator )
-      //    //then begin
-      //    //       Result := Change_AnsiChar(s,showDecimalSeparator ,DecimalSeparator );
-      //    //     end;
-      //  end;
-      //end;
+          //function TDmxFieldRec.StrNumberValid(S: AnsiString): AnsiString;
+          //begin
+          //  With owner_UiDmxScroller do
+          //  begin
+          //    Result  := DeleteMask(S,['0'..'9','-','+',showDecimalSeparator ]);
+          //    //if (pos(showDecimalSeparator  ,Result)<>0) and (showDecimalSeparator <>DecimalSeparator )
+          //    //then begin
+          //    //       Result := Change_AnsiChar(s,showDecimalSeparator ,DecimalSeparator );
+          //    //     end;
+          //  end;
+          //end;
 
     function TDmxFieldRec.RemoveMaskNumber(S: AnsiString): AnsiString;
     begin
@@ -3080,9 +3261,9 @@ end;
                               //Result := s;
                             end
                        else begin
-                              //s_mask := owner_UiDmxScroller.Get_MaskEdit_LCL(Template_org,owner_UiDmxScroller.SpaceChar,OkMask_temp);
-
-                              result := owner_UiDmxScroller.DeleteMask(S,Template_org)
+                              if IsNumberString
+                              Then result := owner_UiDmxScroller.DeleteMask(S,Template_org)
+                              else result := s;
                             end;
            end
       else Raise TException.Create(TStrError.ErrorMessage5('mi.rtl',
@@ -3161,9 +3342,9 @@ end;
             Then With owner_UiDmxScroller,TDates do
                  Begin
                    Case TypeCode of
-                      fldSTR,
-                      fldstr_Lowcase ,
-                      fldSTRNUM
+                      fldStr,
+                      fldStrAlfa ,
+                      fldStrNumber
                         : Begin
                             //if OkMask
                             //Then
@@ -3208,9 +3389,9 @@ end;
                           end;
 
                       fldAnsiChar,
-                      fldAnsiChar_LowCase,
-                      fldAnsiCharNUM,
-                      fldAnsiCharVAL
+                      fldAnsiCharAlfa,
+                      fldAnsiCharNumPositive,
+                      fldAnsiCharNum
                         : Begin
                             Len := Length(s);
                             If Len <= FieldSize
@@ -3226,7 +3407,7 @@ end;
 
                       fldENUM ,
                       fldENUM_db,
-                      fldLONGINT
+                      fldLongInt
                         : Begin
                             P^.asLongint := Longint(CheckRanger(s,High(Longint),Low(Longint),err));
                           end;
@@ -3237,16 +3418,16 @@ end;
                                      else P^.asByte := 1;
                                    end;
 
-                      fldBYTE : P^.asByte := Byte(CheckRanger(s,High(byte),Low(byte),err));
+                      fldByte : P^.asByte := Byte(CheckRanger(s,High(byte),Low(byte),err));
 
-                      fldSHORTINT
+                      fldShortInt
                         : Begin
                             P^.asSHORTINT := SHORTINT(CheckRanger(s,High(SHORTINT),Low(SHORTINT),err));
                            end;
 
-                      fldSmallWORD
+                      fldSmallWord
                         : Begin
-                            P^.asSmallWord := SmallWORD(CheckRanger(s,High(SmallWord),Low(SmallWord),err));
+                            P^.asSmallWord := SmallWord(CheckRanger(s,High(SmallWord),Low(SmallWord),err));
                            end;
 
                       FldRadioButton
@@ -3264,8 +3445,8 @@ end;
                             P^.asSmallInt := SmallInt(CheckRanger(s,High(SmallInt),Low(SmallInt),err));
                           end;
 
-                      fldRealNum,
-                      fldRealNum_Positivo
+                      fldDouble,
+                      fldDoublePositive
                         : Begin
                             s := TObjectsMethods.DeleteMask(S,['0'..'9','-','+',showDecimalSeparator ]);
                             if not TryStrToFloat(S,P^.asRealNum,DefaultFormatSettings)
@@ -3349,9 +3530,9 @@ end;
             p := pv;
             with TUiDmxScroller do
             Case TypeCode of
-                 fldSTR,
-                 fldstr_Lowcase      ,
-                 fldSTRNUM   : Begin
+                 fldStr,
+                 fldStrAlfa      ,
+                 fldStrNumber   : Begin
                                  if okMask
                                  then begin
                                        s1 := owner_UiDmxScroller.Get_MaskEdit_LCL(Template_org,SpaceChar,OkMask_temp);
@@ -3392,9 +3573,9 @@ end;
                                  end;
 
                  fldAnsiChar,
-                 fldAnsiChar_LowCase,
-                 fldAnsiCharNUM,
-                 fldAnsiCharVAL : Begin
+                 fldAnsiCharAlfa,
+                 fldAnsiCharNumPositive,
+                 fldAnsiCharNum : Begin
                                     If FieldSize <= 255 Then
                                     Begin
                                       Move(P^,ws[1],FieldSize) ;
@@ -3419,7 +3600,7 @@ end;
                              end;
 
 
-                 fldLONGINT  : Begin
+                 fldLongInt  : Begin
                                  If (Not OkSpc) and (P^.asLongint = 0)
                                  Then Result := '0'
                                  else Begin
@@ -3429,7 +3610,7 @@ end;
                                       end;
                                end;
 
-                 fldBYTE     : begin
+                 fldByte     : begin
                                  If (Not OkSpc) and (P^.asByte= 0)
                                  Then Result := '0'
                                  else Begin
@@ -3439,7 +3620,7 @@ end;
                                       end;
                                end;
 
-                 fldSHORTINT : Begin
+                 fldShortInt : Begin
                                  If (Not OkSpc) and (P^.asShortInt = 0)
                                  Then Result := '0'
                                  else Begin
@@ -3456,7 +3637,7 @@ end;
                                           end;
                                    end;
 
-                 FldSmallWord : Begin
+                 fldSmallWord : Begin
                                   If (Not OkSpc) and (P^.AsSmallWord = 0)
                                   Then Result := '0'
                                   else Begin
@@ -3476,8 +3657,8 @@ end;
                                       end;
                                end;
 
-                 fldRealNum,
-                 fldRealNum_Positivo : begin
+                 fldDouble,
+                 fldDoublePositive : begin
                                          If (Not OkSpc) and (P^.asRealNum= 0)
                                          Then Result := '0'
                                          else begin
@@ -3547,24 +3728,24 @@ end;
     function TDmxFieldRec.IsInputText: Boolean;
     begin
       with owner_UiDmxScroller do
-      Result :=  TypeCode in [fldSTR,
-                              fldSTRNUM,
-                              fldstr_Lowcase,
+      Result :=  TypeCode in [fldStr,
+                              fldStrNumber,
+                              fldStrAlfa,
                               fldAnsiChar,
-                              fldAnsiChar_LowCase,
-                              fldAnsiCharNUM,
-                              fldAnsiCharVAL,
-                              fldBYTE,
-                              fldSHORTINT,
-                              fldSmallWORD,
+                              fldAnsiCharAlfa,
+                              fldAnsiCharNumPositive,
+                              fldAnsiCharNum,
+                              fldByte,
+                              fldShortInt,
+                              fldSmallWord,
                               fldSmallInt,
-                              fldLONGINT,
-                              fldRealNum,
+                              fldLongInt,
+                              fldDouble,
                               fldReal4,
                               fldReal4P,
                               fldReal4Positivo,
                               fldReal4PPositivo,
-                              fldRealNum_Positivo,
+                              fldDoublePositive,
                               FldExtended,
                               fldHexValue,
                               FldDateTime,
@@ -3893,14 +4074,20 @@ end;
     function TDmxFieldRec.IsNumberReal: Boolean;
     begin
       with owner_UiDmxScroller do
-        Result := TypeCode in [fldRealNum,fldExtended,fldReal4,fldReal4P,fldReal4Positivo,fldReal4PPositivo];
+        Result := TypeCode in [fldDouble,fldExtended,fldReal4,fldReal4P,fldReal4Positivo,fldReal4PPositivo];
     end;
 
     function TDmxFieldRec.IsNumberInteger: Boolean;
     begin
       with owner_UiDmxScroller do
-        Result := TypeCode in [fldBYTE,fldSHORTINT,fldSmallWORD,
-                               fldSmallInt,fldLONGINT,fldHexValue,fldENUM,FLdEnum_db];
+        Result := TypeCode in [fldByte,fldShortInt,fldSmallWord,
+                               fldSmallInt,fldLongInt,fldHexValue,fldENUM,FLdEnum_db];
+    end;
+
+    function TDmxFieldRec.IsNumberString: Boolean;
+    begin
+      with owner_UiDmxScroller do
+         Result := TypeCode in [fldStrNumber];
     end;
 
     function TDmxFieldRec.IsBoolean: Boolean;
@@ -4076,12 +4263,19 @@ end;
               end;
             end
        else begin
-              //s := aDataField.value;
-              if IsBoolean
-              then value := aDataField.AsBoolean
-              else Value := aDataField.value;
+              if not aDataField.IsNull
+              then begin
+                     if IsBoolean
+                     then Value := aDataField.AsBoolean
+                     else Value := aDataField.Value;
+                   end
+              else begin
+                     // Atribuir um valor padrão quando for nulo
+                     if IsBoolean
+                     then Value := False
+                     else Value := '';  // ou outro valor padrão
+                   end;
             end;
-
     end;
 
     procedure TDmxFieldRec.CopyTo(aDataField: TField);
@@ -4210,6 +4404,7 @@ end;
             wState:Boolean;
             ds :TdataSet;
             wJSO : TJSONObject;
+            OkSalvou :Boolean =false;
         begin
           AssignFile(FileText,_FileName);
           with _UiDmxScroller do
@@ -4246,20 +4441,28 @@ end;
                      wJSO := JSONObject;
 //                     s := wJSO.AsJSON;
                      writeLn(FileText,wJSO.AsJSON);
+                     OkSalvou:= true;
                    finally
                      FreeAndNil(wJSO);
                    end;
                    NextRec;
-
                  end;
 
           finally
             CloseFile(FileText);
-            if (not IsEmpty) //and ( Not _Appending)
+
+
+            if OkSalvou and (not IsEmpty) and ( Not _Appending)
             Then begin
                    GetRec(wBookmark);
-                   //Os comandos abaixo são necessários porque se alterou a lógica de navegação
-                   //eof :=false;    Bof := false;
+                 end
+            else begin
+                   if FileSize(_FileName)=0
+                   Then begin
+                          DeleteFile(_FileName);
+                          ds.Active:=false;
+                          ds.Active:=true;
+                       end;
                  end;
 
             SetState(Mb_St_Creating,WState);
@@ -4512,8 +4715,10 @@ end;
       flagPrimaryKey_AutoIncrement := false;
       _Strings := TMiStringList.Create;
       DoOnNewRecord_FillChar := true;
-      wJSONObject := nil;
+      //wJSONObject := nil;
       DataFields := TDataFields.Create;
+      wWorkingData    := nil;
+      wWorkingDataOld := nil;
     end;
 
     destructor TUiDmxScroller.destroy;
@@ -4538,8 +4743,8 @@ end;
       if Assigned(_BufDataset) and (_BufDataset.Owner = self)
       then FreeandNil(_BufDataset) ;
 
-      if Assigned(wJSONObject)
-      Then FreeandNil(wJSONObject);
+      //if Assigned(wJSONObject)
+      //Then FreeandNil(wJSONObject);
 
       inherited destroy;
     end;
@@ -4584,6 +4789,24 @@ end;
              System.Dispose(apDmxFieldRec);
              apDmxFieldRec := nil;
            end;
+    end;
+
+    procedure TUiDmxScroller.SavewWorkingData;
+    begin
+      wWorkingData    := CGetMem(WorkingData,RecordSize);
+      wWorkingDataOld := CGetMem(WorkingDataOld,RecordSize);
+    end;
+
+    procedure TUiDmxScroller.RestorewWorkingData;
+    begin
+      Move(wWorkingData^,WorkingData^,RecordSize);
+      Move(wWorkingDataOld^,WorkingDataOld^,RecordSize);
+    end;
+
+    procedure TUiDmxScroller.DestroywWorkingData;
+    begin
+      FFreeMem(wWorkingData,RecordSize);
+      FFreeMem(wWorkingDataOld,RecordSize);
     end;
 
     procedure TUiDmxScroller.SetCurrentRecord( aCurrentRecord: Longint);
@@ -4687,7 +4910,7 @@ end;
                     KeyAltered := aValue;
                     UpdateCommands;
                   end
-                  else KeyAltered := aValue;
+             else KeyAltered := aValue;
              reintrance_ChangeMadeOnOff := false;
            end;
     End;
@@ -4713,7 +4936,7 @@ end;
 
     procedure TUiDmxScroller.DoOnNewRecord;
       Var
-        WState_SfFocused : Boolean;
+        WState_Mb_St_Focused : Boolean;
         wOnCalcRecordEnable: Boolean;
         p :TDataSetNotifyEvent;
         wCurrentField:PDmxFieldRec;
@@ -4733,7 +4956,7 @@ end;
                  Then System.FillChar(WorkingData^,RecordSize,0);
                  Move(WorkingData^,WorkingDataOld^,RecordSize);
                  wOnCalcRecordEnable := SetOnCalcRecord(False);
-                 WState_SfFocused    := SetState(SfFocused,False);
+                 WState_Mb_St_Focused    := SetState(Mb_St_Focused,False);
 
                  try
                    wCurrentField := CurrentField;
@@ -4787,7 +5010,7 @@ end;
                  UpdateBuffers;
                  UpdateCommands;
                Finally
-                 SetState(SfFocused,WState_SfFocused);
+                 SetState(Mb_St_Focused,WState_Mb_St_Focused);
                  SetOnCalcRecord(wOnCalcRecordEnable);
                  Self.ChangeMadeOnOff(False);
                  if Assigned(Parent)
@@ -4823,7 +5046,7 @@ end;
       Result:=inherited COMMIT;
     end;
 
-    procedure TUiDmxScroller.Rollback(afinalize: Boolean; aMsg: AnsiString; aBuffer: TJSONObject);
+    procedure TUiDmxScroller.Rollback(afinalize: Boolean; aMsg: AnsiString; aWorkingData:Pointer);
       Var
         wAppending : Boolean;
         ds : TDataSet;
@@ -4840,12 +5063,16 @@ end;
 
              if (not isDataSetActive)
              Then ds.active := true;
+
              Refresh;
              if wAppending
              then DoOnNewRecord;
-             if Assigned(aBuffer) //Obs: Quando este comando for chamado por deleteRec aBuffer deve ser nil.
-             Then begin
-                    JSONObject := aBuffer;
+
+             if Assigned(aWorkingData)
+             then begin
+                    RestorewWorkingData;
+                    DestroywWorkingData;
+
                     If Not (ds.State in [DsEdit,DsInsert])
                     Then edit;
                     PutBuffers;
@@ -4853,8 +5080,8 @@ end;
            end;
 
       // Se ouver exceção é necessário desalocar wJSONObject salvo antes da exceção
-      If Assigned(wJSONObject)
-      Then FreeAndNil(wJSONObject);
+      //If Assigned(wJSONObject)
+      //Then FreeAndNil(wJSONObject);
     end;
 
     function TUiDmxScroller.SetState(const AState: Int64; const Enable: boolean      ): Boolean;
@@ -4957,9 +5184,12 @@ end;
     End;
 
     function TUiDmxScroller.IsEmpty: Boolean;
+      Var
+        r:Longint;
     begin
       if isDataSetActive
       Then begin
+         //    r:= GetDataSet.RecordCount;
              result :=  GetDataSet.IsEmpty;
              if Result
              Then begin
@@ -4987,14 +5217,6 @@ end;
                            if not GetRec(ds.GetBookmark)
                            Then Locked:=true
                          end;
-                    //else begin
-                    //      ds.Prior;
-                    //      If ds.Bof
-                    //      Then Ds.Next;
-                    //      if not GetRec(ds.GetBookmark)
-                    //      Then Locked:=true;
-                    //    end;
-                    //
                   end;
            end;
       if Assigned(onEnter)
@@ -5017,10 +5239,11 @@ end;
              ChangeMadeOnOff(true)
            end
       else ChangeMadeOnOff(false);
-      //Select_First_Field_Normal;
+
       _RecordSelected := true;
       If Not (ds.State in [DsEdit,dsInsert])
       Then edit;
+      //UpdateCommands;
     end;
 
     procedure TUiDmxScroller.DoOnEnter();
@@ -5398,7 +5621,7 @@ end;
                           begin
                             alias := 'FldBoolean';
                             templx(#0,dataformat^[i]);
-                            If upcase(C) <> fldSHORTINT
+                            If upcase(C) <> fldShortInt
                             then C := upcase(C);
 
                             TypeCode  := dataformat^[i];
@@ -5442,8 +5665,8 @@ end;
                                 GetHints;
                                 continue;
                              end;
-            fldSTR,
-            fldSTRNUM       : With Rex^ do
+            fldStr,
+            fldStrNumber       : With Rex^ do
                               begin
                                 templx(#0,dataformat^[i]);
                                 TypeCode := dataformat^[i];
@@ -5465,9 +5688,10 @@ end;
                                 end;
 
             fldAnsiChar,
-            fldAnsiChar_LowCase,
-            fldAnsiCharVAL,
-            fldAnsiCharNUM  : With Rex^ do
+            fldAnsiCharAlfa,
+            fldAnsiCharNum,
+            fldAnsiCharNumPositive  :
+                              With Rex^ do
                               begin
                                 If (DoDecimal > 0)
                                 then begin
@@ -5482,12 +5706,12 @@ end;
                                 FillValue := ' ';
                               end;
 
-            fldBYTE,
-            fldSHORTINT   :  With Rex^ do
+            fldByte,
+            fldShortInt   :  With Rex^ do
                               Begin
                                 templx(#0,dataformat^[i]);
 
-                                If upcase(C) <> fldSHORTINT
+                                If upcase(C) <> fldShortInt
                                 then C := upcase(C);
 
                                 TypeCode  := dataformat^[i];
@@ -5501,7 +5725,7 @@ end;
             {< 'Z' }
             fldZEROMOD   :    With Rex^ do
                               begin
-                                If (TypeCode = #0) or (TypeCode = fldAnsiCharVAL)
+                                If (TypeCode = #0) or (TypeCode = fldDouble)
                                 then Inc(FieldSize);
 
                                 templx(#1,dataformat^[i]);
@@ -5512,7 +5736,7 @@ end;
                               end;
 
 
-            FldSmallWord :    With Rex^ do
+            fldSmallWord :    With Rex^ do
                               begin
                                 templx(#0,dataformat^[i]);
                                 TypeCode  := dataformat^[i];
@@ -5531,7 +5755,7 @@ end;
                               end;
 
 
-            fldLONGINT  : With Rex^ do
+            fldLongInt  : With Rex^ do
                           begin
                             templx(#0,dataformat^[i]);
                             TypeCode  := dataformat^[i];
@@ -5566,8 +5790,8 @@ end;
                                 FillValue := #0;
                               end;
 
-            fldRealNum,
-            fldRealNum_Positivo: With Rex^ do
+            fldDouble,
+            fldDoublePositive: With Rex^ do
                                   begin
                                     templx(#0,dataformat^[i]);
                                     TypeCode  := dataformat^[i];
@@ -5788,7 +6012,7 @@ end;
                                 Then templx(C,dataformat^[i])
                                 else templx(ShowDecimalSeparator,ShowDecimalSeparator);
 
-                                If (upcase(Rex.TypeCode) = fldAnsiCharVAL)
+                                If (upcase(Rex.TypeCode) = fldDouble)
                                 then begin
                                        If (C = CloseParenthesis {')'})
                                           then Inc(TrueLen);  {<?????}
@@ -5798,8 +6022,8 @@ end;
 
                                 If (C = DecimalSeparator)
                                 then begin
-                                       If (upcase(TypeCode) = fldRealNum) or
-                                          (upcase(TypeCode) = fldAnsiCharVAL) or
+                                       If (upcase(TypeCode) = fldDouble) or
+                                          (upcase(TypeCode) = fldDouble) or
                                           (upcase(TypeCode) = fldExtended) or
                                           (upcase(TypeCode) = fldReal4) or
                                           (upcase(TypeCode) = fldReal4P) or
@@ -6396,7 +6620,7 @@ end;
       For i := 1 to length(aTemplate) do
       Begin
         case aTemplate[i] of
-          fldSTR          ,//    'S';  // string Field
+          fldStr          ,//    'S';  // string Field
           fldAnsiChar         ://    'C';  // AnsiCharacter Field
            Begin
              aOkMask := true;
@@ -6405,8 +6629,8 @@ end;
              aLength_Buffer := aLength_Buffer + 1;
            End;
 
-          fldAnsiChar_LowCase,   //  'c';  // AnsiCharacter Field
-          fldstr_Lowcase       : //  's'   // Minusculo e maiusculo
+          fldAnsiCharAlfa,   //  'c';  // AnsiCharacter Field
+          fldStrAlfa       : //  's'   // Minusculo e maiusculo
           begin
              Result := Result + '<c';
              aLength_Buffer := aLength_Buffer + 1;
@@ -6415,27 +6639,31 @@ end;
           'z',
           fldZEROMOD      ,//   'Z';  { zero modifier }
           fldHexValue     ,//   'H';  { hexadecimal numeric entry }
-          fldSTRNUM       ,//   '#';  { numeric string Field }
-          fldAnsiCharNUM      ,//   '0';  { numeric AnsiCharacter Field }
-          fldAnsiCharVAL      ,//   'N';  { dbase formatted numeric Field }
-          fldBYTE         ,//   'B';  { byte Field }
-          fldSHORTINT     ,//   'J';  { shortint Field }
-          fldSmallWORD    ,//   'W';  { word Field NortSoft}
-          fldSmallInt     ,//   'I';  { integer Field NortSoft}
-          fldLONGINT      ://   'L';  { longint Field }
+          fldStrNumber       ,//   '#';  { numeric string Field }
+          fldAnsiCharNumPositive  ,//   '0';  { numeric AnsiCharacter Field }
+          fldAnsiCharNum      ,//   'N';  { dbase formatted numeric Field }
+          fldByte         ,//   'B';  { número byte sizeof = 1}
+          fldShortInt     ,//   'J';  { número shortint sizeof = 1}
+          fldSmallWord    ,//   'W';  { número SmallWord sizeof = 2 aceita só positivos}
+          fldSmallInt     ,//   'I';  { número SmallInt sizeof = 2 aceita só positivos e negativos}
+          fldLongInt      ://   'L';  { número longint aceita positivos e negativos}
           Begin
             aOkMask := true;
             Result := Result + '#'; //0..9, + ,  -
             aLength_Buffer := aLength_Buffer + 1;
           end;
 
-          fldExtended     ,//  'E';  {Real 10 bytes}
-          fldReal4        ,//  'O';  { Real 4 Byte positivos e negativos }
-          fldReal4P       ,//  'P';  { P = Real de mostrado x por 100 positivos e negativos}
-          fldRealNum,      //  'R';  { real number Field  (uses TRealNum) }
-          fldRealNum_Positivo, // 'r';  { real number Field positive (uses TRealNum) }
-          fldReal4Positivo   , // 'o';  { Real 4 Byte positivos}
-          fldReal4PPositivo  : // 'p';  { P = Real de mostrado x por 100 positivos}
+          fldExtended        ,// 'E'; {Número real com sizeof = 10 bytes. Aceita positivos e negativos}
+
+          fldReal4           ,// 'O'; {Número Real sizeof = 4 Byte. Aceita positivos e negativos }
+          fldReal4Positivo   ,// 'o'; {Número Real sizeof = 4 Byte. Aceita só positivos}
+
+          fldReal4P          ,// 'P'; {Número Real sizeof = 4 Byte. Ao entrar no campo o mesmo é por 100 e ao sair o mesmo é dividido por 100 aceita positivos e negativos}
+          fldReal4PPositivo  ,// 'p'; {Número Real sizeof = 4 Ao entrar no campo o mesmo é por 100 e ao sair o mesmo é dividido por 100 aceita positivos e negativos}
+
+          fldDouble         ,// 'R'; {Número real sizeof = 8 positivos e negativos}
+          fldDoublePositive:// 'r'; {Número real sizeof = 8 positivo  }
+
           Begin
             Result := Result + '#';
             aLength_Buffer := aLength_Buffer + 1;
@@ -6468,7 +6696,7 @@ end;
                       OKSeparador := true;
 
   {Caso coloque os caracteres abaixo na mascara o Delphi não reconhecerá como número.
-                      If (aTypeFld in [fldExtended,fldReal4,fldReal4P,fldRealNum,fldRealNum_Positivo,fldReal4Positivo,fldReal4PPositivo])
+                      If (aTypeFld in [fldExtended,fldReal4,fldReal4P,fldDouble,fldDoublePositive,fldReal4Positivo,fldReal4PPositivo])
                           and (aTemplate[i] in [' ','%','$'])
                       Then Result := Result + aTemplate[i];
   }
@@ -7082,13 +7310,11 @@ end;
       var
         fld     : PDmxFieldRec;
         i       : Integer;
-        fldName,s : string;
+        fldName,s,v : string;
+        OkAlterou :Boolean = false;
     begin
       if Assigned(aJSONObject)
       then begin
-             if Assigned(wJSONObject)
-             Then FreeandNil(wJSONObject);
-
              for i := 0 to aJSONObject.Count-1 do
              begin
                fldName := aJSONObject.Names[i];
@@ -7096,11 +7322,22 @@ end;
                if Assigned(fld)
                then begin
                       s := aJSONObject.strings[fld^.FieldName];
-                      fld^.Value := aJSONObject.strings[fld^.FieldName];
+                      V := fld^.AsString;
+                      if s<>V
+                      Then begin
+                             fld^.AsString := S;
+                             OkAlterou := true;
+                          end;
                     end;
              end;
-             DoCalcFields;
-             PutBuffers;
+             //DoCalcFields;
+             //PutBuffers;
+
+             if OkAlterou
+             Then begin
+                    DoCalcFields;
+                    PutBuffers;
+                 end;
            end;
     end;
 
@@ -7268,8 +7505,8 @@ end;
     begin
       if isDataSetActive and Assigned(Fields)
       then begin
-              if Assigned(WJSONObject)
-              Then FreeAndNil(WJSONObject);
+              //if Assigned(WJSONObject)
+              //Then FreeAndNil(WJSONObject);
               GetBuffers;
               Result := TJSONObject.Create;
               for i := 0 to Fields.Count-1 do
@@ -7865,8 +8102,6 @@ end;
              end;
       end;
 
-
-
       function TUiDmxScroller.getFieldsKeys(out Values: Variant): AnsiString;
         Var
           F : TField;
@@ -7929,46 +8164,87 @@ end;
         end;
       end;
 
+      function TUiDmxScroller.getFieldsKeysAsJson: TJSONObject;
+        var
+          F: TField;
+          i: Integer;
+          ds: TDataSet;
+      begin
+        Result := TJSONObject.Create;
+
+        ds := GetDataSet;
+
+        if IsEmpty then
+          exit(Result); // Retorna um objeto vazio se o dataset estiver vazio.
+
+        if isDataSetActive then
+        begin
+          // Itera sobre os campos do dataset.
+          for i := 0 to ds.Fields.Count - 1 do
+          begin
+            F := ds.Fields[i];
+
+            if (db.pfInKey in F.ProviderFlags) then
+            begin
+              // Adiciona o campo e seu valor no objeto JSON.
+              if not F.IsNull then
+                Result.Add(F.FieldName, F.AsVariant);  // Usa AsVariant para garantir compatibilidade com diferentes tipos.
+            end;
+          end;
+        end;
+      end;
+
+
       function TUiDmxScroller.AddRec: Boolean;
         Var
           Finalize : boolean;
           CurrenteKeyValue : variant;
           CurrentKeyPrimary : AnsiString;
           ds : TDataSet;
-          //S : STRING;
+
       begin
         if isDataSetActive
         then begin
-               //{$IFOPT D+}
-               //   if (TableName<>'')
-               //      and (Not ControlsDisabled)
-               //      and (MessageBox('Confirma adição do registro?') <> MI_MsgBox.MrOk)
-               //   Then begin
-               //          result := false;
-               //          Cancel;
-               //          exit;
-               //        end;
-               //{$ENDIF}
+               try
+                 //{$IFOPT D+}
+                 //   if (TableName<>'')
+                 //      and (Not ControlsDisabled)
+                 //      and (MessageBox('Confirma adição do registro?') <> MI_MsgBox.MrOk)
+                 //   Then begin
+                 //          result := false;
+                 //          Cancel;
+                 //          exit;
+                 //        end;
+                 //{$ENDIF}
 
-               if Application.GetTypeApplication <> Application.TEnumApplication.EnApp_LCL_Http_Client
-               Then begin //Ignorei o  teste na aplicação cliente pq na primeiro consulta o botão está destivado
-                      if Not CommandsEnabled(['CmUpdateRecord'])
-                      then Raise TException.Create(self,{$I %CURRENTROUTINE%},'Não posso adicionar um registro quando o botão CmUpdateRecord está desativado!');
-                    end;
+                 if not RecordAltered
+                 then begin
+                        result := false;
+                        exit;
+                      end;
+
+                 if Application.GetTypeApplication <> Application.TEnumApplication.EnApp_LCL_Http_Client
+                 Then begin //Ignorei o  teste na aplicação cliente pq na primeiro consulta o botão está destivado
+                        if Not CommandsEnabled(['CmUpdateRecord'])
+                        then Raise TException.Create(self,{$I %CURRENTROUTINE%},'Não posso adicionar um registro quando o botão CmUpdateRecord está desativado!');
+                      end;
 
 
-               if not Appending
-               Then Raise TException.Create(self,{$I %CURRENTROUTINE%},'Chamada inválida ao método!');
+                 if not Appending
+                 Then Raise TException.Create(self,{$I %CURRENTROUTINE%},'Chamada inválida ao método!');
 
-               if Not RecordSelected
-               Then Raise TException.Create(self,{$I %CURRENTROUTINE%},'Chamada inválida ao método!');
+                 if Not RecordSelected
+                 Then Raise TException.Create(self,{$I %CURRENTROUTINE%},'Chamada inválida ao método!');
+
+               except
+                 result := false;
+                 exit;
+               end;
 
                ds := GetDataSet;
                try //except
                  try //except
-                   if Assigned(wJSONObject)
-                   Then FreeandNil(wJSONObject);
-                   wJSONObject := JSONObject; //Caso ocorre exceção retorna ao estado atual da digitação
+                   SavewWorkingData;
                    Finalize := StartTransaction;
                    if Appending
                    then begin
@@ -8011,25 +8287,25 @@ end;
                           else Result := GetRec(ds.Bookmark);
                         end;
 
-                   if Assigned(wJSONObject)
-                   Then FreeandNil(wJSONObject);
+                   //if Assigned(wJSONObject)
+                   //Then FreeandNil(wJSONObject);
 
                  Except
                     On E : EDatabaseError do
                     begin
-                      Rollback(Finalize,E.Message,wJSONObject);
+                      Rollback(Finalize,E.Message,wWorkingData);
                       Result := false;
                     end;
 
                     On E : Exception do
                     begin
-                      Rollback(Finalize,E.Message,wJSONObject);
+                      Rollback(Finalize,E.Message,wWorkingData);
                       Result := false;
                     end;
 
                     On E : TException do
                     begin
-                      Rollback(Finalize,'',wJSONObject);
+                      Rollback(Finalize,'',wWorkingData);
                       Result := false;
                     end;
                  end; //Except
@@ -8051,7 +8327,6 @@ end;
 
           CurrentBookMark : TBookMark;
           CurrentBookMarkAtual : TBookMark;
-
       begin
         if isDataSetActive
         then begin
@@ -8135,12 +8410,11 @@ end;
                                   Refresh;
                                end
                           else begin
-                                 If (not IsEmpty) //and (ds.State in [dsBrowse])
+                                 If (not IsEmpty) and (Not appending)
                                  Then begin
                                         if not NextRec
                                         then PrevRec;
-//                                        Result := GetRec(CurrentBookMark);
-                                        Refresh;
+                                               Refresh;
                                       end
                                  else DoOnNewRecord;
                                end;
@@ -8176,77 +8450,70 @@ end;
                //        end;
                //{$ENDIF}
 
-               if Not CommandsEnabled(['CmUpdateRecord'])
-               then Raise TException.Create(self,{$I %CURRENTROUTINE%},'Não posso gravar um registro quando o botão CmUpdateRecord está desativado!');
-
                ds := GetDataSet;
-               if RecordSelected
+               if RecordSelected and RecordAltered
                Then begin
-                     try
-                       if Assigned(wJSONObject)
-                       Then FreeandNil(wJSONObject);
-                       if Appending
-                       Then Raise TException.Create(self,{$I %CURRENTROUTINE%},'Não pode gravar um registro estando no modo de inclusão de registro!')
-                       else If Not (ds.State in [DsEdit])
-                            Then Raise TException.Create(self,{$I %CURRENTROUTINE%},'Não pode executar o método sem antes executar o método Edit!');
-                       try
-                         wJSONObject := JSONObject; //Caso ocorre exceção retorna ao estado atual da digitação
-                         Finalize := StartTransaction;
-                         if PutBuffers
-                         then begin
-                                if (not DoBeforeUpdate)
-                                Then Raise TException.Create(Self,{$I %CURRENTROUTINE%},'O método DoBeforeUpdate retornou false!. Não posso gravar o registro.');
-                                if PutBuffers
-                                then begin
-                                       DataSet_post;
-                                       CurrentKeyPrimary := getFieldsKeys(CurrenteKeyValue);
-                                       if (not DoAfterUpdate)
-                                       Then Raise TException.Create(Self,{$I %CURRENTROUTINE%},'O método DoBeforeUpdate retornou false!. Não posso gravar o registro.');
-                                     end
-                                else Raise TException.Create(Self,{$I %CURRENTROUTINE%},'O método PutBuffer retornou false!. Não posso gravar o registro.');
+                      try
+                        if Not CommandsEnabled(['CmUpdateRecord'])
+                        then Raise TException.Create(self,{$I %CURRENTROUTINE%},'Não posso gravar um registro quando o botão CmUpdateRecord está desativado!')
+                        else if Appending
+                             Then Raise TException.Create(self,{$I %CURRENTROUTINE%},'Não pode gravar um registro estando no modo de inclusão de registro!')
+                             else If Not (ds.State in [DsEdit])
+                                  Then Raise TException.Create(self,{$I %CURRENTROUTINE%},'Não pode executar o método sem antes executar o método Edit!');
+                        try
+                          SavewWorkingData;
+                          Finalize := StartTransaction;
+                          if PutBuffers
+                          then begin
+                                 if (not DoBeforeUpdate)
+                                 Then Raise TException.Create(Self,{$I %CURRENTROUTINE%},'O método DoBeforeUpdate retornou false!. Não posso gravar o registro.');
+                                 if PutBuffers
+                                 then begin
+                                        DataSet_post;
+                                        CurrentKeyPrimary := getFieldsKeys(CurrenteKeyValue);
+                                        if (not DoAfterUpdate)
+                                        Then Raise TException.Create(Self,{$I %CURRENTROUTINE%},'O método DoBeforeUpdate retornou false!. Não posso gravar o registro.');
+                                      end
+                                 else Raise TException.Create(Self,{$I %CURRENTROUTINE%},'O método PutBuffer retornou false!. Não posso gravar o registro.');
+                               end
+                          else Raise TException.Create(Self,{$I %CURRENTROUTINE%},'O método PutBuffer retornou false!. Não posso gravar o registro.');
+                          if Finalize
+                          then Commit;
+                          Result := true;
+                        Except
+                           On E : EDatabaseError do
+                           begin
+                             Rollback(Finalize,E.Message,wWorkingData);
+                             Result := false;
+                           end;
 
-                              end
-                         else Raise TException.Create(Self,{$I %CURRENTROUTINE%},'O método PutBuffer retornou false!. Não posso gravar o registro.');
-                         if Finalize
-                         then Commit;
-                         Result := true;
-                       Except
-                          On E : EDatabaseError do
-                          begin
-                            Rollback(Finalize,E.Message,wJSONObject);
-                            Result := false;
+                           On E : Exception do
+                           begin
+                             Rollback(Finalize,E.Message,wWorkingData);
+                             Result := false;
+                           end;
+
+                           On E : TException do
+                           begin
+                             Rollback(Finalize,'',wWorkingData);
+                             Result := false;
+                           end;
+                        end;
+
+                      except
+                        result := false;
+                      end;
+
+                      if (not ds.Active)
+                      Then begin
+                             ds.active := true;
+                             if CurrentKeyPrimary <> ''
+                             then begin
+                                    if not ds.Locate(CurrentKeyPrimary,CurrenteKeyValue,[loCaseInsensitive])  //loPartialKey
+                                    then Raise TException.create(self,{$I %CURRENTROUTINE%},'Chave atual não localizada.');
+                                  end;
                           end;
-
-                          On E : Exception do
-                          begin
-                            Rollback(Finalize,E.Message,wJSONObject);
-                            Result := false;
-                          end;
-
-                          On E : TException do
-                          begin
-                            Rollback(Finalize,'',wJSONObject);
-                            Result := false;
-                          end;
-                       end;
-
-                       if Assigned(wJSONObject)
-                       Then FreeandNil(wJSONObject);
-
-                     except
-                       result := false;
-                     end;
-
-                     if (not ds.Active)
-                     Then begin
-                            ds.active := true;
-                            if CurrentKeyPrimary <> ''
-                            then begin
-                                   if not ds.Locate(CurrentKeyPrimary,CurrenteKeyValue,[loCaseInsensitive])  //loPartialKey
-                                   then Raise TException.create(self,{$I %CURRENTROUTINE%},'Chave atual não localizada.');
-                                 end;
-                          end;
-                     ChangeMadeOnOff(false);
+                      ChangeMadeOnOff(false);
                     end
                Else Result := False;
              end
@@ -8255,7 +8522,7 @@ end;
 
       function TUiDmxScroller.UpdateRec: Boolean;
       begin
-        if isDataSetActive
+        if isDataSetActive and RecordAltered
         then begin
                 if Appending
                 Then Result := AddRec
@@ -8345,7 +8612,7 @@ end;
              end
         else begin
                if ds.IsSequenced
-               Then result := ds.RecordCount
+               Then result := ds.RecordCount+1
                else result :=  -1;
              end;
       end;
@@ -8545,7 +8812,7 @@ end;
                  if not Result
                  Then begin
                         DoOnEnter(self);
-                        ds.Last;//Se lastRec for igual a false é porque está no utimo.
+//                        ds.Last;//Se lastRec for igual a false é porque está no utimo.
                       end
                  else DoOnEnter(self);
 

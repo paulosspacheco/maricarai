@@ -129,17 +129,17 @@ end;
 
 procedure TDataModule_Exemplo.DmxScroller_Form1CalcFields( const aUiDmxScroller: TUiDmxScroller);
 begin
- // CalcFields(aUiDmxScroller);
+  CalcFields(aUiDmxScroller);
 end;
 
 
 procedure TDataModule_Exemplo.DmxScroller_Form1CloseQuery( aDmxScroller: TUiDmxScroller; var CanClose: boolean);
 begin
-  //With TMi_rtl do
-  //  if Confirm('Confirma','Deseja sair do formulário?')
-  //  Then CanClose := true
-  //  else CanClose := false;
-  CanClose := true;
+  With TMi_rtl do
+    if Confirm('Confirma','Deseja sair do formulário?')
+    Then CanClose := true
+    else CanClose := false;
+//  CanClose := true;
 end;
 
 
@@ -156,6 +156,7 @@ begin
    NewSItem('~Nome do aluno: ~\ssssssssssssssssssssssssssss`ssssssssssss'+ChFN+'Nome',
    NewSItem('',
    NewSItem('~Endereço:      ~\ssssssssssssssssssssssssssss`ssssssssssssssssssssssssssss'+ChFN+'Endereco',
+   NewSItem('~IP:            ~\###.###.###.###'+ChFN+'ip',
    NewSItem('~Cep:           ~\##.###-###'+ChFN+'cep',
    NewSItem('~Cidade:        ~\sssssssssssssssssssssssss'+ChFN+'cidade',
    NewSItem('~Estado:        ~\SS'+ChFN+'Estado',
@@ -187,10 +188,11 @@ begin
    NewSItem('~Senha:         ~ \sssssssssssssss'+CharShowPassword+ChFN+'senha'+ChH+'Campo alfanumerico com 15 posicoes',
    NewSItem('~~',
    NewSItem('~Qt:            ~\II,III'+chdf+'5'+ChFN+'qt',
-   NewSItem('~Unidade:       ~\'+CreateEnumField(TRUE, accNormal, 1,NewSItem('Centímetro',  //1/100
+   NewSItem('~Unidade:       ~\'+CreateEnumField(TRUE, accNormal, 1,
+                                                 NewSItem('Centímetro',  //1/100
                                                  NewSItem('Metro',       //1
                                                  NewSItem('km',          //100*1000
-                                                         nil))))+ChFN+'unidade',
+                                                 nil))))+ChFN+'unidade',
    NewSItem('~Preço:         ~\RRR,RRR.zz'+ChAS+ChARO+ChFN+'preco'+ChDf+'10',
    NewSItem('~Total:         ~\RRR,RRR,RRR.ZZ'+ChARO+ChFN+'valor_total',
    NewSItem('~Cor:           ~\sssssssssssssss'+ChFN+'cor'+chdf+'Azul claro'+
@@ -242,7 +244,7 @@ begin
 
    NewSItem('~ ~',
 
-   nil))))))))))))))))))))))))))))))))))))))))))))))))))))))))))));
+   nil)))))))))))))))))))))))))))))))))))))))))))))))))))))))))))));
   end;
 end;
 

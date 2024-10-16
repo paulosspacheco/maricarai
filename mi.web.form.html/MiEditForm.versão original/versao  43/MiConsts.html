@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Format Value</title>
+    <!-- Inclui o arquivo miconsts.js como módulo -->
+    <script type="module" src="./mi_consts.js"></script>
+    <script type="module">
+        import { MiConsts } from './mi_consts.js'; // Importa a classe MiConsts
+
+        function testFormatValue() {
+            try {
+                let output = '';
+
+                output += MiConsts.formatValue(0.60, 'ppp,pp') + '<br>';
+                output += MiConsts.formatValue(0.45, 'PPP,PP') + '<br>';
+                output += MiConsts.formatValue('11141.45', 'RRR.RRR,RR') + '<br>';
+                output += MiConsts.formatValue('14149621349', '###.###.###-##') + '<br>';
+                output += MiConsts.formatValue('WWY2545', 'SSS-####') + '<br>';
+                output += MiConsts.formatValue('11141.45', 'rrr.rrr,rr') + '<br>';
+                output += MiConsts.formatValue('11141.45', 'OOO.OOO,OO') + '<br>';
+                output += MiConsts.formatValue('11141.45', 'ooo.ooo,oo') + '<br>';
+                output += MiConsts.formatValue('Paulo Sérgio da Silva Pacheco', 'ssssssssssssssssssssssssssssss') + '<br>';
+                output += MiConsts.formatValue('Paulo Sérgio da Silva Pacheco', 'SSSSSSSSSSSSSSSSSSSSSSSSSSSSSS') + '<br>';
+
+                // Escreve os resultados na página
+                document.getElementById('output').innerHTML = output;
+            } catch (error) {
+                console.error("Erro:", error);
+            }
+        }
+
+        // Chama a função quando a página é carregada
+        window.onload = testFormatValue;
+    </script>
+</head>
+<body>
+    <h1>Resultados do Teste de Formatação</h1>
+    <div id="output"></div>
+</body>
+</html>

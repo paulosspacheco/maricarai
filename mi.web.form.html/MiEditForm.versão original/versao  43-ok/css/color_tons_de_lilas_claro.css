@@ -1,0 +1,71 @@
+/* color_tons_de_lilas_claro.css */
+
+
+:root { /* Cores do body e h1 a h4 */
+    --background-color: #E6E6FA; /* Lavanda claro para o fundo da página */
+    --text-color: #4B0082; /* Indigo para o texto padrão */
+    --title-color: #4B0082; /* Cor do texto dos títulos (h1, h2, h3, h4) */
+}
+
+:root { /* Cores dos formulários */
+    --form-background-color: #F0E68C; /* Amarelo claro para o fundo do formulário */
+    --form-border-color: #DDA0DD; /* Lavanda mais escura para a borda */
+    --form-header-background-color: #9370DB; /* Cor de fundo da barra de título */
+    --form-header-text-color: white; /* Cor do texto da barra de título */
+
+    --button-background-color: #9370DB; /* Lavanda escura para os botões */
+    --button-hover-background-color: #6A5ACD; /* Tom mais escuro ao passar o mouse */
+    --disabled-button-background-color: #DDA0DD; /* Cor de fundo para botão desabilitado */
+    --disabled-button-text-color: #4B0082; /* Cor do texto para botão desabilitado */
+    --input-background-color: #fff; /* Cor de fundo dos inputs */
+    --input-border-color: #DDA0DD; /* Cor da borda dos inputs */
+    --input-focus-border-color: #8A2BE2; /* Cor da borda ao focar */
+    --input-focus-background-color: #E6E6FA; /* Fundo levemente mais escuro ao focar */
+    --label-color: #4B0082; /* Cor do texto do label */
+    --text-color: #4B0082; /* Cor do texto padrão */
+}
+
+:root { /* Cores dos dialogs */
+    --dialog-overlay-bg-color: rgba(0, 0, 0, 0.5); /* Fundo da sobreposição */
+    --dialog-box-bg-color: #E6E6FA; /* Caixa de diálogo clara */
+    --dialog-box-text-color: #4B0082; /* Texto indigo padrão */
+    --dialog-label-color: #4B0082; /* Cor mais escura para os rótulos */
+    --dialog-title-color: white; /* Título com texto branco */
+    --dialog-message-color: #4B0082; /* Mensagem com texto indigo */
+    --action-button-bg-color: #9370DB; /* Cor de fundo lilás escuro para botões */
+    --action-button-text-color: white; /* Cor do texto branco para botões */
+    --action-button-hover-bg-color: #6A5ACD; /* Lilás mais escuro ao passar o mouse */
+    --dialog-box-shadow: 0 0 15px rgba(0, 0, 0, 0.5); /* Sombra da caixa de diálogo */
+    --dialog-title-warning-color: orange; /* Cor para título de aviso */
+    --dialog-title-error-color: red; /* Cor para título de erro */
+    --dialog-title-info-color: blue; /* Cor para título de informação */
+    --dialog-title-confirmation-color: green; /* Cor para título de confirmação */
+    --dialog-title-custom-color: purple; /* Cor para título personalizado */
+    --dialog-title-default-color: black; /* Cor padrão para título */
+}
+
+:root { /* Cores para o painel de botões de navegação */
+    --nav-button-hover-bg-color: #6A5ACD; /* Lavanda escura ao passar o mouse */
+    --nav-button-disabled-bg-color: #DDA0DD; /* Cor de fundo para botão de navegação desabilitado */
+    --nav-button-disabled-text-color: #4B0082; /* Cor do texto para botão de navegação desabilitado */
+    --nav-button-disabled-border-color: #DDA0DD; /* Borda para botão desabilitado */
+    --nav-buttons-bg-color: #9370DB; /* Cor lilás médio para o fundo dos botões de navegação */
+    --nav-buttons-text-color: white; /* Cor do texto dos botões */
+    --nav-buttons-focus-bg-color: #6A5ACD; /* Cor de fundo diferente para o estado de foco */
+    --action-buttons-bg-color: #9370DB; /* Lilás médio para o grupo de botões de ação */
+    --overlay-bg-color: rgba(0, 0, 0, 0.8); /* Fundo escuro para a sobreposição */
+}
+
+:root { /* Cores das tags fieldSet */
+    --fieldset-bg-color: #E6E6FA; /* Tom de lavanda claro */
+    --fieldset-border-color: #4B0082; /* Borda indigo */
+    --fieldset-legend-color: #4B0082; /* Cor indigo para a legenda */
+    --fieldset-legend-bg-color: #DDA0DD; /* Fundo lilás claro para contraste */
+    --fieldset-legend-border-color: #DDA0DD; /* Borda da legenda */
+    --fieldset-label-color: #4B0082; /* Indigo para labels */
+    --fieldset-input-bg-color: #fff; /* Fundo branco para inputs */
+    --fieldset-input-border-color: #DDA0DD; /* Borda levemente escurecida para inputs */
+    --field-group-border-color: #6A5ACD; /* Borda lilás escura para grupos de campos */
+    --group-of-groups-border-color: #4B0082; /* Borda indigo para grupos de grupos */
+    --global-legend-color: #4B0082; /* Cor indigo para legenda geral */
+}

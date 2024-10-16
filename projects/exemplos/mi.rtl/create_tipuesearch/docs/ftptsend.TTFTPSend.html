@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<title>ftptsend: Classe TTFTPSend</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="generator" content="PasDoc 0.16.0">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<link rel="stylesheet" type="text/css" href="tipuesearch/tipuesearch.css">
+
+<link rel="StyleSheet" type="text/css" href="pasdoc.css">
+</head>
+<body>
+<div class="container"><div class="navigation">
+<ul><li><a href="AllUnits.html">Units</a></li><li><a href="ClassHierarchy.html">Hierarquia de Classes</a></li><li><a href="AllClasses.html">Classes, Interfaces, Objetos e Registros</a></li><li><a href="AllTypes.html">Tipos</a></li><li><a href="AllVariables.html">Variáveis</a></li><li><a href="AllConstants.html">Constantes</a></li><li><a href="AllFunctions.html">Funções e Procedimentos</a></li><li><a href="AllIdentifiers.html">Identificadores</a></li><li><form class="search-form" action="tipue_results.html"><div class="search-input"><input type="text" name="q" id="tipue_search_input" pattern=".{3,}" title="At least 3 characters" required><div class="search-button"><input type="button" id="tipue_search_button" onclick="this.form.submit();"></div></div></form>
+<div style="clear: both"></div>
+</li></ul></div><div class="content">
+<span id="TTFTPSend"></span><h1 class="cio">Classe TTFTPSend</h1>
+<div class="sections">
+<div class="one_section"><a class="section" href="#PasDoc-Description">Descrição</a></div><div class="one_section"><a class="section" href="#PasDoc-Hierarchy">Hierarquia</a></div><div class="one_section">Campos</div><div class="one_section"><a class="section" href="#PasDoc-Methods">Métodos</a></div><div class="one_section"><a class="section" href="#PasDoc-Properties">Propriedades</a></div></div>
+<span id="PasDoc-Description"></span><h2 class="unit">Unit</h2>
+<p class="unitlink">
+<a href="ftptsend.html">ftptsend</a></p>
+<h2 class="declaration">Declaração</h2>
+<p class="declaration">
+<code>type TTFTPSend = class(<a class="normal" href="blcksock.TSynaClient.html">TSynaClient</a>)</code></p>
+<h2 class="description">Descrição</h2>
+<p>
+Implementation of TFTP client <a class="normal" href="int65math.html#and">and</a> server</p>
+<p>
+ Note: Are you missing properties for specify server address <a class="normal" href="int65math.html#and">and</a> port? Look to parent <a class="normal" href="blcksock.TSynaClient.html">TSynaClient</a> too!</p>
+<span id="PasDoc-Hierarchy"></span><h2 class="hierarchy">Hierarquia</h2>
+<ul class="hierarchy"><li class="ancestor">TObject</li>
+<li class="ancestor"><a class="normal" href="blcksock.TSynaClient.html">TSynaClient</a></li>
+<li class="thisitem">TTFTPSend</li></ul><h2 class="overview">Visão Geral</h2>
+<span id="PasDoc-Methods"></span><h3 class="summary">Métodos</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>constructor <strong><a href="ftptsend.TTFTPSend.html#Create">Create</a></strong>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>destructor <strong><a href="ftptsend.TTFTPSend.html#Destroy">Destroy</a></strong>; override;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="ftptsend.TTFTPSend.html#SendFile">SendFile</a></strong>(const Filename: string): Boolean;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="ftptsend.TTFTPSend.html#RecvFile">RecvFile</a></strong>(const Filename: string): Boolean;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="ftptsend.TTFTPSend.html#WaitForRequest">WaitForRequest</a></strong>(var Req: word; var filename: string): Boolean;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>procedure <strong><a href="ftptsend.TTFTPSend.html#ReplyError">ReplyError</a></strong>(Error: word; Description: string);</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="ftptsend.TTFTPSend.html#ReplyRecv">ReplyRecv</a></strong>: Boolean;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="ftptsend.TTFTPSend.html#ReplySend">ReplySend</a></strong>: Boolean;</code></td>
+</tr>
+</table>
+<span id="PasDoc-Properties"></span><h3 class="summary">Propriedades</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><code>property <strong><a href="ftptsend.TTFTPSend.html#ErrorCode">ErrorCode</a></strong>: integer read FErrorCode;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><code>property <strong><a href="ftptsend.TTFTPSend.html#ErrorString">ErrorString</a></strong>: string read FErrorString;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><code>property <strong><a href="ftptsend.TTFTPSend.html#Data">Data</a></strong>: TMemoryStream read FData;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><code>property <strong><a href="ftptsend.TTFTPSend.html#RequestIP">RequestIP</a></strong>: string read FRequestIP write FRequestIP;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><code>property <strong><a href="ftptsend.TTFTPSend.html#RequestPort">RequestPort</a></strong>: string read FRequestPort write FRequestPort;</code></td>
+</tr>
+</table>
+<h2 class="description">Descrição</h2>
+<h3 class="detail">Métodos</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Create"></span><code>constructor <strong>Create</strong>;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Destroy"></span><code>destructor <strong>Destroy</strong>; override;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="SendFile"></span><code>function <strong>SendFile</strong>(const Filename: string): Boolean;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+Upload <a class="normal" href="ftptsend.TTFTPSend.html#Data">data</a> as file to TFTP server.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="RecvFile"></span><code>function <strong>RecvFile</strong>(const Filename: string): Boolean;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+Download file from TFTP server to <a class="normal" href="ftptsend.TTFTPSend.html#Data">data</a>.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="WaitForRequest"></span><code>function <strong>WaitForRequest</strong>(var Req: word; var filename: string): Boolean;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+Acts as TFTP server <a class="normal" href="int65math.html#and">and</a> wait for client request. When some request incoming within <a class="normal" href="blcksock.TSynaClient.html#Timeout">Timeout</a>, result is <code>True</code> <a class="normal" href="int65math.html#and">and</a> parametres is filled with information from request. You must handle this request, validate it, <a class="normal" href="int65math.html#and">and</a> call <a class="normal" href="ftptsend.TTFTPSend.html#ReplyError">ReplyError</a>, <a class="normal" href="ftptsend.TTFTPSend.html#ReplyRecv">ReplyRecv</a> or <a class="normal" href="ftptsend.TTFTPSend.html#ReplySend">ReplySend</a> for send reply to TFTP Client.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="ReplyError"></span><code>procedure <strong>ReplyError</strong>(Error: word; Description: string);</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+send <a class="normal" href="slogsend.html#Error">error</a> to TFTP client, when you acts as TFTP server.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="ReplyRecv"></span><code>function <strong>ReplyRecv</strong>: Boolean;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+Accept uploaded file from TFTP client to <a class="normal" href="ftptsend.TTFTPSend.html#Data">data</a>, when you acts as TFTP server.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="ReplySend"></span><code>function <strong>ReplySend</strong>: Boolean;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+Accept download request file from TFTP client <a class="normal" href="int65math.html#and">and</a> send content of <a class="normal" href="ftptsend.TTFTPSend.html#Data">data</a>, when you acts as TFTP server.</p>
+</td></tr>
+</table>
+<h3 class="detail">Propriedades</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><span id="ErrorCode"></span><code>property <strong>ErrorCode</strong>: integer read FErrorCode;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+Code of TFTP <a class="normal" href="slogsend.html#Error">error</a>.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><span id="ErrorString"></span><code>property <strong>ErrorString</strong>: string read FErrorString;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+Human readable decription of TFTP <a class="normal" href="slogsend.html#Error">error</a>. (if is sended by remote side)</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><span id="Data"></span><code>property <strong>Data</strong>: TMemoryStream read FData;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+MemoryStream with datas for sending or receiving</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><span id="RequestIP"></span><code>property <strong>RequestIP</strong>: string read FRequestIP write FRequestIP;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+Address of TFTP remote side.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><span id="RequestPort"></span><code>property <strong>RequestPort</strong>: string read FRequestPort write FRequestPort;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+Port of TFTP remote side.</p>
+</td></tr>
+</table>
+<hr><span class="appinfo"><em>Gerado por <a href="https://pasdoc.github.io/">PasDoc 0.16.0</a>. </em>
+</span>
+</div></div></body></html>

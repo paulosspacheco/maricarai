@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulário com Coordenadas</title>
+    <style>
+        .form-container {
+            position: relative;
+            width: 800px; /* Largura do formulário */
+            height: 300px; /* Altura do formulário */
+            border: 1px solid #ccc;
+            padding: 20px;
+        }
+        .form-field {
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <!-- Nome do aluno -->
+        <label for="nomeAluno" class="form-field" style="top: 20px; left: 20px;">Nome do aluno:</label>
+        <input type="text" id="nomeAluno" class="form-field" style="top: 20px; left: 150px; width: 300px;">
+
+        <!-- Idade -->
+        <label for="idade" class="form-field" style="top: 20px; left: 470px;">Idade:</label>
+        <input type="number" id="idade" class="form-field" style="top: 20px; left: 530px; width: 50px;">
+
+        <!-- Endereço -->
+        <label for="endereco" class="form-field" style="top: 60px; left: 20px;">Endereço:</label>
+        <input type="text" id="endereco" class="form-field" style="top: 60px; left: 150px; width: 300px;">
+
+        <!-- Cidade -->
+        <label for="cidade" class="form-field" style="top: 60px; left: 470px;">Cidade:</label>
+        <input type="text" id="cidade" class="form-field" style="top: 60px; left: 530px; width: 150px;">
+
+        <!-- Estado -->
+        <label for="estado" class="form-field" style="top: 60px; left: 690px;">Estado:</label>
+        <input type="text" id="estado" class="form-field" style="top: 60px; left: 750px; width: 50px;">
+
+        <!-- Botão Enviar -->
+        <button type="submit" class="form-field" style="top: 120px; left: 20px;">Enviar</button>
+    </div>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulário CRUD</title>
+</head>
+<body>
+    <form id="crud-form">
+        <!-- Campo ID -->
+        <label for="crud-form-id">ID:</label>
+        <input type="text" id="crud-form-id" name="id"><br><br>
+
+        <!-- Campo Nome -->
+        <label for="crud-form-name">Nome:</label>
+        <input type="text" id="crud-form-name" name="nome"><br><br>
+
+        <!-- Campo Endereço -->
+        <label for="crud-form-endereco">Endereço:</label>
+        <input type="text" id="crud-form-endereco" name="endereco"><br><br>
+
+        <!-- Botões de ação -->
+        <button type="button" onclick="crudHandler.newRecord()">Novo Registro</button>
+        <button type="button" onclick="crudHandler.addRecord()">Adicionar</button>
+        <button type="button" onclick="crudHandler.updateRecord()">Atualizar</button>
+        <button type="button" onclick="crudHandler.deleteRecord()">Deletar</button>
+        <button type="button" onclick="crudHandler.locateRecord()">Localizar</button>
+    </form>
+
+    <div id="result"></div> <!-- Área para exibir os resultados da operação -->
+
+    <!-- Script para a classe CRUDHandler -->
+    <script src="crud-handler.js"></script>
+    <script>
+        // Inicializa o CRUDHandler passando o ID do formulário e o campo chave 'id'
+        const crudHandler = new CRUDHandler('crud-form', 'id');
+    </script>
+</body>
+</html>

@@ -43,6 +43,7 @@ uses
   ,mi_rtl_ui_DmxScroller_Form
 //  ,umi_lcl_ui_dmxscroller_form_attributes
   ,uMi_lcl_ui_Form_attributes
+  ,mi.rtl.all
 
   ;
 
@@ -82,7 +83,7 @@ type
       published property Mi_lcl_ui_Form_attributes : TMi_lcl_ui_Form_attributes Read _Mi_lcl_ui_Form_attributes  write SetMi_lcl_ui_Form_attributes;
     {$endREGION ' # Propriedade Mi_lcl_ui_Form_attributes '}
 
-
+    public function  GetHTMLContent :String;
   end;
 
 //procedure Register;
@@ -238,6 +239,21 @@ begin
   _Mi_lcl_ui_Form_attributes := aMi_lcl_ui_Form_attributes;
   IF (_Mi_lcl_ui_Form_attributes<>nil) and (_Mi_lcl_ui_Form_attributes.DmxScroller_Form.CurrentField<>nil)
   then SeTDmxFieldRec(_Mi_lcl_ui_Form_attributes.DmxScroller_Form.CurrentField);
+end;
+
+function TLabel_mi_lcl.GetHTMLContent: String;
+  var
+    Template :String = '<label for="~field" class="form-field" style="top: ~toppx; left: ~leftpx;">~caption</label>';
+begin
+  If TMi_rtl.DelSpcED(Caption)<>''
+  then begin
+         result :=  template;
+         Result := StringReplace(Result, '~top'     , intToStr(top)  , [rfReplaceAll]);
+         Result := StringReplace(Result, '~left'     , intToStr(left) , [rfReplaceAll]);
+         Result := StringReplace(Result, '~caption' , Caption        , [rfReplaceAll]);
+       end
+  else Result := '';
+
 end;
 
 end.

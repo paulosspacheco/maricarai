@@ -1,0 +1,60 @@
+<!-- Template usado para criar o formulário -->
+
+     <div class="form-container">
+        <div class="form-header">
+            <h1>~Title </h1> <!-- Título do formulário -->
+        </div>   
+        
+        <form id="~DmxScroller_Form">
+            <div class="form-fields"> 
+                <div class="fieldset-container">                
+
+                    <!--Template para usado na criação dos campos do formulário:
+                        <fieldset>                            
+                            <label for="~field.name">~field.name:</label>
+                                <input type="text" id="~field.name" name="~field.name" placeholder="~field.name" data-mask="~field.template_org" data-mask-type="~field.TypeCode"  />
+                        </fieldset>                                            
+                    -->
+
+                    <!--#fieldset-container#-->
+
+                </div>
+                <!-- Adicione mais campos aqui conforme necessário -->
+            </div>
+            <div class="action-buttons">
+                <!-- Botões para operações CRUD -->
+         
+            </div>        
+
+            <!-- Botões de Navegação -->
+            <div class="navigation-buttons">
+                <button type="button" id="CmGoBof" class="navigation-buttons"><<</button>
+                <button type="button" id="CmPrevRecord" class="navigation-buttons"><</button>
+                <button type="button" id="CmNextRecord" class="navigation-buttons">></button>
+                <button type="button" id="CmGoEof" class="navigation-buttons">>></button>
+
+                        <!-- Botão para abrir a caixa de diálogo para mudar tema do formulário -->
+                <button type="button" id="CmDialogChangeTheme" class="navigation-buttons">Alterar Tema</button>         
+
+            </div>
+
+        </form>
+    </div>
+
+    <script type="module">
+        // Importa as classes dos arquivos JavaScript
+
+        import { MiEditForm } from './js/MiEditForm.js';
+                 
+        document.addEventListener('DOMContentLoaded', () => {
+            // Inicializa a instância do MiEditForm e armazena em uma variável
+            const formInstance = new MiEditForm('~DmxScroller_Form', '~ID');
+           
+            // Exemplo: Chamar showMessage após 1 segundos ou após um evento específico
+            //setTimeout(() => { formInstance.showMessage('Esta é uma mensagem de teste!');  }, 1000); // 1 segundos           
+            
+        });
+               
+        
+    </script>
+

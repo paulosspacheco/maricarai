@@ -29,7 +29,7 @@ unit uMaskedit_mi_lcl;
        - O problema é que TMaskEditDmx estava usando formatação de um número comum e esta
          formatação é um string formatado que só aceita números.
          - Para resolver preciso:
-           - Remover o tipo FldStrNum do conjunto que indica que se trata de números. ok.
+           - Remover o tipo fldStrNumber do conjunto que indica que se trata de números. ok.
            - Informar para maskEdit que não salva a máscara. ok
          -
 
@@ -40,7 +40,7 @@ unit uMaskedit_mi_lcl;
            - Em putBuffer excluir a mascara do campo Text antes de enviar para pDmxFieldRec.AsString
 
    - **26/06/2022 15:50**
-       - T12 Permite mascara II,IIII e ww,www e L,LLL,LLL,LLL nos campos integer, smallword e
+       - T12 Permite mascara II,IIII e ww,www e L,LLL,LLL,LLL nos campos integer, SmallWord e
          logint respectivamente.
 
    - **29/06/2022 14:25**
@@ -260,6 +260,8 @@ type
 
       protected procedure WMPaint(var Message: TLMPaint); message LM_PAINT;
      private _reintranceSetPDmxFieldRec:Boolean;
+
+     public function GetHTMLContent: String;
    end;
 
 //procedure Register;
@@ -279,6 +281,22 @@ begin
   //if not (csFocusing in ControlState)
   //then GetBuffer;
   inherited WMPaint(Message);
+end;
+
+function TMaskEdit_mi_LCL.GetHTMLContent: String;
+  var
+    Template :String = '<input type="text" class="form-field" id="~FieldName" name="~FieldName" placeholder="~FieldName" data-mask="~data-mask" data-mask-type="~datamask-type" style="top: ~toppx; left: ~leftpx; width: ~widthpx;"/>';
+begin
+  result :=  template;
+  with DmxFieldRec^ do
+  begin
+    Result := StringReplace(Result, '~top'      , intToStr(top)   , [rfReplaceAll]);
+    Result := StringReplace(Result, '~left'      , intToStr(left)  , [rfReplaceAll]);
+    Result := StringReplace(Result, '~width'    , intToStr(width) , [rfReplaceAll]);
+    Result := StringReplace(Result, '~FieldName', FieldName       , [rfReplaceAll]);
+    Result := StringReplace(Result, '~data-mask', Template_org    , [rfReplaceAll]);
+    Result := StringReplace(Result, '~datamask-type', TypeCode   , [rfReplaceAll]);
+  end;
 end;
 
 constructor TMaskEdit_mi_LCL.Create(AOwner: TComponent);
@@ -525,7 +543,7 @@ end;
     then begin
            Event.What    := evKeyDown;
            Event.InfoPtr := nil;
-           event.KeyCode := smallword(key);
+           event.KeyCode := SmallWord(key);
            event.ShiftState   := 0;//
            wCurPos := GetSelStart;
            wSelEnd := GetSelLength;
@@ -569,7 +587,7 @@ procedure TMaskEdit_mi_LCL.DoOnKeyPress(Sender: TObject; var Key: system.Char);
     //pesquisa interativa com banco de dados nos campos ComboBox.
     with Mi_lcl_ui_Form_attributes,DmxScroller_Form do
     begin
-      if (DmxFieldRec <> nil) and (DmxFieldRec.TypeCode in [fldSTR,fldstr_Lowcase,fldAnsiChar,fldAnsiChar_LowCase ])
+      if (DmxFieldRec <> nil) and (DmxFieldRec.TypeCode in [fldStr,fldStrAlfa,fldAnsiChar,fldAnsiCharAlfa ])
       then begin
              Event.What    := evKeyDown;
              Event.InfoPtr := nil;

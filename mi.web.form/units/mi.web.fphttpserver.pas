@@ -128,7 +128,7 @@ type
   }
   TMi_FpHttpServer = class(TComponent)
     {$REGION --> Propriedade HTTPServerThread}
-  private
+
        private _HTTPServerThread : THTTPServerThread;
        private function GetHTTPServerThread: THTTPServerThread;
        {: A propiedade **@name** criar uma aplicação web em uma tarefa a parte com

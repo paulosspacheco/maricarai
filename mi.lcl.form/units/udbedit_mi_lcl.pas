@@ -216,6 +216,8 @@ type
              - Exemplo prático: ```/docs/Unit2.TDataModule1.html```
     }
     protected procedure OnKeyDownF1(Sender: TObject; var Key: Word; Shift: TShiftState);
+
+    public function  GetHTMLContent :String;
   end;
 
 //procedure Register;
@@ -281,7 +283,7 @@ begin
            then Field.ReadOnly := true
            else Field.ReadOnly := false;
 
-           Field.DisplayLabel := Caption;
+           Field.DisplayLabel := DmxFieldRec^.FieldName;
            Field.DisplayWidth := DmxFieldRec^.ShownWid;
 
            field.OnSetText:=DoSetText;
@@ -872,6 +874,22 @@ begin
 
                    );
     Key := 0;  // Previne o processamento padrão da tecla F1
+  end;
+end;
+
+function TDbEdit_mi_LCL.GetHTMLContent: String;
+  var
+    Template :String = '<input type="text" class="form-field" id="~FieldName" name="~FieldName" placeholder="~FieldName" data-mask="~data-mask" data-mask-type="~datamask-type" style="top: ~toppx; left: ~leftpx; width: ~widthpx;"/>';
+begin
+  result :=  template;
+  with DmxFieldRec^ do
+  begin
+    Result := StringReplace(Result, '~top'      , intToStr(top)   , [rfReplaceAll]);
+    Result := StringReplace(Result, '~left'      , intToStr(left)  , [rfReplaceAll]);
+    Result := StringReplace(Result, '~width'    , intToStr(width) , [rfReplaceAll]);
+    Result := StringReplace(Result, '~FieldName', FieldName       , [rfReplaceAll]);
+    Result := StringReplace(Result, '~data-mask', Template_org    , [rfReplaceAll]);
+    Result := StringReplace(Result, '~datamask-type', TypeCode       , [rfReplaceAll]);
   end;
 end;
 

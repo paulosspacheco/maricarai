@@ -12,7 +12,7 @@ uses
   uButton_mi_lcl, uCheckbox_mi_lcl, uRadiogroup_mi_lcl, uCombobox_mi_lcl, 
   uDbcheckbox_mi_lcl, uDbcombobox_mi_lcl, uDbedit_mi_lcl, 
   uDblookupcombobox_mi_lcl, uDbradiogroup_mi_lcl, uMi_lcl_ui_Form_attributes, 
-  umi_lcl_ui_form, umi_lcl_ui_ds_form, umi_lcl_msgbox, uMi_lcl_inputbox, 
+  umi_lcl_ui_form, umi_lcl_ui_ds_form, umi_lcl_msgbox, umi_lcl_ds_inputbox, 
   mi.lcl.application, Mi.Template.Highlighter, LazarusPackageIntf;
 
 implementation
