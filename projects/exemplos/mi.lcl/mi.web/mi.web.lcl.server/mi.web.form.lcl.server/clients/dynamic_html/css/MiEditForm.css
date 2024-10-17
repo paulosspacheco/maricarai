@@ -13,12 +13,17 @@
 
 body {
     height: 100%; 
+    width: 100%;
+        
     font-size: 12px; /* Diminui o tamanho base para 12px */            
     font-family: Arial, sans-serif;
     background-color: var(--background-color);
     color: var(--text-color);
     margin: 0;
-    padding: 20px; /* Adiciona espaçamento ao redor da página */
+    /* padding: 20px; Adiciona espaçamento ao redor da página */
+    margin: 2px auto;        
+    /* margin: 0; */
+    padding: 2px;       
 }
 
 h1 {
@@ -56,46 +61,49 @@ h4 {
 /*** Css dos formulários ***/
 
 .form-container {
-    /*flex: 1;  Faz com que o contêiner ocupe todo o espaço disponível dentro do elemento pai flex */    
-    /*display: flex;*/ /* Ativa o Flexbox, permitindo o uso de propriedades de layout flexível */
-    /*position: relative;  Define o posicionamento como relativo, permitindo o uso de posicionamento absoluto em elementos filhos  */
-    /* flex-direction: column;  Organiza os elementos filhos em uma coluna, um abaixo do outro 
-    justify-content: space-between;  Distribui os elementos ao longo do eixo principal, com espaço entre eles 
-    padding: 20px;  Adiciona um espaço interno de 20 pixels em todos os lados do contêiner 
-    box-sizing: border-box;  Inclui o padding na largura e altura totais do elemento, evitando crescimento inesperado  */
-
-
     background-color: var(--form-background-color);
     border: 1px solid var(--form-border-color);
-    margin: 20px auto;
-    max-width: 100%;
+    margin: 2px auto;
+    max-width: 95%;
     border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);    
+    height: calc(100vh - 10px); /* Subtrai a altura do cabeçalho e rodapé */    
+    display: flex;
+    flex-direction: column;    
+    /* overflow: auto;         */
+    padding: 3px;
 
-    /* position: relative;     */
-    /* width: 800px; /* Largura do formulário */
-    /* height: 580px; Altura visível do formulário */ 
-    height: 100%;  
-    overflow: auto; /* Ativa a rolagem quando o conteúdo ultrapassa a altura */        
+    /* // Para os painéis de ação e navegação */
+    .action-buttons,
+    .navigation-buttons {        
+        display: flex;
+        /* justify-content: center; Alinhe os botões ao centro */
+        align-items: center; /* Alinhe verticalmente os botões*/
+        margin: 5px; /* Espaçamento entre os botões*/
+    }
 }
 
 
 .form-header {
     background-color: var(--form-header-background-color);
     color: var(--form-header-text-color);
-    padding: 10px;
+    padding: 3px;
+    margin: 2px auto;
     text-align: center;
     border-top-left-radius: 8px;
     border-top-right-radius: 8px;
 }
 
 form {
+    /* position: fixed;     */
+    margin: 2px auto;    
     background-color: var(--form-background-color);
     border: 1px solid var(--form-border-color);
-    padding: 20px;
-    margin: 20px auto;
+    padding: 3px;
+    margin: 3px auto;
     max-width: 100%;
-    width: 97%;
+    width: 100%;
+    height: 100%;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     display: flex;
@@ -104,11 +112,13 @@ form {
 
 
 .form-fields {
-    /* max-height: 300px; Altura máxima para a área de campos do formulário */
-    height: 100%;
-    overflow-y: auto; /* Permite a rolagem vertical apenas nos campos */
+    flex: 1; /* Faz o .form-fields ocupar o espaço disponível dentro do .form-container */    
+    /* height: 100%; */        
+    overflow-y: auto; /* Permite a rolagem vertical nos campos */
     margin-bottom: 10px; /* Espaçamento abaixo dos campos */
 }       
+
+
 .form-field {
     position: absolute;
 }
@@ -140,7 +150,6 @@ form button {
 form button:hover {
     background-color: var(--button-hover-background-color);
 }
-
 
 /* Estilos para botão desabilitado no formulário */
 form button:disabled {
@@ -192,56 +201,60 @@ label {
 }
 
 
+/* Estilizando o grupo de botões de ação */
+/* 
+.action-buttons {
+    width: calc(100% - 2%);  Define a largura para ser 3px menor que a do pai 
+    margin: 5px 0;
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    margin-bottom: 3px;
+    background-color: var(--action-buttons-bg-color);
+    border-radius: 4px;
+    justify-content: flex-start;
+    padding: 3px 8px;    
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    font-size: 12px;
+} */
+
+
+
+/* Estilizando os botões dentro do grupo de ação */
+.action-buttons button {
+    height: 24px; /* Define uma altura específica para os botões */
+    margin: 2px 5px; /* Reduz o espaçamento entre os botões */
+    padding: 0 10px; /* Ajusta o espaçamento interno dos botões */
+    font-size: 12px; /* Ajusta o tamanho da fonte, se necessário */
+}
+
+
+.button-container {
+    display: flex; /* Estilo flex para os botões */
+    justify-content: space-between; /* Espaçamento entre os botões */
+    margin-top: 10px; /* Espaço acima dos botões */
+}        
 
 /*** css dos botões de navegação ***/
 
 /* Estilizando o grupo de botões de navegação */
 
-.navigation-buttons {
-    width: 100%; /* Botões de navegação ocupam 100% da largura */
-    margin: 5px 0; /* Espaçamento vertical entre os botões */
-    padding: 4px 8px; /* Reduzido para dar um tamanho mais compacto */
-    background-color: var(--nav-buttons-bg-color); /* Cor padrão */
-    color: var(--nav-buttons-text-color); /* Cor do texto padrão */
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.3s ease, color 0.3s ease; /* Adiciona transição para a cor do texto */
-    font-size: 12px; /* Tamanho da fonte reduzido */
-    display: flex; /* Alinha os botões em uma linha */
-    justify-content: center; /* Centraliza os botões de navegação */ 
+
+/* Classe com o novo nome que herda todas as propriedades de .action-buttons */
+.navigation-buttons {    
+    @extend .action-buttons;
 }
 
-/* Cor de fundo e cor do texto ao receber foco */
-.navigation-buttons:focus {
-    background-color: var(--nav-buttons-focus-bg-color); /* Cor de fundo diferente para foco */
-    color: var(--nav-buttons-text-color); /* Garantir que a cor do texto seja branca */
-    outline: 2px solid #ffffff; /* Opcional: adicionar uma borda branca ao foco para melhor visibilidade */
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7); /* Sombra do texto para melhorar a legibilidade */
-}
-
-
-/* Cor de fundo ao passar o mouse */
-.navigation-buttons:hover {
-    background-color: var(--nav-button-hover-bg-color); /* Cinza escuro ao passar o mouse */
-    color: var(--nav-button-hover-text-color); /* Cor do texto ao passar o mouse (branco) */
-}
-
-.navigation-buttons:disabled {
-    background-color: var(--nav-button-disabled-bg-color);/* Cor de fundo para botão de navegação desabilitado */
-    color: var(--nav-button-disabled-text-color);/* Cor do texto para botão de navegação desabilitado */
-    cursor: not-allowed; /* Cursor indicando que não é interativo */
-    opacity: 1; /* Opacidade padrão para garantir visibilidade */
-    border: 1px solid var(--nav-button-disabled-border-color); /* Borda para destacar o botão desabilitado */
-}
 
 /* Estilizando os botões dentro do grupo de navegação */
-.navigation-buttons button {
-    height: 30px; /* Define uma altura específica para os botões de navegação */
-    margin: 2px 5px; /* Reduz o espaçamento entre os botões de navegação */
-    padding: 0 10px; /* Ajusta o espaçamento interno dos botões de navegação */
+.navigation-buttons button {   
+    height: 24px; /* Define uma altura específica para os botões */
+    margin: 2px 5px; /* Reduz o espaçamento entre os botões */
+    padding: 0 10px; /* Ajusta o espaçamento interno dos botões */
+    font-size: 12px; /* Ajusta o tamanho da fonte, se necessário */    
 }
-
 
 .overlay {
     position: fixed;
@@ -256,46 +269,6 @@ label {
     z-index: 1000;
 }
 
-/* Estilizando o grupo de botões de ação */
-.action-buttons {
-    width: 100%; /* Botões de navegação ocupam 100% da largura */    
-    margin: 5px 0; /* Espaçamento vertical entre os botões */    
-    display: flex; /* Organiza os botões de ação em linha */
-    flex-wrap: nowrap; /* Não permite quebra de linha */
-    overflow-x: auto; /* Permite a rolagem horizontal se os botões não couberem */
-    margin-bottom: 10px; /* Espaçamento abaixo dos botões de ação */
-    background-color: var(--action-buttons-bg-color); /* Definido para o mesmo cinza médio */
-    border-radius: 4px; /* Adicionando bordas arredondadas, se necessário */
-    
-    justify-content: flex-start; /* Alinha os botões à esquerda */    
-    /*justify-content: center; /* Centraliza os botões de navegação */ 
-
-    padding: 4px 8px; /* Reduzido para dar um tamanho mais compacto */
-    color: var(--nav-buttons-text-color); /* Cor do texto padrão */
-
-    border: none;
-    cursor: pointer;
-    transition: background-color 0.3s ease, color 0.3s ease; /* Adiciona transição para a cor do texto */
-    font-size: 12px; /* Tamanho da fonte reduzido */
-}
-
-
-
-
-/* Estilizando os botões dentro do grupo de ação */
-.action-buttons button {
-    height: 30px; /* Define uma altura específica para os botões */
-    margin: 2px 5px; /* Reduz o espaçamento entre os botões */
-    padding: 0 10px; /* Ajusta o espaçamento interno dos botões */
-    font-size: 14px; /* Ajusta o tamanho da fonte, se necessário */
-}
-
-
-.button-container {
-    display: flex; /* Estilo flex para os botões */
-    justify-content: space-between; /* Espaçamento entre os botões */
-    margin-top: 10px; /* Espaço acima dos botões */
-}        
 
 /*** css dos dialogs ***/
 
@@ -357,7 +330,7 @@ label {
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    font-size: 16px;
+    font-size: 12px;
 }
 
 
@@ -423,15 +396,30 @@ label {
 /*** css dos as tags filedSeta ***/
 
 /* Fieldset com cores em tom de cinza e borda */
- .fieldset-container {
+ 
+.fieldset-container {
     display: flex; /* Habilita o Flexbox */
     flex-wrap: wrap; /* Permite que os fieldsets quebrem a linha se necessário */
     gap: 20px; /* Espaçamento entre os grupos */
     position: relative;
     overflow: auto; /* Ativa a rolagem quando o conteúdo ultrapassa a altura */    
-    height: 300px; /* Altura do formulário */    
+    height: 100%; /* Ajusta a altura para 100% do elemento pai */    
+    /* height: 400px; Altura do formulário         */
+    padding: 8px 12px;    
+    margin: 5px;
 }
 
+/* form button {
+    background-color: var(--button-background-color);
+    color: var(--button-text-color);  Use a variável para a cor do texto do botão 
+    border: none;
+    padding: 8px 12px;
+    margin: 5px;
+    cursor: pointer;
+    border-radius: 4px;
+    font-size: 14px;
+    display: inline-block;
+} */
 
 
 fieldset {
