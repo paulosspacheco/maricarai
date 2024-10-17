@@ -309,6 +309,7 @@ procedure TMi_lcl_ui_ds_Form.CreateForm();
     Var
       OkAddRow : Boolean = false;
       f : TFont;
+
 //***Principal para dezenhar o formulário associado a lista pDmxFieldRec.
 begin
   if (ComponentState * [csLoading, csInline, csDesigning] = []) and

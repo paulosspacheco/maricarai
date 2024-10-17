@@ -152,19 +152,16 @@ begin
     result :=
      NewSItem(GetTemplate_CRUD_Buttons(CmNewRecord,CmUpdateRecord,CmLocate,CmDeleteRecord,CmCancel),
      NewSItem(GetTemplate_DbNavigator_Buttons(CmGoBof,CmNextRecord,CmPrevRecord,CmGoEof,CmRefresh),
-     NewSItem('~~',
      NewSItem('~ID:            ~\LLLLLL'+ChFN+'id'+CharAccSkip+CharAccReadOnly+CharPfInKeyPrimary+CharPfInKeyPrimaryAutoIncrement,
-     NewSItem('~ ~',
      NewSItem('~Nome do aluno: ~\ssssssssssssssssssssssssssss`ssssssssssss'+ChFN+'Nome'+ChDf+'Qual o nome?',
-     NewSItem('',
      NewSItem('~Endereço:      ~\ssssssssssssssssssssssssssss`ssssssssssssssssssssssssssss'+ChFN+'Endereco',
-     //NewSItem('~Cep:           ~\##.###-###'+ChFN+'cep',
-     //NewSItem('~Cidade:        ~\sssssssssssssssssssssssss'+ChFN+'cidade',
-     //NewSItem('~Estado:        ~\SS'+ChFN+'Estado',
-     //NewSItem('~ ~',
-     //NewSItem('~Idade:         ~'+tmp_Alunos_Idade+CreateExecAction('Idade',
-     //                                          Cm_Pesquisa_em_outra_tabela.Name),
-     //NewSItem('~Valor:         ~'+'\R$ EEE,EEE,EEE,EEE.EE'+ChFN+'valor_extended', //Extended
+     NewSItem('~Cep:           ~\##.###-###'+ChFN+'cep',
+     NewSItem('~Cidade:        ~\sssssssssssssssssssssssss'+ChFN+'cidade',
+     NewSItem('~Estado:        ~\SS'+ChFN+'Estado',
+     NewSItem('~ ~',
+     NewSItem('~Idade:         ~'+tmp_Alunos_Idade+CreateExecAction('Idade',
+                                               Cm_Pesquisa_em_outra_tabela.Name),
+     NewSItem('~Valor:         ~'+'\R$ EEE,EEE,EEE,EEE.EE'+ChFN+'valor_extended', //Extended
      //
      //NewSItem('~Vencimento:    ~\sssssssssss'+ChFN+'vencimento'+ChDf+'Dia 20'+
      //                                           CreateOptions(NewSItem('Dia 10',
@@ -245,7 +242,7 @@ begin
      //
      //NewSItem('~ ~',
 
-     nil))))))));//))))))))))))))))))))))))))))))))))))))))))))))))))));
+     nil)))))))))));//)))))))))))))))))))))))))))))))))))))))))))))))));
     end;
 
 

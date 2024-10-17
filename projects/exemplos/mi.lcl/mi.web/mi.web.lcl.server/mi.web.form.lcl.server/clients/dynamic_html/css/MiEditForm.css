@@ -68,7 +68,7 @@ h4 {
     background-color: var(--form-background-color);
     border: 1px solid var(--form-border-color);
     margin: 20px auto;
-    max-width: 98%;
+    max-width: 100%;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 
@@ -79,10 +79,6 @@ h4 {
     overflow: auto; /* Ativa a rolagem quando o conteúdo ultrapassa a altura */        
 }
 
-
-.form-field {
-    position: absolute;
-}
 
 .form-header {
     background-color: var(--form-header-background-color);
@@ -98,12 +94,12 @@ form {
     border: 1px solid var(--form-border-color);
     padding: 20px;
     margin: 20px auto;
-    max-width: 90%;
-    width: 90%;
+    max-width: 100%;
+    width: 97%;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     display: flex;
-    flex-direction: column;
+    flex-direction: column; /* Para que os elementos sejam empilhados verticalmente */
 }
 
 
@@ -113,6 +109,9 @@ form {
     overflow-y: auto; /* Permite a rolagem vertical apenas nos campos */
     margin-bottom: 10px; /* Espaçamento abaixo dos campos */
 }       
+.form-field {
+    position: absolute;
+}
 
 form button {
     background-color: var(--button-background-color);
@@ -152,18 +151,21 @@ form button:disabled {
     border: 1px solid #999; /* Borda para destacar o botão desabilitado */
 }
 
+
 form input,
 form select,
 form textarea {
-    width: 100%;
-    height: 30px; /* Definindo uma altura fixa para os inputs */
-    padding: 10px;
-    margin: 10px 0;
-    border: 1px solid var(--input-border-color);
-    border-radius: 4px;
-    background-color: var(--input-background-color);
-    color: var(--text-color);
-    box-sizing: border-box;
+    width: 100%; /* Garantindo que todos os campos ocupem toda a largura disponível */
+    display:block; /*Use block se o seu foco for um elemento que deve ocupar a largura total e não precisar de alinhamento dinâmico.   */
+    height: 24px; /* Altura consistente */
+    line-height: 24px; /* Igual à altura dos inputs para centralizar verticalmente */    
+    padding: 5px; /* Ajustando o padding para centralização */
+    margin: 10px 0; /* Margem consistente */
+    border: 1px solid var(--input-border-color); /* Cor da borda */
+    border-radius: 4px; /* Cantos arredondados */
+    background-color: var(--input-background-color); /* Cor de fundo */
+    color: var(--text-color); /* Cor do texto */
+    box-sizing: border-box; /* Incluindo padding e border no cálculo da largura total */
 }
 
 
@@ -175,15 +177,21 @@ form textarea:focus {
     background-color: var(--input-focus-background-color); /* Fundo levemente mais escuro ao focar */
 }
 
-label {
+
+label {    
     font-weight: bold;
-    display: block;
-    font-weight: bold;
-    color: var(--label-color);
-    height: 0px; /* Define uma altura absoluta para o label */
-    line-height: 10px; /* Garante que o texto dentro do label fique centralizado verticalmente */
-    margin-bottom: 5px; /* Espaçamento entre o label e o input */        
+    /*display: flex; /* Use flex se o contêiner precisar de um layout responsivo, mas continue usando absolute para o posicionamento dos elementos dentro desse contêiner. */    
+    display:block; /*Use block se o seu foco for um elemento que deve ocupar a largura total e não precisar de alinhamento dinâmico.   */
+    align-items: center; /* Centraliza verticalmente o conteúdo do label */    
+    height: 24px; /* Ajustando a altura para corresponder ao campo de entrada */
+    line-height: 24px; /* Igual à altura dos inputs para centralizar verticalmente */
+    padding: 5px; /* Ajustando o padding para centralização */        
+    margin: 4px 0; /* Margem consistente */        
+    margin-bottom: 5px; /* Espaçamento entre o label e o input */
+    color: var(--text-color); /* Cor do texto */        
 }
+
+
 
 /*** css dos botões de navegação ***/
 
@@ -201,7 +209,7 @@ label {
     transition: background-color 0.3s ease, color 0.3s ease; /* Adiciona transição para a cor do texto */
     font-size: 12px; /* Tamanho da fonte reduzido */
     display: flex; /* Alinha os botões em uma linha */
-    justify-content: center; /* Centraliza os botões de navegação */
+    justify-content: center; /* Centraliza os botões de navegação */ 
 }
 
 /* Cor de fundo e cor do texto ao receber foco */
@@ -250,15 +258,28 @@ label {
 
 /* Estilizando o grupo de botões de ação */
 .action-buttons {
+    width: 100%; /* Botões de navegação ocupam 100% da largura */    
+    margin: 5px 0; /* Espaçamento vertical entre os botões */    
     display: flex; /* Organiza os botões de ação em linha */
     flex-wrap: nowrap; /* Não permite quebra de linha */
     overflow-x: auto; /* Permite a rolagem horizontal se os botões não couberem */
     margin-bottom: 10px; /* Espaçamento abaixo dos botões de ação */
     background-color: var(--action-buttons-bg-color); /* Definido para o mesmo cinza médio */
     border-radius: 4px; /* Adicionando bordas arredondadas, se necessário */
-    justify-content: flex-start; /* Alinha os botões à esquerda */
-    padding: 5px; /* Ajusta o espaçamento interno do grupo */
+    
+    justify-content: flex-start; /* Alinha os botões à esquerda */    
+    /*justify-content: center; /* Centraliza os botões de navegação */ 
+
+    padding: 4px 8px; /* Reduzido para dar um tamanho mais compacto */
+    color: var(--nav-buttons-text-color); /* Cor do texto padrão */
+
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease; /* Adiciona transição para a cor do texto */
+    font-size: 12px; /* Tamanho da fonte reduzido */
 }
+
+
 
 
 /* Estilizando os botões dentro do grupo de ação */

@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <title>Mi rtl WebModule</title>            
-    <meta name="createDate" content="16/10/24" /> 
-    <meta name="createDateUpdate" content="16/10/24" />
+    <meta name="createDate" content="17/10/24" /> 
+    <meta name="createDateUpdate" content="17/10/24" />
     <meta name="description" content="" />
     <meta name="keywords" content="" />
 
@@ -51,25 +51,40 @@
 
 
 
+<label for="~field" class="form-field" style="top: 58px; left: 11px;"> ID:             </label>
+<input type="text" class="form-field" id="id" name="id" placeholder="id" data-mask="LLLLLL" data-mask-type="L" style="top: 58px; left: 113px; width: 56px;"/>
+<label for="~field" class="form-field" style="top: 87px; left: 11px;"> Nome do aluno:  </label>
+<input type="text" class="form-field" id="nome" name="nome" placeholder="nome" data-mask="ssssssssssssssssssssssssssssssssssssssss" data-mask-type="s" style="top: 87px; left: 113px; width: 193px;"/>
+<label for="~field" class="form-field" style="top: 116px; left: 11px;"> Endereço:       </label>
+<input type="text" class="form-field" id="endereco" name="endereco" placeholder="endereco" data-mask="ssssssssssssssssssssssssssssssssssssssssssssssssssssssss" data-mask-type="s" style="top: 116px; left: 113px; width: 193px;"/>
+<label for="~field" class="form-field" style="top: 145px; left: 11px;"> Cep:            </label>
+<input type="text" class="form-field" id="cep" name="cep" placeholder="cep" data-mask="##.###-###" data-mask-type="#" style="top: 145px; left: 113px; width: 80px;"/>
+<label for="~field" class="form-field" style="top: 174px; left: 11px;"> Cidade:         </label>
+<input type="text" class="form-field" id="cidade" name="cidade" placeholder="cidade" data-mask="sssssssssssssssssssssssss" data-mask-type="s" style="top: 174px; left: 113px; width: 175px;"/>
+<label for="~field" class="form-field" style="top: 203px; left: 11px;"> Estado:         </label>
+<input type="text" class="form-field" id="estado" name="estado" placeholder="estado" data-mask="SS" data-mask-type="S" style="top: 203px; left: 113px; width: 32px;"/>
 
-<label for="~field" class="form-field" style="top: 87px; left: 11px;"> ID:             </label>
-<input type="text" class="form-field" id="id" name="id" placeholder="id" data-mask="LLLLLL" data-mask-type="L" style="top: 87px; left: 113px; width: 56px;"/>
+<label for="~field" class="form-field" style="top: 261px; left: 11px;"> Idade:          </label>
+<input type="text" class="form-field" id="idade" name="idade" placeholder="idade" data-mask="BB" data-mask-type="B" style="top: 261px; left: 113px; width: 32px;"/>
 
-<label for="~field" class="form-field" style="top: 145px; left: 11px;"> Nome do aluno:  </label>
-<input type="text" class="form-field" id="nome" name="nome" placeholder="nome" data-mask="ssssssssssssssssssssssssssssssssssssssss" data-mask-type="s" style="top: 145px; left: 113px; width: 193px;"/>
-
-<label for="~field" class="form-field" style="top: 203px; left: 11px;"> Endereço:       </label>
-<input type="text" class="form-field" id="endereco" name="endereco" placeholder="endereco" data-mask="ssssssssssssssssssssssssssssssssssssssssssssssssssssssss" data-mask-type="s" style="top: 203px; left: 113px; width: 193px;"/>
-   
+<label for="~field" class="form-field" style="top: 290px; left: 11px;"> Valor:          </label>
+<input type="text" class="form-field" id="valor_extended" name="valor_extended" placeholder="valor_extended" data-mask="R$ EEE.EEE.EEE.EEE,EE" data-mask-type="E" style="top: 290px; left: 113px; width: 152px;"/>
+    
 
 
     </div>
     <!-- Adicione mais campos aqui conforme necessário -->
 </div>
-
 <div class="action-buttons">
     <!-- Botões para operações CRUD -->
-
+    <button type="button" id="CmNewRecord">Novo Registro</button>
+    <button type="button" id="CmAddRecord">Adicionar</button>        
+    <button type="button" id="CmPutRecord">Gravar</button>
+    <button type="button" id="CmLocate">Localizar</button>        
+    <button type="button" id="CmDeleteRecord">Deletar</button>       
+    <button type="button" id="CmRefresh">Refresh</button>
+    <button type="button" id="CmCancel">Cancelar</button>        
+    <button type="button" id="CmHealthCheck">Checar conexão</button>                
 </div>        
 
 <!-- Botões de Navegação -->
