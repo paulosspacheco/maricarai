@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi rtl WebModule</title>            
+    <meta name="createDate" content="16/10/24" /> 
+    <meta name="createDateUpdate" content="16/10/24" />
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+
+    <style>
+        /* Garante que html e body ocupem 100% da altura */
+        html, body {
+            height: 100%;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* O contêiner principal ocupa todo o espaço disponível */
+        .form-container {
+            flex: 1; /* Faz com que o contêiner ocupe o espaço restante */
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: 20px;
+            box-sizing: border-box;
+            position: relative;
+        }
+
+        /* Formulário ocupa todo o espaço disponível */
+        form {
+            flex: 1; /* Faz o formulário ocupar o espaço restante */
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-fields {
+            flex: 1;
+            position: relative; /* Necessário para posicionamento absoluto dos campos */
+            overflow-y: auto; /* Permite rolagem vertical caso necessário */
+        }
+
+        .fieldset-container {
+            position: relative;
+            height: 100%;
+        }
+
+        .form-field {
+            position: absolute; /* Permite definir top, left */
+        }
+
+        input.form-field {
+            height: 30px; /* Define uma altura específica para os campos de entrada */
+            width: auto;
+            padding: 5px;
+            box-sizing: border-box;
+        }
+
+        .action-buttons, .navigation-buttons {
+            display: flex;
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        .form-header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <div class="form-header">
+            <h1>Mi rtl WebModule</h1>
+        </div>
+        
+        <form id="Mi_rtl_WebModule">
+            <div class="form-fields"> 
+                <div class="fieldset-container">
+                    <label for="id" class="form-field" style="top: 87px; left: 11px;">ID:</label>
+                    <input type="text" class="form-field" id="id" name="id" placeholder="id" style="top: 87px; left: 113px; width: 56px;"/>
+
+                    <label for="nome" class="form-field" style="top: 145px; left: 11px;">Nome do aluno:</label>
+                    <input type="text" class="form-field" id="nome" name="nome" placeholder="nome" style="top: 145px; left: 113px; width: 193px;"/>
+
+                    <label for="endereco" class="form-field" style="top: 203px; left: 11px;">Endereço:</label>
+                    <input type="text" class="form-field" id="endereco" name="endereco" placeholder="endereco" style="top: 203px; left: 113px; width: 193px;"/>
+                </div>
+            </div>
+
+            <div class="action-buttons">
+                <!-- Botões para operações CRUD -->
+            </div>
+
+            <div class="navigation-buttons">
+          

@@ -12,6 +12,7 @@
 /*** css do body e h1 a h4 ***/
 
 body {
+    height: 100%; 
     font-size: 12px; /* Diminui o tamanho base para 12px */            
     font-family: Arial, sans-serif;
     background-color: var(--background-color);
@@ -55,12 +56,32 @@ h4 {
 /*** Css dos formulários ***/
 
 .form-container {
+    /*flex: 1;  Faz com que o contêiner ocupe todo o espaço disponível dentro do elemento pai flex */    
+    /*display: flex;*/ /* Ativa o Flexbox, permitindo o uso de propriedades de layout flexível */
+    /*position: relative;  Define o posicionamento como relativo, permitindo o uso de posicionamento absoluto em elementos filhos  */
+    /* flex-direction: column;  Organiza os elementos filhos em uma coluna, um abaixo do outro 
+    justify-content: space-between;  Distribui os elementos ao longo do eixo principal, com espaço entre eles 
+    padding: 20px;  Adiciona um espaço interno de 20 pixels em todos os lados do contêiner 
+    box-sizing: border-box;  Inclui o padding na largura e altura totais do elemento, evitando crescimento inesperado  */
+
+
     background-color: var(--form-background-color);
     border: 1px solid var(--form-border-color);
     margin: 20px auto;
-    max-width: 90%;
+    max-width: 98%;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+    /* position: relative;     */
+    /* width: 800px; /* Largura do formulário */
+    /* height: 580px; Altura visível do formulário */ 
+    height: 100%;  
+    overflow: auto; /* Ativa a rolagem quando o conteúdo ultrapassa a altura */        
+}
+
+
+.form-field {
+    position: absolute;
 }
 
 .form-header {
@@ -87,7 +108,8 @@ form {
 
 
 .form-fields {
-    max-height: 300px; /* Altura máxima para a área de campos do formulário */
+    /* max-height: 300px; Altura máxima para a área de campos do formulário */
+    height: 100%;
     overflow-y: auto; /* Permite a rolagem vertical apenas nos campos */
     margin-bottom: 10px; /* Espaçamento abaixo dos campos */
 }       
@@ -384,7 +406,12 @@ label {
     display: flex; /* Habilita o Flexbox */
     flex-wrap: wrap; /* Permite que os fieldsets quebrem a linha se necessário */
     gap: 20px; /* Espaçamento entre os grupos */
+    position: relative;
+    overflow: auto; /* Ativa a rolagem quando o conteúdo ultrapassa a altura */    
+    height: 300px; /* Altura do formulário */    
 }
+
+
 
 fieldset {
     flex: 1 1 calc(33% - 20px); /* Ajusta a largura dos fieldsets para ocupar 1/3 do espaço disponível */
@@ -447,18 +474,15 @@ legend {
     }
 
     .form-fields {
-        width: 100%; /* A classe form-fields também pode ocupar 100% da largura, se necessário */
-        padding: 10px; /* Adicionando padding para melhor espaçamento */
-        box-shadow: none; /* Removendo a sombra, se desejado */
+        width: 100%; /* A classe form-fields ocupa 100% da largura, garantindo que se adapte a telas menores */
+        height: 100%; /* O contêiner form-fields ocupa 100% da altura disponível */
+        padding: 10px; /* Adiciona um espaço interno de 10 pixels para melhorar o espaçamento em dispositivos móveis */
+        box-shadow: none; /* Remove a sombra do contêiner, deixando o design mais simples */
     }
 
     .action-buttons {
-        flex-direction: column; /* Os botões empilham verticalmente em telas menores */
+        flex-direction: column; /* Empilha os botões verticalmente para melhorar a usabilidade em telas menores */
     }
-    
-    
-    
-    
 }
 
 
