@@ -377,7 +377,8 @@ begin
 ////                           i := DmxFieldRec^.MaxItemStrLen(DmxFieldRec^.ListComboBox);
 //                           Width := WidthChar * (DmxFieldRec^.ShownWid+7);
 //                         end;
-                    Width      := (DmxScroller_Form.WidthChar * (DmxFieldRec.ShownWid))+(7*DmxScroller_Form.WidthChar);
+                    //Width      := (DmxScroller_Form.WidthChar * (DmxFieldRec.ShownWid))+(7*DmxScroller_Form.WidthChar);
+                    Width      := DmxScroller_Form.WidthChar * (DmxFieldRec.ShownWid+7);
 
                     Constraints.MinWidth := width;
                     Constraints.MaxWidth := Constraints.MinWidth;
@@ -590,7 +591,7 @@ end;
 
   end;
 
-    procedure TDbComboBox_mi_LCL.SetMi_lcl_ui_Form_attributes(
+  procedure TDbComboBox_mi_LCL.SetMi_lcl_ui_Form_attributes(
     aMi_lcl_ui_Form_attributes: TMi_lcl_ui_Form_attributes);
   begin
     _Mi_lcl_ui_Form_attributes := aMi_lcl_ui_Form_attributes;
@@ -598,138 +599,121 @@ end;
     then SeTDmxFieldRec(_Mi_lcl_ui_Form_attributes.DmxScroller_Form.CurrentField);
   end;
 
-procedure TDbComboBox_mi_LCL.SetShowImages(B: Boolean);
-begin
-  if FShowImages = B
-  then Exit;
-
-  FShowImages := B;
-  Invalidate;
-end;
-
-procedure TDbComboBox_mi_LCL.SetImages(IL: TImageList);
-begin
-  FImages := IL;
-end;
-
-//procedure TDbComboBox_mi_LCL.SetValues(SL: TStringList);
-//begin
-//  FValues.Assign(SL);
-//end;
-
-procedure TDbComboBox_mi_LCL.SetImgIndexes(SL: TStringList);
-begin
-  FImgIndexes.Assign(SL);
-end;
-
-//procedure TDbComboBox_mi_LCL.SetValue(S: String);
-//var
-//  I, E: Integer;
-//begin
-//  E := -1;
-//  for I := 0 to Values.Count-1 do
-//  begin
-//    if UpperCase(Values[I]) = UpperCase(S)
-//     then E := I;
-//  end;
-//  ItemIndex := E;
-//end;
-procedure TDbComboBox_mi_LCL.SetValue(S: String);
-var
-  I, E: Integer;
-begin
-  E := -1;
-  for I := 0 to Items.Count-1 do
+  procedure TDbComboBox_mi_LCL.SetShowImages(B: Boolean);
   begin
-    if UpperCase(trim(Items[I])) = UpperCase(trim(S))
-     then E := I;
-  end;
-  ItemIndex := E;
-end;
+    if FShowImages = B
+    then Exit;
 
-function TDbComboBox_mi_LCL.GetValue: String;
-begin
-  Result := '';
-  if (Items.Count > ItemIndex) and (ItemIndex>=0) then
-    Result := Items[ItemIndex];
-end;
-
-procedure TDbComboBox_mi_LCL.DrawItem(Index: Integer; Rect: TRect; State: TOwnerDrawState);
-var
-  I: Integer;
-begin
-  if (ShowImages = False) or
-     (Assigned(Images) = False)
-  then begin
-         inherited DrawItem(Index, Rect, State);
-         Exit;
-       end;
-
-  with Canvas do
-  begin
-    Brush.Color := clWindow;
-    if odSelected in State
-    then Brush.Color := clActiveCaption;
-
-    FillRect(Rect);
-
-    if ImgIndexes.Count > Index
-    then I := StrToInt(ImgIndexes.Strings[Index])
-    else I := 0;
-
-    Images.Draw(Canvas, Rect.Left+2, Rect.Top+0, I);
-    Font.Color := clWindowText;
-
-    if odSelected in State then Font.Color := clCaptionText;
-    TextOut(Rect.Left+23, Rect.Top+2, Items[Index]);
+    FShowImages := B;
+    Invalidate;
   end;
 
-
-end;
-
-function TDbComboBox_mi_LCL.GetHTMLContent: String;
-  //var template_label : string = '<label for="~FieldName"> ~FieldName </label>';
-
-  var template_select : string = '<select id="~FieldName" name="~FieldName" data-mask="~data-mask" datamask-type="~datamask-type" style="position: absolute; top: ~toppx; left: ~leftpx; width: ~widthpx;">';
-  var template_options : string =  '<option value="~value">~value</option>';
-
-  //Exemplo de select:
-  //'<label for="unidade">Escolha a unidade de medida:</label>'
-  //'<select id="unidade" name="unidade">'
-  //    '<option value="0">Centímetros</option>'
-  //    '<option value="1">Metro</option>'
-  //    '<option value="2">Km</option>'
-  //'</select>'
-
-   var
-     i : integer;
-     s : string;
-     typCode : string='';
-begin
-  result :=  template_select;
-  with DmxFieldRec^,owner_UiDmxScroller do
+  procedure TDbComboBox_mi_LCL.SetImages(IL: TImageList);
   begin
-    Result := StringReplace(Result, '~top'      , intToStr(top)   , [rfReplaceAll]);
-    Result := StringReplace(Result, '~left'     , intToStr(left)  , [rfReplaceAll]);
-    Result := StringReplace(Result, '~width'     , intToStr(left)  , [rfReplaceAll]);
-    Result := StringReplace(Result, '~data-mask', Template_org    , [rfReplaceAll]);
-    case TypeCode of
-      ^E : TypCode := '#5';
-      ^D : TypCode := '#4';
-      else TypCode := '#6'; //Caso o campo tenha sido criada com CreateOptions então o browser deve encarar como campo enumerado
-    end;
-    Result := StringReplace(Result, '~datamask-type', TypCode       , [rfReplaceAll]);
+    FImages := IL;
+  end;
 
-    Result := StringReplace(Result, '~FieldName', FieldName       , [rfReplaceAll]);
+  procedure TDbComboBox_mi_LCL.SetImgIndexes(SL: TStringList);
+  begin
+    FImgIndexes.Assign(SL);
+  end;
 
+  procedure TDbComboBox_mi_LCL.SetValue(S: String);
+  var
+    I, E: Integer;
+  begin
+    E := -1;
     for I := 0 to Items.Count-1 do
     begin
-      s := StringReplace(template_options, '~value', Items[I] , [rfReplaceAll]);
-      Result := New_Line + Result+s;
+      if UpperCase(trim(Items[I])) = UpperCase(trim(S))
+       then E := I;
     end;
-    Result := New_Line + Result+'</select>';
+    ItemIndex := E;
   end;
-end;
+
+  function TDbComboBox_mi_LCL.GetValue: String;
+  begin
+    Result := '';
+    if (Items.Count > ItemIndex) and (ItemIndex>=0) then
+      Result := Items[ItemIndex];
+  end;
+
+  procedure TDbComboBox_mi_LCL.DrawItem(Index: Integer; Rect: TRect; State: TOwnerDrawState);
+  var
+    I: Integer;
+  begin
+    if (ShowImages = False) or
+       (Assigned(Images) = False)
+    then begin
+           inherited DrawItem(Index, Rect, State);
+           Exit;
+         end;
+
+    with Canvas do
+    begin
+      Brush.Color := clWindow;
+      if odSelected in State
+      then Brush.Color := clActiveCaption;
+
+      FillRect(Rect);
+
+      if ImgIndexes.Count > Index
+      then I := StrToInt(ImgIndexes.Strings[Index])
+      else I := 0;
+
+      Images.Draw(Canvas, Rect.Left+2, Rect.Top+0, I);
+      Font.Color := clWindowText;
+
+      if odSelected in State then Font.Color := clCaptionText;
+      TextOut(Rect.Left+23, Rect.Top+2, Items[Index]);
+    end;
+
+
+  end;
+
+  function TDbComboBox_mi_LCL.GetHTMLContent: String;
+    //var template_label : string = '<label for="~FieldName"> ~FieldName </label>';
+
+    var template_select : string = '<select id="~FieldName" name="~FieldName" data-mask="~data-mask" datamask-type="~datamask-type" style="position: absolute; top: ~toppx; left: ~leftpx; width: ~widthpx;">';
+    var template_options : string =  '<option value="~value">~value</option>';
+
+    //Exemplo de select:
+    //'<label for="unidade">Escolha a unidade de medida:</label>'
+    //'<select id="unidade" name="unidade">'
+    //    '<option value="0">Centímetros</option>'
+    //    '<option value="1">Metro</option>'
+    //    '<option value="2">Km</option>'
+    //'</select>'
+
+     var
+       i : integer;
+       s : string;
+       typCode : string='';
+  begin
+    result :=  template_select;
+    with DmxFieldRec^,owner_UiDmxScroller do
+    begin
+      Result := StringReplace(Result, '~top'      , intToStr(top)   , [rfReplaceAll]);
+      Result := StringReplace(Result, '~left'     , intToStr(left)  , [rfReplaceAll]);
+      Result := StringReplace(Result, '~width'     , intToStr(left)  , [rfReplaceAll]);
+      Result := StringReplace(Result, '~data-mask', Template_org    , [rfReplaceAll]);
+      case TypeCode of
+        ^E : TypCode := '#5';
+        ^D : TypCode := '#4';
+        else TypCode := '#6'; //Caso o campo tenha sido criada com CreateOptions então o browser deve encarar como campo enumerado
+      end;
+      Result := StringReplace(Result, '~datamask-type', TypCode       , [rfReplaceAll]);
+
+      Result := StringReplace(Result, '~FieldName', FieldName       , [rfReplaceAll]);
+
+      for I := 0 to Items.Count-1 do
+      begin
+        s := StringReplace(template_options, '~value', Items[I] , [rfReplaceAll]);
+        Result := New_Line + Result+s;
+      end;
+      Result := New_Line + Result+'</select>';
+    end;
+  end;
 
 
 

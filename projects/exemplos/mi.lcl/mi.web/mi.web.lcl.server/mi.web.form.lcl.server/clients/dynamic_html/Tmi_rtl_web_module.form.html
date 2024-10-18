@@ -27,11 +27,99 @@
         <form id="Mi_rtl_WebModule">
             <div class="form-fields"> 
                 <div class="fieldset-container">                
+                    
 
-<select id="vencimento" name="vencimento" data-mask="sssssssssss" datamask-type="#6" style="position: absolute; top: 319px; left: 113px; width: 113px;"><option value="Dia 10">Dia 10</option><option value="Dia 15">Dia 15</option><option value="Dia 20">Dia 20</option><option value="Dia 25 e 26">Dia 25 e 26</option></select>
-<select id="midia" name="midia" data-mask="LLLLLL" datamask-type="#5" style="position: absolute; top: 348px; left: 113px; width: 113px;"><option value=" indefinido "> indefinido </option><option value=" HD         "> HD         </option><option value=" SSD        "> SSD        </option><option value=" Pen drive  "> Pen drive  </option></select>
-<select id="unidade" name="unidade" data-mask="LLLLLL" datamask-type="#5" style="position: absolute; top: 464px; left: 113px; width: 113px;"><option value="Centímetro">Centímetro</option><option value="Metro">Metro</option><option value="km">km</option></select>
-<select id="cor" name="cor" data-mask="sssssssssssssss" datamask-type="#6" style="position: absolute; top: 551px; left: 113px; width: 113px;"><option value="sem preferência">sem preferência</option><option value="Azul">Azul</option><option value="Amarelo">Amarelo</option><option value="Azul claro">Azul claro</option></select>
+
+
+
+
+
+
+
+
+<label for="~field" class="form-field" style="top: 64px; left: 11px;"> ID:             </label>
+<input type="text" class="form-field" id="id" name="id" placeholder="id" data-mask="LLLLLL" datamask-type="L" style="top: 64px; left: 113px; width: 56px;"/>
+<label for="~field" class="form-field" style="top: 96px; left: 11px;"> Nome do aluno:  </label>
+<input type="text" class="form-field" id="nome" name="nome" placeholder="nome" data-mask="ssssssssssssssssssssssssssssssssssssssss" datamask-type="s" style="top: 96px; left: 113px; width: 193px;"/>
+<label for="~field" class="form-field" style="top: 128px; left: 11px;"> Endereço:       </label>
+<input type="text" class="form-field" id="endereco" name="endereco" placeholder="endereco" data-mask="ssssssssssssssssssssssssssssssssssssssssssssssssssssssss" datamask-type="s" style="top: 128px; left: 113px; width: 193px;"/>
+<label for="~field" class="form-field" style="top: 160px; left: 11px;"> Cep:            </label>
+<input type="text" class="form-field" id="cep" name="cep" placeholder="cep" data-mask="##.###-###" datamask-type="#" style="top: 160px; left: 113px; width: 80px;"/>
+<label for="~field" class="form-field" style="top: 192px; left: 11px;"> Cidade:         </label>
+<input type="text" class="form-field" id="cidade" name="cidade" placeholder="cidade" data-mask="sssssssssssssssssssssssss" datamask-type="s" style="top: 192px; left: 113px; width: 175px;"/>
+<label for="~field" class="form-field" style="top: 224px; left: 11px;"> Estado:         </label>
+<input type="text" class="form-field" id="estado" name="estado" placeholder="estado" data-mask="SS" datamask-type="S" style="top: 224px; left: 113px; width: 32px;"/>
+
+<label for="~field" class="form-field" style="top: 288px; left: 11px;"> Idade:          </label>
+<input type="text" class="form-field" id="idade" name="idade" placeholder="idade" data-mask="BB" datamask-type="B" style="top: 288px; left: 113px; width: 32px;"/>
+
+<label for="~field" class="form-field" style="top: 320px; left: 11px;"> Valor:          </label>
+<input type="text" class="form-field" id="valor_extended" name="valor_extended" placeholder="valor_extended" data-mask="R$ EEE.EEE.EEE.EEE,EE" datamask-type="E" style="top: 320px; left: 113px; width: 152px;"/>
+<label for="~field" class="form-field" style="top: 352px; left: 11px;"> Vencimento:     </label>
+
+
+
+
+
+<select id="vencimento" name="vencimento" data-mask="sssssssssss" datamask-type="#6" style="position: absolute; top: 352px; left: 113px; width: 113px;"><option value="Dia 10">Dia 10</option><option value="Dia 15">Dia 15</option><option value="Dia 20">Dia 20</option><option value="Dia 25 e 26">Dia 25 e 26</option></select>
+<label for="~field" class="form-field" style="top: 384px; left: 11px;"> Tipo de midia:  </label>
+
+
+
+
+
+<select id="midia" name="midia" data-mask="LLLLLL" datamask-type="#5" style="position: absolute; top: 384px; left: 113px; width: 113px;"><option value=" indefinido "> indefinido </option><option value=" HD         "> HD         </option><option value=" SSD        "> SSD        </option><option value=" Pen drive  "> Pen drive  </option></select>
+<label for="~field" class="form-field" style="top: 416px; left: 11px;"> Senha:           </label>
+<input type="text" class="form-field" id="senha" name="senha" placeholder="senha" data-mask="sssssssssssssss" datamask-type="s" style="top: 416px; left: 119px; width: 115px;"/>
+
+<label for="~field" class="form-field" style="top: 480px; left: 11px;"> Qt:             </label>
+<input type="text" class="form-field" id="qt" name="qt" placeholder="qt" data-mask="II.III" datamask-type="I" style="top: 480px; left: 113px; width: 56px;"/>
+<label for="~field" class="form-field" style="top: 512px; left: 11px;"> Unidade:        </label>
+
+
+
+
+<select id="unidade" name="unidade" data-mask="LLLLLL" datamask-type="#5" style="position: absolute; top: 512px; left: 113px; width: 113px;"><option value="Centímetro">Centímetro</option><option value="Metro">Metro</option><option value="km">km</option></select>
+<label for="~field" class="form-field" style="top: 544px; left: 11px;"> Preço:          </label>
+<input type="text" class="form-field" id="preco" name="preco" placeholder="preco" data-mask="RRR.RRR,zz" datamask-type="R" style="top: 544px; left: 113px; width: 80px;"/>
+<label for="~field" class="form-field" style="top: 576px; left: 11px;"> Total:          </label>
+<input type="text" class="form-field" id="valor_total" name="valor_total" placeholder="valor_total" data-mask="RRR.RRR.RRR,ZZ" datamask-type="R" style="top: 576px; left: 113px; width: 104px;"/>
+<label for="~field" class="form-field" style="top: 608px; left: 11px;"> Cor:            </label>
+
+
+
+
+
+<select id="cor" name="cor" data-mask="sssssssssssssss" datamask-type="#6" style="position: absolute; top: 608px; left: 113px; width: 113px;"><option value="sem preferência">sem preferência</option><option value="Azul">Azul</option><option value="Amarelo">Amarelo</option><option value="Azul claro">Azul claro</option></select>
+
+<label for="~field" class="form-field" style="top: 672px; left: 11px;"> Versão :        </label>
+<input type="text" class="form-field" id="versao" name="versao" placeholder="versao" data-mask="##.##.##.####" datamask-type="#" style="top: 672px; left: 113px; width: 98px;"/>
+
+
+
+<label for="~field" class="form-field" style="top: 800px; left: 11px;"> TESTE DE DATAS E HORAS    </label>
+
+<label for="~field" class="form-field" style="top: 864px; left: 11px;">  Data: dia/mes/ano </label>
+<label for="~field" class="form-field" style="top: 896px; left: 11px;">   dd/mm/yy:         </label>
+<input type="text" class="form-field" id="ddmmyy" name="ddmmyy" placeholder="ddmmyy" data-mask="Ddd/mm/yy" datamask-type="D" style="top: 896px; left: 137px; width: 74px;"/>
+<label for="~field" class="form-field" style="top: 928px; left: 11px;">   dd/mm/yyyy:       </label>
+<input type="text" class="form-field" id="ddmmyyyy" name="ddmmyyyy" placeholder="ddmmyyyy" data-mask="Ddd/mm/yyyy" datamask-type="D" style="top: 928px; left: 137px; width: 86px;"/>
+
+<label for="~field" class="form-field" style="top: 992px; left: 11px;">  Horas: Hora:Minutos:Segundos  </label>
+<label for="~field" class="form-field" style="top: 1024px; left: 11px;">   hh:nn:ss:         </label>
+<input type="text" class="form-field" id="hhnnss" name="hhnnss" placeholder="hhnnss" data-mask="Dhh:nn:ss" datamask-type="D" style="top: 1024px; left: 137px; width: 74px;"/>
+<label for="~field" class="form-field" style="top: 1056px; left: 11px;">   hh:nn:            </label>
+<input type="text" class="form-field" id="hhnn" name="hhnn" placeholder="hhnn" data-mask="Dhh:nn" datamask-type="D" style="top: 1056px; left: 137px; width: 56px;"/>
+
+<label for="~field" class="form-field" style="top: 1120px; left: 11px;">  Data e Horas: dia/mes/ano hora:minutos:segundos </label>
+<label for="~field" class="form-field" style="top: 1152px; left: 11px;">     dd/mm/yy hh:nn:ss:    </label>
+<input type="text" class="form-field" id="ddmmyyhhnnss" name="ddmmyyhhnnss" placeholder="ddmmyyhhnnss" data-mask="Ddd/mm/yy hh:nn:ss" datamask-type="D" style="top: 1152px; left: 173px; width: 128px;"/>
+<label for="~field" class="form-field" style="top: 1184px; left: 11px;">     dd/mm/yyyy hh:nn:ss:  </label>
+<input type="text" class="form-field" id="ddmmyyyyhhnnss" name="ddmmyyyyhhnnss" placeholder="ddmmyyyyhhnnss" data-mask="Ddd/mm/yyyy hh:nn:ss" datamask-type="D" style="top: 1184px; left: 173px; width: 140px;"/>
+
+<label for="~field" class="form-field" style="top: 1248px; left: 11px;">  Data e Horas: dia/mes/ano hora:minutos </label>
+<label for="~field" class="form-field" style="top: 1280px; left: 11px;">     dd/mm/yy hh:nn:       </label>
+<input type="text" class="form-field" id="ddmmyyhhnn" name="ddmmyyhhnn" placeholder="ddmmyyhhnn" data-mask="Ddd/mm/yy hh:nn" datamask-type="D" style="top: 1280px; left: 173px; width: 110px;"/>
 
     
                 </div>

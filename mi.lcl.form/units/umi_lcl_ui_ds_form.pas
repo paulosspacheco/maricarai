@@ -342,7 +342,7 @@ begin
     f := _Owner.font;
 
     DmxScroller_Form.WidthChar := GetWidthChar;
-    DmxScroller_Form.HeightChar := GetHeightChar;
+    DmxScroller_Form.HeightChar := GetHeightChar+3;
 
     //Como aOwner tem scroller eu não preciso limitar o quadrado do grupo
     ViRect.AssignLimits(0,0,65000,65000); //aOwner.Width //aOwner.Height

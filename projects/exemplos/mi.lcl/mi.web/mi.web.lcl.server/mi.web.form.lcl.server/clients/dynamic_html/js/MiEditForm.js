@@ -260,6 +260,14 @@ export class MiEditForm extends MiConsts {
     }  
 
     // Função para habilitar ou desabilitar os campos de entrada do formulário
+    // setInputFieldsDisabled(adisabled) {
+    //     const inputElements = this.form.querySelectorAll('input, textarea, select');
+    //     inputElements.forEach(element => {
+    //         element.disabled = adisabled; // true para desabilitar, false para habilitar
+    //     });
+    // }
+
+    // Função para habilitar ou desabilitar os campos de entrada do formulário
     setInputFieldsDisabled(adisabled) {
         const inputElements = this.form.querySelectorAll('input, textarea, select');
         inputElements.forEach(element => {
@@ -267,17 +275,40 @@ export class MiEditForm extends MiConsts {
         });
     }
 
+
+    // setInputFieldsReadOnly(isReadOnly) {
+    //     const inputElements = this.form.querySelectorAll('input, textarea, select');
+    //     const previousStates = {}; // Objeto para armazenar os estados anteriores
+
+    //     inputElements.forEach(element => {
+    //         previousStates[element.name] = element.readOnly; // Armazena o estado anterior
+    //         element.readOnly = isReadOnly; // Atualiza o estado para somente leitura
+    //     });
+
+    //     return previousStates; // Retorna os estados anteriores
+    // }    
+
+// Função para definir os campos de entrada como somente leitura ou editáveis
     setInputFieldsReadOnly(isReadOnly) {
         const inputElements = this.form.querySelectorAll('input, textarea, select');
         const previousStates = {}; // Objeto para armazenar os estados anteriores
 
         inputElements.forEach(element => {
-            previousStates[element.name] = element.readOnly; // Armazena o estado anterior
-            element.readOnly = isReadOnly; // Atualiza o estado para somente leitura
+            // Armazena o estado anterior
+            previousStates[element.name] = element.readOnly;
+
+            // Aplica readOnly apenas para os tipos que suportam essa propriedade
+            if (element.tagName === 'TEXTAREA' || 
+                (element.tagName === 'INPUT' && element.type !== 'checkbox' && element.type !== 'radio')) {
+                element.readOnly = isReadOnly; // Atualiza o estado para somente leitura
+            } else if (element.tagName === 'SELECT') {
+                // Para selects, desabilita o campo para simular o comportamento de somente leitura
+                element.disabled = isReadOnly;
+            }
         });
 
         return previousStates; // Retorna os estados anteriores
-    }    
+    }
 
     enableCommands(commands) {
         if (this.actionList) {
@@ -408,32 +439,22 @@ export class MiEditForm extends MiConsts {
         });
     }
 
-    // getFormData() {
-       
-    //     const formData = new FormData(this.form);
-    //     const data = {};
-
-    //     formData.forEach((value, key) => {
-    //         data[key.toLowerCase()] = value; // Armazena o nome do campo em minúsculas
-    //     });
-
-    //     return data;
-    // }
-
     getFormData() {
         const formData = new FormData(this.form);
         const data = {};
     
+        // Captura todos os valores de campos padrão (input, select, textarea)
         formData.forEach((value, key) => {
             data[key.toLowerCase()] = value; // Armazena o nome do campo em minúsculas
         });
     
-        // Adiciona lógica para checkboxes e radio buttons
+        // Tratamento específico para checkboxes
         const checkboxes = this.form.querySelectorAll('input[type="checkbox"]');
         checkboxes.forEach(checkbox => {
             data[checkbox.name.toLowerCase()] = checkbox.checked; // Armazena o estado do checkbox
         });
     
+        // Tratamento específico para radio buttons
         const radios = this.form.querySelectorAll('input[type="radio"]');
         radios.forEach(radio => {
             if (radio.checked) {
@@ -441,9 +462,22 @@ export class MiEditForm extends MiConsts {
             }
         });
     
+        // Tratamento para selects com múltipla seleção
+        const selects = this.form.querySelectorAll('select');
+        selects.forEach(select => {
+            if (select.multiple) {
+                // Para selects múltiplos, captura os valores selecionados como um array
+                const selectedOptions = Array.from(select.selectedOptions).map(option => option.value);
+                data[select.name.toLowerCase()] = selectedOptions;
+            } else {
+                // Para selects normais, captura o valor selecionado
+                data[select.name.toLowerCase()] = select.value;
+            }
+        });
+    
         return data;
     }
-        
+            
     getFieldValue(fieldName) {
         const field = document.getElementById(fieldName.toLowerCase());
         if (field) {
@@ -1107,7 +1141,7 @@ export class MiEditForm extends MiConsts {
             this.reintranceChangeMadeOnOff = false; // Reseta a marca de reentrância
         }
     }
-
+    // O evento abaixo executa os eventos OnEnterField e OnExitField porém não está funcionando
     async eventRequestCurrentField(aCommand) {
 
         function getParam(buildQueryParamsResult, aCurrentFieldName, aCurrentFieldValue, aEventName) {
@@ -1223,17 +1257,22 @@ return; //está com problema em getParam
     // Método que atualiza o campo focado
     updateFocusedField() {
         const focusedElement = document.activeElement;
-    
-        if (focusedElement && focusedElement.tagName === 'INPUT') {
-            // Atribui diretamente o elemento HTML focado
-            this.currentFieldFocused = focusedElement;
-            
-            // Definir o campo focado como o currentField
-            this.setCurrentField(this.currentFieldFocused);
-    
-            console.log('Campo focado atualizado:', this.currentFieldFocused);
-        } else {
-            console.log('Nenhum campo de entrada está focado.');
+
+        if (focusedElement && (focusedElement.tagName === 'INPUT' || 
+                            focusedElement.tagName === 'SELECT')) {
+            // Verifica se é um checkbox ou radio button, ou outro tipo de input
+            if (focusedElement.type === 'checkbox' || focusedElement.type === 'radio' || 
+                focusedElement.type !== 'checkbox' && focusedElement.type !== 'radio') {
+                // Atribui diretamente o elemento HTML focado
+                this.currentFieldFocused = focusedElement;
+                
+                // Definir o campo focado como o currentField
+                this.setCurrentField(this.currentFieldFocused);
+
+                console.log('Campo focado atualizado:', this.currentFieldFocused);
+            } else {
+                console.log('Nenhum campo de entrada está focado.');
+            }
         }
     }
 
@@ -1247,22 +1286,30 @@ return; //está com problema em getParam
     
     // Método para configurar ouvintes de eventos de entrada
     initInputListeners() {
-        // Seleciona todos os campos de entrada
-        const fields = document.querySelectorAll('input');
+        // Seleciona todos os campos de entrada: input, select, checkbox e radio button
+        const fields = document.querySelectorAll('input, select');
 
         if (fields.length === 0) {
-            this.showMessage('mtError','Nenhum campo input encontrado no formulário.');
+            this.showMessage('mtError', 'Nenhum campo encontrado no formulário.');
             return;
         }
 
-        // Adiciona o evento de entrada a cada campo
-        fields.forEach(fields => {
-            fields.addEventListener('input', (event) => {
-                this.handleInputChange(event);
-            });
+        // Adiciona os eventos a cada campo
+        fields.forEach(field => {
+            if (field.type === 'checkbox' || field.type === 'radio') {
+                // Para checkboxes e radio buttons, utiliza o evento 'change'
+                field.addEventListener('change', (event) => {
+                    this.handleInputChange(event);
+                });
+            } else {
+                // Para outros tipos de input e selects, utiliza o evento 'input'
+                field.addEventListener('input', (event) => {
+                    this.handleInputChange(event);
+                });
+            }
 
             // Adiciona o evento de foco a cada campo
-            fields.addEventListener('focus', () => {
+            field.addEventListener('focus', () => {
                 this.updateFocusedField(); // Chama a função para atualizar o campo focado
             });
         });
