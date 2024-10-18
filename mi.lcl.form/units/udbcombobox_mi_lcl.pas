@@ -689,7 +689,8 @@ end;
 
 function TDbComboBox_mi_LCL.GetHTMLContent: String;
   //var template_label : string = '<label for="~FieldName"> ~FieldName </label>';
-  var template_select : string = '<select id="~FieldName" name="~FieldName">';
+
+  var template_select : string = '<select id="~FieldName" name="~FieldName" data-mask="~data-mask" datamask-type="~datamask-type" style="position: absolute; top: ~toppx; left: ~leftpx; width: ~widthpx;">';
   var template_options : string =  '<option value="~value">~value</option>';
 
   //Exemplo de select:
@@ -703,13 +704,22 @@ function TDbComboBox_mi_LCL.GetHTMLContent: String;
    var
      i : integer;
      s : string;
+     typCode : string='';
 begin
   result :=  template_select;
   with DmxFieldRec^,owner_UiDmxScroller do
   begin
     Result := StringReplace(Result, '~top'      , intToStr(top)   , [rfReplaceAll]);
     Result := StringReplace(Result, '~left'     , intToStr(left)  , [rfReplaceAll]);
-    Result := StringReplace(Result, '~width'    , intToStr(width) , [rfReplaceAll]);
+    Result := StringReplace(Result, '~width'     , intToStr(left)  , [rfReplaceAll]);
+    Result := StringReplace(Result, '~data-mask', Template_org    , [rfReplaceAll]);
+    case TypeCode of
+      ^E : TypCode := '#5';
+      ^D : TypCode := '#4';
+      else TypCode := '#6'; //Caso o campo tenha sido criada com CreateOptions então o browser deve encarar como campo enumerado
+    end;
+    Result := StringReplace(Result, '~datamask-type', TypCode       , [rfReplaceAll]);
+
     Result := StringReplace(Result, '~FieldName', FieldName       , [rfReplaceAll]);
 
     for I := 0 to Items.Count-1 do

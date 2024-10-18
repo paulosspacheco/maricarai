@@ -5829,6 +5829,7 @@ implementation
 
             fldENum :
             begin
+
               If (templx <> '')
               then NewRecord;
               if dataformat^[i] = fldENUM
@@ -5874,11 +5875,16 @@ implementation
               end;
               GetHints;
               Rex^.FldEnum_Lookup := TFldEnum_Lookup.create(Rex);
+
+              if Rex^.template_org = ''
+              then Rex^.template_org := 'LLLLLL';
+
               NewRecord;
               continue;
             end;
 
             fldENUM_Db: begin
+
                           If (templx <> '')
                           then NewRecord;
                           if dataformat^[i] = fldENUM_db

@@ -172,19 +172,9 @@ export class MiEditForm extends MiConsts {
         this.setInputFieldsReadOnly(this.ReadOnly);    
     }
 
-    // clearForm() {
-    //     const formFields = this.form.querySelectorAll('input, textarea, select');
-    //     formFields.forEach(field => field.value = '');
-    // }
     clearForm() {
         const formFields = this.form.querySelectorAll('input, textarea, select');
-        formFields.forEach(field => {
-            if (field.type === 'checkbox' || field.type === 'radio') {
-                field.checked = false; // Limpa o checkbox ou radio
-            } else {
-                field.value = ''; // Limpa outros tipos de campo
-            }
-        });
+        formFields.forEach(field => field.value = '');
     }
 
     // Método para redesenhar a interface
@@ -408,42 +398,18 @@ export class MiEditForm extends MiConsts {
         });
     }
 
-    // getFormData() {
-       
-    //     const formData = new FormData(this.form);
-    //     const data = {};
-
-    //     formData.forEach((value, key) => {
-    //         data[key.toLowerCase()] = value; // Armazena o nome do campo em minúsculas
-    //     });
-
-    //     return data;
-    // }
-
     getFormData() {
+       
         const formData = new FormData(this.form);
         const data = {};
-    
+
         formData.forEach((value, key) => {
             data[key.toLowerCase()] = value; // Armazena o nome do campo em minúsculas
         });
-    
-        // Adiciona lógica para checkboxes e radio buttons
-        const checkboxes = this.form.querySelectorAll('input[type="checkbox"]');
-        checkboxes.forEach(checkbox => {
-            data[checkbox.name.toLowerCase()] = checkbox.checked; // Armazena o estado do checkbox
-        });
-    
-        const radios = this.form.querySelectorAll('input[type="radio"]');
-        radios.forEach(radio => {
-            if (radio.checked) {
-                data[radio.name.toLowerCase()] = radio.value; // Armazena o valor do radio selecionado
-            }
-        });
-    
+
         return data;
     }
-        
+
     getFieldValue(fieldName) {
         const field = document.getElementById(fieldName.toLowerCase());
         if (field) {
@@ -453,26 +419,14 @@ export class MiEditForm extends MiConsts {
         }
     }
 
-    // setFieldValue(fieldName, value) {
-    //     const field = document.getElementById(fieldName.toLowerCase());
-    //     if (field) {
-    //         field.value = value != null ? value.toString() : '';
-    //     } else {
-    //         this.showMessage('mtError',`Campo ${fieldName} não encontrado!`);
-    //     }
-    // }
     setFieldValue(fieldName, value) {
         const field = document.getElementById(fieldName.toLowerCase());
         if (field) {
-            if (field.type === 'checkbox' || field.type === 'radio') {
-                field.checked = value; // Define o estado do checkbox ou radio
-            } else {
-                field.value = value != null ? value.toString() : '';
-            }
+            field.value = value != null ? value.toString() : '';
         } else {
-            this.showMessage('mtError', `Campo ${fieldName} não encontrado!`);
+            this.showMessage('mtError',`Campo ${fieldName} não encontrado!`);
         }
-    }    
+    }
 
     updateForm(data) {
         if (!data || typeof data !== 'object') {

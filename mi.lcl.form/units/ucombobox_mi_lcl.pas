@@ -604,7 +604,8 @@ end;
   end;
 
   function TComboBox_mi_LCL.GetHTMLContent: String;
-    var template_select : string = '<select id="~FieldName" name="~FieldName">';
+
+    var template_select : string = '<select id="~FieldName" name="~FieldName" data-mask="~data-mask" datamask-type="~datamask-type" style="position: absolute; top: ~toppx; left: ~leftpx; width: ~widthpx;">';
     var template_options : string =  '<option value="0">Centímetros</option>';
 
     //Exemplo de select:
@@ -618,6 +619,7 @@ end;
      var
        i : integer;
        s :String;
+       typCode : string='';
   begin
     result :=  template_select;
     with DmxFieldRec^,owner_UiDmxScroller do
@@ -626,6 +628,14 @@ end;
       Result := StringReplace(Result, '~left'     , intToStr(left)  , [rfReplaceAll]);
       Result := StringReplace(Result, '~width'    , intToStr(width) , [rfReplaceAll]);
       Result := StringReplace(Result, '~FieldName', FieldName       , [rfReplaceAll]);
+      Result := StringReplace(Result, '~data-mask', Template_org    , [rfReplaceAll]);
+      case TypeCode of
+        ^E : TypCode := '#5';
+        ^D : TypCode := '#4';
+        else TypCode := '#6'; //Caso o campo tenha sido criada com CreateOptions então o browser deve encarar como campo enumerado
+      end;
+      Result := StringReplace(Result, '~datamask-type', TypCode    , [rfReplaceAll]);
+
 
       for I := 0 to Items.Count-1 do
       begin

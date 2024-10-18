@@ -285,7 +285,7 @@ end;
 
 function TMaskEdit_mi_LCL.GetHTMLContent: String;
   var
-    Template :String = '<input type="text" class="form-field" id="~FieldName" name="~FieldName" placeholder="~FieldName" data-mask="~data-mask" data-mask-type="~datamask-type" style="top: ~toppx; left: ~leftpx; width: ~widthpx;"/>';
+    Template :String = '<input type="text" class="form-field" id="~FieldName" name="~FieldName" placeholder="~FieldName" data-mask="~data-mask" datamask-type="~datamask-type" style="top: ~toppx; left: ~leftpx; width: ~widthpx;"/>';
 begin
   result :=  template;
   with DmxFieldRec^ do

@@ -162,27 +162,27 @@ begin
      NewSItem('~Idade:         ~'+tmp_Alunos_Idade+CreateExecAction('Idade',
                                                Cm_Pesquisa_em_outra_tabela.Name),
      NewSItem('~Valor:         ~'+'\R$ EEE,EEE,EEE,EEE.EE'+ChFN+'valor_extended', //Extended
-     //
-     //NewSItem('~Vencimento:    ~\sssssssssss'+ChFN+'vencimento'+ChDf+'Dia 20'+
-     //                                           CreateOptions(NewSItem('Dia 10',
-     //                                                         NewSItem('Dia 15',
-     //                                                         NewSItem('Dia 20',
-     //                                                         NewSItem('Dia 25 e 26',
-     //                                                         nil)))))+
-     //                                           ChH+'O campo dia, é um string com 11 posições. Nota: O número '+
-     //                                               'de caracteres do maior item da lista, não pode ter mais'+
-     //                                               'de 11 caracteres porque o buffer tem 11 caracteres.',
-     //
-     //NewSItem('~Tipo de midia: ~'
-     //          + CreateEnumField(TRUE, accNormal, 0,
-     //                 NewSItem(' indefinido ',
-     //                 NewSItem(' HD         ',
-     //                 NewSItem(' SSD        ',
-     //                 NewSItem(' Pen drive  ',
-     //                         nil)))))+ChFN+'midia',
-     //
-     //
-     //
+
+     NewSItem('~Vencimento:    ~\sssssssssss'+ChFN+'vencimento'+ChDf+'Dia 20'+
+                                                CreateOptions(NewSItem('Dia 10',
+                                                              NewSItem('Dia 15',
+                                                              NewSItem('Dia 20',
+                                                              NewSItem('Dia 25 e 26',
+                                                              nil)))))+
+                                                ChH+'O campo dia, é um string com 11 posições. Nota: O número '+
+                                                    'de caracteres do maior item da lista, não pode ter mais'+
+                                                    'de 11 caracteres porque o buffer tem 11 caracteres.',
+
+     NewSItem('~Tipo de midia: ~'
+               + CreateEnumField(TRUE, accNormal, 0,
+                      NewSItem(' indefinido ',
+                      NewSItem(' HD         ',
+                      NewSItem(' SSD        ',
+                      NewSItem(' Pen drive  ',
+                              nil)))))+ChFN+'midia',
+
+
+
      NewSItem('~Senha:         ~ \sssssssssssssss'+CharShowPassword+ChFN+'senha'+ChH+'Campo alfanumerico com 15 posicoes',
      NewSItem('~~',
      NewSItem('~Qt:            ~\II,III'+chdf+'5'+ChFN+'qt',
@@ -217,12 +217,12 @@ begin
      //NewSItem('~               ~\Kb Casado    '+chFN+'EstadoCivil',
      //NewSItem('~               ~\Kb solteiro  ',
      //NewSItem('~               ~\Kb divorciado',
-     //NewSItem('',
-     //NewSItem('~ ~',
-     ////Quando todas as letras são maiúsculas e o alinhamento é a direta
-     ////é necessário colocar espaços em branco a direta para compensar o tamanho.
-     ////Do contrário o TLabel omite o inicio do lebal pq o texto fica maior
-     ////que o a largura do label.
+     NewSItem('',
+     NewSItem('~ ~',
+     //Quando todas as letras são maiúsculas e o alinhamento é a direta
+     //é necessário colocar espaços em branco a direta para compensar o tamanho.
+     //Do contrário o TLabel omite o inicio do lebal pq o texto fica maior
+     //que o a largura do label.
      NewSItem('~TESTE DE DATAS E HORAS   ~',
      NewSItem('~ ~',
      NewSItem('~ Data: dia/mes/ano~',
@@ -242,7 +242,7 @@ begin
 
      NewSItem('~ ~',
 
-     nil))))))))))))))))))))))))))))))))))))));//))))))))))))))))))))));
+     nil))))))))))))))))))))))))))))))))))))))))));//))))))))))))))))));
     end;
 
 
