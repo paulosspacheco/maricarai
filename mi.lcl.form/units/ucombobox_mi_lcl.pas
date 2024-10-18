@@ -196,11 +196,6 @@ begin
   inherited WMPaint(Message);
 end;
 
-function TComboBox_mi_LCL.GetHTMLContent: String;
-begin
-
-end;
-
 
 procedure TComboBox_mi_LCL.SeTDmxFieldRec(apDmxFieldRec: pDmxFieldRec);
   Var
@@ -451,8 +446,6 @@ end;
 
   procedure TComboBox_mi_LCL.DoOnExit(Sender: TObject);
   begin
-
-
     if (DmxFieldRec<>nil) //and ( Not  DmxFieldRec.reintrance_OnExit)
     then with Mi_lcl_ui_Form_attributes do
          try
@@ -527,88 +520,126 @@ end;
     then SeTDmxFieldRec(_Mi_lcl_ui_Form_attributes.DmxScroller_Form.CurrentField);
   end;
 
-
-procedure TComboBox_mi_LCL.SetShowImages(B: Boolean);
-begin
-  if FShowImages = B
-  then Exit;
-
-  FShowImages := B;
-  Invalidate;
-end;
-
-procedure TComboBox_mi_LCL.SetImages(IL: TImageList);
-begin
-  FImages := IL;
-end;
-
-//procedure TComboBox_mi_LCL.SetValues(SL: TStringList);
-//begin
-//  FValues.Assign(SL);
-//end;
-
-procedure TComboBox_mi_LCL.SetImgIndexes(SL: TStringList);
-begin
-  FImgIndexes.Assign(SL);
-end;
-
-procedure TComboBox_mi_LCL.SetValue(S: String);
-var
-  I, E: Integer;
-begin
-  E := -1;
-  for I := 0 to Items.Count-1 do
+  procedure TComboBox_mi_LCL.SetShowImages(B: Boolean);
   begin
-    if UpperCase(Items[I]) = UpperCase(S)
-     then E := I;
-  end;
-  ItemIndex := E;
-end;
-//function TComboBox_mi_LCL.GetValue: String;
-//begin
-//  Result := '';
-//  if Values.Count > ItemIndex then
-//    Result := Values[ItemIndex];
-//end;
-function TComboBox_mi_LCL.GetValue: String;
-begin
-  Result := '';
-  if (Items.Count > ItemIndex) and (ItemIndex>=0) then
-    Result := Items[ItemIndex];
-end;
+    if FShowImages = B
+    then Exit;
 
-procedure TComboBox_mi_LCL.DrawItem(Index: Integer; Rect: TRect; State: TOwnerDrawState);
-var
-  I: Integer;
-begin
-  if (ShowImages = False) or
-     (Assigned(Images) = False)
-  then begin
-         inherited DrawItem(Index, Rect, State);
-         Exit;
-       end;
-
-  with Canvas do
-  begin
-    Brush.Color := clWindow;
-    if odSelected in State
-    then Brush.Color := clActiveCaption;
-
-    FillRect(Rect);
-
-    if ImgIndexes.Count > Index
-    then I := StrToInt(ImgIndexes.Strings[Index])
-    else I := 0;
-
-    Images.Draw(Canvas, Rect.Left+2, Rect.Top+0, I);
-    Font.Color := clWindowText;
-
-    if odSelected in State then Font.Color := clCaptionText;
-    TextOut(Rect.Left+23, Rect.Top+2, Items[Index]);
+    FShowImages := B;
+    Invalidate;
   end;
 
+  procedure TComboBox_mi_LCL.SetImages(IL: TImageList);
+  begin
+    FImages := IL;
+  end;
 
-end;
+  //procedure TComboBox_mi_LCL.SetValues(SL: TStringList);
+  //begin
+  //  FValues.Assign(SL);
+  //end;
+
+  procedure TComboBox_mi_LCL.SetImgIndexes(SL: TStringList);
+  begin
+    FImgIndexes.Assign(SL);
+  end;
+
+  procedure TComboBox_mi_LCL.SetValue(S: String);
+  var
+    I, E: Integer;
+  begin
+    E := -1;
+    for I := 0 to Items.Count-1 do
+    begin
+      if UpperCase(Items[I]) = UpperCase(S)
+       then E := I;
+    end;
+    ItemIndex := E;
+  end;
+  //function TComboBox_mi_LCL.GetValue: String;
+  //begin
+  //  Result := '';
+  //  if Values.Count > ItemIndex then
+  //    Result := Values[ItemIndex];
+  //end;
+
+  function TComboBox_mi_LCL.GetValue: String;
+  begin
+    Result := '';
+    if (Items.Count > ItemIndex) and (ItemIndex>=0) then
+      Result := Items[ItemIndex];
+  end;
+
+  procedure TComboBox_mi_LCL.DrawItem(Index: Integer; Rect: TRect; State: TOwnerDrawState);
+  var
+    I: Integer;
+  begin
+    if (ShowImages = False) or
+       (Assigned(Images) = False)
+    then begin
+           inherited DrawItem(Index, Rect, State);
+           Exit;
+         end;
+
+    with Canvas do
+    begin
+      Brush.Color := clWindow;
+      if odSelected in State
+      then Brush.Color := clActiveCaption;
+
+      FillRect(Rect);
+
+      if ImgIndexes.Count > Index
+      then I := StrToInt(ImgIndexes.Strings[Index])
+      else I := 0;
+
+      Images.Draw(Canvas, Rect.Left+2, Rect.Top+0, I);
+      Font.Color := clWindowText;
+
+      if odSelected in State then Font.Color := clCaptionText;
+      TextOut(Rect.Left+23, Rect.Top+2, Items[Index]);
+    end;
+
+
+  end;
+
+  function TComboBox_mi_LCL.GetHTMLContent: String;
+    var template_select : string = '<select id="~FieldName" name="~FieldName">';
+    var template_options : string =  '<option value="0">Centímetros</option>';
+
+    //Exemplo de select:
+    //'<label for="unidade">Escolha a unidade de medida:</label>'
+    //'<select id="unidade" name="unidade">'
+    //    '<option value="0">Centímetros</option>'
+    //    '<option value="1">Metro</option>'
+    //    '<option value="2">Km</option>'
+    //'</select>'
+
+     var
+       i : integer;
+       s :String;
+  begin
+    result :=  template_select;
+    with DmxFieldRec^,owner_UiDmxScroller do
+    begin
+      Result := StringReplace(Result, '~top'      , intToStr(top)   , [rfReplaceAll]);
+      Result := StringReplace(Result, '~left'     , intToStr(left)  , [rfReplaceAll]);
+      Result := StringReplace(Result, '~width'    , intToStr(width) , [rfReplaceAll]);
+      Result := StringReplace(Result, '~FieldName', FieldName       , [rfReplaceAll]);
+
+      for I := 0 to Items.Count-1 do
+      begin
+        s := StringReplace(template_options, '~value', Items[I] , [rfReplaceAll]);
+        Result := New_Line + Result+s;
+      end;
+
+
+      Result := New_Line + Result+'</select>';
+
+      //Result := StringReplace(Result, '~data-mask', Template_org    , [rfReplaceAll]);
+      //Result := StringReplace(Result, '~datamask-type', TypeCode   , [rfReplaceAll]);
+    end;
+  end;
 
 
 end.

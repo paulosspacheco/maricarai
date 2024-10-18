@@ -186,19 +186,19 @@ begin
      NewSItem('~Senha:         ~ \sssssssssssssss'+CharShowPassword+ChFN+'senha'+ChH+'Campo alfanumerico com 15 posicoes',
      NewSItem('~~',
      NewSItem('~Qt:            ~\II,III'+chdf+'5'+ChFN+'qt',
-     //NewSItem('~Unidade:       ~\'+CreateEnumField(TRUE, accNormal, 1,
-     //                                              NewSItem('Centímetro',  //1/100
-     //                                              NewSItem('Metro',       //1
-     //                                              NewSItem('km',          //100*1000
-     //                                              nil))))+ChFN+'unidade',
-     //NewSItem('~Preço:         ~\RRR,RRR.zz'+ChAS+ChARO+ChFN+'preco'+ChDf+'10',
-     //NewSItem('~Total:         ~\RRR,RRR,RRR.ZZ'+ChARO+ChFN+'valor_total',
-     //NewSItem('~Cor:           ~\sssssssssssssss'+ChFN+'cor'+chdf+'Azul claro'+
-     //          CreateOptions(NewSItem('sem preferência',
-     //                        NewSItem('Azul',
-     //                        NewSItem('Amarelo',
-     //                        NewSItem('Azul claro',
-     //                        nil))))),
+     NewSItem('~Unidade:       ~\'+CreateEnumField(TRUE, accNormal, 1,
+                                                   NewSItem('Centímetro',  //1/100
+                                                   NewSItem('Metro',       //1
+                                                   NewSItem('km',          //100*1000
+                                                   nil))))+ChFN+'unidade',
+     NewSItem('~Preço:         ~\RRR,RRR.zz'+ChAS+ChARO+ChFN+'preco'+ChDf+'10',
+     NewSItem('~Total:         ~\RRR,RRR,RRR.ZZ'+ChARO+ChFN+'valor_total',
+     NewSItem('~Cor:           ~\sssssssssssssss'+ChFN+'cor'+chdf+'Azul claro'+
+               CreateOptions(NewSItem('sem preferência',
+                             NewSItem('Azul',
+                             NewSItem('Amarelo',
+                             NewSItem('Azul claro',
+                             nil))))),
      NewSItem('',
      NewSItem('~Versão :       ~\##.##.##.####'+ChFN+'versao',
      NewSItem('',
@@ -242,7 +242,7 @@ begin
 
      NewSItem('~ ~',
 
-     nil))))))))))))))))))))))))))))))))));//))))))))))))))))))))))))));
+     nil))))))))))))))))))))))))))))))))))))));//))))))))))))))))))))));
     end;
 
 

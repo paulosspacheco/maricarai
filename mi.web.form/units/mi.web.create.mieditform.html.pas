@@ -113,14 +113,26 @@ type
 
           ```html
 
-            <!--Template para usado na criação dos campos do formulário:
-                '<label for="~field" class="form-field" style="top: ~toppx; left: ~leftpx;">~caption</label>';
-                '<input type="text" class="form-field" id="~FieldName" name="~FieldName" placeholder="~FieldName" data-mask="~data-mask" data-mask-type="~datamask-type" style="top: ~toppx; left: ~leftpx; width: ~widthpx;"/>';
-            -->
+              <!-- Template de rotulos usado no método: TLabel_mi_lcl.GetHTMLContent ->
+              <label for="~field" class="form-field" style="top: ~toppx; left: ~leftpx;">~caption</label>
+
+              <!-- Template de input usados nos métodos: TDbEdit_mi_LCL.GetHTMLContent e TMaskEdit_mi_LCL.GetHTMLContent -->
+              <input type="text" class="form-field" id="~FieldName" name="~FieldName" placeholder="~FieldName" data-mask="~data-mask" data-mask-type="~datamask-type" style="top: ~toppx; left: ~leftpx; width: ~widthpx;"/>
+
+              <!-- Template select usado no método: TDbComboBox_mi_LCL.GetHTMLContent e TComboBox_mi_LCL.GetHTMLContent ->
+              '<label for="unidade">Escolha a unidade de medida:</label>'
+              '<select id="unidade" name="unidade">'
+                  '<option value="0">Centímetros</option>'
+                  '<option value="1">Metro</option>'
+                  '<option value="2">Km</option>'
+              '</select>'
+
+
+
 
           ```
 
-       - T12 Testar tmaskedit do formulário MiEditForm e documentar a unidade  Mi.Web.Create.MiEditForm.html.
+       -
          -
 
   }

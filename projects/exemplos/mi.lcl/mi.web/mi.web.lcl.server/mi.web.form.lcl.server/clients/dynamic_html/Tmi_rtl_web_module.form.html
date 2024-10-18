@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <title>Mi rtl WebModule</title>            
-    <meta name="createDate" content="17/10/24" /> 
-    <meta name="createDateUpdate" content="17/10/24" />
+
+    <title>Mi rtl WebModule</title>
+    <meta name="createDate" content="18/10/24" />
+    <meta name="createDateUpdate" content="18/10/24" />
     <meta name="description" content="" />
     <meta name="keywords" content="" />
 
@@ -17,103 +18,140 @@
     <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"> -->
 
 </head>
+
 <body>
     <!-- <i class="fas fa-camera"></i> -->
     <div class="form-container">
         <div class="form-header">
             <h1>Mi rtl WebModule</h1> <!-- Título do formulário -->
-        </div>   
-        
+        </div>
+
         <form id="Mi_rtl_WebModule">
-            <div class="form-fields"> 
-                <div class="fieldset-container">                
+            <div class="form-fields">
+                <div class="fieldset-container">
 
-                    
+                    <label for="~field" class="form-field" style="top: 58px; left: 11px;"> ID: </label>
+                    <input type="text" class="form-field" id="id" name="id" placeholder="id" data-mask="LLLLLL"
+                        data-mask-type="L" style="top: 58px; left: 113px; width: 56px;" />
+                    <label for="~field" class="form-field" style="top: 87px; left: 11px;"> Nome do aluno: </label>
+                    <input type="text" class="form-field" id="nome" name="nome" placeholder="nome"
+                        data-mask="ssssssssssssssssssssssssssssssssssssssss" data-mask-type="s"
+                        style="top: 87px; left: 113px; width: 193px;" />
+                    <label for="~field" class="form-field" style="top: 116px; left: 11px;"> Endereço: </label>
+                    <input type="text" class="form-field" id="endereco" name="endereco" placeholder="endereco"
+                        data-mask="ssssssssssssssssssssssssssssssssssssssssssssssssssssssss" data-mask-type="s"
+                        style="top: 116px; left: 113px; width: 193px;" />
+                    <label for="~field" class="form-field" style="top: 145px; left: 11px;"> Cep: </label>
+                    <input type="text" class="form-field" id="cep" name="cep" placeholder="cep" data-mask="##.###-###"
+                        data-mask-type="#" style="top: 145px; left: 113px; width: 80px;" />
+                    <label for="~field" class="form-field" style="top: 174px; left: 11px;"> Cidade: </label>
+                    <input type="text" class="form-field" id="cidade" name="cidade" placeholder="cidade"
+                        data-mask="sssssssssssssssssssssssss" data-mask-type="s"
+                        style="top: 174px; left: 113px; width: 175px;" />
+                    <label for="~field" class="form-field" style="top: 203px; left: 11px;"> Estado: </label>
+                    <input type="text" class="form-field" id="estado" name="estado" placeholder="estado" data-mask="SS"
+                        data-mask-type="S" style="top: 203px; left: 113px; width: 32px;" />
 
+                    <label for="~field" class="form-field" style="top: 261px; left: 11px;"> Idade: </label>
+                    <input type="text" class="form-field" id="idade" name="idade" placeholder="idade" data-mask="BB"
+                        data-mask-type="B" style="top: 261px; left: 113px; width: 32px;" />
 
+                    <label for="~field" class="form-field" style="top: 290px; left: 11px;"> Valor: </label>
+                    <input type="text" class="form-field" id="valor_extended" name="valor_extended"
+                        placeholder="valor_extended" data-mask="R$ EEE.EEE.EEE.EEE,EE" data-mask-type="E"
+                        style="top: 290px; left: 113px; width: 152px;" />
+                    <label for="~field" class="form-field" style="top: 319px; left: 11px;"> Senha: </label>
+                    <input type="text" class="form-field" id="senha" name="senha" placeholder="senha"
+                        data-mask="sssssssssssssss" data-mask-type="s" style="top: 319px; left: 119px; width: 115px;" />
 
+                    <label for="~field" class="form-field" style="top: 377px; left: 11px;"> Qt: </label>
+                    <input type="text" class="form-field" id="qt" name="qt" placeholder="qt" data-mask="II.III"
+                        data-mask-type="I" style="top: 377px; left: 113px; width: 56px;" />
+                    <label for="~field" class="form-field" style="top: 406px; left: 11px;"> Unidade: </label>
+                    <label for="~field" class="form-field" style="top: 406px; left: 11px;"> Unidade: </label>
+                    <label for="~field" class="form-field" style="top: 435px; left: 11px;"> Preço: </label>
+                    <input type="text" class="form-field" id="preco" name="preco" placeholder="preco"
+                        data-mask="RRR.RRR,zz" data-mask-type="R" style="top: 435px; left: 113px; width: 80px;" />
+                    <label for="~field" class="form-field" style="top: 464px; left: 11px;"> Total: </label>
+                    <input type="text" class="form-field" id="valor_total" name="valor_total" placeholder="valor_total"
+                        data-mask="RRR.RRR.RRR,ZZ" data-mask-type="R" style="top: 464px; left: 113px; width: 104px;" />
+                    <label for="~field" class="form-field" style="top: 493px; left: 11px;"> Cor: </label>
 
+                    <select id="cor" name="cor">
+                        <option value="sem preferência">sem preferência</option>
+                        <option value="Azul">Azul</option>
+                        <option value="Amarelo">Amarelo</option>
+                        <option value="Azul claro">Azul claro</option>
+                    </select>
 
+                    <label for="~field" class="form-field" style="top: 551px; left: 11px;"> Versão : </label>
+                    <input type="text" class="form-field" id="versao" name="versao" placeholder="versao"
+                        data-mask="##.##.##.####" data-mask-type="#" style="top: 551px; left: 113px; width: 98px;" />
 
+                    <label for="~field" class="form-field" style="top: 609px; left: 11px;"> TESTE DE DATAS E HORAS
+                    </label>
 
+                    <label for="~field" class="form-field" style="top: 667px; left: 11px;"> Data: dia/mes/ano </label>
+                    <label for="~field" class="form-field" style="top: 696px; left: 11px;"> dd/mm/yy: </label>
+                    <input type="text" class="form-field" id="ddmmyy" name="ddmmyy" placeholder="ddmmyy"
+                        data-mask="Ddd/mm/yy" data-mask-type="D" style="top: 696px; left: 137px; width: 74px;" />
+                    <label for="~field" class="form-field" style="top: 725px; left: 11px;"> dd/mm/yyyy: </label>
+                    <input type="text" class="form-field" id="ddmmyyyy" name="ddmmyyyy" placeholder="ddmmyyyy"
+                        data-mask="Ddd/mm/yyyy" data-mask-type="D" style="top: 725px; left: 137px; width: 86px;" />
 
+                    <label for="~field" class="form-field" style="top: 783px; left: 11px;"> Horas: Hora:Minutos:Segundos
+                    </label>
+                    <label for="~field" class="form-field" style="top: 812px; left: 11px;"> hh:nn:ss: </label>
+                    <input type="text" class="form-field" id="hhnnss" name="hhnnss" placeholder="hhnnss"
+                        data-mask="Dhh:nn:ss" data-mask-type="D" style="top: 812px; left: 137px; width: 74px;" />
+                    <label for="~field" class="form-field" style="top: 841px; left: 11px;"> hh:nn: </label>
+                    <input type="text" class="form-field" id="hhnn" name="hhnn" placeholder="hhnn" data-mask="Dhh:nn"
+                        data-mask-type="D" style="top: 841px; left: 137px; width: 56px;" />
 
-<label for="~field" class="form-field" style="top: 58px; left: 11px;"> ID:             </label>
-<input type="text" class="form-field" id="id" name="id" placeholder="id" data-mask="LLLLLL" data-mask-type="L" style="top: 58px; left: 113px; width: 56px;"/>
-<label for="~field" class="form-field" style="top: 87px; left: 11px;"> Nome do aluno:  </label>
-<input type="text" class="form-field" id="nome" name="nome" placeholder="nome" data-mask="ssssssssssssssssssssssssssssssssssssssss" data-mask-type="s" style="top: 87px; left: 113px; width: 193px;"/>
-<label for="~field" class="form-field" style="top: 116px; left: 11px;"> Endereço:       </label>
-<input type="text" class="form-field" id="endereco" name="endereco" placeholder="endereco" data-mask="ssssssssssssssssssssssssssssssssssssssssssssssssssssssss" data-mask-type="s" style="top: 116px; left: 113px; width: 193px;"/>
-<label for="~field" class="form-field" style="top: 145px; left: 11px;"> Cep:            </label>
-<input type="text" class="form-field" id="cep" name="cep" placeholder="cep" data-mask="##.###-###" data-mask-type="#" style="top: 145px; left: 113px; width: 80px;"/>
-<label for="~field" class="form-field" style="top: 174px; left: 11px;"> Cidade:         </label>
-<input type="text" class="form-field" id="cidade" name="cidade" placeholder="cidade" data-mask="sssssssssssssssssssssssss" data-mask-type="s" style="top: 174px; left: 113px; width: 175px;"/>
-<label for="~field" class="form-field" style="top: 203px; left: 11px;"> Estado:         </label>
-<input type="text" class="form-field" id="estado" name="estado" placeholder="estado" data-mask="SS" data-mask-type="S" style="top: 203px; left: 113px; width: 32px;"/>
+                    <label for="~field" class="form-field" style="top: 899px; left: 11px;"> Data e Horas: dia/mes/ano
+                        hora:minutos:segundos </label>
+                    <label for="~field" class="form-field" style="top: 928px; left: 11px;"> dd/mm/yy hh:nn:ss: </label>
+                    <input type="text" class="form-field" id="ddmmyyhhnnss" name="ddmmyyhhnnss"
+                        placeholder="ddmmyyhhnnss" data-mask="Ddd/mm/yy hh:nn:ss" data-mask-type="D"
+                        style="top: 928px; left: 173px; width: 128px;" />
+                    <label for="~field" class="form-field" style="top: 957px; left: 11px;"> dd/mm/yyyy hh:nn:ss:
+                    </label>
+                    <input type="text" class="form-field" id="ddmmyyyyhhnnss" name="ddmmyyyyhhnnss"
+                        placeholder="ddmmyyyyhhnnss" data-mask="Ddd/mm/yyyy hh:nn:ss" data-mask-type="D"
+                        style="top: 957px; left: 173px; width: 140px;" />
 
-<label for="~field" class="form-field" style="top: 261px; left: 11px;"> Idade:          </label>
-<input type="text" class="form-field" id="idade" name="idade" placeholder="idade" data-mask="BB" data-mask-type="B" style="top: 261px; left: 113px; width: 32px;"/>
+                    <label for="~field" class="form-field" style="top: 1015px; left: 11px;"> Data e Horas: dia/mes/ano
+                        hora:minutos </label>
+                    <label for="~field" class="form-field" style="top: 1044px; left: 11px;"> dd/mm/yy hh:nn: </label>
+                    <input type="text" class="form-field" id="ddmmyyhhnn" name="ddmmyyhhnn" placeholder="ddmmyyhhnn"
+                        data-mask="Ddd/mm/yy hh:nn" data-mask-type="D"
+                        style="top: 1044px; left: 173px; width: 110px;" />
 
-<label for="~field" class="form-field" style="top: 290px; left: 11px;"> Valor:          </label>
-<input type="text" class="form-field" id="valor_extended" name="valor_extended" placeholder="valor_extended" data-mask="R$ EEE.EEE.EEE.EEE,EE" data-mask-type="E" style="top: 290px; left: 113px; width: 152px;"/>
-<label for="~field" class="form-field" style="top: 319px; left: 11px;"> Senha:           </label>
-<input type="text" class="form-field" id="senha" name="senha" placeholder="senha" data-mask="sssssssssssssss" data-mask-type="s" style="top: 319px; left: 119px; width: 115px;"/>
-
-<label for="~field" class="form-field" style="top: 377px; left: 11px;"> Qt:             </label>
-<input type="text" class="form-field" id="qt" name="qt" placeholder="qt" data-mask="II.III" data-mask-type="I" style="top: 377px; left: 113px; width: 56px;"/>
-
-<label for="~field" class="form-field" style="top: 435px; left: 11px;"> Versão :        </label>
-<input type="text" class="form-field" id="versao" name="versao" placeholder="versao" data-mask="##.##.##.####" data-mask-type="#" style="top: 435px; left: 113px; width: 98px;"/>
-
-<label for="~field" class="form-field" style="top: 493px; left: 11px;"> TESTE DE DATAS E HORAS    </label>
-
-<label for="~field" class="form-field" style="top: 551px; left: 11px;">  Data: dia/mes/ano </label>
-<label for="~field" class="form-field" style="top: 580px; left: 11px;">   dd/mm/yy:         </label>
-<input type="text" class="form-field" id="ddmmyy" name="ddmmyy" placeholder="ddmmyy" data-mask="Ddd/mm/yy" data-mask-type="D" style="top: 580px; left: 137px; width: 74px;"/>
-<label for="~field" class="form-field" style="top: 609px; left: 11px;">   dd/mm/yyyy:       </label>
-<input type="text" class="form-field" id="ddmmyyyy" name="ddmmyyyy" placeholder="ddmmyyyy" data-mask="Ddd/mm/yyyy" data-mask-type="D" style="top: 609px; left: 137px; width: 86px;"/>
-
-<label for="~field" class="form-field" style="top: 667px; left: 11px;">  Horas: Hora:Minutos:Segundos  </label>
-<label for="~field" class="form-field" style="top: 696px; left: 11px;">   hh:nn:ss:         </label>
-<input type="text" class="form-field" id="hhnnss" name="hhnnss" placeholder="hhnnss" data-mask="Dhh:nn:ss" data-mask-type="D" style="top: 696px; left: 137px; width: 74px;"/>
-<label for="~field" class="form-field" style="top: 725px; left: 11px;">   hh:nn:            </label>
-<input type="text" class="form-field" id="hhnn" name="hhnn" placeholder="hhnn" data-mask="Dhh:nn" data-mask-type="D" style="top: 725px; left: 137px; width: 56px;"/>
-
-<label for="~field" class="form-field" style="top: 783px; left: 11px;">  Data e Horas: dia/mes/ano hora:minutos:segundos </label>
-<label for="~field" class="form-field" style="top: 812px; left: 11px;">     dd/mm/yy hh:nn:ss:    </label>
-<input type="text" class="form-field" id="ddmmyyhhnnss" name="ddmmyyhhnnss" placeholder="ddmmyyhhnnss" data-mask="Ddd/mm/yy hh:nn:ss" data-mask-type="D" style="top: 812px; left: 173px; width: 128px;"/>
-<label for="~field" class="form-field" style="top: 841px; left: 11px;">     dd/mm/yyyy hh:nn:ss:  </label>
-<input type="text" class="form-field" id="ddmmyyyyhhnnss" name="ddmmyyyyhhnnss" placeholder="ddmmyyyyhhnnss" data-mask="Ddd/mm/yyyy hh:nn:ss" data-mask-type="D" style="top: 841px; left: 173px; width: 140px;"/>
-
-<label for="~field" class="form-field" style="top: 899px; left: 11px;">  Data e Horas: dia/mes/ano hora:minutos </label>
-<label for="~field" class="form-field" style="top: 928px; left: 11px;">     dd/mm/yy hh:nn:       </label>
-<input type="text" class="form-field" id="ddmmyyhhnn" name="ddmmyyhhnn" placeholder="ddmmyyhhnn" data-mask="Ddd/mm/yy hh:nn" data-mask-type="D" style="top: 928px; left: 173px; width: 110px;"/>
-
-    
                 </div>
                 <!-- Adicione mais campos aqui conforme necessário -->
             </div>
             <div class="action-buttons">
                 <!-- Botões para operações CRUD -->
                 <button type="button" id="CmNewRecord">Novo Registro</button>
-                <button type="button" id="CmAddRecord">Adicionar</button>        
+                <button type="button" id="CmAddRecord">Adicionar</button>
                 <button type="button" id="CmPutRecord">Gravar</button>
-                <button type="button" id="CmLocate">Localizar</button>        
-                <button type="button" id="CmDeleteRecord">Deletar</button>       
+                <button type="button" id="CmLocate">Localizar</button>
+                <button type="button" id="CmDeleteRecord">Deletar</button>
                 <button type="button" id="CmRefresh">Refresh</button>
-                <button type="button" id="CmCancel">Cancelar</button>        
-                <button type="button" id="CmHealthCheck">Checar conexão</button>                
-            </div>        
+                <button type="button" id="CmCancel">Cancelar</button>
+                <button type="button" id="CmHealthCheck">Checar conexão</button>
+            </div>
 
             <!-- Botões de Navegação -->
             <div class="navigation-buttons">
-                <button type="button" id="CmGoBof" class="navigation-buttons"><<</button>
-                <button type="button" id="CmPrevRecord" class="navigation-buttons"><</button>
-                <button type="button" id="CmNextRecord" class="navigation-buttons">></button>
+                <button type="button" id="CmGoBof" class="navigation-buttons">
+                    <<</button> <button type="button" id="CmPrevRecord" class="navigation-buttons">
+                        <</button> <button type="button" id="CmNextRecord" class="navigation-buttons">>
+                </button>
                 <button type="button" id="CmGoEof" class="navigation-buttons">>></button>
 
-                        <!-- Botão para abrir a caixa de diálogo para mudar tema do formulário -->
-                <button type="button" id="CmDialogChangeTheme" class="navigation-buttons">Alterar tema</button>         
+                <!-- Botão para abrir a caixa de diálogo para mudar tema do formulário -->
+                <button type="button" id="CmDialogChangeTheme" class="navigation-buttons">Alterar tema</button>
 
             </div>
 
@@ -138,11 +176,5 @@
     </script>
 
 </body>
+
 </html>
-
-
-
-
-
-
-

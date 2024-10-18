@@ -240,10 +240,6 @@ begin
   end;
 end;
 
-function TDbComboBox_mi_LCL.GetHTMLContent: String;
-begin
-
-end;
 
 
 
@@ -690,6 +686,41 @@ begin
 
 
 end;
+
+function TDbComboBox_mi_LCL.GetHTMLContent: String;
+  //var template_label : string = '<label for="~FieldName"> ~FieldName </label>';
+  var template_select : string = '<select id="~FieldName" name="~FieldName">';
+  var template_options : string =  '<option value="~value">~value</option>';
+
+  //Exemplo de select:
+  //'<label for="unidade">Escolha a unidade de medida:</label>'
+  //'<select id="unidade" name="unidade">'
+  //    '<option value="0">Centímetros</option>'
+  //    '<option value="1">Metro</option>'
+  //    '<option value="2">Km</option>'
+  //'</select>'
+
+   var
+     i : integer;
+     s : string;
+begin
+  result :=  template_select;
+  with DmxFieldRec^,owner_UiDmxScroller do
+  begin
+    Result := StringReplace(Result, '~top'      , intToStr(top)   , [rfReplaceAll]);
+    Result := StringReplace(Result, '~left'     , intToStr(left)  , [rfReplaceAll]);
+    Result := StringReplace(Result, '~width'    , intToStr(width) , [rfReplaceAll]);
+    Result := StringReplace(Result, '~FieldName', FieldName       , [rfReplaceAll]);
+
+    for I := 0 to Items.Count-1 do
+    begin
+      s := StringReplace(template_options, '~value', Items[I] , [rfReplaceAll]);
+      Result := New_Line + Result+s;
+    end;
+    Result := New_Line + Result+'</select>';
+  end;
+end;
+
 
 
 end.
