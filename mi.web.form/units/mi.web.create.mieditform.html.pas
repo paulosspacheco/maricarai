@@ -10,18 +10,29 @@ unit Mi.Web.Create.MiEditForm.html;
     - **CÓDIGO FONTE**:
       - @html(<a href="../units/mi.web.create.mieditform.html.pas">Mi.Web.Create.MiEditForm.html.pas</a>)
 
-
     - **PENDÊNCIAS**
-      - T12 Em create iniciar as propriedades:
-        - HtmlFile
-          - Contém o nome do arquivo de template gerado.
-
-        - HtmlFileResult
-          - Contém o nome do arquivo html gerado.
+      - T12 - O campo senha precisa ser um tipo de campo do tipo senha.
+      - T12 - Implementar os seguintes tipos de campos:
+        - CreateEnumField
+        - CreateOptions()
+        - Tipo Boolean:
+        - Tipo Radio Button;
 
     - **CONCLUÍDO**
-      - 2024/10/12
-        -
+      - T12 criar método TCreate_MiEditForm_html.create_cliente_app_dynamic_html;
+      - T12 criar método TCreate_MiEditForm_html.SaveHTMLContentToFile;
+      - T12 criar método TCreate_MiEditForm_html.GetFieldSetContainer;
+      - T12 criar propriedade TCreate_MiEditForm_html.Mi_web_js_Form;
+      - T12 criar evento TCreate_MiEditForm_html.PageProducer_MiEditFormHTMLTag_Undefined
+      - T12 adicionar componente TPageProducer em TCreate_MiEditForm_html;
+      - T12 criar método TCreate_MiEditForm_html.
+
+      - T12 Em create iniciar as propriedades:
+        - HtmlFile ✅
+          - Contém o nome do arquivo de template gerado.
+
+        - HtmlFileResult ✅
+          - Contém o nome do arquivo html gerado.
 
       - 2024/10/11
         - T12 Criar a unit **@name** ✅
@@ -69,38 +80,48 @@ type
   TMi_web_js_Form = class;
 
   { TCreate_MiEditForm_html }
-  {: A classe **@name** usa templates html e javascript para criar o cliente html dinâmico
-     adicionando ao formulários do template os campos declarados na propriedade
-     DmxScroller_Form: TDmxScroller_Form;
 
-     - Template usado:
-       - Nome do arquivo de templates:
-         - './templates/Create_MiEditForm_html.html'
+  {:A classe **@name** usa templates html e javascript para criar o cliente html dinâmico,
+    adicionando aos formulários do template os campos declarados na propriedade
+    DmxScroller_Form: TDmxScroller_Form.
+    - Template usado:
+      - Nome do arquivo de templates:
+        - ./templates/MiEditForm.html
 
-         - Tags atualizadas no template:
-           - ~title
-             - Nome do formulário
-           - ~createDate
-             - Data da criação da página
-           - ~createDateUpdate
-             - Data da última atualização da página
-           - ~description
-             - Criente Restfull que se comuica com TMi_rtl_WebModule_base
-           - ~keywords
-             - Chave de pesquisa para que o browser possa localizar a página.
-           - <!--#fieldset-container#-->
-             -  Essa tag deve retornar uma lista dos seguintes templates:
+    - Tags atualizadas no template:
+     - <!--#title#-->
+       - Nome do formulário.
 
-                ```html
+     - <!--#createDate#-->"
+       - Data da criação da página.
 
-                  <!--Template para usado na criação dos campos do formulário:
-                      <fieldset>
-                          <label for="~field.name">~field.name:</label>
-                              <input type="text" id="~field.name" name="~field.name" placeholder="~field.name" data-mask="~field.template_org" data-mask-type="~field.TypeCode"  />
-                      </fieldset>
-                  -->
+     - <!--#createDateUpdate#-->"
+       - Data da última atualização da página.
 
-                ```
+     - <!--#description#-->
+       - Cliente Restfull que se comunica com a classe TMi_rtl_WebModule_base.
+
+     - <!--#keywords#-->
+       - Chave de pesquisa para que o browser possa localizar a página.
+
+     - <!--#DmxScroller_Form_Name#-->">
+       - Nome do formulário.
+
+     - <!--#fieldset-container#-->
+       - Essa tag deve retornar uma lista dos seguintes templates:
+
+
+          ```html
+
+            <!--Template para usado na criação dos campos do formulário:
+                '<label for="~field" class="form-field" style="top: ~toppx; left: ~leftpx;">~caption</label>';
+                '<input type="text" class="form-field" id="~FieldName" name="~FieldName" placeholder="~FieldName" data-mask="~data-mask" data-mask-type="~datamask-type" style="top: ~toppx; left: ~leftpx; width: ~widthpx;"/>';
+            -->
+
+          ```
+
+       - T12 Testar tmaskedit do formulário MiEditForm e documentar a unidade  Mi.Web.Create.MiEditForm.html.
+         -
 
   }
   TCreate_MiEditForm_html = class(TDataModule)
@@ -119,44 +140,27 @@ type
       public property Mi_web_js_Form : TMi_web_js_Form read _Mi_web_js_Form write _Mi_web_js_Form;
     {$ENDREGION 'Construção Propriedade DmxScroller_Form'}
 
+    private var _temp_PathRaiz:String;
 
-  private
-    var _temp_PathRaiz:String;
-
-
-    {:O método **@name** retorna formulário passado por DmxScroller_Form.
+    {:O método **@name** retorna o formulário passado por DmxScroller_Form.
     }
-    function GetFieldSetContainer :String;
-    //function GetFieldSetContainer():string;
+    private function GetFieldSetContainer :String;
 
     {: O método **@name** salva no arquivo **htmlFileResult** o conteúdo da
        propriedade HTMLContent.
     }
     Public Procedure  SaveHTMLContentToFile;
-  public
+
     public procedure create_cliente_app_dynamic_html;
   end;
 
-  {:A classe **name** é a base para a criação de formulários web contendo tudo
-       que precisa para que os componentes TDmxScroller_Form e TMi_web_js_Form
-       comunicar-se.
-
-    if Assigned(DmxScroller_Form)
-    then begin
-           DmxScroller_Form.Parent := _ParentLCL;
-           if Assigned(_ParentLCL) and ( _ParentLCL.Caption = '')
-           then begin
-                  s := Alias;
-                  _ParentLCL.Caption:= s;
-               end;
-         end;
-
-   }
-
-   { TTMi_web_js_Form }
-
    { TMi_web_js_Form }
 
+   {:A classe **name** é a base para a criação de formulários web, contendo tudo que precisa
+     para que os componentes TDmxScroller_Form e TMi_web_js_Form comunique-se.
+
+
+   }
    TMi_web_js_Form = class(TMi_lcl_ui_ds_Form)
      private _Create_MiEditForm_html :TCreate_MiEditForm_html;
      public constructor Create(AOwner: TComponent); override;

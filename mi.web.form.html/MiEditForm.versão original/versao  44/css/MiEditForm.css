@@ -13,16 +13,12 @@
 
 body {
     height: 100%; 
-    width: 100%;
-        
+    width: 100%;        
     font-size: 12px; /* Diminui o tamanho base para 12px */            
     font-family: Arial, sans-serif;
     background-color: var(--background-color);
     color: var(--text-color);
-    margin: 0;
-    /* padding: 20px; Adiciona espaçamento ao redor da página */
-    margin: 2px auto;        
-    /* margin: 0; */
+    margin: 2px auto;            
     padding: 2px;       
 }
 
@@ -60,8 +56,6 @@ h4 {
 
 /*** Css dos formulários ***/
 
-
-
 .form-container {
     background-color: var(--form-background-color);
     border: 1px solid var(--form-border-color);
@@ -69,19 +63,20 @@ h4 {
     max-width: 95%;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);    
-    height: calc(100vh - 10px); /* Subtrai a altura do cabeçalho e rodapé */    
+    height: calc(100vh - 15px); /* Subtrai a altura do cabeçalho e rodapé */    
     display: flex;
     flex-direction: column;    
     /* overflow: auto;         */
     padding: 3px;
-
-    /* // Para os painéis de ação e navegação */
+    /* Para os painéis de ação e navegação */
     .action-buttons,
     .navigation-buttons {        
         display: flex;
         /* justify-content: center; Alinhe os botões ao centro */
         align-items: center; /* Alinhe verticalmente os botões*/
-        margin: 5px; /* Espaçamento entre os botões*/
+        margin: 0px; /* Espaçamento entre os botões*/
+        margin-bottom: 5px; /*Espaçamento inferior entre os painéis         */
+        gap: 5px; /* Espaçamento entre os os botões */        
     }
 }
 
@@ -104,22 +99,25 @@ form {
     padding: 3px;
     margin: 3px auto;
     max-width: 100%;
-    width: 100%;
-    height: 100%;
+    width: 98%;
+    /* height: 100%; */
+    height: calc(100vh - 15px); /* Subtrai a altura do cabeçalho e rodapé */    
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     display: flex;
     flex-direction: column; /* Para que os elementos sejam empilhados verticalmente */
-}
 
+}
 
 .form-fields {
     flex: 1; /* Faz o .form-fields ocupar o espaço disponível dentro do .form-container */    
-    /* height: 100%; */        
-    overflow-y: auto; /* Permite a rolagem vertical nos campos */
-    margin-bottom: 10px; /* Espaçamento abaixo dos campos */
+    /* height: 100%;   */
+    height: calc(100vh - 15px); /* Subtrai a altura do cabeçalho e rodapé */          
+    /* overflow-y: auto; Permite a rolagem vertical nos campos */
+    /* margin-bottom: 10px; Espaçamento abaixo dos campos */
+    margin: 5px; /* Espaçamento entre os controles*/
+    margin-bottom: 5px; /*Espaçamento inferior entre os painéis         */            
 }       
-
 
 .form-field {
     position: absolute;
@@ -204,25 +202,6 @@ label {
 
 
 /* Estilizando o grupo de botões de ação */
-/* 
-.action-buttons {
-    width: calc(100% - 2%);  Define a largura para ser 3px menor que a do pai 
-    margin: 5px 0;
-    display: flex;
-    flex-wrap: nowrap;
-    overflow-x: auto;
-    margin-bottom: 3px;
-    background-color: var(--action-buttons-bg-color);
-    border-radius: 4px;
-    justify-content: flex-start;
-    padding: 3px 8px;    
-    border: none;
-    cursor: pointer;
-    transition: background-color 0.3s ease, color 0.3s ease;
-    font-size: 12px;
-} */
-
-
 
 /* Estilizando os botões dentro do grupo de ação */
 .action-buttons button {
@@ -405,10 +384,13 @@ label {
     gap: 20px; /* Espaçamento entre os grupos */
     position: relative;
     overflow: auto; /* Ativa a rolagem quando o conteúdo ultrapassa a altura */    
-    height: 100%; /* Ajusta a altura para 100% do elemento pai */    
+    height: 100%; Ajusta a altura para 100% do elemento pai    
+    /* height: calc(100vh - 15px); Subtrai a altura do cabeçalho e rodapé     */
     /* height: 400px; Altura do formulário         */
     padding: 8px 12px;    
     margin: 5px;
+    flex: 1; /* Permite que o contêiner ocupe o espaço disponível */
+    min-height: 200px; /* Define uma altura mínima para evitar que fique muito pequeno */    
 }
 
 /* form button {
@@ -489,10 +471,29 @@ legend {
         height: 100%; /* O contêiner form-fields ocupa 100% da altura disponível */
         padding: 10px; /* Adiciona um espaço interno de 10 pixels para melhorar o espaçamento em dispositivos móveis */
         box-shadow: none; /* Remove a sombra do contêiner, deixando o design mais simples */
+        margin: 5px; /* Espaçamento entre os controles*/
+        margin-bottom: 5px; /*Espaçamento inferior entre os painéis         */        
     }
 
     .action-buttons {
         flex-direction: column; /* Empilha os botões verticalmente para melhorar a usabilidade em telas menores */
+    }
+}
+
+@media (max-width: 768px) {
+    .form-container {
+        flex-direction: column; /* Organiza os elementos em coluna */
+        height: auto; /* Deixa a altura ajustar automaticamente */
+    }
+
+    .fieldset-container {
+        height: auto; /* Ajusta a altura automaticamente para evitar sobreposição */
+    }
+
+    .action-buttons,
+    .navigation-buttons {
+        flex-direction: column; /* Organiza os botões em coluna para economizar espaço */
+        margin-bottom: 10px; /* Adiciona um pouco mais de espaço abaixo */
     }
 }
 

@@ -11,10 +11,7 @@ uses
   mi.rtl.web.module,Mi.Web.Create.MiEditForm.html;
 
 type
-
-
   { Tmi_rtl_web_module_form }
-
   Tmi_rtl_web_module_form = class(TForm)
       Button1: TButton;
     DataSource1: TDataSource;

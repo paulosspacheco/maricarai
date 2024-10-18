@@ -183,9 +183,9 @@ begin
      //
      //
      //
-     //NewSItem('~Senha:         ~ \sssssssssssssss'+CharShowPassword+ChFN+'senha'+ChH+'Campo alfanumerico com 15 posicoes',
-     //NewSItem('~~',
-     //NewSItem('~Qt:            ~\II,III'+chdf+'5'+ChFN+'qt',
+     NewSItem('~Senha:         ~ \sssssssssssssss'+CharShowPassword+ChFN+'senha'+ChH+'Campo alfanumerico com 15 posicoes',
+     NewSItem('~~',
+     NewSItem('~Qt:            ~\II,III'+chdf+'5'+ChFN+'qt',
      //NewSItem('~Unidade:       ~\'+CreateEnumField(TRUE, accNormal, 1,
      //                                              NewSItem('Centímetro',  //1/100
      //                                              NewSItem('Metro',       //1
@@ -199,9 +199,9 @@ begin
      //                        NewSItem('Amarelo',
      //                        NewSItem('Azul claro',
      //                        nil))))),
-     //NewSItem('',
-     //NewSItem('~Versão :       ~\##.##.##.####'+ChFN+'versao',
-     //NewSItem('',
+     NewSItem('',
+     NewSItem('~Versão :       ~\##.##.##.####'+ChFN+'versao',
+     NewSItem('',
      //NewSItem('~Tipo Boolean:  ~\X AnsiView                  '+ChFN+'AnsiView',
      //NewSItem('~               ~\X Blaise                    '+ChFN+'Blaise',
      //NewSItem('~               ~\X Btrieve                   '+ChFN+'Btrieve',
@@ -223,26 +223,26 @@ begin
      ////é necessário colocar espaços em branco a direta para compensar o tamanho.
      ////Do contrário o TLabel omite o inicio do lebal pq o texto fica maior
      ////que o a largura do label.
-     //NewSItem('~TESTE DE DATAS E HORAS   ~',
-     //NewSItem('~ ~',
-     //NewSItem('~ Data: dia/mes/ano~',
-     //NewSItem('~  dd/mm/yy:        ~\Ddd/mm/yy'+chFN+'ddmmyy',
-     //NewSItem('~  dd/mm/yyyy:      ~\Ddd/mm/yyyy'+chFN+'ddmmyyyy',
-     //NewSItem('~ ~',
-     //NewSItem('~ Horas: Hora:Minutos:Segundos ~',
-     //NewSItem('~  hh:nn:ss:        ~\Dhh:nn:ss'+chFN+'hhnnss',
-     //NewSItem('~  hh:nn:           ~\Dhh:nn'+chFN+'hhnn'+ChH+'Campo hora e minutos',
-     //NewSItem('~ ~',
-     //NewSItem('~ Data e Horas: dia/mes/ano hora:minutos:segundos~',
-     //NewSItem('~    dd/mm/yy hh:nn:ss:   ~\Ddd/mm/yy hh:nn:ss'+chFN  +'ddmmyyhhnnss',
-     //NewSItem('~    dd/mm/yyyy hh:nn:ss: ~\Ddd/mm/yyyy hh:nn:ss'+chFN+'ddmmyyyyhhnnss',
-     //NewSItem('',
-     //NewSItem('~ Data e Horas: dia/mes/ano hora:minutos~',
-     //NewSItem('~    dd/mm/yy hh:nn:      ~\Ddd/mm/yy hh:nn'+chFN+'ddmmyyhhnn',
-     //
-     //NewSItem('~ ~',
+     NewSItem('~TESTE DE DATAS E HORAS   ~',
+     NewSItem('~ ~',
+     NewSItem('~ Data: dia/mes/ano~',
+     NewSItem('~  dd/mm/yy:        ~\Ddd/mm/yy'+chFN+'ddmmyy',
+     NewSItem('~  dd/mm/yyyy:      ~\Ddd/mm/yyyy'+chFN+'ddmmyyyy',
+     NewSItem('~ ~',
+     NewSItem('~ Horas: Hora:Minutos:Segundos ~',
+     NewSItem('~  hh:nn:ss:        ~\Dhh:nn:ss'+chFN+'hhnnss',
+     NewSItem('~  hh:nn:           ~\Dhh:nn'+chFN+'hhnn'+ChH+'Campo hora e minutos',
+     NewSItem('~ ~',
+     NewSItem('~ Data e Horas: dia/mes/ano hora:minutos:segundos~',
+     NewSItem('~    dd/mm/yy hh:nn:ss:   ~\Ddd/mm/yy hh:nn:ss'+chFN  +'ddmmyyhhnnss',
+     NewSItem('~    dd/mm/yyyy hh:nn:ss: ~\Ddd/mm/yyyy hh:nn:ss'+chFN+'ddmmyyyyhhnnss',
+     NewSItem('',
+     NewSItem('~ Data e Horas: dia/mes/ano hora:minutos~',
+     NewSItem('~    dd/mm/yy hh:nn:      ~\Ddd/mm/yy hh:nn'+chFN+'ddmmyyhhnn',
 
-     nil)))))))))));//)))))))))))))))))))))))))))))))))))))))))))))))));
+     NewSItem('~ ~',
+
+     nil))))))))))))))))))))))))))))))))));//))))))))))))))))))))))))));
     end;
 
 
