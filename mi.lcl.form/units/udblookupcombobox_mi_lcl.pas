@@ -362,7 +362,8 @@ implementation
   end;
 
   function TDBLookupComboBox_mi_Lcl.GetHTMLContent: String;
-    var template_select : string = '<select id="~FieldName" name="~FieldName" data-mask="~data-mask" datamask-type="~datamask-type" style="position: absolute; top: ~toppx; left: ~leftpx; width: ~widthpx;">';
+
+    var template_select : string = '<select id="~FieldName" name="~FieldName" data-mask-type="~DataMaskType" data-mask="~DataMask" style="position: absolute; top: ~toppx; left: ~leftpx; width: ~widthpx;">';
 
     var template_options : string =  '<option value="~value">~value</option>';
 
@@ -385,16 +386,15 @@ implementation
       Result := StringReplace(Result, '~top'      , intToStr(top)   , [rfReplaceAll]);
       Result := StringReplace(Result, '~left'     , intToStr(left)  , [rfReplaceAll]);
       Result := StringReplace(Result, '~width'     , intToStr(left)  , [rfReplaceAll]);
-      Result := StringReplace(Result, '~data-mask', Template_org    , [rfReplaceAll]);
       case TypeCode of
         ^E : TypCode := '#5';
         ^D : TypCode := '#4';
         else TypCode := '#6'; //Caso o campo tenha sido criada com CreateOptions então o browser deve encarar como campo enumerado
       end;
+      Result := StringReplace(Result, '~DataMaskType', TypCode       , [rfReplaceAll]);
+      Result := StringReplace(Result, '~DataMask'     , Template_org , [rfReplaceAll]);
+      Result := StringReplace(Result, '~FieldName'     , FieldName   , [rfReplaceAll]);
 
-      Result := StringReplace(Result, '~datamask-type', TypCode       , [rfReplaceAll]);
-
-      Result := StringReplace(Result, '~FieldName', FieldName       , [rfReplaceAll]);
 
       for I := 0 to Items.Count-1 do
       begin

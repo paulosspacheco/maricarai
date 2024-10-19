@@ -879,7 +879,7 @@ end;
 
 function TDbEdit_mi_LCL.GetHTMLContent: String;
   var
-    Template :String = '<input type="text" class="form-field" id="~FieldName" name="~FieldName" placeholder="~FieldName" data-mask="~data-mask" datamask-type="~datamask-type" style="top: ~toppx; left: ~leftpx; width: ~widthpx;"/>';
+    Template :String = '<input type="text" class="form-field" id="~FieldName" name="~FieldName" placeholder="~FieldName" data-mask-type="~DataMaskType" data-mask="~DataMask" style="top: ~toppx; left: ~leftpx; width: ~widthpx;"/>';
 begin
   result :=  template;
   with DmxFieldRec^ do
@@ -888,8 +888,8 @@ begin
     Result := StringReplace(Result, '~left'      , intToStr(left)  , [rfReplaceAll]);
     Result := StringReplace(Result, '~width'    , intToStr(width) , [rfReplaceAll]);
     Result := StringReplace(Result, '~FieldName', FieldName       , [rfReplaceAll]);
-    Result := StringReplace(Result, '~data-mask', Template_org    , [rfReplaceAll]);
-    Result := StringReplace(Result, '~datamask-type', TypeCode       , [rfReplaceAll]);
+    Result := StringReplace(Result, '~DataMaskType',  typeCode  , [rfReplaceAll]);
+    Result := StringReplace(Result, '~DataMask', Template_org    , [rfReplaceAll]);
   end;
 end;
 

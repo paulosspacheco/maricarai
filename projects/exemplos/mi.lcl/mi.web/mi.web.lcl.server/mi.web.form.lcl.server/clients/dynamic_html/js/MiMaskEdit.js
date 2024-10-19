@@ -8,8 +8,13 @@ export class MiMaskEdit extends MiMethods {
     constructor(inputElement) {
         super(); // Chama o construtor da classe pai
         this.inputElement = inputElement;
-        this.mask = inputElement.dataset.mask;
-        this.maskType = inputElement.dataset.maskType;
+
+        // Inicializa os atributos data-mask e data-mask-type
+        this.mask = inputElement.dataset.mask || '';
+        this.maskType = inputElement.dataset.maskType || '';
+
+        // Verifica se os atributos foram corretamente inicializados
+        console.log(`Inicializando MiMaskEdit: mask = "${this.mask}", maskType = "${this.maskType}"`);
 
         // Adiciona o evento para formatar ou processar enquanto o usuário interage
         if (this.isInputField()) {
@@ -158,3 +163,7 @@ export function initializeFormsMasks() {
 
     initializeMaskEdits();
 }
+
+
+
+

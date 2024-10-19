@@ -172,10 +172,6 @@ export class MiEditForm extends MiConsts {
         this.setInputFieldsReadOnly(this.ReadOnly);    
     }
 
-    // clearForm() {
-    //     const formFields = this.form.querySelectorAll('input, textarea, select');
-    //     formFields.forEach(field => field.value = '');
-    // }
     clearForm() {
         const formFields = this.form.querySelectorAll('input, textarea, select');
         formFields.forEach(field => {
@@ -217,8 +213,7 @@ export class MiEditForm extends MiConsts {
             }
         });
     }
-    
-
+   
     async checkApiAvailability() {              
         try {
             const { status } = await this.sendRequest('CmHealthCheck', null, null, 'GET');
@@ -260,14 +255,6 @@ export class MiEditForm extends MiConsts {
     }  
 
     // Função para habilitar ou desabilitar os campos de entrada do formulário
-    // setInputFieldsDisabled(adisabled) {
-    //     const inputElements = this.form.querySelectorAll('input, textarea, select');
-    //     inputElements.forEach(element => {
-    //         element.disabled = adisabled; // true para desabilitar, false para habilitar
-    //     });
-    // }
-
-    // Função para habilitar ou desabilitar os campos de entrada do formulário
     setInputFieldsDisabled(adisabled) {
         const inputElements = this.form.querySelectorAll('input, textarea, select');
         inputElements.forEach(element => {
@@ -275,20 +262,7 @@ export class MiEditForm extends MiConsts {
         });
     }
 
-
-    // setInputFieldsReadOnly(isReadOnly) {
-    //     const inputElements = this.form.querySelectorAll('input, textarea, select');
-    //     const previousStates = {}; // Objeto para armazenar os estados anteriores
-
-    //     inputElements.forEach(element => {
-    //         previousStates[element.name] = element.readOnly; // Armazena o estado anterior
-    //         element.readOnly = isReadOnly; // Atualiza o estado para somente leitura
-    //     });
-
-    //     return previousStates; // Retorna os estados anteriores
-    // }    
-
-// Função para definir os campos de entrada como somente leitura ou editáveis
+     // Função para definir os campos de entrada como somente leitura ou editáveis
     setInputFieldsReadOnly(isReadOnly) {
         const inputElements = this.form.querySelectorAll('input, textarea, select');
         const previousStates = {}; // Objeto para armazenar os estados anteriores
@@ -439,26 +413,79 @@ export class MiEditForm extends MiConsts {
         });
     }
 
+    // getFormData() {
+    //     const formData = new FormData(this.form);
+    //     const data = {};
+    
+    //     // Captura todos os valores de campos padrão (input, select, textarea)
+    //     formData.forEach((value, key) => {
+    //         data[key.toLowerCase()] = value; // Armazena o nome do campo em minúsculas
+    //     });
+    
+    //     // Tratamento específico para checkboxes
+    //     const checkboxes = this.form.querySelectorAll('input[type="checkbox"]');
+    //     checkboxes.forEach(checkbox => {
+    //         data[checkbox.name.toLowerCase()] = checkbox.checked; // Armazena o estado do checkbox
+    //     });
+    
+    //     // Tratamento específico para radio buttons
+    //     const radios = this.form.querySelectorAll('input[type="radio"]');
+    //     radios.forEach(radio => {
+    //         if (radio.checked) {
+    //             data[radio.name.toLowerCase()] = radio.value; // Armazena o valor do radio selecionado
+    //         }
+    //     });
+    
+    //     // Tratamento para selects com múltipla seleção
+    //     const selects = this.form.querySelectorAll('select');
+    //     selects.forEach(select => {
+    //         if (select.multiple) {
+    //             // Para selects múltiplos, captura os valores selecionados como um array
+    //             const selectedOptions = Array.from(select.selectedOptions).map(option => option.value);
+    //             data[select.name.toLowerCase()] = selectedOptions;
+    //         } else {
+    //             // Para selects normais, captura o valor selecionado
+    //             data[select.name.toLowerCase()] = select.value;
+    //         }
+    //     });
+    
+    //     return data;
+    // }
+            
+    // getFieldValue(fieldName) {
+    //     const field = document.getElementById(fieldName.toLowerCase());
+    //     if (field) {
+    //         return field.value;
+    //     } else {
+    //         throw new Error(`Campo ${fieldName} não encontrado.`);
+    //     }
+    // }
     getFormData() {
         const formData = new FormData(this.form);
         const data = {};
     
         // Captura todos os valores de campos padrão (input, select, textarea)
         formData.forEach((value, key) => {
-            data[key.toLowerCase()] = value; // Armazena o nome do campo em minúsculas
+            const field = this.form.querySelector(`[name="${key}"]`);
+            if (field && (field.dataset.maskType === MiConsts.fldEnum || field.dataset.maskType === MiConsts.fldEnum_Db) && field.tagName === 'SELECT') {
+                // Para fldEnum e fldEnum_Db, armazenar o índice selecionado
+                data[key.toLowerCase()] = field.selectedIndex;
+            } else {
+                data[key.toLowerCase()] = value; // Armazena o valor do campo normalmente
+            }
         });
     
         // Tratamento específico para checkboxes
         const checkboxes = this.form.querySelectorAll('input[type="checkbox"]');
         checkboxes.forEach(checkbox => {
-            data[checkbox.name.toLowerCase()] = checkbox.checked; // Armazena o estado do checkbox
+            data[checkbox.name.toLowerCase()] = checkbox.checked;
         });
     
         // Tratamento específico para radio buttons
         const radios = this.form.querySelectorAll('input[type="radio"]');
         radios.forEach(radio => {
             if (radio.checked) {
-                data[radio.name.toLowerCase()] = radio.value; // Armazena o valor do radio selecionado
+                data[radio.name.toLowerCase()] = radio.value;
             }
         });
     
@@ -466,47 +493,44 @@ export class MiEditForm extends MiConsts {
         const selects = this.form.querySelectorAll('select');
         selects.forEach(select => {
             if (select.multiple) {
-                // Para selects múltiplos, captura os valores selecionados como um array
                 const selectedOptions = Array.from(select.selectedOptions).map(option => option.value);
                 data[select.name.toLowerCase()] = selectedOptions;
-            } else {
-                // Para selects normais, captura o valor selecionado
-                data[select.name.toLowerCase()] = select.value;
             }
         });
     
         return data;
     }
-            
-    getFieldValue(fieldName) {
-        const field = document.getElementById(fieldName.toLowerCase());
-        if (field) {
-            return field.value;
-        } else {
-            throw new Error(`Campo ${fieldName} não encontrado.`);
-        }
-    }
+    
 
     // setFieldValue(fieldName, value) {
     //     const field = document.getElementById(fieldName.toLowerCase());
     //     if (field) {
-    //         field.value = value != null ? value.toString() : '';
+    //         if (field.type === 'checkbox' || field.type === 'radio') {
+    //             field.checked = value; // Define o estado do checkbox ou radio
+    //         } else {
+    //             field.value = value != null ? value.toString() : '';
+    //         }
     //     } else {
-    //         this.showMessage('mtError',`Campo ${fieldName} não encontrado!`);
+    //         this.showMessage('mtError', `Campo ${fieldName} não encontrado!`);
     //     }
-    // }
+    // }    
+
     setFieldValue(fieldName, value) {
         const field = document.getElementById(fieldName.toLowerCase());
         if (field) {
             if (field.type === 'checkbox' || field.type === 'radio') {
-                field.checked = value; // Define o estado do checkbox ou radio
+                field.checked = value;
+            } else if ((field.dataset.maskType === MiConsts.fldEnum || field.dataset.maskType === MiConsts.fldEnum_Db) && field.tagName === 'SELECT') {
+                // Para fldEnum e fldEnum_Db, definir o índice selecionado
+                field.selectedIndex = value;
             } else {
                 field.value = value != null ? value.toString() : '';
             }
         } else {
             this.showMessage('mtError', `Campo ${fieldName} não encontrado!`);
         }
-    }    
+    }
+    
 
     updateForm(data) {
         if (!data || typeof data !== 'object') {

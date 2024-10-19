@@ -117,7 +117,7 @@ type
               <label for="~field" class="form-field" style="top: ~toppx; left: ~leftpx;">~caption</label>
 
               <!-- Template de input usados nos métodos: TDbEdit_mi_LCL.GetHTMLContent e TMaskEdit_mi_LCL.GetHTMLContent -->
-              <input type="text" class="form-field" id="~FieldName" name="~FieldName" placeholder="~FieldName" data-mask="~data-mask" datamask-type="~datamask-type" style="top: ~toppx; left: ~leftpx; width: ~widthpx;"/>
+              <input type="text" class="form-field" id="~FieldName" name="~FieldName" placeholder="~FieldName" data-mask-type="~DataMaskType" data-mask="~DataMask"  style="top: ~toppx; left: ~leftpx; width: ~widthpx;"/>
 
               <!-- Template select usado no método: TDbComboBox_mi_LCL.GetHTMLContent e TComboBox_mi_LCL.GetHTMLContent ->
               '<label for="unidade">Escolha a unidade de medida:</label>'

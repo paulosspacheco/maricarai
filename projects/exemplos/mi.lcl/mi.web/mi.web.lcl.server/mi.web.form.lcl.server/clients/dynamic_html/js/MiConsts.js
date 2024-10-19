@@ -115,7 +115,7 @@ export class MiConsts {
     static fldLongInt = 'L';
     static fldRadioButton = 'K';
     static fldDateTime = 'D';   
-    static fldEnum_options = '#6';//Quando a opção possue uma lista de opções criado por CreateOptions
+    static fldEnum_options = '#6';//Quando a opção tem uma lista de opções criado por CreateOptions
     static fldEnum         = '#5';//^E    
     static fldEnum_Db      = '#4';//^D
     static fldBlOb         = '#13';//^M
