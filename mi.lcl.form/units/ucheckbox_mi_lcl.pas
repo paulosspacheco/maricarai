@@ -12,6 +12,9 @@ unit uCheckbox_mi_lcl;
 
    - **HISTÓRICO**
      - Criado por: Paulo Sérgio da Silva Pacheco paulosspacheco@@yahoo.com.br)
+     - **2024-10-20**
+       - T12 - Implementar o método TCheckbox_mi_lcl.GetHTMLContent
+
      - **2022-06-01**
        - T12 - Criar propriedade DmxScroller_Form_Lcl_attributes; ✅
        - T12 - Criar propriedade pDmxFieldRec;  ✅
@@ -36,6 +39,7 @@ interface
 uses
   Classes, SysUtils, LResources, Forms, Controls, Graphics, Dialogs, StdCtrls
     ,ActnList
+    ,mi.rtl.all
     ,mi_rtl_ui_DmxScroller
     ,mi_rtl_ui_DmxScroller_Form
     //,umi_lcl_ui_dmxscroller_form_attributes
@@ -323,8 +327,32 @@ begin
 end;
 
 function TCheckbox_mi_lcl.GetHTMLContent: String;
+  const
+    //<input type="checkbox" id="option1" name="options" value="Opção 1" checked>
+    templateInput = '<input type="checkbox" class="form-field" id="~FieldName" name="~FieldName" value="~Value" data-mask-type="~DataMaskType" data-mask="~DataMask" style="position: absolute; top: ~toppx; left: ~leftpx; width: ~widthpx;"/>';
+    templateLabel = '<label for="~FieldName" class="form-field" style="position: absolute; top: ~toppx; left: ~leftpx; width: ~widthpx;">~Value</label>';
+  var wLabel : string;
 begin
+  result :=  templateInput;
+  with DmxFieldRec^,owner_UiDmxScroller do
+  begin
+    Result := StringReplace(Result, '~top'      , intToStr(top)   , [rfReplaceAll]);
+    Result := StringReplace(Result, '~left'     , intToStr(left-45)  , [rfReplaceAll]);
+    Result := StringReplace(Result, '~width'    , intToStr(width-45) , [rfReplaceAll]);
+    Result := StringReplace(Result, '~FieldName', FieldName       , [rfReplaceAll]);
+    Result := StringReplace(Result, '~Value', delSpcEd(DmxFieldRec^.Alias)       , [rfReplaceAll]);
+    Result := StringReplace(Result, '~DataMaskType',  typeCode  , [rfReplaceAll]);
+    Result := StringReplace(Result, '~DataMask', Template_org    , [rfReplaceAll]);
 
+    wLabel := templateLabel;
+    wLabel := StringReplace(wLabel, '~top'      , intToStr(top)   , [rfReplaceAll]);
+    wLabel := StringReplace(wLabel, '~left'     , intToStr(left+30)  , [rfReplaceAll]);
+    wLabel := StringReplace(wLabel, '~width'    , intToStr(width+30) , [rfReplaceAll]);
+    wLabel := StringReplace(wLabel, '~FieldName', FieldName       , [rfReplaceAll]);
+    wLabel := StringReplace(wLabel, '~Value', delSpcEd(DmxFieldRec^.Alias)       , [rfReplaceAll]);
+
+    result := result+ wLabel+TMi_rtl.New_Line;
+  end;
 end;
 
 

@@ -13,6 +13,9 @@ unit uDbradiogroup_mi_lcl;
 
    - **HISTÓRICO**
      - Criado por: Paulo Sérgio da Silva Pacheco paulosspacheco@@yahoo.com.br)
+     - **2024-10-20**
+       - T12 - Implementar o método TMI_ui_DbRadioGroup_Lcl.GetHTMLContent
+
      - **2022-06-07**
        - T12 - Criar propriedade DmxScroller_Form_Lcl_attributes;  ✅
        - T12 - Criar método Procedure GetBuffer; ✅
@@ -290,6 +293,7 @@ begin
     begin
       Action := Mi_lcl_ui_Form_attributes.getAction(self,DmxFieldRec^.ExecAction);
     end;
+
     Caption := DmxFieldRec^.Alias;
     SetData_Field;
     if Owner is TScrollingWinControl
@@ -301,8 +305,43 @@ begin
 end;
 
 function TMI_ui_DbRadioGroup_Lcl.GetHTMLContent: String;
-begin
+  const
+    //templateInput = '<input type="radio" class="form-field" id="~FieldName" name="~FieldName" value="~Value" data-mask-type="~DataMaskType" data-mask="~DataMask" style="position: absolute; top: ~toppx; left: ~leftpx; width: ~widthpx;"/>';
+    //templateLabel = '<label for="~FieldName" class="form-field" style="position: absolute; top: ~toppx; left: ~leftpx; width: ~widthpx;">~Value</label>';
 
+    templateDivOpen = ''+
+       '<div style="position: absolute; top: ~toppx; left: ~leftpx; width: ~widthpx; padding: 20px; border-radius: 8px;">';
+
+    templateInput = ''+
+      '  <input type="radio" id="~FieldName" name="~FieldName" value="~Value" data-mask-type="~DataMaskType" data-mask="~DataMask"/>'+
+      '  <label for="~FieldName">~Value</label><br>';
+
+    templateDivClose ='</div>';
+
+    var
+      s : string;
+      i : integer;
+begin
+  with DmxFieldRec^,owner_UiDmxScroller do
+  begin
+    //self.Items;
+    result := templateDivOpen;
+    Result := StringReplace(Result, '~top'      , intToStr(top)   , [rfReplaceAll]);
+    Result := StringReplace(Result, '~left'     , intToStr(left-25)  , [rfReplaceAll]);
+    Result := StringReplace(Result, '~width'    , intToStr(width-25) , [rfReplaceAll]);
+
+    for I := 0 to Items.Count-1 do
+    begin
+      s := StringReplace(templateInput, '~Value', Items[I] , [rfReplaceAll]);
+      s := StringReplace(s, '~FieldName'   , FieldName       , [rfReplaceAll]);
+      s := StringReplace(s, '~DataMaskType',  typeCode  , [rfReplaceAll]);
+      s := StringReplace(s, '~DataMask'    , Template_org    , [rfReplaceAll]);
+      Result := New_Line + Result+s;
+    end;
+    Result := New_Line + Result + templateDivClose;
+  end;
 end;
+
+
 
 end.

@@ -154,54 +154,54 @@ begin
      NewSItem(GetTemplate_DbNavigator_Buttons(CmGoBof,CmNextRecord,CmPrevRecord,CmGoEof,CmRefresh),
      NewSItem('~ID:            ~\LLLLLL'+ChFN+'id'+CharAccSkip+CharAccReadOnly+CharPfInKeyPrimary+CharPfInKeyPrimaryAutoIncrement,
      NewSItem('~Nome do aluno: ~\ssssssssssssssssssssssssssss`ssssssssssss'+ChFN+'Nome'+ChDf+'Qual o nome?',
-     NewSItem('~Endereço:      ~\ssssssssssssssssssssssssssss`ssssssssssssssssssssssssssss'+ChFN+'Endereco',
-     NewSItem('~Cep:           ~\##.###-###'+ChFN+'cep',
-     NewSItem('~Cidade:        ~\sssssssssssssssssssssssss'+ChFN+'cidade',
-     NewSItem('~Estado:        ~\SS'+ChFN+'Estado',
-     NewSItem('~ ~',
-     NewSItem('~Idade:         ~'+tmp_Alunos_Idade+CreateExecAction('Idade',
-                                               Cm_Pesquisa_em_outra_tabela.Name),
-     NewSItem('~Valor:         ~'+'\R$ EEE,EEE,EEE,EEE.EE'+ChFN+'valor_extended', //Extended
-
-     NewSItem('~Vencimento:    ~\sssssssssss'+ChFN+'vencimento'+ChDf+'Dia 20'+
-                                                CreateOptions(NewSItem('Dia 10',
-                                                              NewSItem('Dia 15',
-                                                              NewSItem('Dia 20',
-                                                              NewSItem('Dia 25 e 26',
-                                                              nil)))))+
-                                                ChH+'O campo dia, é um string com 11 posições. Nota: O número '+
-                                                    'de caracteres do maior item da lista, não pode ter mais'+
-                                                    'de 11 caracteres porque o buffer tem 11 caracteres.',
-
-     NewSItem('~Tipo de midia: ~'
-               + CreateEnumField(TRUE, accNormal, 0,
-                      NewSItem(' indefinido ',
-                      NewSItem(' HD         ',
-                      NewSItem(' SSD        ',
-                      NewSItem(' Pen drive  ',
-                              nil)))))+ChFN+'midia',
-
-
-
-     NewSItem('~Senha:         ~ \sssssssssssssss'+CharShowPassword+ChFN+'senha'+ChH+'Campo alfanumerico com 15 posicoes',
-     NewSItem('~~',
-     NewSItem('~Qt:            ~\II,III'+chdf+'5'+ChFN+'qt',
-     NewSItem('~Unidade:       ~\'+CreateEnumField(TRUE, accNormal, 1,
-                                                   NewSItem('Centímetro',  //1/100
-                                                   NewSItem('Metro',       //1
-                                                   NewSItem('km',          //100*1000
-                                                   nil))))+ChFN+'unidade',
-     NewSItem('~Preço:         ~\RRR,RRR.zz'+ChAS+ChARO+ChFN+'preco'+ChDf+'10',
-     NewSItem('~Total:         ~\RRR,RRR,RRR.ZZ'+ChARO+ChFN+'valor_total',
-     NewSItem('~Cor:           ~\sssssssssssssss'+ChFN+'cor'+chdf+'Azul claro'+
-               CreateOptions(NewSItem('sem preferência',
-                             NewSItem('Azul',
-                             NewSItem('Amarelo',
-                             NewSItem('Azul claro',
-                             nil))))),
-     NewSItem('',
-     NewSItem('~Versão :       ~\##.##.##.####'+ChFN+'versao',
-     NewSItem('',
+     //NewSItem('~Endereço:      ~\ssssssssssssssssssssssssssss`ssssssssssssssssssssssssssss'+ChFN+'Endereco',
+     //NewSItem('~Cep:           ~\##.###-###'+ChFN+'cep',
+     //NewSItem('~Cidade:        ~\sssssssssssssssssssssssss'+ChFN+'cidade',
+     //NewSItem('~Estado:        ~\SS'+ChFN+'Estado',
+     //NewSItem('~ ~',
+     //NewSItem('~Idade:         ~'+tmp_Alunos_Idade+CreateExecAction('Idade',
+     //                                          Cm_Pesquisa_em_outra_tabela.Name),
+     //NewSItem('~Valor:         ~'+'\R$ EEE,EEE,EEE,EEE.EE'+ChFN+'valor_extended', //Extended
+     //
+     //NewSItem('~Vencimento:    ~\sssssssssss'+ChFN+'vencimento'+ChDf+'Dia 20'+
+     //                                           CreateOptions(NewSItem('Dia 10',
+     //                                                         NewSItem('Dia 15',
+     //                                                         NewSItem('Dia 20',
+     //                                                         NewSItem('Dia 25 e 26',
+     //                                                         nil)))))+
+     //                                           ChH+'O campo dia, é um string com 11 posições. Nota: O número '+
+     //                                               'de caracteres do maior item da lista, não pode ter mais'+
+     //                                               'de 11 caracteres porque o buffer tem 11 caracteres.',
+     //
+     //NewSItem('~Tipo de midia: ~'
+     //          + CreateEnumField(TRUE, accNormal, 0,
+     //                 NewSItem(' indefinido ',
+     //                 NewSItem(' HD         ',
+     //                 NewSItem(' SSD        ',
+     //                 NewSItem(' Pen drive  ',
+     //                         nil)))))+ChFN+'midia',
+     //
+     //
+     //
+     //NewSItem('~Senha:         ~ \sssssssssssssss'+CharShowPassword+ChFN+'senha'+ChH+'Campo alfanumerico com 15 posicoes',
+     //NewSItem('~~',
+     //NewSItem('~Qt:            ~\II,III'+chdf+'5'+ChFN+'qt',
+     //NewSItem('~Unidade:       ~\'+CreateEnumField(TRUE, accNormal, 1,
+     //                                              NewSItem('Centímetro',  //1/100
+     //                                              NewSItem('Metro',       //1
+     //                                              NewSItem('km',          //100*1000
+     //                                              nil))))+ChFN+'unidade',
+     //NewSItem('~Preço:         ~\RRR,RRR.zz'+ChAS+ChARO+ChFN+'preco'+ChDf+'10',
+     //NewSItem('~Total:         ~\RRR,RRR,RRR.ZZ'+ChARO+ChFN+'valor_total',
+     //NewSItem('~Cor:           ~\sssssssssssssss'+ChFN+'cor'+chdf+'Azul claro'+
+     //          CreateOptions(NewSItem('sem preferência',
+     //                        NewSItem('Azul',
+     //                        NewSItem('Amarelo',
+     //                        NewSItem('Azul claro',
+     //                        nil))))),
+     //NewSItem('',
+     //NewSItem('~Versão :       ~\##.##.##.####'+ChFN+'versao',
+     //NewSItem('',
      //NewSItem('~Tipo Boolean:  ~\X AnsiView                  '+ChFN+'AnsiView',
      //NewSItem('~               ~\X Blaise                    '+ChFN+'Blaise',
      //NewSItem('~               ~\X Btrieve                   '+ChFN+'Btrieve',
@@ -210,13 +210,13 @@ begin
      //NewSItem('~               ~\X Turbo Pascal for Windows  '+ChFN+'Turbo Pascal for Windows',
      //NewSItem('~               ~\X TurboPower                '+ChFN+'TurboPower',
      //NewSItem('',
-     //NewSItem('~               ~\Ka Indefinido '+chFN+'sexo',
-     //NewSItem('~               ~\Ka Maculino   ',
-     //NewSItem('~               ~\Ka Feminino   ',
-     //NewSItem('',
-     //NewSItem('~               ~\Kb Casado    '+chFN+'EstadoCivil',
-     //NewSItem('~               ~\Kb solteiro  ',
-     //NewSItem('~               ~\Kb divorciado',
+     NewSItem('~               ~\Ka Indefinido '+chFN+'sexo',
+     NewSItem('~               ~\Ka Maculino   ',
+     NewSItem('~               ~\Ka Feminino   ',
+     NewSItem('',
+     NewSItem('~               ~\Kb Casado    '+chFN+'EstadoCivil',
+     NewSItem('~               ~\Kb solteiro  ',
+     NewSItem('~               ~\Kb divorciado',
      NewSItem('',
      NewSItem('~ ~',
      //Quando todas as letras são maiúsculas e o alinhamento é a direta
@@ -242,7 +242,7 @@ begin
 
      NewSItem('~ ~',
 
-     nil))))))))))))))))))))))))))))))))))))))))));//))))))))))))))))));
+     nil))))))))))))))))))))))))))))));//)))))))))))))))))));//)))))))))));
     end;
 
 

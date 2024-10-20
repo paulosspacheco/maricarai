@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+        <html>
+        <head>
+            <meta charset="UTF-8">
+            <title>Resumo da Classe &DiacriticalGrave;MiEditForm&DiacriticalGrave;</title>
+            <style>
+/* From extension vscode.github */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+.vscode-dark img[src$=\#gh-light-mode-only],
+.vscode-light img[src$=\#gh-dark-mode-only],
+.vscode-high-contrast:not(.vscode-high-contrast-light) img[src$=\#gh-light-mode-only],
+.vscode-high-contrast-light img[src$=\#gh-dark-mode-only] {
+	display: none;
+}
+
+/* From extension bierner.markdown-checkbox */
+.contains-task-list {
+    padding-left: 0;
+}
+
+.contains-task-list li {
+    margin-left: 24px;
+}
+
+.contains-task-list .task-list-item {
+    list-style: none;
+    padding-left: 0;
+    margin-left: 0;
+}
+
+.contains-task-list .contains-task-list {
+    padding-left: 20px;
+} 
+/* From extension davidmwhynot.markdown-higlightjs */
+/*
+
+Atom One Dark by Daniel Gamage
+Original One Dark Syntax theme from https://github.com/atom/one-dark-syntax
+
+base:    #282c34
+mono-1:  #abb2bf
+mono-2:  #818896
+mono-3:  #5c6370
+hue-1:   #56b6c2
+hue-2:   #61aeee
+hue-3:   #c678dd
+hue-4:   #98c379
+hue-5:   #e06c75
+hue-5-2: #be5046
+hue-6:   #d19a66
+hue-6-2: #e6c07b
+
+*/
+
+.hljs {
+  display: block;
+  overflow-x: auto;
+  padding: 0.5em;
+  color: #abb2bf;
+  background: #282c34;
+}
+
+.hljs-comment,
+.hljs-quote {
+  color: #5c6370;
+  font-style: italic;
+}
+
+.hljs-doctag,
+.hljs-keyword,
+.hljs-formula {
+  color: #c678dd;
+}
+
+.hljs-section,
+.hljs-name,
+.hljs-selector-tag,
+.hljs-deletion,
+.hljs-subst {
+  color: #e06c75;
+}
+
+.hljs-literal {
+  color: #56b6c2;
+}
+
+.hljs-string,
+.hljs-regexp,
+.hljs-addition,
+.hljs-attribute,
+.hljs-meta-string {
+  color: #98c379;
+}
+
+.hljs-built_in,
+.hljs-class .hljs-title {
+  color: #e6c07b;
+}
+
+.hljs-attr,
+.hljs-variable,
+.hljs-template-variable,
+.hljs-type,
+.hljs-selector-class,
+.hljs-selector-attr,
+.hljs-selector-pseudo,
+.hljs-number {
+  color: #d19a66;
+}
+
+.hljs-symbol,
+.hljs-bullet,
+.hljs-link,
+.hljs-meta,
+.hljs-selector-id,
+.hljs-title {
+  color: #61aeee;
+}
+
+.hljs-emphasis {
+  font-style: italic;
+}
+
+.hljs-strong {
+  font-weight: bold;
+}
+
+.hljs-link {
+  text-decoration: underline;
+}
+
+</style>
+            
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
+<style>
+            body {
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Ubuntu', 'Droid Sans', sans-serif;
+                font-size: 14px;
+                line-height: 1.6;
+            }
+        </style>
+        <style>
+.task-list-item {
+    list-style-type: none;
+}
+
+.task-list-item-checkbox {
+    margin-left: -20px;
+    vertical-align: middle;
+    pointer-events: none;
+}
+</style>
+<style>
+:root {
+  --color-note: #0969da;
+  --color-tip: #1a7f37;
+  --color-warning: #9a6700;
+  --color-severe: #bc4c00;
+  --color-caution: #d1242f;
+  --color-important: #8250df;
+}
+
+</style>
+<style>
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-note: #2f81f7;
+    --color-tip: #3fb950;
+    --color-warning: #d29922;
+    --color-severe: #db6d28;
+    --color-caution: #f85149;
+    --color-important: #a371f7;
+  }
+}
+
+</style>
+<style>
+.markdown-alert {
+  padding: 0.5rem 1rem;
+  margin-bottom: 16px;
+  color: inherit;
+  border-left: .25em solid #888;
+}
+
+.markdown-alert>:first-child {
+  margin-top: 0
+}
+
+.markdown-alert>:last-child {
+  margin-bottom: 0
+}
+
+.markdown-alert .markdown-alert-title {
+  display: flex;
+  font-weight: 500;
+  align-items: center;
+  line-height: 1
+}
+
+.markdown-alert .markdown-alert-title .octicon {
+  margin-right: 0.5rem;
+  display: inline-block;
+  overflow: visible !important;
+  vertical-align: text-bottom;
+  fill: currentColor;
+}
+
+.markdown-alert.markdown-alert-note {
+  border-left-color: var(--color-note);
+}
+
+.markdown-alert.markdown-alert-note .markdown-alert-title {
+  color: var(--color-note);
+}
+
+.markdown-alert.markdown-alert-important {
+  border-left-color: var(--color-important);
+}
+
+.markdown-alert.markdown-alert-important .markdown-alert-title {
+  color: var(--color-important);
+}
+
+.markdown-alert.markdown-alert-warning {
+  border-left-color: var(--color-warning);
+}
+
+.markdown-alert.markdown-alert-warning .markdown-alert-title {
+  color: var(--color-warning);
+}
+
+.markdown-alert.markdown-alert-tip {
+  border-left-color: var(--color-tip);
+}
+
+.markdown-alert.markdown-alert-tip .markdown-alert-title {
+  color: var(--color-tip);
+}
+
+.markdown-alert.markdown-alert-caution {
+  border-left-color: var(--color-caution);
+}
+
+.markdown-alert.markdown-alert-caution .markdown-alert-title {
+  color: var(--color-caution);
+}
+
+</style>
+        
+        </head>
+        <body class="vscode-body vscode-light">
+            <h1 id="resumo-da-classe-mieditform">Resumo da Classe <code>MiEditForm</code></h1>
+<p>A classe <code>MiEditForm</code> é responsável por gerenciar a interação de um formulário com um servidor, permitindo operações de CRUD (Criar, Ler, Atualizar, Excluir) e manipulação de dados de entrada. Ela herda de <code>MiConsts</code> e utiliza várias classes auxiliares para facilitar a operação.</p>
+<h2 id="principais-funcionalidades">Principais Funcionalidades</h2>
+<h3 id="1-inicialização">1. <strong>Inicialização</strong></h3>
+<ul>
+<li><strong>Construtor</strong>: Recebe o ID do formulário e campos-chave, inicializando o formulário e normalizando IDs e nomes dos campos.</li>
+<li><strong>Máscaras de Formulário</strong>: Aplica máscaras de entrada aos campos do formulário.</li>
+</ul>
+<h3 id="2-gerenciamento-de-ações">2. <strong>Gerenciamento de Ações</strong></h3>
+<ul>
+<li><strong>Classe <code>Action</code></strong>: Representa ações que podem ser habilitadas ou desabilitadas.</li>
+<li><strong>Lista de Ações</strong>: Define ações como <code>CmNewRecord</code>, <code>CmAddRecord</code>, <code>CmPutRecord</code>, etc., e controla seu estado.</li>
+</ul>
+<h3 id="3-manipulação-de-dados">3. <strong>Manipulação de Dados</strong></h3>
+<ul>
+<li><strong>Métodos de CRUD</strong>: Implementa métodos para criar (<code>newRecord</code>), adicionar (<code>addRecord</code>), atualizar (<code>PutRecord</code>), localizar (<code>locateRecord</code>) e excluir (<code>deleteRecord</code>) registros.</li>
+<li><strong>Atualização de Dados</strong>: Métodos para atualizar o formulário com dados do servidor (<code>updateWorkingDataFromServer</code>).</li>
+</ul>
+<h3 id="4-interação-com-o-servidor">4. <strong>Interação com o Servidor</strong></h3>
+<ul>
+<li><strong>Requisições Assíncronas</strong>: Utiliza <code>fetch</code> para enviar e receber dados do servidor, com tratamento de erros e verificação de status HTTP.</li>
+<li><strong>Construção de Parâmetros de Consulta</strong>: Gera parâmetros de consulta para requisições baseadas nos campos-chave do formulário.</li>
+</ul>
+<h3 id="5-gerenciamento-de-estado">5. <strong>Gerenciamento de Estado</strong></h3>
+<ul>
+<li><strong>Estados do Formulário</strong>: Controla estados como <code>Mb_St_Insert</code>, <code>Mb_St_Edit</code>, e <code>Mb_St_Active</code> para gerenciar a interação do usuário com o formulário.</li>
+<li><strong>Habilitação/Desabilitação de Campos</strong>: Métodos para habilitar ou desabilitar campos de entrada e botões com base no estado atual.</li>
+</ul>
+<h3 id="6-eventos-e-listeners">6. <strong>Eventos e Listeners</strong></h3>
+<ul>
+<li><strong>Listeners de Entrada</strong>: Adiciona ouvintes de eventos para campos de entrada, permitindo a detecção de alterações e foco.</li>
+<li><strong>Eventos de Ação</strong>: Gerencia eventos de clique em botões para executar ações correspondentes.</li>
+</ul>
+<h3 id="7-manipulação-de-campos">7. <strong>Manipulação de Campos</strong></h3>
+<ul>
+<li><strong>Classe <code>TField</code></strong>: Captura propriedades de elementos de entrada ativos.</li>
+<li><strong>Métodos para Obter e Definir Valores</strong>: Métodos para obter dados do formulário (<code>getFormData</code>) e definir valores em campos específicos (<code>setFieldValue</code>).</li>
+</ul>
+<h3 id="8-mensagens-e-diálogos">8. <strong>Mensagens e Diálogos</strong></h3>
+<ul>
+<li><strong>Exibição de Mensagens</strong>: Métodos para mostrar mensagens de erro ou informação ao usuário.</li>
+<li><strong>Diálogo de Alteração de Tema</strong>: Permite ao usuário alterar o tema da interface.</li>
+</ul>
+<h3 id="9-controle-de-navegação">9. <strong>Controle de Navegação</strong></h3>
+<ul>
+<li><strong>Métodos de Navegação</strong>: Implementa métodos para navegar entre registros (<code>goBof</code>, <code>nextRecord</code>, <code>prevRecord</code>, <code>goEof</code>).</li>
+</ul>
+<h2 id="conclusão">Conclusão</h2>
+<p>A classe <code>MiEditForm</code> é uma implementação robusta para gerenciar formulários em uma aplicação web, facilitando a interação com o servidor e a manipulação de dados de entrada. Ela é projetada para ser extensível e modular, permitindo fácil manutenção e adição de novas funcionalidades.</p>
+
+            
+            
+        </body>
+        </html>

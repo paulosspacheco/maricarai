@@ -4338,7 +4338,10 @@ implementation
                      end
                 else begin
 //s := aDataField.AsAnsiString;
-                       aDataField.AsAnsiString := Value
+                       if IsBoolean
+                       then aDataField.AsBoolean := Value
+                       else aDataField.Value     := Value;
+                       //aDataField.AsAnsiString := Value
                      end;
              end;
 
@@ -7525,7 +7528,7 @@ implementation
                        s := fld^.AsString;
                        if fld.IsBoolean
                        Then begin
-                              if s='0'
+                              if Lowcase(s)='false'
                               Then Result.add(fld^.FieldName,false)
                               else Result.add(fld^.FieldName,true)
                            end

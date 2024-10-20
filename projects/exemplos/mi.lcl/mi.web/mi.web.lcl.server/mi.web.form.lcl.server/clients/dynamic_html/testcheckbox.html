@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exemplo de Checkbox</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .checkbox-container {
+            margin-bottom: 10px;
+        }
+        .result {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Escolha suas opções favoritas:</h1>
+
+    <div class="checkbox-container">
+        <input type="checkbox" id="option1" name="options" >
+        <!-- <label for="option1">Opção 1</label> -->
+    </div>
+
+    <div class="checkbox-container">
+        <input type="checkbox" id="option2" name="options" value="Opção 2">
+        <label for="option2">Opção 2</label>
+    </div>
+
+    <div class="checkbox-container">
+        <input type="checkbox" id="option3" name="options" value="Opção 3">
+        <label for="option3">Opção 3</label>
+    </div>
+
+    <button onclick="mostrarSelecionados()">Mostrar Selecionados</button>
+
+    <div class="result" id="result"></div>
+
+    <script>
+        function mostrarSelecionados() {
+            const checkboxes = document.querySelectorAll('input[name="options"]:checked');
+            const selecionados = Array.from(checkboxes).map(checkbox => checkbox.value);
+            const resultado = selecionados.length > 0 ? 
+                `Opções selecionadas: ${selecionados.join(', ')}` : 
+                'Nenhuma opção selecionada.';
+            
+            document.getElementById('result').textContent = resultado;
+        }
+    </script>
+</body>
+</html>

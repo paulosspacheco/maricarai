@@ -878,8 +878,8 @@ begin
 end;
 
 function TDbEdit_mi_LCL.GetHTMLContent: String;
-  var
-    Template :String = '<input type="text" class="form-field" id="~FieldName" name="~FieldName" placeholder="~FieldName" data-mask-type="~DataMaskType" data-mask="~DataMask" style="top: ~toppx; left: ~leftpx; width: ~widthpx;"/>';
+  Const
+    Template = '<input type="text" class="form-field" id="~FieldName" name="~FieldName" placeholder="~FieldName" data-mask-type="~DataMaskType" data-mask="~DataMask" style="top: ~toppx; left: ~leftpx; width: ~widthpx;"/>';
 begin
   result :=  template;
   with DmxFieldRec^ do

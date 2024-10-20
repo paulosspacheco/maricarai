@@ -674,8 +674,8 @@ end;
   function TDbComboBox_mi_LCL.GetHTMLContent: String;
     //var template_label : string = '<label for="~FieldName"> ~FieldName </label>';
 
-    var template_select : string = '<select id="~FieldName" name="~FieldName" data-mask-type="~DataMaskType" data-mask="~DataMask" style="position: absolute; top: ~toppx; left: ~leftpx; width: ~widthpx;">';
-    var template_options : string =  '<option value="~value">~value</option>';
+    Const template_select = '<select id="~FieldName" name="~FieldName" data-mask-type="~DataMaskType" data-mask="~DataMask" style="position: absolute; top: ~toppx; left: ~leftpx; width: ~widthpx;">';
+    Const template_options  =  '<option value="~value">~value</option>';
 
     //Exemplo de select:
     //'<label for="unidade">Escolha a unidade de medida:</label>'

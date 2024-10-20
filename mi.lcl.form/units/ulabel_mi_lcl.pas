@@ -242,8 +242,8 @@ begin
 end;
 
 function TLabel_mi_lcl.GetHTMLContent: String;
-  var
-    Template :String = '<label for="~field" class="form-field" style="top: ~toppx; left: ~leftpx;">~caption</label>';
+  Const
+    Template = '<label for="~field" class="form-field" style="top: ~toppx; left: ~leftpx;">~caption</label>';
 begin
   If TMi_rtl.DelSpcED(Caption)<>''
   then begin

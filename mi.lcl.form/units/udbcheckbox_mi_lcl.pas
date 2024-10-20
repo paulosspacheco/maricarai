@@ -11,6 +11,9 @@ unit uDbcheckbox_mi_lcl;
    - **PENDÊNCIAS**
 
    - **HISTÓRICO**
+     - **2024-10-20**
+       - T12 - Implementar o método TDBCheckBox_mi_Lcl.GetHTMLContent
+
      - **2022/06/07**
        - **9:30**
          - Criar a unit **@name**
@@ -34,6 +37,7 @@ interface
 uses
   Classes, SysUtils, LResources, Forms, Controls, Graphics, Dialogs, DBCtrls
   ,ActnList
+  ,Mi.rtl.all
   ,mi_rtl_ui_DmxScroller
   ,mi_rtl_ui_DmxScroller_Form
   //,umi_lcl_ui_dmxscroller_form_attributes
@@ -244,15 +248,6 @@ begin
     with Mi_lcl_ui_Form_attributes.DmxScroller_Form do
     begin
       Action := Mi_lcl_ui_Form_attributes.getAction(self,DmxFieldRec^.ExecAction);
-      //if ActionList<> nil
-      //Then Begin
-      //        ContainedAction := ActionList.ActionByName(DmxFieldRec^.ExecAction);
-      //        if ContainedAction is TAction
-      //        then begin
-      //               Action := ContainedAction as TAction;
-      //             end;
-      //end;
-
       Caption := DmxFieldRec^.Alias;
       Self.Alignment := taLeftJustify;
     end;
@@ -272,9 +267,32 @@ begin
 end;
 
 function TDBCheckBox_mi_Lcl.GetHTMLContent: String;
+  const
+    //<input type="checkbox" id="option1" name="options" value="Opção 1" checked>
+    templateInput = '<input type="checkbox" class="form-field" id="~FieldName" name="~FieldName" value="~Value" data-mask-type="~DataMaskType" data-mask="~DataMask" style="position: absolute; top: ~toppx; left: ~leftpx; width: ~widthpx;"/>';
+    templateLabel = '<label for="~FieldName" class="form-field" style="position: absolute; top: ~toppx; left: ~leftpx; width: ~widthpx;">~Value</label>';
+    var wLabel : string;
 begin
+  result :=  templateInput;
+  with DmxFieldRec^,owner_UiDmxScroller do
+  begin
+    Result := StringReplace(Result, '~top'      , intToStr(top)   , [rfReplaceAll]);
+    Result := StringReplace(Result, '~left'     , intToStr(left-45)  , [rfReplaceAll]);
+    Result := StringReplace(Result, '~width'    , intToStr(width-45) , [rfReplaceAll]);
+    Result := StringReplace(Result, '~FieldName', FieldName       , [rfReplaceAll]);
+    Result := StringReplace(Result, '~Value', delSpcEd(DmxFieldRec^.Alias)       , [rfReplaceAll]);
+    Result := StringReplace(Result, '~DataMaskType',  typeCode  , [rfReplaceAll]);
+    Result := StringReplace(Result, '~DataMask', Template_org    , [rfReplaceAll]);
 
+    wLabel := templateLabel;
+    wLabel := StringReplace(wLabel, '~top'      , intToStr(top)   , [rfReplaceAll]);
+    wLabel := StringReplace(wLabel, '~left'     , intToStr(left+30)  , [rfReplaceAll]);
+    wLabel := StringReplace(wLabel, '~width'    , intToStr(width+30) , [rfReplaceAll]);
+    wLabel := StringReplace(wLabel, '~FieldName', FieldName       , [rfReplaceAll]);
+    wLabel := StringReplace(wLabel, '~Value', delSpcEd(DmxFieldRec^.Alias)       , [rfReplaceAll]);
+
+    result := result+ wLabel+TMi_rtl.New_Line;
+  end;
 end;
-
 
 end.

@@ -1,3 +1,5 @@
+//MiEditForm.js
+
 import { MiConsts    } from './MiConsts.js';
 import { MiDialogs   } from './MiDialogs.js';
 import { showMessage } from './MiDialogs.js';
@@ -256,33 +258,66 @@ export class MiEditForm extends MiConsts {
 
     // Função para habilitar ou desabilitar os campos de entrada do formulário
     setInputFieldsDisabled(adisabled) {
-        const inputElements = this.form.querySelectorAll('input, textarea, select');
+        // Seleciona todos os elementos de formulário relevantes  button,
+        const inputElements = this.form.querySelectorAll('input, textarea, select, fieldset');
+
+        // Itera por cada elemento e define o atributo 'disabled'
         inputElements.forEach(element => {
-            element.disabled = adisabled; // true para desabilitar, false para habilitar
+            // Somente altera o estado 'disabled' se o elemento suportar essa propriedade
+            if (typeof element.disabled !== 'undefined') {
+                element.disabled = adisabled; // true para desabilitar, false para habilitar
+            }
         });
     }
 
-     // Função para definir os campos de entrada como somente leitura ou editáveis
+
+    // // Função para definir os campos de entrada como somente leitura ou editáveis
+    // setInputFieldsReadOnly(isReadOnly) {
+    //     const inputElements = this.form.querySelectorAll('input, textarea, select');
+    //     const previousStates = {}; // Objeto para armazenar os estados anteriores
+
+    //     inputElements.forEach(element => {
+    //         // Armazena o estado anterior
+    //         previousStates[element.name] = element.readOnly;
+
+    //         // Aplica readOnly apenas para os tipos que suportam essa propriedade
+    //         if (element.tagName === 'TEXTAREA' || 
+    //             (element.tagName === 'INPUT' && element.type !== 'checkbox' && element.type !== 'radio')) {
+    //             element.readOnly = isReadOnly; // Atualiza o estado para somente leitura
+    //         } else if (element.tagName === 'SELECT') {
+    //             // Para selects, desabilita o campo para simular o comportamento de somente leitura
+    //             element.disabled = isReadOnly;
+    //         }
+    //     });
+
+    //     return previousStates; // Retorna os estados anteriores
+    // }
+
+    // Função para definir os campos de entrada como somente leitura ou editáveis
     setInputFieldsReadOnly(isReadOnly) {
         const inputElements = this.form.querySelectorAll('input, textarea, select');
         const previousStates = {}; // Objeto para armazenar os estados anteriores
 
         inputElements.forEach(element => {
             // Armazena o estado anterior
-            previousStates[element.name] = element.readOnly;
+            previousStates[element.name] = {
+                readOnly: element.readOnly || false,
+                disabled: element.disabled || false
+            };
 
-            // Aplica readOnly apenas para os tipos que suportam essa propriedade
+            // Aplicar comportamento para diferentes tipos de elementos
             if (element.tagName === 'TEXTAREA' || 
                 (element.tagName === 'INPUT' && element.type !== 'checkbox' && element.type !== 'radio')) {
                 element.readOnly = isReadOnly; // Atualiza o estado para somente leitura
-            } else if (element.tagName === 'SELECT') {
-                // Para selects, desabilita o campo para simular o comportamento de somente leitura
+            } else if (element.tagName === 'SELECT' || element.type === 'checkbox' || element.type === 'radio' || element.tagName === 'BUTTON') {
+                // Para selects, checkboxes, radios e botões, desabilita para simular somente leitura
                 element.disabled = isReadOnly;
             }
         });
 
         return previousStates; // Retorna os estados anteriores
     }
+
 
     enableCommands(commands) {
         if (this.actionList) {
@@ -1435,5 +1470,4 @@ return; //está com problema em getParam
                 this.showMessage('mtError',`Ação ${action} não reconhecida.`);
         }
     }
-
 }
