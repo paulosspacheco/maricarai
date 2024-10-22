@@ -7338,6 +7338,10 @@ implementation
                       V := fld^.AsString;
                       if s<>V
                       Then begin
+
+                             If fld^.IsData()
+                             then s := ChangeSubStr('-',' ',s);//Precisei usar - no método MiMaskEdit.formatInput no arquivo MiMaskEdit.js
+
                              fld^.AsString := s;
                              OkAlterou := true;
                           end;

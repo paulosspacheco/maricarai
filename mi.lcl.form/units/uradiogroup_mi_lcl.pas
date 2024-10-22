@@ -311,23 +311,20 @@ function TRadiogroup_mi_lcl.GetHTMLContent: String;
       //</div>
 
     templateSpan = ''+
-  //      '<span style="position: absolute; top: 10px; left: 10px; font-size: 20px; font-weight: bold;">~Value</span>'+Tmi_rtl.New_Line;
     '<span style="position: absolute; top: 10px; left: 10px; font-size: 15px; font-weight: bold;">~Value</span>'+Tmi_rtl.New_Line;
 
-
-    templateInput = ''+
-      '  <input type="radio" id="~Value" name="~FieldName" value="~Value" data-mask-type="~DataMaskType" data-mask="~DataMask" '+
-         'style="position: absolute; top:~toppx; left:5px; width:20px;"/>'+Tmi_rtl.New_Line+
-      '  <label for="~Value" style="position: absolute; top:~toppx; left:25px;">~Value</label>';
-
-    //templateDivClose ='</div>';
+  templateInput = ''+
+    '  <input type="radio" id="~FieldName" name="~FieldName" value="~Value" data-mask-type="~DataMaskType" data-mask="~DataMask" '+
+       'style="position: absolute; top:~toppx; left:5px; width:20px;"/>'+Tmi_rtl.New_Line+
+    '  <label for="~Value" style="position: absolute; top:~toppx; left:25px;">~Value</label>';
 
 
-    var
-      s,sItem,sTitle : string;
-      i,aTop,aHeight : integer;
 
-  begin
+  var
+    s,sItem,sTitle : string;
+    i,aTop,aHeight : integer;
+
+begin
   with DmxFieldRec^,owner_UiDmxScroller do
   begin
     result := '';
@@ -348,7 +345,7 @@ function TRadiogroup_mi_lcl.GetHTMLContent: String;
     end;
 
     s := templateDivOpen;
-    s := StringReplace(s, '~top'      , intToStr(top+5)   , [rfReplaceAll]);
+    s := StringReplace(s, '~top'      , intToStr(top+5) , [rfReplaceAll]);
     s := StringReplace(s, '~left'     , intToStr(left)  , [rfReplaceAll]);
     s := StringReplace(s, '~width'    , intToStr(width) , [rfReplaceAll]);
     s := StringReplace(s, '~height' , intToStr(aHeight) , [rfReplaceAll]);
@@ -363,6 +360,6 @@ function TRadiogroup_mi_lcl.GetHTMLContent: String;
     Result := New_Line + Result+'</div>';
 
   end;
-  end;
+end;
 
 end.

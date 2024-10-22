@@ -112,13 +112,16 @@ export class MiConsts {
     static fldShortInt = 'J';
     static fldSmallWord = 'W';
     static fldSmallInt = 'I';
-    static fldLongInt = 'L';
-    static fldRadioButton = 'K';
+    static fldLongInt = 'L';    
     static fldDateTime = 'D';   
     static fldEnum_options = '#6';//Quando a opção tem uma lista de opções criado por CreateOptions
     static fldEnum         = '#5';//^E    
     static fldEnum_Db      = '#4';//^D
-    static fldRadioButton  = 'K';
+    static fldBoolean          =  'X'; // checkbox
+    static FldRadioButton      =  'K'; //Maiúscula
+    static FldDbRadioButton    =  'k';//minúsculo
+
+
     static fldBlOb         = '#13';//^M
 
 

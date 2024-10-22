@@ -43,14 +43,19 @@ export class MiMaskEdit extends MiMethods {
     isButton() {
         return this.inputElement.tagName.toLowerCase() === 'button';
     }
-
+    
     formatInput(event) {
         let cursorPosition = event.target.selectionStart || 0;
         let inputValue = event.target.value;
         const originalLength = inputValue.length;
 
         try { 
-            if (this.maskType === MiConsts.fldEnum || this.maskType === MiConsts.fldEnum_Db || this.maskType === MiConsts.fldRadioButton ) {
+            if (this.maskType === MiConsts.fldEnum || 
+                this.maskType === MiConsts.fldEnum_Db || 
+                this.maskType === MiConsts.fldBoolean ||                 
+                this.maskType === MiConsts.fldRadioButton || 
+                this.maskType === MiConsts.FldDbRadioButton                
+            ) {
                 this.createSelectForEnum(event.target);
                 return;
             }
