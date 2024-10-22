@@ -1,171 +1,208 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Mi rtl WebModule</title>            
+    <meta name="createDate" content="22/10/24" /> 
+    <meta name="createDateUpdate" content="22/10/24" />
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
 
-        <title>Mi rtl WebModule</title>
-        <meta name="createDate" content="20/10/24" />
-        <meta name="createDateUpdate" content="20/10/24" />
-        <meta name="description" content />
-        <meta name="keywords" content />
+    <!-- Carregando o arquivo CSS -->
+    <link rel="stylesheet" href="./css/MiEditForm.css">
 
-        <!-- Carregando o arquivo CSS -->
-        <link rel="stylesheet" href="./css/MiEditForm.css">
+    <!-- Adicionar o link do Font Awesome no <head> -->
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"> -->
 
-        <!-- Adicionar o link do Font Awesome no <head> -->
-        <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"> -->
+</head>
+<body>
+    <!-- <i class="fas fa-camera"></i> -->
+    <div class="form-container">
+        <div class="form-header">
+            <h1>Mi rtl WebModule</h1> <!-- Título do formulário -->
+        </div>   
+        
+        <form id="Mi_rtl_WebModule">
+            <div class="form-fields"> 
+                <div class="fieldset-container">                
+                    
 
-    </head>
-    <body>
-        <!-- <i class="fas fa-camera"></i> -->
-        <div class="form-container">
-            <div class="form-header">
-                <h1>Mi rtl WebModule</h1> <!-- Título do formulário -->
+
+
+
+
+
+
+
+
+<label for="~field" class="form-field" style="top: 64px; left: 11px;"> ID:             </label>
+<input type="text" class="form-field" id="id" name="id" placeholder="id" data-mask-type="L" data-mask="LLLLLL" style="top: 64px; left: 113px; width: 56px;"/>
+<label for="~field" class="form-field" style="top: 96px; left: 11px;"> Nome do aluno:  </label>
+<input type="text" class="form-field" id="nome" name="nome" placeholder="nome" data-mask-type="s" data-mask="ssssssssssssssssssssssssssssssssssssssss" style="top: 96px; left: 113px; width: 193px;"/>
+<label for="~field" class="form-field" style="top: 128px; left: 11px;"> Endereço:       </label>
+<input type="text" class="form-field" id="endereco" name="endereco" placeholder="endereco" data-mask-type="s" data-mask="ssssssssssssssssssssssssssssssssssssssssssssssssssssssss" style="top: 128px; left: 113px; width: 193px;"/>
+<label for="~field" class="form-field" style="top: 160px; left: 11px;"> Cep:            </label>
+<input type="text" class="form-field" id="cep" name="cep" placeholder="cep" data-mask-type="#" data-mask="##.###-###" style="top: 160px; left: 113px; width: 80px;"/>
+<label for="~field" class="form-field" style="top: 192px; left: 11px;"> Cidade:         </label>
+<input type="text" class="form-field" id="cidade" name="cidade" placeholder="cidade" data-mask-type="s" data-mask="sssssssssssssssssssssssss" style="top: 192px; left: 113px; width: 175px;"/>
+<label for="~field" class="form-field" style="top: 224px; left: 11px;"> Estado:         </label>
+<input type="text" class="form-field" id="estado" name="estado" placeholder="estado" data-mask-type="S" data-mask="SS" style="top: 224px; left: 113px; width: 32px;"/>
+
+<label for="~field" class="form-field" style="top: 288px; left: 11px;"> Idade:          </label>
+<input type="text" class="form-field" id="idade" name="idade" placeholder="idade" data-mask-type="B" data-mask="BB" style="top: 288px; left: 113px; width: 32px;"/>
+
+<label for="~field" class="form-field" style="top: 320px; left: 11px;"> Valor:          </label>
+<input type="text" class="form-field" id="valor_extended" name="valor_extended" placeholder="valor_extended" data-mask-type="E" data-mask="R$ EEE.EEE.EEE.EEE,EE" style="top: 320px; left: 113px; width: 152px;"/>
+<label for="~field" class="form-field" style="top: 352px; left: 11px;"> Vencimento:     </label>
+
+
+
+
+
+<select id="vencimento" name="vencimento" data-mask-type="#6" data-mask="sssssssssss" style="position: absolute; top: 352px; left: 113px; width: 113px;"><option value="Dia 10">Dia 10</option><option value="Dia 15">Dia 15</option><option value="Dia 20">Dia 20</option><option value="Dia 25 e 26">Dia 25 e 26</option></select>
+<label for="~field" class="form-field" style="top: 384px; left: 11px;"> Tipo de midia:  </label>
+
+
+
+
+
+<select id="midia" name="midia" data-mask-type="#5" data-mask="LLLLLL" style="position: absolute; top: 384px; left: 113px; width: 113px;"><option value=" indefinido "> indefinido </option><option value=" HD         "> HD         </option><option value=" SSD        "> SSD        </option><option value=" Pen drive  "> Pen drive  </option></select>
+<label for="~field" class="form-field" style="top: 416px; left: 11px;"> Senha:           </label>
+<input type="text" class="form-field" id="senha" name="senha" placeholder="senha" data-mask-type="s" data-mask="sssssssssssssss" style="top: 416px; left: 119px; width: 115px;"/>
+
+<label for="~field" class="form-field" style="top: 480px; left: 11px;"> Qt:             </label>
+<input type="text" class="form-field" id="qt" name="qt" placeholder="qt" data-mask-type="I" data-mask="II.III" style="top: 480px; left: 113px; width: 56px;"/>
+<label for="~field" class="form-field" style="top: 512px; left: 11px;"> Unidade:        </label>
+
+
+
+
+<select id="unidade" name="unidade" data-mask-type="#5" data-mask="LLLLLL" style="position: absolute; top: 512px; left: 113px; width: 113px;"><option value="Centímetro">Centímetro</option><option value="Metro">Metro</option><option value="km">km</option></select>
+<label for="~field" class="form-field" style="top: 544px; left: 11px;"> Preço:          </label>
+<input type="text" class="form-field" id="preco" name="preco" placeholder="preco" data-mask-type="R" data-mask="RRR.RRR,zz" style="top: 544px; left: 113px; width: 80px;"/>
+<label for="~field" class="form-field" style="top: 576px; left: 11px;"> Total:          </label>
+<input type="text" class="form-field" id="valor_total" name="valor_total" placeholder="valor_total" data-mask-type="R" data-mask="RRR.RRR.RRR,ZZ" style="top: 576px; left: 113px; width: 104px;"/>
+<label for="~field" class="form-field" style="top: 608px; left: 11px;"> Cor:            </label>
+
+
+
+
+
+<select id="cor" name="cor" data-mask-type="#6" data-mask="sssssssssssssss" style="position: absolute; top: 608px; left: 113px; width: 113px;"><option value="sem preferência">sem preferência</option><option value="Azul">Azul</option><option value="Amarelo">Amarelo</option><option value="Azul claro">Azul claro</option></select>
+
+<label for="~field" class="form-field" style="top: 672px; left: 11px;"> Versão :        </label>
+<input type="text" class="form-field" id="versao" name="versao" placeholder="versao" data-mask-type="#" data-mask="##.##.##.####" style="top: 672px; left: 113px; width: 98px;"/>
+
+<label for="~field" class="form-field" style="top: 736px; left: 11px;"> Tipo Boolean:   </label>
+<input type="checkbox" class="form-field" id="ansiview" name="ansiview" value="AnsiView" data-mask-type="X" data-mask="X" style="position: absolute; top: 736px; left: 68px; width: 119px;"/><label for="ansiview" class="form-field" style="position: absolute; top: 736px; left: 143px; width: 194px;">AnsiView</label>
+
+
+<input type="checkbox" class="form-field" id="blaise" name="blaise" value="Blaise" data-mask-type="X" data-mask="X" style="position: absolute; top: 768px; left: 68px; width: 119px;"/><label for="blaise" class="form-field" style="position: absolute; top: 768px; left: 143px; width: 194px;">Blaise</label>
+
+
+<input type="checkbox" class="form-field" id="btrieve" name="btrieve" value="Btrieve" data-mask-type="X" data-mask="X" style="position: absolute; top: 800px; left: 68px; width: 119px;"/><label for="btrieve" class="form-field" style="position: absolute; top: 800px; left: 143px; width: 194px;">Btrieve</label>
+
+
+<input type="checkbox" class="form-field" id="paradoxengine" name="paradoxengine" value="Paradox Engine" data-mask-type="X" data-mask="X" style="position: absolute; top: 832px; left: 68px; width: 119px;"/><label for="paradoxengine" class="form-field" style="position: absolute; top: 832px; left: 143px; width: 194px;">Paradox Engine</label>
+
+
+<input type="checkbox" class="form-field" id="topaz" name="topaz" value="Topaz" data-mask-type="X" data-mask="X" style="position: absolute; top: 864px; left: 68px; width: 119px;"/><label for="topaz" class="form-field" style="position: absolute; top: 864px; left: 143px; width: 194px;">Topaz</label>
+
+
+<input type="checkbox" class="form-field" id="turbopascalforwindows" name="turbopascalforwindows" value="Turbo Pascal for Windows" data-mask-type="X" data-mask="X" style="position: absolute; top: 896px; left: 68px; width: 119px;"/><label for="turbopascalforwindows" class="form-field" style="position: absolute; top: 896px; left: 143px; width: 194px;">Turbo Pascal for Windows</label>
+
+
+<input type="checkbox" class="form-field" id="turbopower" name="turbopower" value="TurboPower" data-mask-type="X" data-mask="X" style="position: absolute; top: 928px; left: 68px; width: 119px;"/><label for="turbopower" class="form-field" style="position: absolute; top: 928px; left: 143px; width: 194px;">TurboPower</label>
+
+
+
+
+<div style="position: absolute; top: 965px; left: 113px; width: 97px; height:108px; border: 1px solid black; padding: 10px;border-radius: 5px;">
+<span style="position: absolute; top: 10px; left: 10px; font-size: 15px; font-weight: bold;">sexo</span>
+  <input type="radio" id="sexo" name="sexo" value="Indefinido" data-mask-type="K" data-mask="a" style="position: absolute; top:25px; left:5px; width:20px;"/>
+  <label for="Indefinido" style="position: absolute; top:25px; left:25px;">Indefinido</label>
+  <input type="radio" id="sexo" name="sexo" value="Masculino" data-mask-type="K" data-mask="a" style="position: absolute; top:52px; left:5px; width:20px;"/>
+  <label for="Masculino" style="position: absolute; top:52px; left:25px;">Masculino</label>
+  <input type="radio" id="sexo" name="sexo" value="Feminino" data-mask-type="K" data-mask="a" style="position: absolute; top:79px; left:5px; width:20px;"/>
+  <label for="Feminino" style="position: absolute; top:79px; left:25px;">Feminino</label>
+
+</div>
+
+
+
+
+
+<div style="position: absolute; top: 1109px; left: 113px; width: 98px; height:108px; border: 1px solid black; padding: 10px;border-radius: 5px;">
+<span style="position: absolute; top: 10px; left: 10px; font-size: 15px; font-weight: bold;">estadocivil</span>
+  <input type="radio" id="estadocivil" name="estadocivil" value="Casado" data-mask-type="K" data-mask="b" style="position: absolute; top:25px; left:5px; width:20px;"/>
+  <label for="Casado" style="position: absolute; top:25px; left:25px;">Casado</label>
+  <input type="radio" id="estadocivil" name="estadocivil" value="solteiro" data-mask-type="K" data-mask="b" style="position: absolute; top:52px; left:5px; width:20px;"/>
+  <label for="solteiro" style="position: absolute; top:52px; left:25px;">solteiro</label>
+  <input type="radio" id="estadocivil" name="estadocivil" value="divorciado" data-mask-type="K" data-mask="b" style="position: absolute; top:79px; left:5px; width:20px;"/>
+  <label for="divorciado" style="position: absolute; top:79px; left:25px;">divorciado</label>
+
+</div>
+
+
+
+<label for="~field" class="form-field" style="top: 1280px; left: 11px;"> TESTE DE DATAS E HORAS    </label>
+
+<label for="~field" class="form-field" style="top: 1344px; left: 11px;">  Data: dia/mes/ano </label>
+<label for="~field" class="form-field" style="top: 1376px; left: 11px;">   dd/mm/yy:         </label>
+<input type="text" class="form-field" id="ddmmyy" name="ddmmyy" placeholder="ddmmyy" data-mask-type="D" data-mask="Ddd/mm/yy" style="top: 1376px; left: 137px; width: 74px;"/>
+<label for="~field" class="form-field" style="top: 1408px; left: 11px;">   dd/mm/yyyy:       </label>
+<input type="text" class="form-field" id="ddmmyyyy" name="ddmmyyyy" placeholder="ddmmyyyy" data-mask-type="D" data-mask="Ddd/mm/yyyy" style="top: 1408px; left: 137px; width: 86px;"/>
+
+<label for="~field" class="form-field" style="top: 1472px; left: 11px;">  Horas: Hora:Minutos:Segundos  </label>
+<label for="~field" class="form-field" style="top: 1504px; left: 11px;">   hh:nn:ss:         </label>
+<input type="text" class="form-field" id="hhnnss" name="hhnnss" placeholder="hhnnss" data-mask-type="D" data-mask="Dhh:nn:ss" style="top: 1504px; left: 137px; width: 74px;"/>
+<label for="~field" class="form-field" style="top: 1536px; left: 11px;">   hh:nn:            </label>
+<input type="text" class="form-field" id="hhnn" name="hhnn" placeholder="hhnn" data-mask-type="D" data-mask="Dhh:nn" style="top: 1536px; left: 137px; width: 56px;"/>
+
+<label for="~field" class="form-field" style="top: 1600px; left: 11px;">  Data e Horas: dia/mes/ano hora:minutos:segundos </label>
+<label for="~field" class="form-field" style="top: 1632px; left: 11px;">     dd/mm/yy hh:nn:ss:    </label>
+<input type="text" class="form-field" id="ddmmyyhhnnss" name="ddmmyyhhnnss" placeholder="ddmmyyhhnnss" data-mask-type="D" data-mask="Ddd/mm/yy hh:nn:ss" style="top: 1632px; left: 173px; width: 128px;"/>
+<label for="~field" class="form-field" style="top: 1664px; left: 11px;">     dd/mm/yyyy hh:nn:ss:  </label>
+<input type="text" class="form-field" id="ddmmyyyyhhnnss" name="ddmmyyyyhhnnss" placeholder="ddmmyyyyhhnnss" data-mask-type="D" data-mask="Ddd/mm/yyyy hh:nn:ss" style="top: 1664px; left: 173px; width: 140px;"/>
+
+<label for="~field" class="form-field" style="top: 1728px; left: 11px;">  Data e Horas: dia/mes/ano hora:minutos </label>
+<label for="~field" class="form-field" style="top: 1760px; left: 11px;">     dd/mm/yy hh:nn:       </label>
+<input type="text" class="form-field" id="ddmmyyhhnn" name="ddmmyyhhnn" placeholder="ddmmyyhhnn" data-mask-type="D" data-mask="Ddd/mm/yy hh:nn" style="top: 1760px; left: 173px; width: 110px;"/>
+
+    
+                </div>
+                <!-- Adicione mais campos aqui conforme necessário -->
+            </div>
+            <div class="action-buttons">
+                <!-- Botões para operações CRUD -->
+                <button type="button" id="CmNewRecord">Novo Registro</button>
+                <button type="button" id="CmAddRecord">Adicionar</button>        
+                <button type="button" id="CmPutRecord">Gravar</button>
+                <button type="button" id="CmLocate">Localizar</button>        
+                <button type="button" id="CmDeleteRecord">Deletar</button>       
+                <button type="button" id="CmRefresh">Refresh</button>
+                <button type="button" id="CmCancel">Cancelar</button>        
+                <button type="button" id="CmHealthCheck">Checar conexão</button>                
+            </div>        
+
+            <!-- Botões de Navegação -->
+            <div class="navigation-buttons">
+                <button type="button" id="CmGoBof" class="navigation-buttons"><<</button>
+                <button type="button" id="CmPrevRecord" class="navigation-buttons"><</button>
+                <button type="button" id="CmNextRecord" class="navigation-buttons">></button>
+                <button type="button" id="CmGoEof" class="navigation-buttons">>></button>
+
+                        <!-- Botão para abrir a caixa de diálogo para mudar tema do formulário -->
+                <button type="button" id="CmDialogChangeTheme" class="navigation-buttons">Alterar tema</button>         
+
             </div>
 
-            <form id="Mi_rtl_WebModule">
-                <div class="form-fields">
-                    <div class="fieldset-container">
+        </form>
+    </div>
 
-                        <label for="~field" class="form-field"
-                            style="top: 64px; left: 11px;"> ID: </label>
-                        <input type="text" class="form-field" id="id" name="id"
-                            placeholder="id" data-mask-type="L"
-                            data-mask="LLLLLL"
-                            style="top: 64px; left: 113px; width: 56px;" />
-                        <label for="~field" class="form-field"
-                            style="top: 96px; left: 11px;"> Nome do aluno:
-                        </label>
-                        <input type="text" class="form-field" id="nome"
-                            name="nome" placeholder="nome" data-mask-type="s"
-                            data-mask="ssssssssssssssssssssssssssssssssssssssss"
-                            style="top: 96px; left: 113px; width: 193px;" />
-
-                            <div style="position: absolute; top: 128px; left: 88px; width: 400px; padding: 20px; border-radius: 8px;">
-                                <div style="margin-bottom: 10px;">
-                                    <input type="radio" id="indefinido" name="sexo" value="Indefinido" data-mask-type="K" data-mask="a">
-                                    <label for="indefinido">Indefinido</label>
-                                </div>
-                                <div style="margin-bottom: 10px;">
-                                    <input type="radio" id="masculino" name="sexo" value="Masculino" data-mask-type="K" data-mask="a">
-                                    <label for="masculino">Masculino</label>
-                                </div>
-                                <div>
-                                    <input type="radio" id="feminino" name="sexo" value="Feminino" data-mask-type="K" data-mask="a">
-                                    <label for="feminino">Feminino</label>
-                                </div>
-                            </div>
-                            
-                            
-                                                    
-
-
-                        <label for="~field" class="form-field"
-                            style="top: 512px; left: 11px;"> TESTE DE DATAS E
-                            HORAS </label>
-
-                        <label for="~field" class="form-field"
-                            style="top: 576px; left: 11px;"> Data: dia/mes/ano
-                        </label>
-                        <label for="~field" class="form-field"
-                            style="top: 608px; left: 11px;"> dd/mm/yy: </label>
-                        <input type="text" class="form-field" id="ddmmyy"
-                            name="ddmmyy" placeholder="ddmmyy"
-                            data-mask-type="D" data-mask="Ddd/mm/yy"
-                            style="top: 608px; left: 137px; width: 74px;" />
-                        <label for="~field" class="form-field"
-                            style="top: 640px; left: 11px;"> dd/mm/yyyy:
-                        </label>
-                        <input type="text" class="form-field" id="ddmmyyyy"
-                            name="ddmmyyyy" placeholder="ddmmyyyy"
-                            data-mask-type="D" data-mask="Ddd/mm/yyyy"
-                            style="top: 640px; left: 137px; width: 86px;" />
-
-                        <label for="~field" class="form-field"
-                            style="top: 704px; left: 11px;"> Horas:
-                            Hora:Minutos:Segundos </label>
-                        <label for="~field" class="form-field"
-                            style="top: 736px; left: 11px;"> hh:nn:ss: </label>
-                        <input type="text" class="form-field" id="hhnnss"
-                            name="hhnnss" placeholder="hhnnss"
-                            data-mask-type="D" data-mask="Dhh:nn:ss"
-                            style="top: 736px; left: 137px; width: 74px;" />
-                        <label for="~field" class="form-field"
-                            style="top: 768px; left: 11px;"> hh:nn: </label>
-                        <input type="text" class="form-field" id="hhnn"
-                            name="hhnn" placeholder="hhnn" data-mask-type="D"
-                            data-mask="Dhh:nn"
-                            style="top: 768px; left: 137px; width: 56px;" />
-
-                        <label for="~field" class="form-field"
-                            style="top: 832px; left: 11px;"> Data e Horas:
-                            dia/mes/ano hora:minutos:segundos </label>
-                        <label for="~field" class="form-field"
-                            style="top: 864px; left: 11px;"> dd/mm/yy hh:nn:ss:
-                        </label>
-                        <input type="text" class="form-field" id="ddmmyyhhnnss"
-                            name="ddmmyyhhnnss" placeholder="ddmmyyhhnnss"
-                            data-mask-type="D" data-mask="Ddd/mm/yy hh:nn:ss"
-                            style="top: 864px; left: 173px; width: 128px;" />
-                        <label for="~field" class="form-field"
-                            style="top: 896px; left: 11px;"> dd/mm/yyyy
-                            hh:nn:ss: </label>
-                        <input type="text" class="form-field"
-                            id="ddmmyyyyhhnnss" name="ddmmyyyyhhnnss"
-                            placeholder="ddmmyyyyhhnnss" data-mask-type="D"
-                            data-mask="Ddd/mm/yyyy hh:nn:ss"
-                            style="top: 896px; left: 173px; width: 140px;" />
-
-                        <label for="~field" class="form-field"
-                            style="top: 960px; left: 11px;"> Data e Horas:
-                            dia/mes/ano hora:minutos </label>
-                        <label for="~field" class="form-field"
-                            style="top: 992px; left: 11px;"> dd/mm/yy hh:nn:
-                        </label>
-                        <input type="text" class="form-field" id="ddmmyyhhnn"
-                            name="ddmmyyhhnn" placeholder="ddmmyyhhnn"
-                            data-mask-type="D" data-mask="Ddd/mm/yy hh:nn"
-                            style="top: 992px; left: 173px; width: 110px;" />
-
-                    </div>
-                    <!-- Adicione mais campos aqui conforme necessário -->
-                </div>
-                <div class="action-buttons">
-                    <!-- Botões para operações CRUD -->
-                    <button type="button" id="CmNewRecord">Novo
-                        Registro</button>
-                    <button type="button" id="CmAddRecord">Adicionar</button>
-                    <button type="button" id="CmPutRecord">Gravar</button>
-                    <button type="button" id="CmLocate">Localizar</button>
-                    <button type="button" id="CmDeleteRecord">Deletar</button>
-                    <button type="button" id="CmRefresh">Refresh</button>
-                    <button type="button" id="CmCancel">Cancelar</button>
-                    <button type="button" id="CmHealthCheck">Checar
-                        conexão</button>
-                </div>
-
-                <!-- Botões de Navegação -->
-                <div class="navigation-buttons">
-                    <button type="button" id="CmGoBof"
-                        class="navigation-buttons"><<</button>
-                    <button type="button" id="CmPrevRecord"
-                        class="navigation-buttons"><</button>
-                    <button type="button" id="CmNextRecord"
-                        class="navigation-buttons">></button>
-                    <button type="button" id="CmGoEof"
-                        class="navigation-buttons">>></button>
-
-                    <!-- Botão para abrir a caixa de diálogo para mudar tema do formulário -->
-                    <button type="button" id="CmDialogChangeTheme"
-                        class="navigation-buttons">Alterar tema</button>
-
-                </div>
-
-            </form>
-        </div>
-
-        <script type="module">
+    <script type="module">
         // Importa as classes dos arquivos JavaScript
 
         import { MiEditForm } from './js/MiEditForm.js';
@@ -182,5 +219,12 @@
 
     </script>
 
-    </body>
+</body>
 </html>
+
+
+
+
+
+
+

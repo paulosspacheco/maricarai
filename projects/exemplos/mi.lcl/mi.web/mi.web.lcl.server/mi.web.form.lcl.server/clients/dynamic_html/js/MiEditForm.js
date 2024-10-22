@@ -173,7 +173,8 @@ export class MiEditForm extends MiConsts {
         this.ReadOnly = true;
         this.setInputFieldsReadOnly(this.ReadOnly);    
     }
-
+   
+    
     clearForm() {
         const formFields = this.form.querySelectorAll('input, textarea, select');
         formFields.forEach(field => {
@@ -269,30 +270,7 @@ export class MiEditForm extends MiConsts {
             }
         });
     }
-
-
-    // // Função para definir os campos de entrada como somente leitura ou editáveis
-    // setInputFieldsReadOnly(isReadOnly) {
-    //     const inputElements = this.form.querySelectorAll('input, textarea, select');
-    //     const previousStates = {}; // Objeto para armazenar os estados anteriores
-
-    //     inputElements.forEach(element => {
-    //         // Armazena o estado anterior
-    //         previousStates[element.name] = element.readOnly;
-
-    //         // Aplica readOnly apenas para os tipos que suportam essa propriedade
-    //         if (element.tagName === 'TEXTAREA' || 
-    //             (element.tagName === 'INPUT' && element.type !== 'checkbox' && element.type !== 'radio')) {
-    //             element.readOnly = isReadOnly; // Atualiza o estado para somente leitura
-    //         } else if (element.tagName === 'SELECT') {
-    //             // Para selects, desabilita o campo para simular o comportamento de somente leitura
-    //             element.disabled = isReadOnly;
-    //         }
-    //     });
-
-    //     return previousStates; // Retorna os estados anteriores
-    // }
-
+    
     // Função para definir os campos de entrada como somente leitura ou editáveis
     setInputFieldsReadOnly(isReadOnly) {
         const inputElements = this.form.querySelectorAll('input, textarea, select');
@@ -536,36 +514,49 @@ export class MiEditForm extends MiConsts {
         return data;
     }
     
-
+    
     // setFieldValue(fieldName, value) {
     //     const field = document.getElementById(fieldName.toLowerCase());
     //     if (field) {
     //         if (field.type === 'checkbox' || field.type === 'radio') {
-    //             field.checked = value; // Define o estado do checkbox ou radio
+    //             field.checked = value;
+    //         } else if ((field.dataset.maskType === MiConsts.fldEnum || field.dataset.maskType === MiConsts.fldEnum_Db) && field.tagName === 'SELECT') {
+    //             // Para fldEnum e fldEnum_Db, definir o índice selecionado
+    //             field.selectedIndex = value;
     //         } else {
     //             field.value = value != null ? value.toString() : '';
     //         }
     //     } else {
     //         this.showMessage('mtError', `Campo ${fieldName} não encontrado!`);
     //     }
-    // }    
-
+    // }
+    
     setFieldValue(fieldName, value) {
+        // Converta o nome do campo para minúsculas para fins de consistência
         const field = document.getElementById(fieldName.toLowerCase());
+    
         if (field) {
-            if (field.type === 'checkbox' || field.type === 'radio') {
+            if (field.type === 'checkbox') {
+                // Para checkbox, marque/desmarque com base no valor
                 field.checked = value;
+            } else if (field.type === 'radio') {
+                // Para radio button, precisamos encontrar todos os botões de rádio com o mesmo nome
+                const radios = document.querySelectorAll(`input[name='${fieldName.toLowerCase()}']`);
+                radios.forEach(radio => {
+                    radio.checked = (radio.value === value.toString());
+                });
             } else if ((field.dataset.maskType === MiConsts.fldEnum || field.dataset.maskType === MiConsts.fldEnum_Db) && field.tagName === 'SELECT') {
                 // Para fldEnum e fldEnum_Db, definir o índice selecionado
                 field.selectedIndex = value;
             } else {
+                // Para outros tipos de campos, apenas definir o valor
                 field.value = value != null ? value.toString() : '';
             }
         } else {
+            // Se o campo não foi encontrado, mostre uma mensagem de erro
             this.showMessage('mtError', `Campo ${fieldName} não encontrado!`);
         }
     }
-    
 
     updateForm(data) {
         if (!data || typeof data !== 'object') {
@@ -619,50 +610,6 @@ export class MiEditForm extends MiConsts {
     
         return params.toString();
     }  
-
-    // buildQueryParams() {
-    //     const formData = this.getFormData();
-    //     console.log('FormData:', formData); // Depuração: exibe os dados do formulário
-        
-    //     const params = new URLSearchParams();
-    
-    //     // Normaliza os campos-chave para minúsculas
-    //     const lowerCaseKeyFields = this.keyFields.map(field => field.toLowerCase());
-    //     console.log('lowerCaseKeyFields:', lowerCaseKeyFields); // Depuração: exibe os campos-chave em minúsculas
-    
-    //     // Adiciona os campos-chave à query string
-    //     params.append('KeyFields', this.keyFields.join(';'));
-    
-    //     // Adiciona os valores dos campos-chave à query string
-    //     const keyValues = lowerCaseKeyFields.map(lowerCaseField => {
-    //         // Encontra o campo correspondente no formData, comparando em minúsculas
-    //         const matchingField = Object.keys(formData).find(key => key.toLowerCase() === lowerCaseField);
-    
-    //         if (matchingField) {
-    //             //console.log(`Campo correspondente encontrado: ${matchingField} -> Valor: ${formData[matchingField]}`);
-    //             // Retorna o valor do campo correspondente (mantém a referência correta ao valor original)
-    //             return formData[matchingField] || '';
-    //         } else {
-    //             this.showMessage('mtError',`Campo correspondente não encontrado para: ${lowerCaseField}`);
-    //             return '';  // Se o campo não for encontrado, retorna string vazia
-    //         }
-    //     }).join(';');
-    
-    //     // Depuração: mostra os valores dos campos-chave que foram encontrados
-    //     console.log('keyValues:', keyValues);
-    
-    //     if (keyValues.trim() === '') {
-    //         this.showMessage('mtError','Atenção: Valores de campos-chave estão vazios.');
-    //     }
-    
-    //     params.append('KeyValues', keyValues);
-    //     params.append('Options', this.options);
-    
-    //     // Depuração: mostra a string completa da query
-    //     console.log('QueryParams:', params.toString());
-    
-    //     return params.toString();
-    // }      
 
     async sendRequest(action, queryParams, jsonData, method) {               
 
@@ -1471,3 +1418,4 @@ return; //está com problema em getParam
         }
     }
 }
+

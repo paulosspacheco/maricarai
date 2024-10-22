@@ -416,7 +416,7 @@ begin
                                       nil))))+ChFN+'driver' + '~Disks.~',
       NewSItem('~Satus.:~\X '+ChFN+'status',
       NewSItem('~sexo  :~\Ks Indefinido '+chFN+'sexo',
-      NewSItem(         '\Ks Maculino   ',
+      NewSItem(         '\Ks Masculino   ',
       NewSItem(         '\Ks Feminino   ',
       //NewSItem('',
       //NewSItem('~ ~',

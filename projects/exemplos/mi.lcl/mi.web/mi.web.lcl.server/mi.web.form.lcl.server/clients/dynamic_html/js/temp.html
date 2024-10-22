@@ -7,7 +7,7 @@
 </head>
 <body>
     <form>
-        <div style="position: absolute; top: 50px; left: 100px; width: 300px; background-color: blue; color: white; padding: 20px; border-radius: 8px;">
+        <!-- <div style="position: absolute; top: 50px; left: 100px; width: 300px; background-color: blue; color: white; padding: 20px; border-radius: 8px;">
             <h2>Selecione o seu gênero:</h2>
 
             <input type="radio" id="masculino" name="genero" value="masculino">
@@ -20,7 +20,23 @@
             <label for="outro">Outro</label><br><br>
 
             <input type="submit" value="Enviar">
+        </div> -->
+
+        <div style="position: absolute; top: 128px; left: 88px; width: 400px; padding: 20px; border-radius: 8px;">
+            <div style="margin-bottom: 10px;">
+                <input type="radio" id="indefinido" name="sexo" value="Indefinido" data-mask-type="K" data-mask="a">
+                <label for="indefinido">Indefinido</label>
+            </div>
+            <div style="margin-bottom: 10px;">
+                <input type="radio" id="masculino" name="sexo" value="Masculino" data-mask-type="K" data-mask="a">
+                <label for="masculino">Masculino</label>
+            </div>
+            <div>
+                <input type="radio" id="feminino" name="sexo" value="Feminino" data-mask-type="K" data-mask="a">
+                <label for="feminino">Feminino</label>
+            </div>
         </div>
+        
     </form>
 </body>
 </html>

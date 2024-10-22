@@ -145,7 +145,7 @@ begin
      //NewSItem('~               ~\X TurboPower                '+ChFN+'TurboPower',
      //NewSItem('',
      //NewSItem('~               ~\Ka Indefinido '+chFN+'sexo',
-     //NewSItem('~               ~\Ka Maculino   ',
+     //NewSItem('~               ~\Ka Masculino   ',
      //NewSItem('~               ~\Ka Feminino   ',
      //NewSItem('',
      //NewSItem('~               ~\Kb Casado    '+chFN+'EstadoCivil',

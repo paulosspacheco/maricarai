@@ -154,6 +154,8 @@ begin
   if DmxFieldRec <> nil
   then DmxFieldRec^.CopyTo(Field)
   else Raise Tmi_rtl.TException.Create(Self,{$I %CURRENTROUTINE%},'Ponteiro para DmxFieldRec não inicializado!');
+  ItemIndex := Items.IndexOf(field.Value);
+  Show;
 end;
 
 procedure TMI_ui_DbRadioGroup_Lcl.DoOnEnter(Sender: TObject);
@@ -300,45 +302,72 @@ begin
     then Begin
            AutoSize := true; //Necessário se autoSize para que se possa criar várias colunas usando a altura do caracter
          end;
-
+    GetBuffer;
   end;
 end;
 
 function TMI_ui_DbRadioGroup_Lcl.GetHTMLContent: String;
   const
-    //templateInput = '<input type="radio" class="form-field" id="~FieldName" name="~FieldName" value="~Value" data-mask-type="~DataMaskType" data-mask="~DataMask" style="position: absolute; top: ~toppx; left: ~leftpx; width: ~widthpx;"/>';
-    //templateLabel = '<label for="~FieldName" class="form-field" style="position: absolute; top: ~toppx; left: ~leftpx; width: ~widthpx;">~Value</label>';
-
     templateDivOpen = ''+
-       '<div style="position: absolute; top: ~toppx; left: ~leftpx; width: ~widthpx; padding: 20px; border-radius: 8px;">';
+      '<div style="position: absolute; top: ~toppx; left: ~leftpx; width: ~widthpx; height:~heightpx; border: 1px solid black; padding: 10px;border-radius: 5px;">'+Tmi_rtl.New_Line;
+      //</div>
+
+    templateSpan = ''+
+//      '<span style="position: absolute; top: 10px; left: 10px; font-size: 20px; font-weight: bold;">~Value</span>'+Tmi_rtl.New_Line;
+    '<span style="position: absolute; top: 10px; left: 10px; font-size: 15px; font-weight: bold;">~Value</span>'+Tmi_rtl.New_Line;
+
+
+    //templateInput = ''+
+    //  '  <input type="radio" id="~Value" name="~FieldName" value="~Value" data-mask-type="~DataMaskType" data-mask="~DataMask" '+
+    //     'style="position: absolute; top:~toppx; left:5px; width:20px;"/>'+Tmi_rtl.New_Line+
+    //  '  <label for="~Value" style="position: absolute; top:~toppx; left:25px;">~Value</label>';
 
     templateInput = ''+
-      '  <input type="radio" id="~FieldName" name="~FieldName" value="~Value" data-mask-type="~DataMaskType" data-mask="~DataMask"/>'+
-      '  <label for="~FieldName">~Value</label><br>';
+      '  <input type="radio" id="~FieldName" name="~FieldName" value="~Value" data-mask-type="~DataMaskType" data-mask="~DataMask" '+
+         'style="position: absolute; top:~toppx; left:5px; width:20px;"/>'+Tmi_rtl.New_Line+
+      '  <label for="~Value" style="position: absolute; top:~toppx; left:25px;">~Value</label>';
 
-    templateDivClose ='</div>';
+
 
     var
-      s : string;
-      i : integer;
+      s,sItem,sTitle : string;
+      i,aTop,aHeight : integer;
+
 begin
   with DmxFieldRec^,owner_UiDmxScroller do
   begin
-    //self.Items;
-    result := templateDivOpen;
-    Result := StringReplace(Result, '~top'      , intToStr(top)   , [rfReplaceAll]);
-    Result := StringReplace(Result, '~left'     , intToStr(left-25)  , [rfReplaceAll]);
-    Result := StringReplace(Result, '~width'    , intToStr(width-25) , [rfReplaceAll]);
-
+    result := '';
+    aTop := 25;
+    aHeight := HeightChar;
     for I := 0 to Items.Count-1 do
     begin
-      s := StringReplace(templateInput, '~Value', Items[I] , [rfReplaceAll]);
-      s := StringReplace(s, '~FieldName'   , FieldName       , [rfReplaceAll]);
+      sItem := DelSpcED( Items[I]);
+      s := templateInput;
+      s := StringReplace(s, '~Value', sItem , [rfReplaceAll]);
+      s := StringReplace(s, '~top'      , intToStr(atop)   , [rfReplaceAll]);
+      s := StringReplace(s, '~FieldName' , FieldName       , [rfReplaceAll]);
       s := StringReplace(s, '~DataMaskType',  typeCode  , [rfReplaceAll]);
       s := StringReplace(s, '~DataMask'    , Template_org    , [rfReplaceAll]);
-      Result := New_Line + Result+s;
+      Result := Result+s+New_Line;
+      aTop := aTop+HeightChar;
+      aHeight := aHeight +HeightChar;
     end;
-    Result := New_Line + Result + templateDivClose;
+
+    s := templateDivOpen;
+    s := StringReplace(s, '~top'      , intToStr(top+5)   , [rfReplaceAll]);
+    s := StringReplace(s, '~left'     , intToStr(left)  , [rfReplaceAll]);
+    s := StringReplace(s, '~width'    , intToStr(width) , [rfReplaceAll]);
+    s := StringReplace(s, '~height' , intToStr(aHeight) , [rfReplaceAll]);
+
+
+    sTitle := StringReplace(templateSpan, '~Value' , Caption, [rfReplaceAll]);
+    Result := New_Line +
+              s+
+              sTitle+
+              Result+
+              New_Line;
+    Result := New_Line + Result+'</div>';
+
   end;
 end;
 

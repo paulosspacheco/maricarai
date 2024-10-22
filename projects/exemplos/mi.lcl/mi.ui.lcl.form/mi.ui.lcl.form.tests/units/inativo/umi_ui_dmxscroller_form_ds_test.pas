@@ -67,7 +67,7 @@ begin
       NewSItem('~Satus.:~\X '+ChFN+'status',
       NewSItem('~SEXO:~',
       NewSItem('~~\KA Indefinido '+chFN+'sexo',
-      NewSItem('~~\KA Maculino   ',
+      NewSItem('~~\KA Masculino   ',
       NewSItem('~~\KA Feminino   ',
       NewSItem('',
       aNext))))))))))));

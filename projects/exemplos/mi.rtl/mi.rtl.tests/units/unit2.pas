@@ -321,7 +321,7 @@ end;
 //             NewSItem('~       Estado: ~\SS'+ChFN+'Estado',
 //             NewSItem('',
 //             NewSItem('~~\Ka Indefinido '+chFN+'sexo',
-//             NewSItem('~~\Ka Maculino   ',
+//             NewSItem('~~\Ka Masculino   ',
 //             NewSItem('~~\Ka Feminino   ',
 //             NewSItem('',
 //             NewSItem('~~\Kb Casado    '+chFN+'EstadoCivil',

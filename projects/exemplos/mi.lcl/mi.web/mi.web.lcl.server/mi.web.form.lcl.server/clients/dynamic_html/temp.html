@@ -1,48 +1,24 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Formulário</title>
-    <style>
-        table {
-            width: 100%;
-            border-collapse: collapse;
-        }
-        td {
-            padding: 8px;
-            vertical-align: top;
-        }
-        .wide-input {
-            width: 80%;
-        }
-        .medium-input {
-            width: 50%;
-        }
-        .small-input {
-            width: 20%;
-        }
-    </style>
+  <title>Título</title>
 </head>
 <body>
-    <form>
-        <table>
-            <tr>
-                <td>Nome do aluno:</td>
-                <td><input type="text" class="wide-input" name="nomeAluno"></td>
-                <td>Idade:</td>
-                <td><input type="number" class="small-input" name="idade"></td>
-            </tr>
-            <tr>
-                <td>Endereço:</td>
-                <td><input type="text" class="wide-input" name="endereco"></td>
-                <td>Cidade:</td>
-                <td><input type="text" class="medium-input" name="cidade"></td>
-                <td>Estado:</td>
-                <td><input type="text" class="small-input" name="estado"></td>
-            </tr>
-        </table>
-        <button type="submit">Enviar</button>
-    </form>
+  <h1>Título</h1>
+  <div style="position: relative; top: 128px; left: 88px; width: 300px; height: 150px; border: 1px solid black; padding: 10px; border-radius: 5px;">
+    <span style="position: absolute; top: 10px; left: 10px; font-size: 20px; font-weight: bold;">Título da Div</span>
+    <div style="position: absolute; top: 50px; left: 0;">
+      <input type="radio" id="Indefinido" name="sexo" value="Indefinido" />
+      <label for="Indefinido">Indefinido</label>
+    </div>
+    <div style="position: absolute; top: 77px; left: 0;">
+      <input type="radio" id="Masculino" name="sexo" value="Masculino" />
+      <label for="Masculino">Masculino</label>
+    </div>
+    <div style="position: absolute; top: 104px; left: 0;">
+      <input type="radio" id="Feminino" name="sexo" value="Feminino" />
+      <label for="Feminino">Feminino</label>
+    </div>
+  </div>
 </body>
 </html>

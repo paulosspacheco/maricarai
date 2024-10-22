@@ -131,6 +131,7 @@ procedure TMi_lcl_ui_ds_Form.CreateForm();
         Then Result.Caption := aFristRadioGroupField^.FieldName;
       //        k:= 0;
         // Adiciona a lista de opções
+
         for i := j to DMXFields.Count-1 do
         begin
           p  := DMXFields[i];
@@ -143,10 +144,10 @@ procedure TMi_lcl_ui_ds_Form.CreateForm();
                    then begin
                           if Assigned(DmxScroller_Form.DataSource.DataSet.FindField(aFristRadioGroupField^.FieldName))
                           then begin
-                                 (Result as TMi_Ui_DbRadioGroup_Lcl).Items.Add(p^.Alias);
+                                 (Result as TMi_Ui_DbRadioGroup_Lcl).Items.Add(DelSpcED(p^.Alias));
                                end
                           else begin
-                                 (Result as TRadioGroup_mi_LCL).Items.Add(p^.Alias);
+                                 (Result as TRadioGroup_mi_LCL).Items.Add(DelSpcED(p^.Alias));
                                end;
                         end;
                  end;

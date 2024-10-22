@@ -49,8 +49,8 @@ export class MiMaskEdit extends MiMethods {
         let inputValue = event.target.value;
         const originalLength = inputValue.length;
 
-        try {
-            if (this.maskType === MiConsts.fldEnum || this.maskType === MiConsts.fldEnum_Db) {
+        try { 
+            if (this.maskType === MiConsts.fldEnum || this.maskType === MiConsts.fldEnum_Db || this.maskType === MiConsts.fldRadioButton ) {
                 this.createSelectForEnum(event.target);
                 return;
             }

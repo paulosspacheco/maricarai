@@ -392,7 +392,7 @@ begin
       NewSItem('~Casado?.:~\X '+ChFN+'casado',
 
       NewSItem('~sexo :~\Ks Indefinido '+chFN+'sexo',
-      NewSItem(         '\Ks Maculino   ',
+      NewSItem(         '\Ks Masculino   ',
       NewSItem(         '\Ks Feminino   ',
       NewSItem('~ ~',
       NewSItem('~     ~~ &Novo~'+ChEA+Novo.Name+

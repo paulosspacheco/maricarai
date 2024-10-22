@@ -225,17 +225,19 @@ function TCreate_MiEditForm_html.GetFieldSetContainer: String;
            then result := (LinkEdit as TDBLookupComboBox_mi_Lcl).GetHTMLContent
            else if (LinkEdit is TDbComboBox_mi_LCL)
                 then result := (LinkEdit as TDbComboBox_mi_LCL).GetHTMLContent
-                else if (LinkEdit is TMI_ui_DbRadioGroup_Lcl)
-                     then result := (LinkEdit as TMI_ui_DbRadioGroup_Lcl).GetHTMLContent
-                     else if (LinkEdit is TComboBox_mi_LCL)
-                          then result := (LinkEdit as TComboBox_mi_LCL).GetHTMLContent
-                          else if LinkEdit is TMaskEdit_mi_LCL
-                               Then result := (LinkEdit as TMaskEdit_mi_LCL).GetHTMLContent
-                               else if LinkEdit is TDBCheckBox_mi_Lcl
-                                    Then result := (LinkEdit as TDBCheckBox_mi_Lcl).GetHTMLContent
-                                    else if LinkEdit is TCheckBox_mi_Lcl
-                                         Then result := (LinkEdit as TCheckBox_mi_Lcl).GetHTMLContent
-                                         else result :=  '';//Raise TException.Create({$I %CURRENTROUTINE%},'Corrente campo não tem controle implementado!');
+                else if (LinkEdit is TRadiogroup_mi_lcl)
+                     then result := (LinkEdit as TRadiogroup_mi_lcl).GetHTMLContent
+                     else if (LinkEdit is TMI_ui_DbRadioGroup_Lcl)
+                          then result := (LinkEdit as TMI_ui_DbRadioGroup_Lcl).GetHTMLContent
+                          else if (LinkEdit is TComboBox_mi_LCL)
+                               then result := (LinkEdit as TComboBox_mi_LCL).GetHTMLContent
+                               else if LinkEdit is TMaskEdit_mi_LCL
+                                    Then result := (LinkEdit as TMaskEdit_mi_LCL).GetHTMLContent
+                                    else if LinkEdit is TDBCheckBox_mi_Lcl
+                                         Then result := (LinkEdit as TDBCheckBox_mi_Lcl).GetHTMLContent
+                                         else if LinkEdit is TCheckBox_mi_Lcl
+                                              Then result := (LinkEdit as TCheckBox_mi_Lcl).GetHTMLContent
+                                              else result :=  '';//Raise TException.Create({$I %CURRENTROUTINE%},'Corrente campo não tem controle implementado!');
     end;
   end;
 

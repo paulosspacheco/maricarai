@@ -19,8 +19,6 @@ unit uRadiogroup_mi_lcl;
        - T12 - Criar método Procedure GetBuffer; ✅
        - T12 - Criar evento Procedure DoOnEnter; ✅
        - T12 - Criar evento Procedure DoOnExit;  ✅
-
-
    }
 
 
@@ -34,6 +32,7 @@ interface
 uses
   Classes, SysUtils, LResources, Forms, Controls, Graphics, Dialogs, ExtCtrls,StrUtils
   ,ActnList
+  ,mi.rtl.all
   ,mi_rtl_ui_DmxScroller
   ,mi_rtl_ui_DmxScroller_Form
 
@@ -105,6 +104,7 @@ type
       public property DmxFieldRec: pDmxFieldRec Read _pDmxFieldRec   Write  SeTDmxFieldRec;
     {$ENDREGION}
 
+    function GetHTMLContent: String;
 
   end;
 
@@ -303,5 +303,66 @@ begin
   Finally
   end;
 end;
+
+function TRadiogroup_mi_lcl.GetHTMLContent: String;
+  const
+    templateDivOpen = ''+
+      '<div style="position: absolute; top: ~toppx; left: ~leftpx; width: ~widthpx; height:~heightpx; border: 1px solid black; padding: 10px;border-radius: 5px;">'+Tmi_rtl.New_Line;
+      //</div>
+
+    templateSpan = ''+
+  //      '<span style="position: absolute; top: 10px; left: 10px; font-size: 20px; font-weight: bold;">~Value</span>'+Tmi_rtl.New_Line;
+    '<span style="position: absolute; top: 10px; left: 10px; font-size: 15px; font-weight: bold;">~Value</span>'+Tmi_rtl.New_Line;
+
+
+    templateInput = ''+
+      '  <input type="radio" id="~Value" name="~FieldName" value="~Value" data-mask-type="~DataMaskType" data-mask="~DataMask" '+
+         'style="position: absolute; top:~toppx; left:5px; width:20px;"/>'+Tmi_rtl.New_Line+
+      '  <label for="~Value" style="position: absolute; top:~toppx; left:25px;">~Value</label>';
+
+    //templateDivClose ='</div>';
+
+
+    var
+      s,sItem,sTitle : string;
+      i,aTop,aHeight : integer;
+
+  begin
+  with DmxFieldRec^,owner_UiDmxScroller do
+  begin
+    result := '';
+    aTop := 25;
+    aHeight := HeightChar;
+    for I := 0 to Items.Count-1 do
+    begin
+      sItem := DelSpcED( Items[I]);
+      s := templateInput;
+      s := StringReplace(s, '~Value', sItem , [rfReplaceAll]);
+      s := StringReplace(s, '~top'      , intToStr(atop)   , [rfReplaceAll]);
+      s := StringReplace(s, '~FieldName' , FieldName       , [rfReplaceAll]);
+      s := StringReplace(s, '~DataMaskType',  typeCode  , [rfReplaceAll]);
+      s := StringReplace(s, '~DataMask'    , Template_org    , [rfReplaceAll]);
+      Result := Result+s+New_Line;
+      aTop := aTop+HeightChar;
+      aHeight := aHeight +HeightChar;
+    end;
+
+    s := templateDivOpen;
+    s := StringReplace(s, '~top'      , intToStr(top+5)   , [rfReplaceAll]);
+    s := StringReplace(s, '~left'     , intToStr(left)  , [rfReplaceAll]);
+    s := StringReplace(s, '~width'    , intToStr(width) , [rfReplaceAll]);
+    s := StringReplace(s, '~height' , intToStr(aHeight) , [rfReplaceAll]);
+
+
+    sTitle := StringReplace(templateSpan, '~Value' , Caption, [rfReplaceAll]);
+    Result := New_Line +
+              s+
+              sTitle+
+              Result+
+              New_Line;
+    Result := New_Line + Result+'</div>';
+
+  end;
+  end;
 
 end.

@@ -616,7 +616,7 @@ uses
                      Resourcestring
 
                        ^A~~\Ka Indefinido ^Bsexo^N+'O campo sexo é necessário para....';
-                       ^A~~\Ka Maculino   ^Bsexo
+                       ^A~~\Ka Masculino   ^Bsexo
                        ^A~~\Ka Feminino   ^Bsexo
                   ```
 
@@ -4268,12 +4268,14 @@ implementation
                      if IsBoolean
                      then Value := aDataField.AsBoolean
                      else Value := aDataField.Value;
+                     //s:= value;
                    end
               else begin
                      // Atribuir um valor padrão quando for nulo
                      if IsBoolean
                      then Value := False
                      else Value := '';  // ou outro valor padrão
+                     //s:= value;
                    end;
             end;
     end;
@@ -4338,9 +4340,11 @@ implementation
                      end
                 else begin
 //s := aDataField.AsAnsiString;
+
                        if IsBoolean
                        then aDataField.AsBoolean := Value
                        else aDataField.Value     := Value;
+                       //s:= aDataField.AsAnsiString;
                        //aDataField.AsAnsiString := Value
                      end;
              end;
@@ -7334,7 +7338,7 @@ implementation
                       V := fld^.AsString;
                       if s<>V
                       Then begin
-                             fld^.AsString := S;
+                             fld^.AsString := s;
                              OkAlterou := true;
                           end;
                     end;
