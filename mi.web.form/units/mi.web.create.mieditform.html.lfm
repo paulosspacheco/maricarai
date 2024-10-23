@@ -13,7 +13,7 @@ object Create_MiEditForm_html: TCreate_MiEditForm_html
     ParamValueSeparator = '='
     AllowTagParams = True
     OnHTMLTag_Undefined = PageProducer_MiEditFormHTMLTag_Undefined
-    Left = 80
-    Top = 24
+    Left = 128
+    Top = 16
   end
 end

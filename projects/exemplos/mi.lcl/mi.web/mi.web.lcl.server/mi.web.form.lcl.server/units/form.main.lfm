@@ -39,10 +39,9 @@ object FormMain: TFormMain
       Caption = 'CmForm_Mi_Rtl_WebModule'
       OnExecute = CmForm_Mi_Rtl_WebModuleExecute
     end
-  end
-  object Mi_lcl_ui_ds_Form1: TMi_lcl_ui_ds_Form
-    Active = False
-    Left = 112
-    Top = 88
+    object CmForm_Mi_Rtl_WebModule2: TAction
+      Caption = 'CmForm_Mi_Rtl_WebModule2'
+      OnExecute = CmForm_Mi_Rtl_WebModule2Execute
+    end
   end
 end

@@ -4304,24 +4304,24 @@ implementation
 
         if not Assigned(aDataField)
         Then begin
-               writeln('Raise TException.Create(',{$I %CURRENTROUTINE%});   exit;
-  //           Raise TException.Create({$I %CURRENTROUTINE%},'Campo destino não pode ser nil!');
+               //writeln('Raise TException.Create(',{$I %CURRENTROUTINE%});   exit;
+               Raise TException.Create({$I %CURRENTROUTINE%},'Campo destino não pode ser nil!');
              end;
 
         If (not aDataField.dataSet.CanModify) or
            (Not aDataField.CanModify) or
            (Not (aDataField.dataset.State in [dsInsert,dsEdit]))
         Then begin
-                writeln('Raise TException.Create(',{$I %CURRENTROUTINE%});    exit;
-               //Raise TException.Create({$I %CURRENTROUTINE%},'DataSet não está no modo DsEdit ou DsInsert, por isso não pode ser atualizado.');
+                //writeln('Raise TException.Create(',{$I %CURRENTROUTINE%});    exit;
+               Raise TException.Create({$I %CURRENTROUTINE%},'DataSet não está no modo DsEdit ou DsInsert, por isso não pode ser atualizado.');
              end;
 
         if aDataField.DataType in [ftDate,ftTime,ftDateTime]
         then begin
                if not IsData
                Then begin
-                      writeln('Raise TException.Create(',{$I %CURRENTROUTINE%});    exit;
-                      //Raise TException.Create({$I %CURRENTROUTINE%},'Algo errado tipos inválidos!');
+                      //writeln('Raise TException.Create(',{$I %CURRENTROUTINE%});    exit;
+                      Raise TException.Create({$I %CURRENTROUTINE%},'Algo errado tipos inválidos!');
 
                     end;
                s := Value;

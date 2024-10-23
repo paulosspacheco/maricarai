@@ -42,6 +42,7 @@ begin
   with TMi_web_js_Form.Create(self) do
   begin
     Mi_lcl_ui_ds_Form := Mi_lcl_ui_ds_Form1;
+    DataModule        := mi_rtl_web_module;
     CreateForm();
     free;
   end;

@@ -454,8 +454,11 @@ end;
 
 destructor TDbEdit_mi_LCL.Destroy;
 begin
-  _pDmxFieldRec.LinkEdit:= nil;
-  _pDmxFieldRec := nil;
+  if Assigned(_pDmxFieldRec)
+  then begin
+         _pDmxFieldRec.LinkEdit:= nil;
+         _pDmxFieldRec := nil;
+       end;
   inherited Destroy;
 end;
 

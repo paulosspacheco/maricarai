@@ -110,12 +110,87 @@
         <ResourceBaseClass Value="Form"/>
       </Unit>
       <Unit>
-        <Filename Value="clients/dynamic_html/templates/MiEditFormFields.html"/>
+        <Filename Value="clients/dynamic_html/templates/MiEditForm.html"/>
         <IsPartOfProject Value="True"/>
       </Unit>
       <Unit>
-        <Filename Value="clients/dynamic_html/templates/MiEditForm.html"/>
+        <Filename Value="clients/dynamic_html/js/MiThemeDialog.js"/>
         <IsPartOfProject Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="clients/dynamic_html/js/MiMethods.js"/>
+        <IsPartOfProject Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="clients/dynamic_html/js/MiMaskEdit.js"/>
+        <IsPartOfProject Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="clients/dynamic_html/js/MiInputBox.js"/>
+        <IsPartOfProject Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="clients/dynamic_html/js/MiEditForm.md"/>
+        <IsPartOfProject Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="clients/dynamic_html/js/MiEditForm.js"/>
+        <IsPartOfProject Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="clients/dynamic_html/js/MiDialogs.js"/>
+        <IsPartOfProject Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="clients/dynamic_html/js/MiDates.js"/>
+        <IsPartOfProject Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="clients/dynamic_html/js/MiConsts.js"/>
+        <IsPartOfProject Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="clients/dynamic_html/css/MiEditForm.css"/>
+        <IsPartOfProject Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="clients/dynamic_html/css/color_tons_de_verde_claro.css"/>
+        <IsPartOfProject Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="clients/dynamic_html/css/color_tons_de_lilas_claro.css"/>
+        <IsPartOfProject Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="clients/dynamic_html/css/color_tons_de_dark_claro.css"/>
+        <IsPartOfProject Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="clients/dynamic_html/css/color_tons_de_cinza.css"/>
+        <IsPartOfProject Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="clients/dynamic_html/css/color_tons_de_azul_ceu.css"/>
+        <IsPartOfProject Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="clients/dynamic_html/css/color_tons_dark.css"/>
+        <IsPartOfProject Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="clients/dynamic_html/css/color_tons_amarelo.css"/>
+        <IsPartOfProject Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="clients/dynamic_html/Tmi_rtl_web_module.form.html"/>
+        <IsPartOfProject Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="units/mi.rtl.web.module.form2.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="mi_rtl_web_module_form2"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
       </Unit>
     </Units>
   </ProjectOptions>

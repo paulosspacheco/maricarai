@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulário Dinâmico</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            width: 80%;
+            margin: auto;
+        }
+        label {
+            display: inline-block;
+            width: 150px;
+            font-weight: bold;
+        }
+        input[type="text"],
+        input[type="number"],
+        input[type="date"],
+        input[type="time"],
+        select {
+            width: 300px;
+            padding: 5px;
+            margin: 5px 0;
+        }
+        .field {
+            margin-bottom: 10px;
+        }
+        .buttons {
+            margin: 20px 0;
+        }
+        button {
+            padding: 10px 20px;
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Formulário Dinâmico</h1>
+
+    <div class="buttons">
+        <button id="novo">➕ Novo</button>
+        <button id="gravar">✔️ Gravar</button>
+        <button id="pesquisar">🔍 Pesquisar</button>
+        <button id="excluir">❌ Excluir</button>
+        <button id="cancelar">✖️ Cancelar</button>
+        <button id="primeiro">⏮️ Primeiro</button>
+        <button id="anterior">⏪ Anterior</button>
+        <button id="proximo">⏩ Próximo</button>
+        <button id="ultimo">⏭️ Último</button>
+        <button id="atualizar">🔄 Atualizar</button>
+    </div>
+
+    <form>
+        <label for="unidade">Escolha a unidade de medida:</label>
+        <select id="unidade" name="unidade">
+            <option value="0">Centímetros</option>
+            <option value="1">Metro</option>
+            <option value="2">Km</option>
+        </select>
+                
+        <div class="field">
+            <label for="id">ID:</label>
+            <input type="number" id="id" name="id">
+        </div>
+
+        <div class="field">
+            <label for="nome">Nome do Aluno:</label>
+            <input type="text" id="nome" name="nome" maxlength="40">
+        </div>
+
+        <div class="field">
+            <label for="endereco">Endereço:</label>
+            <input type="text" id="endereco" name="endereco" maxlength="60">
+        </div>
+
+        <div class="field">
+            <label for="cep">CEP:</label>
+            <input type="text" id="cep" name="cep" pattern="\d{5}-\d{3}" title="Formato: 12345-678">
+        </div>
+
+        <div class="field">
+            <label for="cidade">Cidade:</label>
+            <input type="text" id="cidade" name="cidade" maxlength="30">
+        </div>
+
+        <div class="field">
+            <label for="estado">Estado:</label>
+            <input type="text" id="estado" name="estado" maxlength="2">
+        </div>
+
+        <div class="field">
+            <label for="idade">Idade:</label>
+            <input type="number" id="idade" name="idade" min="1" max="64">
+        </div>
+
+        <div class="field">
+            <label for="valor">Valor:</label>
+            <input type="text" id="valor" name="valor" pattern="R\$ \d{1,3}(,\d{3})*\.\d{2}" title="Formato: R$ 999,999.99">
+        </div>
+
+        <div class="field">
+            <label for="vencimento">Vencimento:</label>
+            <input type="date" id="vencimento" name="vencimento">
+        </div>
+
+        <div class="field">
+            <label for="tipo_midia">Tipo de Mídia:</label>
+            <input type="text" id="tipo_midia" name="tipo_midia">
+        </div>
+
+        <div class="field">
+            <label for="senha">Senha:</label>
+            <input type="password" id="senha" name="senha" maxlength="15">
+        </div>
+
+        <div class="field">
+            <label for="qt">Quantidade:</label>
+            <input type="number" id="qt" name="qt" step="1" max="999">
+        </div>
+
+        <div class="field">
+            <label for="unidade">Unidade:</label>
+            <input type="text" id="unidade" name="unidade">
+        </div>
+
+        <div class="field">
+            <label for="preco">Preço:</label>
+            <input type="text" id="preco" name="preco" pattern="\d{1,3}(,\d{3})*\.\d{2}" title="Formato: 999,999.99">
+        </div>
+
+        <div class="field">
+            <label for="total">Total:</label>
+            <input type="text" id="total" name="total" pattern="\d{1,3}(,\d{3})*\.\d{2}" title="Formato: 999,999,999.99">
+        </div>
+
+        <div class="field">
+            <label for="cor">Cor:</label>
+            <input type="text" id="cor" name="cor">
+        </div>
+
+        <div class="field">
+            <label for="versao">Versão:</label>
+            <input type="text" id="versao" name="versao" pattern="\d{2}\.\d{2}\.\d{2}\.\d{4}" title="Formato: 99.99.99.9999">
+        </div>
+
+        <div class="field">
+            <label>Tipo Boolean:</label>
+            <div>
+                <input type="checkbox" id="AnsiView" name="AnsiView">
+                <label for="AnsiView">AnsiView</label>
+            </div>
+            <div>
+                <input type="checkbox" id="Blaise" name="Blaise">
+                <label for="Blaise">Blaise</label>
+            </div>
+            <div>
+                <input type="checkbox" id="Btrieve" name="Btrieve">
+                <label for="Btrieve">Btrieve</label>
+            </div>
+        </div>
+
+        <div class="field">
+            <label>Sexo:</label>
+            <div>
+                <input type="radio" id="indefinido" name="sexo" value="indefinido">
+                <label for="indefinido">Indefinido</label>
+            </div>
+            <div>
+                <input type="radio" id="masculino" name="sexo" value="masculino">
+                <label for="masculino">Masculino</label>
+            </div>
+            <div>
+                <input type="radio" id="feminino" name="sexo" value="feminino">
+                <label for="feminino">Feminino</label>
+            </div>
+        </div>
+
+        <div class="field">
+            <label>Estado Civil:</label>
+            <div>
+                <input type="radio" id="casado" name="estado_civil" value="casado">
+                <label for="casado">Casado</label>
+            </div>
+            <div>
+                <input type="radio" id="solteiro" name="estado_civil" value="solteiro">
+                <label for="solteiro">Solteiro</label>
+            </div>
+            <div>
+                <input type="radio" id="divorciado" name="estado_civil" value="divorciado">
+                <label for="divorciado">Divorciado</label>
+            </div>
+        </div>
+
+        <div class="field">
+            <label for="ddmmyy">Data (dd/mm/yy):</label>
+            <input type="text" id="ddmmyy" name="ddmmyy" pattern="\d{2}/\d{2}/\d{2}" title="Formato: dd/mm/yy">
+        </div>
+
+        <div class="field">
+            <label for="ddmmyyyy">Data (dd/mm/yyyy):</label>
+            <input type="text" id="ddmmyyyy" name="ddmmyyyy" pattern="\d{2}/\d{2}/\d{4}" title="Formato: dd/mm/yyyy">
+        </div>
+
+        <div class="field">
+            <label for="hhnnss">Hora (hh:nn:ss):</label>
+            <input type="text" id="hhnnss" name="hhnnss" pattern="\d{2}:\d{2}:\d{2}" title="Formato: hh:nn:ss">
+        </div>
+
+        <div class="field">
+            <label for="gasto">Gasto:</label>
+            <input type="text" id="gasto" name="gasto" pattern="R\$ \d{1,3}(,\d{3})*\.\d{2}" title="Formato: R$ 999,999.99">
+        </div>
+
+        <div class="buttons">
+            <button type="submit">Enviar</button>
+            <button type="reset">Limpar</button>
+        </div>
+    </form>
+</div>
+
+</body>
+</html>

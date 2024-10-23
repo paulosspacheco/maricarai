@@ -10,7 +10,7 @@ inherited mi_rtl_web_module: Tmi_rtl_web_module
     onEnterField = DmxScroller_Form1EnterField
     onExitField = DmxScroller_Form1ExitField
     onGetTemplate = DmxScroller_Form1GetTemplate
-    TableName = 'Mi_rtl_WebModule'
+    TableName = 'Mi_rtl_Web_Module'
     onBeforeInsert = DmxScroller_Form1BeforeInsert
     onBeforeUpdate = DmxScroller_Form1BeforeUpdate
     OnCalcFields = DmxScroller_Form1CalcFields

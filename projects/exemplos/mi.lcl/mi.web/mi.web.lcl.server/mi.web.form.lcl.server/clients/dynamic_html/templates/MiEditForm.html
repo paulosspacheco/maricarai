@@ -65,7 +65,7 @@
             
         document.addEventListener('DOMContentLoaded', () => {
         // Inicializa a instância do MiEditForm e armazena em uma variável
-        const formInstance = new MiEditForm('<!--#DmxScroller_Form_Name#-->', '<!--#FieldsKeys#-->');
+        const formInstance = new MiEditForm(MiEditForm.GetBaseUrl(),'<!--#DmxScroller_Form_Name#-->', '<!--#FieldsKeys#-->');
 
         // Exemplo: Chamar showMessage após 1 segundos ou após um evento específico
         //setTimeout(() => { formInstance.showMessage('Esta é uma mensagem de teste!');  }, 1000); // 1 segundos           

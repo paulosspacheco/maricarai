@@ -35,6 +35,7 @@ interface
 uses
   Classes, SysUtils, LResources, Forms, Controls, Graphics, Dialogs, DBCtrls
   ,ActnList
+  ,db
   ,mi_rtl_ui_DmxScroller
   ,mi_rtl_ui_DmxScroller_Form
   //,umi_lcl_ui_dmxscroller_form_attributes
@@ -150,12 +151,25 @@ begin
 end;
 
 procedure TMI_ui_DbRadioGroup_Lcl.GetBuffer;
+  Var ix : Integer;
+       s : string;
 begin
   if DmxFieldRec <> nil
-  then DmxFieldRec^.CopyTo(Field)
+  then begin
+         If (not Field.dataSet.CanModify) or
+            (Not Field.CanModify) or
+            (Not (Field.dataset.State in [dsInsert,dsEdit]))
+         then exit;
+
+         DmxFieldRec^.CopyTo(Field);
+         s:= field.Value;
+         ix := Items.IndexOf(field.Value);
+         if ix >=0
+         Then ItemIndex := ix;
+         Show;
+       end
   else Raise Tmi_rtl.TException.Create(Self,{$I %CURRENTROUTINE%},'Ponteiro para DmxFieldRec não inicializado!');
-  ItemIndex := Items.IndexOf(field.Value);
-  Show;
+
 end;
 
 procedure TMI_ui_DbRadioGroup_Lcl.DoOnEnter(Sender: TObject);

@@ -57,6 +57,7 @@ A permissão é concedida, gratuitamente, a qualquer pessoa que obtenha uma cóp
       </Item>
       <Item>
         <Filename Value="units/mi.web.create.mieditform.html.pas"/>
+        <HasRegisterProc Value="True"/>
         <UnitName Value="Mi.Web.Create.MiEditForm.html"/>
       </Item>
       <Item>

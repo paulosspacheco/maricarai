@@ -20,6 +20,8 @@ begin
   RegisterUnit('mi.web.fphttpserver', @mi.web.fphttpserver.Register);
   RegisterUnit('mi.web.dmxscroller.form.rest.client', 
     @mi.web.dmxscroller.form.rest.client.Register);
+  RegisterUnit('Mi.Web.Create.MiEditForm.html', 
+    @Mi.Web.Create.MiEditForm.html.Register);
 end;
 
 initialization

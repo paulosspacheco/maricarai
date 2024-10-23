@@ -46,7 +46,7 @@ unit Mi.Web.Create.MiEditForm.html;
 interface
 
 uses
-  Classes, SysUtils,StrUtils,db
+  Classes, SysUtils,StrUtils,db,LResources
   , mi.rtl.objects.methods.pageproducer
   , mi_rtl_ui_Dmxscroller
   , mi_rtl_ui_dmxscroller_form
@@ -127,9 +127,6 @@ type
                   '<option value="2">Km</option>'
               '</select>'
 
-
-
-
           ```
 
        -
@@ -137,8 +134,7 @@ type
 
   }
   TCreate_MiEditForm_html = class(TDataModule)
-    published
-      PageProducer_MiEditForm: TPageProducer;
+    published PageProducer_MiEditForm: TPageProducer;
 //      procedure PageProducer_MiEditFormFieldsHTMLTag_Undefined(Sender: TObject;const TagString: string; TagParams: TStrings; var ReplaceText: string);
 
       procedure PageProducer_MiEditFormHTMLTag_Undefined(Sender: TObject;const TagString: string; TagParams: TStrings; var ReplaceText: string);
@@ -149,7 +145,7 @@ type
       {: A propriedade **@name** fornece todos os recursos necessários para criar a página
          html.
       }
-      public property Mi_web_js_Form : TMi_web_js_Form read _Mi_web_js_Form write _Mi_web_js_Form;
+      published property Mi_web_js_Form : TMi_web_js_Form read _Mi_web_js_Form write _Mi_web_js_Form;
     {$ENDREGION 'Construção Propriedade DmxScroller_Form'}
 
     private var _temp_PathRaiz:String;
@@ -178,6 +174,17 @@ type
      public constructor Create(AOwner: TComponent); override;
      public destructor destroy; override;
 
+     {$REGION 'Construção Propriedade DataModule'}
+       private public _DataModule   : TDataModule;
+
+       public Procedure Set_DataModule(a_DataModule: TDataModule);
+
+       {: A propriedade **@name** fornece todos os recursos necessários para criar a página
+          html.
+       }
+       published property DataModule : TDataModule read _DataModule write Set_DataModule;
+     {$ENDREGION 'Construção Propriedade DataModule'}
+
 
      {$REGION 'Construção Propriedade Mi_lcl_ui_ds_Form'}
        private public _Mi_lcl_ui_ds_Form   : TMi_lcl_ui_ds_Form;
@@ -187,7 +194,7 @@ type
        {: A propriedade **@name** fornece todos os recursos necessários para criar a página
           html.
        }
-       public property Mi_lcl_ui_ds_Form : TMi_lcl_ui_ds_Form read _Mi_lcl_ui_ds_Form write Set_Mi_lcl_ui_ds_Form;
+       published property Mi_lcl_ui_ds_Form : TMi_lcl_ui_ds_Form read _Mi_lcl_ui_ds_Form write Set_Mi_lcl_ui_ds_Form;
      {$ENDREGION 'Construção Propriedade DmxScroller_Form'}
 
 
@@ -200,7 +207,20 @@ type
 
 //resourcestring
 
+
+procedure Register;
+
 implementation
+
+procedure Register;
+begin
+  {$I mi.web.create.mieditform.html_icon.lrs}
+  RegisterComponents('Mi.Web',[TMi_web_js_Form]);
+  Tmi_rtl.UnlistPublishedProperty(TMi_web_js_Form,'Active');
+  Tmi_rtl.UnlistPublishedProperty(TMi_web_js_Form,'Alias');
+  Tmi_rtl.UnlistPublishedProperty(TMi_web_js_Form,'DmxScroller_Form');
+  Tmi_rtl.UnlistPublishedProperty(TMi_web_js_Form,'ParentLCL');
+end;
 
 {$R *.lfm}
 
@@ -211,33 +231,30 @@ implementation
 function TCreate_MiEditForm_html.GetFieldSetContainer: String;
 
   function GetHTMLContent: String;
-    //Var
-    //  typ,s:String;
   begin
     with Mi_web_js_Form.Mi_lcl_ui_ds_Form.DmxScroller_Form,CurrentField^ do
     begin
       if LinkEdit is TLabel_mi_lcl
       Then result := (LinkEdit as TLabel_mi_lcl).GetHTMLContent
-      else
-      if LinkEdit is TDbEdit_mi_LCL
-      Then result := (LinkEdit as TDbEdit_mi_LCL).GetHTMLContent
-      else if LinkEdit is TDBLookupComboBox_mi_Lcl
-           then result := (LinkEdit as TDBLookupComboBox_mi_Lcl).GetHTMLContent
-           else if (LinkEdit is TDbComboBox_mi_LCL)
-                then result := (LinkEdit as TDbComboBox_mi_LCL).GetHTMLContent
-                else if (LinkEdit is TRadiogroup_mi_lcl)
-                     then result := (LinkEdit as TRadiogroup_mi_lcl).GetHTMLContent
-                     else if (LinkEdit is TMI_ui_DbRadioGroup_Lcl)
-                          then result := (LinkEdit as TMI_ui_DbRadioGroup_Lcl).GetHTMLContent
-                          else if (LinkEdit is TComboBox_mi_LCL)
-                               then result := (LinkEdit as TComboBox_mi_LCL).GetHTMLContent
-                               else if LinkEdit is TMaskEdit_mi_LCL
-                                    Then result := (LinkEdit as TMaskEdit_mi_LCL).GetHTMLContent
-                                    else if LinkEdit is TDBCheckBox_mi_Lcl
-                                         Then result := (LinkEdit as TDBCheckBox_mi_Lcl).GetHTMLContent
-                                         else if LinkEdit is TCheckBox_mi_Lcl
-                                              Then result := (LinkEdit as TCheckBox_mi_Lcl).GetHTMLContent
-                                              else result :=  '';//Raise TException.Create({$I %CURRENTROUTINE%},'Corrente campo não tem controle implementado!');
+      else if LinkEdit is TDbEdit_mi_LCL
+           Then result := (LinkEdit as TDbEdit_mi_LCL).GetHTMLContent
+           else if LinkEdit is TDBLookupComboBox_mi_Lcl
+                then result := (LinkEdit as TDBLookupComboBox_mi_Lcl).GetHTMLContent
+                else if (LinkEdit is TDbComboBox_mi_LCL)
+                     then result := (LinkEdit as TDbComboBox_mi_LCL).GetHTMLContent
+                     else if (LinkEdit is TRadiogroup_mi_lcl)
+                          then result := (LinkEdit as TRadiogroup_mi_lcl).GetHTMLContent
+                          else if (LinkEdit is TMI_ui_DbRadioGroup_Lcl)
+                               then result := (LinkEdit as TMI_ui_DbRadioGroup_Lcl).GetHTMLContent
+                               else if (LinkEdit is TComboBox_mi_LCL)
+                                    then result := (LinkEdit as TComboBox_mi_LCL).GetHTMLContent
+                                    else if LinkEdit is TMaskEdit_mi_LCL
+                                         Then result := (LinkEdit as TMaskEdit_mi_LCL).GetHTMLContent
+                                         else if LinkEdit is TDBCheckBox_mi_Lcl
+                                              Then result := (LinkEdit as TDBCheckBox_mi_Lcl).GetHTMLContent
+                                              else if LinkEdit is TCheckBox_mi_Lcl
+                                                   Then result := (LinkEdit as TCheckBox_mi_Lcl).GetHTMLContent
+                                                   else result :=  '';//Raise TException.Create({$I %CURRENTROUTINE%},'Corrente campo não tem controle implementado!');
     end;
   end;
 
@@ -264,9 +281,8 @@ begin
                  //and (Fieldnum<>0)
                  and (LinkEdit<>nil)
               then begin
-                     Result := Result + GetHTMLContent+New_Line;//+'<br>';
+                     Result := Result + GetHTMLContent+New_Line;
                    end;
-
               if CurrentField <> nil
               Then CurrentField := Next;
             end;
@@ -300,6 +316,7 @@ begin
 end;
 
 procedure TCreate_MiEditForm_html.PageProducer_MiEditFormHTMLTag_Undefined(Sender: TObject; const TagString: string; TagParams: TStrings;var ReplaceText: string);
+
   var
     i: integer;
     s: string;
@@ -307,11 +324,20 @@ procedure TCreate_MiEditForm_html.PageProducer_MiEditFormHTMLTag_Undefined(Sende
     valueKeys:Variant;
 begin
   //   Mapa_site.get_Contudo;
-  with PageProducer_MiEditForm,TMi_rtl,Mi_web_js_Form.Mi_lcl_ui_ds_Form.DmxScroller_Form do
+  with PageProducer_MiEditForm,TMi_rtl,Mi_web_js_Form,Mi_lcl_ui_ds_Form.DmxScroller_Form do
   begin
     i := AnsiIndexStr(UpperCase(TagString),
-      ['TITLE', 'CREATEDATE', 'CREATEDATEUPDATE', 'DESCRIPTION', 'KEYWORDS',
-       'FIELDSET-CONTAINER','MENU','AUTHOR','DMXSCROLLER_FORM_NAME','FIELDSKEYS']);
+      ['TITLE',
+      'CREATEDATE',
+      'CREATEDATEUPDATE',
+      'DESCRIPTION',
+      'KEYWORDS',
+      'FIELDSET-CONTAINER',
+      'MENU',
+      'AUTHOR',
+      'DMXSCROLLER_FORM_NAME',
+      'FIELDSKEYS']
+      );
     case i of
       0: begin {'TITLE' }
            ReplaceText := ChangeSubStr('_',' ',TableName );
@@ -339,8 +365,11 @@ begin
       7: begin {AUTHOR}
            ReplaceText := 'Paulo Pacheco';
          end;
-      8: begin {DMXSCROLLER_FORM}
-           ReplaceText := TableName;
+      8: begin {DmxScroller_Form_Name}
+           //ReplaceText :=  TableName;
+           if Assigned(Mi_web_js_Form.DataModule)
+           then ReplaceText := Mi_web_js_Form.DataModule.ClassName
+           else raise TMi_rtl.TException.Create(self,{$I %CURRENTROUTINE%},'A propriedade Mi_web_js_Form.DataModule não definida!');
          end;
       9: begin {'FieldsKeys' }
            ReplaceText := getFieldsKeys(valueKeys);
@@ -388,6 +417,12 @@ destructor TMi_web_js_Form.destroy;
 begin
   DestroyForm();
   inherited destroy;
+end;
+
+procedure TMi_web_js_Form.Set_DataModule(a_DataModule: TDataModule);
+begin
+  if _DataModule<>a_DataModule
+  Then _DataModule := a_DataModule;
 end;
 
 procedure TMi_web_js_Form.Set_Mi_lcl_ui_ds_Form(a_Mi_lcl_ui_ds_Form: TMi_lcl_ui_ds_Form);

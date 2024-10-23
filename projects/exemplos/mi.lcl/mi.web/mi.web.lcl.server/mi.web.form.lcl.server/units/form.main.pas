@@ -9,7 +9,8 @@ uses
   ExtCtrls, ActnList, fphttpclient, fpjson, jsonparser
   ,mi.rtl.treenode
 
-  ,umi_lcl_ui_ds_form, form.server, mi.rtl.web.module.form
+  ,umi_lcl_ui_ds_form, form.server, mi.rtl.web.module.form,
+  mi.rtl.web.module.form2
   ;
 
 type
@@ -17,12 +18,13 @@ type
   { TFormMain }
 
   TFormMain = class(TForm)
+     CmForm_Mi_Rtl_WebModule2: TAction;
      CmForm_Mi_Rtl_WebModule: TAction;
      CmForm_Server: TAction;
      ActionList1: TActionList;
-     Mi_lcl_ui_ds_Form1: TMi_lcl_ui_ds_Form;
      Panel1: TPanel;
      TreeView1: TTreeView;
+     procedure CmForm_Mi_Rtl_WebModule2Execute(Sender: TObject);
      procedure CmForm_Mi_Rtl_WebModuleExecute(Sender: TObject);
      procedure CmForm_ServerExecute(Sender: TObject);
      procedure FormCreate(Sender: TObject);
@@ -63,6 +65,7 @@ begin
   try
     RootNode.AddChildAction('Server', CmForm_Server);
     RootNode.AddChildAction('Server/Form_Mi_Rtl_WebModule',CmForm_Mi_Rtl_WebModule);
+    RootNode.AddChildAction('Server/Form_Mi_Rtl_WebModule2',CmForm_Mi_Rtl_WebModule2);
     TMi_lcl_ui_ds_Form.PopulateTreeViewFromTMi_rtl_treenode(RootNode,TreeView1,nil);
     TreeView1.FullExpand;
   finally
@@ -97,6 +100,11 @@ end;
 procedure TFormMain.CmForm_Mi_Rtl_WebModuleExecute(Sender: TObject);
 begin
   TMi_lcl_ui_ds_Form.ShowModal(Tmi_rtl_web_module_form);
+end;
+
+procedure TFormMain.CmForm_Mi_Rtl_WebModule2Execute(Sender: TObject);
+begin
+  TMi_lcl_ui_ds_Form.ShowModal(Tmi_rtl_web_module_form2);
 end;
 
 
