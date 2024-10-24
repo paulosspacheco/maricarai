@@ -265,28 +265,38 @@ label {
     align-items: center;
     justify-content: center;
 }
-
+  
 /* Estilizando a caixa de diálogo */
+.dialog {
+    display: flex;
+    flex-direction: column; /* ou row, dependendo do layout desejado */
+    align-items: flex-start; /* Alinha os filhos no início do contêiner */
+}
+
 .dialog-box {
     background-color: var(--dialog-box-bg-color);
     color: var(--dialog-box-text-color);
     padding: 20px;
     border-radius: 10px;
     text-align: center;
-    box-shadow: var(--dialog-box-shadow); /* Usando a variável para a sombra */
-    max-width: 300px;
-    width: 100%;
+    box-shadow: var(--dialog-box-shadow);
+    max-width: 600px; /* Aumente conforme necessário */
+    width: 100%; /* Mantém 100% do espaço disponível do pai */
+    box-sizing: border-box; /* Inclui padding e border no cálculo da largura */
     max-height: 80vh; /* Limita a altura da caixa de diálogo a 80% da altura da tela */
     overflow-y: auto; /* Adiciona scroll vertical se o conteúdo ultrapassar a altura */
+    overflow-x: auto; /* Adiciona scroll horizontal se o conteúdo ultrapassar a largura */    
 }
 
 /* Estilizando os rótulos na caixa de diálogo */
 .dialog-box label {
     color: var(--dialog-label-color);
-    display: block;
-    margin-bottom: 10px;
+    display: block; /* Faz com que o rótulo ocupe toda a largura */
+    /* margin-bottom: 10px; */
+    margin-bottom: 5px;    
     text-align: left;
 }
+  
 
 /* Estilizando o título da caixa de diálogo */
 .dialog-title {
@@ -373,6 +383,16 @@ label {
 .dialog-title.default {
     color: var(--dialog-title-default-color); /* Usando a variável para cor padrão */
 }
+
+/* Estilo das caixas de entrada */
+.dialog-box input {
+    width: 95%; /* Faz com que a caixa de entrada ocupe toda a largura */
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    margin-bottom: 10px;
+  }
+  
 
 /*** css dos as tags filedSeta ***/
 

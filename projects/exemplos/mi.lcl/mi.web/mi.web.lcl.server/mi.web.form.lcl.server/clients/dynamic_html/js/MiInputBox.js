@@ -1,5 +1,3 @@
-// MiInputBox.js
-
 // Exporta a classe MiInputBox
 export class MiInputBox {
     constructor() {
@@ -23,7 +21,7 @@ export class MiInputBox {
         this.inputTitle.innerText = 'Informe a Chave de Pesquisa';
         dialogBox.appendChild(this.inputTitle);
     
-        // Cria campos de entrada com base em KeyIn
+        // Cria campos de entrada com base em inputFields
         for (const key in this.inputFields) {
             const label = document.createElement('label');
             label.innerText = key; // Nome do campo
